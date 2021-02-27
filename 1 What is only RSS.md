@@ -1,0 +1,5 @@
+# What is only RSS?
+I've been using RSS feeds to aggregate web content for almost 20 years. I believe that having relevant content available in a single location makes the web a much better experience and makes me a far more productive and more knowledgeable person\employee. Unfortunately, many “modern” websites don’t support RSS, so I’m fighting back. To help readdress the balance, I’m publishing my blog articles as an RSS feed only. There’s no destination website (or CMS), the RSS feed will contain the entire article.
+What does this mean? Well, for a start it makes my articles very difficult to find (and I’m ok with that), and it means that you (the subscriber) has full control over the reading experience via your RSS aggregator of choice.
+I’ll probably only add an article once a month, and those articles will be on things that interest me and that I think might interest others, e.g., Data Viz, RSS, News BI tools, productivity tools etc.
+If you see something in an article and want to comment, look me up on Twitter [@dbs_sticky (MarkEvans)](https://twitter.com/dbs_sticky)
