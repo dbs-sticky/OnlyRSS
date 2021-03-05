@@ -2,7 +2,7 @@
 
 Here's my WFH components:
 
-* 2xDell U2715H monitors (27" 2560x1440)
+- 2xDell U2715H monitors (27" 2560x1440)
 - Logitech C920 HD webcam
 - Logitech MX Master mouse
 - TerraMaster F2-421 NAS (2x4GB raid 1)
