@@ -1,0 +1,126 @@
+/* get Noto Sans and Noto Serif */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* define global page variables, e.g. page and image max width and colour pallete */
+:root {
+  --pagewidth: 850px;
+  --blue-dark: rgb(86 123 150);
+}
+
+.wrapper {
+  max-width: var(--pagewidth);
+  padding-top: 0px;
+  padding-bottom: 30px;
+  margin: auto;
+ 
+}
+
+/* set the header section width and padding, cheers Riggers for help with this bit */
+.header {
+  max-width: var(--pagewidth);
+  padding-top: 20px;
+  padding-bottom: 0px;
+  margin: auto;
+}
+
+/* set the  article width and bottom padding */
+.article {
+  max-width: var(--pagewidth);
+  margin: auto;
+  display: block;
+  padding: 10px 40px;
+  box-shadow: 0px 0px 25px rgb(0 0 0 / 15%);
+  border-radius: 8px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.article:hover {
+  box-shadow: 0px 0px 15px rgb(0 0 0 / 15%);
+}
+
+
+.article:active {
+  box-shadow: 0px 0px 15px rgb(86 123 150 / 35%);
+}
+
+/* set body defaults, no independent paragraph definition */
+body {
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  line-height: 1.6em;
+  font-weight: 400;
+  color: black;
+}
+
+/* set the publication date row style */
+p.subheading {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 20px;
+}
+
+/* set the article style  row style */
+p.article-summary {
+  font-family: "Noto Sans", serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--brown-very-dark);
+  margin-top: -16px;
+}
+
+/* set the article style style */
+p.article-date {
+  font-family: "Noto Sans", serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--brown-very-dark);
+}
+
+/* set the article style  row style */
+.article-style {
+  font-family: "Noto Sans", serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--brown-very-dark);
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* set the common heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Serif", serif;
+  font-weight: 700;
+  margin-bottom: -13px;
+  margin-top: 20px;
+}
+
+/* set individual heading sizes */
+h1.page-title {
+  font-size: 5em;
+  margin-bottom: 0px;
+  line-height: 1;
+  padding-left: 20px;
+}
+
+h2 {
+  font-size: 1.4em;
+  color: var(--blue-dark);
+  font-weight: 400;
+}
+
+/* set the link styles */
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
+}
