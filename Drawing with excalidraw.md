@@ -33,7 +33,7 @@ The mock-up below of a news search page took about 15mins to produce, but the sk
 In addition to using it at work for mock-ups, it's also my "go-to" drawing app for this blog, as you can see in my post about my [lockdown days](https://onlyrss.org/anatomy-of-a-lockdown-day.html).
 
 ## Libraries make creating diagrams even quicker
-As I've mentioned, one of the benefits of Excalidarw is the speed, but the existinace of a small (but growing) community of users who share their [Libraries](https://libraries.excalidraw.com/) makes it even faster to create diagrams.
+As I've mentioned, one of the benefits of Excalidarw is the speed, but the existence of a small (but growing) community of users who share their [Libraries](https://libraries.excalidraw.com/) makes it even faster to create diagrams.
 
 ![](https://onlyrss.org/images/drawing-with-excalidraw-3.png)
 
