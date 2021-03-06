@@ -1,2 +1,2 @@
 # OnlyRSS
-This is my blog which I created so that I can learn HTML, CSS and JavaScript. It's all hand built, no CMS etc. I started the blog initial with no website, the articles existed only in the RSS feed (hence the domain name), this changed quite quickly and OnlyRSS became a real blog with real pages.
+This is my blog which I created so that I can learn HTML, CSS and JavaScript. It's all hand built, no CMS etc. I started the blog initially with no website, the articles existed only in the RSS feed (hence the domain name), this changed quite quickly and OnlyRSS became a real blog with real pages.
