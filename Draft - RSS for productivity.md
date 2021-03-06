@@ -24,20 +24,13 @@ Below you can see an example of the contents of an RSS feed. It's simply a chann
 
 For example, here's how the example above would actually appear to me in my news aggregator.
 ![](images/rss-for-productivity-1.png)
-Of of the advantages of a news aggregator is that they let you decide how the list of articles, and the articles themselves appear, you can choose for a compact list view, a magazine style layout etc.
 
 ## So what exactly is a News aggregator?
 
-A News aggregator is simply a software application, it can be desktop, but these days it's typically online. Feedly and Inoreader are two popular online versions and both have the similar capabilities i.e. they allow you to search for, and then subscribe to, many different websites (mostly blogs and news sites, but also search results). Whenever new content is published, rather than visit 100 different websites, you simply open your News aggregator, and see the full list of content in a nice, easy to digest list. You can then mark as read, save for later, share, add notes to etc.
+A News aggregator is simply a software application, some aggregators are desktops apps, but these days aggregators are mostly online applications. Feedly and Inoreader are two popular online versions and both have similar capabilities i.e. they allow you to search for, and then subscribe to, many different websites (mostly blogs and news sites, but also search results). Whenever new content is published, rather than visit 100 different websites, you simply open your News aggregator, and see the full list of content in a nice, easy to digest list. You can then mark as read, save for later, share, add notes etc.
 
-## What should I care?
+## Why should I care?
 
-Let start with the basics, the Cambridge dictionary defines data as:
-
-> Information, especially facts or numbers, collected to be examined and considered and used to help decision-making
-
-Notice that the definition says nothing about the way the information is structured. Data is just as likely to be unstructured (e.g. Social media posts, videos, images, charts, news articles, blog posts etc.) as it is to be structured (tables, spreadsheets etc.). In fact, more than **80 percent** of all data generated today is considered unstructured.
-
-If you ask people within any type of organisation how they analyse their data, you'll probably get an answer pretty quick, and that answer is likely to be Excel, Tableau, or PowerBI etc. But, ask them how they analyse the news, and you'll probably get a confused look. Most companies have a process in place for the aggregation, analysis, and dissemination of their structured content (typically some form of data lake, analytics tool, and shared dashboards), but how many have solutions for the aggregation, analysis and sharing of news?
+If you ask people within any type of organisation how they analyse their data, you'll probably get an answer pretty quick, and that answer is likely to be Excel, Tableau, PowerBI, SQL, Python etc. But, ask them how they analyse the news, and you'll probably get a confused look. Most companies have a process in place for the aggregation, analysis, and dissemination of structured content (typically some form of data lake, analytics tool, and shared dashboards), but how many have a solution for the aggregation, analysis and sharing of unstructured content i.e. news. News is data, it's unstructured, but it's still data. More than **80 percent** of all data generated today is considered unstructured.
 
 ## Still not convinced? Let's try an example
