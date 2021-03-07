@@ -27,15 +27,16 @@
 </head>
 
 <body>
+    <main class="page">
     <!-- set title, pubdate, and article style -->
     <header class="header">
         <nav>
             <a href="index.html">Home</a></p>
         </nav>
-        <h1>RSS Part 1: What is RSS and what are 'aggregators'?</h1>
+        <h1>RSS Part 1:<br>What is RSS and what are 'aggregators'?</h1>
         <p class="pubdate">
         <p class="pubdate"><time datetime="2021-02-07">7 Feb 2021</time> · Mark Evans</p>
-        <p class="articlestyle">e.g. Article Style: wide, Clean, Sans Serif</p>
+        <p class="articlestyle">Article Style: page, wide, clean, sans serif</p>
     </header>
     <header style="clear: both"></header>
 
@@ -52,20 +53,21 @@
                 favourite news site), followed by a list of articles. Users of RSS never actually look at the feed (in
                 the same way that you never see all the metadata associated with each e-mail you receive), it&#39;s not
                 meant for people, it&#39;s meant for machines, i.e. the RSS aggregators.</p>
-            <pre><code>&lt;channel&gt;
+            <pre><code>
+&lt;channel&gt;
 &lt;title&gt;OnlyRSS&lt;/title&gt;
 &lt;link&gt;https://onlyrss.org&lt;/link&gt;
 &lt;description&gt;The latest posts from OnlyRSS.org&lt;/description&gt;
-&lt;item&gt;
-    &lt;title&gt;It&#39;s Spring, what should you be doing in your garden?&lt;/title&gt;
-    &lt;link&gt;https://onlyrss.org/drawing-with-excalidraw&lt;/link&gt;
-    &lt;description&gt;Excalidraw is described by its creators...&lt;/description&gt;
-&lt;/item&gt;
-&lt;item&gt;
-    &lt;title&gt;Weed control special&lt;/title&gt;
-    &lt;link&gt;https://onlyrss.org/working-from-home-hardware&lt;/link&gt;
-    &lt;description&gt;I recently wrote about my weekday lockdown...&lt;/description&gt;
-&lt;/item&gt;
+    &lt;item&gt;
+        &lt;title&gt;Drawing with Excalidraw&lt;/title&gt;
+        &lt;link&gt;https://onlyrss.org/drawing-with-excalidraw&lt;/link&gt;
+        &lt;description&gt;Excalidraw is described by its creators...&lt;/description&gt;
+    &lt;/item&gt;
+    &lt;item&gt;
+        &lt;title&gt;Working from home hardware&lt;/title&gt;
+        &lt;link&gt;https://onlyrss.org/working-from-home-hardware&lt;/link&gt;
+        &lt;description&gt;I recently wrote about my weekday lockdown...&lt;/description&gt;
+    &lt;/item&gt;
 &lt;/channel&gt;
 </code></pre>
 
@@ -145,8 +147,8 @@
                     href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
             </p>
         </section>
-
     </article>
+</main>
 </body>
 
 </html>
