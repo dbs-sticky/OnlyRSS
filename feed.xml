@@ -10,6 +10,142 @@
       <link>https://onlyrss.org</link>
     </image>    <!-- Blog articles -->
 
+
+    <!-- rss part 1 -->
+    <item>
+      <guid isPermaLink="false">article6</guid>
+      <title>What is RSS and what are 'aggregators'?</title>
+      <link>https://onlyrss.org/rss-part-1.html</link>
+      <pubDate>Sun, 7 Mar 2021 16:00:00 GMT</pubDate>
+      <description><![CDATA[
+      <body>
+    <main class="page">
+    <!-- set title, pubdate, and article style -->
+    <header class="header">
+        <nav>
+            <a href="index.html">Home</a></p>
+        </nav>
+        <h1>RSS Part 1:<br>What is RSS and what are 'aggregators'?</h1>
+        <p class="pubdate">
+        <p class="pubdate"><time datetime="2021-03-07">7 Mar 2021</time> · Mark Evans</p>
+        <p class="articlestyle">Article Style: page, wide, clean, sans serif</p>
+    </header>
+    <header style="clear: both"></header>
+
+    <!-- main article -->
+    <article class="article">
+
+        <!-- Intro - section -->
+        <section>
+            <h2>What is RSS?</h2>
+            <p>RSS (Really Simple Syndication) is a web feed that allows users and applications to access updates to
+                websites in a standardised, computer-readable format. These feeds can, for example, allow you to keep
+                track of many (potentially, hundreds) different websites in a single news aggregator.</p>
+            <p>Below you can see an example of the contents of an RSS feed. It&#39;s simply a channel (e.g. your
+                favourite news site), followed by a list of articles. Users of RSS never actually look at the feed (in
+                the same way that you never see all the metadata associated with each e-mail you receive), it&#39;s not
+                meant for people, it&#39;s meant for machines, i.e. the RSS aggregators.</p>
+            <pre><code>
+&lt;channel&gt;
+&lt;title&gt;OnlyRSS&lt;/title&gt;
+&lt;link&gt;https://onlyrss.org&lt;/link&gt;
+&lt;description&gt;The latest posts from OnlyRSS.org&lt;/description&gt;
+    &lt;item&gt;
+        &lt;title&gt;Drawing with Excalidraw&lt;/title&gt;
+        &lt;link&gt;https://onlyrss.org/drawing-with-excalidraw&lt;/link&gt;
+        &lt;description&gt;Excalidraw is described by its creators...&lt;/description&gt;
+    &lt;/item&gt;
+    &lt;item&gt;
+        &lt;title&gt;Working from home hardware&lt;/title&gt;
+        &lt;link&gt;https://onlyrss.org/working-from-home-hardware&lt;/link&gt;
+        &lt;description&gt;I recently wrote about my weekday lockdown...&lt;/description&gt;
+    &lt;/item&gt;
+&lt;/channel&gt;
+</code></pre>
+        </section>
+
+        <!-- RSS aggregators - section -->
+        <section>
+            <h2>RSS aggregators</h2>
+            <p><strong>An RSS aggregator is similar to an e-mail client, but rather than e-mails, it aggregates articles.</strong> And
+                like e-mail applications, some RSS aggregators are desktop apps, and others are online applications. <a
+                    href='https://feedly.com/' target="_blank">Feedly</a> and <a href='https://www.inoreader.com/' target="_blank">Inoreader</a> are two
+                popular online versions and both have similar capabilities.</p>
+            <p>Here&#39;s how the example above could appear in an RSS aggregator. It doesn&#39;t have to appear like
+                this, for example, you could choose to view a list of just the titles, or you could select to step
+                through each article in turn (no different to the options you would get in any decent e-mail client).
+                <img src="images/rss-for-productivity-1.png" referrerpolicy="no-referrer">
+            </p>
+        </section>
+
+        <!-- It's not just articles - section -->
+        <section>
+            <h3>It's not just articles</h3>
+            <p>For simplicity, so far I&#39;ve only discussed articles, but RSS aggregators can do more than just show
+                you the latest news. Below is a list of the various types of content that you can aggregate:</p>
+            <ul>
+                <li>Articles</li>
+                <li>Blog posts</li>
+                <li>Forum posts</li>
+                <li>Videos e.g. YouTube</li>
+                <li>Keyword search alerts e.g. Google\Bing etc.</li>
+                <li>Newsletters</li>
+                <li>Daily weather reports</li>
+                <li>Podcasts</li>
+                <li>Updates to documents e.g. Wikipedia, Confluence etc.</li>
+                <li>Status changes e.g. parcel tracking, Jira tickets etc.</li>
+                <li>Price alerts e.g. CamelCamelCamel etc.</li>
+            </ul>
+        </section>
+
+        <!-- and it's not just aggregation - section -->
+        <section>
+            <h3>...and it's not just aggregation</h3>
+            <p>The basic requirement of an RSS aggregator is that it aggregates content via RSS feeds. But, much like
+                e-mail clients, RSS aggregators tend to offer more than just this basic capability. In addition to
+                aggregating content, RSS aggregators can offer other benefits, e.g.:</p>
+            <ul>
+                <li>Searching for feeds (so you don&#39;t have to hunt down the feed at the source website)</li>
+                <li>Keyword search results e.g. allowing you to see all new Google results for a keyword search</li>
+                <li>Deduplication i.e. remove or bundle together articles with similar content</li>
+                <li>Prioritise content e.g. highlight all content that includes a certain keyword, or from a specific
+                    source.</li>
+                <li>Mute content e.g. hide all content that contains a certain keyword or phrase like &quot;Game of
+                    Thrones finale&quot;</li>
+                <li>Store all read content and index for search</li>
+                <li>Tag content to be &#39;read later&#39;</li>
+                <li>Tag content as &#39;favourite&#39;</li>
+                <li>Group content into folders, or apply categories e.g. UX, DataViz, etc.</li>
+                <li>Highlight sections of content and add notes</li>
+                <li>Share content e.g. directly to social networks, as an e-mail newsletter, or even an RSS feed!</li>
+            </ul>
+        </section>
+
+        <!-- Summary - section -->
+        <section>
+            <h2>Summary</h2>
+            <p>Hopefully I&#39;ve managed to explain what RSS is, and also to convey some of the benefits of using an RSS
+            aggregator. My original plan for this article was to also describe in detail how I use an RSS aggregator
+            (specifically Feedly) to keep on top of my various interests, but I didn&#39;t want anyone reading this
+            article to be overwhelmed and to lose sight of the one key takeaway i.e. <strong>RSS is a powerful tool for
+                keeping on top of online content, and keeping your knowledge up to date</strong>.</p>
+        </section>
+
+        <!-- feedback - section -->
+        <section>
+            <p>
+                If you have any comments on this article then please get in touch via Twitter (<a
+                    href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+            </p>
+        </section>
+    </article>
+</main>
+</body>
+
+]]>      </description>
+</item>
+
+
     <!-- drawing with Excalidraw -->
     <item>
       <guid isPermaLink="false">article5</guid>
