@@ -1,4 +1,4 @@
-# RSS for productivity
+# RSS Part 1: What is RSS and what are 'aggregators'?
 
 Imagine if all the different e-mail systems (Gmail, Outlook, etc.) were not interoperable. In that world, if you wanted to check for new messages from just five of your friends, you would have to go to _five_ different websites and access _five_ different e-mail systems. Some might have new messages, some might not, and to make it even more difficult, each of the e-mail systems looks a little different. None differentiate between e-mails you have previously read and e-mails that are new, and none of them display the e-mails in quite the same way. Some show a list of titles, others a summary, and some don't even show the latest e-mails at the top, they use AI to determine what they think is the most important e-mail!
 
