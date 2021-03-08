@@ -1,7 +1,7 @@
 /* get Inter 400 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
-/* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 1000px viewport). */
+/* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
 body {
   font-family: "Inter", sans-serif;
   font-size: 20px;
@@ -13,7 +13,7 @@ body {
     font-size: calc(14px + 6 * ((100vw - 320px) / 680));
   }
 }
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 850px) {
   body {
     font-size: 20px;
   }
@@ -50,7 +50,7 @@ body {
 .pubdate {
   font-family: "Inter", sans-serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 0.8em;
   color: var(--brown-very-dark);
   display: flex;
 }
@@ -59,11 +59,12 @@ body {
 .articlestyle {
   font-family: "Inter", sans-serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 0.8em;
   color: var(--brown-very-dark);
   display: flex;
   margin-left: auto;
 }
+
 /* set the  article width and bottom padding */
 .article {
   max-width: var(--pagewidth);
