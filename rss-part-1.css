@@ -1,6 +1,24 @@
 /* get Inter 400 */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
+/* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 1000px viewport). */
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+@media screen and (min-width: 320px) {
+  body {
+    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  body {
+    font-size: 20px;
+  }
+}
+
 /* define global page variables, e.g. page and image max width and colour pallete */
 :root {
   --pagewidth: 850px;
@@ -22,6 +40,30 @@ body {
   margin: auto;
 }
 
+/* set the metarow i.e. pub date and style as as flex row */
+.metarow {
+  display: flex;
+  flex-direction: row;
+}
+
+/* set the publication date row style and set to flex */
+.pubdate {
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--brown-very-dark);
+  display: flex;
+}
+
+/* set the article style  row style and set to flex, margin-left auto puches the div to the far right in flex. */
+.articlestyle {
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--brown-very-dark);
+  display: flex;
+  margin-left: auto;
+}
 /* set the  article width and bottom padding */
 .article {
   max-width: var(--pagewidth);
@@ -61,34 +103,9 @@ pre code {
   font-size: 18px;
 }
 
-/* set body defaults, no independent paragraph definition */
-body {
-  font-family: "Inter", sans-serif;
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
-}
 strong {
   color: #2bb24c;
   font-weight: 600;
-}
-
-/* set the publication date row style */
-p.pubdate {
-  font-family: "Inter", sans-serif;
-  font-style: italic;
-  font-size: 16px;
-  color: var(--brown-very-dark);
-  float: left;
-}
-
-/* set the article style  row style */
-p.articlestyle {
-  font-family: "Inter", sans-serif;
-  font-style: italic;
-  font-size: 16px;
-  color: var(--brown-very-dark);
-  float: right;
 }
 
 strong {
