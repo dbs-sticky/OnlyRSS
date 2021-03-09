@@ -6,13 +6,15 @@
   --pagewidth: 850px;
   --blue-dark: rgb(86 123 150);
 }
+body{
+  background-color: rgb(40, 108, 153);
+}
 
 .wrapper {
-  max-width: var(--pagewidth);
   padding-top: 0px;
   padding-bottom: 30px;
-  margin: auto;
- 
+  display: flex;
+  flex-flow: wrap;
 }
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
@@ -20,24 +22,22 @@
   max-width: var(--pagewidth);
   padding-top: 20px;
   padding-bottom: 0px;
-  margin: auto;
+  color: azure;
 }
 
 /* set the  article width and bottom padding */
 .article {
-  max-width: var(--pagewidth);
-  margin: auto;
-  display: block;
+  height: 220px;
+  width: 350px;
   padding: 10px 40px;
-  box-shadow: 0px 0px 25px rgb(0 0 0 / 15%);
+  box-shadow: 0px 0px 25px rgb(255 255 255 / 55%);
   border-radius: 8px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 20px;
+  background-color: white;
 }
 
 .article:hover {
-  box-shadow: 0px 0px 15px rgb(0 0 0 / 15%);
+  box-shadow: 0px 0px 15px rgb(255 255 255 / 15%);
 }
 
 
