@@ -6,9 +6,6 @@
   --pagewidth: 850px;
   --blue-dark: rgb(86 123 150);
 }
-body{
-  background-color: rgb(40, 108, 153);
-}
 
 .wrapper {
   padding-top: 0px;
@@ -40,7 +37,6 @@ body{
   box-shadow: 0px 0px 15px rgb(255 255 255 / 15%);
 }
 
-
 .article:active {
   box-shadow: 0px 0px 15px rgb(86 123 150 / 35%);
 }
@@ -51,7 +47,7 @@ body {
   font-size: 18px;
   line-height: 1.6em;
   font-weight: 400;
-  color: black;
+  background-color: rgb(100, 30, 30);
 }
 
 /* set the publication date row style */
