@@ -47,7 +47,7 @@ main {
 
 /* set the  article card style */
 article {
-  height: 220px;
+  height: 180px;
   width: 450px;
   padding: 10px 40px;
   box-shadow: 0px 0px 25px rgb(255 255 255 / 55%);
