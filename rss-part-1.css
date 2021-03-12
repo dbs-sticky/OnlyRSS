@@ -30,7 +30,7 @@ body {
 }
 
 body {
-  background-color: #e4e6eb;
+  background-color: #343434;
 }
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
@@ -98,14 +98,14 @@ pre code {
   border: 1px solid #999;
   display: block;
   padding: 20px;
-  color: #2bb24c;
+  color: #ee8e3f;
   border-radius: 7px;
   overflow: auto;
   font-size: 18px;
 }
 
 strong {
-  color: #2bb24c;
+  color: #ee8e3f;
   font-weight: 600;
 }
 
@@ -144,25 +144,25 @@ h3 {
 
 /* set the link styles */
 a:link {
-  color: #2bb24c;
+  color: #ee8e3f;
   text-decoration: none;
   font-weight: 400;
   text-decoration: underline;
 }
 
 a:visited {
-  color: #2bb24c;
+  color: #ee8e3f;
   text-decoration: none;
   font-weight: 400;
 }
 
 a:active {
-  color: #2bb24c;
+  color: #ee8e3f;
   text-decoration: none;
   font-weight: 300;
 }
 
 a:hover {
   text-decoration: underline;
-  border-bottom: 2px solid #2bb24c;
+  border-bottom: 2px solid #ee8e3f;
 }
