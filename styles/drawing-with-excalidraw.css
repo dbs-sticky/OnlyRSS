@@ -1,7 +1,7 @@
 /* get Noto Sans and Noto Serif */
 @font-face {
   font-family: "Virgil";
-  src: url("Virgil.woff2");
+  src: url("../fonts/Virgil.woff2");
   font-display: swap;
 }
 
