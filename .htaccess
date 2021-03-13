@@ -8,3 +8,10 @@
 </IfModule>
 
 
+# Redirect old posts from root to posts folder (only for posts created prior to folder restructure i.e. 13-mar-2021)
+Redirect "/about.html" "/posts/about.html"
+Redirect "/anatomy-of-a-lockdown-day.html" "/posts/anatomy-of-a-lockdown-day.html"
+Redirect "/drawing-with-excalidraw.html" "/posts/drawing-with-excalidraw.html"
+Redirect "/rss-part-1.html" "/posts/rss-part-1.html"
+Redirect "/using-virtual-desktops-in-windows-10.html" "/posts/using-virtual-desktops-in-windows-10.html"
+Redirect "/working-from-home-hardware.html" "/posts/working-from-home-hardware.html"

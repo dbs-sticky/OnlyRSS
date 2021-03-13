@@ -6,9 +6,9 @@ Excalidraw is described by its creators as a "Virtual whiteboard for sketching h
 
 Excalidraw is great for quickly creating diagrams (you can see lots of great examples on the bottom of [this page](https://blog.excalidraw.com/one-year-of-excalidraw/)), but it can be used for "sketch" style drawings, like the drawing below of my rowing setup.
 
-![](https://onlyrss.org/images/drawing-with-excalidraw-1.png)
+![](../images/drawing-with-excalidraw-1.png)
 
-[click to view full size](https://onlyrss.org/images/drawing-with-excalidraw-1.svg)
+[click to view full size](../images/drawing-with-excalidraw-1.svg)
 
 Some of Excalidraw's features:
 
@@ -29,17 +29,17 @@ This is where Excalidraw really shines (it's hard to be pixel perfect when there
 
 The mock-up below of a news search page took about 15mins to produce, but the sketch does highlight quite a few important features about the search page concept.
 
-![](images/drawing-with-excalidraw-2.png)
+![](../images/drawing-with-excalidraw-2.png)
 
-[click to view full size](images/drawing-with-excalidraw-2.svg)
+[click to view full size](../images/drawing-with-excalidraw-2.svg)
 
-In addition to using it at work for mock-ups, it's also my "go-to" drawing app for this blog, as you can see in my post about my [lockdown days](https://onlyrss.org/anatomy-of-a-lockdown-day.html).
+In addition to using it at work for mock-ups, it's also my "go-to" drawing app for this blog, as you can see in my post about my [lockdown days](../posts/anatomy-of-a-lockdown-day.html).
 
 ## Libraries make creating diagrams even quicker
 
 As I've mentioned, one of the benefits of Excalidarw is the speed, but the existence of a small (but growing) community of users who share their [Libraries](https://libraries.excalidraw.com/) makes it even faster to create diagrams.
 
-![](https://onlyrss.org/images/drawing-with-excalidraw-3.png)
+![](../images/drawing-with-excalidraw-3.png)
 
 ## Conclusions
 

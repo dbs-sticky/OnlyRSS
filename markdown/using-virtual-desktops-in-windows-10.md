@@ -36,7 +36,7 @@ To keep things simple, I'm going to assume that I'm only working on a single foc
 
 tasksagendaemailteams (chat)journal (log)Virtual Desktop 1webExcelVirtual Desktop 2Ctrl + Win +Ctrl + Win +Plan & recordCommunicationOnly the apps required for a single task
 
-[Click here to view full size in a new tab](/images/using-virtual-desktops.svg)
+[Click here to view full size in a new tab](../images/using-virtual-desktops.svg)
 
 As I have a dual monitor setup, each virtual desktop includes both monitors. My first virtual desktop includes three web instances of Outlook (tasks, calendar, and emails), MS Teams (for chat and meetings), and Excel (for my journal). The second virtual desktop includes a web browser (product analytics via Adobe Analytics and Tableau) and Excel (monthly report). All the apps are open and sized appropriately, so there's no need to switch between, minimise, maximise, resize, or drag any windows. The only "window management" that's required is via the keyboard shortcuts that enable moving between virtual desktops i.e. Ctrl+Win+LeftArrow and Ctrl+Win+RightArrow. And it's this change that I believe is what makes virtual desktops so valuable.
 
@@ -49,7 +49,7 @@ To create a virtual desktop, click the Task View icon located on the Taskbar (or
 
 While in the Task View, you can also drag apps into the virtual desktops, or right click the app and select "move to", to move apps between virtual desktops.
 
-![](images/article2figure2.png)
+![](../images/article2figure2.png)
 
 ## What if I only have a small single display?
 If you are limited to a single small display, then it's likely that you are running your apps maximised and using the Taskbar to quickly switch between them. If this is the case, then virtual desktops aren't going to provide you with any extra utility (at least not as far as I can tell, if you've found them useful in this scenario, then let me know).

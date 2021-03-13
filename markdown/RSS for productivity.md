@@ -37,7 +37,7 @@ Below you can see an example of the contents of an RSS feed. It's simply a chann
 **An RSS aggregator is similar to an e-mail client, but rather than e-mails, it aggregates articles**. And like e-mail applications, some RSS aggregators are desktop apps, and others are online applications. [Feedly](https://feedly.com/) and [Inoreader](https://www.inoreader.com/) are two popular online versions and both have similar capabilities.
 
 Here's how the example above could appear in an RSS aggregator. It doesn't have to appear like this, for example, you could choose to view a list of just the titles, or you could select to step through each article in turn (no different to the options you would get in any decent e-mail client).
-![](images/rss-for-productivity-1.png)
+![](../images/rss-for-productivity-1.png)
 
 ### It's not just articles
 
