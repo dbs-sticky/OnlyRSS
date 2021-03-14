@@ -1,7 +1,6 @@
 /* get Noto Sans and Noto Serif */
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-
 /* define global page variables, e.g. page and image max width and colour pallete */
 :root {
   --pagewidth: 750px;
@@ -17,6 +16,12 @@
   padding: 10px;
   max-width: var(--pagewidth);
   margin: auto;
+}
+
+/* set the metarow i.e. pub date and style as as flex row */
+.metarow {
+  display: flex;
+  flex-direction: row;
 }
 
 /* set the  article width and bottom padding */
@@ -45,23 +50,24 @@ body {
 }
 
 /* set the publication date row style */
-p.pubdate {
+.pubdate {
   font-family: "Noto Sans", sans-serif;
   font-weight: 700;
   font-style: italic;
   font-size: 16px;
   color: var(--brown-very-dark);
-  float: left;
+  display: flex;
 }
 
 /* set the article style  row style */
-p.articlestyle {
+.articlestyle {
   font-family: "Noto Sans", sans-serif;
   font-weight: 700;
   font-style: italic;
   font-size: 16px;
   color: var(--brown-very-dark);
-  float: right;
+  display: flex;
+  margin-left: auto;
 }
 
 strong {

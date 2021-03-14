@@ -5,7 +5,6 @@
   font-display: swap;
 }
 
-
 /* define global page variables, e.g. page and image max width and colour pallete */
 :root {
   --pagewidth: 750px;
@@ -15,7 +14,7 @@
   --blue-dark: #557a95;
   --blue-light: #7395e5;
   --off-black: #4e4e4e;
-  --links:  #d30000;
+  --links: #d30000;
 }
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
@@ -23,6 +22,12 @@
   padding: 10px;
   max-width: var(--pagewidth);
   margin: auto;
+}
+
+/* set the metarow i.e. pub date and style as as flex row */
+.metarow {
+  display: flex;
+  flex-direction: row;
 }
 
 /* set the  article width and bottom padding */
@@ -48,27 +53,25 @@ body {
   font-size: 20px;
   line-height: 1.6em;
   color: var(--off-black);
-
 }
 
 /* set the publication date row style */
-p.pubdate {
+.pubdate {
   font-family: "Virgil", sans-serif;
-
   font-style: italic;
   font-size: 16px;
   color: var(--brown-very-dark);
-  float: left;
+  display: flex;
 }
 
 /* set the article style  row style */
-p.articlestyle {
+.articlestyle {
   font-family: "Virgil", sans-serif;
-
   font-style: italic;
   font-size: 16px;
   color: var(--brown-very-dark);
-  float: right;
+  display: flex;
+  margin-left: auto;
 }
 
 strong {

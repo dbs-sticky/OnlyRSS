@@ -18,6 +18,12 @@
   margin: auto;
 }
 
+/* set the metarow i.e. pub date and style as as flex row */
+.metarow {
+  display: flex;
+  flex-direction: row;
+}
+
 /* set the  article width and bottom padding */
 .article {
   max-width: var(--pagewidth);
@@ -39,23 +45,24 @@ body {
 }
 
 /* set the publication date row style */
-p.pubdate {
+.pubdate {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 15px;
   color: var(--brown-very-dark);
-  float: left;
+  display: flex;
 }
 
 /* set the article style  row style */
-p.articlestyle {
+.articlestyle {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: 15px;
   color: var(--brown-very-dark);
-  float: right;
+  display: flex;
+  margin-left: auto;
 }
 
 strong {
