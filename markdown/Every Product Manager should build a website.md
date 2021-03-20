@@ -8,7 +8,7 @@ I've used very specific wording in the title of this post. The key word in the t
 
 The reason I like this quote so much, (and refer to it so often) is because I really believe it. It's the reason this website exists, I wanted to learn HTML, CSS, and JavaScript. I didn't start with a book or a course...I started by building a page. This meant I made a lot of mistakes initially, mistakes I wouldn't have made if I'd started with a book, but I find that mistakes are hard to forget, whereas it's easy to forget a description in a book of how to do something correctly.
 
-OK, but what does this have to do Product Managers building websites, aren't there developers for that? To a help answer this question I'd propose a small addition to the above quote i.e.
+OK, but what does this have to do Product Managers building websites, aren't there developers for that? To help answer this question, I'd propose a small addition to the above quote i.e.
 
 > Tell me and I forget,
 > Teach me and I remember,
