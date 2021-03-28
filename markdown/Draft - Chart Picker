@@ -1,0 +1,25 @@
+Mark Evans works at Cirium as a Principal Product Manager, where he has  launched multiple market-leading data products that allow aerospace and finance customers to make data-driven decisions.  While in his role, Mark has developed a chart picking tool that aids data visualisation decisions - which he has been kind enough to write about below.  Thank you, Mark!
+
+
+
+Whether we work in data science, data analytics, finance, strategy, user experience, sales, marketing, or product, at some point we will be creating data visualisations, either for use externally (in our products and on social media), or internally (in our presentations and reports). As employees of an information and analytics company, it’s important that the visualisations we choose reflect the same high standard as the underlying data, or at the very least, don’t misrepresent the data.
+
+
+
+But which visualisation method should we pick, and when?  I've created a tool that helps answer this question - which you can see here.
+
+
+A snippet of the 'Chart Picker' - which can help you decide how what visualisation approach to take.
+
+As a product manager, I’ve used a variety of tools over the years to create visualisation mock-ups.  Some tools output high-fidelity designs, but typically I’m dealing with high-level concepts that need to be created quickly and updated often.  For these scenarios, I’ve recently started using a free and open-source tool called Excalidraw. Excalidraw is a collaborative whiteboard that lets you easily sketch diagrams that feel hand drawn. After I’d created a few mock-ups, I realised that I had amassed a large number of data visualisation elements. Luckily, Excalidraw allows you to save drawing elements into libraries, so I created a Data Viz library, and shared it with other Excalidraw users.
+
+
+I then decided to take my library of charts and generate a “chart picker” diagram.  I based this off an existing concept developed by Dr. Andrew Abela, but I’ve made changes, mostly around the Distribution section which I have expanded with more options. My diagram (which you can access here) is designed to help you choose a chart based on your data, and what you are trying to convey to the user.
+
+
+
+The chart picker is not designed to give you specific rules around how to use individual charts (there are lots of great online resources that do that) - however, it is designed to make you aware of the chart options that are available.
+
+
+
+Any questions about my chart picker?  For further information, contact me at mark.evans@cirium.com.
