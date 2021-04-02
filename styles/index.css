@@ -1,107 +1,95 @@
 /* get Noto, playfair, and sans pro */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
+
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Source+Sans+Pro:wght@900&display=swap");
+:root {
+  --bluish-dark: #353d40;
+  --grey-light: #d9d9d9;
+  --grey-dark: #a1a5a6;
+  --yello: #f2b138;
+  --blue: #003f63;
+}
 
-/* set the header section width and padding, cheers Riggers for help with this bit */
-.header {
-  max-width: 850px;
-  padding-top: 50px;
-  padding-bottom: 0px;
-  color: white;
+body {
+  max-width: 1050px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  margin: auto;
+  background-color: #f5f7f8;
+}
+
+/* make the header text smaller with smaller screen widths */
+@media screen and (min-width: 320px) {
+  p.header {
+    font-size: calc(14px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 850px) {
+  p.header {
+    font-size: 20px;
+  }
+}
+
+main {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+header {
+  margin: 30px;
 }
 
 /* set title style */
 .page-title-only {
-  font-size: 3em;
-  color: #ee8e3f;
+  font-size: 2em;
+  color: black;
   font-family: "Source Sans Pro", sans-serif;
 }
 
 .page-title-rss {
-  font-size: 5em;
-  color: #ee8e3f;
+  font-size: 4em;
+  color: black;
   font-family: "Playfair Display", serif;
   font-weight: 300;
 }
 
-/* set blurb under the title */
-header p {
-  font-size: 1em;
-  padding-left: 20px;
+h1 {
+  margin: 0px;
 }
 
-/* set body defaults, no independent paragraph definition */
-body {
-  font-family: "Noto Serif", serif;
-  font-size: 18px;
-  line-height: 1.6em;
-  background-color: #343434;
-  padding-left: 20px;
+h2 {
+  font-weight: 600;
+  font-size: 1.2em;
 }
-
-/* set wrapper for the article cards */
-main {
-  display: flex;
-  flex-flow: wrap;
-}
-
-/* set the  article card style */
-article {
-  height: 180px;
-  width: 450px;
-  padding: 10px 40px;
-  box-shadow: 0px 0px 25px rgb(255 255 255 / 55%);
-  border-radius: 8px;
+.card {
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+  width: 300px;
+  height: 400px;
+  border-radius: 2px;
+  border-style: solid;
+  border-color: rgb(214, 214, 214);
+  border-width: 1px;
   margin: 20px;
-  background-color: rgb(226, 226, 226);
-  position:relative;
+  position: relative;
 }
 
-article:hover {
-  box-shadow: 0px 0px 15px rgb(255 255 255 / 15%);
+.card:hover {
+  box-shadow: 0 8px 16px 2px rgba(0, 0, 0, 0.2);
 }
 
-article:active {
-  box-shadow: 0px 0px 15px rgb(255 255 255 / 55%);
+img {
+  border-radius: 2px 2px 0 0;
 }
 
-/* set the article title style */
-article h2 {
-  font-size: 1.4em;
-  color: #343434;
-  font-weight: 400;
+.container {
+  padding: 2px 16px;
+  height: 180px;
+  position: absolute;
+  bottom: 0;
 }
-
-/* set the article description style */
-article p {
-  font-family: "Noto Sans", serif;
-  font-size: 16px;
-  margin-top: -16px;
-}
-
-/* set the article date style */
-p.article-date {
-  font-family: "Noto Sans", serif;
-  font-weight: 700;
-  font-size: 12px;
-  color: var(--brown-very-dark);
-}
-
-/* set the article style  style */
-.article-style {
-  font-family: "Noto Sans", serif;
-  font-weight: 700;
-  font-size: 0.8em;
-  color: #ee8e3f;
-  position:absolute;
-  bottom:0;
-  right:0;
-  padding:0 20px 5px 20px;
-
-}
-
-/* set the link styles */
 a {
-  color: #343434;
-  text-decoration: none;
+  color: black;
 }
