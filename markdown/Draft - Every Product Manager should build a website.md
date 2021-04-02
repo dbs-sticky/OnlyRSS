@@ -20,7 +20,7 @@ Learning something is great, and I've really enjoyed learning how to build this 
 Before I go any further, let me make one thing clear, _I am not in any way comparing my tiny blog to the products that my developers build_. This website and the products I manage are so far apart in scale and complexity that it would be laughable to even attempt to compare the two.
 
 ## Understanding
---Put some good words here.--
+This learning experience has helped to to better understand why the development of products can take far more time that most people would expect. 
 ## Appreciation
 
 Without a data team (to source, confirm, cleanse etc.) and a development team (to build the tools that allow users to easily access the data) my role would be utterly redundant, I'd literally have no products to manage, sales would have no products to sell, and marketing would have no products to promote. So, I've always had a strong sense of appreciation for both of these teams. But, building my little hand crafted website (with just HTML and CSS...so no actual programming) over the last month has only increased my appreciation for what my developers do. Even my meagre website, with its 7 pages has required quite a lot of effort to create and maintain. For example, I've:
@@ -31,4 +31,4 @@ Without a data team (to source, confirm, cleanse etc.) and a development team (t
 - Moved the source files from my local PC to GitHub.
 - Updated my version of Git due to a recent security vulnerability.
 
-The important thing to note about the list above, is that **none of that effort has resulted in any changes that are visible to someone visiting the website**. Now, if all that has been required for my little website, imagine the size and quantity of "unseen" tasks that are required for a global data product built with numerous dependencies, tight security and privacy requirements, multiple databases, complex entitlements systems, multiple frameworks etc.
+The important thing to note about the list above, is that **none of that effort has resulted in any changes that are visible to someone visiting the website**. Now, if all that has been required for my little website, imagine the size and quantity of "unseen" tasks that are required for a global data product built with numerous dependencies, tight security and privacy requirements, multiple databases, complex entitlement systems, multiple frameworks etc.
