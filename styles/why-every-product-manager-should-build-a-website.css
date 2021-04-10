@@ -1,0 +1,150 @@
+/* get Noto Sans and Noto Serif */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+/* define global page variables, e.g. page and image max width and colour pallete */
+:root {
+  --pagewidth: 750px;
+  --brown-very-dark: #5d5c61;
+  --brown-dark: #938e94;
+  --brown-light: #b1a296;
+  --blue-dark: #557a95;
+  --blue-light: #7395e5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.img-container {
+  min-height: 400px;
+  background-image: url(../images/build-a-website-header.png);
+  background-repeat: no-repeat;
+  background-size: 2560px 501px;
+  background-position: center top;
+  /*padding: 40px; (If don't want to set min-height or some image content is there) */
+}
+
+/* set the header section width and padding, cheers Riggers for help with this bit */
+.header {
+  padding: 10px;
+  max-width: var(--pagewidth);
+  margin: auto;
+}
+
+/* set the metarow i.e. pub date and style as as flex row */
+.metarow {
+  display: flex;
+  flex-direction: row;
+}
+
+/* set the  article width and bottom padding */
+.article {
+  max-width: var(--pagewidth);
+  margin: auto;
+  padding-bottom: 100px;
+}
+
+/* set max image width equal to the page width, this will apply to all images */
+img {
+  max-width: var(--pagewidth);
+}
+
+/* set max image width equal to the page width, this will apply to all images */
+.svgimg {
+  max-width: var(--pagewidth);
+}
+
+/* set body defaults, no independent paragraph definition */
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.6em;
+  font-weight: 400;
+}
+
+/* set the publication date row style */
+.pubdate {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--brown-very-dark);
+  display: flex;
+}
+
+/* set the article style  row style */
+.articlestyle {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--brown-very-dark);
+  display: flex;
+  margin-left: auto;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* set the common heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Sans", sans-serif;
+  font-weight: 700;
+  margin-bottom: -13px;
+  margin-top: 35px;
+}
+
+/* set individual heading sizes */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0px;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+/* set the emphasis style */
+em {
+  font-style: italic;
+}
+
+/* set the link styles */
+a:link {
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+a:visited {
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-weight: 400;
+}
+
+a:active {
+  color: var(--blue-dark);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+a:hover {
+  text-decoration: underline;
+}
