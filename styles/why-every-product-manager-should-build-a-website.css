@@ -1,5 +1,23 @@
-/* get Noto Sans and Noto Serif */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* get Inter 400 */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+/* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+@media screen and (min-width: 320px) {
+  body {
+    font-size: calc(11px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 850px) {
+  body {
+    font-size: 16px;
+  }
+}
 
 /* define global page variables, e.g. page and image max width and colour pallete */
 :root {
@@ -7,23 +25,12 @@
   --brown-very-dark: #5d5c61;
   --brown-dark: #938e94;
   --brown-light: #b1a296;
-  --blue-dark: #557a95;
+  --blue-dark: #1f4a69;
   --blue-light: #7395e5;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.img-container {
-  min-height: 400px;
-  background-image: url(../images/build-a-website-header.png);
-  background-repeat: no-repeat;
-  background-size: 2560px 501px;
-  background-position: center top;
-  /*padding: 40px; (If don't want to set min-height or some image content is there) */
+body {
+  background-color: #ffffff;
 }
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
@@ -39,6 +46,28 @@
   flex-direction: row;
 }
 
+.header-image {
+
+}
+/* set the publication date row style and set to flex */
+.pubdate {
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  font-size: 0.8em;
+  color: var(--brown-very-dark);
+  display: flex;
+}
+
+/* set the article style  row style and set to flex, margin-left auto puches the div to the far right in flex. */
+.articlestyle {
+  font-family: "Inter", sans-serif;
+  font-style: italic;
+  font-size: 0.8em;
+  color: var(--brown-very-dark);
+  display: flex;
+  margin-left: auto;
+}
+
 /* set the  article width and bottom padding */
 .article {
   max-width: var(--pagewidth);
@@ -46,47 +75,45 @@
   padding-bottom: 100px;
 }
 
+.page {
+  padding: 60px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid LightGrey;
+  max-width: calc(var(--pagewidth) * 1.1);
+  margin: auto;
+  box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
+  margin-top: 20px;
+}
+
 /* set max image width equal to the page width, this will apply to all images */
 img {
   max-width: var(--pagewidth);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
 }
 
 /* set max image width equal to the page width, this will apply to all images */
-.svgimg {
-  max-width: var(--pagewidth);
-}
-
-/* set body defaults, no independent paragraph definition */
-body {
-  font-family: "Noto Sans", sans-serif;
+pre code {
+  background-color: rgb(0, 0, 0);
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+  color: #ee8e3f;
+  border-radius: 7px;
+  overflow: auto;
   font-size: 18px;
-  line-height: 1.6em;
-  font-weight: 400;
-}
-
-/* set the publication date row style */
-.pubdate {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 16px;
-  color: var(--brown-very-dark);
-  display: flex;
-}
-
-/* set the article style  row style */
-.articlestyle {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 700;
-  font-style: italic;
-  font-size: 16px;
-  color: var(--brown-very-dark);
-  display: flex;
-  margin-left: auto;
 }
 
 strong {
-  font-weight: 700;
+  color: #000000;
+  font-weight: 600;
+}
+
+strong {
+  font-weight: bold;
 }
 
 /* set the common heading styles */
@@ -96,15 +123,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Noto Sans", sans-serif;
-  font-weight: 700;
+  font-family: "Inter", sans-serif;
   margin-bottom: -13px;
   margin-top: 35px;
+  color: #000000;
+  font-weight: normal;
 }
 
 /* set individual heading sizes */
 h1 {
-  font-size: 2.5em;
+  font-size: 2em;
   margin-bottom: 0px;
   line-height: 1.2em;
 }
@@ -117,19 +145,10 @@ h3 {
   font-size: 1.2em;
 }
 
-h4 {
-  font-size: 1em;
-}
-
-/* set the emphasis style */
-em {
-  font-style: italic;
-}
-
 /* set the link styles */
 a:link {
   color: var(--blue-dark);
-  text-decoration: none;
+  text-decoration: underline;
   font-weight: 400;
 }
 
@@ -143,8 +162,4 @@ a:active {
   color: var(--blue-dark);
   text-decoration: none;
   font-weight: 300;
-}
-
-a:hover {
-  text-decoration: underline;
 }
