@@ -19,3 +19,6 @@ Kindle Unlimited in the UK costs £7.99 pm and includes more than 650,000 books 
 
 ## 6 Whisper sync
 This is Amazon's name for the feature that lets you sync your reading progress across Kindle devices and Kindle apps. When I find myself in the car waiting for one of my kids to finish [insert name of activity that seems really important to them now but they will quit once they become a teenager here], then I'll often fire up the Kindle app on my phone, and start reading where I'd finished off the night before.
+
+## Space
+You can fit more than 2,000 books on an 8GB Kindle, which is redonkulous. I typically have no more than 2 books downloaded to my device, the one I'm currently reading, and the one I'll be reading next. For those who don't like to hoard stuff in their homes (like me), a Kindle is a great space saver.
