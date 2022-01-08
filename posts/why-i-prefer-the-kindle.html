@@ -249,8 +249,8 @@
       </p>
       <p>
         At first I thought I would have to create a new paragraph class in CSS
-        specifically for the first paragraph of each section, but it turns out
-        that CSS has an easy solution for this.
+        specifically for the first paragraph of each section, and then add the
+        class manually, but it turns out that CSS has an easy solution for this.
       </p>
       <code> p + p { text-indent: 1.5em; } </code>
       <p>
@@ -258,9 +258,9 @@
         only applied to paragraphs directly proceeding other paragraphs.
       </p>
       <p>
-        Conversely, if you wanted to apply a specific style to the paragraph
-        directly following a heading e.g. Heading 1, then the CSS selector would
-        look be:
+        Conversely, if you wanted to apply a specific style to the first
+        paragraph only, i.e. the paragraph directly proceeding a heading e.g.
+        Heading 1, then the CSS selector would be:
       </p>
       <code> h1 + p { ... } </code>
     </div>
