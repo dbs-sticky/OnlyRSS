@@ -223,39 +223,46 @@
         usual CSS required for defining the style of a typical article body
         (which is one of the main reasons why I started this blog), but when it
         comes to using CSS for layout, I really don't know what I'm doing.
-        Creating the Kindle above with CSS was more down to trial and error than
-        actually knowing what I was doing. So I'll be looking out for some CSS
-        layout tutorials in the near future.
+        Creating the Kindle above with CSS was more the result of trial and
+        error, than it was me actually knowing what I was doing. So I'll be
+        looking out for some CSS layout tutorials in the near future.
       </p>
       <h3>Separating paragraphs</h3>
       <p>
         This article made me think about how paragraphs are visually
-        distinguished from one another. I'm a fan of a section of whitespace
+        distinguished from one another. I'm a fan of some extra whitespace
         between paragraphs, but, while trying to make the Kindle text look as
         authentic as possible, I realised that most of the Kindle books I've
         read have no extra vertical space between paragraphs, but rather, they
-        indent the first line of the paragraph (which makes sense I guess, as it
-        doesn't waste any vertical height, which is important for devices with
-        small screens)
+        indent the first line of each paragraph (which makes sense I guess, as
+        it doesn't waste any vertical space, which is important on devices such
+        as the eReaders).
       </p>
       <p>
         This wasn't new to me obviously, but what I hadn't noticed was that when
-        indentation is used, it's usually omitted for the first paragraph after
-        a heading (this also makes sense, there's no paragraph directly above
-        from which to be separated, and if the heading is left-aligned, then
-        both heading and the start of the paragraph are nicely aligned along the
-        left margin, and we humans like stuff that is nicely aligned).
+        indentation is used, it's usually omitted for the first paragraph in a
+        section/chapter (this also makes sense, there's no paragraph directly
+        above from which to be separated, and if the chapter heading is
+        left-aligned, then both heading and the start of the paragraph are
+        nicely aligned along the left margin, and we humans like stuff that is
+        nicely aligned).
       </p>
       <p>
         At first I thought I would have to create a new paragraph class in CSS
         specifically for the first paragraph of each section, but it turns out
-        that CSS has an easy solution to this.
+        that CSS has an easy solution for this.
       </p>
-      <code> P + P { text-indent: 1.5em; } </code>
+      <code> p + p { text-indent: 1.5em; } </code>
       <p>
-        The "+" above means that the text-indent is only applied to paragraphs
-        directly following another paragraph.
+        The "+" above means that the style (the text-indent in this example) is
+        only applied to paragraphs directly proceeding other paragraphs.
       </p>
+      <p>
+        Conversely, if you wanted to apply a specific style to the paragraph
+        directly following a heading e.g. Heading 1, then the CSS selector would
+        look be:
+      </p>
+      <code> h1 + p { ... } </code>
     </div>
   </body>
 </html>
