@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Literata:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Literata:wght@300;400&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
 
@@ -11,7 +10,6 @@ div.page {
   color: black;
   font-size: 16px;
   line-height: 1.7;
-
 }
 
 div.page h1 {
@@ -28,8 +26,18 @@ div.page h2 {
   font-size: 24px;
   text-align: left;
   font-weight: 300;
-  margin-bottom: 10px;
-  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+
+div.page h3 {
+  font-family: "Literata", sans-serif;
+  line-height: 0px;
+  font-size: 18px;
+  text-align: left;
+  font-style: bold;
+  margin-bottom: 15px;
+  margin-top: 35px;
 }
 
 body {
@@ -45,7 +53,6 @@ section {
   display: none;
 }
 
-
 section:target {
   display: block;
 }
@@ -55,7 +62,7 @@ section P {
   padding: 0;
 }
 
-section P + P {
+Section P + P {
   text-indent: 1.5em;
 }
 
@@ -129,4 +136,17 @@ section h2 {
   right: 30px;
   cursor: pointer;
   border-radius: 16px;
+}
+
+code {
+  font-family: monospace;
+  font-size: 18px;
+  color: white;
+  line-height: 100%;
+  background-color: #1e1e1e;
+  padding: 0.5em;
+  letter-spacing: -0.05em;
+  word-break: normal;
+  border-radius: 5px;
+
 }
