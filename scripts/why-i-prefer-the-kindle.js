@@ -2,6 +2,8 @@
 // document.getElementById("datetime").innerHTML =
 //  ("0" + dt.getHours()).slice(-2) + ":" + ("0" + dt.getMinutes()).slice(-2);
 
+
+
 var currentPage = 0;
 function goToPage(pageNumber) {
   const main = document.getElementById("main_place");
@@ -24,3 +26,5 @@ function darkToggle() {
   var element = document.body;
   element.classList.toggle("dark-toggle");
 }
+
+
