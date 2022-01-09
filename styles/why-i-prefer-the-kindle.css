@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Literata:wght@300;400&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Literata:wght@300;400;600&display=swap');
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
 
 div.page {
   font-family: "open sans", sans-serif;
-  width: 650px;
+  width: 750px;
   margin: auto;
   padding-bottom: 0px;
   color: black;
@@ -14,9 +15,10 @@ div.page {
 
 div.page h1 {
   font-family: "Literata", sans-serif;
+  line-height: 55px ;
   font-size: 48px;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 25px;
 }
 
@@ -25,7 +27,7 @@ div.page h2 {
   line-height: 0px;
   font-size: 24px;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 25px;
   margin-top: 35px;
 }
@@ -35,7 +37,7 @@ div.page h3 {
   line-height: 0px;
   font-size: 18px;
   text-align: left;
-  font-style: bold;
+  font-weight: 600;
   margin-bottom: 15px;
   margin-top: 35px;
 }
@@ -148,4 +150,15 @@ code {
   word-break: normal;
   border-radius: 5px;
 
+p .codepen {
+  height: 300px;
+  width: 600px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  margin: 1em 0;
+  padding: 1em;
+"
 }

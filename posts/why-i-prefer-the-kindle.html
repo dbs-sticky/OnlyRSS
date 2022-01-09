@@ -17,6 +17,12 @@
       type="text/javascript"
     ></script>
 
+    <!-- link to JS for CodePen embed -->
+    <script
+      async
+      src="https://cpwebassets.codepen.io/assets/embed/ei.js"
+    ></script>
+
     <!-- link to RSS -->
     <link
       rel="alternate"
@@ -59,17 +65,21 @@
   <body>
     <div class="page">
       <a href="https://onlyrss.org/index.html">Home</a>
-      <h1>Why I prefer the Kindle</h1>
+      <h1>Why I prefer the Kindle over physical books</h1>
 
       <p>
         I created this article for two reasons: I wanted to highlight some
         Kindle benefits that are often overlooked (probably because they are
         specific to me), and I wanted to attempt some CSS that was a bit more
-        "advanced" than my usual tweaks to the font and paragraph styles.
+        adventurous than my usual tweaks to font and paragraph styles.
       </p>
       <p>
         My aim was to try and reproduce the Kindle Oasis reading experience as
-        best I could (given my limited knowledge of CSS).
+        best I could (given my limited knowledge of CSS). The article is
+        contained within the Kindle below. Use the Kindle's navigation buttons
+        (on the right of the device) to page through the article. At the bottom
+        of this page I've described what I learnt while creating my
+        "mock-Kindle".
       </p>
     </div>
     <div class="container">
@@ -169,9 +179,9 @@
             <h2>5 - Kindle Unlimited</h2>
             <p>
               Kindle Unlimited in the UK costs £7.99 pm and includes more than
-              650,000 books that can be borrowed (up to 20 at a time). I'm
-              probably reading 2-3 books per month via Kindle Unlimited, so for
-              me it makes financial sense.
+              650,000 books that can be borrowed (up to 20 at a time). Of the 4
+              books I read per month, probably 2-3 of those I've borrowed via
+              Kindle Unlimited, so for me it easily makes financial sense.
             </p>
 
             <div class="footer">Page 2 (50%)</div>
@@ -188,13 +198,31 @@
               often fire up the Kindle app on my phone, and start reading where
               I'd finished off the night before.
             </p>
-            <h2>7 - Space</h2>
+            <h2>7 - Font size</h2>
             <p>
-              You can fit more than 2,000 books on an 8GB Kindle, which is
-              redonkulous. I typically have no more than 2 books downloaded to
-              my device, the one I'm currently reading, and the one I'll be
-              reading next. For those who don't like to hoard stuff in their
-              homes (like me), a Kindle is a great space saver.
+              Being a man of a "certain age", I'd recently noticed that my arms
+              were no longer long enough to allow my eyes to focus on objects
+              held in my hands. For a little while, increasing the font size on
+              the Kindle allowed me to put of the inevitable purchase of reading
+              glasses.
+            </p>
+            <h2>8 - Time left in chapter</h2>
+            <p>
+              You have some options when it comes to what's displayed in the
+              page footer on the Kindle, you can choose from the following:
+              nothing, page number, time left in chapter, time left in book, and
+              loc (like page number, but is independent of your style choices
+              e.g. font-size etc.).
+            </p>
+            <h2>9 - Ergonomics</h2>
+            <p>
+              You can only read one page at a time, but with physical books you
+              are forced to always have 2 pages on display, so you're always
+              holding something that it twice the size it actually needs to be.
+            </p>
+            <p>
+              There's also no distortion due to the page curving in towards the
+              spine of the book (there's also no spine to break!).
             </p>
             <div class="footer">Page 3 (75%)</div>
           </section>
@@ -206,24 +234,24 @@
       <h2>What I learnt</h2>
       <h3>It's time to go back to formula</h3>
       <p>
-        My CSS "skills" are far worse than I thought. I'm happy enough with the
-        usual CSS required for defining the style of a typical article body
-        (which is one of the main reasons why I started this blog), but when it
-        comes to using CSS for layout, I really don't know what I'm doing.
-        Creating the Kindle above with CSS was more the result of trial and
-        error, than it was me actually knowing what I was doing. So I'll be
+        My CSS "skills" are far worse than I thought. I'm comfortable enough
+        with the typical CSS required for defining the style of a typical
+        article body (which is one of the main reasons why I started this blog),
+        but when it comes to using CSS for layout, I really don't know what I'm
+        doing. Creating the Kindle above with CSS was more the result of trial
+        and error, than it was me actually knowing what I was doing. So I'll be
         looking out for some CSS layout tutorials in the near future.
       </p>
       <h3>Separating paragraphs</h3>
       <p>
         This article made me think about how paragraphs are visually
-        distinguished from one another. I'm a fan of some extra whitespace
-        between paragraphs, but, while trying to make the Kindle text look as
-        authentic as possible, I realised that most of the Kindle books I've
-        read have no extra vertical space between paragraphs, but rather, they
-        indent the first line of each paragraph (which makes sense I guess, as
-        it doesn't waste any vertical space, which is important on devices such
-        as eReaders).
+        distinguished from one another. I'm a fan of some extra padding between
+        paragraphs, but, while trying to make the Kindle text look as authentic
+        as possible, I realised that most of the Kindle books I've read have no
+        extra vertical space between paragraphs, but rather, they indent the
+        first line of each paragraph (which makes sense I guess, as it doesn't
+        waste any vertical space, which is important on devices such as
+        eReaders). This is how paragraphs are separated in the "book" above.
       </p>
       <p>
         This wasn't new to me obviously, but what I hadn't noticed was that when
@@ -251,6 +279,59 @@
         Heading 1, then the CSS selector would be:
       </p>
       <code> h1 + p { ... } </code>
+
+      <h3>Using the :target selector to show hidden content</h3>
+      <p>
+        I haven't started to learn JavaScript (JS) yet, and as the purpose of
+        this blog is for me to learn some basic web dev, it shouldn't (yet)
+        include any JS. Unfortunately, the page navigation used above for the
+        Kindle requires JS,...sort of.
+      </p>
+      <p>
+        I did manage to create a version of the Kindle with working navigation
+        that didn't require any JS, instead it took advantage of the :target
+        pseudo selector in CSS, usually this is used to move the user to a
+        specific section of a page after clicking on a link or button (e.g.
+        creating a clickable Table of Contents). But, it can be used to
+        selectively show page elements that are otherwise hidden.
+      </p>
+      <p>
+        My non-JS version does work, but, it suffers from an unwanted
+        "side-effect" (well, unwanted for my specific use case) i.e. it moves
+        the page to the specific section (which is what it's meant to do!). You
+        can see this in action when you select one of the nav buttons in the
+        CodePen below (you also have to click on the start link first). So in
+        the end I decided to create this page using JS, even though I had to ask
+        a friend to provide the required JS.
+      </p>
+
+      <p>
+        My non-JS implementation can be seen in the following CodePen. But
+        you'll find a better description of how to use the :target selector to
+        show hidden contents
+        <a
+          href="https://css-tricks.com/a-whole-website-in-a-single-html-file"
+          target="_blank"
+          >here</a
+        >.
+      </p>
+
+      <p
+        class="codepen"
+        data-height="700"
+        data-default-tab="result"
+        data-slug-hash="eYGVXOm"
+        data-user="dbssticky"
+      >
+        <span>
+          See the Pen
+          <a href="https://codepen.io/dbssticky/pen/eYGVXOm">
+            Only RSS - Kindle (No JS)</a
+          >
+          by mark evans (<a href="https://codepen.io/dbssticky">@dbssticky</a>)
+          on <a href="https://codepen.io">CodePen</a>.</span
+        >
+      </p>
     </div>
   </body>
 </html>
