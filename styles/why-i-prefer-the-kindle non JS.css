@@ -50,6 +50,14 @@ body {
   margin-bottom: 70px;
 }
 
+section {
+  display: none;
+}
+
+section:target {
+  display: block;
+}
+
 section P {
   margin: 0;
   padding: 0;
@@ -85,12 +93,6 @@ section h2 {
   border-radius: 14px;
   border-style: solid;
   filter: drop-shadow(3px -2px 4px gray);
-}
-
-.time {
-  padding: 0px;
-  text-align: center;
-  font-size: 0.8em;
 }
 
 .screen {
