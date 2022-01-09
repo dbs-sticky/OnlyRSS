@@ -1,6 +1,6 @@
-var dt = new Date();
-document.getElementById("datetime").innerHTML =
-  ("0" + dt.getHours()).slice(-2) + ":" + ("0" + dt.getMinutes()).slice(-2);
+// var dt = new Date();
+// document.getElementById("datetime").innerHTML =
+//  ("0" + dt.getHours()).slice(-2) + ":" + ("0" + dt.getMinutes()).slice(-2);
 
 var currentPage = 0;
 function goToPage(pageNumber) {

@@ -45,38 +45,36 @@
   <div class="page">
     <a href="https://onlyrss.org/index.html">Home</a>
     <h1>Why I prefer the Kindle</h1>
+
+ <p>
+    There's two reasons why I created this article: because I wanted to
+    highlight some Kindle benefits that are often overlooked (probably
+    because they are specific to me), and because I wanted to attempt some
+    CSS that was a bit more "advanced" than my usual tweaks to the font and
+    paragraph styles.</p>
+  <p>
+    My aim was to try and reproduce the Kindle Oasis reading experience as
+    best I could (given my limited knowledge of CSS).
+  </p>
+
   </div>
   <div class="container">
     <button onClick="goNextPage()" class="next-button" title="Next Page"></button>
     <button onClick="goPreviousPage()" class="previous-button" title="Previous Page"></button>
 
     <div class="screen">
-      <div class="time"><span id="datetime"></span></div>
+     <!-- <div class="time"><span id="datetime"></span></div> -->
 
       <div id="main_place">
-        <p>
-          There's two reasons why I created this article: because I wanted to
-          highlight some Kindle benefits that are often overlooked (probably
-          because they are specific to me), and because I wanted to attempt some
-          CSS that was a bit more "advanced" than my usual tweaks to the font and
-          paragraph styles.</p>
-        <p>
-          My aim was to try and reproduce the Kindle Oasis reading experience as
-          best I could (given my limited knowledge of CSS).
-        </p>
         <h2>How to use</h2>
         <p>
           Use the Kindle's Next/Previous buttons
           (on the right of the device) to navigate through the article.
         </p>
-        <p>
-          At the bottom of this page is a description of what I learnt while
-          creating this blog post.
-        </p>
       </div>
 
-      <div id="complete" style="display: none">
-        <div id="section1">
+      <section id="complete" style="display: none">
+        <section id="section1">
           <h1>Background</h1>
           <p>
             I didn't used to read. Don't get me wrong, I had books, almost
@@ -114,9 +112,9 @@
           </p>
 
           <div class="footer">Page 1 (25%)</div>
-        </div>
+        </section>
 
-        <div id="section2">
+        <section id="section2">
           <h2>2 - The backlight</h2>
           <p>
             I mostly read in bed, and unlike my wife, I don't fall asleep as
@@ -154,9 +152,9 @@
           </p>
 
           <div class="footer">Page 2 (50%)</div>
-        </div>
+        </section>
 
-        <div id="section3">
+        <section id="section3">
           <h2>6 - Whisper sync</h2>
           <p>
             This is Amazon's name for the feature that lets you sync your
@@ -176,9 +174,8 @@
             homes (like me), a Kindle is a great space saver.
           </p>
           <div class="footer">Page 3 (75%)</div>
-        </div>
-      </div>
-    </div>
+        </section>
+      </section>
   </div>
   </div>
 
