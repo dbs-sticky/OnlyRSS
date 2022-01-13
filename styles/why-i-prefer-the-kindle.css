@@ -113,8 +113,8 @@ section h2 {
   font-variant-numeric: tabular-nums;
 }
 
-
-.next-button, .previous-button {
+/* set default Kindle nav button style and X position */
+button {
   position: absolute;
   background-color: #161616;
   border-style: solid;
@@ -126,15 +126,18 @@ section h2 {
   right: 30px;
 }
 
+/* set Next button Y position */
 .next-button {
   top: 300px;
 }
 
+/* set Previous button Y position */
 .previous-button {
   top: 380px;
 }
 
-:where(.next-button, .previous-button):active {
+/* set button active colour */
+button:active {
   background-color: #000000;
 }
 
@@ -148,4 +151,4 @@ code {
   letter-spacing: -0.05em;
   word-break: normal;
   border-radius: 5px;
-
+}
