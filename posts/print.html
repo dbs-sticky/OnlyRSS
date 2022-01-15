@@ -4,23 +4,51 @@
 
 <body>
 
-<link rel="stylesheet" type="text/css" href="../styles/print.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/print.css" />
 
-<h1>chapter 1</h1>
+    <h1>chapter 1</h1>
 
-<p>The second way to create drop caps is to use the pseudo class ::first-letter. This will target the first letter of the first line of a block element, including a paragraph. Using a pseudo-class selector, you can then style away. We’re going to get more creative with the example below.</p>
+    <p>The second way to create drop caps is to use the pseudo class ::first-letter. This will target the first letter
+        of the first line of a block element, including a paragraph. Using a pseudo-class selector, you can then style
+        away. We’re going to get more creative with the example below.</p>
 
-<p>As with the example above, start by setting the float, line-height, font-size, and font-family properties. Save for the float property, which must be set to left, you can use different property values. The example below uses pixels instead of em units and percentage values, for example, and opts for the Montserrat font. Note: it also changes the default font-size of the paragraph from 16px to 14px.</p>
+    <p>As with the example above, start by setting the float, line-height, font-size, and font-family properties. Save
+        for the float property, which must be set to left, you can use different property values. The example below uses
+        pixels instead of em units and percentage values, for example, and opts for the Montserrat font. Note: it also
+        changes the default font-size of the paragraph from 16px to 14px.</p>
 
-<p>Now let’s say you want to change the color and add a border around your drop cap. To do so, you simply set the color property to whatever hex color code you want. We’ll use a nice purple below.</p>
+    <div class="code">
+       <p>h1 + p:first-letter {</p>
+       <p>float: left;</p>
+       <p>font-size: 2.3rem;</p>
+       <p>line-height: 1;</p>
+       <p>margin: 0 0.1em 0 -0.1em;</p>
+       <p>padding: 0.1em;</p>
+       <p>}</p>
+     </div>
 
-<p>Then, using the shorthand border property, you can set the style and color. In the example below, we’ll use a solid line and a shade of purple for the border. Next, add padding on all sides to put space between the capital letter and the border. Finally, set the margin-right property to a positive value to make sure the border and paragraph don’t overlap and set the margin-bottom property to a negative value so that the paragraph wraps around the drop cap.</p>
-<h1>chapter 2</h1>
+    <p>Now let’s say you want to change the color and add a border around your drop cap. To do so, you simply set the
+        color property to whatever hex color code you want. We’ll use a nice purple below.</p>
 
-<p>As with the example above, start by setting the float, line-height, font-size, and font-family properties. Save for the float property, which must be set to left, you can use different property values. The example below uses pixels instead of em units and percentage values, for example, and opts for the Montserrat font. Note: it also changes the default font-size of the paragraph from 16px to 14px.</p>
+    <p>Then, using the shorthand border property, you can set the style and color. In the example below, we’ll use a
+        solid line and a shade of purple for the border. Next, add padding on all sides to put space between the capital
+        letter and the border. Finally, set the margin-right property to a positive value to make sure the border and
+        paragraph don’t overlap and set the margin-bottom property to a negative value so that the paragraph wraps
+        around the drop cap.</p>
+    <h1>chapter 2</h1>
 
-<p>Now let’s say you want to change the color and add a border around your drop cap. To do so, you simply set the color property to whatever hex color code you want. We’ll use a nice purple below.</p>
+    <p>As with the example above, start by setting the float, line-height, font-size, and font-family properties. Save
+        for the float property, which must be set to left, you can use different property values. The example below uses
+        pixels instead of em units and percentage values, for example, and opts for the Montserrat font. Note: it also
+        changes the default font-size of the paragraph from 16px to 14px.</p>
 
-<p>Then, using the shorthand border property, you can set the style and color. In the example below, we’ll use a solid line and a shade of purple for the border. Next, add padding on all sides to put space between the capital letter and the border. Finally, set the margin-right property to a positive value to make sure the border and paragraph don’t overlap and set the margin-bottom property to a negative value so that the paragraph wraps around the drop cap.</p>
+    <p>Now let’s say you want to change the color and add a border around your drop cap. To do so, you simply set the
+        color property to whatever hex color code you want. We’ll use a nice purple below.</p>
+
+    <p>Then, using the shorthand border property, you can set the style and color. In the example below, we’ll use a
+        solid line and a shade of purple for the border. Next, add padding on all sides to put space between the capital
+        letter and the border. Finally, set the margin-right property to a positive value to make sure the border and
+        paragraph don’t overlap and set the margin-bottom property to a negative value so that the paragraph wraps
+        around the drop cap.</p>
 
 </body>

@@ -11,10 +11,13 @@ body {
   background-color: #f9f7f1;
   font-family: 'print', serif;
   color: black;
+  padding: 6em;
 }
 
 h1 {
     text-transform: uppercase;
+    line-height: 0em;
+    padding: 1em 0 0.2em 0; 
 
 }
 
@@ -35,4 +38,10 @@ h1 + p:first-letter {
 
 p + p {
     text-indent: 2.3em;
+}
+
+.code {
+margin: auto;
+width: 50%;
+padding: 1em;
 }
