@@ -1,0 +1,39 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@font-face {
+    font-family: print;
+    src: url(../fonts/Oldnewspapertypes-449D.ttf);
+}
+
+body {
+  margin: auto;
+  width: 500px;
+  background-color: #f9f7f1;
+  font-family: 'print', serif;
+}
+
+h1 {
+    text-transform: uppercase;
+
+}
+
+p {
+  line-height: 1.4em;
+  margin:0px; 
+  text-align: justify;
+  
+}
+
+h1 + p:first-letter {
+  color: black;
+  float: left;
+  font-size: 2.3rem;
+  line-height: 1;
+  margin: 0 0.1em 0 -0.1em;
+  padding: 0.1em;
+}
+
+p + p {
+    text-indent: 2.3em;
+}
