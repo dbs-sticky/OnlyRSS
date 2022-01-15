@@ -10,6 +10,7 @@ body {
   width: 500px;
   background-color: #f9f7f1;
   font-family: 'print', serif;
+  color: black;
 }
 
 h1 {
@@ -25,7 +26,6 @@ p {
 }
 
 h1 + p:first-letter {
-  color: black;
   float: left;
   font-size: 2.3rem;
   line-height: 1;
