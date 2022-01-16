@@ -28,7 +28,7 @@ p {
   
 }
 
-h2 + p:first-letter {
+h2 + p::first-letter {
   float: left;
   font-size: 2.3rem;
   line-height: 1;

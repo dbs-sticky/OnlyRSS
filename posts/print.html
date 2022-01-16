@@ -2,14 +2,24 @@
 
 <body>
   <link rel="stylesheet" type="text/css" href="../styles/print.css" />
+  <h1>Drop caps and indents</h1>
 
+  <p>
+    All the best blogs tend to be written by experts, and also tend to keep to a
+    specific field or topic. My blog does neither of those things. For example,
+    this post is about separating paragraphs using CSS, I'm only just starting
+    to learn CSS, and this is my first post dedicated to the subject. Some of
+    what's included below was touched upon in my previous post, specifically the
+    section dedicated to what I'd learnt while using CSS to build my Kindle
+    mock-up.
+  </p>
   <h2>Indents</h2>
 
   <p>
     While writing my Kindle post last week, it made me think about how
-    paragraphs are typically visually distinguished from one another in print,
-    and on the web. That led me to look into how various paragraph spacing
-    solutions can be implemented with CSS.
+    paragraphs are typically distinguished from one another in print and on the
+    web. That led me to look into how various paragraph spacing solutions can be
+    implemented with CSS.
   </p>
   <p>
     On the web, where an article is typically presented as one long page of
@@ -22,8 +32,8 @@
   </p>
   <p>
     Strictly speaking, this indentation is only necessary for paragraphs that
-    directly follow another paragraph. No indentation is required when a
-    paragraph follows a heading, sub header, figure etc.
+    directly follow other paragraphs. No indentation is required when a
+    paragraph follows a heading, sub header, figure, blockquote, etc.
   </p>
   <p>
     Luckily, there exists a CSS Selector specifically designed to target an
@@ -36,18 +46,26 @@
     <p>p + p {text-indent: 2.3em;}</p>
   </div>
 
+  <p>
+    You'll notice that all the paragraphs above have an indent, with the
+    exception of this paragraph (which follows a code block), and the first
+    paragraph (which follows a heading), i.e. neither of these paragraphs directly follow
+    another paragraph. The first paragraph does start with a 'drop cap' though,
+    and that can be implemented via the "+" selector in CSS as well.
+  </p>
+
   <h2>Drop Caps</h2>
   <p>
-    As with the example above, start by setting the float, line-height,
-    font-size, and font-family properties. Save for the float property, which
-    must be set to left, you can use different property values. The example
-    below uses pixels instead of em units and percentage values, for example,
-    and opts for the Montserrat font. Note: it also changes the default
-    font-size of the paragraph from 16px to 14px.
+    I've decided that I want to use a drop cap at the start of each new chapter,
+    specifically the first letter of the first paragraph following each h2
+    heading. To target the first paragraph after the chapter heading, we simply
+    use h2 + p. But, we don't want to apply the drop cap style to every letter
+    in that paragraph, we only want to target the first letter. To do this we
+    add the ::first-letter CSS Selector.
   </p>
 
   <div class="code">
-    <p>h2 + p:first-letter {</p>
+    <p>h2 + p::first-letter {</p>
     <p>float: left;</p>
     <p>font-size: 2.3rem;</p>
     <p>line-height: 1;</p>
@@ -57,8 +75,6 @@
   </div>
 
   <p>
-    Now let’s say you want to change the color and add a border around your drop
-    cap. To do so, you simply set the color property to whatever hex color code
-    you want. We’ll use a nice purple below.
+????
   </p>
 </body>
