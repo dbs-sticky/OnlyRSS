@@ -49,19 +49,20 @@
   <p>
     You'll notice that all the paragraphs above have an indent, with the
     exception of this paragraph (which follows a code block), and the first
-    paragraph (which follows a heading), i.e. neither of these paragraphs directly follow
-    another paragraph. The first paragraph does start with a 'drop cap' though,
-    and that can be implemented via the "+" selector in CSS as well.
+    paragraph (which follows a heading), i.e. neither of these paragraphs
+    directly follow another paragraph. The first paragraph does start with a
+    'drop cap' though, and that can be implemented via the "+" selector in CSS
+    as well.
   </p>
 
   <h2>Drop Caps</h2>
   <p>
-    I've decided that I want to use a drop cap at the start of each new chapter,
+    I decided that I wanted to use a drop cap at the start of each new chapter,
     specifically the first letter of the first paragraph following each h2
-    heading. To target the first paragraph after the chapter heading, we simply
-    use h2 + p. But, we don't want to apply the drop cap style to every letter
-    in that paragraph, we only want to target the first letter. To do this we
-    add the ::first-letter CSS Selector.
+    heading. To target the first paragraph after the h2 heading, we simply use
+    h2 + p. But, we don't want to apply the drop cap style to every letter in
+    that paragraph, we only want to target the first letter. To do this we add
+    the ::first-letter CSS Selector.
   </p>
 
   <div class="code">
@@ -75,6 +76,8 @@
   </div>
 
   <p>
-????
+    That's all that's required, 2 little bits of CSS, neither of which you have
+    to assign to any individual paragraph, and you end up with 3 different
+    paragraph separators. i.e. indented, drop cap, and flush.
   </p>
 </body>
