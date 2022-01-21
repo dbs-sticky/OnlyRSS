@@ -11,7 +11,7 @@ body {
   background-color: #f9f7f1;
   font-family: 'print', serif;
   color: black;
-  padding: 6em;
+  padding: 1em 6em 6em 6em;
 }
 
 h1 {
@@ -40,8 +40,4 @@ p + p {
     text-indent: 2.3em;
 }
 
-.code {
-margin: auto;
-width: 50%;
-padding: 1em;
-}
+.code {margin: auto;width: 50%;padding: 1em;}
