@@ -1,31 +1,27 @@
-
-
 @font-face {
-    font-family: 'print';
-    src: url(../fonts/Oldnewspapertypes-449D.ttf);
+  font-family: "print";
+  src: url(../fonts/Oldnewspapertypes-449D.ttf);
 }
 
 body {
   margin: auto;
   width: 500px;
   background-color: #f9f7f1;
-  font-family: 'print', serif;
+  font-family: "print", serif;
   color: black;
   padding: 1em 6em 6em 6em;
 }
 
 h1 {
-    text-transform: uppercase;
-    line-height: 0em;
-    padding: 1em 0 0.2em 0; 
-
+  text-transform: uppercase;
+  line-height: 0em;
+  padding: 1em 0 0.2em 0;
 }
 
 p {
   line-height: 1.4em;
-  margin:0px; 
+  margin: 0px;
   text-align: justify;
-  
 }
 
 h2 + p::first-letter {
@@ -37,7 +33,11 @@ h2 + p::first-letter {
 }
 
 p + p {
-    text-indent: 2.3em;
+  text-indent: 2.3em;
 }
 
-.code {margin: auto;width: 50%;padding: 1em;}
+.code {
+  margin: auto;
+  width: 50%;
+  padding: 1em;
+}
