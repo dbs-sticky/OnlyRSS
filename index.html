@@ -17,6 +17,14 @@
     gtag('js', new Date());
     gtag('config', 'G-L464TSFFK9');
   </script>
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js', {
+    scope: '/'
+  });
+  </script>
+}
+
   </head>
 
   <body>
