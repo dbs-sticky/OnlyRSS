@@ -19,3 +19,15 @@ Created a 512px frame in Figma and exported as a png. Then used this page to cre
 * Added the following to all blog post headers: `<link rel="manifest" href="../manifest.json">`
 
 * Added the following to the index.html header: `<link rel="manifest" href="/manifest.json">`
+
+## Making and adding the basic service worker
+Created a basic service worker that cached the homepage only. Added this to the root director, then added the following script to the header of the homepage
+```
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/service-worker.js', {
+    scope: '/'
+  });
+}
+  </script>
+  ```
