@@ -4,30 +4,41 @@
 
   <head>
     <title>onlyRSS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The homepage of OnlyRSS.org, where you will find a full list of blog articles across a variety of topics.">
-    <link rel="manifest" href="/manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The homepage of OnlyRSS.org, where you will find a full list of blog articles across a variety of topics."
+    />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="stylesheet" type="text/css" href="/styles/index.css" />
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!-- link to RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-L464TSFFK9');
-  </script>
-<script>
-if('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js', {
-    scope: '/'
-  });
-}
-  </script>
-
-
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for OnlyRSS.org"
+      href="../feed.xml"
+    />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-L464TSFFK9");
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js", {
+          scope: "/",
+        });
+      }
+    </script>
   </head>
 
   <body>
@@ -47,35 +58,37 @@ if('serviceWorker' in navigator) {
 
     <!-- List of articles -->
     <main>
-
       <a href="/posts/drop-caps-and-indents.html">
         <div class="card">
           <img
             src="/images/drop-caps-and-indents-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing a screenshot of the article's layout"
           />
           <div class="container">
             <h2>Drop Caps and Indents</h2>
             <p>
-              A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
+              A niche & nerdy look at how paragraphs can be visually
+              distinguished using a little CSS.
             </p>
           </div>
         </div>
       </a>
 
-
       <a href="/posts/why-i-prefer-the-kindle.html">
         <div class="card">
           <img
             src="/images/why-i-prefer-the-kindle-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing a typical Kindle eInk screen"
           />
           <div class="container">
-            <h2>Why I prefer the Kindle over physical books </h2>
+            <h2>Why I prefer the Kindle over physical books</h2>
             <p>
-              My first (and hopefully last) listicle! 10 reasons I prefer the Kindle over physical books
+              My first (and hopefully last) listicle! 10 reasons I prefer the
+              Kindle over physical books
             </p>
           </div>
         </div>
@@ -85,13 +98,15 @@ if('serviceWorker' in navigator) {
         <div class="card">
           <img
             src="/images/build-a-website-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing a screenshot of code in VSCode"
           />
           <div class="container">
             <h2>Why every Product Manager should build a website</h2>
             <p>
-              A short explanation of why I believe every product manager should build a website.
+              A short explanation of why I believe every product manager should
+              build a website.
             </p>
           </div>
         </div>
@@ -101,25 +116,24 @@ if('serviceWorker' in navigator) {
         <div class="card">
           <img
             src="/images/rowing-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail vector image showing a Concept2 rowing machine, a TV, and a bar chart pinned to a wall in the background."
           />
           <div class="container">
             <h2>My indoor rowing tips after 15 million meters</h2>
-            <p>
-              My experience and tips for anyone new to indoor rowing.
-            </p>
+            <p>My experience and tips for anyone new to indoor rowing.</p>
           </div>
         </div>
       </a>
-
 
       <a href="/posts/chart-picker.html">
         <div class="card">
           <img
             src="/images/chart-picker-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing four different chart types that can be used to show the distribution across groups."
           />
           <div class="container">
             <h2>Chart Picker</h2>
@@ -133,7 +147,11 @@ if('serviceWorker' in navigator) {
 
       <a href="/posts/rss-part-1.html">
         <div class="card">
-          <img src="/images/rss-thumb.png" alt="Avatar" style="width: 100%" />
+          <img src="/images/rss-thumb.png"
+          width="300"
+          height="200"
+          alt="Thumbnail image showing a screenshot of an RSS reader that contains a list of articles."
+        />
           <div class="container">
             <h2>RSS part 1: what is RSS and what are aggregators?</h2>
             <p>
@@ -147,8 +165,9 @@ if('serviceWorker' in navigator) {
         <div class="card">
           <img
             src="/images/excalidraw-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing two trump stlye cards drawn using Excalidraw."
           />
           <div class="container">
             <h2>Drawing with Excalidraw</h2>
@@ -164,8 +183,10 @@ if('serviceWorker' in navigator) {
         <div class="card">
           <img
             src="/images/hardware-thumb.jpg"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing a photograph of a PC, 2 monitors, a keyboard and mouse, all sitting on a large desk in a bay window."
+          />
           />
           <div class="container">
             <h2>Working from home hardware</h2>
@@ -181,8 +202,9 @@ if('serviceWorker' in navigator) {
         <div class="card">
           <img
             src="images/anatomy-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing a graphic that resembles a horizontally stacked bar chart, where each section of the bar is an event e.g. reading, watching TV."
           />
           <div class="container">
             <h2>Anatomy of a lockdown weekday</h2>
@@ -198,8 +220,9 @@ if('serviceWorker' in navigator) {
         <div class="card">
           <img
             src="/images/desktops-thumb.png"
-            alt="Avatar"
-            style="width: 100%"
+            width="300"
+            height="200"
+            alt="Thumbnail image showing a graphic of various apps running on two virtual desktops."
           />
           <div class="container">
             <h2>Using virtual desktops in Windows 10</h2>
