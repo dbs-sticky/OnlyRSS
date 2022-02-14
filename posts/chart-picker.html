@@ -23,62 +23,99 @@
 
 <body>
     <main class="page">
-    <!-- set title, pubdate, and article style -->
-    <header class="header">
-        <nav>
-            <a href="../index.html">Home</a></p>
-        </nav>
-        <h1>Chart Picker</h1>
-        <div class="metarow">
-            <div class="pubdate"><p><time datetime="2021-03-28">28 Mar 2021</time> · Mark Evans</p></div>
-            <div class="articlestyle"><p>Article Style: page, clean, sans serif</p></div>
-        </div>
-    </header>
-    <header style="clear: both"></header>
+        <!-- set title, pubdate, and article style -->
+        <header class="header">
+            <nav>
+                <a href="../index.html">Home</a></p>
+            </nav>
+            <h1>Chart Picker</h1>
+            <div class="metarow">
+                <div class="pubdate">
+                    <p><time datetime="2021-03-28">28 Mar 2021</time> · Mark Evans</p>
+                </div>
+                <div class="articlestyle">
+                    <p>Article Style: page, clean, sans serif</p>
+                </div>
+            </div>
+        </header>
+        <header style="clear: both"></header>
 
-    <!-- main article -->
-    <article class="article">
+        <!-- main article -->
+        <article class="article">
 
-        <!-- Intro - section -->
-        <section>
-            <h2>Background</h2>
-            <p>Whether you work in data science, data analytics, finance, strategy, user experience, sales, marketing, or product, at some point you will be creating data visualisations, either for use externally (in your products and on social media), or internally (in your presentations and reports). As an employee of an information and analytics company, it’s important that the visualisations I choose reflect the same high standard as the underlying data, or at the very least, don’t misrepresent the data.</p>
-            <p>As a product manager, I’ve used a variety of tools over the years to create mock-ups. Some tools output high-fidelity designs, but typically I’m dealing with high-level concepts that need to be created quickly and updated often (based on user feedback). For these scenarios, I’ve recently started using a free and open-source tool called <a href='https://excalidraw.com/' target="_blank">Excalidraw</a> (see my blog post about <a href='../posts/drawing-with-excalidraw.html' target="_blank">Drawing with Excalidraw</a>).</p>
-            <p>During early 2021 I was managing the rebuild of one of my company&#39;s analytics tools, and the new version required the extensive use of charts in order to visualise a wide variety of data, as usual, I turned to Excalidraw to create the initial mock-ups. Before I knew it, I had amassed a large number of basic chart types, so I turned these into an Excalidraw library and added my library to the project in <a href='https://github.com/excalidraw/excalidraw-libraries' target="_blank">GitHub</a>. You can download my library <a href='https://libraries.excalidraw.com/?sort=default#dbssticky-data-viz' target="_blank">here</a> (title: &#39;Data Viz&#39;, author: &#39;@dbs-sticky&#39;).</p>
-            <p>I then decided to take my library of charts and generate a “chart picker” diagram. I based this off an existing concept developed by Dr. Andrew Abela from <a href='https://extremepresentation.com/' target="_blank">ExtremePresentations</a> (anyone interested in charting is probably already familiar with this <a href='https://extremepresentation.com/design/7-charts/' target="_blank">classic version</a>). I made some changes to Dr. Abela&#39;s design, mostly around the Distribution section which I have expanded with more options. My diagram is designed to help you choose a chart based on your data, and what you are trying to convey to the user. My initial aim for creating this chart picker was to share it with my colleagues, I&#39;ve since shared it publicly, and have now made it available on <a href='https://github.com/dbs-sticky/ChartPicker' target="_blank">GitHub</a> for anyone to use or to improve upon.</p>
-             
-        </section>
+            <!-- Intro - section -->
+            <section>
+                <h2>Background</h2>
+                <p>Whether you work in data science, data analytics, finance, strategy, user experience, sales,
+                    marketing, or product, at some point you will be creating data visualisations, either for use
+                    externally (in your products and on social media), or internally (in your presentations and
+                    reports). As an employee of an information and analytics company, it’s important that the
+                    visualisations I choose reflect the same high standard as the underlying data, or at the very least,
+                    don’t misrepresent the data.</p>
+                <p>As a product manager, I’ve used a variety of tools over the years to create mock-ups. Some tools
+                    output high-fidelity designs, but typically I’m dealing with high-level concepts that need to be
+                    created quickly and updated often (based on user feedback). For these scenarios, I’ve recently
+                    started using a free and open-source tool called <a href='https://excalidraw.com/'
+                        target="_blank">Excalidraw</a> (see my blog post about <a
+                        href='../posts/drawing-with-excalidraw.html' target="_blank">Drawing with Excalidraw</a>).</p>
+                <p>During early 2021 I was managing the rebuild of one of my company&#39;s analytics tools, and the new
+                    version required the extensive use of charts in order to visualise a wide variety of data, as usual,
+                    I turned to Excalidraw to create the initial mock-ups. Before I knew it, I had amassed a large
+                    number of basic chart types, so I turned these into an Excalidraw library and added my library to
+                    the project in <a href='https://github.com/excalidraw/excalidraw-libraries'
+                        target="_blank">GitHub</a>. You can download my library <a
+                        href='https://libraries.excalidraw.com/?sort=default#dbssticky-data-viz'
+                        target="_blank">here</a> (title: &#39;Data Viz&#39;, author: &#39;@dbs-sticky&#39;).</p>
+                <p>I then decided to take my library of charts and generate a “chart picker” diagram. I based this off
+                    an existing concept developed by Dr. Andrew Abela from <a href='https://extremepresentation.com/'
+                        target="_blank">ExtremePresentations</a> (anyone interested in charting is probably already
+                    familiar with this <a href='https://extremepresentation.com/design/7-charts/'
+                        target="_blank">classic version</a>). I made some changes to Dr. Abela&#39;s design, mostly
+                    around the Distribution section which I have expanded with more options. My diagram is designed to
+                    help you choose a chart based on your data, and what you are trying to convey to the user. My
+                    initial aim for creating this chart picker was to share it with my colleagues, I&#39;ve since shared
+                    it publicly, and have now made it available on <a href='https://github.com/dbs-sticky/ChartPicker'
+                        target="_blank">GitHub</a> for anyone to use or to improve upon.</p>
 
-        <!-- mid - section -->
-        <section>
-            <h2>Chart Picker links</h2>
-            <ul>
-                <li><a href='../images/chart-picker-compressed.png' target="_blank">View\download the chart picker as a .png</a></li>
-                <li><a href='../images/chart-picker-compressed.svg' target="_blank">View\download the chart picker as a .svg</a></li>
-                <li><a href='https://t.co/swXFJLvAwM' target="_blank">View\edit your own instance of the chart picker at Excalidraw</a></li>
-                <li><a href='https://github.com/dbs-sticky/ChartPicker' target="_blank">Follow\contribute to the chart picker project at GitHub</a></li>
-                
+            </section>
+
+            <!-- mid - section -->
+            <section>
+                <h2>Chart Picker links</h2>
+                <ul>
+                    <li><a href='../images/chart-picker-compressed.png' target="_blank">View\download the chart picker
+                            as a .png</a></li>
+                    <li><a href='../images/chart-picker-compressed.svg' target="_blank">View\download the chart picker
+                            as a .svg</a></li>
+                    <li><a href='https://t.co/swXFJLvAwM' target="_blank">View\edit your own instance of the chart
+                            picker at Excalidraw</a></li>
+                    <li><a href='https://github.com/dbs-sticky/ChartPicker' target="_blank">Follow\contribute to the
+                            chart picker project at GitHub</a></li>
+
                 </ul>
-                
-        </section>
 
-        <!-- Conclusion - section -->
-        <section>
-            <h2>Chart Picker screenshot</h2>
-            <p>This is a zoomed in view of the distribution section of the chart picker.</p>
-<img src="../images/chart-picker-snippet.png" referrerpolicy="no-referrer" alt="A snippet of the 'Chart Picker'">
-        </section>
+            </section>
 
-        <!-- feedback - section -->
-        <section>
-            <p>
-                If you have any comments on this article then please get in touch via Twitter (<a
-                    href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-            </p>
-        </section>
+            <!-- Conclusion - section -->
+            <section>
+                <h2>Chart Picker screenshot</h2>
+                <p>This is a zoomed in view of the distribution section of the chart picker.</p>
+                <img src="../images/chart-picker-snippet.png"
+                width="750" height="364"
+                referrerpolicy="no-referrer"
+                alt="Graphic drawn in a sketch style showing multiple charts each designed to show a distribution.">
+            </section>
 
-    </article>
-</main>
+            <!-- feedback - section -->
+            <section>
+                <p>
+                    If you have any comments on this article then please get in touch via Twitter (<a
+                        href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+                </p>
+            </section>
+
+        </article>
+    </main>
 </body>
 
 </html>
