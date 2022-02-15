@@ -39,7 +39,8 @@
 
 /* set max image width equal to the page width, this will apply to all images */
 img {
-  max-width: var(--pagewidth);
+  width:  100%;
+  height: auto;
 }
 
 /* set max image width equal to the page width, this will apply to all images */

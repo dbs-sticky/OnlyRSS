@@ -33,12 +33,14 @@
 
 /* set max image width equal to the page width, this will apply to all images */
 img {
-  max-width: var(--pagewidth);
+  width:  100%;
+  height: auto;
 }
 
 /* set max image width equal to the page width, this will apply to all images */
 .svgimg {
-  max-width: var(--pagewidth);
+  width:  100%;
+  height: auto;
 }
 
 /* set body defaults, no independent paragraph definition */
