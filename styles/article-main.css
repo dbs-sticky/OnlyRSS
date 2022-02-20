@@ -43,7 +43,7 @@ body {
 img {
   display: block;
   margin: auto;
-  width: 100%;
+  max-width: 100%;
   height: auto;
 }
 /* set the publication date  style */
@@ -128,9 +128,9 @@ a:active {
 pre code {
   background-color: rgb(0, 0, 0);
   border: 1px solid #999;
-  display: block;
-  padding: 20px;
-  color: #ee8e3f;
+  display: inline-block;
+  padding: 10px;
+  color: #cfcfcf;
   border-radius: 7px;
   font-size: 1em;
   /* by default pre code blocks don't word-wrap, the following 2 lines changes this */

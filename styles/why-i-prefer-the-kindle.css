@@ -1,55 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Literata:wght@300;400;600&display=swap');
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap");
-
-div.page {
-  font-family: "open sans", sans-serif;
-  width: 750px;
-  margin: auto;
-  padding-bottom: 0px;
-  color: black;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-div.page h1 {
-  font-family: "Literata", sans-serif;
-  line-height: 55px ;
-  font-size: 48px;
-  text-align: left;
-  font-weight: 400;
-  margin-top: 25px;
-}
-
-div.page h2 {
-  font-family: "Literata", sans-serif;
-  line-height: 0px;
-  font-size: 24px;
-  text-align: left;
-  font-weight: 400;
-  margin-bottom: 25px;
-  margin-top: 35px;
-}
-
-div.page h3 {
-  font-family: "Literata", sans-serif;
-  line-height: 0px;
-  font-size: 18px;
-  text-align: left;
-  font-weight: 600;
-  margin-bottom: 15px;
-  margin-top: 35px;
-}
-
-body {
-  font-family: "Literata", sans-serif;
-  color: #6e6e6e;
+section {
+  font-family: "Literata", serif;
   font-size: 14px;
-  line-height: 1.7;
-  text-align: left;
-  font-weight: 400;
-  margin-bottom: 70px;
 }
 
 section P {
@@ -62,6 +16,7 @@ Section P + P {
 }
 
 section h1 {
+  font-family: "Literata", serif;
   line-height: 1.4;
   font-size: 1.7em;
   text-align: center;
@@ -70,6 +25,7 @@ section h1 {
 }
 
 section h2 {
+  font-family: "Literata", serif;
   line-height: 0px;
   font-size: 1em;
   text-align: left;
@@ -89,12 +45,6 @@ section h2 {
   filter: drop-shadow(3px -2px 4px gray);
 }
 
-.time {
-  padding: 0px;
-  text-align: center;
-  font-size: 0.8em;
-}
-
 .screen {
   overflow: hidden;
   padding: 25px;
@@ -105,6 +55,7 @@ section h2 {
   align-self: center;
   border-radius: 3px;
 }
+
 .footer {
   position: absolute;
   bottom: 35px;
@@ -139,16 +90,4 @@ button {
 /* set button active colour */
 button:active {
   background-color: #000000;
-}
-
-code {
-  font-family: monospace;
-  font-size: 18px;
-  color: white;
-  line-height: 100%;
-  background-color: #1e1e1e;
-  padding: 0.5em;
-  letter-spacing: -0.05em;
-  word-break: normal;
-  border-radius: 5px;
 }
