@@ -1,240 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-  <meta charset="UTF-8" />
-  <!-- just a test of commit -->-->
+<meta charset="UTF-8" />
 
-  <head>
-    <title>onlyRSS</title>
 
-    <meta
-      name="description"
-      content="The homepage of OnlyRSS.org, where you will find a full list of blog articles across a variety of topics."
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="stylesheet" type="text/css" href="/styles/index.css" />
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
-    <!-- link to RSS -->
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title="RSS Feed for OnlyRSS.org"
-      href="../feed.xml"
-    />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-L464TSFFK9");
-    </script>
-    
-    <!-- Service working for installable app-->
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js", {
-          scope: "/",
-        });
-      }
-    </script>
-  </head>
+<head>
+  <title>onlyRSS</title>
 
-  <body>
-    <header class="header">
-      <h1>
-        <span class="page-title-only">Only</span
-        ><span class="page-title-rss">RSS</span>
-      </h1>
-      <p class="header">
-        My blog exists solely so I have a reason to learn HTML, CSS and
-        JavaScript. My aim is to experiment with various article designs,
-        hopefully reaching a point where the article style is influenced by the
-        article subject. Read more at the
-        <a href="posts/about.html">About page</a>.
-      </p>
-    </header>
+  <meta name="description"
+    content="The homepage of OnlyRSS.org, where you will find a full list of blog articles across a variety of topics." />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <!-- link to RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-L464TSFFK9");
+  </script>
 
-    <!-- List of articles -->
-    <main>
-      <a href="/posts/drop-caps-and-indents.html">
-        <div class="card">
-          <img
-            src="/images/drop-caps-and-indents-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing a screenshot of the article's layout"
-          />
-          <div class="container">
-            <h2>Drop Caps and Indents</h2>
-            <p>
-              A niche & nerdy look at how paragraphs can be visually
-              distinguished using a little CSS.
-            </p>
-          </div>
+  <!-- Service working for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <h1>
+      <span class="page-title-only">Only</span><span class="page-title-rss">RSS</span>
+    </h1>
+    <p class="header">
+      My blog exists solely so I have a reason to learn HTML, CSS and
+      JavaScript. My aim is to experiment with various article designs,
+      hopefully reaching a point where the article style is influenced by the
+      article subject. Read more at the
+      <a href="posts/about.html">About page</a>.
+    </p>
+  </header>
+
+  <!-- List of articles -->
+  <main>
+    <a href="/posts/drop-caps-and-indents.html">
+      <div class="card">
+        <img src="/images/drop-caps-and-indents-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing a screenshot of the article's layout" />
+        <div class="container">
+          <h2>Drop Caps and Indents</h2>
+          <p>
+            A niche & nerdy look at how paragraphs can be visually
+            distinguished using a little CSS.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/why-i-prefer-the-kindle.html">
-        <div class="card">
-          <img
-            src="/images/why-i-prefer-the-kindle-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing a typical Kindle eInk screen"
-          />
-          <div class="container">
-            <h2>Why I prefer the Kindle over physical books</h2>
-            <p>
-              My first (and hopefully last) listicle! 10 reasons I prefer the
-              Kindle over physical books
-            </p>
-          </div>
+    <a href="/posts/why-i-prefer-the-kindle.html">
+      <div class="card">
+        <img src="/images/why-i-prefer-the-kindle-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing a typical Kindle eInk screen" />
+        <div class="container">
+          <h2>Why I prefer the Kindle over physical books</h2>
+          <p>
+            My first (and hopefully last) listicle! 10 reasons I prefer the
+            Kindle over physical books
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/why-every-product-manager-should-build-a-website.html">
-        <div class="card">
-          <img
-            src="/images/build-a-website-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing a screenshot of code in VSCode"
-          />
-          <div class="container">
-            <h2>Why every Product Manager should build a website</h2>
-            <p>
-              A short explanation of why I believe every product manager should
-              build a website.
-            </p>
-          </div>
+    <a href="/posts/why-every-product-manager-should-build-a-website.html">
+      <div class="card">
+        <img src="/images/build-a-website-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing a screenshot of code in VSCode" />
+        <div class="container">
+          <h2>Why every Product Manager should build a website</h2>
+          <p>
+            A short explanation of why I believe every product manager should
+            build a website.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/my-rowing-tips-after-15-million-meters.html">
-        <div class="card">
-          <img
-            src="/images/rowing-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail vector image showing a Concept2 rowing machine, a TV, and a bar chart pinned to a wall in the background."
-          />
-          <div class="container">
-            <h2>My indoor rowing tips after 15 million meters</h2>
-            <p>My experience and tips for anyone new to indoor rowing.</p>
-          </div>
+    <a href="/posts/my-rowing-tips-after-15-million-meters.html">
+      <div class="card">
+        <img src="/images/rowing-thumb.png" width="300" height="200"
+          alt="Thumbnail vector image showing a Concept2 rowing machine, a TV, and a bar chart pinned to a wall in the background." />
+        <div class="container">
+          <h2>My indoor rowing tips after 15 million meters</h2>
+          <p>My experience and tips for anyone new to indoor rowing.</p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/chart-picker.html">
-        <div class="card">
-          <img
-            src="/images/chart-picker-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing four different chart types that can be used to show the distribution across groups."
-          />
-          <div class="container">
-            <h2>Chart Picker</h2>
-            <p>
-              My Excalidraw diagram designed to help you pick the correct chart
-              type.
-            </p>
-          </div>
+    <a href="/posts/chart-picker.html">
+      <div class="card">
+        <img src="/images/chart-picker-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing four different chart types that can be used to show the distribution across groups." />
+        <div class="container">
+          <h2>Chart Picker</h2>
+          <p>
+            My Excalidraw diagram designed to help you pick the correct chart
+            type.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/rss-part-1.html">
-        <div class="card">
-          <img src="/images/rss-thumb.png"
-          width="300"
-          height="200"
-          alt="Thumbnail image showing a screenshot of an RSS reader that contains a list of articles."
-        />
-          <div class="container">
-            <h2>RSS part 1: what is RSS and what are aggregators?</h2>
-            <p>
-              Part 1 in a series in which I hope to convey the benefits of RSS.
-            </p>
-          </div>
+    <a href="/posts/rss-part-1.html">
+      <div class="card">
+        <img src="/images/rss-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing a screenshot of an RSS reader that contains a list of articles." />
+        <div class="container">
+          <h2>RSS part 1: what is RSS and what are aggregators?</h2>
+          <p>
+            Part 1 in a series in which I hope to convey the benefits of RSS.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/drawing-with-excalidraw.html">
-        <div class="card">
-          <img
-            src="/images/excalidraw-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing two trump stlye cards drawn using Excalidraw."
-          />
-          <div class="container">
-            <h2>Drawing with Excalidraw</h2>
-            <p>
-              A short post describing how I use my new favourite sketching tool
-              i.e. Excalidraw.
-            </p>
-          </div>
+    <a href="/posts/drawing-with-excalidraw.html">
+      <div class="card">
+        <img src="/images/excalidraw-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing two trump stlye cards drawn using Excalidraw." />
+        <div class="container">
+          <h2>Drawing with Excalidraw</h2>
+          <p>
+            A short post describing how I use my new favourite sketching tool
+            i.e. Excalidraw.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/working-from-home-hardware.html">
-        <div class="card">
-          <img
-            src="/images/hardware-thumb.jpg"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing a photograph of a PC, 2 monitors, a keyboard and mouse, all sitting on a large desk in a bay window."
-          />
-          <div class="container">
-            <h2>Working from home hardware</h2>
-            <p>
-              A description of my WFH hardware setup, and why I believe you
-              should invest in yours.
-            </p>
-          </div>
+    <a href="/posts/working-from-home-hardware.html">
+      <div class="card">
+        <img src="/images/hardware-thumb.jpg" width="300" height="200"
+          alt="Thumbnail image showing a photograph of a PC, 2 monitors, a keyboard and mouse, all sitting on a large desk in a bay window." />
+        <div class="container">
+          <h2>Working from home hardware</h2>
+          <p>
+            A description of my WFH hardware setup, and why I believe you
+            should invest in yours.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/anatomy-of-a-lockdown-day.html">
-        <div class="card">
-          <img
-            src="images/anatomy-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing a graphic that resembles a horizontally stacked bar chart, where each section of the bar is an event e.g. reading, watching TV."
-          />
-          <div class="container">
-            <h2>Anatomy of a lockdown weekday</h2>
-            <p>
-              A description of the routine I fell into while WFH during the
-              COVID-19 pandemic.
-            </p>
-          </div>
+    <a href="/posts/anatomy-of-a-lockdown-day.html">
+      <div class="card">
+        <img src="images/anatomy-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing a graphic that resembles a horizontally stacked bar chart, where each section of the bar is an event e.g. reading, watching TV." />
+        <div class="container">
+          <h2>Anatomy of a lockdown weekday</h2>
+          <p>
+            A description of the routine I fell into while WFH during the
+            COVID-19 pandemic.
+          </p>
         </div>
-      </a>
+      </div>
+    </a>
 
-      <a href="/posts/using-virtual-desktops-in-windows-10.html">
-        <div class="card">
-          <img
-            src="/images/desktops-thumb.png"
-            width="300"
-            height="200"
-            alt="Thumbnail image showing a graphic of various apps running on two virtual desktops."
-          />
-          <div class="container">
-            <h2>Using virtual desktops in Windows 10</h2>
-            <p>
-              How to take advantage of virtual desktops when shifting between
-              tasks.
-            </p>
-          </div>
+    <a href="/posts/using-virtual-desktops-in-windows-10.html">
+      <div class="card">
+        <img src="/images/desktops-thumb.png" width="300" height="200"
+          alt="Thumbnail image showing a graphic of various apps running on two virtual desktops." />
+        <div class="container">
+          <h2>Using virtual desktops in Windows 10</h2>
+          <p>
+            How to take advantage of virtual desktops when shifting between
+            tasks.
+          </p>
         </div>
-      </a>
-    </main>
-  </body>
+      </div>
+    </a>
+  </main>
+</body>
+
 </html>
