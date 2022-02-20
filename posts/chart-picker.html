@@ -4,56 +4,43 @@
 
 <head>
     <title>Chart Picker</title>
-    <meta name="description" content="All the detail of my Chart Picker built using Excalidraw, and hosted on GitHub.">
+    <meta name="description"
+        content="All the detail of my Chart Picker built using Excalidraw, and hosted on GitHub.">
     <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" type="text/css" href="../styles/chart-picker.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!-- link to RSS -->
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
-    <!-- Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-L464TSFFK9');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-L464TSFFK9');
     </script>
-
     <!-- Service working for installable app-->
-      <script>
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("/service-worker.js", {
-            scope: "/",
-          });
-        }
-      </script>
-
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js", {
+          scope: "/",
+        });
+      }
+    </script>
 </head>
 
 <body>
-    <main class="page">
-        <!-- set title, pubdate, and article style -->
-        <header class="header">
-            <nav>
-                <a href="../index.html">Home</a></p>
-            </nav>
-            <h1>Chart Picker</h1>
-            <div class="metarow">
-                <div class="pubdate">
-                    <p><time datetime="2021-03-28">28 Mar 2021</time> · Mark Evans</p>
-                </div>
-                <div class="articlestyle">
-                    <p>Article Style: page, clean, sans serif</p>
-                </div>
-            </div>
-        </header>
-        <header style="clear: both"></header>
+  <main class="page">
+    <header class="header">
+      <nav>
+        <a href="../index.html">Home</a></p>
+      </nav>
+      <h1>Chart Picker</h1>
+      <p class="pubdate"><time datetime="2021-03-28">28 Mar 2021</time> · Mark Evans</p></div>
+    </header>
 
-        <!-- main article -->
-        <article class="article">
-
-            <!-- Intro - section -->
-            <section>
+        <article><!-- main article -->
+            <section><!-- Intro - section -->
                 <h2>Background</h2>
                 <p>Whether you work in data science, data analytics, finance, strategy, user experience, sales,
                     marketing, or product, at some point you will be creating data visualisations, either for use
@@ -122,9 +109,7 @@
                         href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
                 </p>
             </section>
-
         </article>
     </main>
 </body>
-
 </html>
