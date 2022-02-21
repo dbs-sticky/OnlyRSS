@@ -93,19 +93,22 @@ blockquote {
 h1,h2,h3,h4,h5,h6
 {
   font-family: "Inter", sans-serif;
-  margin-bottom: -13px;
-  margin-top: 35px;
   color: #000000;
   font-weight: normal;
+  line-height: 1em;
 }
 
 /* set individual heading sizes */
 h1 {
     font-size: 2em;
-    margin-bottom: 0px;
-    line-height: 1.2em;}
+    margin-bottom: 0px;}
 h2 {font-size: 1.4em;}
 h3 {font-size: 1.2em;}
+
+
+h2 {
+  margin: 0px;
+}
 
 /* set the link styles */
 a:link {
