@@ -83,9 +83,10 @@ blockquote {
   background: #f9f9f9;
   border-left: 5px solid rgb(202, 0, 0);
   margin: 1.5em 10px;
+  margin-left: 50px;
   padding: 0.5em 10px;
   font-style: italic;
-  font-size: large;
+  font-size:  0.9em;
 }
 
 /* set the common heading styles */
