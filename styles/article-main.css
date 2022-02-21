@@ -23,7 +23,7 @@ body {
 
 /* define global page variables, e.g. page and image max width and colour pallete */
 :root {
-  --pagewidth: 750px;
+  --pagewidth: 700px;
   --brown-very-dark: #5d5c61;
   --brown-dark: #938e94;
   --brown-light: #b1a296;
@@ -37,7 +37,7 @@ body {
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
 header {
-  padding: 10px;
+  padding: 0px;
   max-width: var(--pagewidth);
   margin: auto;
 }
@@ -100,8 +100,10 @@ h1,h2,h3,h4,h5,h6
 
 /* set individual heading sizes */
 h1 {
-    font-size: 2em;
-    margin-bottom: 0px;}
+  font-size: 2em;
+  margin-bottom: 0px;
+  line-height: 1.4em;
+}
 h2 {font-size: 1.4em;}
 h3 {font-size: 1.2em;}
 
@@ -122,7 +124,6 @@ a:visited {
 }
 
 a:hover {
-
   text-decoration: underline;
 }
 
@@ -140,7 +141,15 @@ pre code {
   word-wrap: break-word;
 }
 
-/* left indent lists to align with paragraphs, it's a bit controversial */
+/* remove left padding so indents overhang, set disc, and set marker colour */
 ul, ol {
-  margin-left: -40px;
+padding-left: 0px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+::marker {
+  color: rgb(202, 0, 0);
 }
