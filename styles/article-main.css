@@ -1,21 +1,23 @@
 /* get Inter 400 */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400&display=swap');
 
 /* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
 body {
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font-family: 'Roboto Serif', sans-serif;
+  line-height: 1.7;
   font-weight: 400;
+  color: #2e2e2e;
 }
+
+
 @media screen and (min-width: 320px) {
   body {
-    font-size: calc(11px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(11px + 8 * ((100vw - 320px) / 680));
   }
 }
 @media screen and (min-width: 850px) {
   body {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
@@ -34,7 +36,7 @@ body {
 }
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
-.header {
+header {
   padding: 10px;
   max-width: var(--pagewidth);
   margin: auto;
@@ -74,13 +76,12 @@ article {
 }
 
 strong {
-  color: #000000;
   font-weight: 600;
 }
 
 blockquote {
   background: #f9f9f9;
-  border-left: 10px solid rgb(83, 144, 235);
+  border-left: 5px solid rgb(202, 0, 0);
   margin: 1.5em 10px;
   padding: 0.5em 10px;
   font-style: italic;
@@ -107,21 +108,18 @@ h3 {font-size: 1.2em;}
 
 /* set the link styles */
 a:link {
-  color: rgb(83, 144, 235);
-  text-decoration: underline;
+  color: rgb(202, 0, 0);
+  text-decoration:none;
   font-weight: 400;
 }
 
 a:visited {
-  color: rgb(83, 144, 235);
-  text-decoration: none;
-  font-weight: 400;
+  color: rgb(136, 0, 0);
 }
 
-a:active {
-  color: rgb(83, 144, 235);
-  text-decoration: none;
-  font-weight: 300;
+a:hover {
+
+  text-decoration: underline;
 }
 
 /* set the stylre for code blocks */
@@ -136,4 +134,9 @@ pre code {
   /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+/* left indent lists to align with paragraphs, it's a bit controversial */
+ul, ol {
+  margin-left: -40px;
 }
