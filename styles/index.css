@@ -12,7 +12,7 @@
 }
 
 body {
-  max-width: 1050px;
+  max-width: 1920px;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   margin: auto;
@@ -34,7 +34,7 @@ body {
 main {
   display: flex;
   flex-flow: wrap;
-  justify-content: center;
+  justify-content: left;
 }
 
 header {
@@ -91,5 +91,7 @@ img {
   bottom: 0;
 }
 a {
+  font-size: small;
   color: black;
+  text-decoration: none;
 }

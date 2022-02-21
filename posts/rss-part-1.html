@@ -4,55 +4,43 @@
 
 <head>
     <title>RSS Part 1: What is RSS and what are 'aggregators'?</title>
-    <meta name="description" content="Part 1 in a series of articles related to all things RSS. In this first article I describe the benefits of using RSS">
+    <meta name="description"
+        content="Part 1 in a series of articles related to all things RSS. In this first article I describe the benefits of using RSS">
     <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" type="text/css" href="../styles/rss-part-1.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!-- link to RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="feed.xml" />
-    <!-- Google Analytics -->
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
-
-
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-L464TSFFK9");
-      </script>
-
-          <!-- Service working for installable app-->
-      <script>
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("/service-worker.js", {
-            scope: "/",
-          });
-        }
-      </script>
-
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-L464TSFFK9');
+    </script>
+    <!-- Service working for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js", {
+          scope: "/",
+        });
+      }
+    </script>
 </head>
 
 <body>
-    <main class="page">
-        <!-- set title, pubdate, and article style -->
-        <header class="header">
-            <nav>
-                <a href="../index.html">Home</a></p>
-            </nav>
-            <h1>RSS Part 1:<br>What is RSS and what are 'aggregators'?</h1>
-            <div class="metarow">
-                <div class="pubdate"><p><time datetime="2021-03-07">7 Mar 2021</time> · Mark Evans</p></div>
-                <div class="articlestyle"><p>Article Style: page, wide, clean, sans serif</p></div>
-            </div>
-        </header>
+  <main class="page">
+    <header>
+      <nav>
+        <a href="../index.html">Home</a></p>
+      </nav>
+      <h1>RSS Part 1:<br>What is RSS and what are 'aggregators'?</h1>
+      <p class="pubdate"><time datetime="2021-03-07">7 Mar 2021</time> · Mark Evans</p></div>
+    </header>
 
-        <!-- main article -->
-        <article class="article">
-
-            <!-- Intro - section -->
-            <section>
+    <article><!-- main article -->
+        <section><!-- Intro - section -->
                 <h2>What is RSS?</h2>
                 <p>RSS (Really Simple Syndication) is a web feed that allows users and applications to access updates to
                     websites in a standardised, computer-readable format. These feeds can, for example, allow you to
@@ -64,8 +52,7 @@
                     the same way that you never see all the metadata associated with each e-mail you receive), it&#39;s
                     not
                     meant for people, it&#39;s meant for machines, i.e. the RSS aggregators.</p>
-                <pre><code>
-&lt;channel&gt;
+<pre><code>&lt;channel&gt;
 &lt;title&gt;OnlyRSS&lt;/title&gt;
 &lt;link&gt;https://onlyrss.org&lt;/link&gt;
 &lt;description&gt;The latest posts from OnlyRSS.org&lt;/description&gt;
@@ -125,7 +112,7 @@
 
             <!-- and it's not just aggregation - section -->
             <section>
-                <h3>...and it's not just aggregation</h3>
+                <h3>…and it's not just aggregation</h3>
                 <p>The basic requirement of an RSS aggregator is that it aggregates content via RSS feeds. But, much
                     like
                     e-mail clients, RSS aggregators tend to offer more than just this basic capability. In addition to
@@ -173,5 +160,4 @@
         </article>
     </main>
 </body>
-
 </html>

@@ -4,56 +4,52 @@
 
 <head>
     <title>Drawing with Excalidraw</title>
-    <meta name="description" content="A short article describing how I use my new favourite sketching tool i.e. Excalidraw.">
+    <meta name="description"
+        content="A short article describing how I use my new favourite sketching tool i.e. Excalidraw.">
     <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" type="text/css" href="../styles/drawing-with-excalidraw.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
     <link rel="icon" type="image/png" href="../images/favicon.png" />
     <!-- link to RSS -->
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-L464TSFFK9');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-L464TSFFK9');
     </script>
-
     <!-- Service working for installable app-->
-      <script>
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("/service-worker.js", {
-            scope: "/",
-          });
-        }
-      </script>
-
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js", {
+          scope: "/",
+        });
+      }
+    </script>
 </head>
 
 <body>
-    <!-- main article -->
-    <article class="article">
-        <!-- set title, pubdate, and article style -->
-        <header class="header">
-            <nav>
-                <a href="../index.html">Home</a></p>
-            </nav>
-            <h1>Drawing with Excalidraw</h1>
-            <div class="metarow">
-                <div class="pubdate"><p><time datetime="2021-03-02">2 Mar 2021</time> · Mark Evans</p></div>
-                <div class="articlestyle"><p>Article Style: Excalidraw</p></div>
-            </div>
-        </header>
+  <main class="page">
+    <header>
+      <nav>
+        <a href="../index.html">Home</a></p>
+      </nav>
+      <h1>Drawing with Excalidraw</h1>
+      <p class="pubdate"><time datetime="2021-03-02">2 Mar 2021</time> · Mark Evans</p>
+    </header>
 
-        <!-- Intro - section -->
-        <section>
+    <article><!-- main article -->
+      <section><!-- Intro - section -->
             <h2>Excaliwhatnow?</h2>
-            <p>Excalidraw is described by its creators as a "Virtual whiteboard for sketching hand-drawn like diagrams".
-                I'd describe it slightly differently, I think I'd go with "a drawing tool that's so easy to use that you
+            <p>Excalidraw is described by its creators as a "Virtual whiteboard for sketching hand-drawn like
+                diagrams".
+                I'd describe it slightly differently, I think I'd go with "a drawing tool that's so easy to use that
+                you
                 spend your time making sure the drawing is effective, rather than 'pixel-fiddling'".
             </p>
-            <p>Excalidraw is great for quickly creating diagrams (you can see lots of great examples on the bottom of <a
-                    target="blank" href="https://blog.excalidraw.com/one-year-of-excalidraw/">this page</a>),
+            <p>Excalidraw is great for quickly creating diagrams (you can see lots of great examples on the bottom
+                of <a target="blank" href="https://blog.excalidraw.com/one-year-of-excalidraw/">this page</a>),
                 but it can be used for "sketch" style drawings, like the drawing below of my rowing setup.</p>
 
             <img src="../images/drawing-with-excalidraw-1.png">
@@ -78,23 +74,31 @@
         <section>
             <h2>How I use it</h2>
             <p>As a Product Manager, I'm often having to define what apps look like, how they're structured, what
-                components they include etc. and I used to do this using hi-fidelity mock-up tools such as AxureRP (or
-                even Adobe illustrator!). And to be honest, I wasted a lot of time obsessing over the size, colour and
-                exact location of various page components. Once my company got serious about UX and started embedding
+                components they include etc. and I used to do this using hi-fidelity mock-up tools such as AxureRP
+                (or
+                even Adobe illustrator!). And to be honest, I wasted a lot of time obsessing over the size, colour
+                and
+                exact location of various page components. Once my company got serious about UX and started
+                embedding
                 dedicated UX resource within our squads, then it was no longer my responsibility to make my mock-ups
                 pixel perfect.</p>
             <p> This is where Excalidraw really shines (it's hard to be pixel perfect when there are no straight
                 lines!), as its focus is on a "hand-drawn" aesthetic, it lends itself well towards the creation of
-                "quick-and-dirty" sketches where the focus is to portray an idea or concept, rather than to represent a
-                final pixel perfect design. Sketches can be created and altered quickly, and all from within a browser
-                (important for those of us who work for large corporations and don't have the admin rights required to
+                "quick-and-dirty" sketches where the focus is to portray an idea or concept, rather than to
+                represent a
+                final pixel perfect design. Sketches can be created and altered quickly, and all from within a
+                browser
+                (important for those of us who work for large corporations and don't have the admin rights required
+                to
                 install apps on our PCs).</p>
-            <p>The mock-up below of a news search page took about 15mins to produce, but the sketch does highlight quite
+            <p>The mock-up below of a news search page took about 15mins to produce, but the sketch does highlight
+                quite
                 a few important features about the search page concept.</p>
 
             <img src="../images/drawing-with-excalidraw-2.png">
             <p><a href="../images/drawing-with-excalidraw-2.svg" target="_blank">click to view full size</a></p>
-            <p> In addition to using it at work for mock-ups, it's also my "go-to" drawing app for this blog, as you can
+            <p> In addition to using it at work for mock-ups, it's also my "go-to" drawing app for this blog, as you
+                can
                 see in my post about my <a href="../posts/anatomy-of-a-lockdown-day.html"> lockdown days</a>.</p>
         </section>
 
@@ -112,21 +116,23 @@
         <!-- Conclusion - section -->
         <section>
             <h2>Conclusions</h2>
-            <p>I really can't recommend Excalidraw strongly enough, it's a great tool, built and maintained by a group
-                of enthusiastic developers who are actively engaging with their users. But, the only way to see how good
+            <p>I really can't recommend Excalidraw strongly enough, it's a great tool, built and maintained by a
+                group
+                of enthusiastic developers who are actively engaging with their users. But, the only way to see how
+                good
                 it really is, is to <a href="https://excalidraw.com/">go and sketch something :-)</a></p>
 
         </section>
-        
-    <!-- feedback - section -->
-    <section>
-        <p>
-          If you have any comments on this article then please get in touch via Twitter (<a
-            href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-        </p>
-      </section>
 
+        <!-- feedback - section -->
+        <section>
+            <p>
+                If you have any comments on this article then please get in touch via Twitter (<a
+                    href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+            </p>
+        </section>
     </article>
+</main>
 </body>
 
 </html>
