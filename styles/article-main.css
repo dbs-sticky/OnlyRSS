@@ -3,13 +3,11 @@
 /* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
 body {
   font-family: 'Roboto Serif', sans-serif;
-  line-height: 1.6;
+  line-height: 1.8;
   font-weight: 400;
   color: #2e2e2e;
 
 }
-
-
 
 @media screen and (min-width: 320px) {
   html {
@@ -34,6 +32,10 @@ body {
 
 body {
   background-color: #ffffff;
+}
+
+p {
+  margin-bottom: 1.6em;
 }
 
 /* set the header section width and padding, cheers Riggers for help with this bit */
@@ -145,6 +147,8 @@ pre code {
 /* remove left padding so indents overhang, set disc, and set marker colour */
 ul, ol {
 padding-left: 0px;
+padding-bottom: 1.0em;
+line-height: 1.6em;
 }
 
 ul {
