@@ -75,10 +75,6 @@ nav a:link {
   font-size:small
 }
 
-nav a:visited {
-  color: rgb(136, 0, 0);
-}
-
 nav a:hover {
   text-decoration: underline;
 }
