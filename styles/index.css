@@ -59,10 +59,24 @@ img {
   height: 180px;
   bottom: 0;
 }
+
+/* set the card link styles */
 a {
   font-size: small;
   color: black;
   text-decoration: none;
+}
+
+/* set the nav link styles */
+nav a:link {
+  color: #ca0000;
+  text-decoration:none;
+  font-weight: 400;
+  font-size:small
+}
+
+nav a:visited {
+  color: rgb(136, 0, 0);
 }
 
 nav a:hover {
