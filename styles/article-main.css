@@ -106,7 +106,7 @@ h2 {
 
 /* set the link styles */
 a:link {
-  color: rgb(202, 0, 0);
+  color: #ca0000;
   text-decoration:none;
   font-weight: 400;
 }

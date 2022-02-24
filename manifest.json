@@ -1,7 +1,7 @@
 {
     "name": "OnlyRSS.org",
     "short_name": "OnlyRSS",
-    "theme_color": "#f38621",
+    "theme_color": "#ca0000",
     "background_color": "#ffffff",
     "display": "minimal-ui",
     "scope": "/",
