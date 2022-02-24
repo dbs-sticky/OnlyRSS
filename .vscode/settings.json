@@ -2,7 +2,7 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "spellright.language": ["en"],
-  "spellright.documentTypes": ["markdown", "latex", "plaintext", "html"],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext", "html", "css"],
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   }
