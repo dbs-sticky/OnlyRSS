@@ -79,6 +79,10 @@ nav a:hover {
   text-decoration: underline;
 }
 
+nav a:visited {
+  color: #ca0000;
+}
+
 .date{
   position: absolute;
   bottom: 10px;
