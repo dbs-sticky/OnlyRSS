@@ -9,7 +9,7 @@ body {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   margin: auto;
-  background-color: #f5f7f8;
+  background-color: rgb(255, 255, 255);
 }
 
 main {
@@ -39,20 +39,19 @@ h2 {
   transition: 0.5s;
   width: 300px;
   height: 400px;
-  border-radius: 8px;
-  border-style: solid;
-  border-color: rgb(196, 195, 195);
-  border-width: 1px;
+  border-radius: 5px;
+  border: 1px solid LightGrey;
   margin: 20px;
   position: relative;
+  box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
 }
 
 img {
-  border-radius: 8px 8px 0 0;
+  border-radius: 5px 5px 0 0;
 }
 
 .container {
