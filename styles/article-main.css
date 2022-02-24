@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400;1,500&display=swap');
 /* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
 body {
   font-family: 'Roboto Serif', sans-serif;
   line-height: 1.8;
   font-weight: 400;
   color: #2e2e2e;
-
 }
 
 @media screen and (min-width: 320px) {
@@ -23,11 +21,6 @@ body {
 /* define global page variables, e.g. page and image max width and colour pallete */
 :root {
   --pagewidth: 700px;
-  --brown-very-dark: #5d5c61;
-  --brown-dark: #938e94;
-  --brown-light: #b1a296;
-  --blue-dark: #1f4a69;
-  --blue-light: #7395e5;
 }
 
 body {
@@ -56,7 +49,6 @@ img {
   font-family: "Inter", sans-serif;
   font-style: italic;
   font-size: 0.8em;
-  color: var(--brown-very-dark);
 }
 
 /* set the  article width and bottom padding */
@@ -78,10 +70,6 @@ article {
   margin-top: 20px;
 }
 
-strong {
-  font-weight: 600;
-}
-
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid rgb(202, 0, 0);
@@ -90,6 +78,7 @@ blockquote {
   padding: 0.5em 10px;
   font-style: italic;
   font-size:  0.9em;
+  font-weight: 500;
 }
 
 /* set the common heading styles */
