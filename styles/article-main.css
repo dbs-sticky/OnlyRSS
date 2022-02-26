@@ -1,20 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400;1,500&display=swap');
 /* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
-body {
+html {
   font-family: 'Roboto Serif', sans-serif;
   line-height: 1.8;
   font-weight: 400;
   color: #2e2e2e;
 }
 
+/* set size for 320px - 768px ≈11px/70% */
 @media screen and (min-width: 320px) {
   html {
-    font-size: calc(8px + 9 * ((100vw - 320px) / 680));
+    font-size: 70%;
   }
 }
-@media screen and (min-width: 1000px) {
+/* set size for 768px - 1200px ≈16px/100% */
+@media screen and (min-width: 768px) {
   html {
-    font-size: 17px;
+    font-size: 100%;
+  }
+}
+/* set size for >1200px ≈18px/110% */
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 110%;
   }
 }
 
