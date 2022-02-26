@@ -10,7 +10,7 @@ html {
 /* set size for 320px - 768px ≈11px/70% */
 @media screen and (min-width: 320px) {
   html {
-    font-size: 70%;
+    font-size: 80%;
   }
   .page {
     padding: 20px;
