@@ -12,17 +12,30 @@ html {
   html {
     font-size: 70%;
   }
+  .page {
+    padding: 20px;
+    margin-top: 10px;
+  }
 }
 /* set size for 768px - 1200px ≈16px/100% */
 @media screen and (min-width: 768px) {
   html {
     font-size: 100%;
   }
+  .page {
+    padding: 40px;
+    margin-top: 15px;
+  }
 }
 /* set size for >1200px ≈18px/110% */
 @media screen and (min-width: 1200px) {
   html {
     font-size: 110%;
+  }
+
+  .page {
+    padding: 60px;
+    margin-top: 20px;
   }
 }
 
@@ -68,25 +81,23 @@ article {
 
 /* set the style of the page outline */
 .page {
-  padding: 60px;
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
   max-width: calc(var(--pagewidth) * 1.1);
   margin: auto;
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
-  margin-top: 20px;
 }
 
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid rgb(202, 0, 0);
   margin: 1.5em 10px;
-  margin-left: 50px;
   padding: 0.5em 10px;
   font-style: italic;
   font-size:  0.9em;
   font-weight: 500;
+  margin-left: 50px;
 }
 
 /* set the common heading styles */
