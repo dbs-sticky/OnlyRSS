@@ -5,17 +5,35 @@
 
 body {
   margin: auto;
-  width: 600px;
+  max-width: 600px;
   background-color: #f9f7f1;
   font-family: "print", serif;
   color: black;
   padding: 1em 6em 6em 6em;
 }
 
+/* set style for <768 */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 1rem;
+  }
+  body {
+    padding: 1.5em 1.5em 1.5em 1.5em;
+  }
+}
+/* set style for >768 */
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 1.1rem;
+  }
+  body {
+    padding: 1em 3em 3em 3em;
+  }
+}
+
 h1 {
   text-transform: uppercase;
-  line-height: 0em;
-  padding: 1em 0 0.2em 0;
+  line-height: 1.1em;
 }
 
 p {
@@ -27,7 +45,7 @@ p {
 h2 + p::first-letter {
   float: left;
   font-size: 2.3rem;
-  line-height: 1;
+  line-height: 1.1em;
   margin: 0 0.1em 0 -0.1em;
   padding: 0.1em;
 }
@@ -44,4 +62,23 @@ p + p {
 
 .pubdate{
   line-height: 3em;
+}
+
+.homebtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  background: #ca0000;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-style: none;
+}
+
+.homebtn:hover {
+  background: #db0f0f;
+  text-decoration: none;
+  cursor:pointer;
 }
