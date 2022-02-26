@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400;1,500&display=swap');
 /* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
+
+/* define global page variables, e.g. page and image max width and colour pallete */
+:root {
+  --pagewidth: 700px;
+}
+
+
 html {
   font-family: 'Roboto Serif', sans-serif;
   line-height: 1.8;
@@ -7,7 +14,7 @@ html {
   color: #2e2e2e;
 }
 
-/* set size for 320px - 768px ≈11px/70% */
+/* set size for 320px - 768px ≈16px/100% */
 @media screen and (min-width: 320px) {
   html {
     font-size: 100%;
@@ -21,7 +28,7 @@ html {
     margin-left: 0px !important;
   }
 }
-/* set size for 768px - 1200px ≈16px/100% */
+/* set size for 768px - 1200px ≈18px/110% */
 @media screen and (min-width: 768px) {
   html {
     font-size: 110%;
@@ -34,7 +41,7 @@ html {
     margin-left: 30px !important;
   }
 }
-/* set size for >1920px ≈18px/110% */
+/* set size for >1920px ≈19px/120% */
 @media screen and (min-width: 1920px) {
   html {
     font-size: 120%;
@@ -44,14 +51,13 @@ html {
     margin-top: 20px;
   }
   blockquote{
-    margin-left: 50px !important;
+    margin-left: 60px !important;
+  }
+  :root {
+    --pagewidth: 800px !important;
   }
 }
 
-/* define global page variables, e.g. page and image max width and colour pallete */
-:root {
-  --pagewidth: 700px;
-}
 
 body {
   background-color: #ffffff;
@@ -101,8 +107,8 @@ article {
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid rgb(202, 0, 0);
-  margin: 1.5em 10px;
-  padding: 0.5em 10px;
+  margin:  30px;
+  padding: 20px;
   font-style: italic;
   font-size:  0.9em;
   font-weight: 500;
