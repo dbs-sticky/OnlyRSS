@@ -44,10 +44,11 @@ p {
 
 h2 + p::first-letter {
   float: left;
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   line-height: 1.1em;
-  margin: 0 0.1em 0 -0.1em;
+  margin: 0 0em -0.4em -0.1em;
   padding: 0.1em;
+  padding-top: 0px;
 }
 
 p + p {
@@ -56,7 +57,7 @@ p + p {
 
 .code {
   margin: auto;
-  width: 50%;
+  max-width: 70%;
   padding: 1em;
 }
 
