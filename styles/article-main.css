@@ -200,3 +200,12 @@ ul {
   text-decoration: none;
   cursor:pointer;
 }
+
+figure {
+  margin:0px
+}
+figcaption {
+  font-size: 80%;
+  padding: 10px;
+  font-style: italic;
+}
