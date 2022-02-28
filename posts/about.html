@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8" />
-
 <head>
   <title>About OnlyRSS</title>
-  <meta name="description"
-    content="My blog exists solely so I have a reason to learn HTML, CSS and JavaScript. My aim is to experiment with various article designs, hopefully reaching a point where the article style is influenced by the article subject.">
+  <meta charset="UTF-8" />
+  <meta name ="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+  <meta name="description" content="My blog exists solely so I have a reason to learn HTML, CSS and JavaScript. My aim is to experiment with various article designs, hopefully reaching a point where the article style is influenced by the article subject.">
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" type="text/css" href="../styles/about.css" />
   <link rel="icon" type="image/png" href="../images/favicon.png" />
@@ -19,16 +19,14 @@
     gtag('js', new Date());
     gtag('config', 'G-L464TSFFK9');
   </script>
-
-      <!-- Service working for installable app-->
-      <script>
-        if ("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("/service-worker.js", {
-            scope: "/",
-          });
-        }
-      </script>
-
+  <!-- Service working for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
 </head>
 
 <body>
