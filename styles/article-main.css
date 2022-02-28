@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400;1,500&display=swap');
 /* scale font-size from a minimum of 14px (at a 320px viewport) to a maximum of 20px (at a 850px viewport). */
 
-/* define global page variables, e.g. page and image max width and colour pallete */
+/* define global page variables, e.g. page and accent colour */
 :root {
   --pagewidth: 700px;
+  --accent: #3d74bd;
 }
 
 
@@ -106,7 +107,7 @@ article {
 
 blockquote {
   background: #f9f9f9;
-  border-left: 5px solid rgb(202, 0, 0);
+  border-left: 5px solid var(--accent);
   margin:  30px;
   padding: 20px;
   font-style: italic;
@@ -139,21 +140,16 @@ h2 {
 }
 
 /* set the link styles */
-a:link {
-  color: #ca0000;
+a {
+  color: var(--accent);
   text-decoration:none;
   font-weight: 400;
 }
-
-a:visited {
-  color: rgb(136, 0, 0);
-}
-
 a:hover {
   text-decoration: underline;
 }
 
-/* set the stylre for code blocks */
+/* set the style for code blocks */
 pre code {
   background-color: rgb(0, 0, 0);
   border: 1px solid #999;
@@ -179,7 +175,7 @@ ul {
 }
 
 ::marker {
-  color: rgb(202, 0, 0);
+  color: var(--accent);
 }
 
 .homebtn {
@@ -189,23 +185,26 @@ ul {
   font-family: Arial;
   color: #ffffff;
   font-size: 16px;
-  background: #ca0000;
+  background: var(--accent);
   padding: 5px 10px 5px 10px;
   text-decoration: none;
   border-style: none;
 }
 
 .homebtn:hover {
-  background: #db0f0f;
+  filter: brightness(125%);
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 figure {
-  margin:0px
+  margin:0;
 }
 figcaption {
   font-size: 80%;
-  padding: 10px;
+  margin-top: 5px;
+  padding-top: 8px;
+  padding-bottom: 25px;
   font-style: italic;
+  border-top: 2px solid var(--accent);
 }

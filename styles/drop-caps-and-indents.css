@@ -3,6 +3,10 @@
   src: url(../fonts/Oldnewspapertypes-449D.ttf);
 }
 
+:root {
+  --accent: #3d74bd;
+}
+
 body {
   margin: auto;
   max-width: 600px;
@@ -72,14 +76,14 @@ p + p {
   font-family: Arial;
   color: #ffffff;
   font-size: 16px;
-  background: #ca0000;
+  background: var(--accent);
   padding: 5px 10px 5px 10px;
   text-decoration: none;
   border-style: none;
 }
 
 .homebtn:hover {
-  background: #db0f0f;
+  filter: brightness(125%);
   text-decoration: none;
-  cursor:pointer;
+  cursor: pointer;
 }
