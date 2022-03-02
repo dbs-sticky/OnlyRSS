@@ -93,7 +93,7 @@ img {
 article {
   max-width: var(--pagewidth);
   margin: auto;
-  padding-bottom: 100px;
+  padding-bottom: 20px;
 }
 
 /* set the style of the page outline */
@@ -130,7 +130,8 @@ h1,h2,h3,h4,h5,h6
 h1 {
   font-size: 2em;
   margin-bottom: 0px;
-  line-height: 1.4em;
+  line-height: 1.1em;
+  text-transform:uppercase;
 }
 h2 {font-size: 1.4em;}
 h3 {font-size: 1.2em;}
@@ -220,7 +221,7 @@ h2.related {
 }
 
 img.related {
-  border-radius: 10px 0 0 10px;
+  border-radius: 5px 0 0 5px;
 }
 
 p.related {
@@ -230,31 +231,29 @@ p.related {
   margin-top: 0.4em;
 }
 
-/* set the card link styles */
 a.related {
   color: black;
   text-decoration: none;
 }
 .grid-container-related {
-  margin: auto;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  max-width: calc(var(--pagewidth) * 1.1);
-  min-width: 320px;
-  background-color: rgb(255, 255, 255);
-  transition: 0.5s;
-  height: 132px;
+  background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
-  position: relative;
-  box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
+  max-width: calc(var(--pagewidth) * 1.22);
+  margin: auto;
   margin-top: 20px;
+  box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+
 }
 .grid-container-related:hover {
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
 }
 .grid-child-related {
   padding: 10px;
+}
+
+section.related {
+  margin-bottom:30px;
 }
