@@ -209,3 +209,52 @@ figcaption {
   font-style: italic;
   border-top: 2px solid var(--accent);
 }
+
+/* Related articles */
+h2.related {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  margin-top: 0.2em;
+  margin-bottom: 0.0em;
+}
+
+img.related {
+  border-radius: 10px 0 0 10px;
+}
+
+p.related {
+  font-family: 'Roboto Serif', sans-serif;
+  line-height: 1.5;
+  font-size: 0.8em;
+  margin-top: 0.4em;
+}
+
+/* set the card link styles */
+a.related {
+  color: black;
+  text-decoration: none;
+}
+.grid-container-related {
+  margin: auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  max-width: calc(var(--pagewidth) * 1.1);
+  min-width: 320px;
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+  height: 132px;
+  border-radius: 5px;
+  border: 1px solid LightGrey;
+  position: relative;
+  box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
+  margin-top: 20px;
+}
+.grid-container-related:hover {
+  box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
+}
+.grid-child-related {
+  padding: 10px;
+}
