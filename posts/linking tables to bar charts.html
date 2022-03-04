@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Linking tables to bar charts</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Improving bar charts by linking the associated table data.">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <!-- link to RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-L464TSFFK9');
+  </script>
+  <!-- Service working for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <nav>
+        <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
+      </nav>
+      <h1>Linking tables and bar charts</h1>
+      <p class="pubdate"><time datetime="2022-03-4">4 Mar 2023</time> · 3 mins · Mark Evans</p>
+    </header>
+
+    <article> <!-- main article -->
+      <section> <!-- The problem -->
+        <h2>The problem with stacked bar charts</h2>
+        <p>
+        </p>
+      </section>
+
+       <section><!-- Example solution -->
+        <h2> Linking a data table to its associated stacked bar chart</h2>
+        <p>
+          In the example below, each table column header is selected in-turn i.e. Total, In Service, and On Order. When a specific category in the table has been sorted, the bar chart is adjusted accordingly i.e. the selected category is moved to the chart's baseline, and sorted either descending or ascending, depending upon the sort direction chosen by the in the table.
+        </p>
+        <p>  
+          In addition to the chosen category being moved to the chart's baseline, the category colour in the chart is set to the darkest colour, so it stands out when compared to the other categories.
+        </p>
+        <figure>
+          <img src="../images/bar-animation.gif" width="800" height="1262" alt=" ">
+          <figcaption>Figure 2. Table-sort choice, and it's effect on the associated stacked bar chart.</figcaption>
+        </figure>
+      </section>
+
+      <!-- feedback - section -->
+      <section>
+        <p>
+          If you have any comments on this article then please get in touch via Twitter (<a
+            href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+        </p>
+      </section>
+    </article>
+  </main>
+</body>
+
+</html>
