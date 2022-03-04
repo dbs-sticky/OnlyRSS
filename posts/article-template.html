@@ -2,80 +2,72 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>TITLE</title>
-    <meta name="description" content="description goes here.">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" type="text/css" href="../styles/article-template.css" />
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
-    <!-- link to RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-L464TSFFK9');
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>———TITLE——</title>
+  <meta name="description" content="———PAGE DESCRIPTION———">
+  <meta name="author" content="Mark Evans">
 
-    <!-- Service working for installable app-->
-    <script>
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/service-worker.js", {
-            scope: "/",
-            });
-        }
-        </script>
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:title" content="———ARTICLE TITLE———">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="———FULL URL———">
+  <meta property="og:description" content="———PAGE DESCRIPTION———">
+  <meta property="og:image" content="———FULL IMAGE URL THUMBNAIL———">
 
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <link rel="icon" href="..images/favicon.svg" type="image/svg+xml"> <!--NEED TO CREATE A FILE-->
+  <link rel="apple-touch-icon" href="..images/apple-touch-icon.png"> <!--NEED TO CREATE A FILE-->
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <!--Google tracking-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-L464TSFFK9');
+  </script>
+
+  <!-- Service working for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
 </head>
 
 <body>
-    <!-- set title, pubdate, and article style -->
-    <header class="header">
-        <nav>
-            <a href="../index.html">Home</a></p>
-        </nav>
-        <h1>This Is The Page Title</h1>
+  <main class="page">
+    <header>
+      <nav>
+        <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
+      </nav>
+      <h1>———ARTICLE TITLE———</h1>
+      <p class="pubdate"><time datetime="2022-03-4">4 Mar 2023</time> · 3 mins · Mark Evans</p>
     </header>
-    <header style="clear: both"></header>
 
-    <!-- main article -->
-    <article class="article">
-        <!-- Intro - section -->
-        <section>
-            <h2>This is heading 2</h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout. <q>The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution
-                    of letters</q>, as opposed to using 'Content here, content here', making it look like readable
-                English. Many
-                desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
-                search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
-                evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-            <blockquote>If you look at what you have in life, you'll always have more. If you look at what you don't
-                have in life, you'll never have enough. -Oprah Winfrey</blockquote>
-        </section>
+    <article>
+      <section>
+        <h2>———SECTION TITLE———</h2>
+      </section>
 
-        <!-- mid - section -->
-        <section>
-            <h2>mid section heading</h2>
-        </section>
-
-        <!-- Conclusion - section -->
-        <section>
-            <h2>Conclusion section heading</h2>
-        </section>
-
-        <!-- feedback - section -->
-        <section>
-            <p>
-                If you have any comments on this article then please get in touch via Twitter (<a
-                    href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-            </p>
-        </section>
-
+      <!-- feedback - section -->
+      <section>
+        <p>
+          If you have any comments on this article then please get in touch via Twitter (<a
+            href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+        </p>
+      </section>
     </article>
+  </main>
 </body>
 
 </html>
