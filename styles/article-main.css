@@ -23,8 +23,10 @@ html {
     line-height: 1.6;
   }
   .page {
-    padding: 20px;
-    margin-top: 10px;
+    padding: 30px;
+  }
+  .grid-container-related {
+    max-width: calc(var(--pagewidth) + 60px)!important;
   }
   blockquote{
     margin-left: 0px !important;
@@ -36,10 +38,12 @@ html {
     font-size: 110%;
   }
   .page {
-    padding: 40px;
-    margin-top: 15px;
+    padding: 60px;
   }
-  blockquote{
+  .grid-container-related {
+    max-width: calc(var(--pagewidth) + 120px)!important;
+  }
+   blockquote{
     margin-left: 30px !important;
   }
 }
@@ -49,8 +53,10 @@ html {
     font-size: 120%;
   }
   .page {
-    padding: 60px;
-    margin-top: 20px;
+    padding: 90px;
+  }
+  .grid-container-related {
+    max-width: calc(var(--pagewidth) + 180px)!important;
   }
   blockquote{
     margin-left: 60px !important;
@@ -69,13 +75,6 @@ p {
   margin-bottom: 1.6em;
 }
 
-/* set the header section width and padding, cheers Riggers for help with this bit */
-header {
-  padding: 0px;
-  max-width: var(--pagewidth);
-  margin: auto;
-}
-
 img {
   display: block;
   margin: auto;
@@ -91,7 +90,6 @@ img {
 
 /* set the  article width and bottom padding */
 article {
-  max-width: var(--pagewidth);
   margin: auto;
   padding-bottom: 20px;
 }
@@ -101,7 +99,7 @@ article {
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
-  max-width: calc(var(--pagewidth) * 1.1);
+  max-width: var(--pagewidth);
   margin: auto;
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
 }
@@ -239,13 +237,12 @@ a.related {
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
-  max-width: calc(var(--pagewidth) * 1.22);
+  max-width: var(--pagewidth);
   margin: auto;
-  margin-top: 20px;
+  margin-top:1em;
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
   display: grid;
   grid-template-columns: 1fr 4fr;
-
 }
 .grid-container-related:hover {
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
@@ -257,3 +254,4 @@ a.related {
 section.related {
   margin-bottom:30px;
 }
+
