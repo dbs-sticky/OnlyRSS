@@ -17,8 +17,6 @@
 
   <!--Favicons and Touch Icons and web manifest-->
   <link rel="icon" type="image/png" href="../images/favicon.png" />
-  <link rel="icon" href="..images/favicon.svg" type="image/svg+xml">          <!--NEED TO CREATE A FILE-->
-  <link rel="apple-touch-icon" href="..images/apple-touch-icon.png">          <!--NEED TO CREATE A FILE-->
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
@@ -51,7 +49,7 @@
         <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
       </nav>
       <h1>Linking tables to their associated bar charts</h1>
-      <p class="pubdate"><time datetime="2022-03-5">5 Mar 2023</time> · 3 mins · Mark Evans</p>
+      <p class="pubdate"><time datetime="2022-03-6">6 Mar 2022</time> · 5 mins · Mark Evans</p>
     </header>
 
     <article> <!-- main article -->
@@ -93,31 +91,42 @@
         </figure>
         <h3>Choosing a 'primary' status</h3>
         <p>
-          Another option would be to allow the user to select which aircraft status is aligned to the baseline. What we're really asking the user to do in this scenario is to prioritise one of the aircraft statuses over the others, i.e to select one of them as being of 'primary interest'. This isn't a typical request we make of users when asking them to interact with charts, there's no convention to ask users to "choose their most important category". But, there is with tables…sort of.
+          Another option would be to allow the user to select which aircraft status is aligned to the baseline. What we're really asking the user to do in this scenario is to prioritise one of the aircraft statuses over the others, i.e. to select one of them as being of 'primary interest'. This isn't a typical request we make of users when asking them to interact with charts, there's no convention to ask users to "choose their most important category". But, there is with tables…sort of.
         </p>
         <p>
-          Often, when presented with a table of data, users will sort the column of data that's of most interest to them. There's no filtering going on (although previous research has shown that when users are asked to filter a dataset that's presented in a table, they will often sort a column, rather than actually apply a filter), so there's no loss of context. For Cirium Airline Profiles (the product where the stacked bar chart above is used) each stacked bar chart has an associated table of data, and both the chart and table are always visible (initial mock-ups included options where the user could toggle between table and chart, but there was a strong user preference that both should be visible at the same time.) With table and chart always visible, it opened up the possibility for some linking between the 2 types of visualisation.
+          Often, when presented with a table of data, users will sort the column of data that's of most interest to them. There's no filtering going on (although <a href="https://www.uxmatters.com/mt/archives/2009/07/the-mystery-of-filtering-by-sorting.php">previous research</a> has shown that when users are asked to filter a dataset that's presented in a table, they will often sort a column, rather than actually apply a filter), so there's no loss of context.
+        </p>
+        <p>
+          For Cirium Airline Profiles (the product where the stacked bar chart above is used) each stacked bar chart has an associated table of data, and both the chart and table are always visible (initial mock-ups included options where the user could toggle between table and chart, but there was a strong user preference that both should be visible at the same time.) With table and chart always visible, it opened up the possibility for some linking between the two visualisations i.e. for some table interactions to directly affect the chart.
         </p>
 
        <section><!--our chosen solution-->
         <h2> Linking a data table to its associated stacked bar chart</h2>
         <p>
-          In the animation below in Figure 3, each table column header is selected in-turn i.e. Total, Storage, On Order, and In Service. When a specific status in the table has been sorted (or "prioritised" by the user), the stacked bar chart is adjusted accordingly i.e.:
+          In the animation below in Figure 3, each table column header is selected in-turn by the user to be sorted i.e. Total, Storage, On Order, and In Service. When a specific status in the table has been sorted (or "prioritised" by the user), the stacked bar chart is adjusted accordingly i.e.:
         </p>
           <ol>
-            <li>the selected status is moved to the chart's baseline
+            <li>the sorted status is moved to the chart's baseline
             <li>the bars are sorted to match the sort order chosen in the table
             <li>the status category colour is emphasised (and the others de-emphasised)
         </p>
         <p>
           The result is essentially a bar chart within a stacked bar chart. It retains some of the simplicity of a "non-stacked" chart (as shown in Figure 2) while not throwing away the useful contextual data. 
         </p>
+        <p>
+          The link between the table and chart is further emphasised by the fact that each bar in the chart aligns horizontally with its associated row in the data table (in Figure 3 below the chart and table are stacked vertically, this view is used on tablets and mobile, the desktop view has the visualisations side-by-side.)
+        </p>
         <figure>
           <img src="../images/bar-animation.gif" width="800" height="1262" alt=" ">
           <figcaption>Figure 3. Table-sort choice, and it's effect on the linked stacked bar chart.</figcaption>
         </figure>
       </section>
-
+      <section><!--conclusion-->
+        <h2>Conclusion</h2>
+        <p>
+        The solution described above, and which we implement on Cirium's Airline Profiles is not perfect (the colours specifically need to change), but I do feel that the solution does go some way to overcoming one of the issues with stacked bar charts. I wouldn't describe this feature as "essential", but I'd like to think that it's one of those "micro-interactions" that might bring a small moment of delight to some of our users.
+        </p>
+      </section>
       <!-- feedback - section -->
       <section>
         <p>
