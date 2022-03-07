@@ -255,3 +255,7 @@ section.related {
   margin-bottom:30px;
 }
 
+.fig-ref{
+  font-size: smaller;
+  font-style: italic;
+}
