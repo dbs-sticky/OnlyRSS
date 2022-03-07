@@ -83,8 +83,7 @@ img {
 }
 /* set the publication date  style */
 .pubdate {
-  font-family: "Inter", sans-serif;
-  font-style: italic;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 0.8em;
 }
 
@@ -182,9 +181,10 @@ ul {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
-  font-family: Arial;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform:uppercase;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 0.8em;
   background: var(--accent);
   padding: 5px 10px 5px 10px;
   text-decoration: none;
