@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Chart Picker</title>
-    <meta charset="UTF-8" />
-    <meta name ="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="All the detail of my Chart Picker built using Excalidraw, and hosted on GitHub.">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
-    <!-- link to RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-L464TSFFK9');
-    </script>
-    <!-- Service working for installable app-->
-    <script>
-        if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js", {
-            scope: "/",
-        });
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chart Picker</title>
+  <meta name="description" content="All the details of the Chart Picker I built using Excalidraw, which you can find on hosted on GitHub.">
+  <meta name="author" content="Mark Evans">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title" content="Chart Picker">
+  <meta property="og:url" content="https://onlyrss.org/posts/chart-picker.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/chart-picker-og.png">
+  <meta property="og:description" content="All the details of the Chart Picker I built using Excalidraw, which you can find on hosted on GitHub.">
+  <meta property="article:published_time" content="2021-03-28">
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <!--Google tracking-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-L464TSFFK9');
+  </script>
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
 </head>
 
 <body>
   <main class="page">
     <header>
-        <nav>
-            <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
-        </nav>
+      <nav>
+          <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
+      </nav>
       <h1>Chart Picker</h1>
       <p class="pubdate"><time datetime="2021-03-28">28 Mar 2021</time> · 2 mins · Mark Evans</p></div>
     </header>
