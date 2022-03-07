@@ -168,7 +168,7 @@ pre code {
   word-wrap: break-word;
 }
 
-/* remove left padding so indents overhang, set disc, and set marker colour */
+/* Lists - remove left padding so indents overhang, set disc, and set marker colour */
 ul, ol {
 padding-left: 0px;
 padding-bottom: 1.0em;
@@ -183,6 +183,7 @@ ul {
   color: var(--accent);
 }
 
+/* The Home button */
 .homebtn {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
@@ -203,6 +204,7 @@ ul {
   cursor: pointer;
 }
 
+/* Figures and figure captions */
 figure {
   margin:0;
 }
@@ -213,6 +215,12 @@ figcaption {
   padding-bottom: 25px;
   font-style: italic;
   border-top: 2px solid var(--accent);
+}
+
+/* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
+.fig-ref{
+  font-size: smaller;
+  font-style: italic;
 }
 
 /* Related articles */
@@ -259,11 +267,6 @@ a.related {
 
 section.related {
   margin-bottom:30px;
-}
-
-.fig-ref{
-  font-size: smaller;
-  font-style: italic;
 }
 
 /* abbreviations */
