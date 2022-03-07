@@ -266,7 +266,7 @@ section.related {
   font-style: italic;
 }
 
-/* for abbreviations */
+/* abbreviations */
 
 abbr[title]:hover::after {
   content: ' (' attr(title) ')';
@@ -279,4 +279,21 @@ abbr:hover {
 abbr{
   text-decoration: underline rgb(187, 187, 187) solid;
   color: black;
+}
+
+/* Details and Summary */
+summary{
+  font-weight: 600;
+}
+details{
+  background-color: #e2f4ff;
+  border-radius: 5px;
+  line-height: 2em;
+  padding: 0.7em 0.7em 0.3em;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 1em;
 }
