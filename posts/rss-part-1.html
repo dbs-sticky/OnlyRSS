@@ -1,31 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>RSS Part 1: What is RSS and what are 'aggregators'?</title>
-    <meta charset="UTF-8" />
-    <meta name ="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Part 1 in a series of articles related to all things RSS. In this first article I describe the benefits of using RSS">
-    <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
-    <!-- link to RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-L464TSFFK9');
-    </script>
-    <!-- Service working for installable app-->
-    <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/service-worker.js", {
-          scope: "/",
-        });
-      }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RSS Part 1: What is RSS and what are 'aggregators'?</title>
+  <meta name="description" content="Part 1 in a series of articles related to all things RSS. In this first article I describe the benefits of using RSS">
+  <meta name="author" content="Mark Evans">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title" content="RSS Part 1: What is RSS and what are 'aggregators'?">
+  <meta property="og:url" content="https://onlyrss.org/posts/rss-part-1.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/rss-part-1-og.png">
+  <meta property="og:description" content="Part 1 in a series of articles related to all things RSS. In this first article I describe the benefits of using RSS, and how you can use RSS to your advantage.">
+  <meta property="article:published_time" content="2021-03-07">
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <!--Google tracking-->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-L464TSFFK9');
+  </script>
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
 </head>
 
 <body>
