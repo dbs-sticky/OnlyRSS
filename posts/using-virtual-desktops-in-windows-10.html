@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Using Virtual Desktops in Windows 10</title>
-  <meta charset="UTF-8" />
-  <meta name ="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="How to take advantage of Windows Virtual Desktops when shifting between tasks.">
-  <link rel="manifest" href="../manifest.json">
-  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <meta name="author" content="Mark Evans">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title" content="Using Virtual Desktops in Windows 10">
+  <meta property="og:url" content="https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/virtual-desktops-og.png">
+  <meta property="og:description" content="How to take advantage of Windows Virtual Desktops when shifting between tasks.">
+  <meta property="article:published_time" content="2021-02-06">
+
+  <!--Favicons and Touch Icons and web manifest-->
   <link rel="icon" type="image/png" href="../images/favicon.png" />
-  <!-- link to RSS -->
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+  <!--Google tracking-->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L464TSFFK9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -18,7 +33,8 @@
     gtag('js', new Date());
     gtag('config', 'G-L464TSFFK9');
   </script>
-  <!-- Service working for installable app-->
+
+  <!-- Service worker for installable app-->
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/service-worker.js", {
