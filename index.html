@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>onlyRSS</title>
-  <meta charset="UTF-8" />
-  <meta name ="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The homepage of OnlyRSS.org, where you will find a full list of blog articles across a variety of topics." />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="stylesheet" type="text/css" href="/styles/index.css" />
-  <link rel="icon" type="image/png" href="../images/favicon.png" />
-  <!-- link to RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
-  <!-- Service working for installable app-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>onlyRSS</title>
+  <meta name="description" content="Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You'll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.">
+  <meta name="author" content="Mark Evans">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="website">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title" content="onlyRSS">
+  <meta property="og:url" content="https://onlyrss.org/index.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/lockdown-workday-og.png">
+  <meta property="og:description" content="Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You'll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.">
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="manifest" href="/manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml" />
+
+  <!-- warmup googleapis & gstatic and then grab fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Service worker for installable app-->
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("/service-worker.js", {
@@ -20,6 +38,8 @@
     }
   </script>
 </head>
+
+
 
 <body>
   <header>
