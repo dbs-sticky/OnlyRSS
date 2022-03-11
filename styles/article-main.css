@@ -1,8 +1,3 @@
-/* body font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,400;0,600;1,400;1,500&display=swap');
-/* heading font */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-
 /* define global page variables, e.g. page and accent colour */
 :root {
   --pagewidth: 700px;
