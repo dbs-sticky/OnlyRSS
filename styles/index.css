@@ -1,6 +1,4 @@
-/* get Noto, playfair, and sans pro */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Source+Sans+Pro:wght@900&display=swap");
 
 :root {
@@ -60,7 +58,6 @@ img {
 .container {
   padding: 2px 25px;
   height: 180px;
-  bottom: 0;
 }
 
 /* set the card link styles */
