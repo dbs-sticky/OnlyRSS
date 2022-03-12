@@ -3,7 +3,7 @@
     "short_name": "OnlyRSS",
     "theme_color": "#3d74bd",
     "background_color": "#ffffff",
-    "display": "minimal-ui",
+    "display": "standalone",
     "scope": "/",
     "start_url": "/index.html",
     "description": "Mark's blog of shower thoughts",
