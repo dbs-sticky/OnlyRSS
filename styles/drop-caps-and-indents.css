@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "print";
-  src: url(../fonts/Oldnewspapertypes-449D.ttf);
-}
-
 :root {
   --accent: #3d74bd;
 }
