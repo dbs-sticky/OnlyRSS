@@ -14,7 +14,7 @@
       "sizes": "1024x1024",
       "type": "image/png",
       "purpose": "any maskable"
-    }
+    },
 
     {
       "src": "pwaicons/windows11/SmallTile.scale-100.png",
