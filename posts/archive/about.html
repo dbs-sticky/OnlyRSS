@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About OnlyRSS</title>
+  <meta charset="UTF-8" />
+  <meta name ="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My blog exists solely so I have a reason to learn HTML, CSS and JavaScript. My aim is to experiment with various article designs, hopefully reaching a point where the article style is influenced by the article subject.">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" type="text/css" href="../styles/about.css" />
+  <link rel="icon" type="image/png" href="../images/favicon.png" />
+  <!-- link to RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+  <!-- Service working for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <nav>
+      <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
+  </nav>
+    <h1 class="page-title">About OnlyRSS</h1>
+  </header>
+
+  <article class="article">
+    <h2>In the beginning....</h2>
+    <p>
+      OnlyRSS started out as an RSS feed with no associated website. The
+      articles only existed in the feed and they could only be accessed via
+      RSS readers such as <a href="http://feedly.com">Feedly</a> and
+      <a href="http://inoreader.com">Inoreader</a>.
+    </p>
+    <h2>...then everything changed...</h2>
+    <p>
+      As I became increasingly interested in article design (layout, format,
+      fonts etc.), I started to hand-code articles in HTML and CSS, I then
+      decided to create a unique style for each article, with the aim of
+      becoming more competent in CSS each time I wrote\designed a new
+      article.
+    </p>
+    <h2>What about the RSS feed?</h2>
+    <p>
+      The RSS feed will continue, and will always contain the full article, so
+      you never have to visit OnlyRSS to read an article (therefore avoiding
+      the results of my CSS experiments).
+    </p>
+    <h2>Subscribe</h2>
+    <p>
+      To subscribe to new OnlyRSS articles, add the following URL to your RSS
+      aggregator <strong>https://onlyrss.org/feed.xml</strong>
+    </p>
+
+    <p>
+      If you have any questions, then please ask me (Mark Evans) via
+      <a href="https://twitter.com/dbs_sticky">Twitter.</a>
+    </p>
+  </article>
+
+  <footer class="footer"></footer>
+</body>
+
+</html>
