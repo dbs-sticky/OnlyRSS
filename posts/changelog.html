@@ -28,6 +28,7 @@
 
   <!--stylesheet and RSS-->
   <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/changelog.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <!-- warmup googleapis & gstatic and then grab fonts-->
@@ -60,12 +61,12 @@
         <p>List of changes, the reasons for the change, and what I learnt in the process.</p>
 
         <details>
-          <summary>13 Mar 2022: Created this <i>Changelog</i> page</summary>
+          <summary>13 Mar 2022: Created this <i>Changelog</i> page <span class="content-tag">content</span></summary>
           <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
       </details>
 
         <details>
-          <summary>12 Mar 2022: Replaced the <i>About</i> page</summary>
+          <summary>12 Mar 2022: Replaced the <i>About</i> page <span class="content-tag">content</span></summary>
           <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of simplicity I decided to use the standard article page style/CSS.</p>
       </details>
 
@@ -75,20 +76,41 @@
     </details>
 
     <details>
-      <summary>11 Mar 2022: Moved all font imports from the CSS and into the &lt;head&gt; of each page</summary>
+      <summary>11 Mar 2022: Moved font import from CSS to the &lt;head&gt; of each page <span class="performance-tag">performance</span></summary>
       <p>This took a bit of research. When looking at the load order of page elements, I noticed that most of the page was waiting for the fonts to load, and this was not starting until <em>after</em> the CSS had loaded. By moving the font import into the HTML, the font load can start in parallel with the CSS, resulting in a faster page load.</p>
     </details>
 
     <details>
-      <summary>11 Mar 2022: Improved the PWA user experience</summary>
+      <summary>11 Mar 2022: Improved the PWA user experience <span class="ux-tag">UX</span></summary>
       <p>Created new PWA icons, added the required apple-touch-icons, added a maskable icon, changed the display type in the manifest from <i>minimal-ui</i> to <i>standalone</i>, and added a theme-color in the HTML &lt;head&gt;.</p>
       <p>These changes greatly improve the PWA user experience, especially on iOS devices. OnlyRSS.org now gets a 100% PWA score via the open-source Lighthouse tool.</p>
     </details>
 
     <details>
-      <summary>10 Mar 2022: Removed Google Analytics</summary>
+      <summary>10 Mar 2022: Removed Google Analytics <span class="performance-tag">performance</span></summary>
       <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning experience.</p> <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or for trying to write "better" content (by measuring the popularity of existing content, and creating more of the same). But, my aim is not to write articles that will result in a large number of page views, or to create a blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one other person on the internet will find useful. The analytics were interesting, but they weren't free, and the cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The cost was a reduction in user experience.</p>
       <p> Basically, the page load times were dominated by the JS  required for the analytics. Removing the analytics resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics and give visitors a better experience.</p>
+    </details>
+
+    <details>
+      <summary>10 Mar 2022: Added loading="lazy" to images <span class="performance-tag">performance</span></summary>
+      <p>This required some research, mostly to determine which images would benefit and which would not. Essentially this image attribute won't load an image until the browser thinks that the user is actually going to view it, i.e. it looks at a user's scrolling behaviour, and loads the image just before the user gets to the specific section of the page. Although all images on my site are optimised to be as small as possible, there's still no need to load an image at the bottom of the page if the user is never going to see it.</p>
+    </details>
+
+    <details>
+      <summary>09 Mar 2022: Added OpenGraph meta tags to most pages <span class="seo-tag">SEO</span></summary>
+      <p>This required a lot of research and some testing to get it right (tip: .webp images are NOT supported!), enough that I'll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or Facebook, they will contain a specific title, description and image and will typically be displayed in some form of card design.</p>
+    </details>
+
+    <details>
+      <summary>08 Mar 2022: My first use of the &lt;abbr&gt; HTML tag  <span class="ux-tag">UX</span></summary>
+      <p>There are many HTML tags that are underused (IMHO), and &lt;abbr&gt; is probably one of them. It allows you to show the full text on hover for an abbreviation, e.g., <abbr title="In My Humble Opinion">IMHO</abbr>.</p>
+      <p> I made a few tweaks to the CSS, so on hover the cursor changes to the help-pointer, and on mobile you can tap the abbreviation, and it is then shown in-line in full after the abbreviation.</p>
+    </details>
+
+    <details>
+      <summary>06 Mar 2022: New article: <i>Linking tables to stacked bar charts</i> <span class="content-tag">content</span></summary>
+      <p>While building Cirium Profiles, we came up with a neat solution to help mitigate one of the issues with stacked bar charts. This article describes what we did, and why.</p>
     </details>
 
       </section>

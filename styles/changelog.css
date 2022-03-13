@@ -1,0 +1,39 @@
+.seo-tag {
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgb(255, 255, 255);
+  background-color: rgb(223, 82, 82); /* Set the background color */
+  border-radius: 3px;     /* Add some roundness */
+  padding: 2px 5px;
+  display: inline;
+  font-size: 0.9em;
+}
+
+.performance-tag {
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgb(255, 255, 255);
+  background-color: rgb(223, 202, 82); /* Set the background color */
+  border-radius: 3px;     /* Add some roundness */
+  padding: 2px 5px;
+  display: inline;
+  font-size: 0.9em;
+}
+
+.ux-tag {
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgb(255, 255, 255);
+  background-color: rgb(84, 82, 223); /* Set the background color */
+  border-radius: 3px;     /* Add some roundness */
+  padding: 2px 5px;
+  display: inline;
+  font-size: 0.9em;
+}
+
+.content-tag {
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgb(255, 255, 255);
+  background-color: rgb(122, 223, 82); /* Set the background color */
+  border-radius: 3px;     /* Add some roundness */
+  padding: 2px 5px;
+  display: inline;
+  font-size: 0.9em;
+}
