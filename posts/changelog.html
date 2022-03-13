@@ -28,7 +28,6 @@
 
   <!--stylesheet and RSS-->
   <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
-  <link rel="stylesheet" type="text/css" href="../styles/changelog.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <!-- warmup googleapis & gstatic and then grab fonts-->
@@ -56,65 +55,107 @@
       <p></p>
     </header>
 
-    <article>
-      <section>
-        <p>List of changes, the reasons for the change, and what I learnt in the process.</p>
-
-        <details>
-          <summary>13 Mar 2022: Created this <i>Changelog</i> page <span class="content-tag">content</span></summary>
-          <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
-      </details>
-
-        <details>
-          <summary>12 Mar 2022: Replaced the <i>About</i> page <span class="content-tag">content</span></summary>
-          <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of simplicity I decided to use the standard article page style/CSS.</p>
+      <p>List of changes, the reasons for the change, and what I learnt in the process.</p>
+      <details>
+        <summary><time datetime="2022-03-13">13 Mar 2022</time>: Created this <i>Changelog</i> page <span class="content-tag"></span></summary>
+        <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
       </details>
 
       <details>
-        <summary>12 Mar 2022: Switched GitHub repository from Private to Public, added link to nav</summary>
+        <summary><time datetime="2022-03-12">12 Mar 2022</time>: Replaced the <i>About</i> page <span class="content-tag"></span></summary>
+        <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of simplicity I decided to use the standard article page style/CSS.</p>
+      </details>
+
+      <details>
+        <summary><time datetime="2022-03-12">12 Mar 2022</time>: Switched GitHub repository from Private to Public, added link to nav</summary>
         <p>I don't think anyone is going to be cloning my repository anytime soon, but having it public just makes things a little simpler, and allows me to see better analytics related to my own commits.</p>
-    </details>
+      </details>
 
-    <details>
-      <summary>11 Mar 2022: Moved font import from CSS to the &lt;head&gt; of each page <span class="performance-tag">performance</span></summary>
-      <p>This took a bit of research. When looking at the load order of page elements, I noticed that most of the page was waiting for the fonts to load, and this was not starting until <em>after</em> the CSS had loaded. By moving the font import into the HTML, the font load can start in parallel with the CSS, resulting in a faster page load.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-11">11 Mar 2022</time>: Moved font import from CSS to the &lt;head&gt; of each page <span class="performance-tag"></span></summary>
+        <p>This took a bit of research. When looking at the load order of page elements, I noticed that most of the page was waiting for the fonts to load, and this was not starting until <em>after</em> the CSS had loaded. By moving the font import into the HTML, the font load can start in parallel with the CSS, resulting in a faster page load.</p>
+      </details>
 
-    <details>
-      <summary>11 Mar 2022: Improved the PWA user experience <span class="ux-tag">UX</span></summary>
-      <p>Created new PWA icons, added the required apple-touch-icons, added a maskable icon, changed the display type in the manifest from <i>minimal-ui</i> to <i>standalone</i>, and added a theme-color in the HTML &lt;head&gt;.</p>
-      <p>These changes greatly improve the PWA user experience, especially on iOS devices. OnlyRSS.org now gets a 100% PWA score via the open-source Lighthouse tool.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-11">11 Mar 2022</time>: Improved the PWA user experience <span class="ux-tag"></span></summary>
+        <p>Created new PWA icons, added the required apple-touch-icons, added a maskable icon, changed the display type in the manifest from <i>minimal-ui</i> to <i>standalone</i>, and added a theme-color in the HTML &lt;head&gt;.</p>
+        <p>These changes greatly improve the PWA user experience, especially on iOS devices. OnlyRSS.org now gets a 100% PWA score via the open-source Lighthouse tool.</p>
+      </details>
 
-    <details>
-      <summary>10 Mar 2022: Removed Google Analytics <span class="performance-tag">performance</span></summary>
-      <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning experience.</p> <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or for trying to write "better" content (by measuring the popularity of existing content, and creating more of the same). But, my aim is not to write articles that will result in a large number of page views, or to create a blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one other person on the internet will find useful. The analytics were interesting, but they weren't free, and the cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The cost was a reduction in user experience.</p>
-      <p> Basically, the page load times were dominated by the JS  required for the analytics. Removing the analytics resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics and give visitors a better experience.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-10">10 Mar 2022</time>: Removed Google Analytics <span class="performance-tag"></span></summary>
+        <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning experience.</p> <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or for trying to write "better" content (by measuring the popularity of existing content, and creating more of the same). But, my aim is not to write articles that will result in a large number of page views, or to create a blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one other person on the internet will find useful. The analytics were interesting, but they weren't free, and the cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The cost was a reduction in user experience.</p>
+        <p> Basically, the page load times were dominated by the JS  required for the analytics. Removing the analytics resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics and give visitors a better experience.</p>
+      </details>
 
-    <details>
-      <summary>10 Mar 2022: Added loading="lazy" to images <span class="performance-tag">performance</span></summary>
-      <p>This required some research, mostly to determine which images would benefit and which would not. Essentially this image attribute won't load an image until the browser thinks that the user is actually going to view it, i.e. it looks at a user's scrolling behaviour, and loads the image just before the user gets to the specific section of the page. Although all images on my site are optimised to be as small as possible, there's still no need to load an image at the bottom of the page if the user is never going to see it.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-10">10 Mar 2022</time>: Added loading="lazy" to images <span class="performance-tag"></span></summary>
+        <p>This required some research, mostly to determine which images would benefit and which would not. Essentially this image attribute won't load an image until the browser thinks that the user is actually going to view it, i.e. it looks at a user's scrolling behaviour, and loads the image just before the user gets to the specific section of the page. Although all images on my site are optimised to be as small as possible, there's still no need to load an image at the bottom of the page if the user is never going to see it.</p>
+      </details>
 
-    <details>
-      <summary>09 Mar 2022: Added OpenGraph meta tags to most pages <span class="seo-tag">SEO</span></summary>
-      <p>This required a lot of research and some testing to get it right (tip: .webp images are NOT supported!), enough that I'll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or Facebook, they will contain a specific title, description and image and will typically be displayed in some form of card design.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-09">09 Mar 2022</time>: Added OpenGraph meta tags to most pages <span class="seo-tag"></span></summary>
+        <p>This required a lot of research and some testing to get it right (tip: .webp images are NOT supported!), enough that I'll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or Facebook, they will contain a specific title, description and image and will typically be displayed in some form of card design.</p>
+      </details>
 
-    <details>
-      <summary>08 Mar 2022: My first use of the &lt;abbr&gt; HTML tag  <span class="ux-tag">UX</span></summary>
-      <p>There are many HTML tags that are underused (IMHO), and &lt;abbr&gt; is probably one of them. It allows you to show the full text on hover for an abbreviation, e.g., <abbr title="In My Humble Opinion">IMHO</abbr>.</p>
-      <p> I made a few tweaks to the CSS, so on hover the cursor changes to the help-pointer, and on mobile you can tap the abbreviation, and it is then shown in-line in full after the abbreviation.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-08">08 Mar 2022</time>: My first use of the &lt;abbr&gt; HTML tag  <span class="ux-tag"></span></summary>
+        <p>There are many HTML tags that are underused (IMHO), and &lt;abbr&gt; is probably one of them. It allows you to show the full text on hover for an abbreviation, e.g., <abbr title="In My Humble Opinion">IMHO</abbr>.</p>
+        <p> I made a few tweaks to the CSS, so on hover the cursor changes to the help-pointer, and on mobile you can tap the abbreviation, and it is then shown in-line in full after the abbreviation.</p>
+      </details>
 
-    <details>
-      <summary>06 Mar 2022: New article: <i>Linking tables to stacked bar charts</i> <span class="content-tag">content</span></summary>
-      <p>While building Cirium Profiles, we came up with a neat solution to help mitigate one of the issues with stacked bar charts. This article describes what we did, and why.</p>
-    </details>
+      <details>
+        <summary><time datetime="2022-03-06">06 Mar 2022</time>: New article: <i>Linking tables to stacked bar charts</i> <span class="content-tag"></span></summary>
+        <p>While building Cirium Profiles, we came up with a neat solution to help mitigate one of the issues with stacked bar charts. This article describes what we did, and why.</p>
+      </details>
+      
+      <details>
+        <summary><time datetime="2022-03-05">05 Mar 2022</time>: Added 'related articles' to the bottom of some articles <span class="ux-tag"></span></summary>
+        <p>My articles cover various subjects, some of which could be placed into groups, so I defined a style (not finished) for the display of 'related articles' which will appear at the end of some articles.</p>
+      </details>
+      
+      <details>
+        <summary><time datetime="2022-02-28">28 Feb 2022</time>: Added &lt;figure&gt; and &lt;figcaption&gt; to articles and changed accent colour <span class="ux-tag"></span></summary>
+        <p>Placed all article images into the HTML figure tag. Removed the 'alt' attribute from images, as this was no longer required—assuming the &lt;figcaption&gt; includes a full description of the image.</p>
+        <p>Also changed the accent colour of the site from red to blue, because everybody knows that blue is the best colour.</p>
+      </details>
+          
+      <details>
+        <summary><time datetime="2022-02-27">27 Feb 2022</time>: Converted the majority of images to the .webp format <span class="performance-tag"></span></summary>
+        <p>Did some research regarding browser support and the modern image format of .webp. Decided to replace all images that would benefit from it to the new format in order to improve page load performance.</p>
+      </details>
 
-      </section>
-    </article>
+      <details>
+        <summary><time datetime="2022-02-26">26 Feb 2022</time>: Made the site responsive—finally looks good on mobile <span class="ux-tag"></span></summary>
+        <p>Prior to this the mobile version of the site was terrible, it so bad that mobile browsers kept requesting users to use their 'reader' view. This required me to learn how to use Media Queries and to add the viewport tag into the HTML head.</p>
+      </details>
+
+      <details>
+        <summary><time datetime="2022-02-21">21 Feb 2022</time>: Project Unity. One style to rule them all <span class="ux-tag"></span></summary>
+        <p>This was a big change for the site, removing all individual styles (one per article) and settling on a single style. Prior to this each article had its own style—this was on purpose, as it gave me the reason I needed to practice CSS. It also allowed me to put into practice what I learnt from reading 3 typography books over the previous couple of weeks.</p>
+      </details>
+
+      <details>
+        <summary><time datetime="2022-02-13">13 Feb 2022</time>: OnlyRSS.org, now a Progressive Web App (PWA) <span class="ux-tag"></span></summary>
+        <p>A PWA version of OnlyRSS.org is not really needed by anyone. This was more a case of "can it be done?". I'm also considering turning one of my web products into a PWA for my users, so this was an interesting learning experience for me.</p>
+      </details>
+
+      <details>
+        <summary><time datetime="2022-01-17">17 Jan 2022</time>: New article: <i>Drop caps and indents</i> <span class="content-tag"></span></summary>
+        <p>Got interested in how paragraphs are separated (in print and on the web), worked out how it's quite easy to implement in CSS with some specific CSS selectors, so decided to share what I had learned. </p>
+      </details>
+
+      <details>
+        <summary><time datetime="2022-01-12">12 Jan 2022</time>: New article: <i>Why I prefer the Kindle over physical books</i> <span class="content-tag"></span></summary>
+        <p>This was my first attempt at using CSS for something other than basic page typography, and it was a difficult learning experience—and it still doesn't work correctly on Safari!</p>
+      </details>
+
+      <details>
+        <summary><time datetime="2021-12-29">29 Dec 2021</time>: New RSS article: <i>Top Tens of 2021</i> <span class="content-tag"></span></summary>
+        <p>This was an RSS only article, so no article page on the site. Since graduating (25 years ago) my MSc friends and I share our 'top tens' at the end of each year. This year I thought I'd share it with my (very small quantity of) RSS subscribers. </p>
+      </details>
+
+
   </main>
 </body>
 </html>

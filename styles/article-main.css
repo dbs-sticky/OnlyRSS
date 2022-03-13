@@ -279,7 +279,7 @@ abbr{
   color: black;
 }
 
-/* Details and Summary */
+/* Details and Summary (mostly used on Changelog page */
 summary{
   font-weight: 400;
 }
@@ -295,4 +295,40 @@ details{
 details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 1em;
+}
+
+/* category tags for Changelog page */
+.seo-tag::after,
+.performance-tag::after,
+.ux-tag::after,
+.content-tag::after  {
+  font-family: 'Roboto Condensed', sans-serif;
+  color:rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 2px 5px;
+  display: inline;
+}
+/* set individual tag colours and font sizes, i.e.initialisms are  set smaller. */
+.performance-tag::after {
+  background-color: rgb(180, 163, 66);
+  content: "performance";
+  font-size: 0.9em;
+}
+
+.ux-tag::after {
+  background-color: rgb(71, 69, 187);
+  content: "UX";
+  font-size: 0.8em;
+}
+
+.content-tag::after {
+  background-color: rgb(93, 170, 62);
+  content: "content";
+  font-size: 0.9em;
+}
+
+.seo-tag::after {
+  background-color: rgb(223, 82, 82);
+  content: "SEO";
+  font-size: 0.8em;
 }
