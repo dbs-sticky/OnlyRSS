@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Changelog</title>
+  <meta name="description" content="A list of all changes to OnlyRSSo.org, why I made them, and what I learnt in the process."><!--enter info here-->
+  <meta name="author" content="Mark Evans">
+  <meta name="theme-color" content="#3d74bd">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title" content="Changelog">
+  <meta property="og:url" content="https://onlyrss.org/posts/changelog.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/changelog-og.png">
+  <meta property="og:description" content="A list of all changes to OnlyRSSo.org, why I made them, and what I learnt in the process.">
+  <meta property="article:published_time" content="2022-03-13">
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" type="image/png" href="../pwaicons/favicon.png">
+  <link rel="apple-touch-icon" href="../pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/article-main.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <!-- warmup googleapis & gstatic and then grab fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto+Serif:ital,wght@0,400;0,600;1,400;1,500&display=swap" rel="stylesheet">  
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <main class="page">
+    <header>
+      <nav>
+        <button class="homebtn" type="button" onclick="window.location.href='../index.html';">home</button>
+      </nav>
+      <h1>Changelog</h1>
+      <p></p>
+    </header>
+
+    <article>
+      <section>
+        <p>List of changes, the reasons for the change, and what I learnt in the process.</p>
+
+        <details>
+          <summary>13 Mar 2022: Created this <i>Changelog</i> page</summary>
+          <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
+      </details>
+
+        <details>
+          <summary>12 Mar 2022: Replaced the <i>About</i> page</summary>
+          <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of simplicity I decided to use the standard article page style/CSS.</p>
+      </details>
+
+      <details>
+        <summary>12 Mar 2022: Switched GitHub repository from Private to Public, added link to nav</summary>
+        <p>I don't think anyone is going to be cloning my repository anytime soon, but having it public just makes things a little simpler, and allows me to see better analytics related to my own commits.</p>
+    </details>
+
+    <details>
+      <summary>11 Mar 2022: Moved all font imports from the CSS and into the &lt;head&gt; of each page</summary>
+      <p>This took a bit of research. When looking at the load order of page elements, I noticed that most of the page was waiting for the fonts to load, and this was not starting until <em>after</em> the CSS had loaded. By moving the font import into the HTML, the font load can start in parallel with the CSS, resulting in a faster page load.</p>
+    </details>
+
+    <details>
+      <summary>11 Mar 2022: Improved the PWA user experience</summary>
+      <p>Created new PWA icons, added the required apple-touch-icons, added a maskable icon, changed the display type in the manifest from <i>minimal-ui</i> to <i>standalone</i>, and added a theme-color in the HTML &lt;head&gt;.</p>
+      <p>These changes greatly improve the PWA user experience, especially on iOS devices. OnlyRSS.org now gets a 100% PWA score via the open-source Lighthouse tool.</p>
+    </details>
+
+    <details>
+      <summary>10 Mar 2022: Removed Google Analytics</summary>
+      <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning experience.</p> <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or for trying to write "better" content (by measuring the popularity of existing content, and creating more of the same). But, my aim is not to write articles that will result in a large number of page views, or to create a blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one other person on the internet will find useful. The analytics were interesting, but they weren't free, and the cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The cost was a reduction in user experience.</p>
+      <p> Basically, the page load times were dominated by the JS  required for the analytics. Removing the analytics resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics and give visitors a better experience.</p>
+    </details>
+
+      </section>
+    </article>
+  </main>
+</body>
+</html>
