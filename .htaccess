@@ -15,3 +15,10 @@ Redirect "/drawing-with-excalidraw.html" "/posts/drawing-with-excalidraw.html"
 Redirect "/rss-part-1.html" "/posts/rss-part-1.html"
 Redirect "/using-virtual-desktops-in-windows-10.html" "/posts/using-virtual-desktops-in-windows-10.html"
 Redirect "/working-from-home-hardware.html" "/posts/working-from-home-hardware.html"
+
+# BROWSER CACHING USING CACHE-CONTROL HEADERS - 1 hour for CSS
+<ifModule mod_headers.c> 
+    <filesMatch ".(css)$">
+        Header set Cache-Control "max-age=3600, public"
+    </filesMatch>
+</ifModule>
