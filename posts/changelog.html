@@ -152,6 +152,12 @@
     </header>
 
       <p>List of changes, the reasons for the change, and what I learnt in the process.</p>
+
+      <details>
+        <summary><time datetime="2022-03-14">14 Mar 2022</time>: Moved the links to the Latin fonts into the HTML head <span class="performance-tag"></span></summary>
+        <p>Previously, I'd moved the Google font code i.e. @import (which itself linked to a stylesheet) from the CSS and into the head of the HTML, therefore removing a "chain" when loading the page. This time I moved the links to the Latin version of the fonts directly into the HTML head. It removes another "chain", and page load speed for most pages is now around 30-50&#8239;ms. Without actually minifying the CSS and moving it into the HTML head, there's not much else I can do now to improve page performance.  </p>
+      </details>
+
       <details>
         <summary><time datetime="2022-03-13">13 Mar 2022</time>: Created this <i>Changelog</i> page <span class="content-tag"></span></summary>
         <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
