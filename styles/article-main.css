@@ -282,13 +282,13 @@ abbr{
 /* Details and Summary (mostly used on Changelog page */
 summary{
   font-weight: 400;
-  display: flex;
+  display: flex; /* set to flex to enable the tags to be right-aligned, see below */
 }
 details{
   background-color: #e2f4ff;
   border-radius: 5px;
   line-height: 2em;
-  padding: 0.7em 0.7em 0.3em;
+  padding: 0.7em 0.7em 0em;
   font-size: 0.8em;
   cursor: pointer;
   margin-bottom: 1em;
@@ -298,8 +298,8 @@ details[open] summary {
   margin-bottom: 1em;
 }
 
-/* category tags for Changelog page */
-/* define the common style for all spans in summary i.e. the tags */
+/* Tags for Changelog page */
+/* define the common style for all span::after (i.e. the tags) within summary elements */
 summary span::after  {
   font-family: 'Roboto Condensed', sans-serif;
   color:rgb(255, 255, 255);
@@ -307,11 +307,11 @@ summary span::after  {
   padding: 2px 5px;
   margin-left: 5px; /* add space between tags */
 }
-/* right-align all tags (spans) except the first */
+/* let the first span (i.e. the date and description) expand to take all the available width (forcing tags to be right-aligned */
 summary span:first-of-type {
-  flex: 1;
+  flex: 1; /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
 }
-/* set individual tag colours and font sizes, i.e.initialisms are  set smaller. */
+/* set individual tag colours and font sizes, i.e.initialisms are set smaller. */
 .performance-tag::after {
   background-color: rgb(180, 163, 66);
   content: "performance";
@@ -334,4 +334,10 @@ summary span:first-of-type {
   background-color: rgb(223, 82, 82);
   content: "SEO";
   font-size: 0.8em;
+}
+
+.housekeeping-tag::after {
+  background-color: rgb(223, 139, 82);
+  content: "housekeeping";
+  font-size: 0.9em;
 }
