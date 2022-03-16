@@ -282,6 +282,7 @@ abbr{
 /* Details and Summary (mostly used on Changelog page */
 summary{
   font-weight: 400;
+  display: flex;
 }
 details{
   background-color: #e2f4ff;
@@ -298,15 +299,17 @@ details[open] summary {
 }
 
 /* category tags for Changelog page */
-.seo-tag::after,
-.performance-tag::after,
-.ux-tag::after,
-.content-tag::after  {
+/* define the common style for all spans in summary i.e. the tags */
+summary span::after  {
   font-family: 'Roboto Condensed', sans-serif;
   color:rgb(255, 255, 255);
   border-radius: 3px;
   padding: 2px 5px;
-  display: inline;
+  margin-left: 5px; /* add space between tags */
+}
+/* right-align all tags (spans) except the first */
+summary span:first-of-type {
+  flex: 1;
 }
 /* set individual tag colours and font sizes, i.e.initialisms are  set smaller. */
 .performance-tag::after {
