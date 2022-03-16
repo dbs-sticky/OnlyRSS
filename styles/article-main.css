@@ -335,3 +335,9 @@ summary span:first-of-type {
   content: "SEO";
   font-size: 0.8em;
 }
+
+.housekeeping-tag::after {
+  background-color: rgb(223, 139, 82);
+  content: "housekeeping";
+  font-size: 0.9em;
+}
