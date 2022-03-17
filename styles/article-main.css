@@ -347,10 +347,10 @@ summary span:first-of-type {
 .icons {
   fill:#000000;
   text-decoration:none;
+  transition: fill 0.9s;
 }
 
 .icons:hover{
   fill:var(--accent);
-  transition: fill .4s;
   text-decoration:none;
 }
