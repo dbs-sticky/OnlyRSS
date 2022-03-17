@@ -342,3 +342,15 @@ summary span:first-of-type {
   content: "housekeeping";
   font-size: 0.9em;
 }
+
+/* social svg icons on About page */
+.icons {
+  fill:#000000;
+  text-decoration:none;
+}
+
+.icons:hover{
+  fill:var(--accent);
+  transition: fill .4s;
+  text-decoration:none;
+}
