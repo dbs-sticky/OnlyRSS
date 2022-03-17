@@ -141,12 +141,14 @@ h2 {
 
 /* set the link styles */
 a {
-  color: var(--accent);
-  text-decoration:none;
+  color: #2e2e2e;
+  text-decoration:underline;
   font-weight: 400;
+  transition: color .4s; /* transition from normal colour to hover colour */
 }
 a:hover {
   text-decoration: underline;
+  color: var(--accent);
 }
 
 /* set the style for code blocks */
@@ -282,7 +284,7 @@ abbr{
 /* Details and Summary (mostly used on Changelog page */
 summary{
   font-weight: 400;
-  display: flex; /* set to flex to enable the tags to be right-aligned, see below */
+  display: flex; /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
 details{
   background-color: #e2f4ff;
