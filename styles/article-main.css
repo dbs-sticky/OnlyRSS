@@ -344,7 +344,7 @@ summary span:first-of-type {
 }
 
 /* social svg icons on About page */
-a svg{
+a.icons svg{
   width: 48px; /* set icon width (height is auto) - adjust this to scale them */
 }
 /* set the svg icon fill state and hover effects */
@@ -354,6 +354,7 @@ a.icons {
   transition: fill 0.9s;
   stroke: #2e2e2e;
   stroke-width: 0.5px;
+
 }
 
 a.icons:hover{
@@ -366,3 +367,7 @@ a.icons:active{
   text-decoration:none;
   -webkit-tap-highlight-color: transparent; /* remove the square flash you get on tap on mobile */
 }
+
+hr {
+  margin-bottom: 50px;
+} 
