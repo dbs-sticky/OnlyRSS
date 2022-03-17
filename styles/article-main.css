@@ -345,9 +345,11 @@ summary span:first-of-type {
 
 /* social svg icons on About page */
 .icons {
-  fill:#000000;
+  fill:#ffffff;
   text-decoration:none;
   transition: fill 0.9s;
+  stroke: #2e2e2e;
+  stroke-width: 0.5px;
 }
 
 .icons:hover{
