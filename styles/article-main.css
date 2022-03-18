@@ -26,6 +26,10 @@ html {
   blockquote{
     margin-left: 0px !important;
   }
+
+  a.icons svg{
+    width: 30px !important; /* set icon width (height is auto) - adjust this to scale them */
+  }
 }
 /* set size for 768px - 1200px ≈18px/110% */
 @media screen and (min-width: 768px) {
@@ -43,6 +47,9 @@ html {
   }
   abbr[title]:hover::after {
     content: ''!important;
+  }
+  a.icons svg{
+    width: 48px !important; /* set icon width (height is auto) - adjust this to scale them */
   }
 }
 /* set size for >1920px ≈19px/120% */
@@ -64,6 +71,9 @@ html {
   }
   abbr[title]:hover::after {
     content: ''!important;
+  }
+  a.icons svg{
+    width: 56px !important; /* set icon width (height is auto) - adjust this to scale them */
   }
 }
 
@@ -345,7 +355,7 @@ summary span:first-of-type {
 
 /* social svg icons on About page */
 a.icons svg{
-  width: 48px; /* set icon width (height is auto) - adjust this to scale them */
+  width: 48px; /* set icon width (height is auto) - adjust this to scale them—this is overwritten in the media queries */
 }
 /* set the svg icon fill to transparent, the fill colour is set in the HTML SVG, and is unique to each icon */
 a.icons {
