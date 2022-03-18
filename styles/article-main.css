@@ -347,25 +347,25 @@ summary span:first-of-type {
 a.icons svg{
   width: 48px; /* set icon width (height is auto) - adjust this to scale them */
 }
-/* set the svg icon fill state and hover effects */
+/* set the svg icon fill to transparent, the fill colour is set in the HTML SVG, and is unique to each icon */
 a.icons {
-  fill:#ffffff;
-  text-decoration:none;
-  transition: fill 0.9s;
-  stroke: #2e2e2e;
-  stroke-width: 0.5px;
+  fill-opacity:0; /* start with icon fill fully transparent */
+  text-decoration:none; /* remove the underline */
+  transition: fill-opacity 1s; /* fade opacity on hover for 1s  */
+  stroke: #2e2e2e; /* set stoke colour to match the font colour  */
+  stroke-width: 0.3px;
 
 }
-
+/* on hover, fade to fully opaque i.e. reveal the colour that's set in the HTML SVG */
 a.icons:hover{
-  fill:var(--accent);
+  fill-opacity:1; 
   text-decoration:none;
 }
 
+/* remove the square flash you get "on tap" on mobile */
 a.icons:active{
-  fill:var(--accent);
   text-decoration:none;
-  -webkit-tap-highlight-color: transparent; /* remove the square flash you get on tap on mobile */
+  -webkit-tap-highlight-color: transparent; 
 }
 
 hr {
