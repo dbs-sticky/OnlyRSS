@@ -286,7 +286,7 @@ abbr:hover {
 }
 
 abbr{
-  text-decoration: underline rgb(187, 187, 187) solid;
+  text-decoration: dotted var(--accent) underline;
   color: black;
 }
 
@@ -375,7 +375,7 @@ a.icons:hover{
 /* remove the square flash you get "on tap" on mobile */
 a.icons:active{
   text-decoration:none;
-  -webkit-tap-highlight-color: transparent; 
+  -webkit-tap-highlight-color: transparent; /* This feature is non-standard and should not be used without careful consideration. */
 }
 
 hr {
