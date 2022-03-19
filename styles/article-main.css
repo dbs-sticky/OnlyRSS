@@ -28,7 +28,7 @@ html {
   }
 
   a.icons svg{
-    width: 30px !important; /* set icon width (height is auto) - adjust this to scale them */
+    width: 28px !important; /* set icon width (height is auto) - adjust this to scale them */
   }
 }
 /* set size for 768px - 1200px ≈18px/110% */
