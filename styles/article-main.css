@@ -49,7 +49,7 @@ html {
     content: ''!important;
   }
   a.icons svg{
-    width: 48px !important; /* set icon width (height is auto) - adjust this to scale them */
+    width: 60px !important; /* set icon width (height is auto) - adjust this to scale them */
   }
 }
 /* set size for >1920px ≈19px/120% */
@@ -73,7 +73,7 @@ html {
     content: ''!important;
   }
   a.icons svg{
-    width: 56px !important; /* set icon width (height is auto) - adjust this to scale them */
+    width: 80px !important; /* set icon width (height is auto) - adjust this to scale them */
   }
 }
 
