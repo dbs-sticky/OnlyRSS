@@ -17,11 +17,9 @@ html {
     font-size: 100%;
     line-height: 1.6;
   }
-  .page {
-    padding: 30px;
-  }
-  .grid-container-related {
-    max-width: calc(var(--pagewidth) + 60px)!important;
+  .page, aside { 
+    padding-left: 30px;
+    padding-right: 30px;
   }
   blockquote{
     margin-left: 0px !important;
@@ -36,11 +34,9 @@ html {
   html {
     font-size: 110%;
   }
-  .page {
-    padding: 60px;
-  }
-  .grid-container-related {
-    max-width: calc(var(--pagewidth) + 120px)!important;
+  .page, aside {
+    padding-left: 60px;
+    padding-right: 60px;
   }
    blockquote{
     margin-left: 30px !important;
@@ -57,12 +53,11 @@ html {
   html {
     font-size: 120%;
   }
-  .page {
-    padding: 90px;
+  .page, aside {
+    padding-left: 90px;
+    padding-right: 90px;
   }
-  .grid-container-related {
-    max-width: calc(var(--pagewidth) + 180px)!important;
-  }
+
   blockquote{
     margin-left: 60px !important;
   }
@@ -112,6 +107,7 @@ article {
   max-width: var(--pagewidth);
   margin: auto;
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
+  padding-top:40px;
 }
 
 blockquote {
@@ -229,31 +225,23 @@ figcaption {
   font-style: italic;
 }
 
-/* Related articles */
-h2.related {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
+/* ————Related articles———— */
+aside h2 {
   font-size: 1.2em;
-  margin-top: 0.2em;
-  margin-bottom: 0.0em;
 }
 
-img.related {
-  border-radius: 5px 0 0 5px;
-}
-
-p.related {
-  font-family: 'Roboto Serif', sans-serif;
+aside p {
   line-height: 1.5;
   font-size: 0.8em;
   margin-top: 0.4em;
 }
 
-a.related {
+aside a, aside a:hover {
   color: black;
   text-decoration: none;
 }
-.grid-container-related {
+
+aside {/* same as .page except for the padding-top */
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
@@ -261,17 +249,14 @@ a.related {
   margin: auto;
   margin-top:1em;
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-}
-.grid-container-related:hover {
-  box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
-}
-.grid-child-related {
-  padding: 10px;
+  padding-top: 15px;
 }
 
-section.related {
+aside:hover {
+  box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
+}
+
+aside {
   margin-bottom:30px;
 }
 
