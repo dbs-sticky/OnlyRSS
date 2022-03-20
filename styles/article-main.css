@@ -17,7 +17,7 @@ html {
     font-size: 100%;
     line-height: 1.6;
   }
-  .page, aside { 
+  article, aside { 
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -34,7 +34,7 @@ html {
   html {
     font-size: 110%;
   }
-  .page, aside {
+  article, aside {
     padding-left: 60px;
     padding-right: 60px;
   }
@@ -53,7 +53,7 @@ html {
   html {
     font-size: 120%;
   }
-  .page, aside {
+  article, aside {
     padding-left: 90px;
     padding-right: 90px;
   }
@@ -93,21 +93,21 @@ img {
   font-size: 0.8em;
 }
 
-/* set the  article width and bottom padding */
-article {
-  margin: auto;
-  padding-bottom: 20px;
-}
-
-/* set the style of the page outline */
-.page {
+/* the article and aside containers are the same, with the exception of the top padding */
+article, aside {
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
   max-width: var(--pagewidth);
   margin: auto;
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
+  margin-bottom: 20px;
+}
+article {
   padding-top:40px;
+}
+aside {
+  padding-top: 15px;
 }
 
 blockquote {
@@ -241,23 +241,8 @@ aside a, aside a:hover {
   text-decoration: none;
 }
 
-aside {/* same as .page except for the padding-top */
-  background-color: #ffffff;
-  border-radius: 5px;
-  border: 1px solid LightGrey;
-  max-width: var(--pagewidth);
-  margin: auto;
-  margin-top:1em;
-  box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
-  padding-top: 15px;
-}
-
 aside:hover {
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
-}
-
-aside {
-  margin-bottom:30px;
 }
 
 /* abbreviations */

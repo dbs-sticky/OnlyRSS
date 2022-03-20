@@ -1,19 +1,19 @@
 
-section {
+.container section {
   font-family: "Literata", serif;
   font-size: 14px;
 }
 
-section P {
+.container section P {
   margin: 0;
   padding: 0;
 }
 
-Section P + P {
+.container Section P + P {
   text-indent: 1.5em;
 }
 
-section h1 {
+.container section h1 {
   font-family: "Literata", serif;
   line-height: 1.4;
   font-size: 1.7em;
@@ -22,7 +22,7 @@ section h1 {
   text-transform: uppercase;
 }
 
-section h2 {
+.container section h2 {
   font-family: "Literata", serif;
   line-height: 0px;
   font-size: 1em;
@@ -43,7 +43,7 @@ section h2 {
   filter: drop-shadow(3px -2px 4px gray);
 }
 
-.screen {
+.container .screen {
   overflow: hidden;
   padding: 25px;
   width: 500px;
@@ -54,7 +54,7 @@ section h2 {
   border-radius: 3px;
 }
 
-.footer {
+.container .footer {
   position: absolute;
   bottom: 35px;
   font-weight: bold;
@@ -63,7 +63,7 @@ section h2 {
 }
 
 /* set default Kindle nav button style and X position */
-button {
+.container button {
   position: absolute;
   background-color: #302f2f;
   border-style: solid;
@@ -76,16 +76,16 @@ button {
 }
 
 /* set Next button Y position */
-.next-button {
+.container .next-button {
   top: 280px;
 }
 
 /* set Previous button Y position */
-.previous-button {
+.container .previous-button {
   top: 380px;
 }
 
 /* set button active colour */
-button:active {
+.container button:active {
   background-color: #000000;
 }
