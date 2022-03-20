@@ -151,180 +151,189 @@
       <p>List of changes, the reasons for the change, and what I learnt in the process.</p>
     </header>
 
-       <details>
-        <summary><span><time datetime="2022-03-20">20 Mar 2022</time>: Swapped a &lt;div&gt; and CSS Class for the &lt;aside&gt; element</span><span class="housekeeping-tag"></span></summary>
-        <p>I've tried my best to avoid non-semantic HTML elements where possible i.e. &lt;div&gt; and &lt;span&gt;. The homepage uses a few &lt;div&gt; elements (to create the cards), and this page uses &lt;span&gt; (for the tags), apart from that the whole site uses <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" title="Read about semantic HTML elements at W3C schools">semantic HTML tags</a>. I've avoided the of CSS IDs altogether, and have only defined a few CSS Classes.</p>
-        <p>I was using a few &lt;div&gt; elements for the related articles that appear at the bottom of a couple of articles, but there is a specific HTML element designed to show related content i.e. the &lt;aside&gt; element. Here's the description of the aside element from W3C Schools, <q>The aside element represents a section of a page that consists of content that is tangentially related to the content around the aside element.</q></p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-20">20 Mar 2022</time>: Should your &lt;header&gt; be in your &lt;article&gt;, or above your &lt;article&gt;?</span><span class="housekeeping-tag"></span></summary>
+      <p>This isn't a rhetorical question. There doesn't appear to be an agreed answer online for this. Today I moved all the article &lt;header&gt; elements and placed them within the &lt;article&gt; elements. Previously they had been above.</p>
+      <p> The <i>HTML Article</i> element represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable e.g., a forum post, a magazine or newspaper article<p>
+      <p>The <i>HTML Header</i> element represents introductory content, typically a group of introductory or navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.</p>
+      <p>I've decided that if the Header is meant to contain introductory content, and often the h1, then it's essential for the article to which it belongs, and as the &lt;article&gt; content is meant to be self-contained (i.e. suitable for redistribution) then (at least for my use case) the &lt;header&gt; should be in the &lt;article&gt;.</p>
+      <p>Previously the page outline (the visual outline I mean i.e. the border and drop-shadow) was represented by a &lt;main&gt; with a specific CSS Class applied. This has now been replaced by &lt;atricle&gt;, i.e. I've got rid of another CSS Class and replaced it with a semantic HTML element, which is a positive as far as I'm concerned.</p>
+    </details>
 
       <details>
-        <summary><span><time datetime="2022-03-19">19 Mar 2022</time>: Added SVG social icons to the About page </span><span class="ux-tag"><span class="performance-tag"></span></span></summary>
-        <p>This was a bit of a rabbit-hole for me. I downloaded a few social media icons from the web in <abbr title="Scalable Vector Graphic">SVG</abbr> format, and created some of my own in Figma. I then had to work out the correct Viewbox size etc. I wanted the icons to appear outlined with a white fill, but then have the fill fade to their brand colours on-hover. This took a bit of CSS work to get right. Basically, the SVG is inline with the HTML and includes the fill colour. The CSS then overrides this and sets the fill to transparent. On-hover the transparency is then removed (via a 0.9s transition) to reveal the fill colour. Doing it this way means that the CSS is generic and works for all the icons—it removes the need for a CSS Class or ID per icon.</p><p> The SVG icons and the required CSS take up 12kB of space, which <a href="https://en.wikipedia.org/wiki/Brotli" title="read about Brotli text compression">when compressed for transfer to the browser</a> comes to around 2kB. Not bad (<abbr title="In My Humble Opinion">IMHO</abbr>) for 8 coloured icons that can be scaled to any size. If these 8 icons were PNGs or GIFs they would each have to be loaded after the HTML and CSS. The inline SVG solution means they are loaded with/in the HTML.</p><p> In case it's not obvious from the description above…yes, I am quite proud of myself. &#128512</p>
-      </details>
+      <summary><span><time datetime="2022-03-20">20 Mar 2022</time>: Swapped a &lt;div&gt; and CSS Class for the &lt;aside&gt; element</span><span class="housekeeping-tag"></span></summary>
+      <p>I've tried my best to avoid non-semantic HTML elements where possible i.e. &lt;div&gt; and &lt;span&gt;. The homepage uses a few &lt;div&gt; elements (to create the cards), and this page uses &lt;span&gt; (for the tags), apart from that the whole site uses <a href="https://www.w3schools.com/html/html5_semantic_elements.asp" title="Read about semantic HTML elements at W3C schools">semantic HTML tags</a>. I've avoided the of CSS IDs altogether, and have only defined a few CSS Classes.</p>
+      <p>I was using a few &lt;div&gt; elements for the related articles that appear at the bottom of a couple of articles, but there is a specific HTML element designed to show related content i.e. the &lt;aside&gt; element. Here's the description of the aside element from W3C Schools, <q>The aside element represents a section of a page that consists of content that is tangentially related to the content around the aside element.</q></p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-16">16 Mar 2022</time>: Right-aligned the tags in the Changelog </span><span class="ux-tag"></span></summary>
-        <p>This actually took me a little while to figure out. Had to wrap the date/description in a &lt;span&gt;, (the tags already use &lt;span&gt;) then I set the first span in the Changelog summary to flex:1, I did this using the first-of-type CSS selector i.e. 'summary span:first-of-type {flex: 1}'. The other &lt;spans&gt; (used by the tags) would default to flex:0. The result of which is that the date/description expands to fill the row and pushes the tags to the far right.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-19">19 Mar 2022</time>: Added SVG social icons to the About page </span><span class="ux-tag"><span class="performance-tag"></span></span></summary>
+      <p>This was a bit of a rabbit-hole for me. I downloaded a few social media icons from the web in <abbr title="Scalable Vector Graphic">SVG</abbr> format, and created some of my own in Figma. I then had to work out the correct Viewbox size etc. I wanted the icons to appear outlined with a white fill, but then have the fill fade to their brand colours on-hover. This took a bit of CSS work to get right. Basically, the SVG is inline with the HTML and includes the fill colour. The CSS then overrides this and sets the fill to transparent. On-hover the transparency is then removed (via a 0.9s transition) to reveal the fill colour. Doing it this way means that the CSS is generic and works for all the icons—it removes the need for a CSS Class or ID per icon.</p><p> The SVG icons and the required CSS take up 12kB of space, which <a href="https://en.wikipedia.org/wiki/Brotli" title="read about Brotli text compression">when compressed for transfer to the browser</a> comes to around 2kB. Not bad (<abbr title="In My Humble Opinion">IMHO</abbr>) for 8 coloured icons that can be scaled to any size. If these 8 icons were PNGs or GIFs they would each have to be loaded after the HTML and CSS. The inline SVG solution means they are loaded with/in the HTML.</p><p> In case it's not obvious from the description above…yes, I am quite proud of myself. &#128512</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-14">14 Mar 2022</time>: Moved the links to the Latin fonts into the HTML head </span><span class="performance-tag"></span></summary>
-        <p>Previously, I'd moved the Google font code i.e. @import (which itself linked to a stylesheet) from the CSS and into the head of the HTML, therefore removing a "chain" when loading the page. This time I moved the links to the Latin version of the fonts directly into the HTML head. It removes another "chain", and page load speed for most pages is now around 30-50&#8239;ms. Without actually minifying the CSS and moving it into the HTML head, there's not much else I can do now to improve page performance.  </p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-16">16 Mar 2022</time>: Right-aligned the tags in the Changelog </span><span class="ux-tag"></span></summary>
+      <p>This actually took me a little while to figure out. Had to wrap the date/description in a &lt;span&gt;, (the tags already use &lt;span&gt;) then I set the first span in the Changelog summary to flex:1, I did this using the first-of-type CSS selector i.e. 'summary span:first-of-type {flex: 1}'. The other &lt;spans&gt; (used by the tags) would default to flex:0. The result of which is that the date/description expands to fill the row and pushes the tags to the far right.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-13">13 Mar 2022</time>: Created this <i>Changelog</i> page </span><span class="content-tag"></span></summary>
-        <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-14">14 Mar 2022</time>: Moved the links to the Latin fonts into the HTML head </span><span class="performance-tag"></span></summary>
+      <p>Previously, I'd moved the Google font code i.e. @import (which itself linked to a stylesheet) from the CSS and into the head of the HTML, therefore removing a "chain" when loading the page. This time I moved the links to the Latin version of the fonts directly into the HTML head. It removes another "chain", and page load speed for most pages is now around 30-50&#8239;ms. Without actually minifying the CSS and moving it into the HTML head, there's not much else I can do now to improve page performance.  </p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-12">12 Mar 2022</time>: Replaced the <i>About</i> page </span><span class="content-tag"></span></summary>
-        <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of simplicity I decided to use the standard article page style/CSS.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-13">13 Mar 2022</time>: Created this <i>Changelog</i> page </span><span class="content-tag"></span></summary>
+      <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS required.)</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-12">12 Mar 2022</time>: Switched GitHub repository from Private to Public, added link to nav</span><span class="housekeeping-tag"></span></summary>
-        <p>I don't think anyone is going to be cloning my repository anytime soon, but having it public just makes things a little simpler, and allows me to see better analytics related to my own commits.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-12">12 Mar 2022</time>: Replaced the <i>About</i> page </span><span class="content-tag"></span></summary>
+      <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of simplicity I decided to use the standard article page style/CSS.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-11">11 Mar 2022</time>: Moved font import from CSS to the &lt;head&gt; of each page </span><span class="performance-tag"></span></summary>
-        <p>This took a bit of research. When looking at the load order of page elements, I noticed that most of the page was waiting for the fonts to load, and this was not starting until <em>after</em> the CSS had loaded. By moving the font import into the HTML, the font load can start in parallel with the CSS, resulting in a faster page load.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-12">12 Mar 2022</time>: Switched GitHub repository from Private to Public, added link to nav</span><span class="housekeeping-tag"></span></summary>
+      <p>I don't think anyone is going to be cloning my repository anytime soon, but having it public just makes things a little simpler, and allows me to see better analytics related to my own commits.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-11">11 Mar 2022</time>: Improved the PWA user experience </span><span class="ux-tag"></span></summary>
-        <p>Created new PWA icons, added the required apple-touch-icons, added a maskable icon, changed the display type in the manifest from <i>minimal-ui</i> to <i>standalone</i>, and added a theme-color in the HTML &lt;head&gt;.</p>
-        <p>These changes greatly improve the PWA user experience, especially on iOS devices. OnlyRSS.org now gets a 100% PWA score via the open-source Lighthouse tool.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-11">11 Mar 2022</time>: Moved font import from CSS to the &lt;head&gt; of each page </span><span class="performance-tag"></span></summary>
+      <p>This took a bit of research. When looking at the load order of page elements, I noticed that most of the page was waiting for the fonts to load, and this was not starting until <em>after</em> the CSS had loaded. By moving the font import into the HTML, the font load can start in parallel with the CSS, resulting in a faster page load.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-10">10 Mar 2022</time>: Removed Google Analytics </span><span class="performance-tag"></span></summary>
-        <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning experience.</p> <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or for trying to write "better" content (by measuring the popularity of existing content, and creating more of the same). But, my aim is not to write articles that will result in a large number of page views, or to create a blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one other person on the internet will find useful. The analytics were interesting, but they weren't free, and the cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The cost was a reduction in user experience.</p>
-        <p> Basically, the page load times were dominated by the JS  required for the analytics. Removing the analytics resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics and give visitors a better experience.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-11">11 Mar 2022</time>: Improved the PWA user experience </span><span class="ux-tag"></span></summary>
+      <p>Created new PWA icons, added the required apple-touch-icons, added a maskable icon, changed the display type in the manifest from <i>minimal-ui</i> to <i>standalone</i>, and added a theme-color in the HTML &lt;head&gt;.</p>
+      <p>These changes greatly improve the PWA user experience, especially on iOS devices. OnlyRSS.org now gets a 100% PWA score via the open-source Lighthouse tool.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-10">10 Mar 2022</time>: Added loading="lazy" to images </span><span class="performance-tag"></span></summary>
-        <p>This required some research, mostly to determine which images would benefit and which would not. Essentially this image attribute won't load an image until the browser thinks that the user is actually going to view it, i.e. it looks at a user's scrolling behaviour, and loads the image just before the user gets to the specific section of the page. Although all images on my site are optimised to be as small as possible, there's still no need to load an image at the bottom of the page if the user is never going to see it.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-10">10 Mar 2022</time>: Removed Google Analytics </span><span class="performance-tag"></span></summary>
+      <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning experience.</p> <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or for trying to write "better" content (by measuring the popularity of existing content, and creating more of the same). But, my aim is not to write articles that will result in a large number of page views, or to create a blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one other person on the internet will find useful. The analytics were interesting, but they weren't free, and the cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The cost was a reduction in user experience.</p>
+      <p> Basically, the page load times were dominated by the JS  required for the analytics. Removing the analytics resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics and give visitors a better experience.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-09">09 Mar 2022</time>: Added OpenGraph meta tags to most pages </span><span class="seo-tag"></span><span class="ux-tag"></span></summary>
-        <p>This required a lot of research and some testing to get it right (tip: .webp images are NOT supported!), enough that I'll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or Facebook, they will contain a specific title, description and image and will typically be displayed in some form of card design.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-10">10 Mar 2022</time>: Added loading="lazy" to images </span><span class="performance-tag"></span></summary>
+      <p>This required some research, mostly to determine which images would benefit and which would not. Essentially this image attribute won't load an image until the browser thinks that the user is actually going to view it, i.e. it looks at a user's scrolling behaviour, and loads the image just before the user gets to the specific section of the page. Although all images on my site are optimised to be as small as possible, there's still no need to load an image at the bottom of the page if the user is never going to see it.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-08">08 Mar 2022</time>: My first use of the &lt;abbr&gt; HTML tag </span><span class="ux-tag"></span></summary>
-        <p>There are many HTML tags that are underused (IMHO), and &lt;abbr&gt; is probably one of them. It allows you to show the full text on hover for an abbreviation, e.g., <abbr title="In My Humble Opinion">IMHO</abbr>.</p>
-        <p> I made a few tweaks to the CSS, so on hover the cursor changes to the help-pointer, and on mobile you can tap the abbreviation, and it is then shown in-line in full after the abbreviation.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-09">09 Mar 2022</time>: Added OpenGraph meta tags to most pages </span><span class="seo-tag"></span><span class="ux-tag"></span></summary>
+      <p>This required a lot of research and some testing to get it right (tip: .webp images are NOT supported!), enough that I'll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or Facebook, they will contain a specific title, description and image and will typically be displayed in some form of card design.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-03-06">06 Mar 2022</time>: New article: <i>Linking tables to stacked bar charts</i> </span><span class="content-tag"></span></summary>
-        <p>While building Cirium Profiles, we came up with a neat solution to help mitigate one of the issues with stacked bar charts. This article describes what we did, and why.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2022-03-05">05 Mar 2022</time>: Added 'related articles' to the bottom of some articles </span><span class="ux-tag"></span></summary>
-        <p>My articles cover various subjects, some of which could be placed into groups, so I defined a style (not finished) for the display of 'related articles' which will appear at the end of some articles.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2022-02-28">28 Feb 2022</time>: Added &lt;figure&gt; and &lt;figcaption&gt; to articles and changed accent colour </span><span class="ux-tag"></span></summary>
-        <p>Placed all article images into the HTML figure tag. Removed the 'alt' attribute from images, as this was no longer required—assuming the &lt;figcaption&gt; includes a full description of the image.</p>
-        <p>Also changed the accent colour of the site from red to blue, because everybody knows that blue is the best colour.</p>
-      </details>
-          
-      <details>
-        <summary><span><time datetime="2022-02-27">27 Feb 2022</time>: Converted the majority of images to the .webp format </span><span class="performance-tag"></span></summary>
-        <p>Did some research regarding browser support and the modern image format of .webp. Decided to replace all images that would benefit from it to the new format in order to improve page load performance.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-08">08 Mar 2022</time>: My first use of the &lt;abbr&gt; HTML tag </span><span class="ux-tag"></span></summary>
+      <p>There are many HTML tags that are underused (IMHO), and &lt;abbr&gt; is probably one of them. It allows you to show the full text on hover for an abbreviation, e.g., <abbr title="In My Humble Opinion">IMHO</abbr>.</p>
+      <p> I made a few tweaks to the CSS, so on hover the cursor changes to the help-pointer, and on mobile you can tap the abbreviation, and it is then shown in-line in full after the abbreviation.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-02-26">26 Feb 2022</time>: Made the site responsive—finally looks good on mobile </span><span class="ux-tag"></span></summary>
-        <p>Prior to this the mobile version of the site was terrible, it so bad that mobile browsers kept requesting users to use their 'reader' view. This required me to learn how to use Media Queries and to add the viewport tag into the HTML head.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-03-06">06 Mar 2022</time>: New article: <i>Linking tables to stacked bar charts</i> </span><span class="content-tag"></span></summary>
+      <p>While building Cirium Profiles, we came up with a neat solution to help mitigate one of the issues with stacked bar charts. This article describes what we did, and why.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2022-03-05">05 Mar 2022</time>: Added 'related articles' to the bottom of some articles </span><span class="ux-tag"></span></summary>
+      <p>My articles cover various subjects, some of which could be placed into groups, so I defined a style (not finished) for the display of 'related articles' which will appear at the end of some articles.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2022-02-28">28 Feb 2022</time>: Added &lt;figure&gt; and &lt;figcaption&gt; to articles and changed accent colour </span><span class="ux-tag"></span></summary>
+      <p>Placed all article images into the HTML figure tag. Removed the 'alt' attribute from images, as this was no longer required—assuming the &lt;figcaption&gt; includes a full description of the image.</p>
+      <p>Also changed the accent colour of the site from red to blue, because everybody knows that blue is the best colour.</p>
+    </details>
+        
+    <details>
+      <summary><span><time datetime="2022-02-27">27 Feb 2022</time>: Converted the majority of images to the .webp format </span><span class="performance-tag"></span></summary>
+      <p>Did some research regarding browser support and the modern image format of .webp. Decided to replace all images that would benefit from it to the new format in order to improve page load performance.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-02-21">21 Feb 2022</time>: Project Unity. One style to rule them all </span><span class="ux-tag"></span></summary>
-        <p>This was a big change for the site, removing all individual styles (one per article) and settling on a single style. Prior to this each article had its own style—this was on purpose, as it gave me the reason I needed to practice CSS. It also allowed me to put into practice what I learnt from reading 3 typography books over the previous couple of weeks.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-02-26">26 Feb 2022</time>: Made the site responsive—finally looks good on mobile </span><span class="ux-tag"></span></summary>
+      <p>Prior to this the mobile version of the site was terrible, it so bad that mobile browsers kept requesting users to use their 'reader' view. This required me to learn how to use Media Queries and to add the viewport tag into the HTML head.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-02-13">13 Feb 2022</time>: OnlyRSS.org, now a Progressive Web App (PWA) </span><span class="ux-tag"></span></summary>
-        <p>A PWA version of OnlyRSS.org is not really needed by anyone. This was more a case of "can it be done?". I'm also considering turning one of my web products into a PWA for my users, so this was an interesting learning experience for me.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-02-21">21 Feb 2022</time>: Project Unity. One style to rule them all </span><span class="ux-tag"></span></summary>
+      <p>This was a big change for the site, removing all individual styles (one per article) and settling on a single style. Prior to this each article had its own style—this was on purpose, as it gave me the reason I needed to practice CSS. It also allowed me to put into practice what I learnt from reading 3 typography books over the previous couple of weeks.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-01-17">17 Jan 2022</time>: New article: <i>Drop caps and indents</i> </span><span class="content-tag"></span></summary>
-        <p>Got interested in how paragraphs are separated (in print and on the web), worked out how it's quite easy to implement in CSS with some specific CSS selectors, so decided to share what I had learned. </p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-02-13">13 Feb 2022</time>: OnlyRSS.org, now a Progressive Web App (PWA) </span><span class="ux-tag"></span></summary>
+      <p>A PWA version of OnlyRSS.org is not really needed by anyone. This was more a case of "can it be done?". I'm also considering turning one of my web products into a PWA for my users, so this was an interesting learning experience for me.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2022-01-12">12 Jan 2022</time>: New article: <i>Why I prefer the Kindle over physical books</i> </span><span class="content-tag"></span></summary>
-        <p>This was my first attempt at using CSS for something other than basic page typography, and it was a difficult learning experience—and it still doesn't work correctly on Safari!</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-01-17">17 Jan 2022</time>: New article: <i>Drop caps and indents</i> </span><span class="content-tag"></span></summary>
+      <p>Got interested in how paragraphs are separated (in print and on the web), worked out how it's quite easy to implement in CSS with some specific CSS selectors, so decided to share what I had learned. </p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-12-29">29 Dec 2021</time>: New RSS article: <i>Top Tens of 2021</i> </span><span class="content-tag"></span></summary>
-        <p>This was an RSS only article, so no article page on the site. Since graduating (25 years ago) my MSc friends and I share our 'top tens' at the end of each year. This year I thought I'd share it with my (very small quantity of) RSS subscribers. </p>
-      </details>
+    <details>
+      <summary><span><time datetime="2022-01-12">12 Jan 2022</time>: New article: <i>Why I prefer the Kindle over physical books</i> </span><span class="content-tag"></span></summary>
+      <p>This was my first attempt at using CSS for something other than basic page typography, and it was a difficult learning experience—and it still doesn't work correctly on Safari!</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-04-21">21 Apr 2021</time>: New article: <i>Why every Product Manager should build a website</i> </span><span class="content-tag"></span></summary>
-        <p>A short article describing why I believe every Product Manager should build a website. This was the first article where I used the &lt;blockquote&gt; HTML tag. </p>
-      </details>
+    <details>
+      <summary><span><time datetime="2021-12-29">29 Dec 2021</time>: New RSS article: <i>Top Tens of 2021</i> </span><span class="content-tag"></span></summary>
+      <p>This was an RSS only article, so no article page on the site. Since graduating (25 years ago) my MSc friends and I share our 'top tens' at the end of each year. This year I thought I'd share it with my (very small quantity of) RSS subscribers. </p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-04-09">09 Apr 2021</time>: New article: <i>My indoor rowing tips after 15 million meters</i></span><span class="content-tag"></span></summary>
-        <p>An article describing my experience and tips after rowing 15 million meters over 8 years. For some odd reason this ended up in hacker news, which resulted in this article getting over <b>1,300 pageviews</b> in a week! </p>
-      </details>
+    <details>
+      <summary><span><time datetime="2021-04-21">21 Apr 2021</time>: New article: <i>Why every Product Manager should build a website</i> </span><span class="content-tag"></span></summary>
+      <p>A short article describing why I believe every Product Manager should build a website. This was the first article where I used the &lt;blockquote&gt; HTML tag. </p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-04-02">02 Apr 2021</time>: Updated the homepage from a list-view to a card-view</span><span class="ux-tag"></span></summary>
-        <p>Not a big need for this change, other than the fact that I wanted to see how easy it would be to makes "cards" in CSS, and also, cards are obviously the cool thing these days. I had to get my head around CSS Flexbox.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2021-04-09">09 Apr 2021</time>: New article: <i>My indoor rowing tips after 15 million meters</i></span><span class="content-tag"></span></summary>
+      <p>An article describing my experience and tips after rowing 15 million meters over 8 years. For some odd reason this ended up in hacker news, which resulted in this article getting over <b>1,300 pageviews</b> in a week! </p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-03-28">28 Mar 2021</time>: New article: <i>Chart Picker</i></span><span class="content-tag"></span></summary>
-        <p>All the details of the Chart Picker I built using Excalidraw, which can be found on GitHub. Investigated and used a few 3rd party tools to compress .svg files.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2021-04-02">02 Apr 2021</time>: Updated the homepage from a list-view to a card-view</span><span class="ux-tag"></span></summary>
+      <p>Not a big need for this change, other than the fact that I wanted to see how easy it would be to makes "cards" in CSS, and also, cards are obviously the cool thing these days. I had to get my head around CSS Flexbox.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-03-14">14 Mar 2021</time>: Updated the meta-row on articles to be left and right aligned</span><span class="ux-tag"></span></summary>
-        <p>Left aligned the date, right aligned other article details. Had to learn how to use CSS float—and learnt that you have to remember to clear the float!</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2021-03-28">28 Mar 2021</time>: New article: <i>Chart Picker</i></span><span class="content-tag"></span></summary>
+      <p>All the details of the Chart Picker I built using Excalidraw, which can be found on GitHub. Investigated and used a few 3rd party tools to compress .svg files.</p>
+    </details>
 
-      <details>
-        <summary><span><time datetime="2021-03-13">13 Mar 2021</time>: Changed the website's folder structure</span><span class="housekeeping-tag"></summary>
-        <p>Originally all the files for an article were in a specific article folder. I changed this so there's now separate folders for posts, images, styles, etc.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2021-03-07">07 Mar 2021</time>: New article: <i>RSS part 1: what is RSS and what are aggregators</i></span><span class="content-tag"></span></summary>
-        <p>An article explaining what RSS is and how it can be useful. I learnt how to use the &lt;code&gt; HTML element.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2021-03-02">02 Mar 2021</time>: New article: <i>Drawing with Excalidraw</i></span><span class="content-tag"></span></summary>
-        <p>An article describing Excalidraw and why it's a great tool for prototyping.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2021-02-18">18 Feb 2021</time>: New article: <i>Working from home hardware</i></span><span class="content-tag"></span></summary>
-        <p>An article describing my work-from-home hardware setup, and why I believe the hardware is worth investing in.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2021-02-07">07 Feb 2021</time>: New article: <i>Anatomy of a lockdown weekday</i></span><span class="content-tag"></span></summary>
-        <p>A description of the routine I fell into while working from home during the COVID-19 pandemic.</p>
-      </details>
-      
-      <details>
-        <summary><span><time datetime="2021-02-06">06 Feb 2021</time>: New article: <i>Using virtual desktops in Windows 10</i></span><span class="content-tag"></span></summary>
-        <p>My post describing how to take advantage of Windows Virtual Desktops when shifting between tasks.</p>
-      </details>
+    <details>
+      <summary><span><time datetime="2021-03-14">14 Mar 2021</time>: Updated the meta-row on articles to be left and right aligned</span><span class="ux-tag"></span></summary>
+      <p>Left aligned the date, right aligned other article details. Had to learn how to use CSS float—and learnt that you have to remember to clear the float!</p>
+    </details>
+
+    <details>
+      <summary><span><time datetime="2021-03-13">13 Mar 2021</time>: Changed the website's folder structure</span><span class="housekeeping-tag"></summary>
+      <p>Originally all the files for an article were in a specific article folder. I changed this so there's now separate folders for posts, images, styles, etc.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2021-03-07">07 Mar 2021</time>: New article: <i>RSS part 1: what is RSS and what are aggregators</i></span><span class="content-tag"></span></summary>
+      <p>An article explaining what RSS is and how it can be useful. I learnt how to use the &lt;code&gt; HTML element.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2021-03-02">02 Mar 2021</time>: New article: <i>Drawing with Excalidraw</i></span><span class="content-tag"></span></summary>
+      <p>An article describing Excalidraw and why it's a great tool for prototyping.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2021-02-18">18 Feb 2021</time>: New article: <i>Working from home hardware</i></span><span class="content-tag"></span></summary>
+      <p>An article describing my work-from-home hardware setup, and why I believe the hardware is worth investing in.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2021-02-07">07 Feb 2021</time>: New article: <i>Anatomy of a lockdown weekday</i></span><span class="content-tag"></span></summary>
+      <p>A description of the routine I fell into while working from home during the COVID-19 pandemic.</p>
+    </details>
+    
+    <details>
+      <summary><span><time datetime="2021-02-06">06 Feb 2021</time>: New article: <i>Using virtual desktops in Windows 10</i></span><span class="content-tag"></span></summary>
+      <p>My post describing how to take advantage of Windows Virtual Desktops when shifting between tasks.</p>
+    </details>
 
   </article>
 </body>
