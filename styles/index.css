@@ -52,9 +52,59 @@ img {
   border-radius: 5px 5px 0 0;
 }
 
+/* make the text container a vertical flexbox */
 .container {
-  padding: 2px 25px;
+  padding: 0px 20px 0px 20px;
   height: 180px;
+  display:flex;
+  flex-direction: column
+}
+
+/* make the title and description expand to push the date/tag text to the bottom */
+.container div:first-of-type{
+  flex:1;
+}
+
+/* make the date/tag row a flex row */
+.date{
+  display: flex;
+}
+
+/* make the date expand to push the tag text to the right */
+.date span:first-of-type{
+  flex:1;
+}
+
+.date span::after  {
+  font-family: 'Open sans', sans-serif;
+  color:rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin-left: 5px; /* add space between tags */
+}
+
+.DataViz-tag::after {
+  background-color: rgb(71, 69, 187);
+  content: "DataViz";
+  font-size: 0.8em;
+}
+
+.css-tag::after {
+  background-color: rgb(73, 187, 69);
+  content: "CSS";
+  font-size: 0.8em;
+}
+
+.productivity-tag::after {
+  background-color: rgb(187, 69, 69);
+  content: "productivity";
+  font-size: 0.8em;
+}
+
+.review-tag::after {
+  background-color: rgb(159, 69, 187);
+  content: "review";
+  font-size: 0.8em;
 }
 
 /* set the card link styles */
@@ -75,7 +125,3 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.date{
-  position: absolute;
-  bottom: 10px;
-}
