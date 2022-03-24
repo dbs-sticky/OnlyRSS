@@ -151,18 +151,33 @@ a {
   font-weight: 400;
   transition: color .4s; /* transition from normal colour to hover colour */
 }
-a:hover {
-  text-decoration: none;
-  color: var(--accent);
-}
 
+/* internal links */
 p a::after {
   position: relative;
   content: "°";
   margin-left: 0.1em;
   font-size: 90%;
   top: -0.1em;
-  color: var(--accent);
+  color: blue;
+}
+a:hover {
+  text-decoration: none;
+  color: blue;
+}
+
+/* external links */
+p a[href^="http"]::after {
+  position: relative;
+  content: "°";
+  margin-left: 0.1em;
+  font-size: 90%;
+  top: -0.1em;
+  color: red;
+}
+a[href^="http"]:hover {
+  text-decoration: none;
+  color: red;
 }
 
 /* set the style for code blocks */
