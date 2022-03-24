@@ -147,12 +147,21 @@ h2 {
 /* set the link styles */
 a {
   color: #2e2e2e;
-  text-decoration:underline;
+  text-decoration:none;
   font-weight: 400;
   transition: color .4s; /* transition from normal colour to hover colour */
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+p a::after {
+  position: relative;
+  content: "°";
+  margin-left: 0.1em;
+  font-size: 90%;
+  top: -0.1em;
   color: var(--accent);
 }
 
