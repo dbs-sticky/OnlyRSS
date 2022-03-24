@@ -180,6 +180,7 @@ a[href^="http"]:hover {
   color: red;
 }
 
+
 /* set the style for code blocks */
 pre code {
   background-color: rgb(0, 0, 0);
