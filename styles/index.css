@@ -84,25 +84,25 @@ img {
 }
 
 .DataViz-tag::after {
-  background-color: rgb(71, 69, 187);
+  background-color: #D4E09B;
   content: "DataViz";
   font-size: 0.8em;
 }
 
 .css-tag::after {
-  background-color: rgb(73, 187, 69);
+  background-color: #9CB380;
   content: "CSS";
   font-size: 0.8em;
 }
 
 .productivity-tag::after {
-  background-color: rgb(187, 69, 69);
+  background-color: #94A89A;
   content: "productivity";
   font-size: 0.8em;
 }
 
 .review-tag::after {
-  background-color: rgb(159, 69, 187);
+  background-color: #C7AC92;
   content: "review";
   font-size: 0.8em;
 }
