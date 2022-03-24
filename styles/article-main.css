@@ -324,27 +324,31 @@ summary span:first-of-type {
 }
 
 /* social svg icons on About page */
+/* remove the underline */
+a.icons {
+  text-decoration:none;
+}
+
+/* set icon width (height is auto) - adjust this to scale them—this is overwritten in the media queries */
 a.icons svg{
-  width: 48px; /* set icon width (height is auto) - adjust this to scale them—this is overwritten in the media queries */
+  width: 48px; 
 }
 /* set the svg icon fill to transparent, the fill colour is set in the HTML SVG, and is unique to each icon */
-a.icons {
+a.icons svg{
   fill-opacity:0; /* start with icon fill fully transparent */
-  text-decoration:none; /* remove the underline */
-  transition: fill-opacity 1s; /* fade opacity on hover for 1s  */
+  transition: all 0.7s ease-in-out; /* fade opacity and grow on hover for 0.7s  */
   stroke: #2e2e2e; /* set stoke colour to match the font colour  */
   stroke-width: 0.3px;
 
 }
-/* on hover, fade to fully opaque i.e. reveal the colour that's set in the HTML SVG */
-a.icons:hover{
+/* on hover, fade to fully opaque and grow i.e. reveal the colour that's set in the HTML SVG */
+a.icons svg:hover {
   fill-opacity:1; 
-  text-decoration:none;
+  transform: scale(1.3);
 }
 
 /* remove the square flash you get "on tap" on mobile */
 a.icons:active{
-  text-decoration:none;
   -webkit-tap-highlight-color: transparent; /* This feature is non-standard and should not be used without careful consideration. */
 }
 
