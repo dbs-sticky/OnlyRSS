@@ -333,14 +333,26 @@ a.icons {
 a.icons svg{
   width: 48px; 
 }
+/* on page load, fade icons to transparent */
+@keyframes fadein {
+  from { fill-opacity: 1; }
+  to   { fill-opacity: 0; }
+}
 /* set the svg icon fill to transparent, the fill colour is set in the HTML SVG, and is unique to each icon */
 a.icons svg{
   fill-opacity:0; /* start with icon fill fully transparent */
   transition: all 0.7s ease-in-out; /* fade opacity and grow on hover for 0.7s  */
   stroke: #2e2e2e; /* set stoke colour to match the font colour  */
   stroke-width: 0.3px;
-
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+   -ms-animation: fadein 3s; /* Internet Explorer */
+    -o-animation: fadein 3s; /* Opera < 12.1 */
+       animation: fadein 3s;
 }
+
+
+
 /* on hover, fade to fully opaque and grow i.e. reveal the colour that's set in the HTML SVG */
 a.icons svg:hover {
   fill-opacity:1; 
