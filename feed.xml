@@ -1222,5 +1222,6 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
 
 
 ]]>            </description>
-        </item>        <!-- End of Blog articles --></channel>
+        </item>
+    </channel>
 </rss>
