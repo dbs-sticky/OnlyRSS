@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">    <!-- Channel name and description -->
-<atom:link href="https://onlyrss.org/feed.xml" rel="self" type="application/rss+xml" />
+<atom:link href="https://onlyrss.org/feed.xml" rel="self" type="application/rss+xml" >
     <channel>
         <title>OnlyRSS</title>
         <link>https://onlyrss.org</link>
@@ -111,7 +111,6 @@
     </article>
   </main>
 </body>
-
 ]]>            </description>
         </item>
 
@@ -1203,7 +1202,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
             <guid isPermaLink="false">article2</guid>
             <title>Using Virtual Desktops in Windows 10</title>
             <link>https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html</link>
-            <pubDate>Sat, 06 Feb 2021 15:00:00:00 GMT</pubDate>            <!-- article contents -->
+            <pubDate>Sat, 06 Feb 2021 15:00:00 GMT</pubDate>            <!-- article contents -->
             <description><![CDATA[
 	
 
