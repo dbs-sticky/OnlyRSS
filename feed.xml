@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<rss version="2.0">    <!-- Channel name and description -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">    <!-- Channel name and description -->
+<atom:link href="https://onlyrss.org/feed.xml" rel="self" type="application/rss+xml" />
     <channel>
         <title>OnlyRSS</title>
         <link>https://onlyrss.org</link>
@@ -222,7 +223,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
             <guid isPermaLink="false">article11</guid>
             <title>Why I prefer the Kindle</title>
             <link>https://onlyrss.org/posts/why-i-prefer-the-kindle.html</link>
-            <pubDate>Thu, 12 Jan 2022 19:00:00 GMT</pubDate>
+            <pubDate>Wed, 12 Jan 2022 19:00:00 GMT</pubDate>
             <description><![CDATA[
 <body>
 
@@ -525,8 +526,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
         <item>
             <guid isPermaLink="false">article10</guid>
             <title>Tops of 2021</title>
-            <link></link>
-            <pubDate>wed, 29 Dec 2021 17:25:00 GMT</pubDate>
+            <pubDate>Wed, 29 Dec 2021 17:25:00 GMT</pubDate>
             <description><![CDATA[
 <body>
 <h1>2021 Tops</h1>
@@ -600,7 +600,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
             <guid isPermaLink="false">article9</guid>
             <title>Why every Product Manager should build a website</title>
             <link>https://onlyrss.org/posts/why-every-product-manager-should-build-a-website.html</link>
-            <pubDate>Sun, 18 Apr 2021 17:00:00 BST</pubDate>
+            <pubDate>Sun, 18 Apr 2021 17:00:00 GMT</pubDate>
             <description><![CDATA[
 <body>
   <main class="page">
@@ -708,7 +708,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
             <guid isPermaLink="false">article8</guid>
             <title>My indoor rowing tips after 15 million meters</title>
             <link>https://onlyrss.org/posts/my-rowing-tips-after-15-million-meters.html</link>
-            <pubDate>Fri, 9 Apr 2021 16:00:00 BST</pubDate>
+            <pubDate>Fri, 9 Apr 2021 16:00:00 GMT</pubDate>
             <description><![CDATA[
 <body>
     <main class="page">
@@ -873,7 +873,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
             <guid isPermaLink="false">article7</guid>
             <title>Chart Picker</title>
             <link>https://onlyrss.org/posts/chart-picker.html</link>
-            <pubDate>Sun, 28 Mar 2021 11:00:00 BST</pubDate>
+            <pubDate>Sun, 28 Mar 2021 11:00:00 GMT</pubDate>
             <description><![CDATA[
 <body>
     <main class="page">
@@ -1077,7 +1077,7 @@ If you are reading this in an RSS reader, you might want to visit the actual blo
             <guid isPermaLink="false">article5</guid>
             <title>Drawing with Excalidraw</title>
             <link>https://onlyrss.org/posts/drawing-with-excalidraw.html</link>
-            <pubDate>Tue, 3 Mar 2021 20:00:00 GMT</pubDate>
+            <pubDate>Wed, 3 Mar 2021 20:00:00 GMT</pubDate>
             <description><![CDATA[
 
    <!-- set title, pubdate, and article style -->
