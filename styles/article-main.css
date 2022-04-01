@@ -17,58 +17,76 @@ html {
     font-size: 100%;
     line-height: 1.6;
   }
-  article, aside { 
+
+  article,
+  aside {
     padding-left: 30px;
     padding-right: 30px;
   }
-  blockquote{
+
+  blockquote {
     margin-left: 0px !important;
   }
 
-  a.icons svg{
-    width: 28px !important; /* set icon width (height is auto) - adjust this to scale them */
+  a.icons svg {
+    width: 28px !important;
+    /* set icon width (height is auto) - adjust this to scale them */
   }
 }
+
 /* set size for 768px - 1200px ≈18px/110% */
 @media screen and (min-width: 768px) {
   html {
     font-size: 110%;
   }
-  article, aside {
+
+  article,
+  aside {
     padding-left: 60px;
     padding-right: 60px;
   }
-   blockquote{
+
+  blockquote {
     margin-left: 30px !important;
   }
+
   abbr[title]:hover::after {
-    content: ''!important;
+    content: '' !important;
   }
-  a.icons svg{
-    width: 60px !important; /* set icon width (height is auto) - adjust this to scale them */
+
+  a.icons svg {
+    width: 60px !important;
+    /* set icon width (height is auto) - adjust this to scale them */
   }
 }
+
 /* set size for >1920px ≈19px/120% */
 @media screen and (min-width: 1920px) {
   html {
     font-size: 120%;
   }
-  article, aside {
+
+  article,
+  aside {
     padding-left: 90px;
     padding-right: 90px;
   }
 
-  blockquote{
+  blockquote {
     margin-left: 60px !important;
   }
+
   :root {
     --pagewidth: 800px !important;
   }
+
   abbr[title]:hover::after {
-    content: ''!important;
+    content: '' !important;
   }
-  a.icons svg{
-    width: 80px !important; /* set icon width (height is auto) - adjust this to scale them */
+
+  a.icons svg {
+    width: 80px !important;
+    /* set icon width (height is auto) - adjust this to scale them */
   }
 }
 
@@ -87,6 +105,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 /* set the publication date  style */
 .pubdate {
   font-family: 'Roboto Condensed', sans-serif;
@@ -94,7 +113,8 @@ img {
 }
 
 /* the article and aside containers are the same, with the exception of the top padding */
-article, aside {
+article,
+aside {
   background-color: #ffffff;
   border-radius: 5px;
   border: 1px solid LightGrey;
@@ -103,9 +123,11 @@ article, aside {
   box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
   margin-bottom: 20px;
 }
+
 article {
-  padding-top:40px;
+  padding-top: 40px;
 }
+
 aside {
   padding-top: 15px;
 }
@@ -113,17 +135,21 @@ aside {
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid var(--accent);
-  margin:  30px;
+  margin: 30px;
   padding: 20px;
   font-style: italic;
-  font-size:  0.9em;
+  font-size: 0.9em;
   font-weight: 500;
 
 }
 
 /* set the common heading styles */
-h1,h2,h3,h4,h5,h6
-{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Roboto Condensed', sans-serif;
   color: #000000;
   font-weight: 400;
@@ -135,10 +161,16 @@ h1 {
   font-size: 2em;
   margin-bottom: 0px;
   line-height: 1.1em;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
-h2 {font-size: 1.4em;}
-h3 {font-size: 1.2em;}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
 
 h2 {
   margin: 0px;
@@ -147,8 +179,9 @@ h2 {
 /* set the link styles */
 a {
   color: #2e2e2e;
-  text-decoration:none;
-  transition: color .4s; /* transition from normal colour to hover colour */
+  text-decoration: none;
+  transition: color .4s;
+  /* transition from normal colour to hover colour */
 }
 
 /* internal links */
@@ -158,6 +191,7 @@ p a::after {
   font-size: 80%;
   color: var(--accent);
 }
+
 p a:hover {
   text-decoration: none;
   color: var(--accent);
@@ -170,6 +204,7 @@ p a[href^="http"]::after {
   font-size: 80%;
   color: red;
 }
+
 p a[href^="http"]:hover {
   text-decoration: none;
   color: red;
@@ -191,10 +226,11 @@ pre code {
 }
 
 /* Lists - remove left padding so indents overhang, set disc, and set marker colour */
-ul, ol {
-padding-left: 0px;
-padding-bottom: 1.0em;
-line-height: 1.6em;
+ul,
+ol {
+  padding-left: 0px;
+  padding-bottom: 1.0em;
+  line-height: 1.6em;
 }
 
 ul {
@@ -211,7 +247,7 @@ ul {
   -moz-border-radius: 5;
   border-radius: 5px;
   font-family: 'Roboto Condensed', sans-serif;
-  text-transform:uppercase;
+  text-transform: uppercase;
   color: #ffffff;
   font-size: 0.8em;
   background: var(--accent);
@@ -228,8 +264,9 @@ ul {
 
 /* Figures and figure captions */
 figure {
-  margin:0;
+  margin: 0;
 }
+
 figcaption {
   font-size: 80%;
   margin-top: 5px;
@@ -240,7 +277,7 @@ figcaption {
 }
 
 /* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
-.fig-ref{
+.fig-ref {
   font-size: smaller;
   font-style: italic;
 }
@@ -256,7 +293,8 @@ aside p {
   margin-top: 0.4em;
 }
 
-aside a, aside a:hover {
+aside a,
+aside a:hover {
   color: black;
   text-decoration: none;
 }
@@ -268,7 +306,7 @@ aside:hover {
 /* abbreviations */
 
 abbr[title]:hover::after {
-  content: ' (' attr(title) ')';
+  content: ' ('attr(title) ')';
 }
 
 abbr:hover {
@@ -276,17 +314,19 @@ abbr:hover {
 
 }
 
-abbr{
+abbr {
   text-decoration: dotted var(--accent) underline;
   color: black;
 }
 
 /* Details and Summary (mostly used on Changelog page */
-summary{
+summary {
   font-weight: 400;
-  display: flex; /* set summary elements to flex to enable the tags to be right-aligned, see below */
+  display: flex;
+  /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
-details{
+
+details {
   background-color: #e2f4ff;
   border-radius: 5px;
   line-height: 2em;
@@ -295,6 +335,7 @@ details{
   cursor: pointer;
   margin-bottom: 1em;
 }
+
 details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 1em;
@@ -302,17 +343,21 @@ details[open] summary {
 
 /* Tags for Changelog page */
 /* define the common style for all span::after (i.e. the tags) within summary elements */
-summary span::after  {
+summary span::after {
   font-family: 'Roboto Condensed', sans-serif;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 2px 5px;
-  margin-left: 5px; /* add space between tags */
+  margin-left: 5px;
+  /* add space between tags */
 }
+
 /* let the first span (i.e. the date and description) expand to take all the available width (forcing tags to be right-aligned */
 summary span:first-of-type {
-  flex: 1; /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
+  flex: 1;
+  /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
 }
+
 /* set individual tag colours and font sizes, i.e.initialisms are set smaller. */
 .performance-tag::after {
   background-color: rgb(180, 163, 66);
@@ -347,44 +392,59 @@ summary span:first-of-type {
 /* social svg icons on About page */
 /* remove the underline */
 a.icons {
-  text-decoration:none;
+  text-decoration: none;
 }
 
 /* set icon width (height is auto) - adjust this to scale them—this is overwritten in the media queries */
-a.icons svg{
-  width: 48px; 
+a.icons svg {
+  width: 48px;
 }
+
 /* on page load, fade icons to transparent */
 @keyframes fadein {
-  from { fill-opacity: 1; }
-  to   { fill-opacity: 0; }
+  from {
+    fill-opacity: 1;
+  }
+
+  to {
+    fill-opacity: 0;
+  }
 }
+
 /* set the svg icon fill to transparent, the fill colour is set in the HTML SVG, and is unique to each icon */
-a.icons svg{
-  fill-opacity:0; /* start with icon fill fully transparent */
-  transition: all 0.7s ease-in-out; /* fade opacity and grow on hover for 0.7s  */
-  stroke: #2e2e2e; /* set stoke colour to match the font colour  */
+a.icons svg {
+  fill-opacity: 0;
+  /* start with icon fill fully transparent */
+  transition: all 0.7s ease-in-out;
+  /* fade opacity and grow on hover for 0.7s  */
+  stroke: #2e2e2e;
+  /* set stoke colour to match the font colour  */
   stroke-width: 0.3px;
-  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s; /* Firefox < 16 */
-   -ms-animation: fadein 3s; /* Internet Explorer */
-    -o-animation: fadein 3s; /* Opera < 12.1 */
-       animation: fadein 3s;
+  -webkit-animation: fadein 3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 3s;
+  /* Internet Explorer */
+  -o-animation: fadein 3s;
+  /* Opera < 12.1 */
+  animation: fadein 3s;
 }
 
 
 
 /* on hover, fade to fully opaque and grow i.e. reveal the colour that's set in the HTML SVG */
 a.icons svg:hover {
-  fill-opacity:1; 
+  fill-opacity: 1;
   transform: scale(1.3);
 }
 
 /* remove the square flash you get "on tap" on mobile */
-a.icons:active{
-  -webkit-tap-highlight-color: transparent; /* This feature is non-standard and should not be used without careful consideration. */
+a.icons:active {
+  -webkit-tap-highlight-color: transparent;
+  /* This feature is non-standard and should not be used without careful consideration. */
 }
 
 hr {
   margin-bottom: 50px;
-} 
+}

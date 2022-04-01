@@ -12,8 +12,8 @@ body {
 
 main {
   display: flex;
-  flex-flow:wrap;
-  justify-content:center;
+  flex-flow: wrap;
+  justify-content: center;
 }
 
 header {
@@ -32,6 +32,7 @@ h2 {
   font-weight: 600;
   font-size: 1.2em;
 }
+
 .card {
   background-color: rgb(255, 255, 255);
   transition: 0.5s;
@@ -56,31 +57,32 @@ img {
 .container {
   padding: 0px 20px 0px 20px;
   height: 180px;
-  display:flex;
+  display: flex;
   flex-direction: column
 }
 
 /* make the title and description expand to push the date/tag text to the bottom */
-.container div:first-of-type{
-  flex:1;
+.container div:first-of-type {
+  flex: 1;
 }
 
 /* make the date/tag row a flex row */
-.date{
+.date {
   display: flex;
 }
 
 /* make the date expand to push the tag text to the right */
-.date span:first-of-type{
-  flex:1;
+.date span:first-of-type {
+  flex: 1;
 }
 
-.date span::after  {
+.date span::after {
   font-family: 'Open sans', sans-serif;
-  color:rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 2px 5px;
-  margin-left: 5px; /* add space between tags */
+  margin-left: 5px;
+  /* add space between tags */
 }
 
 .DataViz-tag::after {
@@ -117,11 +119,11 @@ a {
 /* set the link styles */
 nav a {
   color: var(--accent);
-  text-decoration:none;
+  text-decoration: none;
   font-weight: 400;
-  font-size:small
+  font-size: small
 }
+
 nav a:hover {
   text-decoration: underline;
 }
-

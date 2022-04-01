@@ -1,4 +1,3 @@
-
 .container section {
   font-family: "Literata", serif;
   font-size: 14px;
@@ -9,7 +8,7 @@
   padding: 0;
 }
 
-.container Section P + P {
+.container Section P+P {
   text-indent: 1.5em;
 }
 
