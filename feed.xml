@@ -7,7 +7,8 @@
     <title>OnlyRSS</title>
     <link>https://onlyrss.org</link>
     <description>
-      OnlyRSS started out as an RSS feed with no associated website. The articles only existed in the feed and they could only be accessed via an RSS reader. But, as I became interested in article design, I started to hand code articles in HTML and CSS, with each article having it's own unique design.
+      OnlyRSS started out as an RSS feed—with no associated website (hence the domain name.) The articles only existed in the feed, and they could only be accessed via RSS readers such as Feedly and Inoreader.
+      As I became increasingly interested in typography and article design (layout, format, fonts etc.,) I decided to be a little more traditional and actually make my articles visible on a website. At that point, OnlyRSS.org became my "learning tool" i.e. it was my reason to learn the fundamentals of HTML and CSS.
     </description>
 
     <!-- Channel image for RSS aggregators -->
