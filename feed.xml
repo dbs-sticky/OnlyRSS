@@ -608,23 +608,8 @@
       <description>
         <![CDATA[
         <body>
-          <main class="page">
-            <!-- set title, pubdate, and article style -->
-        <header class="header">
-        <nav>
-        <a href="../index.html">Home</a></p>
-        </nav>
         <h1>Why every Product Manager should build a website</h1>
-        <div class="metarow">
-        <div class="pubdate">
         <p><time datetime="2021-04-18">18 Apr 2021</time> · Mark Evans</p>
-        </div>
-        <div class="articlestyle">
-        <p>Article Style: page, clean, sans serif, a dash of blue</p>
-        </div>
-        </div>
-        </header>
-        <header style="clear: both"></header>
 
         <!-- main article -->
         <article class="article">
@@ -700,9 +685,7 @@
                 </p>
         </section>
         </article>
-        </main>
         </body>
-
         ]]>
       </description>
     </item>
@@ -716,24 +699,8 @@
       <description>
         <![CDATA[
         <body>
-            <main class="page">
-                <!-- set title, pubdate, and article style -->
-        <header class="header">
-        <nav>
-        <a href="../index.html">Home</a></p>
-        </nav>
         <h1>My indoor rowing tips after 15 million meters</h1>
-        <div class="metarow">
-        <div class="pubdate">
         <p><time datetime="2021-04-09">9 Apr 2021</time> · Mark Evans</p>
-        </div>
-        <div class="articlestyle">
-        <p>Article Style: page, clean, sans serif</p>
-        </div>
-        </div>
-        </header>
-        <header style="clear: both"></header>
-
         <!-- main article -->
         <article class="article">
 
@@ -866,7 +833,6 @@
                         </p>
         </section>
         </article>
-        </main>
         </body>
 
         ]]>
@@ -882,21 +848,9 @@
       <description>
         <![CDATA[
         <body>
-            <main class="page">
-            <!-- set title, pubdate, and article style -->
-        <header class="header">
-        <nav>
-        <a href="../index.html">Home</a></p>
-        </nav>
         <h1>Chart Picker</h1>
-        <div class="metarow">
-        <div class="pubdate"><p><time datetime="2021-03-28">28 Mar 2021</time> · Mark Evans</p></div>
-        <div class="articlestyle"><p>Article Style: page, clean, sans serif</p></div>
-        </div>
-        </header>
-        <header style="clear: both"></header>
-
-        <!-- main article -->
+         <div class="pubdate"><p><time datetime="2021-03-28">28 Mar 2021</time> · Mark Evans</p></div>
+         <!-- main article -->
         <article class="article">
 
         <!-- Intro - section -->
@@ -935,9 +889,7 @@
                         If you have any comments on this article then please get in touch via Twitter (<a href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
                     </p>
         </section>
-
         </article>
-        </main>
         </body>
 
         ]]>
@@ -953,20 +905,9 @@
       <description>
         <![CDATA[
         <body>
-        <main class="page">
-        <!-- set title, pubdate, and article style -->
-        <header class="header">
-        <nav>
-        <a href="index.html">Home</a></p>
-        </nav>
         <h1>RSS Part 1:<br>What is RSS and what are 'aggregators'?</h1>
-        <p class="pubdate">
         <p class="pubdate"><time datetime="2021-03-07">7 Mar 2021</time> · Mark Evans</p>
-        <p class="articlestyle">Article Style: page, wide, clean, sans serif</p>
-        </header>
-        <header style="clear: both"></header>
-
-        <!-- main article -->
+            <!-- main article -->
         <article class="article">
 
         <!-- Intro - section -->
@@ -1071,7 +1012,6 @@
                     </p>
         </section>
         </article>
-        </main>
         </body>
 
         ]]>
@@ -1086,17 +1026,9 @@
       <pubDate>Wed, 3 Mar 2021 20:00:00 GMT</pubDate>
       <description>
         <![CDATA[
-          <!-- set title, pubdate, and article style -->
-        <header class="header">
-        <nav>
-        <a href="index.html">Home</a></p>
-        </nav>
-        <h1>Drawing with Excalidraw</h1>
-        <p class="pubdate">
-        <p class="pubdate"><time datetime="2021-03-02">2 Mar 2021</time> · Mark Evans</p>
-        <p class="articlestyle">Article Style: Excalidraw</p>
-        </header>
-        <header style="clear: both"></header>
+         <h1>Drawing with Excalidraw</h1>
+            <p class="pubdate"><time datetime="2021-03-02">2 Mar 2021</time> · Mark Evans</p>
+  
 
         <!-- main article -->
         <article class="article">
