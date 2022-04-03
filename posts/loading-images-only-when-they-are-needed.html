@@ -156,17 +156,17 @@
       <h2>The problem</h2>
       <p>The problem I encountered was that each GIF was quite large (both in terms of page real estate and file size) and users who are already familiar with RSS probably wouldn't need to view the animations at all. In that sense, the animations are not essential to the page, but could be considered complementary to the ordered lists, further, it's unlikly that a user would want to view the animation for both Feedly and Inoreader.</p>
       <p>Loading both animations would not only be wasteful (in terms of page resources), but given the large vertical size of each image, the first image (for Feedly) would push the second image and instructions (for Inoready) below the fold, where they could potentially be missed by users entirely.</p>
-      <p>What I wanted was to hide the animations from the user, and for the browser to hold-off downloading them until they were required (if at all). And I wanted this to be as seemless as possbile i.e. I wanted to avoid modals and opening new tabs etc.</p>
+      <p>What I wanted was to hide the animations from the user, and for the browser to hold-off downloading them until they were required (if at all). And I wanted this to be as seemless as possbile i.e. I wanted to avoid modals and opening new tabs etc. And, of course, I wanted to avoid using JavaScript.</p>
       <h2>The solution</h2>
+      <p>I've already used a non-JS method for hiding content until it's requested on the <a href="/posts/changelog.html">Changelog</a> page i.e. the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt; HTML elements</a> . So I decided to use these elements with the summary text of <i>Show me how</i>, which when clicked would open the detail panel and display the animated GIF.</p>
+      <p> This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the fold [<span class="fig-ref">fig. 1</span>], but it didn't help with page performance as both animations were still being loaded by the browser.</p>
+      <figure>
+        <img src="../images/subscribecompare.webp" width="800" height="1059" loading="lazy" alt=" ">
+        <figcaption>Figure 1. The original Subscribe page (left) alongside the final Subscribe page (right).</figcaption>
+      </figure>
+      <p>I'd previously used the image attribute <i>loading="lazy"</i> to improve page performance by letting the browser decide if an image needed to be loaded e.g. was the user close to scrolling to the part of the page that contained the image? I didn't expected this to have an effect on images hidden within the &lt;details&gt; element—I was wrong! After applying <i>loading="lazy"</i> to both animations, they were no longer loaded by the browser until the user clicked on the Summary text. This was exactly the solution I was after. </p>
     </section>
 
-    <!-- feedback - section -->
-    <section>
-      <p>
-        If you have any comments on this article then please get in touch via Twitter (<a
-          href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-      </p>
-    </section>
   </article>
 </body>
 

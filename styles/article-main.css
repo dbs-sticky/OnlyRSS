@@ -61,7 +61,7 @@ html {
 }
 
 /* set size for >1920px ≈19px/120% */
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1200px) {
   html {
     font-size: 120%;
   }
