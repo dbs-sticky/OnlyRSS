@@ -448,3 +448,20 @@ a.icons:active {
 hr {
   margin-bottom: 50px;
 }
+
+/* non editable text field for "subscribe to RSS" field */
+.textfield{
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  color: black;
+  font-size: 0.8em;
+  background: rgb(216, 216, 216);
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-style: none;
+  width:30ch;
+
+}
