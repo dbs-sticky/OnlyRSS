@@ -20,7 +20,7 @@
 
     <!-- Blog articles -->
 
-    <!-- stacked bar charts -->
+    <!-- Loading images only when required -->
     <item>
       <guid isPermaLink="false">article14</guid>
       <title>Loading images only when (or if) they are needed</title>
