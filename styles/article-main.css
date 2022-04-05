@@ -319,6 +319,7 @@ abbr {
   color: black;
 }
 
+/* TODO fork the summay style for Article pages */
 /* Details and Summary (mostly used on Changelog page */
 summary {
   font-weight: 400;
