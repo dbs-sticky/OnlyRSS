@@ -152,6 +152,11 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-04-04">04 Apr 2022</time>: New article <i>Loading images only when (or if) they are needed</i></span><span class="content-tag"></span></summary>
+      <p>This article describes how I used the &lt;details&gt; and &lt;summary&gt; HTML elements in combination with the lazyloading image attribute to hide and delay the loading of images until they are requested by users. I did this to make the default load state of the page shorter and more concise, and to improve page load performance.</p>
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-04-03">03 Apr 2022</time>: Created the <i>Subscribe to OnlyRSS</i> page</span><span class="content-tag"></span></summary>
       <p>The RSS link on the homepage used to open the RSS feed, for users unfamiliar with RSS this might have been confusing. The link now opens a 'subscribe' page which includes the RSS feed URL and instructions on how to subscribe via Feedly and Inoreader.</p> <p>I created 2 animated GIFs (each ≈300kB) showing the subscription process in Feedly and Inoreader, but I didn't want these to have a negative effect on the page load performance (the GIFs are not essential for the page), so I hid them in the &lt;detail&gt; element and set the image attribute 'loading="lazy"' (usually used to delay the loading of images that are below the fold), to my surprise this worked, and the images only load when the user interacts with the &lt;detail&gt; element.</p>
     </details>
