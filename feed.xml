@@ -19,9 +19,69 @@
     </image> 
 
     <!-- Blog articles -->
+
     <!-- stacked bar charts -->
     <item>
-      <guid isPermaLink="false">article13</guid>
+      <guid isPermaLink="false">article14</guid>
+      <title>Loading images only when (or if) they are needed</title>
+      <link>https://onlyrss.org/posts/loading-images-only-when-they-are-needed.html</link>
+      <pubDate>Mon, 4 Apr 2022 12:15:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+          <body>
+            <article>
+              <!--introduction-->
+              <section>
+                <p> I recently created a <a href="https://onlyrss.org/posts/subscribe.html">subscribe</a> page (which can be reached from the RSS link on the homepage). The aim was to create an easy way for users to copy the RSS feed URL (previously the link simply opened the RSS feed, which many users might have found confusing), and also gives some basic instructions on how to subscribe to OnlyRSS via two popular RSS aggregators i.e. Feedly and Inoreader. The Feedly and Inoreader instructions are both displayed as ordered lists, but I also wanted to include an animated GIF showing the subscription process for each app.</p>
+              </section>
+
+              <!--The problem-->
+              <section>
+                <h2>The problem</h2>
+                <p>The problem I encountered was that each GIF was quite large (both in terms of page real estate and file size) and users who are already familiar with RSS probably wouldn't need to view the animations at all. In that sense, the animations are not essential to the page, but could be considered complementary to the ordered lists, furthermore, it's unlikely that a user would want to view the animation for both Feedly and Inoreader.</p>
+                <p>Loading both animations would not only be wasteful (in terms of page resources), but given the large vertical size of each image, the first image (for Feedly) would push the second image and instructions (for Inoreader) below the fold, where they could potentially be missed by users entirely.</p>
+                <p>What I wanted was to hide the animations from the user, and for the browser to hold-off downloading them until they were required (if at all). And I wanted this to be as seamless as possible i.e. I wanted to avoid modals and opening new tabs etc. And, of course, I wanted to avoid using JavaScript (because I don't know JavaScript.)</p>
+              </section>
+
+              <!--The solution-->
+              <section>
+                <h2>The solution</h2>
+                <p>I've already used a non-JS method for hiding content until it's requested by the user on the <a href="https://onlyrss.org/posts/changelog.html">Changelog</a> page i.e. the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt; HTML elements</a>. So I decided to use these elements with the summary text of <i>Show me how</i>, which when clicked would display the contents of the &lt;details&gt; element i.e. the animated GIF. You can see this in action for a static image by clicking on the text below to display [<span class="fig-ref">fig. 1</span>].</p>
+                <p>
+                <details style="background-color:white; color:#3d74bd">
+                <summary><b>Click here to see Figure 1</b></summary>
+                <figure>
+                  <img src="https://onlyrss.org/images/subscribecompare.webp" width="800" height="1059" loading="lazy" alt=" ">
+                  <figcaption>Figure 1. The original Subscribe page (left) alongside the final Subscribe page (right).</figcaption>
+                </figure>
+                </details>
+                </p>
+                <p> This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the fold, but it didn't help with page performance, as both animations were still being loaded by the browser.</p>
+
+                <p>I'd previously used the image attribute <i>loading="lazy"</i> to improve page performance by letting the browser decide if an image needed to be loaded e.g. was the user close to scrolling to the part of the page that contained the image? I didn't expect this to influence images hidden within the &lt;details&gt; element—I was wrong. After applying <i>loading="lazy"</i> to both animations, they were no longer loaded by the browser until the user clicked on the summary text. This was exactly the solution I was after.</p>
+                <p>With this solution in place the <a href="https://onlyrss.org/posts/subscribe.html">subscribe</a> page loads quickly—around 40ms—with all the content being above the fold, and the animations only loading if the user selects the relevant summary text.</p>
+              </section>
+
+              <!--Conclusion-->
+              <section>
+                <h2>Conclusions</h2>
+                <p>
+                  The solution I've described above is probably suitable for instructional pages where the reader would only be interested in one of many options e.g. Those explanation pages that show you how to perform some complex tasks in Excel but give you four versions of the solution, one for each recent version of Excel. In that type of scenario, hiding and delaying the load of any associated images makes a lot of sense, it condenses the page (so it looks more appealing) and improves page performance.  
+                </p>
+                <p>
+                  As I've mentioned before, I'm not a dev, and I'm still new to HTML & CSS, so I might well look back on this post in a few months' time and cringe due to its naivety. There’re probably far easier methods to hiding (and delaying the loading of) images than what I've described above, but hey, we learn better from our mistakes, so if I do come across a better solution, I'm guessing I won't forget it :-)
+                </p>
+              </section>
+            </article>
+          </body>
+        ]]>            
+      </description>
+    </item>
+
+
+    <!-- stacked bar charts -->
+    <item>
+      <guid isPermaLink="false">article1</guid>
       <title>Linking tables to their associated bar charts</title>
       <link>https://onlyrss.org/posts/linking-tables-to-bar-charts.html</link>
       <pubDate>Sun, 6 Mar 2022 12:15:00 GMT</pubDate>
