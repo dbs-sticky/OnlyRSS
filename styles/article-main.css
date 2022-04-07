@@ -334,7 +334,7 @@ article summary {
 article summary::after{
   content:"open";
 }
-/* append "close" to the end of summary text when summary is open */
+/* append "close" to the end of summary text when details is open */
 article details[open] summary::after{
   content:"close";
 }

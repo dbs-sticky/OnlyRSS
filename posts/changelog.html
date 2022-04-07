@@ -152,6 +152,13 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-04-07">07 Apr 2022</time>: Defined two styles for &lt;details&gt; & &lt;summary&gt; HTML elements</span><span class="ux-tag"></span></summary>
+      <p>The &lt;details&gt; and &lt;summary&gt; HTML elements are what's used to create these Changelog entries, but, I've also started to use them in articles to hide images until requested by the reader.</p>
+      <p> On article pages, I used the pseudo-element <i>::after</i> to append the content "close" or "open" to the &lt;summary&gt; text. I used <i>details[open] summary::after{ }</i> to target the summary element only when the detail element was open, the result was an open/close toggle built with just HTML & CSS.</p>
+      <img src="../images/details-summary-changelog.gif" alt="" width="744" height="217">
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-04-04">04 Apr 2022</time>: New article <i>Loading images only when (or if) they are needed</i></span><span class="content-tag"></span></summary>
       <p>This article describes how I used the &lt;details&gt; and &lt;summary&gt; HTML elements in combination with the lazyloading image attribute to hide and delay the loading of images until they are requested by users. I did this to make the default load state of the page shorter and more concise, and to improve page load performance.</p>
     </details>
