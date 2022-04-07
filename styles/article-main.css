@@ -19,6 +19,7 @@ html {
   }
 
   article,
+  main,
   aside {
     padding-left: 30px;
     padding-right: 30px;
@@ -41,6 +42,7 @@ html {
   }
 
   article,
+  main,
   aside {
     padding-left: 60px;
     padding-right: 60px;
@@ -67,6 +69,7 @@ html {
   }
 
   article,
+  main,
   aside {
     padding-left: 90px;
     padding-right: 90px;
@@ -114,6 +117,7 @@ img {
 
 /* the article and aside containers are the same, with the exception of the top padding */
 article,
+main,
 aside {
   background-color: #ffffff;
   border-radius: 5px;
@@ -124,7 +128,8 @@ aside {
   margin-bottom: 20px;
 }
 
-article {
+article,
+main {
   padding-top: 40px;
 }
 
@@ -319,27 +324,40 @@ abbr {
   color: black;
 }
 
-/* TODO fork the summay style for Article pages */
-/* Details and Summary (mostly used on Changelog page */
-summary {
+/* style="background-color:white; margin-top:-30px; margin-left:-10px;" */
+
+/* Details and Summary for ARTICLE pages i.e. uses <article> */
+article summary {
+  cursor: pointer;
+  font-weight: 600;
+  color:var(--accent);
+}
+
+/* Details and Summary for the CHANGELOG page i.e. uses <main> */
+main summary {
   font-weight: 400;
   display: flex;
+  cursor: pointer;
   /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
 
-details {
+main details {
   background-color: #e2f4ff;
   border-radius: 5px;
   line-height: 2em;
   padding: 0.7em 0.7em 0em;
   font-size: 0.8em;
-  cursor: pointer;
   margin-bottom: 1em;
 }
 
-details[open] summary {
+main details[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 1em;
+}
+
+/* remove the arrow on iOS */
+main details summary::-webkit-details-marker {
+  display:none;
 }
 
 /* Tags for Changelog page */
