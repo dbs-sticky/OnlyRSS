@@ -324,13 +324,19 @@ abbr {
   color: black;
 }
 
-/* style="background-color:white; margin-top:-30px; margin-left:-10px;" */
-
 /* Details and Summary for ARTICLE pages i.e. uses <article> */
 article summary {
   cursor: pointer;
   font-weight: 600;
   color:var(--accent);
+}
+/* append "open" to the end of summary text */
+article summary::after{
+  content:"open";
+}
+/* append "close" to the end of summary text when summary is open */
+article details[open] summary::after{
+  content:"close";
 }
 
 /* Details and Summary for the CHANGELOG page i.e. uses <main> */
@@ -359,6 +365,7 @@ main details[open] summary {
 main details summary::-webkit-details-marker {
   display:none;
 }
+
 
 /* Tags for Changelog page */
 /* define the common style for all span::after (i.e. the tags) within summary elements */
