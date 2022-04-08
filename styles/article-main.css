@@ -329,9 +329,14 @@ article summary {
   cursor: pointer;
   font-weight: 600;
   color:var(--accent);
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); /* TODO did this work? http://outlinenone.com/ set the tap highlight box to transparent for mobiles devices */
-
 }
+
+/* remove the focus box, and make bold the focus state (for users who tab through the page */
+article summary:focus {
+  outline: 0;
+  font:bold;
+  }
+  
 /* append "open" to the end of summary text */
 article summary::after{
   content:"open";
@@ -346,15 +351,14 @@ main summary {
   font-weight: 400;
   display: flex;
   cursor: pointer;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); /* TODO did this work? http://outlinenone.com/ set the tap highlight box to transparent for mobiles devices */
-  :focus {
-outline: 0;
-}
+
   /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
 
+/* remove the focus box, and make bold the focus state (for users who tab through the page */
 main summary:focus {
   outline: 0;
+  font:bold;
   }
 
 main details {
