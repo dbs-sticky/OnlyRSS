@@ -329,6 +329,8 @@ article summary {
   cursor: pointer;
   font-weight: 600;
   color:var(--accent);
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); /* set the tap highlight box to transparent for mobiles devices */
+
 }
 /* append "open" to the end of summary text */
 article summary::after{
@@ -344,6 +346,7 @@ main summary {
   font-weight: 400;
   display: flex;
   cursor: pointer;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); /* set the tap highlight box to transparent for mobiles devices */
   /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
 
