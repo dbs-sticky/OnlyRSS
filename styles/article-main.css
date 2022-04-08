@@ -331,12 +331,12 @@ article summary {
   color:var(--accent);
 }
 
-/* remove the focus box, and make bold the focus state (for users who tab through the page */
+/* remove the focus box, and make focused text underlined, (for users who tab through the page */
 article summary:focus {
   outline: 0;
-  font:bold;
+  text-decoration: underline;
   }
-  
+
 /* append "open" to the end of summary text */
 article summary::after{
   content:"open";
@@ -358,7 +358,7 @@ main summary {
 /* remove the focus box, and make bold the focus state (for users who tab through the page */
 main summary:focus {
   outline: 0;
-  font:bold;
+  font-weight: 600;
   }
 
 main details {
