@@ -26,7 +26,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="/styles/index.css" />
+  <link rel="stylesheet" type="text/css" href="/styles/article-main.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml" />
 
 
@@ -71,6 +71,24 @@
     src: url(https://fonts.gstatic.com/s/opensans/v28/memvYaGs126MiZpBA-UvWbX2vVnXBbObj2OVTS-muw.woff2) format('woff2');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
   }
+      /* latin-ext */
+      @font-face {
+      font-family: 'Roboto Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/robotocondensed/v24/ieVl2ZhZI2eCN5jzbjEETS9weq8-19y7DRs5.woff2) format('woff2');
+      unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+    }
+    /* latin */
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.gstatic.com/s/robotocondensed/v24/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
   </style>
 
   <!-- Service worker for installable app-->
@@ -86,21 +104,15 @@
 
 
 <body>
-  <header>
-    <h1>
-      articles
-    </h1>
-    <nav>
-      <a href="/posts/subscribe.html" title="Subscribe to future posts via RSS. You'll need to use an RSS aggregator to make use of this.">RSS</a>
-      ·
-      <a href="/posts/changelog.html" title="List of website changes, reason for those changes, and what I learnt.">Changelog</a>
-      ·
-      <a href="/posts/about.html" title="Who are you? why does this website exist?">About</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="../index.html" title="Homepage">home</a>
+    <a href="../posts/subscribe.html" title="Subscribe via RSS">rss</a>
+    <a href="../posts/changelog.html" title="View all website updates">changelog</a>
+    <a class="nav-active" href="../posts/about.html" title="Who made this site, and why?">about</a>
+  </nav>
 
   <!-- List of articles -->
-  <main>
+  <main class="home-grid">
 
     <a href="/posts/loading-images-only-when-they-are-needed.html">
       <div class="card">
