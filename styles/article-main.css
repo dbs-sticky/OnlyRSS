@@ -1,4 +1,4 @@
-/* define global page variables, e.g. page and accent colour */
+/* define global page variables, e.g. page width and accent colour */
 :root {
   --pagewidth: 700px;
   --accent: #3d74bd;
@@ -10,6 +10,10 @@ html {
   font-weight: 400;
   color: #2e2e2e;
 }
+
+/*  ======================
+    SET MEDIA QUERIES
+    ====================== */
 
 /* set size for 320px - 768px ≈16px/100% */
 @media screen and (min-width: 320px) {
@@ -93,29 +97,16 @@ html {
   }
 }
 
+/*  ======================
+    PAGE DESIGN
+    ====================== */
+
+    /* the article and aside containers are the same, with the exception of the top padding */
 
 body {
   background-color: #ffffff;
 }
 
-p {
-  margin-bottom: 1.6em;
-}
-
-img {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  height: auto;
-}
-
-/* set the publication date  style */
-.pubdate {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 0.8em;
-}
-
-/* the article and aside containers are the same, with the exception of the top padding */
 article,
 main,
 aside {
@@ -137,18 +128,15 @@ aside {
   padding-top: 15px;
 }
 
-blockquote {
-  background: #f9f9f9;
-  border-left: 5px solid var(--accent);
-  margin: 30px;
-  padding: 20px;
-  font-style: italic;
-  font-size: 0.9em;
-  font-weight: 500;
+/*  ======================
+    TYPOGRAPHY & IMAGES
+    ====================== */
 
+p {
+  margin-bottom: 1.6em;
 }
 
-/* set the common heading styles */
+/* Headings - shared */
 h1,
 h2,
 h3,
@@ -161,7 +149,7 @@ h6 {
   line-height: 1.2em;
 }
 
-/* set individual heading sizes */
+/* Headings - individual */
 h1 {
   font-size: 2em;
   margin-bottom: 0px;
@@ -181,7 +169,7 @@ h2 {
   margin: 0px;
 }
 
-/* set the link styles */
+/* Links */
 a {
   color: #2e2e2e;
   text-decoration: none;
@@ -215,8 +203,32 @@ p a[href^="http"]:hover {
   color: red;
 }
 
+/* quotes */
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid var(--accent);
+  margin: 30px;
+  padding: 20px;
+  font-style: italic;
+  font-size: 0.9em;
+  font-weight: 500;
+}
 
-/* set the style for code blocks */
+/* abbreviations */
+abbr[title]:hover::after {
+  content: ' ('attr(title) ')';
+}
+
+abbr:hover {
+  cursor: help;
+}
+
+abbr {
+  text-decoration: dotted var(--accent) underline;
+  color: black;
+}
+
+/* code blocks */
 pre code {
   background-color: rgb(0, 0, 0);
   border: 1px solid #999;
@@ -246,6 +258,49 @@ ul {
   color: var(--accent);
 }
 
+/* article publication meta row */
+.pubdate {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 0.8em;
+}
+
+/* Figures & images */
+figure {
+  margin: 0;
+}
+
+/* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
+.fig-ref {
+  font-size: smaller;
+  font-style: italic;
+}
+
+figcaption {
+  font-size: 80%;
+  margin-top: 5px;
+  padding-top: 8px;
+  padding-bottom: 25px;
+  font-style: italic;
+  border-top: 2px solid var(--accent);
+}
+
+/* images */
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* rule, only used on About page */
+hr {
+  margin-bottom: 50px;
+}
+
+/*  ======================
+    NAVIGATION
+    ====================== */
+
 /* The Home button */
 .homebtn {
   -webkit-border-radius: 5;
@@ -267,27 +322,9 @@ ul {
   cursor: pointer;
 }
 
-/* Figures and figure captions */
-figure {
-  margin: 0;
-}
-
-figcaption {
-  font-size: 80%;
-  margin-top: 5px;
-  padding-top: 8px;
-  padding-bottom: 25px;
-  font-style: italic;
-  border-top: 2px solid var(--accent);
-}
-
-/* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
-.fig-ref {
-  font-size: smaller;
-  font-style: italic;
-}
-
-/* ————Related articles———— */
+/*  ======================
+    RELATED ARTICLES
+    ====================== */
 aside h2 {
   font-size: 1.2em;
 }
@@ -308,23 +345,11 @@ aside:hover {
   box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
 }
 
-/* abbreviations */
+/*  ======================
+    DETAILS & SUMMARY
+    ====================== */
 
-abbr[title]:hover::after {
-  content: ' ('attr(title) ')';
-}
-
-abbr:hover {
-  cursor: help;
-
-}
-
-abbr {
-  text-decoration: dotted var(--accent) underline;
-  color: black;
-}
-
-/* Details and Summary for ARTICLE pages i.e. uses <article> */
+/* ====== Details and Summary for ARTICLE pages i.e. uses <article>====== */
 article summary {
   cursor: pointer;
   font-weight: 600;
@@ -346,12 +371,11 @@ article details[open] summary::after{
   content:"close";
 }
 
-/* Details and Summary for the CHANGELOG page i.e. uses <main> */
+/* ====== Details and Summary for changelog page i.e. uses <MAIN>====== */
 main summary {
   font-weight: 400;
   display: flex;
   cursor: pointer;
-
   /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
 
@@ -381,7 +405,10 @@ main details summary::-webkit-details-marker {
 }
 
 
-/* Tags for Changelog page */
+/*  ======================
+    changelog tags
+    ====================== */
+
 /* define the common style for all span::after (i.e. the tags) within summary elements */
 summary span::after {
   font-family: 'Roboto Condensed', sans-serif;
@@ -429,7 +456,11 @@ summary span:first-of-type {
   font-size: 0.9em;
 }
 
-/* social svg icons on About page */
+
+/*  ======================
+    social icons
+    ====================== */
+
 /* remove the underline */
 a.icons {
   text-decoration: none;
@@ -471,8 +502,6 @@ a.icons svg {
   animation: fadein 3s;
 }
 
-
-
 /* on hover, fade to fully opaque and grow i.e. reveal the colour that's set in the HTML SVG */
 a.icons svg:hover {
   fill-opacity: 1;
@@ -483,10 +512,6 @@ a.icons svg:hover {
 a.icons:active {
   -webkit-tap-highlight-color: transparent;
   /* This feature is non-standard and should not be used without careful consideration. */
-}
-
-hr {
-  margin-bottom: 50px;
 }
 
 /* non editable text field for "subscribe to RSS" field */
