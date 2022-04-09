@@ -539,106 +539,105 @@ a.icons:active {
     homepage grid
     ====================== */
 
-    .home-grid {
-      font-family: "Open Sans", sans-serif;
-      font-weight: 400;
-      margin: auto;
-      background-color: transparent;
-      display: flex;
-      flex-flow: wrap;
-      justify-content: center;
-      border:none;
-      box-shadow:none;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
+  .home-grid {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    margin: auto;
+    background-color: transparent;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    border:none;
+    box-shadow:none;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
-   
-    .container h2 {
-      font-weight: 600;
-      font-size: 1.2em;
-      font-family: "Open Sans", sans-serif;
-    }
-    
-    .card {
-      background-color: rgb(255, 255, 255);
-      transition: 0.5s;
-      width: 270px;
-      height: 400px;
-      border-radius: 5px;
-      border: 1px solid LightGrey;
-      margin: 5px;
-      position: relative;
-      box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
-    }
-    
-    .card:hover {
-      box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
-    }
-    
-    .card img {
-      border-radius: 5px 5px 0 0;
-    }
-    
-    /* make the text container a vertical flexbox */
-    .container {
-      padding: 10px 20px 10px 20px;
-      height: 180px;
-      display: flex;
-      flex-direction: column
-    }
-    
-    /* make the title and description expand to push the date/tag text to the bottom */
-    .container div:first-of-type {
-      flex: 1;
-    }
-    
-    /* make the date/tag row a flex row */
-    .date {
-      display: flex;
-    }
-    
-    /* make the date expand to push the tag text to the right */
-    .date span:first-of-type {
-      flex: 1;
-    }
-    
-    .date span::after {
-      font-family: 'Open sans', sans-serif;
-      color: rgb(255, 255, 255);
-      border-radius: 3px;
-      padding: 2px 5px;
-      margin-left: 5px;
-      /* add space between tags */
-    }
-    
-    .DataViz-tag::after {
-      background-color: #D4E09B;
-      content: "DataViz";
-      font-size: 0.8em;
-    }
-    
-    .css-tag::after {
-      background-color: #9CB380;
-      content: "CSS";
-      font-size: 0.8em;
-    }
-    
-    .productivity-tag::after {
-      background-color: #94A89A;
-      content: "productivity";
-      font-size: 0.8em;
-    }
-    
-    .review-tag::after {
-      background-color: #C7AC92;
-      content: "review";
-      font-size: 0.8em;
-    }
-    
-    /* set the card link styles */
-    main a {
-      font-size: 14px;
-      color: black;
-      text-decoration: none;
-    }
+  
+  .container h2 {
+    font-weight: 600;
+    font-size: 1.2em;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .card {
+    background-color: rgb(255, 255, 255);
+    transition: 0.5s;
+    width: 270px;
+    height: 400px;
+    border-radius: 5px;
+    border: 1px solid LightGrey;
+    margin: 5px;
+    box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
+  }
+  
+  .card:hover {
+    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
+  }
+  
+  .card img {
+    border-radius: 5px 5px 0 0;
+  }
+  
+  /* make the text container a vertical flexbox */
+  .container {
+    padding: 10px 20px 10px 20px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* make the title and description expand to push the date/tag text to the bottom */
+  .container div:first-of-type {
+    flex: 1;
+  }
+  
+  /* make the date/tag row a flex row */
+  .date {
+    display: flex;
+  }
+  
+  /* make the date expand to push the tag text to the right */
+  .date span:first-of-type {
+    flex: 1;
+  }
+  
+  .date span::after {
+    font-family: 'Open sans', sans-serif;
+    color: rgb(255, 255, 255);
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin-left: 5px;
+    /* add space between tags */
+  }
+  
+  .DataViz-tag::after {
+    background-color: #D4E09B;
+    content: "DataViz";
+    font-size: 0.8em;
+  }
+  
+  .css-tag::after {
+    background-color: #9CB380;
+    content: "CSS";
+    font-size: 0.8em;
+  }
+  
+  .productivity-tag::after {
+    background-color: #94A89A;
+    content: "productivity";
+    font-size: 0.8em;
+  }
+  
+  .review-tag::after {
+    background-color: #C7AC92;
+    content: "review";
+    font-size: 0.8em;
+  }
+  
+  /* set the card link styles */
+  main a {
+    font-size: 14px;
+    color: black;
+    text-decoration: none;
+  }
