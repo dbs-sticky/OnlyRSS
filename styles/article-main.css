@@ -9,6 +9,12 @@ html {
   line-height: 1.8;
   font-weight: 400;
   color: #2e2e2e;
+  overflow-y: scroll; /* stops horizontal shift due to scrollbar */
+}
+
+/* so that global nav bar touches top of viewport */
+body {
+  margin-top:0px;
 }
 
 /*  ======================
@@ -24,7 +30,8 @@ html {
 
   article,
   main,
-  aside {
+  aside,
+  nav {
     padding-left: 30px;
     padding-right: 30px;
   }
@@ -47,7 +54,8 @@ html {
 
   article,
   main,
-  aside {
+  aside,
+  nav {
     padding-left: 60px;
     padding-right: 60px;
   }
@@ -74,7 +82,8 @@ html {
 
   article,
   main,
-  aside {
+  aside,
+  nav {
     padding-left: 90px;
     padding-right: 90px;
   }
@@ -301,26 +310,31 @@ hr {
     NAVIGATION
     ====================== */
 
-/* The Home button */
-.homebtn {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
+nav {
+  display:flex;
+  background-color: var(--accent);
+  max-width: var(--pagewidth);
+  margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
+  margin-bottom: 10px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
+  margin-bottom: 20px;
   text-transform: uppercase;
-  color: #ffffff;
-  font-size: 0.8em;
-  background: var(--accent);
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
-  border-style: none;
 }
 
-.homebtn:hover {
-  filter: brightness(125%);
+nav a{
+  color: #f2f2f2;
+  padding: 10px 10px;
   text-decoration: none;
-  cursor: pointer;
+  font-size: 17px;
+  border-bottom: 3px solid transparent;
 }
+
+nav a:hover, nav a.nav-active {
+  border-bottom: 3px solid white;
+}
+
 
 /*  ======================
     RELATED ARTICLES
