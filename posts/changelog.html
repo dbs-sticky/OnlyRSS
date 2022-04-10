@@ -156,6 +156,12 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-04-10">10 Apr 2022</time>: Added the global navigation bar</span><span class="ux-tag"></span></summary>
+      <p>As the site has grown to include a few pages i.e. RSS, Changelog, About (separate to the articles), the navigation required a bit of an upgrade from the single home-button. This first version is a simple top nav bar, with the home button on the left, and buttons for the dedicated pages on the right. They are separated by a single empty span element that has its flex set to 1, this pushes the various buttons to the far-left and -right.</p>
+    </details>
+
+
+    <details>
       <summary><span><time datetime="2022-04-07">07 Apr 2022</time>: Defined two styles for &lt;details&gt; & &lt;summary&gt; HTML elements</span><span class="ux-tag"></span></summary>
       <p>The &lt;details&gt; and &lt;summary&gt; HTML elements are what's used to create these Changelog entries, but, I've also started to use them in articles to hide images until requested by the reader.</p>
       <p> On article pages, I used the pseudo-element <i>::after</i> to append the content "close" or "open" to the &lt;summary&gt; text. I used <i>details[open] summary::after{ }</i> to target the summary element only when the detail element was open, the result was an open/close toggle built with just HTML & CSS.</p>
