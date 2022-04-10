@@ -307,7 +307,12 @@ nav a:hover, nav a.nav-active {
   transition: border-color 1s ease; 
 }
 
-/* The Home button */
+/* a span is placed between the home and other nav link to split them left and right */
+ nav span {
+  flex: 1;
+ }
+
+/* TODO needs to be renamed */
 .homebtn {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
@@ -321,7 +326,7 @@ nav a:hover, nav a.nav-active {
   text-decoration: none;
   border-style: none;
 }
-
+/* TODO needs to be renamed */
 .homebtn:hover {
   filter: brightness(125%);
   text-decoration: none;
