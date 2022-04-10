@@ -281,7 +281,7 @@ hr {
     ====================== */
 
 nav {
-  display:flex;
+  display: flex; 
   background-color: var(--accent);
   max-width: var(--pagewidth);
   margin: auto;
@@ -546,11 +546,11 @@ a.icons:active {
     background-color: transparent;
     display: flex;
     flex-flow: wrap;
+    box-shadow: none;
+    border-style: none;
+    padding: 0px;
+    max-width: 1024px;
     justify-content: center;
-    border:none;
-    box-shadow:none;
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   
@@ -563,11 +563,11 @@ a.icons:active {
   .card {
     background-color: rgb(255, 255, 255);
     transition: 0.5s;
-    width: 270px;
+    width: 300px;
     height: 400px;
     border-radius: 5px;
     border: 1px solid LightGrey;
-    margin: 5px;
+    margin: 15px;
     box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
   }
   
