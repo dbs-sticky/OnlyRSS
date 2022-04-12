@@ -94,7 +94,7 @@ aside {
   border: 1px solid LightGrey;
   max-width: var(--pagewidth);
   margin: auto;
-  box-shadow: 0px 15px 30px rgb(0 0 0 / 15%);
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
   margin-bottom: 20px;
 }
 
@@ -132,7 +132,8 @@ h6 {
 h1 {
   font-size: 2rem;
   margin-bottom: 0px;
-  line-height: 2rem;
+  margin-top: 0px;
+  line-height: 2.3rem;
   text-transform: uppercase;
 }
 
@@ -289,7 +290,7 @@ nav {
   margin-bottom: 10px;
   border-radius: 0 0 5px 5px;
   border: 1px solid LightGrey;
-  box-shadow: 0px 0px 30px rgb(0 0 0 / 15%);
+  box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
   margin-bottom: 20px;
   text-transform: uppercase;
 }
@@ -576,11 +577,11 @@ a.icons:active {
     border-radius: 5px;
     border: 1px solid LightGrey;
     margin: 15px;
-    box-shadow: 0px 5px 30px 0px rgb(0 0 0 / 15%);
+    box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
   }
   
   .card:hover {
-    box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 15%);
+    box-shadow: 0 0px 30px  rgba(0, 0, 0, 15%);
   }
   
   .card img {
