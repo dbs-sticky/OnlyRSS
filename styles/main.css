@@ -10,6 +10,7 @@ html {
   font-weight: 400;
   color: #2e2e2e;
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
+  accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
 }
 
 /* so that global nav bar touches top of viewport */
