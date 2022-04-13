@@ -156,6 +156,12 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-04-13">13 Apr 2022</time>: Added Alt text to images—even though they already use &lt;figcaption&gt;</span><span class="ux-tag"></span></summary>
+      <p>Strictly speaking, Alt text for images is not required if you're using the &lt;figcaption&gt; element, as this element will contain a description of the image which will be read out by screen readers. And as all my images have a &lt;figcaption&gt;, I'd not been using Alt text. But, after giving this some thought I'd come to the conclusion that Alt text is required in most cases even when &lt;figcaption&gt; is used.</p>
+      <p>A typical figure caption for a chart might be 'Figure 1. Chart showing the change in price of oil over time'. But, it's not a complete description of what's happening on the chart, it doesn't need to be, that's the purpose of the chart! The Alt text I've added for my images tries to describe the content of the image in words, rather than a simple statement about what the image is.</p>
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-04-13">13 Apr 2022</time>: Made all fonts local, and set some fonts to <i>font-display: block</i></span><span class="ux-tag"></span></summary>
       <p><abbr title="Flash of Unstyled Text">FOUT</abbr> can be an issue for many websites, but it wasn't a particular problem on OnlyRSS until I added the global nav bar. The size of the 'buttons' on the nav bar are determined by the size of the button names e.g. RSS, About, and Changelog. When the page is first loaded these button names are displayed using the fallback font (while the primary font is loaded), this resulted in a noticeable movement of the nav bar buttons that was very distracting.
       <p>This was solved by switching the font used on the nav bar from <i>font-display: swap</i> to <i>font-display: block</i>. The result is that the nav bar font is essentially invisible until the primary font has loaded, this seems to have fixed the issue.</p>
