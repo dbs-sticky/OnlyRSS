@@ -573,6 +573,7 @@ a.icons:active {
     font-weight: 600;
     font-size: 0.9rem;
     font-family: 'OpenSans', sans-serif;
+    line-height: 1.5rem;
   }
   
   .card {
