@@ -45,6 +45,11 @@ body {
     width: 28px !important;
     /* set icon width (height is auto) - adjust this to scale them */
   }
+
+  .container h2 {
+    font-size: 1.1rem;
+  }
+
 }
 
 /* set size for >768px 120% */
@@ -73,6 +78,11 @@ body {
     width: 60px !important;
     /* set icon width (height is auto) - adjust this to scale them */
   }
+
+  .container h2 {
+    font-size: 0.9rem;
+  }
+
 }
 
 
@@ -571,7 +581,7 @@ a.icons:active {
   
   .container h2 {
     font-weight: 600;
-    font-size: 0.9rem;
+    /* font size is set in media queries */
     font-family: 'OpenSans', sans-serif;
     line-height: 1.5rem;
   }
