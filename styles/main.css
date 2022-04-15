@@ -150,6 +150,11 @@ h2 {
   margin: 0px;
 }
 
+strong {
+font-weight: 500;
+font-style: italic;
+}
+
 /* Links */
 a {
   color: #2e2e2e;
@@ -366,7 +371,7 @@ aside:hover {
 /* ====== Details and Summary for ARTICLE pages i.e. uses <article>====== */
 article summary {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   color:var(--accent);
 }
 
@@ -396,7 +401,7 @@ main summary {
 /* remove the focus box, and make bold the focus state (for users who tab through the page */
 main summary:focus {
   outline: 0;
-  font-weight: 600;
+  font-weight: 500;
   }
 
 main details {
@@ -550,7 +555,7 @@ a.icons:active {
     ====================== */
 
   .home-grid {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
     margin: auto;
     background-color: transparent;
@@ -565,9 +570,9 @@ a.icons:active {
 
   
   .container h2 {
-    font-weight: 600;
-    font-size: 0.9rem;
-    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 1.0rem;
+    font-family: 'Roboto Condensed', sans-serif;
   }
   
   .card {
@@ -579,6 +584,7 @@ a.icons:active {
     border: 1px solid LightGrey;
     margin: 15px;
     box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
+    letter-spacing: .05rem;
   }
   
   .card:hover {
@@ -614,7 +620,7 @@ a.icons:active {
   }
   
   .date span::after {
-    font-family: 'Open sans', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: rgb(255, 255, 255);
     border-radius: 3px;
     padding: 2px 5px;
