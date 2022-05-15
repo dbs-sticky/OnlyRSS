@@ -299,7 +299,7 @@ hr {
 
 nav {
   display: flex; 
-  background-color: white);
+  background-color: white;
   max-width: var(--pagewidth);
   margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
