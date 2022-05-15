@@ -150,7 +150,7 @@
 
     <details>
       <summary><span><time datetime="2022-03-19">19 Mar 2022</time>: Added SVG social icons to the About page </span><span class="ux-tag"><span class="performance-tag"></span></span></summary>
-      <p>This was a bit of a rabbit-hole for me. I downloaded a few social media icons from the web in <abbr title="Scalable Vector Graphic">SVG</abbr> format, and created some of my own in Figma. I then had to work out the correct Viewbox size etc. I wanted the icons to appear outlined with a white fill, but then have the fill fade to their brand colours on-hover. This took a bit of CSS work to get right. Basically, the SVG is inline with the HTML and includes the fill colour. The CSS then overrides this and sets the fill to transparent. On-hover the transparency is then removed (via a 0.9s transition) to reveal the fill colour. Doing it this way means that the CSS is generic and works for all the icons—it removes the need for a CSS Class or ID per icon.</p><p> The SVG icons and the required CSS take up 12kB of space, which <a href="https://en.wikipedia.org/wiki/Brotli" title="read about Brotli text compression">when compressed for transfer to the browser</a> comes to around 2kB. Not bad (<abbr title="In My Humble Opinion">IMHO</abbr>) for 8 coloured icons that can be scaled to any size. If these 8 icons were PNGs or GIFs they would each have to be loaded after the HTML and CSS. The inline SVG solution means they are loaded with/in the HTML.</p><p> In case it's not obvious from the description above…yes, I am quite proud of myself. &#128512</p>
+      <p>This was a bit of a rabbit-hole for me. I downloaded a few social media icons from the web in <abbr title="Scalable Vector Graphic">SVG</abbr> format, and created some of my own in Figma. I then had to work out the correct Viewbox size etc. I wanted the icons to appear outlined with a white fill, but then have the fill fade to their brand colours on-hover. This took a bit of CSS work to get right. Basically, the SVG is inline with the HTML and includes the fill colour. The CSS then overrides this and sets the fill to transparent. On-hover the transparency is then removed (via a 0.9s transition) to reveal the fill colour. Doing it this way means that the CSS is generic and works for all the icons—it removes the need for a CSS Class or ID per icon.</p><p> The SVG icons and the required CSS take up 12kB of space, which <a href="https://en.wikipedia.org/wiki/Brotli" title="read about Brotli text compression">when compressed for transfer to the browser</a> comes to around 2kB. Not bad (<abbr title="In My Humble Opinion">IMHO</abbr>) for 8 coloured icons that can be scaled to any size. If these 8 icons were PNGs or GIFs they would each have to be loaded after the HTML and CSS. The inline SVG solution means they are loaded with/in the HTML.</p><p> In case it's not obvious from the description above…yes, I am quite proud of myself. &#128512;</p>
     </details>
 
     <details>
@@ -288,7 +288,7 @@
     </details>
 
     <details>
-      <summary><span><time datetime="2021-03-13">13 Mar 2021</time>: Changed the website's folder structure</span><span class="housekeeping-tag"></summary>
+      <summary><span><time datetime="2021-03-13">13 Mar 2021</time>: Changed the website's folder structure</span><span class="housekeeping-tag"></span></summary>
       <p>Originally all the files for an article were in a specific article folder. I changed this so there's now separate folders for posts, images, styles, etc.</p>
     </details>
     
