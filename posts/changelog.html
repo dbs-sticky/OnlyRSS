@@ -101,7 +101,7 @@
     <details>
       <summary><span><time datetime="2022-04-13">13 Apr 2022</time>: Made all fonts local, and set some fonts to <i>font-display: block</i></span><span class="ux-tag"></span></summary>
       <p><abbr title="Flash of Unstyled Text">FOUT</abbr> can be an issue for many websites, but it wasn't a particular problem on OnlyRSS until I added the global nav bar. The size of the 'buttons' on the nav bar are determined by the size of the button names e.g. RSS, About, and Changelog. When the page is first loaded these button names are displayed using the fallback font (while the primary font is loaded), this resulted in a noticeable movement of the nav bar buttons that was very distracting.</p>
-      <img src="../images/nav-issue.gif" alt="An animated GIF showing a user selecting nav elements and the elements shifting position as they reload" width="368" height="68">
+      <img src="../images/nav-issue.gif" loading="lazy" alt="An animated GIF showing a user selecting nav elements and the elements shifting position as they reload" width="368" height="68">
       <p>This was solved by switching the font used on the nav bar from <i>font-display: swap</i> to <i>font-display: block</i>. The result is that the nav bar font is essentially invisible until the primary font has loaded, this seems to have fixed the issue.</p>
       <p>Before I discovered the solution above, I'd also downloaded all the fonts from Google and hosted them locally, although this didn't fix the issue, there are other reasons to do this, but I think that will be the subject of a future article.</p>
     </details>
@@ -115,7 +115,7 @@
       <summary><span><time datetime="2022-04-07">07 Apr 2022</time>: Defined two styles for &lt;details&gt; & &lt;summary&gt; HTML elements</span><span class="ux-tag"></span></summary>
       <p>The &lt;details&gt; and &lt;summary&gt; HTML elements are what's used to create these Changelog entries, but, I've also started to use them in articles to hide images until requested by the reader.</p>
       <p> On article pages, I used the pseudo-element <i>::after</i> to append the content "close" or "open" to the &lt;summary&gt; text. I used <i>details[open] summary::after{ }</i> to target the summary element only when the detail element was open, the result was an open/close toggle built with just HTML & CSS.</p>
-      <img src="../images/details-summary-changelog.gif" alt="An animated GIF showing a user clicking a link that then displays an image below the link" width="744" height="217">
+      <img src="../images/details-summary-changelog.gif" loading="lazy" alt="An animated GIF showing a user clicking a link that then displays an image below the link" width="744" height="217">
     </details>
 
     <details>
