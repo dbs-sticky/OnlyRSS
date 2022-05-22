@@ -6,6 +6,24 @@
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/index.html",
+    "shortcuts" : [
+      {
+        "name": "Articles",
+        "url": "/index.html"
+      },
+      {
+        "name": "RSS",
+        "url": "/posts/subscribe.html"
+      },
+      {
+        "name": "Changelog",
+        "url": "/posts/changelog.html"
+      },
+      {
+        "name": "About",
+        "url": "/posts/about.html"
+      }
+    ]
     "screenshots":[
       {
         "src":"pwaicons/screenshot1.webp",
