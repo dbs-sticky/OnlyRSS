@@ -9,12 +9,12 @@
     "screenshots":[
       {
         "src":"pwaicons/screenshot1.webp",
-        "sizes": "1024x485",
+        "sizes": "485x1024",
         "type": "image/webp"
       },
       {
         "src":"pwaicons/screenshot2.webp",
-        "sizes": "1024x485",
+        "sizes": "485x1024",
         "type": "image/webp"
       }
     ],
