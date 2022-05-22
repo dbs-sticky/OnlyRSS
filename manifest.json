@@ -14,7 +14,7 @@
       },
       {
         "src":"pwaicons/screenshot2.webp",
-        "sizes": "485x1024",
+        "sizes": "1024x485",
         "type": "image/webp"
       }
     ],
