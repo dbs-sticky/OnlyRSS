@@ -6,7 +6,19 @@
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/index.html",
-    "description": "Mark's blog of shower thoughts",
+    "screenshots":[
+      {
+        "src":"pwaicons/screenshot1.webp",
+        "sizes": "1024x485",
+        "type": "image/webp"
+      },
+      {
+        "src":"pwaicons/screenshot2.webp",
+        "sizes": "1024x485",
+        "type": "image/webp"
+      }
+    ],
+    "description": "Mark's blog of shower thoughts. Articles on productivity, Data Viz, HTML & CSS, Software, hardware, and maybe even some fitness.",
     "icons": [
 
     {
