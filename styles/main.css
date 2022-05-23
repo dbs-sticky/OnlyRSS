@@ -11,6 +11,8 @@ html {
   color: #2e2e2e;
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
   accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
+  scroll-padding-top: 6rem; /* for fixed global nav */
+  scroll-behavior: smooth;
 }
 
 /* so that global nav bar touches top of viewport */
@@ -109,9 +111,23 @@ aside {
   margin-bottom: 20px;
 }
 
+/* padding so top of content is below fixed global nav */
+nav + article {
+margin-top: 70px;
+}
+
+nav + main {
+margin-top: 70px;
+}
+
+nav + main.home-grid {
+  margin-top: 50px;
+  }
+
 article,
 main {
   padding-top: 40px;
+
 }
 
 aside {
@@ -298,6 +314,10 @@ hr {
     ====================== */
 
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex; 
   background-color: white;
   max-width: var(--pagewidth);
