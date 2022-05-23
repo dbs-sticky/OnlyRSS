@@ -13,6 +13,7 @@ html {
   accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
   scroll-padding-top: 6rem; /* for fixed global nav */
   scroll-behavior: smooth;
+  counter-reset: figures;
 }
 
 /* so that global nav bar touches top of viewport */
@@ -288,12 +289,17 @@ figure {
 }
 
 figcaption {
+	counter-increment: figures; /* count the number of fig captions */
   font-size: 80%;
   margin-top: 5px;
   padding-top: 8px;
   padding-bottom: 25px;
   font-style: italic;
   border-top: 2px solid var(--accent);
+}
+
+figcaption::before {
+	content: 'Figure ' counter(figures) '. '; /* display the figure number in the caption */
 }
 
 /* images */
