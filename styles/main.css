@@ -323,12 +323,11 @@ nav {
   max-width: var(--pagewidth);
   margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
-  margin-bottom: 10px;
   border-radius: 0 0 5px 5px;
   border: 1px solid LightGrey;
   box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
-  margin-bottom: 20px;
   text-transform: uppercase;
+  z-index: 1;
 }
 
 nav a{
