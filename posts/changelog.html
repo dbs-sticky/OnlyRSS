@@ -93,6 +93,21 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-05-23">23 May 2022</time>: Implemented auto label and numbering for all figure captions i.e. Figure 1, 2, 3,…etc.</span><span class="ux-tag"></span></summary>
+      <p>I read a very useful article over at smashingmagazine.com today titled <a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/">“Lesser-Known And Underused CSS Features In 2022”</a>, it contained a <a href="https://www.smashingmagazine.com/2022/05/lesser-known-underused-css-features-2022/#counters">section on CSS Counters</a>. I learnt that Counters can keep track of the number of specific HTML tags e.g. &lt;figcaption&gt;, and then display the current count in the page. I used this to automatically add “Figure #” before each figure caption. This is useful for those times when I decide to slot a new figure into a page, as I wouldn't then need to renumber all the following figures.</p>
+    </details>
+
+    <details>
+      <summary><span><time datetime="2022-05-23">23 May 2022</time>: Fixed the global navigation bar to the top of the page</span><span class="ux-tag"></span></summary>
+      <p>The introduction of the global navigation bar back in April greatly improved the site navigation, but, users still had to scroll to the top of a page in order to navigate to a new page. Fixing the nav bar to the top of the viewport has removed this pain point (at the expense of a small amount of screen real estate.)</p>
+    </details>
+
+    <details>
+      <summary><span><time datetime="2022-05-22">22 May 2022</time>: Improved the PWA experience (install & shortcuts)</span><span class="ux-tag"></span></summary>
+      <p>Updated the app description, and added app screenshots to the manifest.json. When a visitor to OnlyRSS.org is  prompted to install the app on Android, they now have the option to view some in-app screenshots prior to performing the install.</p> <p> After install, if they long-press on the app icon on Android, or right-click on the app icon on the Windows taskbar, they will now see shortcuts for Articles, RSS, Changelog, and About pages.</p>
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-04-13">13 Apr 2022</time>: Added Alt text to images—even though they already use &lt;figcaption&gt;</span><span class="ux-tag"></span></summary>
       <p>Strictly speaking, Alt text for images is not required if you're using the &lt;figcaption&gt; element, as this element will contain a description of the image which will be read out by screen readers. And as all my images have a &lt;figcaption&gt;, I'd not been using Alt text. But, after giving this some thought I'd come to the conclusion that Alt text is required in most cases even when &lt;figcaption&gt; is used.</p>
       <p>A typical figure caption for a chart might be 'Figure 1. Chart showing the change in price of oil over time'. But, it's not a complete description of what's happening on the chart, it doesn't need to be, that's the purpose of the chart! The Alt text I've added for my images tries to describe the content of the image in words, rather than a simple statement about what the image is.</p>
