@@ -429,6 +429,7 @@ article details[open] summary::after{
 main summary {
   font-weight: 400;
   display: flex;
+  align-items: center;
   cursor: pointer;
   /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
@@ -490,6 +491,7 @@ summary span:first-of-type {
   background-color: rgb(71, 69, 187);
   content: "UX";
   font-size: 0.6rem;
+
 }
 
 .content-tag::after {
