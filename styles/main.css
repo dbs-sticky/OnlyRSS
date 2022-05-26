@@ -8,7 +8,7 @@ html {
   font-family: 'Roboto Serif', serif;
   line-height: 1.8;
   font-weight: 400;
-  color: #2e2e2e;
+  color: #000000;
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
   accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
   scroll-padding-top: 6rem; /* for fixed global nav */
@@ -140,7 +140,7 @@ aside {
     ====================== */
 
 p {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
 }
 
 /* Headings - shared */
@@ -184,7 +184,7 @@ font-style: italic;
 
 /* Links */
 a {
-  color: #2e2e2e;
+  color: #000000;
   text-decoration: none;
   transition: color .4s;
   /* transition from normal colour to hover colour */
