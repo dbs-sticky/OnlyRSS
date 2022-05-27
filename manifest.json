@@ -10,19 +10,43 @@
     "shortcuts" : [
       {
         "name": "Articles",
-        "url": "/index.html"
+        "url": "/index.html",
+        "icons": [
+          {
+            "src": "pwaicons/home_maskable_icon.png",
+            "sizes": "128x128"
+          }
+        ]
       },
       {
         "name": "RSS",
-        "url": "/posts/subscribe.html"
+        "url": "/posts/subscribe.html",
+        "icons": [
+          {
+            "src": "pwaicons/rss_maskable_icon.png",
+            "sizes": "128x128"
+          }
+        ]
       },
       {
         "name": "Changelog",
-        "url": "/posts/changelog.html"
+        "url": "/posts/changelog.html",
+        "icons": [
+          {
+            "src": "pwaicons/changelog_maskable_icon.png",
+            "sizes": "128x128"
+          }
+        ]
       },
       {
         "name": "About",
-        "url": "/posts/about.html"
+        "url": "/posts/about.html",
+        "icons": [
+          {
+            "src": "pwaicons/about_maskable_icon.png",
+            "sizes": "128x128"
+          }
+        ]
       }
     ],
     "screenshots":[
