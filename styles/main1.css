@@ -429,7 +429,8 @@ article details[open] summary::after{
 main summary {
   font-weight: 400;
   display: flex;
-  align-items: center;
+  align-items: center; /* centre them vertically */
+  padding: 0.35rem 0.7rem 0.35rem;
   cursor: pointer;
   /* set summary elements to flex to enable the tags to be right-aligned, see below */
 }
@@ -444,7 +445,6 @@ main details {
   background-color: #e2f4ff;
   border-radius: 5px;
   line-height: 1.5rem;
-  padding: 0.35rem 0.7rem 0.35rem;
   font-size: 0.8rem;
   margin-bottom: 1rem;
 }
