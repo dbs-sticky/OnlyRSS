@@ -31,7 +31,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="../styles/main4.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main5.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <style>
@@ -99,20 +99,28 @@
     </header>
 
     <details>
-      <summary><span><time datetime="2022-05-28">28 May 2022</time>: Fixed link styles in fig captions and lists using the <i>::where</i> selector</span><span class="ux-tag"></span></summary>
-      <p>I use a specific style for links used in article bodies, i.e. links are followed by a "°" symbol, which is either red (external links) or blue (internal links). This was working fine in paragraphs, but not in lists or fig captions. This was because I was simply using:</p>
-        <pre><code>p a {[style]}</code></pre>
-      <p>I wanted to apply the same style to lists and fig captions, but rather than repeating the same CSS for all three, I used—for the fist time—the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:where"><i>::where</i> CSS Selector</a>. So I now have:</p>
-        <pre><code>::where(p, li, figcaption) a {[style]}</code></pre>
+      <summary><span><time datetime="2022-05-28">28 May 2022</time>: Fixed link styles in fig captions and lists using
+          the <i>::where</i> selector</span><span class="ux-tag"></span></summary>
+      <p>I use a specific style for links used in article bodies, i.e. links are followed by a "°" symbol, which is
+        either red (external links) or blue (internal links). This was working fine in paragraphs, but not in lists or
+        fig captions. This was because I was simply using:</p>
+      <pre><code>p a {[style]}</code></pre>
+      <p>I wanted to apply the same style to lists and fig captions, but rather than repeating the same CSS for all
+        three, I used—for the fist time—the <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/:where"><i>::where</i> CSS Selector</a>. So I now have:
+      </p>
+      <pre><code>::where(p, li, figcaption) a {[style]}</code></pre>
       <p>I suspect I'll be using this selector a lot going forward. </p>
     </details>
 
     <details>
-      <summary><span><time datetime="2022-05-27">27 May 2022</time>: Added PWA Shortcut icons</span><span class="ux-tag"></span></summary>
-      <p>I added the PWA shortcuts (aka jump list) a few days ago, but didn't give each shortcut their own icon. Adding individual icons makes the PWA appear a little more "native", and less like a web page in disguise! I'm not happy with the current icons I've created, so will probably update them soon.</p>
+      <summary><span><time datetime="2022-05-27">27 May 2022</time>: Added PWA Shortcut icons</span><span
+          class="ux-tag"></span></summary>
+      <p>I added the PWA shortcuts (aka jump list) a few days ago, but didn't give each shortcut their own icon. Adding
+        individual icons makes the PWA appear a little more "native", and less like a web page in disguise! I'm not very
+        happy with the current icons I've created, so will probably update them soon.</p>
       <img src="../images/pwa-shortcuts.webp" loading="lazy"
-      alt="A screenshot showing the PWA shortcuts visible from the Windows taskbar"
-      width="322" height="305">
+        alt="A screenshot showing the PWA shortcuts visible from the Windows taskbar" width="322" height="305">
     </details>
 
     <details>
