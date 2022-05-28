@@ -690,7 +690,7 @@ a.icons:active {
   }
   
   /* set the card link styles */
-  main a {
+  .home-grid a {
     font-size: 14px;
     color: black;
     text-decoration: none;
