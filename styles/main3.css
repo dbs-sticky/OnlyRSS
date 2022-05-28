@@ -191,27 +191,27 @@ a {
 }
 
 /* internal links */
-p a::after {
+:where(p, li, figcaption) a::after {
   position: relative;
   content: "°";
   font-size: 80%;
   color: var(--accent);
 }
 
-p a:hover {
+:where(p, li, figcaption) a:hover {
   text-decoration: none;
   color: var(--accent);
 }
 
 /* external links */
-p a[href^="http"]::after {
+:where(p, li, figcaption) a[href^="http"]::after {
   position: relative;
   content: "°";
   font-size: 80%;
   color: red;
 }
 
-p a[href^="http"]:hover {
+:where(p, li, figcaption) a[href^="http"]:hover {
   text-decoration: none;
   color: red;
 }
