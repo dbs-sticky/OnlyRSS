@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automatically number figures with CSS counters</title>
+  <meta name="description"
+    content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the 'figure #' alongside all figures.">
+  <meta name="author" content="Mark Evans">
+  <meta name="theme-color" content="#ffffff">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title"
+    content="Automatically number figures with CSS counters">
+  <meta property="og:url" content="https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/loading-images-og.jpg"> <!--TODO add OG image-->
+  <meta property="og:description"
+    content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the 'figure #' alongside all figures.">
+  <meta property="article:published_time" content="2022-05-29">
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" href="../pwaicons/favicon.svg">
+  <link rel="apple-touch-icon" href="../pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="../pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/main5.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <style>
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url(../fonts/RobotoCondensed-Regular.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: normal;
+      font-weight: 400;
+      src: url(../fonts/RobotoSerif-Regular.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: italic;
+      font-weight: 400;
+      src: url(../fonts/RobotoSerif-Italic.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: normal;
+      font-weight: 500;
+      src: url(../fonts/RobotoSerif-Medium.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: italic;
+      font-weight: 500;
+      src: url(../fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
+    }
+  </style>
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js", {
+        scope: "/",
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <nav>
+    <a href="../index.html" title="Homepage">home</a>
+    <span></span>
+    <!--this is used via Flex: 1; to justify the global nav elements left and right-->
+    <a href="../posts/subscribe.html" title="Subscribe via RSS">rss</a>
+    <a href="../posts/changelog.html" title="View all website updates">changelog</a>
+    <a href="../posts/about.html" title="Who made this site, and why?">about</a>
+  </nav>
+  <article>
+    <header>
+      <h1>Automatically number figures using CSS counters</h1>
+      <p class="pubdate"><time datetime="2022-05-029">29 May 2022</time> · 4 mins · <a href="../posts/about.html"
+          title="About me, and about this website">Mark Evans</a></p>
+    </header>
+
+    <!--introduction-->
+    <section>
+      <h2>Background</h2>
+      <p>For the first 13&nbsp;years of my career I worked as a research scientist for the Defence Evaluation and Research Agency (<a href="https://en.wikipedia.org/wiki/Defence_Evaluation_and_Research_Agency">DERA</a>, an agency of the UK's MoD). I worked on 3–5&nbsp;year projects covering a wide range of subjects. Even though the projects varied, they did all have one thing in common, at the end of the project one of the deliverables was a report, and much like the <a href="https://youtu.be/Fy3rjQGc6lA">infamous TPS reports from Office Space</a>, these reports also had to adhere to a strict format.</p>
+      <p>One of those strict formatting rules was numbering, not just numbering of chapters, but sections, paragraphs, and figures. Depending on how the document was structured, it was not unusual to have a paragraph with a number such as 2.1.2.15. Don't get me wrong, this convention was actually useful, if you were on page 50 and wanted to reference a paragraph on page 5, the paragraph numbering made a lot of sense.</p>
+      <p>As useful as numbering paragraphs was for those DERA reports, it's not something I find myself missing when writing a blog post. But, I do still find numbering figures useful, as I do find myself often referencing the figures in an article.</p>
+      <p>Anyone who has written a long report that requires any form of numbering knows that it's not something you should attempt to do manually—it has to be automated—otherwise you'll find yourself updating all the following chapters/sections/paragraphs/figures each time you insert a new one into the middle of the document.</p>
+    </section>
+
+    <!--The problem-->
+    <section>
+      <h2>The problem</h2>
+      <p>The problem I encountered was that each GIF was quite large (both in terms of page real estate and file size)
+        and users who are already familiar with RSS probably wouldn't need to view the animations at all. In that sense,
+        the animations are not essential to the page, but could be considered complementary to the ordered lists,
+        furthermore, it's unlikely that a user would want to view the animation for both Feedly and Inoreader.</p>
+      <p>Loading both animations would not only be wasteful (in terms of page resources), but given the large vertical
+        size of each image, the first image (for Feedly) would push the second image and instructions (for Inoreader)
+        below the fold, where they could potentially be missed by users entirely.</p>
+      <p>What I wanted was to hide the animations from the user, and for the browser to hold-off downloading them until
+        they were required (if at all). And I wanted this to be as seamless as possible i.e. I wanted to avoid modals
+        and opening new tabs etc. And, of course, I wanted to avoid using JavaScript (because I don't know JavaScript.)
+      </p>
+    </section>
+
+    <!--The solution-->
+    <section>
+      <h2>The solution</h2>
+      <p>I've already used a non-JS method for hiding content until it's requested by the user on the <a
+          href="/posts/changelog.html">Changelog</a> page i.e. the <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt;
+          HTML elements</a>. So I decided to use these elements with the summary text of <i>Show me how</i>, which when
+        clicked would display the contents of the &lt;details&gt; element i.e. the animated GIF. You can see this in
+        action for a static image by clicking on the text below to display [<span class="fig-ref">fig.&nbsp;1</span>].
+      </p>
+
+      <details>
+        <summary>Figure 1: click to </summary>
+        <figure>
+          <img src="../images/subscribecompare.webp" width="800" height="1059" loading="lazy"
+            alt="A side-by-side comparision of 2 versions of the same page. In the first version, 2 large images are clearly visible, and the page is very long. In the second version no images are visible, and the page is compact.">
+          <figcaption>The original Subscribe page (left) alongside the final Subscribe page (right).</figcaption>
+        </figure>
+      </details>
+
+      <p> This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the
+        fold, but it didn't help with page performance, as both animations were still being loaded by the browser.</p>
+
+      <p>I'd previously used the image attribute <i>loading="lazy"</i> to improve page performance by letting the
+        browser decide if an image needed to be loaded e.g. was the user close to scrolling to the part of the page that
+        contained the image? I didn't expect this to influence images hidden within the &lt;details&gt; element—I was
+        wrong. After applying <i>loading="lazy"</i> to both animations, they were no longer loaded by the browser until
+        the user clicked on the summary text. This was exactly the solution I was after.</p>
+      <p>With this solution in place the <a href="/posts/subscribe.html">subscribe</a> page loads quickly—around
+        40ms—with all the content being above the fold, and the animations only loading if the user selects the relevant
+        summary text.</p>
+    </section>
+
+    <!--Conclusion-->
+    <section>
+      <h2>Conclusions</h2>
+      <p>
+        The solution I've described above is probably suitable for instructional pages where the reader would only be
+        interested in one of many options e.g. Those explanation pages that show you how to perform some complex tasks
+        in Excel but give you four versions of the solution, one for each recent version of Excel. In that type of
+        scenario, hiding and delaying the load of any associated images makes a lot of sense, it condenses the page (so
+        it looks more appealing) and improves page performance.
+      </p>
+      <p>
+        As I've mentioned before, I'm not a dev, and I'm still new to HTML & CSS, so I might well look back on this post
+        in a few months' time and cringe due to its naivety. There’re probably far easier methods to hiding (and
+        delaying the loading of) images than what I've described above, but hey, we learn better from our mistakes, so
+        if I do come across a better solution, I'm guessing I won't forget it :-)
+      </p>
+    </section>
+
+    <!-- feedback - section -->
+    <section>
+      <h2>Feedback</h2>
+      <p>
+        If you have any comments on this article then please get in touch via Twitter (<a
+          href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+      </p>
+    </section>
+  </article>
+
+  <!-- related articles -->
+  <aside>
+    <a href="../posts/drop-caps-and-indents.html">
+      <h2>Drop caps and indents</h2>
+      <p>
+        A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
+      </p>
+    </a>
+  </aside>
+
+</body>
+
+</html>
