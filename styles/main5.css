@@ -13,12 +13,12 @@ html {
   accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
   scroll-padding-top: 6rem; /* for fixed global nav */
   scroll-behavior: smooth;
-  counter-reset: figures;
 }
 
 /* so that global nav bar touches top of viewport */
 body {
   margin-top:0px;
+  counter-reset: figures;
 }
 
 /*  ======================
