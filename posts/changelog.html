@@ -99,6 +99,15 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-05-28">28 May 2022</time>: Fixed link styles in fig captions and lists using the <i>::where</i> selector</span><span class="ux-tag"></span></summary>
+      <p>I use a specific style for links used in article bodies, i.e. links are followed by a "°" symbol, which is either red (external links) or blue (internal links). This was working fine in paragraphs, but not in lists or fig captions. This was because I was simply using:</p>
+        <pre><code>p a {[style]}</code></pre>
+      <p>I wanted to apply the same style to lists and fig captions, but rather than repeating the same CSS for all three, I used—for the fist time—the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:where"><i>::where</i> CSS Selector</a>. So I now have:</p>
+        <pre><code>::where(p, li, figcaption) a {[style]}</code></pre>
+      <p>I suspect I'll be using this selector a lot going forward. </p>
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-05-23">23 May 2022</time>: Implemented auto label and numbering for all figure
           captions i.e. Figure 1, 2, 3,…etc.</span><span class="ux-tag"></span></summary>
       <p>I read a very useful article over at smashingmagazine.com today titled <a
