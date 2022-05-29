@@ -102,27 +102,33 @@
     <section>
       <h2>Background</h2>
       <p>For the first 13&nbsp;years of my career I worked as a research scientist for the Defence Evaluation and Research Agency (<a href="https://en.wikipedia.org/wiki/Defence_Evaluation_and_Research_Agency">DERA</a>, an agency of the UK's MoD). I worked on 3–5&nbsp;year projects covering a wide range of subjects. Even though the projects varied, they did all have one thing in common, at the end of the project one of the deliverables was a report, and much like the <a href="https://youtu.be/Fy3rjQGc6lA">infamous TPS reports from Office Space</a>, these reports also had to adhere to a strict format.</p>
-      <p>One of those strict formatting rules was numbering, not just numbering of chapters, but sections, paragraphs, and figures. Depending on how the document was structured, it was not unusual to have a paragraph with a number such as 2.1.2.15. Don't get me wrong, this convention was actually useful, if you were on page 50 and wanted to reference a paragraph on page 5, the paragraph numbering made a lot of sense.</p>
+      <p>One of those strict formatting rules was numbering, not just numbering of chapters, but sections, paragraphs, figures, and list items. Depending on how the document was structured, it was not unusual to have a list item with a number such as 2.1.2.15. Don't get me wrong, this convention was actually useful, if you were on page 50 and wanted to reference a paragraph on page 5, the paragraph numbering made a lot of sense.</p>
       <p>As useful as numbering paragraphs was for those DERA reports, it's not something I find myself missing when writing a blog post. But, I do still find numbering figures useful, as I do find myself often referencing the figures in an article.</p>
       <p>Anyone who has written a long report that requires any form of numbering knows that it's not something you should attempt to do manually—it has to be automated—otherwise you'll find yourself updating all the following chapters/sections/paragraphs/figures each time you insert a new one into the middle of the document.</p>
     </section>
 
     <!--heading-->
     <section>
-      <h2>heading</h2>
-      <p>
-        <pre><code>body {counter-reset: figures;}</code></pre>
-      </p>
-      <p>
-        <pre><code>counter-increment: figure;</code></pre>
-      </p>
+      <h2>Solution</h2>
+        <h3>Set the counter to zero</h3>
+          <p>First, we define a counter called "figures", and we reset it to zero, this goes in the body declaration of the CSS:</p>
+          <pre><code>body {counter-reset: figures;}</code></pre>
+        <h3>Increment the counter</h3>
+          <p>Then, we increment the counter for each figcaption that's in the page, this goes in the figcaption CSS declaration:</p>
+          <pre><code>figcaption {counter-increment: figures;}</code></pre>
+        <h3>Display the current count</h3>
+        <p>Lastly, we display the current count of figcaptions within the figcaption CSS declaration. We do this by using the ::before pseudo selector. We display the count between the text "Figure" and ".", so we end up with "Figure 5.":</p>
+        <pre><code>figcaption::before {content: 'Figure ' counter(figures) '. ';}</code></pre>
     </section>
 
-    <!--Conclusion-->
+    <!--Issues-->
     <section>
-      <h2>Conclusions</h2>
-      <p>
-      </p>
+      <h2>Issues with this solution</h2>
+        <p>Although the solution described above provides an easy method for automatically labelling figures within a page, it does have a couple of drawbacks:</p>
+        <h3>Cross Referencing</h3>
+          <p>One of the main reasons for numbering figures is so that they can easily be referenced from within the article body e.g. "as you can see in figure 5". But, although adding new figures into the article will not require you to manually update the figure numbers, you would have to update any references, as there's no link between the figure number and the reference (<a href="https://support.microsoft.com/en-us/office/create-a-cross-reference-300b208c-e45a-487a-880b-a02767d9774b"><i>cf</i>. MS Word</a>)</p>
+        <h3>Accessibility</h3>
+          <p>Although this solution automatically adds "Figure #" in your figcaptions, it's important to note that anything added via the ::before or ::after pseudo selectors is NOT guaranteed to be available for reading aloud by screen readers.  </p>
     </section>
 
     <!-- feedback - section -->
