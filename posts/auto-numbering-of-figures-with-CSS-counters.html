@@ -19,7 +19,7 @@
   <meta property="og:image" content="https://onlyrss.org/images/og/numbering-og.jpg">
   <meta property="og:description"
     content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the 'figure #' alongside all figures.">
-  <meta property="article:published_time" content="2022-05-29">
+  <meta property="article:published_time" content="2022-05-30">
 
   <!--Favicons and Touch Icons and web manifest-->
   <link rel="icon" href="../pwaicons/favicon.svg">
@@ -94,37 +94,37 @@
   <article>
     <header>
       <h1>Automatically numbering figures using CSS counters</h1>
-      <p class="pubdate"><time datetime="2022-05-029">29 May 2022</time> · 4 mins · <a href="../posts/about.html"
+      <p class="pubdate"><time datetime="2022-05-30">30 May 2022</time> · 4 mins · <a href="../posts/about.html"
           title="About me, and about this website">Mark Evans</a></p>
     </header>
 
     <!--introduction-->
     <section>
       <h2>Background</h2>
-      <p>For the first 13&nbsp;years of my career I worked as a research scientist for the Defence Evaluation and Research Agency (<a href="https://en.wikipedia.org/wiki/Defence_Evaluation_and_Research_Agency">DERA</a>, an agency of the UK's MoD). I worked on 3–5&nbsp;year projects covering a wide range of subjects. Even though the projects varied, they did all have one thing in common, at the end of the project one of the deliverables was a report, and much like the <a href="https://youtu.be/Fy3rjQGc6lA">infamous TPS reports from Office Space</a>, these reports also had to adhere to a strict format.</p>
+      <p>For the first 13&nbsp;years of my career I worked as a research scientist for the Defence Evaluation and Research Agency (<a href="https://en.wikipedia.org/wiki/Defence_Evaluation_and_Research_Agency">DERA</a>, an agency of the UK's MoD). I worked on 3–5&nbsp;year projects covering a wide range of subjects. Even though the projects varied, they did all have one thing in common, i.e. one of the deliverables was always a report, and much like the <a href="https://youtu.be/Fy3rjQGc6lA">infamous TPS reports from Office Space</a>, the DERA reports also had to adhere to a strict format.</p>
       <p>One of those strict formats related to numbering, not just numbering of chapters, but sections, paragraphs, figures, and list items. Depending on how the document was structured, it was not unusual to have a list item with a number such as 2.1.2.15. Don't get me wrong, this convention was actually useful, if you were on page 50 and wanted to reference an item on page 5, the numbering made a lot of sense.</p>
-      <p>As useful as numbering was for those DERA reports, it's not something I find myself missing when writing a blog post. But, I do still find numbering figures useful, as I often reference the figures from within the body text.</p>
+      <p>As useful as numbering was for those DERA reports, it's not something I find myself missing when writing a blog post. But, I do still find myself numbering figures in blog posts, this is useful as I often reference the figures from within the body text.</p>
       <p>Anyone who has written a long report that requires any form of numbering knows that it's not something you should attempt to do manually—it has to be automated—otherwise you'll find yourself updating all the following chapters/sections/paragraphs/figures/lists each time you insert a new one into the middle of the document.</p>
     </section>
 
     <!--heading-->
     <section>
       <h2>Solution</h2>
-        <p>There's no solution for this that's as convenient as the numbering and cross-referencing that's part of <a href="https://support.microsoft.com/en-us/office/create-a-cross-reference-300b208c-e45a-487a-880b-a02767d9774b">Microsoft Word</a>, but, there is a CSS solution that can at least handle the numbering part (but not the cross-referencing), and that solution is based on CSS Counters.</p>
+        <p>There's no solution for this in HTML/CSS that's as convenient as the numbering and cross-referencing that's part of <a href="https://support.microsoft.com/en-us/office/create-a-cross-reference-300b208c-e45a-487a-880b-a02767d9774b">Microsoft Word</a>, but, there is a CSS solution that can at least handle the numbering part (but not the cross-referencing), and that solution is based on CSS Counters.</p>
         <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters">
           CSS Counters are, in essence, variables maintained by CSS whose values may be incremented or decremented by CSS rules that track how many times they're used.<p>Source: mdn web docs</p>
         </blockquote>
-        <p>To see a full description of CSS Counters and how they can be used, visit the CSS Counters page over at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters">mdn web docs</a>. The use of CSS Counters below deals only with counting figures and displaying that count within the figcaption.</p>
+        <p>To see a full description of CSS Counters and how they can be used, visit the CSS Counters page over at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters">mdn web docs</a>. The use of CSS Counters below deals only with counting figures and displaying that count within the figure's caption i.e. the figcaption HTML element.</p>
         <h3>Set the counter to zero</h3>
-          <p>First, we define a counter called "figures", and we reset it to zero (it defaults to zero when reset), this goes in the body declaration of the CSS:</p>
+          <p>First, we define a counter called "figures", and we set it to zero (it defaults to zero when reset), this goes in the body CSS declaration:</p>
           <pre><code>body {counter-reset: figures;}</code></pre>
         <h3>Increment the counter</h3>
-          <p>Then, we increment the counter for each figcaption that's in the page, this goes in the figcaption CSS declaration:</p>
+          <p>Then, we increment the counter for each figcaption element that's in the page, this goes in the figcaption CSS declaration:</p>
           <pre><code>figcaption {counter-increment: figures;}</code></pre>
         <h3>Display the current count</h3>
-        <p>Lastly, we display the current count of figcaptions within the figcaption CSS declaration. We do this by using the ::before pseudo selector. We display the count between the text "Figure" and ".", so we end up with something like "Figure 5.":</p>
+        <p>Lastly, we display the current count of figcaptions within the figcaption CSS declaration. We do this by using the ::before pseudo selector. We place the figcaption count between the text "Figure" and ".", so we end up with something like "Figure 5.":</p>
         <pre><code>figcaption::before {content: 'Figure ' counter(figures) '. ';}</code></pre>
-        <h3>The result</h3>
+        <h2>Implementation example</h2>
           <p>The screenshots below show the CSS used on OnlyRSS.org to display figcaptions, and the HTML used to generate figures 1 & 2.</p>
           <figure>
             <img src="../images/numbering-figures-css.png" width="793" height="259"
@@ -133,10 +133,10 @@
           </figure>
           <figure>
             <img src="../images/numbering-figures-html.png" width="793" height="200"
-              alt="A screenshot showing the figcaption HTML used to display figures 1 and figure 2.">
+              alt="A screenshot showing the figcaption HTML used to display figure 1 and figure 2.">
             <figcaption>The HTML used on this page to display figures 1 & 2.</figcaption>
           </figure>
-          <p>You'll notice from figure 2 above that the figcaption HTML elements do NOT include the text "Figure 1." or "Figure 2."</p>
+          <p>You'll notice from figure 2 above that the figcaption HTML elements do NOT include the text "Figure 1." or "Figure 2.", yet they are both visible in the figures' captions."</p>
 
     </section>
 
@@ -166,6 +166,12 @@
       <h2>Drop caps and indents</h2>
       <p>
         A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
+      </p>
+    </a>
+    <a href="../posts/loading-images-only-when-they-are-needed.html">
+      <h2>Loading images only when (or if) they are needed</h2>
+      <p>
+        Using the Details & Summary elements with lazy loading to load and display images only when/if they're requested..
       </p>
     </a>
   </aside>
