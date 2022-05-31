@@ -379,6 +379,12 @@ nav a:hover, nav a.nav-active {
 /*  ======================
     RELATED ARTICLES
     ====================== */
+aside h1 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  border:underline;
+}
+    
 aside h2 {
   font-size: 1.2rem;
 }
