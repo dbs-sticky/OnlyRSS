@@ -169,7 +169,7 @@
     <section>
       <h2>Issues with this solution</h2>
       <p>Although the solution described above provides an easy method for automatically numbering figures within a page
-        (actually, across all figures on a site that share the same style sheet,) it does have a couple of drawbacks:
+        (actually, across all figures on a site that share the same style sheet,) it does have a few drawbacks:
       </p>
       <h3>Cross-referencing</h3>
       <p>One of the main reasons for numbering figures is so they can easily be referenced from within the article body
@@ -185,6 +185,8 @@
           href="https://uselessdivs.com/blog/the-effect-of-css-on-screen-readers">here</a>) that seem to suggest that
         the majority of popular screen readers do in fact read ::before and ::after elements, even though they are not
         part of the <abbr title="Document Object Model">DOM</abbr>.</p>
+        <h3>RSS aggregators e.g. Feedly, Inoreader etc.</h3>
+        <p>RSS aggregators won't be using your CSS to display the article content from your RSS feed, so anything added by your CSS isn't going to appear when your articles are viewed in those apps.</p>
     </section>
 
     <!-- feedback - section -->
