@@ -75,7 +75,7 @@
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("../service-worker.js", {
-        scope: "/",
+        scope: "/OnlyRSS/",
       });
     }
   </script>
@@ -185,8 +185,9 @@
           href="https://uselessdivs.com/blog/the-effect-of-css-on-screen-readers">here</a>) that seem to suggest that
         the majority of popular screen readers do in fact read ::before and ::after elements, even though they are not
         part of the <abbr title="Document Object Model">DOM</abbr>.</p>
-        <h3>RSS aggregators e.g. Feedly, Inoreader etc.</h3>
-        <p>RSS aggregators won't be using your CSS to display the article content from your RSS feed, so anything added by your CSS isn't going to appear when your articles are viewed in those apps.</p>
+      <h3>RSS aggregators e.g. Feedly, Inoreader etc.</h3>
+      <p>RSS aggregators won't be using your CSS to display the article content from your RSS feed, so anything added by
+        your CSS isn't going to appear when your articles are viewed in those apps.</p>
     </section>
 
     <!-- feedback - section -->
