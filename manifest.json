@@ -5,12 +5,12 @@
     "background_color": "#ffffff",
     "display_override": ["window-controls-overlay"],
     "display": "standalone",
-    "scope": "/",
-    "start_url": "/index.html",
+    "scope": "/OnlyRSS/",
+    "start_url": "index.html",
     "shortcuts" : [
       {
         "name": "Articles",
-        "url": "/index.html",
+        "url": "index.html",
         "icons": [
           {
             "src": "pwaicons/home_maskable_icon.png",
@@ -20,7 +20,7 @@
       },
       {
         "name": "RSS",
-        "url": "/posts/subscribe.html",
+        "url": "posts/subscribe.html",
         "icons": [
           {
             "src": "pwaicons/rss_maskable_icon.png",
@@ -30,7 +30,7 @@
       },
       {
         "name": "Changelog",
-        "url": "/posts/changelog.html",
+        "url": "posts/changelog.html",
         "icons": [
           {
             "src": "pwaicons/changelog_maskable_icon.png",
@@ -40,7 +40,7 @@
       },
       {
         "name": "About",
-        "url": "/posts/about.html",
+        "url": "posts/about.html",
         "icons": [
           {
             "src": "pwaicons/about_maskable_icon.png",
