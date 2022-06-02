@@ -5,7 +5,7 @@
     "background_color": "#ffffff",
     "display_override": ["window-controls-overlay"],
     "display": "standalone",
-    "scope": "/OnlyRSS/",
+    "scope": "/",
     "start_url": "index.html",
     "shortcuts" : [
       {
