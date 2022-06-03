@@ -53,15 +53,33 @@
       {
         "src":"pwaicons/screenshot1.webp",
         "sizes": "485x1024",
-        "type": "image/webp"
+        "type": "image/webp",
+        "platform": "narrow",
+        "label": "An article shown on mobile."
       },
       {
         "src":"pwaicons/screenshot2.webp",
         "sizes": "485x1024",
-        "type": "image/webp"
+        "type": "image/webp",
+        "platform": "narrow",
+        "label": "The About page shown on mobile."
+      },
+      {
+        "src":"pwaicons/screenshot3.webp",
+        "sizes": "1280x720",
+        "type": "image/webp",
+        "platform": "wide",
+        "label": "The About page shown on desktop."
+      },
+      {
+        "src":"pwaicons/screenshot4.webp",
+        "sizes": "1280x720",
+        "type": "image/webp",
+        "platform": "wide",
+        "label": "An article shown on desktop."
       }
     ],
-    "description": "Mark's blog of shower thoughts. Articles on productivity, Data Viz, HTML & CSS, software, hardware, and maybe even some fitness.",
+    "description": "Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You'll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.",
     "icons": [
 
     {
