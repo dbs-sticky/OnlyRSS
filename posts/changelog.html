@@ -97,6 +97,13 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-06-02">06 Jun 2022</time>: Copied hosting to GitHub Pages</i></span><span class="housekeeping-tag"></span></summary>
+      <p>I read a <a href="https://livecode247.com/deploying-a-static-html-and-css-site-using-github-pages">blog post</a> describing how easy it is to host your website on <a href="https://pages.github.com/">GitHub Pages</a>, so thought I would try it out to see how it worked. Turned out it worked pretty well (well, after I updated a load of paths, turns out I never really understood the differences between, "/", "./" and "../" very well).</p>
+      <p>I've done a little testing, and it seems that GitHub Pages is consistently faster than my current host. For example, the load time for this Changelog page on GitHub is 32&#8239;ms–37&#8239;ms, with my current host it's 55&#8239;ms–74&#8239;ms.</p>
+      <p> Other differences I've noticed between GitHub Pages compared to my current host; they have a fixed cache max-age = 10&#8239;mins, and  don't yet support <a href="https://en.wikipedia.org/wiki/Brotli">Brotli compression</a>. Also, GitHub Pages is free! I do host a couple of small websites alongside OnlyRSS, so it's not as simple as me moving to GitHub Pages and not having to pay for my current hosting, but I do suspect that GitHub Pages will become the primary host for OnlyRSS, all that remains is for me to point the domain to it. </p>
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-05-30">30 May 2022</time>: New article: <i>Automatically numbering figures
             with CSS Counters</i></span><span class="content-tag"></span></summary>
       <p>Five days ago I implemented the auto-labelling and numbering for all figures across OnlyRSS.org. This article
