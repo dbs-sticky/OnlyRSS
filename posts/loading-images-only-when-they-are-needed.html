@@ -85,21 +85,21 @@
     <a href="../index.html" title="Homepage">home</a>
     <span></span>
     <!--this is used via Flex: 1; to justify the global nav elements left and right-->
-    <a href="../posts/subscribe.html" title="Subscribe via RSS">rss</a>
-    <a href="../posts/changelog.html" title="View all website updates">changelog</a>
-    <a href="../posts/about.html" title="Who made this site, and why?">about</a>
+    <a href="subscribe.html" title="Subscribe via RSS">rss</a>
+    <a href="changelog.html" title="View all website updates">changelog</a>
+    <a href="about.html" title="Who made this site, and why?">about</a>
   </nav>
   <article>
     <header>
       <h1>Loading images only when (or if) they are needed</h1>
-      <p class="pubdate"><time datetime="2022-04-04">4 Apr 2022</time> · 4 mins · <a href="../posts/about.html"
+      <p class="pubdate"><time datetime="2022-04-04">4 Apr 2022</time> · 4 mins · <a href="about.html"
           title="About me, and about this website">Mark Evans</a></p>
     </header>
 
     <!--introduction-->
     <section>
       <h2>Background</h2>
-      <p> I recently created a <a href="/posts/subscribe.html">subscribe</a> page (which can be reached from the RSS
+      <p> I recently created a <a href="subscribe.html">subscribe</a> page (which can be reached from the RSS
         link on the homepage). The aim was to create an easy way for users to copy the RSS feed URL (previously the link
         simply opened the RSS feed, which many users might have found confusing), and also gives some basic instructions
         on how to subscribe to OnlyRSS via two popular RSS aggregators i.e. Feedly and Inoreader. The Feedly and
@@ -127,7 +127,7 @@
     <section>
       <h2>The solution</h2>
       <p>I've already used a non-JS method for hiding content until it's requested by the user on the <a
-          href="/posts/changelog.html">Changelog</a> page i.e. the <a
+          href="changelog.html">Changelog</a> page i.e. the <a
           href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt;
           HTML elements</a>. So I decided to use these elements with the summary text of <i>Show me how</i>, which when
         clicked would display the contents of the &lt;details&gt; element i.e. the animated GIF. You can see this in
@@ -151,7 +151,7 @@
         contained the image? I didn't expect this to influence images hidden within the &lt;details&gt; element—I was
         wrong. After applying <i>loading="lazy"</i> to both animations, they were no longer loaded by the browser until
         the user clicked on the summary text. This was exactly the solution I was after.</p>
-      <p>With this solution in place the <a href="/posts/subscribe.html">subscribe</a> page loads quickly—around
+      <p>With this solution in place the <a href="subscribe.html">subscribe</a> page loads quickly—around
         40ms—with all the content being above the fold, and the animations only loading if the user selects the relevant
         summary text.</p>
     </section>
@@ -187,14 +187,14 @@
   <!-- related articles -->
   <aside>
     <h1>related articles</h1>
-    <a href="../posts/drop-caps-and-indents.html">
+    <a href="drop-caps-and-indents.html">
       <h2>Drop caps and indents</h2>
       <p>
         A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
       </p>
     </a>
 
-    <a href="../posts/auto-numbering-of-figures-with-CSS-counters.html">
+    <a href="auto-numbering-of-figures-with-CSS-counters.html">
       <h2>Automatically numbering figures using CSS Counters</h2>
       <p>
         Automatically number figures with CSS counters and display inside the figure's caption.
