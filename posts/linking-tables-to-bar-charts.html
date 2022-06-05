@@ -30,7 +30,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="../styles/main7.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main8.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <style>
@@ -74,7 +74,7 @@
   <!-- Service worker for installable app-->
   <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('../service-worker.js');
+      navigator.serviceWorker.register('../service-worker.js');
     }
   </script>
 </head>
@@ -140,7 +140,7 @@
       <p>
         This stacked bar chart was taken from an online application that includes the ability to filter by status. So
         one solution is for the user to filter the data by the status of interest. e.g. On Order. This would make the
-        chart far simpler (it would no longer be a "stacked" bar chart), and make a comparison of the number of On Order
+        chart far simpler (it would no longer be a “stacked” bar chart), and make a comparison of the number of On Order
         aircraft across the aircraft types very easy, but, you'd lose the context e.g., is the number of On Order large
         or small compared to the number of In Service?
       </p>
@@ -154,8 +154,8 @@
         Another option would be to allow the user to select which aircraft status is aligned to the baseline. What we're
         really asking the user to do in this scenario is to prioritise one of the aircraft statuses over the others,
         i.e. to select one of them as being of 'primary interest'. This isn't a typical request we make of users when
-        asking them to interact with charts, there's no convention to ask users to "choose their most important
-        category". But, there is with tables…sort of.
+        asking them to interact with charts, there's no convention to ask users to “choose their most important
+        category”. But, there is with tables…sort of.
       </p>
       <p>
         Often, when presented with a table of data, users will sort the column of data that's of most interest to them.
@@ -179,7 +179,7 @@
       <p>
         In the animation below [<span class="fig-ref">fig.&nbsp;3</span>], each table column header is selected in-turn
         by the user to be sorted i.e. Total, Storage, On Order, and In Service. When a specific status in the table has
-        been sorted (or "prioritised" by the user), the stacked bar chart is adjusted accordingly i.e.:
+        been sorted (or “prioritised” by the user), the stacked bar chart is adjusted accordingly i.e.:
       </p>
       <ol>
         <li>the sorted status is moved to the chart's baseline
@@ -188,7 +188,7 @@
       </ol>
       <p>
         The result is essentially a bar chart within a stacked bar chart. It retains some of the simplicity of a
-        "non-stacked" chart [<span class="fig-ref">fig.&nbsp;2</span>] while not throwing away the useful contextual
+        non-stacked chart [<span class="fig-ref">fig.&nbsp;2</span>] while not throwing away the useful contextual
         data.
       </p>
       <p>
@@ -209,8 +209,8 @@
       <p>
         The solution described above, and which we implement on Cirium's Airline Profiles is not perfect (the colours
         specifically need to change), but I do feel that the solution does go some way to overcoming one of the issues
-        with stacked bar charts. I wouldn't describe this feature as "essential", but I'd like to think that it's one of
-        those "micro-interactions" that might bring a small moment of delight to some of our users.
+        with stacked bar charts. I wouldn't describe this feature as essential, but I'd like to think that it's one of
+        those “micro-interactions” that might bring a small moment of delight to some of our users.
       </p>
     </section>
     <!-- feedback - section -->

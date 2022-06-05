@@ -31,7 +31,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="../styles/main7.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main8.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <style>
@@ -75,7 +75,7 @@
   <!-- Service worker for installable app-->
   <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('../service-worker.js');
+      navigator.serviceWorker.register('../service-worker.js');
     }
   </script>
 </head>
@@ -97,17 +97,31 @@
     </header>
 
     <details>
-      <summary><span><time datetime="2022-06-04">04 Jun 2022</time>: New article: <i>Adding screenshots to your PWA install experience</i></span><span class="content-tag"></span></summary>
-      <p>I recently added app screenshots to my site's manifest file, so that users would be better informed about the app before deciding to install. This post describes how I did it and what I learnt.  
+      <summary><span><time datetime="2022-06-04">04 Jun 2022</time>: New article: <i>Adding screenshots to your PWA
+            install experience</i></span><span class="content-tag"></span></summary>
+      <p>I recently added app screenshots to my site's manifest file, so that users would be better informed about the
+        app before deciding to install. This post describes how I did it and what I learnt.
       </p>
     </details>
 
     <details>
-      <summary><span><time datetime="2022-06-02">02 Jun 2022</time>: Copied hosting to GitHub Pages</i></span><span class="housekeeping-tag"></span></summary>
-      <p>I read a <a href="https://livecode247.com/deploying-a-static-html-and-css-site-using-github-pages">blog post</a> describing how easy it is to host your website on <a href="https://pages.github.com/">GitHub Pages</a>, so thought I would try it out to see how it worked. Turned out it worked pretty well (well, after I updated a load of paths, turns out I never really understood the differences between, "/", "./" and "../" very well).</p>
-      <p>I've done a little testing, and it seems that GitHub Pages is consistently faster than my current host. For example, the load time for this Changelog page on GitHub is 32&#8239;ms–37&#8239;ms, with my current host it's 55&#8239;ms–74&#8239;ms.</p>
-      <p> Other differences I've noticed between GitHub Pages compared to my current host; they have a fixed cache max-age = 10&#8239;mins, and  don't yet support <a href="https://en.wikipedia.org/wiki/Brotli">Brotli compression</a>. Also, GitHub Pages is free! I do host a couple of small websites alongside OnlyRSS, so it's not as simple as me moving to GitHub Pages and not having to pay for my current hosting, but I do suspect that GitHub Pages will become the primary host for OnlyRSS, all that remains is for me to point the domain to it. </p>
-      <p>Here's a link to the <a href="https://dbs-sticky.github.io/OnlyRSS/">GitHub Pages hosted version</a>. 
+      <summary><span><time datetime="2022-06-02">02 Jun 2022</time>: Copied hosting to GitHub Pages</i></span><span
+          class="housekeeping-tag"></span></summary>
+      <p>I read a <a href="https://livecode247.com/deploying-a-static-html-and-css-site-using-github-pages">blog
+          post</a> describing how easy it is to host your website on <a href="https://pages.github.com/">GitHub
+          Pages</a>, so thought I would try it out to see how it worked. Turned out it worked pretty well (well, after I
+        updated a load of paths, turns out I never really understood the differences between, "/", "./" and "../" very
+        well).</p>
+      <p>I've done a little testing, and it seems that GitHub Pages is consistently faster than my current host. For
+        example, the load time for this Changelog page on GitHub is 32&#8239;ms–37&#8239;ms, with my current host it's
+        55&#8239;ms–74&#8239;ms.</p>
+      <p> Other differences I've noticed between GitHub Pages compared to my current host; they have a fixed cache
+        max-age = 10&#8239;mins, and don't yet support <a href="https://en.wikipedia.org/wiki/Brotli">Brotli
+          compression</a>. Also, GitHub Pages is free! I do host a couple of small websites alongside OnlyRSS, so it's
+        not as simple as me moving to GitHub Pages and not having to pay for my current hosting, but I do suspect that
+        GitHub Pages will become the primary host for OnlyRSS, all that remains is for me to point the domain to it.
+      </p>
+      <p>Here's a link to the <a href="https://dbs-sticky.github.io/OnlyRSS/">GitHub Pages hosted version</a>.
     </details>
 
     <details>
@@ -334,8 +348,8 @@
       <summary><span><time datetime="2022-03-14">14 Mar 2022</time>: Moved the links to the Latin fonts into the HTML
           head </span><span class="performance-tag"></span></summary>
       <p>Previously, I'd moved the Google font code i.e. @import (which itself linked to a stylesheet) from the CSS and
-        into the head of the HTML, therefore removing a "chain" when loading the page. This time I moved the links to
-        the Latin version of the fonts directly into the HTML head. It removes another "chain", and page load speed for
+        into the head of the HTML, therefore removing a “chain” when loading the page. This time I moved the links to
+        the Latin version of the fonts directly into the HTML head. It removes another “chain”, and page load speed for
         most pages is now around 30-50&#8239;ms. Without actually minifying the CSS and moving it into the HTML head,
         there's not much else I can do now to improve page performance. </p>
     </details>
@@ -387,7 +401,7 @@
       <p>OK, this one needs some explaining, especially as one of my stated aims for building OnlyRSS is as a learning
         experience.</p>
       <p>Analytics are great for measuring success (especially if success is defined by the number of page views), or
-        for trying to write "better" content (by measuring the popularity of existing content, and creating more of the
+        for trying to write “better” content (by measuring the popularity of existing content, and creating more of the
         same). But, my aim is not to write articles that will result in a large number of page views, or to create a
         blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one
         other person on the internet will find useful. The analytics were interesting, but they weren't free, and the
