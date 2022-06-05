@@ -105,7 +105,7 @@
     <!--Solution-->
     <section>
       <h2>New Manifest file entries</h2>
-      <p>Below you can see the required entries in the manifest file for the screenshots and description. Webp images are supported, so after capturing suitable screenshots, I'd recommend using a tool such as <a href= "https://compress-or-die.com/webp">CompressOrDie</a> and converting them to webp and compressing them as best you can (my images are all ≈40&#8239;KB each.)</p>
+      <p>Below you can see the required entries in the manifest file for the screenshots and description. Webp images are supported, so after capturing suitable screenshots, I'd recommend using a tool such as <a href= "https://compress-or-die.com/webp">CompressOrDie</a> and converting them to webp and compressing them as best you can (my images are all ≈40&#8239;KB each).</p>
           <pre><code>
   "screenshots":[
   {
@@ -126,7 +126,7 @@
     <!--result - section-->
     <section>
       <h2>Result</h2>
-      <p>Once the new manifest entries have been added, when a visitor accesses your website on Chrome on Android (or Samsung Internet on Samsung devices,) in addition to being prompted to install your PWA, they will have the option to swipe-up on the install prompt and view your app description and screenshots [<span class="fig-ref">fig.&nbsp;1</span>]. The visitor can tap on the screenshots and view them full size.</p>
+      <p>Once the new manifest entries have been added, when a visitor accesses your website on Chrome on Android (or Samsung Internet on Samsung devices), in addition to being prompted to install your PWA, they will have the option to swipe-up on the install prompt and view your app description and screenshots [<span class="fig-ref">fig.&nbsp;1</span>]. The visitor can tap on the screenshots and view them full size.</p>
         <figure>
           <img src="../images/pwa-install.gif" width="400" height="711" loading="lazy"
             alt="Animated GIF showing the user expanding the PWA install prompt on a mobile phone, and then being presented with the PWA description, and 2 screenshots.">
@@ -143,7 +143,7 @@
           <li>Chrome on Android (≥88), and</li>
           <li>Samsung Internet on mobile(≥15.0).</li>
         </ul>
-      <p>I've tested them on Android, where they  work as advertised, <strong>but I had no luck getting them to work on Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms."> 'platform' member</a> to both 'wide', and 'windows', and neither resulted in the screenshots (or description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will support them in future,) they can be seen under the <a href="../manifest.json">"screenshots" section of my manifest file</a>.</p>
+      <p>I've tested them on Android, where they  work as advertised, <strong>but I had no luck getting them to work on Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms."> 'platform' member</a> to both 'wide', and 'windows', and neither resulted in the screenshots (or description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will support them in future), they can be seen under the <a href="../manifest.json">"screenshots" section of my manifest file</a>.</p>
     </section>
 
     <!-- conclusions - section -->
