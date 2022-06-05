@@ -7,14 +7,25 @@
 
     // Update 'version' if you need to refresh the cache
     var staticCacheName = 'static';
-    var version = 'v1::';
+    var version = 'v2::';
 
     // Store core files in a cache (including a page to display when offline)
     function updateStaticCache() {
         return caches.open(version + staticCacheName)
             .then(function (cache) {
                 return cache.addAll([
-                    'index.html'
+                    'index.html',
+                    'main8.css',
+                    'posts/about.html',
+                    'posts/subscribe.html',
+                    'posts/changelog.html',
+                    'fonts/RobotoSerif-Regular.woff2',
+                    'fonts/RobotoSerif-MediumItalic.woff2',
+                    'fonts/RobotoSerif-Medium.woff2',
+                    'fonts/RobotoSerif-Italic.woff2',
+                    'fonts/RobotoCondensed-Regular.woff2',
+                    'fonts/OpenSans-Regular.woff2',
+                    'fonts/OpenSans-Bold.woff2'
                 ]);
             });
     };
