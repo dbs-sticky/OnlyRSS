@@ -2,6 +2,7 @@
 :root {
   --pagewidth: 850px;
   --accent: #3d74bd;
+  --radius: 5px;
 }
 
 html {
@@ -104,7 +105,7 @@ article,
 main,
 aside {
   background-color: #ffffff;
-  border-radius: 5px;
+  border-radius: var(--radius);
   border: 1px solid LightGrey;
   max-width: var(--pagewidth);
   margin: auto;
@@ -253,7 +254,7 @@ pre code {
   display: inline-block;
   padding: 10px;
   color: #cfcfcf;
-  border-radius: 7px;
+  border-radius: var(--radius);
   font-size: 0.7rem;
   /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
   white-space: pre-wrap;
@@ -334,7 +335,7 @@ nav {
   max-width: var(--pagewidth);
   margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0   var(--radius) var(--radius);
   border: 1px solid LightGrey;
   box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
   text-transform: uppercase;
@@ -362,9 +363,9 @@ nav a:hover, nav a.nav-active {
 
 /* TODO needs to be renamed */
 .homebtn {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
+  -webkit-border-radius: var(--radius);
+  -moz-border-radius: var(--radius)5;
+  border-radius: var(--radius);
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
   color: #ffffff;
@@ -452,8 +453,8 @@ main summary:focus {
   }
 
 main details {
-  background-color: #e2f4ff;
-  border-radius: 5px;
+  background-color: #e2f4ff; /* TODO somehow make this work with --accent variable */
+  border-radius: var(--radius);
   line-height: 1.5rem;
   font-size: 0.8rem;
   margin-bottom: 1rem;
@@ -583,9 +584,9 @@ a.icons:active {
 
 /* non editable text field for "subscribe to RSS" field */
 .textfield{
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
+  -webkit-border-radius: var(--radius);
+  -moz-border-radius: var(--radius);
+  border-radius: var(--radius);
   font-family: 'Roboto Condensed', sans-serif;
   text-transform: uppercase;
   color: black;
@@ -629,7 +630,7 @@ a.icons:active {
     transition: 0.5s;
     width: 300px;
     height: 400px;
-    border-radius: 5px;
+    border-radius: var(--radius);
     border: 1px solid LightGrey;
     margin: 15px;
     box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
@@ -640,7 +641,7 @@ a.icons:active {
   }
   
   .card img {
-    border-radius: 5px 5px 0 0;
+    border-radius: var(--radius) var(--radius) 0 0;
   }
   
   /* make the text container a vertical flexbox */
