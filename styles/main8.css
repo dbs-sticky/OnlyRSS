@@ -1,7 +1,10 @@
 /* define global page variables, e.g. page width and accent colour */
 :root {
   --pagewidth: 850px;
-  --accent: #3d74bd;
+  --hue: 215;
+  --saturation: 50%;
+  --accent: hsl(var(--hue), var(--saturation), 50%);
+  --accent-light: hsl(var(--hue), var(--saturation), 90%);
   --radius: 5px;
 }
 
@@ -453,7 +456,8 @@ main summary:focus {
   }
 
 main details {
-  background-color: #e2f4ff; /* TODO somehow make this work with --accent variable */
+  /* background-color: #e2f4ff; TODO somehow make this work with --accent variable */
+  background-color: var(--accent-light);
   border-radius: var(--radius);
   line-height: 1.5rem;
   font-size: 0.8rem;
