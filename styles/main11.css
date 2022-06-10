@@ -717,21 +717,18 @@ a.icons:active {
     ====================== */
   
   #exercise_card {
-    border-radius: 5px;
+    border-radius: var(--radius);
     border: 1px solid LightGrey;
     max-width: 20rem;
     margin: auto;
-    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
     padding: 30px;
-    padding-left: 70px;
+    padding-left: 60px;
     list-style-position: outside;
     margin-top: 40px;
-    line-height: 2rem;
     margin-bottom:30px;
   }
 
   #todays_exercises {
-    max-width: 20rem;
     list-style-position: outside;
     line-height: 2rem;
     padding-bottom: 0px;
