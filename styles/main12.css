@@ -704,6 +704,12 @@ a.icons:active {
     content: "review";
     font-size: 0.6rem;
   }
+
+  .js-tag::after {
+    background-color: #c792c4;
+    content: "JS";
+    font-size: 0.6rem;
+  }
   
   /* set the card link styles */
   .home-grid a {
