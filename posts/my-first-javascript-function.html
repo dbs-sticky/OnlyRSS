@@ -195,21 +195,19 @@
           want, and then hit the 'create new workout' button, at which point you're presented with your chosen number of
           exercises in the form of a list.
         </p>
-        <div style="text-align:center">
-          <p>
-          <form>
-            <label for="points">Number of exercises:</label>
-            <input id="userInput" type="range" placeholder="6" value="6" step="1" min="1" max=""
-              oninput="numberOutputId.value = userInput.value">
-            <output name="numberOutputName" id="numberOutputId">6</output>
-            <p id="total"></p>
-          </form>
-          </p>
+
+          <div id="exercise_card">
+            <form>
+              <label for="points">№ of exercises:</label>
+              <input id="userInput" type="range" placeholder="6" value="6" step="1" min="1" max=""
+                oninput="numberOutputId.value = userInput.value">
+              <output name="numberOutputName" id="numberOutputId">6</output>
+            </form>
           <p>
             <input class="btn" type="button" value="Create new workout" onclick="myFunction();" />
           </p>
+          <ol id="todays_exercises"></ol>
         </div>
-        <ol id="todays_exercises"></ol>
 
         <p>
           You can see my source code over at <a href="https://codepen.io/dbssticky/pen/MWQqXXE">CodePen</a>.
