@@ -751,11 +751,12 @@ a.icons:active {
     padding: 30px;
     padding-left: 40px;
     list-style-position: outside;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom:30px;
   }
 
   #exercises {
+    padding-top: 30px;
     list-style-position: outside;
     line-height: 1.7rem;
   }
