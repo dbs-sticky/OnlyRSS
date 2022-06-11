@@ -9,6 +9,16 @@
   "start_url": "index.html",
   "shortcuts": [
     {
+      "name": "Circuits app",
+      "url": "apps/circuits.html",
+      "icons": [
+        {
+          "src": "pwaicons/circuits_maskable_icon.png",
+          "sizes": "128x128"
+        }
+      ]
+    },
+    {
       "name": "Articles",
       "url": "index.html",
       "icons": [
