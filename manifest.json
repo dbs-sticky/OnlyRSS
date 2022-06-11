@@ -1,101 +1,100 @@
 {
-    "name": "OnlyRSS.org",
-    "short_name": "OnlyRSS",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display_override": ["window-controls-overlay"],
-    "display": "standalone",
-    "scope": "./",
-    "start_url": "index.html",
-    "shortcuts" : [
-      {
-        "name": "Articles",
-        "url": "index.html",
-        "icons": [
-          {
-            "src": "pwaicons/home_maskable_icon.png",
-            "sizes": "128x128"
-          }
-        ]
-      },
-      {
-        "name": "RSS",
-        "url": "posts/subscribe.html",
-        "icons": [
-          {
-            "src": "pwaicons/rss_maskable_icon.png",
-            "sizes": "128x128"
-          }
-        ]
-      },
-      {
-        "name": "Changelog",
-        "url": "posts/changelog.html",
-        "icons": [
-          {
-            "src": "pwaicons/changelog_maskable_icon.png",
-            "sizes": "128x128"
-          }
-        ]
-      },
-      {
-        "name": "About",
-        "url": "posts/about.html",
-        "icons": [
-          {
-            "src": "pwaicons/about_maskable_icon.png",
-            "sizes": "128x128"
-          }
-        ]
-      }
-    ],
-    "screenshots":[
-      {
-        "src":"pwaicons/screenshot1.webp",
-        "sizes": "485x1024",
-        "type": "image/webp",
-        "platform": "narrow",
-        "label": "An article shown on mobile."
-      },
-      {
-        "src":"pwaicons/screenshot2.webp",
-        "sizes": "485x1024",
-        "type": "image/webp",
-        "platform": "narrow",
-        "label": "The About page shown on mobile."
-      },
-      {
-        "src":"pwaicons/screenshot3.webp",
-        "sizes": "1280x720",
-        "type": "image/webp",
-        "platform": "wide",
-        "label": "The About page shown on desktop."
-      },
-      {
-        "src":"pwaicons/screenshot4.webp",
-        "sizes": "1280x720",
-        "type": "image/webp",
-        "platform": "wide",
-        "label": "An article shown on desktop."
-      },
-      {
-        "src":"pwaicons/screenshot3.webp",
-        "sizes": "1280x720",
-        "type": "image/webp",
-        "platform": "windows",
-        "label": "The About page shown on desktop."
-      },
-      {
-        "src":"pwaicons/screenshot4.webp",
-        "sizes": "1280x720",
-        "type": "image/webp",
-        "platform": "windows",
-        "label": "An article shown on desktop."
-      }
-    ],
-    "description": "Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You'll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.",
-    "icons": [
-
+  "name": "OnlyRSS.org",
+  "short_name": "OnlyRSS",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display_override": ["window-controls-overlay"],
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "index.html",
+  "shortcuts": [
+    {
+      "name": "Articles",
+      "url": "index.html",
+      "icons": [
+        {
+          "src": "pwaicons/home_maskable_icon.png",
+          "sizes": "128x128"
+        }
+      ]
+    },
+    {
+      "name": "RSS",
+      "url": "pages/subscribe.html",
+      "icons": [
+        {
+          "src": "pwaicons/rss_maskable_icon.png",
+          "sizes": "128x128"
+        }
+      ]
+    },
+    {
+      "name": "Changelog",
+      "url": "pages/changelog.html",
+      "icons": [
+        {
+          "src": "pwaicons/changelog_maskable_icon.png",
+          "sizes": "128x128"
+        }
+      ]
+    },
+    {
+      "name": "About",
+      "url": "pages/about.html",
+      "icons": [
+        {
+          "src": "pwaicons/about_maskable_icon.png",
+          "sizes": "128x128"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "pwaicons/screenshot1.webp",
+      "sizes": "485x1024",
+      "type": "image/webp",
+      "platform": "narrow",
+      "label": "An article shown on mobile."
+    },
+    {
+      "src": "pwaicons/screenshot2.webp",
+      "sizes": "485x1024",
+      "type": "image/webp",
+      "platform": "narrow",
+      "label": "The About page shown on mobile."
+    },
+    {
+      "src": "pwaicons/screenshot3.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "The About page shown on desktop."
+    },
+    {
+      "src": "pwaicons/screenshot4.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "An article shown on desktop."
+    },
+    {
+      "src": "pwaicons/screenshot3.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "windows",
+      "label": "The About page shown on desktop."
+    },
+    {
+      "src": "pwaicons/screenshot4.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "windows",
+      "label": "An article shown on desktop."
+    }
+  ],
+  "description": "Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You'll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.",
+  "icons": [
     {
       "src": "pwaicons/icon-maskable.png",
       "sizes": "1024x1024",
