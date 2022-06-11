@@ -294,7 +294,7 @@
             <article>
               <!--introduction-->
               <section>
-                <p> I recently created a <a href="https://onlyrss.org/posts/subscribe.html">subscribe</a> page (which can be reached from the RSS link on the homepage). The aim was to create an easy way for users to copy the RSS feed URL (previously the link simply opened the RSS feed, which many users might have found confusing), and also gives some basic instructions on how to subscribe to OnlyRSS via two popular RSS aggregators i.e. Feedly and Inoreader. The Feedly and Inoreader instructions are both displayed as ordered lists, but I also wanted to include an animated GIF showing the subscription process for each app.</p>
+                <p> I recently created a <a href="https://onlyrss.org/pages/subscribe.html">subscribe</a> page (which can be reached from the RSS link on the homepage). The aim was to create an easy way for users to copy the RSS feed URL (previously the link simply opened the RSS feed, which many users might have found confusing), and also gives some basic instructions on how to subscribe to OnlyRSS via two popular RSS aggregators i.e. Feedly and Inoreader. The Feedly and Inoreader instructions are both displayed as ordered lists, but I also wanted to include an animated GIF showing the subscription process for each app.</p>
               </section>
 
               <!--The problem-->
@@ -308,7 +308,7 @@
               <!--The solution-->
               <section>
                 <h2>The solution</h2>
-                <p>I've already used a non-JS method for hiding content until it's requested by the user on the <a href="https://onlyrss.org/posts/changelog.html">Changelog</a> page i.e. the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt; HTML elements</a>. So I decided to use these elements with the summary text of <i>Show me how</i>, which when clicked would display the contents of the &lt;details&gt; element i.e. the animated GIF. You can see this in action for a static image by clicking on the text below to display [<span class="fig-ref">fig. 1</span>].</p>
+                <p>I've already used a non-JS method for hiding content until it's requested by the user on the <a href="https://onlyrss.org/pages/changelog.html">Changelog</a> page i.e. the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt; HTML elements</a>. So I decided to use these elements with the summary text of <i>Show me how</i>, which when clicked would display the contents of the &lt;details&gt; element i.e. the animated GIF. You can see this in action for a static image by clicking on the text below to display [<span class="fig-ref">fig. 1</span>].</p>
                 <p>
                 <details style="background-color:white; color:#3d74bd">
                 <summary><b>Click here to see Figure 1</b></summary>
@@ -321,7 +321,7 @@
                 <p> This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the fold, but it didn't help with page performance, as both animations were still being loaded by the browser.</p>
 
                 <p>I'd previously used the image attribute <i>loading="lazy"</i> to improve page performance by letting the browser decide if an image needed to be loaded e.g. was the user close to scrolling to the part of the page that contained the image? I didn't expect this to influence images hidden within the &lt;details&gt; element—I was wrong. After applying <i>loading="lazy"</i> to both animations, they were no longer loaded by the browser until the user clicked on the summary text. This was exactly the solution I was after.</p>
-                <p>With this solution in place the <a href="https://onlyrss.org/posts/subscribe.html">subscribe</a> page loads quickly—around 40ms—with all the content being above the fold, and the animations only loading if the user selects the relevant summary text.</p>
+                <p>With this solution in place the <a href="https://onlyrss.org/pages/subscribe.html">subscribe</a> page loads quickly—around 40ms—with all the content being above the fold, and the animations only loading if the user selects the relevant summary text.</p>
               </section>
 
               <!--Conclusion-->
@@ -1466,7 +1466,7 @@
     <item>
       <guid isPermaLink="false">article1</guid>
       <title>What is OnlyRSS?</title>
-      <link>https://onlyrss.org/posts/about.html</link>
+      <link>https://onlyrss.org/pages/about.html</link>
       <pubDate>Sat, 06 Feb 2021 14:00:00 GMT</pubDate>
       <description>
         <![CDATA[
