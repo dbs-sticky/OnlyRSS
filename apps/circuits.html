@@ -22,7 +22,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="../styles/main14.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main15.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <style>
@@ -112,13 +112,14 @@
 
 <body onload="myFunction()">
   <div id="card">
-
-    <p>№ of exercises: <output name="numberOutputName" id="numberOutputId">6</output></p>
-    <input id="userInput" type="range" placeholder="6" value="6" step="1" min="1" max=""
-      oninput="numberOutputId.value = userInput.value">
-    <p>
-      <button class="btn" onclick="myFunction()">Create new workout </button>
-    </p>
+    <div id="head">
+      <p>№ of exercises: <output name="numberOutputName" id="numberOutputId">6</output></p>
+      <input id="userInput" type="range" placeholder="6" value="6" step="1" min="1" max=""
+        oninput="numberOutputId.value = userInput.value">
+      <p>
+        <button class="btn" onclick="myFunction()">Create new workout </button>
+      </p>
+    </div>
     <ol id="exercises"></ol>
   </div>
 </body>

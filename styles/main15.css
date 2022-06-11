@@ -749,15 +749,17 @@ a.icons:active {
     max-width: 20rem;
     margin: auto;
     padding: 30px;
-    padding-left: 40px;
-    list-style-position: outside;
-    margin-top: 20px;
-    margin-bottom:30px;
+  }
+
+  #head {
+    text-align: center;
+    border-bottom: solid 2px var(--accent);
   }
 
   #exercises {
-    padding-top: 30px;
     list-style-position: outside;
     line-height: 1.7rem;
+    padding-left: 10%;
+    margin-top: 40px;
   }
 
