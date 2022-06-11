@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Circuits</title>
+  <meta name="description"
+    content="A web app for generating a random selection of exercises for a circuit training session.">
+  <meta name="author" content="Mark Evans">
+  <meta name="theme-color" content="#ffffff">
+
+  <!--TODO add suitable OpenGraph data here-->
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" href="../pwaicons/favicon.svg">
+  <link rel="apple-touch-icon" href="../pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="../pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/main13.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <style>
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url(../fonts/RobotoCondensed-Regular.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: normal;
+      font-weight: 400;
+      src: url(../fonts/RobotoSerif-Regular.woff2) format('woff2');
+    }
+  </style>
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../service-worker.js');
+    }
+  </script>
+
+  <script>
+    // get the slider value
+    function getNumber() {
+      let input = document.getElementById("userInput").value;
+      return input
+    }
+
+    // triggered by the main button: set the number of exercises to "n"
+    function myFunction() {
+      let n = getNumber()
+
+      // clear the list of any existing exercises
+      document.getElementById("exercises").innerHTML = "";
+
+      // define the array
+      let all_exercises = [
+        " air squats ×40",
+        " skip ×200",
+        " burpees ×20",
+        " row 500m",
+        " pull-ups ×10",
+        " finger board pull-ups ×10",
+        " ring pull-ups ×10",
+        " sit-ups ×40",
+        " press-ups ×25",
+        " lunges ×20",
+        " curls ×15",
+        " ring rows ×12",
+        " assisted ring dips ×10",
+        " ring push ups ×10",
+        " power snatch ×10",
+        " power clean ×20",
+        " power clean & jerk ×15",
+        " hanging leg raises ×20",
+        " bench press ×10",
+        " calf raises ×20",
+        " plank 20s",
+        " dips ×20",
+        " row 250m"
+      ];
+
+      // Set the max value of the slider (with id=userInput) to the # of elements in the array
+      document.getElementById("userInput").setAttribute('max', all_exercises.length);
+
+      // shuffle the full array
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+      }
+
+      // pull out the first n values from the shuffled array and display as ordered list
+      shuffleArray(all_exercises);
+      all_exercises.slice(0, n).forEach(e => {
+        exercises.innerHTML = exercises.innerHTML + '<li>' + e + '</li>';
+      });
+    }
+  </script>
+</head>
+
+<body onload="myFunction()">
+  <div id="card">
+    <form>
+      <label for="points">№ of exercises:</label>
+      <input id="userInput" type="range" placeholder="6" value="6" step="1" min="1" max=""
+        oninput="numberOutputId.value = userInput.value">
+      <output name="numberOutputName" id="numberOutputId">6</output>
+    </form>
+    <p>
+      <button class="btn" onclick="myFunction()">Create new workout </button>
+    </p>
+    <ol id="exercises"></ol>
+  </div>
+</body>
+
+</html>
