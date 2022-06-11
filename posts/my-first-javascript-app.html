@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My first JavaScript app</title>
-  <meta name="description" content="Building a circuit training exercise routine randomiser using Javascript.">
+  <meta name="description" content="My first ever attempt at using JavaScript. Building a circuit training exercise routine randomiser using Javascript.">
   <meta name="author" content="Mark Evans">
   <meta name="theme-color" content="#ffffff">
 
@@ -13,10 +13,9 @@
   <meta property="og:type" content="article">
   <meta property="article:author" content="Mark Evans">
   <meta property="og:title" content="My first javascript app">
-  <meta property="og:url" content="https://onlyrss.org/posts/my-first-javascript-function.html">
+  <meta property="og:url" content="https://onlyrss.org/posts/my-first-javascript-app.html">
   <meta property="og:image" content="https://onlyrss.org/images/og/exercise-routine-og.png">
-  <!--TODO add OG image-->
-  <meta property="og:description" content="Building a circuit training exercise routine randomiser using Javascript.">
+  <meta property="og:description" content="My first ever attempt at using JavaScript. Building a circuit training exercise routine randomiser using Javascript.">
   <meta property="article:published_time" content="2022-06-11">
 
   <!--Favicons and Touch Icons and web manifest-->
@@ -84,14 +83,14 @@
       return input
     }
 
-    //triggered by the main button: set the number of exercises to "n"
+    // triggered by the main button: set the number of exercises to "n"
     function myFunction() {
       let n = getNumber()
 
-      //clear the list of any existing exercises
+      // clear the list of any existing exercises
       document.getElementById("todays_exercises").innerHTML = "";
 
-      //define the array
+      // define the array
       let all_exercises = [
         " air squats ×40",
         " skip ×200",
@@ -118,7 +117,7 @@
         " row 250m"
       ];
 
-      //Set the max value of the slider (with id=userInput) to the # of elements in the array
+      // Set the max value of the slider (with id=userInput) to the # of elements in the array
       document.getElementById("userInput").setAttribute('max', all_exercises.length);
 
       // shuffle the full array
@@ -169,9 +168,9 @@
         6 exercises, repeated for 3 circuits. I decided to create a long list of exercises that were practical for my
         home-gym, and then pick 6 at random for each session. My rule would be simple, whatever was chosen for that
         session—I had to do—even if it was exercises I disliked (yes, burpees).</p>
-      <p> I could have just written the exercises down on bits of paper and picked them out of a hat, but I'm a nerd, so
+      <p>I could have just written the exercises down on bits of paper and picked them out of a hat, but I'm a nerd, so
         “complex solutions to trivial problems” is a mantra I live by. My first thought was to use Excel (where
-        non-programming nerds do their data manipulation/analysis), but then I realised that this was the excuse I
+        non-programming nerds do their data analysis), but then I realised that this was the excuse I
         needed to start learning JavaScript.</p>
     </section>
 
@@ -180,18 +179,17 @@
       <h2>My starting point</h2>
       <p>
         Like most people writing code, I started with a Google search, i.e. how to pick random elements from an array.
-        That search led me to <a href="https://jsfiddle.net/abdennour/oh3jL82j/"> this example on JSFiddle</a>. This
-        example basically shuffles an array of numbers, and then slices off the first "n" elements from the array. And
-        it's this solution that forms the basis of the “app” that I ended up building.
+        That search led me to <a href="https://jsfiddle.net/abdennour/oh3jL82j/"> this example on JSFiddle</a>. The
+        example shuffles an array of numbers, and then slices off the first "n" numbers from the array. It's this solution that forms the basis of the “app” that I ended up building.
       </p>
 
       <!-- summary - section -->
       <section>
         <h2>The app</h2>
         <p>I really want to call it a “programme”, but I feel that doing so puts me in a certain age category, so I'm
-          going to be cool and describe it as an “app”. It's obviously very basic, you pick the number of exercises you
+          going to be cool and describe it as an “app”. It's very basic, you pick the number of exercises you
           want, and then hit the 'create new workout' button, at which point you're presented with your chosen number of
-          exercises in the form of a list.
+          exercises in the form of an ordered list.
         </p>
 
         <div id="exercise_card">
@@ -212,33 +210,31 @@
         </p>
         <h3>How it works</h3>
         <p>The first thing that happens is that the max value of the slider input control is set to the array size i.e.
-          the number of my home-gym exercises. Once the button is pressed, the array order is randomised, and then the
-          current slider value is grabbed (the number of exercises the user has set) and that number of exercises is
-          read (in sequence) from the start of the randomised array (this method avoids ever grabbing the same exercise
-          more than once). Any existing list items (exercises) are cleared from the front-end, and the new exercises are
-          added to an ordered list and displayed.</p>
+          the total number of possible exercises. Once the button is pressed, the array order is randomised, and then the
+          current slider value is grabbed (i.e. the number of exercises the user has chosen) and that number of exercises is
+          read (in sequence) from the start of the randomised array. Any existing list items (exercises) are cleared from the front-end, and the new exercises are added to an ordered list and displayed to the user.</p>
         <h3>Planned improvements</h3>
         <ul>
           <li>Make the app available on a page by itself which is hidden from the usual website navigation.</li>
           <li>Add the hidden page link to the <a href="https://web.dev/app-shortcuts/">PWA app shortcuts</a>. (So I will
             be able to quickly open the app on my phone, and it will look like a full-page app.) </li>
           <li>Add some rules to tweak the randomised output, e.g. if output includes ring tricep-dips, don't also
-            include bench tricep-dips etc.</li>
+            include bench tricep-dips etc. Maybe using nested arrays?</li>
         </ul>
       </section>
 
       <!--What I learnt-->
       <section>
         <h2>What I learnt</h2>
-        <p>During the 3 days I spent working on the app (only a few hours in total), I learnt:</P>
+        <p>During the 3 days I spent working on the app (a couple of hours each day), I learnt:</P>
         <ul>
           <li>How to create a simple array</li>
           <li>How to calculate the length of an array</li>
           <li>How to get user input and set it as a variable</li>
-          <li>How to pass a variable into a HTML element's attribute</li>
+          <li>How to apply a variable to a HTML element's attribute</li>
           <li>How to run a function on page load</li>
           <li>How to pass an array into an Ordered List</li>
-          <li>That there's lots of different ways to and randomise a list</li>
+          <li>That there's <a href="https://bost.ocks.org/mike/shuffle/compare.html">lots of different ways</a> to randomise using JavaScript</li>
           <li>That ring tricep-dips are really hard!
         </ul>
 
