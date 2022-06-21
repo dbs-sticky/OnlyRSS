@@ -28,7 +28,7 @@
   <link rel="manifest" href="manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="styles/main15.css" />
+  <link rel="stylesheet" type="text/css" href="styles/main16.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="feed.xml" />
 
 
@@ -63,10 +63,25 @@
       navigator.serviceWorker.register('service-worker.js');
     }
   </script>
+
+  <!-- When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar-->
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-60px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+
 </head>
 
 <body>
-  <nav>
+  <nav id="navbar">
     <a class="nav-active" href="index.html" title="Homepage">home</a>
     <span></span>
     <!--this is used via Flex: 1; to justify the global nav elements left and right-->

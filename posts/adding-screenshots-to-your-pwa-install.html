@@ -30,7 +30,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="../styles/main15.css" />
+  <link rel="stylesheet" type="text/css" href="../styles/main16.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
 
   <style>
@@ -77,10 +77,25 @@
       navigator.serviceWorker.register('../service-worker.js');
     }
   </script>
+
+  <!-- When the user scrolls down, hide the navbar. When the user scrolls up, show the navbar-->
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-60px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
+
 </head>
 
 <body>
-  <nav>
+  <nav id="navbar">
     <a href="../index.html" title="Homepage">home</a>
     <span></span>
     <!--this is used via Flex: 1; to justify the global nav elements left and right-->
@@ -91,7 +106,8 @@
   <article>
     <header>
       <h1>Adding screenshots to your PWA install experience</h1>
-      <p class="pubdate"><time datetime="2022-06-04">04 Jun 2022</time> · 3 mins · <a href="../pages/about.html" title="About me, and about this website">Mark Evans</a></p>
+      <p class="pubdate"><time datetime="2022-06-04">04 Jun 2022</time> · 3 mins · <a href="../pages/about.html"
+          title="About me, and about this website">Mark Evans</a></p>
     </header>
 
     <!--introduction-->
