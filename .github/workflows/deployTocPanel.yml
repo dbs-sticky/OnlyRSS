@@ -20,7 +20,10 @@ jobs:
 
     - uses: anishathalye/proof-html@v1
       with:
-        directory: |
-        ./posts
-        ./pages
+        directory: ./pages
+        enforce_https: false
+        
+      - uses: anishathalye/proof-html@v1
+      with:
+        directory: ./pages
         enforce_https: false
