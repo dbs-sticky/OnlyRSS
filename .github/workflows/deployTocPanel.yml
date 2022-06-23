@@ -17,13 +17,8 @@ jobs:
         ftp-server: ftp://${{ secrets.FTP_SERVER }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-
     - uses: anishathalye/proof-html@v1
       with:
         directory: ./pages
         enforce_https: false
-        
-      - uses: anishathalye/proof-html@v1
-      with:
-        directory: ./pages
-        enforce_https: false
+
