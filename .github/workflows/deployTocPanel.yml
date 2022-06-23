@@ -8,6 +8,14 @@ jobs:
     name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
+    - uses: anishathalye/proof-html@v1
+      with:
+        directory: ./
+        enforce_https: false
+        check_external_hash: false
+        url_ignore_re: |
+          ^https://codepen.io
+          ^https://www.linkedin.com
     - uses: actions/checkout@v2.1.0
       with:
         fetch-depth: 2
@@ -17,13 +25,6 @@ jobs:
         ftp-server: ftp://${{ secrets.FTP_SERVER }}
         ftp-username: ${{ secrets.FTP_USERNAME }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
-    - uses: anishathalye/proof-html@v1
-      with:
-        directory: ./
-        enforce_https: false
-        check_external_hash: false
-        url_ignore_re: |
-          ^https://codepen.io
-          ^https://www.linkedin.com
+
 
 
