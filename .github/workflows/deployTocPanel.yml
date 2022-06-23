@@ -19,6 +19,6 @@ jobs:
         ftp-password: ${{ secrets.FTP_PASSWORD }}
     - uses: anishathalye/proof-html@v1
       with:
-        directory: ./pages
+        directory: ./
         enforce_https: false
 
