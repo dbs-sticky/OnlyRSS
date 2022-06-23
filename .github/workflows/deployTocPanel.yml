@@ -23,7 +23,7 @@ jobs:
         enforce_https: false
         check_external_hash: false
         url_ignore: |
-        https://codepen.io
-        https://www.linkedin.com
+          https://codepen.io
+          https://www.linkedin.com
 
 
