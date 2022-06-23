@@ -21,4 +21,5 @@ jobs:
       with:
         directory: ./
         enforce_https: false
+        check_external_hash: false
 
