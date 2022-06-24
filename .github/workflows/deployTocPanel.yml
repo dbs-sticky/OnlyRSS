@@ -6,6 +6,7 @@ on:
 jobs:
   Proof-HTML:
     name: Proof-HTML
+    runs-on: ubuntu-latest
     steps:
     - uses: anishathalye/proof-html@v1
       with:
