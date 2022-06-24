@@ -112,6 +112,15 @@
     </header>
 
     <details>
+      <summary><span><time datetime="2022-06-23">23 Jun 2022</time>: Improved the release pipeline with GitHub Actions</span><span
+          class="housekeeping-tag"></span></summary>
+      <p>I recently completed the new <a href="https://skills.github.com/">GitHub Skills courses</a>, including the one on GitHub Actions. I had already been using Actions to deploy all code to my host (via FTP) after a Push to Master, but I wanted to see if I could add some automated testing as part of the same process.</p>
+      <p> I thought a basic HTML validator would be useful, and found <a href="https://github.com/marketplace/actions/proof-html"> Proof HTML</a> in the Actions marketplace. In order to implement it in series with the existing FTP deployment action, I had to get to grips with Actions (i.e. <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds:~:text=In%20this%20example%2C%20job1%20must%20complete%20successfully%20before%20job2%20begins%2C%20and%20job3%20waits%20for%20both%20job1%20and%20job2%20to%20complete.">running a job only after the previous job was successful</a>) and YAML (indentation!). Anyway, with a little help from <a href="https://github.com/mendhak">a very patient friend</a>, I got there in the end. Now, when I push to Master, before the website is deployed, the HTML is checked for errors.</p>
+      <img src="../images/deployment.webp" loading="lazy" style="border-radius: 5px;"
+        alt="A screenshot from GitHub Actions showing a process flow of two jobs running in series i.e. A HTML validation job, followed by an FTP deployment job" width="454" height="126">
+    </details>
+
+    <details>
       <summary><span><time datetime="2022-06-11">11 Jun 2022</time>: New article: <i>My first JavaScript
             “app”</i></span><span class="content-tag"></span></summary>
       <p>An article describing my first attempt at using JavaScript. An app that randomly selects a number of home-gym
