@@ -454,7 +454,6 @@ main summary:focus {
   }
 
 main details {
-  /* background-color: #e2f4ff; TODO somehow make this work with --accent variable */
   background-color: var(--accent-light);
   border-radius: var(--radius);
   line-height: 1.5rem;
