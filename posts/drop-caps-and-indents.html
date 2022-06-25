@@ -15,14 +15,17 @@
   <meta property="og:title" content="Drop caps and indents">
   <meta property="og:url" content="https://onlyrss.org/posts/drop-caps-and-indents.html">
   <meta property="og:image" content="https://onlyrss.org/images/og/drop-caps-og.png">
-  <meta property="og:description" content="A niche and nerdy look at how paragraphs can be distinguished using a little CSS.">
-  <meta property="article:published_time" content="2022-01-17"> <!--enter info here-->
+  <meta property="og:description"
+    content="A niche and nerdy look at how paragraphs can be distinguished using a little CSS.">
+  <meta property="article:published_time" content="2022-01-17">
+  <!--enter info here-->
 
   <!--Favicons and Touch Icons and web manifest-->
   <link rel="icon" href="../pwaicons/favicon.svg">
   <link rel="apple-touch-icon" href="../pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
   <link rel="apple-touch-icon" sizes="60x60" href="../pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="../pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="../pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
   <link rel="apple-touch-icon" sizes="144x144" href="../pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
   <link rel="manifest" href="../manifest.json">
 
@@ -32,15 +35,15 @@
 
   <style>
     @font-face {
-        font-family: "print";
-        src: url(../fonts/Oldnewspapertypes-449D.woff2);
+      font-family: "print";
+      src: url(../fonts/Oldnewspapertypes-449D.woff2);
     }
   </style>
 
   <!-- Service worker for installable app-->
   <script>
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('../service-worker.js');
+      navigator.serviceWorker.register('../service-worker.js');
     }
   </script>
 </head>
@@ -56,14 +59,15 @@
   </nav>
 
   <h1>Drop caps and indents</h1>
-  <div class="pubdate"><time datetime="2022-01-17">17 Jan 2022</time> · 2 mins · <a href="../pages/about.html" title="About me, and about this website">Mark Evans</a></div>
+  <div class="pubdate"><time datetime="2022-01-17">17 Jan 2022</time> · 2 mins · <a href="../pages/about.html"
+      title="About me, and about this website">Mark Evans</a></div>
   <p>
     All the best blogs tend to be written by experts, and also tend to keep to a
     specific field or topic—my blog does neither of those things. For example,
-    this post is about separating paragraphs using CSS, I'm only just starting
+    this post is about separating paragraphs using CSS, I’m only just starting
     to learn CSS, and this is my first post dedicated to the subject. Some of
-    what's included below was touched upon in my previous post, specifically the
-    section dedicated to what I'd learnt while using CSS to build my Kindle
+    what’s included below was touched upon in my previous post, specifically the
+    section dedicated to what I’d learnt while using CSS to build my Kindle
     mock-up.
   </p>
   <h2>Indents</h2>
@@ -100,11 +104,11 @@
   </div>
 
   <p>
-    You'll notice that all the paragraphs above have an indent, with the
+    You’ll notice that all the paragraphs above have an indent, with the
     exception of this paragraph (which follows a code block), and the first
     paragraph (which follows a heading), i.e. neither of these paragraphs
     directly follow another paragraph. The first paragraph does start with a
-    'drop cap' though, and that can be implemented via the "+" selector in CSS
+    ‘drop cap’ though, and that can be implemented via the "+" selector in CSS
     as well.
   </p>
 
@@ -113,7 +117,7 @@
     I decided that I wanted to use a drop cap at the start of each new chapter,
     specifically the first letter of the first paragraph following each h2
     heading. To target the first paragraph after the h2 heading, we simply use
-    h2 + p. We don't want to apply the drop cap style to every letter in
+    h2 + p. We don’t want to apply the drop cap style to every letter in
     that paragraph, we only want to target the first letter. To do this we add
     the ::first-letter CSS Selector.
   </p>
@@ -129,9 +133,10 @@
   </div>
 
   <p>
-    That's all that's required, two little bits of CSS, neither of which you have
+    That’s all that’s required, two little bits of CSS, neither of which you have
     to assign to any individual paragraph, and you end up with 3 different
     paragraph separators. i.e. indented, drop cap, and normal i.e.&nbsp;flush.
   </p>
 </body>
+
 </html>

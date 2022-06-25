@@ -101,10 +101,10 @@
       <!--the problem-->
       <h2>Stacked bar charts</h2>
       <p>
-        For the purpose of this article I'm going to be using a real world example, specifically a stacked bar chart
-        designed to show the number of aircraft of each type e.g 737-800, A320-200 etc. in an Airline's fleet,
-        categorised by the aircraft status i.e. In Service, On Order, and Storage. This 'fleet breakdown by type and
-        status' is essential when trying to understand the composition of an airline's fleet.
+        For the purpose of this article I’m going to be using a real world example, specifically a stacked bar chart
+        designed to show the number of aircraft of each type e.g 737-800, A320-200 etc. in an Airline’s fleet,
+        categorised by the aircraft status i.e. In Service, On Order, and Storage. This ‘fleet breakdown by type and
+        status’ is essential when trying to understand the composition of an airline’s fleet.
       </p>
       <figure>
         <img src="../images/stacked-bar.webp" width="800" height="594"
@@ -122,14 +122,15 @@
         <li>Determine the relative differences between statuses within a type e.g. More than ½ of the 737 Max are On
           Order.</li>
         <li>Easily compare the number of In Service aircraft across the different aircraft types.</li>
-        <li>Compare (but not easily) the number of On Order and Storage aircraft across the different aircraft types.</li>
+        <li>Compare (but not easily) the number of On Order and Storage aircraft across the different aircraft types.
+        </li>
       </ol>
       <h2>The problem with stacked bar charts</h2>
       <p>
-        The main problem with the list above is №5. Although it's possible to compare the number of On Order and Storage
-        aircraft across the aircraft types, it's not easy to do this comparison well. The In Service category is on the
-        far left i.e., it touches the chart's baseline, whereas the other statuses typically don't. For example, which
-        aircraft type in Figure 1 includes the highest number of Storage aircraft? It's like trying to compare the
+        The main problem with the list above is №5. Although it’s possible to compare the number of On Order and Storage
+        aircraft across the aircraft types, it’s not easy to do this comparison well. The In Service category is on the
+        far left i.e., it touches the chart’s baseline, whereas the other statuses typically don’t. For example, which
+        aircraft type in Figure 1 includes the highest number of Storage aircraft? It’s like trying to compare the
         height of individuals in a group when everyone is standing on a box of different height.
       </p>
     </section>
@@ -142,7 +143,7 @@
         This stacked bar chart was taken from an online application that includes the ability to filter by status. So
         one solution is for the user to filter the data by the status of interest. e.g. On Order. This would make the
         chart far simpler (it would no longer be a “stacked” bar chart), and make a comparison of the number of On Order
-        aircraft across the aircraft types very easy, but, you'd lose the context e.g., is the number of On Order large
+        aircraft across the aircraft types very easy, but, you’d lose the context e.g., is the number of On Order large
         or small compared to the number of In Service?
       </p>
       <figure>
@@ -150,20 +151,20 @@
           alt="A screenshot showing a horizontal bar chart, each bar represents the total count of aircraft of a specific type. Unlike the previous image, there are no categories in this chart, i.e. it only includes aircraft with a status of on order.">
         <figcaption>The same fleet summary but filtered by On Order aircraft only.</figcaption>
       </figure>
-      <h3>Choosing a 'primary' status</h3>
+      <h3>Choosing a ‘primary’ status</h3>
       <p>
-        Another option would be to allow the user to select which aircraft status is aligned to the baseline. What we're
+        Another option would be to allow the user to select which aircraft status is aligned to the baseline. What we’re
         really asking the user to do in this scenario is to prioritise one of the aircraft statuses over the others,
-        i.e. to select one of them as being of 'primary interest'. This isn't a typical request we make of users when
-        asking them to interact with charts, there's no convention to ask users to “choose their most important
+        i.e. to select one of them as being of ‘primary interest’. This isn’t a typical request we make of users when
+        asking them to interact with charts, there’s no convention to ask users to “choose their most important
         category”. But, there is with tables…sort of.
       </p>
       <p>
-        Often, when presented with a table of data, users will sort the column of data that's of most interest to them.
-        There's no filtering going on (although <a
+        Often, when presented with a table of data, users will sort the column of data that’s of most interest to them.
+        There’s no filtering going on (although <a
           href="https://www.uxmatters.com/mt/archives/2009/07/the-mystery-of-filtering-by-sorting.php">previous
-          research</a> has shown that when users are asked to filter a dataset that's presented in a table, they will
-        often sort a column, rather than actually apply a filter), so there's no loss of context.
+          research</a> has shown that when users are asked to filter a dataset that’s presented in a table, they will
+        often sort a column, rather than actually apply a filter), so there’s no loss of context.
       </p>
       <p>
         For Cirium Airline Profiles (the product where the stacked bar chart above is used) each stacked bar chart has
@@ -183,7 +184,7 @@
         been sorted (or “prioritised” by the user), the stacked bar chart is adjusted accordingly i.e.:
       </p>
       <ol>
-        <li>the sorted status is moved to the chart's baseline</li>
+        <li>the sorted status is moved to the chart’s baseline</li>
         <li>the bars are sorted to match the sort order chosen in the table</li>
         <li>the status category colour is emphasised (and the others de-emphasised)</li>
       </ol>
@@ -199,7 +200,7 @@
       </p>
       <figure>
         <img src="../images/bar-animation.gif" width="800" height="1262" loading="lazy"
-          alt="An animated GIF showing the same stacked bar chart displayed in the first image, but this time the user is clicking on the different statuses e.g. in service, on order etc. and the categories in the bar chart are shifting to the chart's baseline depending on the selected category.">
+          alt="An animated GIF showing the same stacked bar chart displayed in the first image, but this time the user is clicking on the different statuses e.g. in service, on order etc. and the categories in the bar chart are shifting to the chart’s baseline depending on the selected category.">
         <figcaption>Table-sort choice, and its effect on the linked stacked bar chart.</figcaption>
       </figure>
     </section>
@@ -208,9 +209,9 @@
       <!--conclusion-->
       <h2>Conclusion</h2>
       <p>
-        The solution described above, and which we implement on Cirium's Airline Profiles is not perfect (the colours
+        The solution described above, and which we implement on Cirium’s Airline Profiles is not perfect (the colours
         specifically need to change), but I do feel that the solution does go some way to overcoming one of the issues
-        with stacked bar charts. I wouldn't describe this feature as essential, but I'd like to think that it's one of
+        with stacked bar charts. I wouldn’t describe this feature as essential, but I’d like to think that it’s one of
         those “micro-interactions” that might bring a small moment of delight to some of our users.
       </p>
     </section>

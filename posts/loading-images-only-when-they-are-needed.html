@@ -112,22 +112,22 @@
     <section>
       <h2>The problem</h2>
       <p>The problem I encountered was that each GIF was quite large (both in terms of page real estate and file size)
-        and users who are already familiar with RSS probably wouldn't need to view the animations at all. In that sense,
+        and users who are already familiar with RSS probably wouldn’t need to view the animations at all. In that sense,
         the animations are not essential to the page, but could be considered complementary to the ordered lists,
-        furthermore, it's unlikely that a user would want to view the animation for both Feedly and Inoreader.</p>
+        furthermore, it’s unlikely that a user would want to view the animation for both Feedly and Inoreader.</p>
       <p>Loading both animations would not only be wasteful (in terms of page resources), but given the large vertical
         size of each image, the first image (for Feedly) would push the second image and instructions (for Inoreader)
         below the fold, where they could potentially be missed by users entirely.</p>
       <p>What I wanted was to hide the animations from the user, and for the browser to hold-off downloading them until
         they were required (if at all). And I wanted this to be as seamless as possible i.e. I wanted to avoid modals
-        and opening new tabs etc. And, of course, I wanted to avoid using JavaScript (because I don't know JavaScript).
+        and opening new tabs etc. And, of course, I wanted to avoid using JavaScript (because I don’t know JavaScript).
       </p>
     </section>
 
     <!--The solution-->
     <section>
       <h2>The solution</h2>
-      <p>I've already used a non-JS method for hiding content until it's requested by the user on the <a
+      <p>I’ve already used a non-JS method for hiding content until it’s requested by the user on the <a
           href="../pages/changelog.html">Changelog</a> page i.e. the <a
           href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt;
           HTML elements</a>. So I decided to use these elements with the summary text of <i>Show me how</i>, which when
@@ -145,11 +145,11 @@
       </details>
 
       <p> This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the
-        fold, but it didn't help with page performance, as both animations were still being loaded by the browser.</p>
+        fold, but it didn’t help with page performance, as both animations were still being loaded by the browser.</p>
 
-      <p>I'd previously used the image attribute <i>loading="lazy"</i> to improve page performance by letting the
+      <p>I’d previously used the image attribute <i>loading="lazy"</i> to improve page performance by letting the
         browser decide if an image needed to be loaded e.g. was the user close to scrolling to the part of the page that
-        contained the image? I didn't expect this to influence images hidden within the &lt;details&gt; element—I was
+        contained the image? I didn’t expect this to influence images hidden within the &lt;details&gt; element—I was
         wrong. After applying <i>loading="lazy"</i> to both animations, they were no longer loaded by the browser until
         the user clicked on the summary text. This was exactly the solution I was after.</p>
       <p>With this solution in place the <a href="../pages/subscribe.html">subscribe</a> page loads quickly—around
@@ -161,17 +161,17 @@
     <section>
       <h2>Conclusions</h2>
       <p>
-        The solution I've described above is probably suitable for instructional pages where the reader would only be
+        The solution I’ve described above is probably suitable for instructional pages where the reader would only be
         interested in one of many options e.g. Those explanation pages that show you how to perform some complex tasks
         in Excel but give you four versions of the solution, one for each recent version of Excel. In that type of
         scenario, hiding and delaying the load of any associated images makes a lot of sense, it condenses the page (so
         it looks more appealing) and improves page performance.
       </p>
       <p>
-        As I've mentioned before, I'm not a dev, and I'm still new to HTML & CSS, so I might well look back on this post
-        in a few months' time and cringe due to its naivety. There’re probably far easier methods to hiding (and
-        delaying the loading of) images than what I've described above, but hey, we learn better from our mistakes, so
-        if I do come across a better solution, I'm guessing I won't forget it :-)
+        As I’ve mentioned before, I’m not a dev, and I’m still new to HTML & CSS, so I might well look back on this post
+        in a few months’ time and cringe due to its naivety. There’re probably far easier methods to hiding (and
+        delaying the loading of) images than what I’ve described above, but hey, we learn better from our mistakes, so
+        if I do come across a better solution, I’m guessing I won’t forget it :-)
       </p>
     </section>
 
@@ -198,7 +198,7 @@
     <a href="auto-numbering-of-figures-with-CSS-counters.html">
       <h2>Automatically numbering figures using CSS Counters</h2>
       <p>
-        Automatically number figures with CSS counters and display inside the figure's caption.
+        Automatically number figures with CSS counters and display inside the figure’s caption.
       </p>
     </a>
   </aside>

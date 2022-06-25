@@ -101,13 +101,13 @@
       <h2>Background</h2>
       <p>During February 2022 OnlyRSS.org became a <a
           href="https://en.wikipedia.org/wiki/Progressive_web_application">Progressive Web App</a> (PWA). The plan
-        wasn't really for anyone to install OnlyRSS on their mobile or desktop, it was for me to understand what was
+        wasn’t really for anyone to install OnlyRSS on their mobile or desktop, it was for me to understand what was
         required to turn a website into a PWA—and the best way for me to understand that was to do it.</p>
       <p>The Google Play and Apple App store are great places to discover new apps, and once you find an app that might
         be useful, you get to read a description and view some screenshots of the app before you decide to install.
         There is no convenient store for PWAs, so initial discoverability is still an issue. But, once a visitor does
         happen upon your PWA enabled website, and is prompted to install your PWA, there is now a solution for providing
-        the visitor with screenshots and a description. And all that's required is a few new entries in the existing
+        the visitor with screenshots and a description. And all that’s required is a few new entries in the existing
         manifest file.</p>
     </section>
 
@@ -115,7 +115,7 @@
     <section>
       <h2>New manifest file entries</h2>
       <p>Below you can see the required entries in the manifest file for the screenshots and description. Webp images
-        are supported, so after capturing suitable screenshots, I'd recommend using a tool such as <a
+        are supported, so after capturing suitable screenshots, I’d recommend using a tool such as <a
           href="https://compress-or-die.com/webp">CompressOrDie</a> to convert them to webp, and then compress them as
         best you can without degrading the quality too much (my images are ≈40&#8239;KB each).</p>
       <pre><code>
@@ -131,7 +131,7 @@
         "type": "image/webp"
       }
       ],
-      "description": "Mark's blog of shower thoughts. Articles on productivity, Data Viz, HTML & CSS, software, hardware, and maybe even some fitness.",
+      "description": "Mark’s blog of shower thoughts. Articles on productivity, Data Viz, HTML & CSS, software, hardware, and maybe even some fitness.",
           </code></pre>
     </section>
 
@@ -150,46 +150,46 @@
       </figure>
     </section>
 
-      <!-- compatibility - section -->
-      <section>
-        <h2>Compatibility</h2>
-        <p>According to<a
-            href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility"> mdn web
-            docs</a>, app screenshots are supported in:</p>
-        <ul>
-          <li>Edge on Desktop (≥88),</li>
-          <li>Chrome on Android (≥88), and</li>
-          <li>Samsung Internet on mobile(≥15.0).</li>
-        </ul>
-        <p>I've tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on
-            Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a
-            href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">
-            'platform' member</a> to both 'wide', and 'windows', and neither resulted in the screenshots (or
-          description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will
-          support them in future), they can be seen under the <a href="../manifest.json">screenshots section of my
-            manifest file</a>.</p>
-      </section>
+    <!-- compatibility - section -->
+    <section>
+      <h2>Compatibility</h2>
+      <p>According to<a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility">
+          mdn web
+          docs</a>, app screenshots are supported in:</p>
+      <ul>
+        <li>Edge on Desktop (≥88),</li>
+        <li>Chrome on Android (≥88), and</li>
+        <li>Samsung Internet on mobile(≥15.0).</li>
+      </ul>
+      <p>I’ve tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on
+          Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a
+          href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">
+          ‘platform’ member</a> to both ‘wide’, and ‘windows’, and neither resulted in the screenshots (or
+        description) being visible. I’ve left those entries in my manifest file (in the hope that Edge/Chrome will
+        support them in future), they can be seen under the <a href="../manifest.json">screenshots section of my
+          manifest file</a>.</p>
+    </section>
 
-      <!-- conclusions - section -->
-      <section>
-        <h2>Conclusions</h2>
-        <p>
-          Adding screenshots and a description to your PWA is yet one more step in moving your app away from being “just
-          a website” and towards being an “application”. It's easy to implement, and improves the installation
-          experience for Android (and Samsung) visitors on mobile. I also suspect that in future, these app screenshots
-          and description will start to surface in web search results (alongside an install prompt), and maybe even in
-          app stores&#8239;&#129310;.
-        </p>
-      </section>
+    <!-- conclusions - section -->
+    <section>
+      <h2>Conclusions</h2>
+      <p>
+        Adding screenshots and a description to your PWA is yet one more step in moving your app away from being “just
+        a website” and towards being an “application”. It’s easy to implement, and improves the installation
+        experience for Android (and Samsung) visitors on mobile. I also suspect that in future, these app screenshots
+        and description will start to surface in web search results (alongside an install prompt), and maybe even in
+        app stores&#8239;&#129310;.
+      </p>
+    </section>
 
-      <!-- feedback - section -->
-      <section>
-        <h2>Feedback</h2>
-        <p>
-          If you have any comments on this article then please get in touch via Twitter (<a
-            href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-        </p>
-      </section>
+    <!-- feedback - section -->
+    <section>
+      <h2>Feedback</h2>
+      <p>
+        If you have any comments on this article then please get in touch via Twitter (<a
+          href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+      </p>
+    </section>
   </article>
 </body>
 

@@ -98,12 +98,22 @@
     </header>
 
     <details>
-      <summary><span><time datetime="2022-06-23">23 Jun 2022</time>: Improved the release pipeline with GitHub Actions</span><span
-          class="housekeeping-tag"></span></summary>
-      <p>I recently completed the new <a href="https://skills.github.com/">GitHub Skills courses</a>, including the one on GitHub Actions. I had already been using Actions to deploy all code to my host (via FTP) after a Push to Master, but I wanted to see if I could add some automated testing as part of the same process.</p>
-      <p> I thought a basic HTML validator would be useful, and found <a href="https://github.com/marketplace/actions/proof-html"> Proof HTML</a> in the Actions marketplace. In order to implement it in series with the existing FTP deployment action, I had to get to grips with Actions (i.e. <a href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds:~:text=In%20this%20example%2C%20job1%20must%20complete%20successfully%20before%20job2%20begins%2C%20and%20job3%20waits%20for%20both%20job1%20and%20job2%20to%20complete.">running a job only after the previous job was successful</a>) and YAML (indentation!). Anyway, with a little help from <a href="https://github.com/mendhak">a very patient friend</a>, I got there in the end. Now, when I push to Master, before the website is deployed, the HTML is checked for errors.</p>
+      <summary><span><time datetime="2022-06-23">23 Jun 2022</time>: Improved the release pipeline with GitHub
+          Actions</span><span class="housekeeping-tag"></span></summary>
+      <p>I recently completed the new <a href="https://skills.github.com/">GitHub Skills courses</a>, including the one
+        on GitHub Actions. I had already been using Actions to deploy all code to my host (via FTP) after a Push to
+        Master, but I wanted to see if I could add some automated testing as part of the same process.</p>
+      <p> I thought a basic HTML validator would be useful, and found <a
+          href="https://github.com/marketplace/actions/proof-html"> Proof HTML</a> in the Actions marketplace. In order
+        to implement it in series with the existing FTP deployment action, I had to get to grips with Actions (i.e. <a
+          href="https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds:~:text=In%20this%20example%2C%20job1%20must%20complete%20successfully%20before%20job2%20begins%2C%20and%20job3%20waits%20for%20both%20job1%20and%20job2%20to%20complete.">running
+          a job only after the previous job was successful</a>) and YAML (indentation!). Anyway, with a little help from
+        <a href="https://github.com/mendhak">a very patient friend</a>, I got there in the end. Now, when I push to
+        Master, before the website is deployed, the HTML is checked for errors.
+      </p>
       <img src="../images/deployment.webp" loading="lazy" style="border-radius: 5px;"
-        alt="A screenshot from GitHub Actions showing a process flow of two jobs running in series i.e. A HTML validation job, followed by an FTP deployment job" width="454" height="126">
+        alt="A screenshot from GitHub Actions showing a process flow of two jobs running in series i.e. A HTML validation job, followed by an FTP deployment job"
+        width="454" height="126">
     </details>
 
     <details>
@@ -118,7 +128,7 @@
     <details>
       <summary><span><time datetime="2022-06-04">04 Jun 2022</time>: New article: <i>Adding screenshots to your PWA
             install experience</i></span><span class="content-tag"></span></summary>
-      <p>I recently added app screenshots to my site's manifest file, so that users would be better informed about the
+      <p>I recently added app screenshots to my site’s manifest file, so that users would be better informed about the
         app before deciding to install. This post describes how I did it and what I learnt.
       </p>
       <p><a href="../posts/adding-screenshots-to-your-pwa-install.html">Go to article</a></p>
@@ -132,16 +142,16 @@
           Pages</a>, so thought I would try it out to see how it worked. Turned out it worked pretty well (well, after I
         updated a load of paths, turns out I never really understood the differences between, "/", "./" and "../" very
         well).</p>
-      <p>I've done a little testing, and it seems that GitHub Pages is consistently faster than my current host. For
-        example, the load time for this Changelog page on GitHub is 32&#8239;ms–37&#8239;ms, with my current host it's
+      <p>I’ve done a little testing, and it seems that GitHub Pages is consistently faster than my current host. For
+        example, the load time for this Changelog page on GitHub is 32&#8239;ms–37&#8239;ms, with my current host it’s
         55&#8239;ms–74&#8239;ms.</p>
-      <p> Other differences I've noticed between GitHub Pages compared to my current host; they have a fixed cache
-        max-age = 10&#8239;mins, and don't yet support <a href="https://en.wikipedia.org/wiki/Brotli">Brotli
-          compression</a>. Also, GitHub Pages is free! I do host a couple of small websites alongside OnlyRSS, so it's
+      <p> Other differences I’ve noticed between GitHub Pages compared to my current host; they have a fixed cache
+        max-age = 10&#8239;mins, and don’t yet support <a href="https://en.wikipedia.org/wiki/Brotli">Brotli
+          compression</a>. Also, GitHub Pages is free! I do host a couple of small websites alongside OnlyRSS, so it’s
         not as simple as me moving to GitHub Pages and not having to pay for my current hosting, but I do suspect that
         GitHub Pages will become the primary host for OnlyRSS, all that remains is for me to point the domain to it.
       </p>
-      <p>Here's a link to the <a href="https://dbs-sticky.github.io/OnlyRSS/">GitHub Pages hosted version</a>.</p>
+      <p>Here’s a link to the <a href="https://dbs-sticky.github.io/OnlyRSS/">GitHub Pages hosted version</a>.</p>
     </details>
 
     <details>
@@ -165,15 +175,15 @@
           href="https://developer.mozilla.org/en-US/docs/Web/CSS/:where"><i>::where</i> CSS Selector</a>. So I now have:
       </p>
       <pre><code>::where(p, li, figcaption) a {[style]}</code></pre>
-      <p>I suspect I'll be using this selector a lot going forward. </p>
+      <p>I suspect I’ll be using this selector a lot going forward. </p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-05-27">27 May 2022</time>: Added PWA Shortcut icons</span><span
           class="ux-tag"></span></summary>
-      <p>I added the PWA shortcuts (aka jump list) a few days ago, but didn't give each shortcut their own icon. Adding
-        individual icons makes the PWA appear a little more "native", and less like a web page in disguise! I'm not very
-        happy with the current icons I've created, so will probably update them soon.</p>
+      <p>I added the PWA shortcuts (aka jump list) a few days ago, but didn’t give each shortcut their own icon. Adding
+        individual icons makes the PWA appear a little more "native", and less like a web page in disguise! I’m not very
+        happy with the current icons I’ve created, so will probably update them soon.</p>
       <img src="../images/pwa-shortcuts.webp" loading="lazy"
         alt="A screenshot showing the PWA shortcuts visible from the Windows taskbar" width="322" height="305">
     </details>
@@ -188,7 +198,7 @@
           CSS Counters</a>. I learnt that Counters can keep track of the number of specific HTML tags e.g.
         &lt;figcaption&gt;, and then display the current count in the page. I used this to automatically add “Figure #”
         before each figure caption. This is useful for those times when I decide to slot a new figure into a page, as I
-        wouldn't then need to renumber all the following figures.</p>
+        wouldn’t then need to renumber all the following figures.</p>
     </details>
 
     <details>
@@ -212,21 +222,21 @@
     <details>
       <summary><span><time datetime="2022-04-13">13 Apr 2022</time>: Added Alt text to images—even though they already
           use &lt;figcaption&gt;</span><span class="ux-tag"></span></summary>
-      <p>Strictly speaking, Alt text for images is not required if you're using the &lt;figcaption&gt; element, as this
+      <p>Strictly speaking, Alt text for images is not required if you’re using the &lt;figcaption&gt; element, as this
         element will contain a description of the image which will be read out by screen readers. And as all my images
-        have a &lt;figcaption&gt;, I'd not been using Alt text. But, after giving this some thought I'd come to the
+        have a &lt;figcaption&gt;, I’d not been using Alt text. But, after giving this some thought I’d come to the
         conclusion that Alt text is required in most cases even when &lt;figcaption&gt; is used.</p>
-      <p>A typical figure caption for a chart might be 'Figure 1. Chart showing the change in price of oil over time'.
-        But, it's not a complete description of what's happening on the chart, it doesn't need to be, that's the purpose
-        of the chart! The Alt text I've added for my images tries to describe the content of the image in words, rather
+      <p>A typical figure caption for a chart might be ‘Figure 1. Chart showing the change in price of oil over time’.
+        But, it’s not a complete description of what’s happening on the chart, it doesn’t need to be, that’s the purpose
+        of the chart! The Alt text I’ve added for my images tries to describe the content of the image in words, rather
         than a simple statement about what the image is.</p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-04-13">13 Apr 2022</time>: Made all fonts local, and set some fonts to
           <i>font-display: block</i></span><span class="ux-tag"></span></summary>
-      <p><abbr title="Flash of Unstyled Text">FOUT</abbr> can be an issue for many websites, but it wasn't a particular
-        problem on OnlyRSS until I added the global nav bar. The size of the 'buttons' on the nav bar are determined by
+      <p><abbr title="Flash of Unstyled Text">FOUT</abbr> can be an issue for many websites, but it wasn’t a particular
+        problem on OnlyRSS until I added the global nav bar. The size of the ‘buttons’ on the nav bar are determined by
         the size of the button names e.g. RSS, About, and Changelog. When the page is first loaded these button names
         are displayed using the fallback font (while the primary font is loaded), this resulted in a noticeable movement
         of the nav bar buttons that was very distracting.</p>
@@ -236,8 +246,8 @@
       <p>This was solved by switching the font used on the nav bar from <i>font-display: swap</i> to <i>font-display:
           block</i>. The result is that the nav bar font is essentially invisible until the primary font has loaded,
         this seems to have fixed the issue.</p>
-      <p>Before I discovered the solution above, I'd also downloaded all the fonts from Google and hosted them locally,
-        although this didn't fix the issue, there are other reasons to do this, but I think that will be the subject of
+      <p>Before I discovered the solution above, I’d also downloaded all the fonts from Google and hosted them locally,
+        although this didn’t fix the issue, there are other reasons to do this, but I think that will be the subject of
         a future article.</p>
     </details>
 
@@ -254,8 +264,8 @@
     <details>
       <summary><span><time datetime="2022-04-07">07 Apr 2022</time>: Defined two styles for &lt;details&gt; &
           &lt;summary&gt; HTML elements</span><span class="ux-tag"></span></summary>
-      <p>The &lt;details&gt; and &lt;summary&gt; HTML elements are what's used to create these Changelog entries, but,
-        I've also started to use them in articles to hide images until requested by the reader.</p>
+      <p>The &lt;details&gt; and &lt;summary&gt; HTML elements are what’s used to create these Changelog entries, but,
+        I’ve also started to use them in articles to hide images until requested by the reader.</p>
       <p> On article pages, I used the pseudo-element <i>::after</i> to append the content "close" or "open" to the
         &lt;summary&gt; text. I used <i>details[open] summary::after{ }</i> to target the summary element only when the
         detail element was open, the result was an open/close toggle built with just HTML & CSS.</p>
@@ -278,11 +288,11 @@
       <summary><span><time datetime="2022-04-03">03 Apr 2022</time>: Created the <i>Subscribe to OnlyRSS</i>
           page</span><span class="content-tag"></span></summary>
       <p>The RSS link on the homepage used to open the RSS feed, for users unfamiliar with RSS this might have been
-        confusing. The link now opens a 'subscribe' page which includes the RSS feed URL and instructions on how to
+        confusing. The link now opens a ‘subscribe’ page which includes the RSS feed URL and instructions on how to
         subscribe via Feedly and Inoreader.</p>
-      <p>I created 2 animated GIFs (each ≈300kB) showing the subscription process in Feedly and Inoreader, but I didn't
+      <p>I created 2 animated GIFs (each ≈300kB) showing the subscription process in Feedly and Inoreader, but I didn’t
         want these to have a negative effect on the page load performance (the GIFs are not essential for the page), so
-        I hid them in the &lt;detail&gt; element and set the image attribute 'loading="lazy"' (usually used to delay the
+        I hid them in the &lt;detail&gt; element and set the image attribute ‘loading="lazy"’ (usually used to delay the
         loading of images that are below the fold), to my surprise this worked, and the images only load when the user
         interacts with the &lt;detail&gt; element.</p>
       <p><a href="subscribe.html">Go to article</a></p>
@@ -291,20 +301,20 @@
     <details>
       <summary><span><time datetime="2022-03-24">24 Mar 2022</time>: Changed the link style for text</span><span
           class="ux-tag"></span></summary>
-      <p>This is a bit controversial. Hyperlinks are meant to be blue and underlined. Many websites obviously don't
-        follow this guideline, and instead use a colour, or an underline, but they're typically using one or the other.
+      <p>This is a bit controversial. Hyperlinks are meant to be blue and underlined. Many websites obviously don’t
+        follow this guideline, and instead use a colour, or an underline, but they’re typically using one or the other.
         If an article contains many links, I find the existing options a bit distracting (see any page on Wikipedia as
-        an example), especially if I'm not actually going to click on any of the links. So, I've adopted the <a
+        an example), especially if I’m not actually going to click on any of the links. So, I’ve adopted the <a
           href="https://practicaltypography.com/how-to-use.html#">link style</a> used by Matthew Butterick in his online
-        book <a href="https://practicaltypography.com/"><i>Butterick's Practical Typography</i></a> (he uses it for
-        external links only, I'm using it for internal and external links.) I've used a red circle for external links,
+        book <a href="https://practicaltypography.com/"><i>Butterick’s Practical Typography</i></a> (he uses it for
+        external links only, I’m using it for internal and external links.) I’ve used a red circle for external links,
         and blue for internal. On-hover, the linked text will also change to the appropriate colour.</p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-03-20">20 Mar 2022</time>: Should your &lt;header&gt; be in your
           &lt;article&gt;, or above your &lt;article&gt;?</span><span class="housekeeping-tag"></span></summary>
-      <p>This isn't a rhetorical question. There doesn't appear to be an agreed answer online for this. Today I moved
+      <p>This isn’t a rhetorical question. There doesn’t appear to be an agreed answer online for this. Today I moved
         all the article &lt;header&gt; elements and placed them within the &lt;article&gt; elements. Previously they had
         been above.</p>
       <p> The <i>HTML Article</i> element represents a self-contained composition in a document, page, application, or
@@ -313,27 +323,27 @@
       <p>The <i>HTML Header</i> element represents introductory content, typically a group of introductory or
         navigational aids. It may contain some heading elements but also a logo, a search form, an author name, and
         other elements.</p>
-      <p>I've decided that if the Header is meant to contain introductory content, and often the h1, then it's essential
+      <p>I’ve decided that if the Header is meant to contain introductory content, and often the h1, then it’s essential
         for the article to which it belongs, and as the &lt;article&gt; content is meant to be self-contained (i.e.
         suitable for redistribution) then (at least for my use case) the &lt;header&gt; should be in the
         &lt;article&gt;.</p>
       <p>Previously the page outline (the visual outline I mean i.e. the border and drop-shadow) was represented by a
-        &lt;main&gt; with a specific CSS Class applied. This has now been replaced by &lt;article&gt;, i.e. I've got rid
-        of another CSS Class and replaced it with a semantic HTML element, which is a positive as far as I'm concerned.
+        &lt;main&gt; with a specific CSS Class applied. This has now been replaced by &lt;article&gt;, i.e. I’ve got rid
+        of another CSS Class and replaced it with a semantic HTML element, which is a positive as far as I’m concerned.
       </p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-03-20">20 Mar 2022</time>: Swapped a &lt;div&gt; and CSS Class for the
           &lt;aside&gt; element</span><span class="housekeeping-tag"></span></summary>
-      <p>I've tried my best to avoid non-semantic HTML elements where possible i.e. &lt;div&gt; and &lt;span&gt;. The
+      <p>I’ve tried my best to avoid non-semantic HTML elements where possible i.e. &lt;div&gt; and &lt;span&gt;. The
         homepage uses a few &lt;div&gt; elements (to create the cards), and this page uses &lt;span&gt; (for the tags),
         apart from that the whole site uses <a href="https://www.w3schools.com/html/html5_semantic_elements.asp"
-          title="Read about semantic HTML elements at W3C schools">semantic HTML tags</a>. I've avoided the use of CSS
+          title="Read about semantic HTML elements at W3C schools">semantic HTML tags</a>. I’ve avoided the use of CSS
         IDs altogether, and have only defined a few CSS Classes.</p>
       <p>I was using a few &lt;div&gt; elements for the related articles that appear at the bottom of a couple of
         articles, but there is a specific HTML element designed to show related content i.e. the &lt;aside&gt; element.
-        Here's the description of the aside element from W3C Schools, <q>The aside element represents a section of a
+        Here’s the description of the aside element from W3C Schools, <q>The aside element represents a section of a
           page that consists of content that is tangentially related to the content around the aside element.</q></p>
     </details>
 
@@ -353,7 +363,7 @@
         2kB. Not bad (<abbr title="In My Humble Opinion">IMHO</abbr>) for 8 coloured icons that can be scaled to any
         size. If these 8 icons were PNGs or GIFs they would each have to be loaded after the HTML and CSS. The inline
         SVG solution means they are loaded with/in the HTML.</p>
-      <p> In case it's not obvious from the description above…yes, I am quite proud of myself. &#128512;</p>
+      <p> In case it’s not obvious from the description above…yes, I am quite proud of myself. &#128512;</p>
     </details>
 
     <details>
@@ -361,7 +371,7 @@
         </span><span class="ux-tag"></span></summary>
       <p>This actually took me a little while to figure out. Had to wrap the date/description in a &lt;span&gt;, (the
         tags already use &lt;span&gt;) then I set the first span in the Changelog summary to flex:1, I did this using
-        the first-of-type CSS selector i.e. 'summary span:first-of-type {flex: 1}'. The other &lt;spans&gt; (used by the
+        the first-of-type CSS selector i.e. ‘summary span:first-of-type {flex: 1}’. The other &lt;spans&gt; (used by the
         tags) would default to flex:0. The result of which is that the date/description expands to fill the row and
         pushes the tags to the far right.</p>
     </details>
@@ -369,26 +379,26 @@
     <details>
       <summary><span><time datetime="2022-03-14">14 Mar 2022</time>: Moved the links to the Latin fonts into the HTML
           head </span><span class="performance-tag"></span></summary>
-      <p>Previously, I'd moved the Google font code i.e. @import (which itself linked to a stylesheet) from the CSS and
+      <p>Previously, I’d moved the Google font code i.e. @import (which itself linked to a stylesheet) from the CSS and
         into the head of the HTML, therefore removing a “chain” when loading the page. This time I moved the links to
         the Latin version of the fonts directly into the HTML head. It removes another “chain”, and page load speed for
         most pages is now around 30-50&#8239;ms. Without actually minifying the CSS and moving it into the HTML head,
-        there's not much else I can do now to improve page performance. </p>
+        there’s not much else I can do now to improve page performance. </p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-03-13">13 Mar 2022</time>: Created this <i>Changelog</i> page </span><span
           class="content-tag"></span></summary>
       <p>One of the reasons for creating this website is to learn HTML and CSS, so I thought it might make sense to list
-        the changes and explain what I've learnt along the way. This changelog makes use of the &lt;details&gt; and
-        &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little 'expandable' sections, no JS
+        the changes and explain what I’ve learnt along the way. This changelog makes use of the &lt;details&gt; and
+        &lt;summary&gt; HTML tags (combined with a little CSS, you end up with these little ‘expandable’ sections, no JS
         required.)</p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-03-12">12 Mar 2022</time>: Replaced the <i>About</i> page </span><span
           class="content-tag"></span></summary>
-      <p>The original <i>About</i> page used a 2-column layout that didn't work well on mobile, for the sake of
+      <p>The original <i>About</i> page used a 2-column layout that didn’t work well on mobile, for the sake of
         simplicity I decided to use the standard article page style/CSS.</p>
       <p><a href="about.html">Go to article</a></p>
     </details>
@@ -396,7 +406,7 @@
     <details>
       <summary><span><time datetime="2022-03-12">12 Mar 2022</time>: Switched GitHub repository from Private to Public,
           added link to nav</span><span class="housekeeping-tag"></span></summary>
-      <p>I don't think anyone is going to be cloning my repository anytime soon, but having it public just makes things
+      <p>I don’t think anyone is going to be cloning my repository anytime soon, but having it public just makes things
         a little simpler, and allows me to see better analytics related to my own commits.</p>
     </details>
 
@@ -427,8 +437,8 @@
         for trying to write “better” content (by measuring the popularity of existing content, and creating more of the
         same). But, my aim is not to write articles that will result in a large number of page views, or to create a
         blog that will become popular. My sole aim is to learn HTML and CSS, and maybe create articles that at least one
-        other person on the internet will find useful. The analytics were interesting, but they weren't free, and the
-        cost was actually quite high, and it was not being paid by me, it was being paid by the site's visitors. The
+        other person on the internet will find useful. The analytics were interesting, but they weren’t free, and the
+        cost was actually quite high, and it was not being paid by me, it was being paid by the site’s visitors. The
         cost was a reduction in user experience.</p>
       <p> Basically, the page load times were dominated by the JS required for the analytics. Removing the analytics
         resulted in far better performance, i.e. much faster load times. So I made the decision to remove the analytics
@@ -439,9 +449,9 @@
       <summary><span><time datetime="2022-03-10">10 Mar 2022</time>: Added loading="lazy" to images </span><span
           class="performance-tag"></span></summary>
       <p>This required some research, mostly to determine which images would benefit and which would not. Essentially
-        this image attribute won't load an image until the browser thinks that the user is actually going to view it,
-        i.e. it looks at a user's scrolling behaviour, and loads the image just before the user gets to the specific
-        section of the page. Although all images on my site are optimised to be as small as possible, there's still no
+        this image attribute won’t load an image until the browser thinks that the user is actually going to view it,
+        i.e. it looks at a user’s scrolling behaviour, and loads the image just before the user gets to the specific
+        section of the page. Although all images on my site are optimised to be as small as possible, there’s still no
         need to load an image at the bottom of the page if the user is never going to see it.</p>
     </details>
 
@@ -449,7 +459,7 @@
       <summary><span><time datetime="2022-03-09">09 Mar 2022</time>: Added OpenGraph meta tags to most pages
         </span><span class="seo-tag"></span><span class="ux-tag"></span></summary>
       <p>This required a lot of research and some testing to get it right (tip: .webp images are NOT supported!), enough
-        that I'll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or
+        that I’ll probably create a post about this topic. Basically, if I add an article link to Twitter, LinkedIn or
         Facebook, they will contain a specific title, description and image and will typically be displayed in some form
         of card design.</p>
     </details>
@@ -472,16 +482,16 @@
     </details>
 
     <details>
-      <summary><span><time datetime="2022-03-05">05 Mar 2022</time>: Added 'related articles' to the bottom of some
+      <summary><span><time datetime="2022-03-05">05 Mar 2022</time>: Added ‘related articles’ to the bottom of some
           articles </span><span class="ux-tag"></span></summary>
       <p>My articles cover various subjects, some of which could be placed into groups, so I defined a style (not
-        finished) for the display of 'related articles' which will appear at the end of some articles.</p>
+        finished) for the display of ‘related articles’ which will appear at the end of some articles.</p>
     </details>
 
     <details>
       <summary><span><time datetime="2022-02-28">28 Feb 2022</time>: Added &lt;figure&gt; and &lt;figcaption&gt; to
           articles and changed accent colour </span><span class="ux-tag"></span></summary>
-      <p>Placed all article images into the HTML figure tag. Removed the 'alt' attribute from images, as this was no
+      <p>Placed all article images into the HTML figure tag. Removed the ‘alt’ attribute from images, as this was no
         longer required—assuming the &lt;figcaption&gt; includes a full description of the image.</p>
       <p>Also changed the accent colour of the site from red to blue, because everybody knows that blue is the best
         colour.</p>
@@ -498,7 +508,7 @@
       <summary><span><time datetime="2022-02-26">26 Feb 2022</time>: Made the site responsive—finally looks good on
           mobile </span><span class="ux-tag"></span></summary>
       <p>Prior to this the mobile version of the site was terrible, it so bad that mobile browsers kept requesting users
-        to use their 'reader' view. This required me to learn how to use Media Queries and to add the viewport tag into
+        to use their ‘reader’ view. This required me to learn how to use Media Queries and to add the viewport tag into
         the HTML head.</p>
     </details>
 
@@ -514,7 +524,7 @@
     <details>
       <summary><span><time datetime="2022-02-13">13 Feb 2022</time>: OnlyRSS.org, now a Progressive Web App (PWA)
         </span><span class="ux-tag"></span></summary>
-      <p>A PWA version of OnlyRSS.org is not really needed by anyone. This was more a case of "can it be done?". I'm
+      <p>A PWA version of OnlyRSS.org is not really needed by anyone. This was more a case of "can it be done?". I’m
         also considering turning one of my web products into a PWA for my users, so this was an interesting learning
         experience for me.</p>
     </details>
@@ -522,7 +532,7 @@
     <details>
       <summary><span><time datetime="2022-01-17">17 Jan 2022</time>: New article: <i>Drop caps and indents</i>
         </span><span class="content-tag"></span></summary>
-      <p>Got interested in how paragraphs are separated (in print and on the web), worked out how it's quite easy to
+      <p>Got interested in how paragraphs are separated (in print and on the web), worked out how it’s quite easy to
         implement in CSS with some specific CSS selectors, so decided to share what I had learned. </p>
       <p><a href="../posts/drop-caps-and-indents.html">Go to article</a></p>
     </details>
@@ -531,7 +541,7 @@
       <summary><span><time datetime="2022-01-12">12 Jan 2022</time>: New article: <i>Why I prefer the Kindle over
             physical books</i> </span><span class="content-tag"></span></summary>
       <p>This was my first attempt at using CSS for something other than basic page typography, and it was a difficult
-        learning experience—and it still doesn't work correctly on Safari!</p>
+        learning experience—and it still doesn’t work correctly on Safari!</p>
       <p><a href="../posts/why-i-prefer-the-kindle.html">Go to article</a></p>
     </details>
 
@@ -539,7 +549,7 @@
       <summary><span><time datetime="2021-12-29">29 Dec 2021</time>: New RSS article: <i>Top Tens of 2021</i>
         </span><span class="content-tag"></span></summary>
       <p>This was an RSS only article, so no article page on the site. Since graduating (25 years ago) my MSc friends
-        and I share our 'top tens' at the end of each year. This year I thought I'd share it with my (very small
+        and I share our ‘top tens’ at the end of each year. This year I thought I’d share it with my (very small
         quantity of) RSS subscribers. </p>
     </details>
 
@@ -582,9 +592,9 @@
     </details>
 
     <details>
-      <summary><span><time datetime="2021-03-13">13 Mar 2021</time>: Changed the website's folder structure</span><span
+      <summary><span><time datetime="2021-03-13">13 Mar 2021</time>: Changed the website’s folder structure</span><span
           class="housekeeping-tag"></span></summary>
-      <p>Originally all the files for an article were in a specific article folder. I changed this so there's now
+      <p>Originally all the files for an article were in a specific article folder. I changed this so there’s now
         separate folders for posts, images, styles, etc.</p>
     </details>
 
@@ -599,7 +609,7 @@
     <details>
       <summary><span><time datetime="2021-03-02">02 Mar 2021</time>: New article: <i>Drawing with
             Excalidraw</i></span><span class="content-tag"></span></summary>
-      <p>An article describing Excalidraw and why it's a great tool for prototyping.</p>
+      <p>An article describing Excalidraw and why it’s a great tool for prototyping.</p>
       <p><a href="../posts/drawing-with-excalidraw.html">Go to article</a></p>
     </details>
 
