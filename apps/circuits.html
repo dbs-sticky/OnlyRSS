@@ -50,9 +50,9 @@
   </script>
 
   <script>
-    // get the slider value
-    function getNumber() {
-      let input = document.getElementById("userInput").value;
+// get the slider value
+    function getNumber(){
+        let input = document.getElementById("userInput").value;
       return input
     }
 
@@ -64,33 +64,26 @@
       document.getElementById("exercises").innerHTML = "";
 
       // define the array
-      let all_exercises = [
-        " air squats ×40",
-        " skip ×200",
-        " burpees ×20",
-        " row 500m",
-        " pull-ups ×10",
-        " finger board pull-ups ×10",
-        " ring pull-ups ×10",
-        " sit-ups ×35",
-        " press-ups ×25",
-        " lunges ×30",
-        " curls ×15",
-        " ring rows ×12",
-        " assisted ring dips ×10",
-        " ring push ups ×10",
-        " power snatch ×10",
-        " power clean ×20",
-        " power clean & jerk ×15",
-        " hanging leg raises ×20",
-        " bench press ×10",
-        " calf raises ×20",
-        " plank 40s",
-        " dips ×20",
-        " row 250m",
-        "kettlebell swings ×20",
-        "kettlebell push-press ×20",
-      ];
+      const all_exercises = [
+        [" air squats ×40", "back squats ×20", "front squats ×20"],
+        [" skip ×100"],
+        [" burpees ×20"],
+        [" row 500m", " row 250m"],
+        [" pull-ups ×10", " ring pull-ups ×10", " pike ring pull-ups ×5", " finger board pull-ups ×10"],
+        [" sit-ups ×35"],
+        [" push-ups ×25", " ring push-ups ×10"],
+        [" lunges ×30"],
+        [" curls ×15"],
+        [" ring rows ×12"],
+        [" assisted ring dips ×10", " bench dips ×25"],
+        [" power clean ×25", " power clean & jerk ×15", " power snatch ×10"],
+        [" hanging leg raises ×20"],
+        [" bench press ×10"],
+        [" calf raises ×20"],
+        [" plank 40s"],
+        [" kettlebell swings ×20"],
+        [" kettlebell push-press ×20"],
+      ]
 
       // Set the max value of the slider (with id=userInput) to the # of elements in the array
       document.getElementById("userInput").setAttribute('max', all_exercises.length);
@@ -103,11 +96,12 @@
         }
       }
 
-      // pull out the first n values from the shuffled array and display as ordered list
-      shuffleArray(all_exercises);
-      all_exercises.slice(0, n).forEach(e => {
-        exercises.innerHTML = exercises.innerHTML + '<li>' + e + '</li>';
-      });
+// pull out the first n values from the shuffled array and display as ordered list
+shuffleArray(all_exercises);
+    all_exercises.slice(0,n).forEach(e => {
+      shuffleArray(e); // shuffle the nested array
+        exercises.innerHTML =  exercises.innerHTML + '<li>' + e[0] + '</li>' ; // choose the first element using e[0]
+    });
     }
   </script>
 </head>
