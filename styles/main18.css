@@ -362,8 +362,8 @@ nav a:hover, nav a.nav-active {
   flex: 1;
  }
 
-/* TODO needs to be renamed */
-.btn {
+
+button {
   -webkit-border-radius: var(--radius);
   -moz-border-radius: var(--radius)5;
   border-radius: var(--radius);
@@ -376,8 +376,8 @@ nav a:hover, nav a.nav-active {
   text-decoration: none;
   border-style: none;
 }
-/* TODO needs to be renamed */
-.btn:hover {
+
+button:hover {
   filter: brightness(125%);
   text-decoration: none;
   cursor: pointer;
@@ -744,7 +744,7 @@ a.icons:active {
 
 
 /*  ======================
-  exercise randomiser in "app"
+  exercise circuits randomiser in "app"
   ====================== */
 
   #card {
@@ -764,4 +764,11 @@ a.icons:active {
     padding-left: 10%;
     margin-top: 40px;
   }
+/* differentiate the app close button from normal buttons by its location */
+  .app-btn-close {
+    position: absolute;
+    margin :10px;
+    top: 0px;
+    right: 0px;
+    }
 
