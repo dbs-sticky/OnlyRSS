@@ -1,7 +1,7 @@
 /* define global page variables, e.g. page width and accent colour */
 :root {
   --pagewidth: 850px;
-  --hue: 215;
+  --hue:215;
   --saturation: 50%;
   --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
@@ -472,6 +472,11 @@ main details summary::-webkit-details-marker {
   display:none;
 }
 
+/* add a radius to all images on the Changelog page in the details elements */
+/* THIS WILL TARGET ALL IMAGES IN <DETAILS> ON ANY PAGES THAT USE <MAIN> */
+main details img {
+  border-radius: var(--radius);
+}
 
 /*  ======================
     changelog tags
