@@ -140,7 +140,7 @@ aside {
 }
 
 /*  ======================
-    TYPOGRAPHY and IMAGES
+    TYPOGRAPHY IMAGES and TLDR
     ====================== */
 
 
@@ -321,6 +321,44 @@ hr {
   margin-bottom: 50px;
 }
 
+/* styles for TLDR section */
+.tldr{
+  margin-top: 20px;
+}
+
+.tldr p:first-child::before {
+  font-weight: 500;
+  color: var(--accent);
+  text-transform:uppercase;
+  content: "tldr: "
+}
+/*  ======================
+    SOCIAL SHARING
+    ====================== */
+
+    .sharing {
+      background-color: var(--accent-light);
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 0.8rem;
+      margin-bottom: 2rem;
+      padding: 0.1rem 1rem;
+    }
+
+  
+    /* removed the link indicator used for all other links */
+    .sharing a::after {
+      content:none;
+    }
+    .sharing a {
+      color: var(--accent);
+    }
+    
+    /* override the internal/external colour for links */
+    .sharing a:hover {
+      color: var(--accent);
+    }
+    
 /*  ======================
     NAVIGATION
     ====================== */
