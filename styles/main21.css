@@ -10,7 +10,6 @@
 
 html {
   font-family: 'Roboto Serif', serif;
-  line-height: 1.8;
   font-weight: 400;
   color: #000000;
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
@@ -63,6 +62,7 @@ body {
 @media screen and (min-width: 768px) {
   html {
     font-size: 110%;
+    line-height: 1.8;
   }
 
   article,
@@ -155,12 +155,14 @@ h6 {
   color: #000000;
   font-weight: 400;
   line-height: 1.8rem;
+  /* keep the space between headings tight */
+  margin-bottom: 0.2rem;
+  margin-top: 0.2rem;
 }
 
 /* Headings - individual */
 h1 {
   font-size: 2rem;
-  margin-bottom: 0px;
   margin-top: 0px;
   text-transform: uppercase;
   line-height: 2.5rem;
@@ -174,8 +176,9 @@ h3 {
   font-size: 1.2rem;
 }
 
-h2 {
-  margin: 0px;
+/* keep the space between any heading and the fist paragraph tight */
+:where(h1, h2, h3, h4, h5, h6) + p {
+  margin-top: 0px;
 }
 
 strong {
@@ -267,6 +270,7 @@ ol {
   padding-left: 0px;
   padding-bottom: 1.0rem;
   line-height: 1.6rem;
+  margin-top: 0px;
 }
 
 ul {
@@ -289,6 +293,7 @@ ul {
 /* Figures & images */
 figure {
   margin: 0;
+  margin-bottom: 15px;
 }
 
 /* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
@@ -302,9 +307,9 @@ figcaption {
   font-size: 80%;
   margin-top: 5px;
   padding-top: 8px;
-  padding-bottom: 25px;
   font-style: italic;
   border-top: 2px solid var(--accent);
+
 }
 
 figcaption::before {
@@ -329,6 +334,7 @@ hr {
   margin-top: 30px;
 }
 
+/* automatically add the TLDR coloured text before the first paragraph in the TDLR div */
 .tldr p:first-child::before {
   font-weight: 500;
   color: var(--accent);
