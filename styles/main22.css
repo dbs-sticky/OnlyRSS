@@ -820,3 +820,26 @@ a.icons:active {
     right: 0px;
     }
 
+  /* for image compare on hover */
+    .compare {
+      position:relative;
+    }
+    
+    .compare img {
+      display:block;
+      opacity:1;
+      height: auto;
+      transition:.6s ease;
+      width:100%;
+      position:absolute;
+      z-index:12;
+    }
+    .compare img:hover {
+      opacity:0;
+    }
+    .compare img + img {
+      display:block;
+      opacity:1;
+      position:relative;
+      z-index:10;
+    }

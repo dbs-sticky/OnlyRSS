@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zoom and enhance!</title>
+  <meta name="description"
+    content="My first ever attempt at using JavaScript. Building a circuit training exercise routine randomiser using Javascript.">
+  <meta name="author" content="Mark Evans">
+  <meta name="theme-color" content="#ffffff">
+
+  <!--Open Graph protocol meta tags-->
+  <meta property="og:type" content="article">
+  <meta property="article:author" content="Mark Evans">
+  <meta property="og:title" content="My first javascript app">
+  <meta property="og:url" content="https://onlyrss.org/posts/my-first-javascript-app.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/exercise-routine-og.png">
+  <meta property="og:description"
+    content="My first ever attempt at using JavaScript. Building a circuit training exercise routine randomiser using Javascript.">
+  <meta property="article:published_time" content="2022-06-11">
+
+  <!--Favicons and Touch Icons and web manifest-->
+  <link rel="icon" href="../pwaicons/favicon.svg">
+  <link rel="apple-touch-icon" href="../pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114"
+    href="../pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+  <link rel="manifest" href="../manifest.json">
+
+  <!--stylesheet and RSS-->
+  <link rel="stylesheet" type="text/css" href="../styles/main22.css" />
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml" />
+
+  <style>
+    @font-face {
+      font-family: 'Roboto Condensed';
+      font-style: normal;
+      font-weight: 400;
+      font-display: block;
+      src: url(../fonts/RobotoCondensed-Regular.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: normal;
+      font-weight: 400;
+      src: url(../fonts/RobotoSerif-Regular.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: italic;
+      font-weight: 400;
+      src: url(../fonts/RobotoSerif-Italic.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: normal;
+      font-weight: 500;
+      src: url(../fonts/RobotoSerif-Medium.woff2) format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Roboto Serif';
+      font-style: italic;
+      font-weight: 500;
+      src: url(../fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
+    }
+  </style>
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../service-worker.js');
+    }
+  </script>
+
+</head>
+
+<body>
+  <nav id="navbar">
+    <a href="../index.html" title="Homepage">home</a>
+    <span></span>
+    <!--this is used via Flex: 1; to justify the global nav elements left and right-->
+    <a href="../pages/subscribe.html" title="Subscribe via RSS">rss</a>
+    <a href="../pages/changelog.html" title="View all website updates">changelog</a>
+    <a href="../pages/about.html" title="Who made this site, and why?">about</a>
+  </nav>
+  <article>
+    <header>
+      <h1>My first JavaScript “app”</h1>
+      <div class="tldr">
+        <p>I created a simple app that selects <i>x</i> random exercises from an array. You'll find the app, and links
+          to the source code (on CodePen) below.</p>
+      </div>
+      <p class="pubdate"><time datetime="2022-06-11">11 Jun 2022</time> · 4 mins · <a href="../pages/about.html"
+          title="About me, and about this website">Mark Evans</a></p>
+    </header>
+
+    <!--introduction-->
+    <section>
+      <h2>Background</h2>
+      <div class="compare">
+
+        <img src="../images/test-original.jpg" alt="original" itemprop="image" width="480" height="600" />
+        
+        <img src="../images/test-restored.png" alt="restored" width="480" height="600" />
+        
+        </div>
+    </section>
+
+    <!--My starting point-->
+    <section>
+      <h2>My starting point</h2>
+      <p>
+        Like most people writing code, I started with a Google search, i.e. how to pick random elements from an array.
+        That search led me to <a href="https://jsfiddle.net/abdennour/oh3jL82j/"> this example on JSFiddle</a>. The
+        example shuffles an array of numbers, and then slices off the first "n" numbers from the array. It’s this
+        solution that forms the basis of the “app” that I ended up building.
+      </p>
+    </section>
+
+    <!-- summary - section -->
+    <section>
+      <h2>The app</h2>
+      <p>I really want to call it a “programme”, but I feel that doing so puts me in a certain age category, so I’m
+        going to be cool and describe it as an “app”. It’s very basic, you pick the number of exercises you
+        want, and then hit the ‘create new workout’ button, at which point you’re presented with your chosen number of
+        exercises in the form of an ordered list.
+      </p>
+
+      <div id="exercise_card">
+        <form>
+          <label for="points">№ of exercises:</label>
+          <input id="userInput" type="range" placeholder="6" value="6" step="1" min="1" max=""
+            oninput="numberOutputId.value = userInput.value">
+          <output name="numberOutputName" id="numberOutputId">6</output>
+        </form>
+        <p>
+          <button class="btn" onclick="myFunction()">Create new workout </button>
+        </p>
+        <ol id="todays_exercises"></ol>
+      </div>
+
+      <p>
+        You can see my source code over at <a href="https://codepen.io/dbssticky/pen/MWQqXXE">CodePen</a>.
+      </p>
+      <h3>How it works</h3>
+      <p>The first thing that happens is that the max value of the slider input control is set to the array size i.e.
+        the total number of possible exercises. Once the button is pressed, the array order is randomised, and then
+        the
+        current slider value is grabbed (i.e. the number of exercises the user has chosen) and that number of
+        exercises is
+        read (in sequence) from the start of the randomised array. Any existing list items (exercises) are cleared
+        from the front-end, and the new exercises are added to an ordered list and displayed to the user.</p>
+      <h3>Planned improvements</h3>
+      <ol>
+        <li>Make the app available on a page by itself which is hidden from the usual website navigation.</li>
+        <li>Add the hidden page link to the <a href="https://web.dev/app-shortcuts/">PWA app shortcuts</a>. (So I will
+          be able to quickly open the app on my phone, and it will look like a full-page app.) </li>
+        <li>Add some rules to tweak the randomised output, e.g. if output includes ring tricep-dips, don’t also
+          include bench tricep-dips etc. Maybe using nested arrays?</li>
+      </ol>
+      <p>
+      <details>
+        <summary>2 weeks later: View my progress against the planned improvements. Click to </summary>
+        <ol>
+          <li>The app is now available as a standalone page designed for mobile devices: <a href="../apps/circuits.html"
+              target="_blank">click to open app in new tab</a>. </li>
+          <li>The app can now be launched from the PWA shortcuts/jumplist on mobile and desktop. </li>
+          <li>The app now groups together similar (alternative) exercises and ensures that only one option from each
+            group is selected. <a
+              href="https://stackoverflow.com/questions/72747137/select-x-random-elements-from-an-array-that-contains-nested-arrays-and-no-more">I
+              had to ask for help to get this done</a>. You can see the new version on <a
+              href="https://codepen.io/dbssticky/pen/BarBKOo">CodePen</a>. </li>
+        </ol>
+      </details>
+      </p>
+    </section>
+
+    <!--What I learnt-->
+    <section>
+      <h2>What I learnt</h2>
+      <p>During the 3 days I spent working on the app (a couple of hours each day), I learnt:</p>
+      <ul>
+        <li>How to create a simple array</li>
+        <li>How to calculate the length of an array</li>
+        <li>How to get user input and set it as a variable</li>
+        <li>How to apply a variable to a HTML element’s attribute</li>
+        <li>How to run a function on page load</li>
+        <li>How to pass an array into an Ordered List</li>
+        <li>That there’s <a href="https://bost.ocks.org/mike/shuffle/compare.html">lots of different ways</a> to
+          randomise using JavaScript</li>
+        <li>That ring tricep-dips are really hard!</li>
+      </ul>
+
+
+    </section>
+
+    <!-- feedback - section -->
+    <section>
+      <h2>Feedback</h2>
+      <p>
+        If you have any comments on this article then please get in touch via Twitter (<a
+          href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
+      </p>
+    </section>
+
+    <!-- sharing - section -->
+    <section class="sharing">
+      <p>
+        Share this article:
+        <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/my-first-javascript-app.html&text=My%20first%20JavaScript%20app&via=dbs_sticky"
+          target="_blank">Twitter </a>·
+        <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/my-first-javascript-app.html&title=My%20first%20JavaScript%20app"
+          target="_blank"> LinkedIn </a>·
+        <a href="mailto:?subject=OnlyRSS.org%20article:%20My%20first%20JavaScript%20app&body=https://onlyrss.org/posts/my-first-javascript-app.html"
+          target="_blank"> Email</a>
+      </p>
+    </section>
+
+  </article>
+</body>
+
+</html>
