@@ -812,34 +812,3 @@ a.icons:active {
     padding-left: 10%;
     margin-top: 40px;
   }
-/* differentiate the app close button from normal buttons by its location */
-  .app-btn-close {
-    position: absolute;
-    margin :10px;
-    top: 0px;
-    right: 0px;
-    }
-
-  /* for image compare on hover */
-    .compare {
-      position:relative;
-    }
-    
-    .compare img {
-      display:block;
-      opacity:1;
-      height: auto;
-      transition:.6s ease;
-      width:100%;
-      position:absolute;
-      z-index:12;
-    }
-    .compare img:hover {
-      opacity:0;
-    }
-    .compare img + img {
-      display:block;
-      opacity:1;
-      position:relative;
-      z-index:10;
-    }
