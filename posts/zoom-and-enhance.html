@@ -73,21 +73,47 @@
 
   <!-- code to toggle images between original and restored-->
   <script>
-    var image_tracker = 'original';
-    
-    function change(){
-    var image = document.getElementById('original_restored');
-    if(image_tracker=='original'){
-    image.src='../images/test-restored.png';
-    image_tracker='restored';
+    var image_tracker1 = 'original1';
+    function change1(){
+    var image = document.getElementById('original_restored1');
+    if(image_tracker1=='original1'){
+    image.src='../images/mark-after.webp';
+    image_tracker1='restored1';
     }
     else{
-    image.src='../images/test-original.jpg';
-    image_tracker='original';
+    image.src='../images/mark-before.webp';
+    image_tracker1='original1';
     }
     };
- 
-  </script>
+
+    var image_tracker2 = 'original2';
+    function change2(){
+    var image = document.getElementById('original_restored2');
+    if(image_tracker2=='original2'){
+    image.src='../images/glyn-after.webp';
+    image_tracker2='restored2';
+    }
+    else{
+    image.src='../images/glyn-before.webp';
+    image_tracker2='original2';
+    }
+    };
+
+    var image_tracker3 = 'original3';
+    function change3(){
+    var image = document.getElementById('original_restored3');
+    if(image_tracker3=='original3'){
+    image.src='../images/rita-after.webp';
+    image_tracker3='restored3';
+    }
+    else{
+    image.src='../images/rita-before.webp';
+    image_tracker3='original3';
+    }
+    };
+ </script>
+
+
 
 </head>
 
@@ -104,7 +130,7 @@
     <header>
       <h1>Zoom and enhance!</h1>
       <div class="tldr">
-        <p>With modern off-the-shelf AI tools it's now possible to recolour and greatly restore faces in old or poor quality photos.</p>
+        <p>With modern off-the-shelf AI tools it's now possible to bring old or degraded photos back to life  by adding (or correcting) colour, and "recovering" faces.</p>
       </div>
       <p class="pubdate"><time datetime="2022-06-11">11 Jun 2022</time> · 4 mins · <a href="../pages/about.html"
           title="About me, and about this website">Mark Evans</a></p>
@@ -114,7 +140,21 @@
     <section>
       <h2>Background</h2>
 
-       <img src="../images/test-original.jpg" alt="Circle" id="original_restored" onclick="change();">
+
+      <figure>
+        <img img src="../images/mark-before.webp" id="original_restored1" width="1920" height="1080" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change1();">
+        <figcaption>My brother (right) and me (left) riding the ladybird carousel, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="../images/glyn-before.webp" id="original_restored2" width="1080" height="1080" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change2();">
+        <figcaption>My brother and paternal grandfather (aka <abbr title="A colloquial Welsh language word from South Wales meaning 'grandfather'">bampi</abbr>), circa 1975. <a href="https://www.google.com/maps/@51.6381811,-3.9624138,3a,75y,75.9h,90.86t/data=!3m6!1e1!3m4!1s5sIMcZvsdQLfuNUpn0LpZQ!2e0!7i16384!8i8192" target="_blank">2 Torrington Rd, Gendros, Swansea, UK</a>. Click or tap the image to toggle between original and restored images.</figcaption>
+      </figure>
+
+      <figure>
+        <img src="../images/rita-before.webp" id="original_restored3" width="1080" height="1920" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change3();">
+        <figcaption>My mom and maternal grandmother, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
+      </figure>
 
     </section>
 
