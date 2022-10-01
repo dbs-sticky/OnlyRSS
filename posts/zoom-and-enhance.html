@@ -111,6 +111,19 @@
     image_tracker3='original3';
     }
     };
+
+    var image_tracker4 = 'original4';
+    function change4(){
+    var image = document.getElementById('original_restored4');
+    if(image_tracker3=='original4'){
+    image.src='../images/modern-2px-blur-face-colourised.webp';
+    image_tracker3='restored4';
+    }
+    else{
+    image.src='../images/modern-2px-blur.webp';
+    image_tracker3='original4';
+    }
+    };
  </script>
 
 
@@ -143,7 +156,7 @@
 
       <figure>
         <img img src="../images/mark-before.webp" id="original_restored1" width="1920" height="1080" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change1();">
-        <figcaption>My brother (right) and me (left) riding the ladybird carousel, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
+        <figcaption>My brother (right) and me (left) riding a ladybird carousel, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
 
       <figure>
@@ -153,14 +166,27 @@
 
       <figure>
         <img src="../images/rita-before.webp" id="original_restored3" width="1080" height="1920" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change3();">
-        <figcaption>My mom and maternal grandmother, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
+        <figcaption>My mom and her mother, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
-
     </section>
 
     <!--My starting point-->
     <section>
-      <h2>First section</h2>
+      <h2>Are the results “real”?</h2>
+      For the images in the previous examples, the results look amazing, but, are they real? i.e. are they an accurate representation of the subjects in the photos? We can't know for sure, as when restoring old photos the only source of truth we have are the old photos themselves. But, what if we used a modern photo, removed the colour, and added a blur to the image in an attempt to make it look old? How closely would the results of face enhancement and colour restoration match the original image?
+      <h3>The “truth”</h3>
+      <p>For this experiment I used an image of the wife and me that was taken a couple of weeks ago.</p>
+      <figure>
+        <img src="../images/modern-original.webp" width="1000" height="1000" alt="A screenshot showing the figcaption CSS used on onlyRSS.org">
+        <figcaption>The good lady her indoors, and me.</figcaption>
+      </figure>
+      <p>I then desaturated the image and applied a 2&#8239;px blur to remove enough of the details such that it started to look like the old photos in the previous examples (actually, I think it looks worse). The result is shown in Figure 5 below.</p>
+      <p>If you click or tap on the image, you can then see the result of the face enhancement and colourising.</p>
+      <h3>The result</h3>
+      <figure>
+        <img src="../images/modern-2px-blur.webp" id="original_restored4" width="1000" height="1000" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change4();">
+        <figcaption>A degraded modern image, and the results of the restoration process. Click or tap the image to toggle between original and restored images.</figcaption>
+      </figure>
       <p> Paragraph
       </p>
     </section>
