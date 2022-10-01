@@ -13,9 +13,9 @@
   <!--Open Graph protocol meta tags-->
   <meta property="og:type" content="article">
   <meta property="article:author" content="Mark Evans">
-  <meta property="og:title" content="My first javascript app">
-  <meta property="og:url" content="https://onlyrss.org/posts/my-first-javascript-app.html">
-  <meta property="og:image" content="https://onlyrss.org/images/og/exercise-routine-og.png">
+  <meta property="og:title" content="Zoom and enhance!">
+  <meta property="og:url" content="https://onlyrss.org/posts/zoom-and-enhance.html">
+  <meta property="og:image" content="https://onlyrss.org/images/og/zoom-and-enhance-og.png">
   <meta property="og:description"
     content="Restoring old photos with AI colour and face enhancement.">
   <meta property="article:published_time" content="2022-10-01">
@@ -115,19 +115,16 @@
     var image_tracker4 = 'original4';
     function change4(){
     var image = document.getElementById('original_restored4');
-    if(image_tracker3=='original4'){
+    if(image_tracker4=='original4'){
     image.src='../images/modern-2px-blur-face-colourised.webp';
-    image_tracker3='restored4';
+    image_tracker4='restored4';
     }
     else{
     image.src='../images/modern-2px-blur.webp';
-    image_tracker3='original4';
+    image_tracker4='original4';
     }
     };
  </script>
-
-
-
 </head>
 
 <body>
@@ -143,7 +140,7 @@
     <header>
       <h1>Zoom and enhance!</h1>
       <div class="tldr">
-        <p>With modern off-the-shelf AI tools it's now possible to bring old or degraded photos back to life  by adding (or correcting) colour, and "recovering" faces.</p>
+        <p>With modern off-the-shelf AI tools it's now possible to bring old or degraded photos back to life  by adding (or correcting) colour, and enhancing faces.</p>
       </div>
       <p class="pubdate"><time datetime="2022-06-11">11 Jun 2022</time> · 4 mins · <a href="../pages/about.html"
           title="About me, and about this website">Mark Evans</a></p>
@@ -152,38 +149,56 @@
     <!--introduction-->
     <section>
       <h2>Background</h2>
-        <p>"Zoom and enhance!" is a <a href="https://knowyourmeme.com/memes/zoom-and-enhance"> movie trope</a> that has long infuriated anyone who has even the most basic understanding of what is (and isn't) possible when manipulating images or video. In the past I often found myself shouting “You can't recover information that was never there!” at the TV. Well, it turns out that for movies/shows based before 2022 I was right, but for those based during or after 2022, it's starting to look like I was very wrong indeed.
+        <p>"Zoom and enhance!" is a <a href="https://knowyourmeme.com/memes/zoom-and-enhance"> movie trope</a> that has long infuriated anyone who has even the most basic understanding of what is (and isn't) possible when manipulating images. In the past I often found myself shouting “You can't recover information that was never there!” at the TV. Well, it turns out that for movies and TV shows based before 2022 my rants were justified, but, for those based during or after 2022, it's starting to look like I was very wrong.</p>
+    
+    <!-- Tools - section -->
+    <section>
+      <h2>The restoration tools</h2>
+        <ul>
+          <li>For the <strong>face enhancement</strong> I’ve been using the <a href="https://www.baseten.co/gallery/photo-restoration-gfp-gan">Baseten application</a> that uses the <a href="https://xinntao.github.io/projects/gfpgan">GFP-GAN algorithm</a>. </li>
+          <li>For the <strong>colourisation</strong> I’ve been using the <a href="https://palette.fm/">Palette online app</a>.</li>
+        </ul>
+    </section>
+
+    <!-- Examples - section -->
+    <section>
+      <h2>Examples</h2>
+      <p> Below are 3 examples using my own family photographs that date between 1949 and 1979. Figures 1 & 3 were originally black & white. While Figure 2 was originally colour, but the colour has degraded considerably and now has a very strong red colour cast. Each photo was digitised by scanning the original print (not the negative).
+      </p>
+    </section>
 
       <figure>
+        <strong><p style="text-align:center;">Click or tap the image to toggle between original and restored images</p></strong>
         <img img src="../images/mark-before.webp" id="original_restored1" width="1920" height="1080" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change1();">
         <figcaption>My brother (right) and me (left) riding a ladybird carousel, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
 
       <figure>
+        <strong><p style="text-align:center;">Click or tap the image to toggle between original and restored images</p></strong>
         <img src="../images/glyn-before.webp" id="original_restored2" width="1080" height="1080" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change2();">
         <figcaption>My brother and paternal grandfather (aka <abbr title="A colloquial Welsh language word from South Wales meaning 'grandfather'">bampi</abbr>), circa 1975. <a href="https://www.google.com/maps/@51.6381811,-3.9624138,3a,75y,75.9h,90.86t/data=!3m6!1e1!3m4!1s5sIMcZvsdQLfuNUpn0LpZQ!2e0!7i16384!8i8192" target="_blank">2 Torrington Rd, Gendros, Swansea, UK</a>. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
 
       <figure>
+        <strong><p style="text-align:center;">Click or tap the image to toggle between original and restored images</p></strong>
         <img src="../images/rita-before.webp" id="original_restored3" width="1080" height="1920" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change3();">
-        <figcaption>My mom and her mother, circa 1979. Click or tap the image to toggle between original and restored images.</figcaption>
+        <figcaption>My mom and her mother, circa 1949. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
     </section>
 
     <!--My starting point-->
-    <section>
+    <p>
       <h2>Are the results “real”?</h2>
-      For the images in the previous examples, the results look amazing, but, are they real? i.e. are they an accurate representation of the subjects in the photos? We can't know for sure, as when restoring old photos the only source of truth we have are the old photos themselves. But, what if we used a modern photo, removed the colour, and added a blur to the image in an attempt to make it look old? How closely would the results of face enhancement and colour restoration match the original image?
-      <h3>The “truth”</h3>
-      <p>For this experiment I used an image of the wife and me that was taken a couple of weeks ago.</p>
+      <p>
+      The results in the examples above look amazing, but, are they real? i.e. are they an accurate representation of the original photos’ subjects? We can't know for sure, as when restoring old photos the only source of truth we have are the old photos themselves. But, what if we used a modern photo, removed the colour, and added a blur to the image in an attempt to make it look old? How closely would the results of face enhancement and colour restoration match the original image?</p>
+      <p>For this experiment I used an image of the wife and me that was taken a couple of weeks ago. I then desaturated the image and applied a 2&#8239;px blur to remove enough of the details such that it started to look like the old photos in the examples above (actually, I think it looks worse).</p>
+      <p>The original image is shown in Figure 4 below. The degraded image is shown in Figure 5, you can click or tap on Figure 5 to see the result of the restoration.</p>
       <figure>
         <img src="../images/modern-original.webp" width="1000" height="1000" alt="A screenshot showing the figcaption CSS used on onlyRSS.org">
         <figcaption>The good lady her indoors, and me.</figcaption>
       </figure>
-      <p>I then desaturated the image and applied a 2&#8239;px blur to remove enough of the details such that it started to look like the old photos in the previous examples (actually, I think it looks worse). The result is shown in Figure 5 below.</p>
-      <p>If you click or tap on the image, you can then see the result of the face enhancement and colourising.</p>
-      <h3>The result</h3>
       <figure>
+        <strong><p style="text-align:center;">Click or tap the image to toggle between original and restored images</p></strong>
         <img src="../images/modern-2px-blur.webp" id="original_restored4" width="1000" height="1000" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change4();">
         <figcaption>A degraded modern image, and the results of the restoration process. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
