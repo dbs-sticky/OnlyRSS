@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zoom and enhance!</title>
   <meta name="description"
-    content="Restoring old photos with AI colour and face enhancement.">
+    content="My experiment with restoring old family photos using AI restoration tools i.e. Palette and GFP-GAN.">
   <meta name="author" content="Mark Evans">
   <meta name="theme-color" content="#ffffff">
 
@@ -15,9 +15,9 @@
   <meta property="article:author" content="Mark Evans">
   <meta property="og:title" content="Zoom and enhance!">
   <meta property="og:url" content="https://onlyrss.org/posts/zoom-and-enhance.html">
-  <meta property="og:image" content="https://onlyrss.org/images/og/zoom-and-enhance-og.png">
+  <meta property="og:image" content="https://onlyrss.org/images/og/zoom-and-enhance-og.jpg">
   <meta property="og:description"
-    content="Restoring old photos with AI colour and face enhancement.">
+    content="My experiment with restoring old family photos using AI restoration tools i.e. Palette and GFP-GAN.">
   <meta property="article:published_time" content="2022-10-02">
 
   <!--Favicons and Touch Icons and web manifest-->
@@ -70,6 +70,13 @@
       src: url(../fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
     }
   </style>
+
+  <!-- Service worker for installable app-->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
 
   <!-- code to toggle images between original and restored-->
   <script>
@@ -140,7 +147,7 @@
     <header>
       <h1>Zoom and enhance!</h1>
       <div class="tldr">
-        <p>With modern off-the-shelf AI tools it's now possible to bring old or degraded photos back to life  by adding (or correcting) colour, and enhancing faces.</p>
+        <p>With modern off-the-shelf AI tools, it's now possible to bring old or degraded photos back to life by adding (or correcting) colour, and enhancing faces.</p>
       </div>
       <p class="pubdate"><time datetime="2022-10-02">02 Sep 2022</time> · 4 mins · <a href="../pages/about.html"
           title="About me, and about this website">Mark Evans</a></p>
@@ -149,13 +156,13 @@
     <!--introduction-->
     <section>
       <h2>Background</h2>
-        <p>"Zoom and enhance!" is a <a href="https://knowyourmeme.com/memes/zoom-and-enhance"> movie trope</a> that has long infuriated anyone who has even the most basic understanding of what is (and isn't) possible when manipulating images. In the past I often found myself shouting at the TV, “You can't recover information that was never there!”. It turns out that for movies and TV shows set before 2022 my outburts were justified, but, for those set during or after 2022, it's starting to look like I was very wrong.</p>
+        <p>"Zoom and enhance!" is a <a href="https://knowyourmeme.com/memes/zoom-and-enhance"> movie trope</a> that has long infuriated anyone who has even the most basic understanding of what is (and isn't) possible when manipulating images. In the past I often found myself shouting at the TV, “You can't recover information that was never there!”. It turns out that for movies and TV shows set before 2022 my outbursts were justified, but for those set during or after 2022, it's starting to look like I was very wrong.</p>
         <blockquote>
           <q>Zoom and enhance!</q><br>
           — Rick Deckard (and everyone who's ever been in CSI)
         </blockquote>
         <p>With recent advances in AI—especially with regard to image interpretation, manipulation, and generation—a few new tools have become available online that remove a lot of the skill that was previously required to enhance and colourise old black & white, or colour degraded photos.</p>
-        <p>Below I provide links to 2 such AI tools, and include 3 examples of old family photos that I've restored using them. I've also taken a recent colour photo, degraded it, and then used the same tools to see how the “restored” version compares with the unaltered original.</p>
+        <p>Below I provide links to 2 such AI tools and include 3 examples of old family photos that I've restored using them. I've also taken a recent colour photo, degraded it, and then used the same tools to see how the “restored” version compares with the unaltered original.</p>
     
     <!-- Tools - section -->
     <section>
@@ -196,7 +203,7 @@
     <p>
       <h2>Are the results “real”?</h2>
       <p>
-      The results in the examples above look amazing, but, are they real? i.e. are they an accurate representation of the original photos’ subjects? We can't know for sure, as when restoring old photos the only source of truth we have are the old photos themselves. But, what if we used a modern photo, removed the colour, and added a blur to the image in an attempt to make it look old? How closely would the results of face enhancement and colour restoration match the original image?</p>
+      The results in the examples above look amazing, but are they real? i.e. are they an accurate representation of the original photos’ subjects? We can't know for sure, as when restoring old photos the only source of truth we have are the old photos themselves. But what if we used a modern photo, removed the colour, and added a blur to the image in an attempt to make it look old? How closely would the results of face enhancement and colour restoration match the original image?</p>
       <p>For this experiment I used an image of the wife and me that was taken a couple of weeks ago. I then desaturated the image and applied a 2&#8239;px blur to remove enough of the details such that it started to look like the old photos in the examples above (actually, I think it looks worse).</p>
       <p>The original image is shown in Figure 4 below. The degraded image is shown in Figure 5, you can click or tap on Figure 5 to see the result of the restoration.</p>
       <figure>
@@ -208,7 +215,7 @@
         <img src="../images/modern-2px-blur.webp" id="original_restored4" width="1000" height="1000" alt="A screenshot showing the figcaption CSS used on onlyRSS.org" onclick="change4();">
         <figcaption>A degraded modern image, and the results of the restoration process. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
-      <p> There's some pink flowers in the bush that should be green, and the face enhancement has decided to shave my beard off, but apart from that it's pretty good. Is it as good as the original? of course not. The key point here is that it's substantially better than the degraded image, and it's close enough to the original that it doesn't look like the faces or colour are "made up".
+      <p> There are some pink flowers in the bush that should be green, and the face enhancement has decided to shave my beard off, but apart from that it's pretty good. Is it as good as the original? of course not. The key point here is that it's substantially better than the degraded image, and it's close enough to the original that it doesn't look like the faces or colour are "made up".
       </p>
     </section>
 
