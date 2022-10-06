@@ -145,6 +145,20 @@
     }
     };
 
+
+    var image_tracker6 = 'original6';
+    function change6(){
+    var image = document.getElementById('original_restored6');
+    if(image_tracker6=='original6'){
+    image.src='../images/gillian-restored.webp';
+    image_tracker6='restored6';
+    }
+    else{
+    image.src='../images/gillian-original.webp';
+    image_tracker6='original6';
+    }
+    };
+
  </script>
 </head>
 
@@ -176,7 +190,7 @@
           — Rick Deckard (and every character from CSI)
         </blockquote>
         <p>With recent advances in AI—especially with regard to image interpretation, manipulation, and generation—a few new tools have become available online that remove a lot of the skill that was previously required to enhance and colourise old black & white, or colour degraded photos.</p>
-        <p>Below I provide links to 2 such AI tools and include 4 examples of old family photos that I've restored using them. I've also taken a recent colour photo, degraded it, and then used the same tools to see how the “restored” version compares with the unaltered original.</p>
+        <p>Below I provide links to 2 such AI tools and include 5 examples of old family photos that I've restored using them. I've also taken a recent colour photo, degraded it, and then used the same tools to see how the “restored” version compares with the unaltered original.</p>
     
     <!-- Tools - section -->
     <section>
@@ -190,7 +204,7 @@
     <!-- Examples - section -->
     <section>
       <h2>Examples</h2>
-      <p> Below are 4 examples using my own family photographs that date between 1920 and 1979. Figures 1 & 3 were originally black & white. While Figure 2 was originally colour, but the colour has degraded considerably and now has a very strong red cast. Each photo was digitised by scanning the original print (not the negative). Figure 4 is a duotone.
+      <p> Below are 5 examples using my own family photographs that date between 1920 and 1979. Figures 1, 3, and 5 were originally black & white. While Figure 2 was originally colour, but the colour has degraded considerably and now has a very strong red cast. Figure 4 is a duotone. Each photo was digitised by scanning the original print (not the negative).
       </p>
     </section>
 
@@ -214,8 +228,15 @@
 
       <figure>
         <strong><p style="text-align:center;">Click or tap the image to toggle between original and restored images</p></strong>
-        <img src="../images/edith-original.webp" id="original_restored5" width="1000" height="100" alt="A portrait photograph of a girl in her early twenties. The image is a duotone photograph and is out of focus. It's shows with a sharp full colour restored version." onclick="change5();">
+        <img src="../images/edith-original.webp" id="original_restored5" width="1000" height="1000" alt="A portrait photograph of a girl in her early twenties. The image is a duotone photograph and is out of focus. It's shows with a sharp full colour restored version." onclick="change5();">
         <figcaption>Edith Lilian Evans (nee Mabbett, born 1899), my great-grandmother, circa 1920. Click or tap the image to toggle between original and restored images.</figcaption>
+      </figure>
+
+
+      <figure>
+        <strong><p style="text-align:center;">Click or tap the image to toggle between original and restored images</p></strong>
+        <img src="../images/gillian-original.webp" id="original_restored6" width="1000" height="756" alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version." onclick="change6();">
+        <figcaption>Gillian Heinson (my mom's cousin), circa 1947. Click or tap the image to toggle between original and restored images.</figcaption>
       </figure>
 
     </section>
