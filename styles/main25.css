@@ -5,7 +5,7 @@
   --saturation: 50%;
   --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
-  --radius: 5px;
+  --radius: 8px;
 }
 
 html {
@@ -862,20 +862,34 @@ a.icons:active {
   }
 
     /* table formatting - width is set in media queries */
-   .learning-log {
+  .learning-log {
     margin:auto;
     text-align: left;
     margin-top:40px;
     margin-bottom:40px;
-    border-collapse: collapse;
+    border-collapse: collapse; /* creates single border between cells */
     font-size: 0.85rem;
-   }
-
-   tr {
-      border-bottom: 0.5pt solid rgb(211, 211, 211);
-   }
+    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
+    border-radius: var(--radius) var(--radius) 0 0;
+    overflow: hidden; /* required for the border radius above to work */
+  }
 
     /* set the first column to 70% of the whole table width */
-   th:first-child{
-      width:85%;
+  .learning-log th:first-child{
+    width:85%;
    }  
+    /* define the header row font and background color */
+  .learning-log th {
+    font-weight: 500;
+    background-color: var(--accent-light);
+   }
+
+  .learning-log th,
+  .learning-log td {
+    padding: 7px 15px;
+    border-bottom: 0.5pt solid rgb(211, 211, 211);
+  }
+    /* set the very bottom border style */
+  .learning-log tbody tr:last-of-type {
+    border-bottom: 3px solid var(--accent-light);
+  }
