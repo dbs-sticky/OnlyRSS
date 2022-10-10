@@ -40,7 +40,7 @@ body {
   aside,
   nav {
     padding-left: 30px;
-    padding-right: 20px;
+    padding-right: 30px;
   }
 
   blockquote {
@@ -60,6 +60,14 @@ body {
     margin:auto;
     width:100%;
   }
+
+    /* her image to ignore page padding */
+    .img-hero {
+      margin-left: -30px;
+      margin-right: -30px;
+      margin-top: -40px;
+      width: calc(100% + 60px);
+    }
 
 }
 
@@ -100,6 +108,13 @@ body {
     width:70%;
   }
 
+  /* set hero image to ignore page padding */
+  .img-hero {
+    margin-left: -60px;
+    margin-right: -60px;
+    margin-top: -40px;
+    width: calc(100% + 120px);
+  }
 }
 
 
@@ -892,4 +907,11 @@ a.icons:active {
     /* set the very bottom border style */
   .learning-log tbody tr:last-of-type {
     border-bottom: 3px solid var(--accent-light);
+  }
+
+  /* size is set in media queries */
+  .img-hero {
+    padding-bottom: 30px;
+    max-width: 970px;
+    border-radius: var(--radius) var(--radius) 0 0;
   }
