@@ -6,6 +6,7 @@
   --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
   --radius: 8px;
+
 }
 
 html {
@@ -884,16 +885,16 @@ a.icons:active {
     margin-bottom:40px;
     border-collapse: collapse; /* creates single border between cells */
     font-size: 0.85rem;
-    box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
+    box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
     border-radius: var(--radius) var(--radius) 0 0;
-    overflow: hidden; /* required for the border radius above to work */
+    overflow: hidden; 
   }
 
-    /* set the first column to 70% of the whole table width */
+    /* set the first column to 15% of the whole table width */
   .learning-log th:first-child{
-    width:85%;
+    width:15%;
    }  
-    /* define the header row font and background color */
+    /* define the header row font and background colour */
   .learning-log th {
     font-weight: 500;
     background-color: var(--accent-light);
@@ -902,12 +903,39 @@ a.icons:active {
   .learning-log th,
   .learning-log td {
     padding: 7px 15px;
-    border-bottom: 0.5pt solid rgb(211, 211, 211);
+    /* border-bottom: 0.5pt solid rgb(211, 211, 211); */
   }
-    /* set the very bottom border style */
+
   .learning-log tbody tr:last-of-type {
     border-bottom: 3px solid var(--accent-light);
   }
+
+  /* Progress bar within table cells */
+  div.progressbar {
+    position: relative;
+  }
+
+  /* --progress is in the HTML as an inline style */
+  div.progressbar:before {
+    content: "" ;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: var(--progress);
+    border-bottom: 2pt solid rgb(226, 226, 226);
+  }
+
+  /* This will add a label to the end of the progress bar, but it can't be read  from the inline CSS variable */
+
+  /* div.progressbar:after {
+    font-size: 0.7rem;
+    content: counter(progress);
+    position: absolute;
+    right: -3px;
+    bottom: -12px;
+    width: calc(100% - var(--progress));
+    color: rgb(175, 175, 175);
+  } */
 
   /* size is set in media queries */
   .img-hero {
