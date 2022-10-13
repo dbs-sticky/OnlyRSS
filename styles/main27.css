@@ -911,33 +911,20 @@ a.icons:active {
   }
 
   /* Progress bar within table cells */
-  div.progressbar {
+  td.progressbar {
     position: relative;
   }
 
   /* --progress is in the HTML as an inline style */
-  div.progressbar:before {
+  td.progressbar:before {
     content: "" ;
     position: absolute;
-    left: 0px;
-    bottom: 0px;
-    width: var(--progress);
+    bottom: 8px;
+    width: calc(var(--progress)*0.92);   /* the x0.92 is to stop the line hitting the right edge of the cell, due to the 15px margin */
     border-bottom: 2pt solid rgb(226, 226, 226);
   }
 
-  /* This will add a label to the end of the progress bar, but it can't be read  from the inline CSS variable */
-
-  /* div.progressbar:after {
-    font-size: 0.7rem;
-    content: counter(progress);
-    position: absolute;
-    right: -3px;
-    bottom: -12px;
-    width: calc(100% - var(--progress));
-    color: rgb(175, 175, 175);
-  } */
-
-  /* size is set in media queries */
+  /* hero image- size is set in media queries */
   .img-hero {
     padding-bottom: 30px;
     max-width: 970px;
