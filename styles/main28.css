@@ -42,6 +42,7 @@ body {
   nav {
     padding-left: 30px;
     padding-right: 30px;
+    
   }
 
   blockquote {
@@ -62,13 +63,13 @@ body {
     width:100%;
   }
 
-    /* hero image to ignore page padding */
-    .img-hero {
-      margin-left: -30px;
-      margin-right: -30px;
-      margin-top: -40px;
-      width: calc(100% + 60px);
-    }
+  /* hero image to ignore page padding */
+  .img-hero {
+    margin-left: -30px;
+    margin-right: -30px;
+    margin-top: -40px;
+    width: calc(100% + 60px);
+  }
 
 }
 
@@ -410,8 +411,8 @@ hr {
 nav {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 8px;
+  right: 8px;
   display: flex; 
   background-color: white;
   max-width: var(--pagewidth);
@@ -419,10 +420,22 @@ nav {
   font-family: 'Roboto Condensed', sans-serif;
   border-radius: 0 0   var(--radius) var(--radius);
   border: 1px solid LightGrey;
-  box-shadow: 0 0px 10px  rgb(0 0 0 / 15%);
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
   text-transform: uppercase;
   z-index: 1;
   transition: top 0.5s;
+}
+
+article,
+main,
+aside {
+  background-color: #ffffff;
+  border-radius: var(--radius);
+  border: 1px solid LightGrey;
+  max-width: var(--pagewidth);
+  margin: auto;
+  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
+  margin-bottom: 20px;
 }
 
 nav a{
