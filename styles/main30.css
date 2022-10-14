@@ -1,12 +1,16 @@
 /* define global page variables, e.g. page width and accent colour */
 :root {
-  --pagewidth: 850px;
+  --pagewidth: 960px;
   --hue:215;
   --saturation: 50%;
   --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
   --radius: 8px;
 
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -40,8 +44,8 @@ body {
   main,
   aside,
   nav {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
     
   }
 
@@ -144,17 +148,11 @@ aside {
 }
 
 /* padding so top of content is below fixed global nav */
-nav + article {
-margin-top: 70px;
-}
-
-nav + main {
-margin-top: 70px;
-}
-
+nav + article,
+nav + main,
 nav + main.home-grid {
-  margin-top: 50px;
-  }
+margin-top: 3.5rem;
+}
 
 article,
 main {
@@ -381,28 +379,28 @@ hr {
     SOCIAL SHARING
     ====================== */
 
-    .sharing {
-      background-color: var(--accent-light);
-      border-radius: var(--radius);
-      font-weight: 500;
-      font-size: 0.8rem;
-      margin-bottom: 2rem;
-      padding: 0.1rem 1rem;
-    }
+  .sharing {
+    background-color: var(--accent-light);
+    border-radius: var(--radius);
+    font-weight: 500;
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    padding: 0.1rem 1rem;
+  }
 
+
+  /* removed the link indicator used for all other links */
+  .sharing a::after {
+    content:none;
+  }
+  .sharing a {
+    color: var(--accent);
+  }
   
-    /* removed the link indicator used for all other links */
-    .sharing a::after {
-      content:none;
-    }
-    .sharing a {
-      color: var(--accent);
-    }
-    
-    /* override the internal/external colour for links */
-    .sharing a:hover {
-      color: var(--accent);
-    }
+  /* override the internal/external colour for links */
+  .sharing a:hover {
+    color: var(--accent);
+  }
     
 /*  ======================
     NAVIGATION
@@ -440,7 +438,7 @@ aside {
 
 nav a{
   color: var(--accent);
-  padding: 10px 10px;
+  padding: 5px 10px;
   text-decoration: none;
   font-size: 17px;
   border-bottom: 3px solid transparent;
@@ -707,7 +705,6 @@ a.icons:active {
   .home-grid {
     font-family: 'OpenSans', sans-serif;
     font-weight: 400;
-    margin: auto;
     background-color: transparent;
     display: flex;
     flex-flow: wrap;
