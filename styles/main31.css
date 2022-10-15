@@ -921,7 +921,7 @@ a.icons:active {
   .learning-log th,
   .learning-log td {
     padding: 7px 15px;
-    /* border-bottom: 0.5pt solid rgb(211, 211, 211); */
+    /* border-bottom: 0.5px solid rgb(211, 211, 211); */
   }
 
   .learning-log tbody tr:last-of-type {
