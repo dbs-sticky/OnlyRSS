@@ -1,4 +1,4 @@
-/* define global page variables, e.g. page width and accent colour */
+/* define global site variables */
 :root {
   --pagewidth: 960px;
   --hue:215;
@@ -9,10 +9,11 @@
 
 }
 
+/* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 html {
@@ -21,14 +22,14 @@ html {
   color: #000000;
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
   accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
-  scroll-padding-top: 6rem; /* for fixed global nav */
   scroll-behavior: smooth;
 }
 
 /* so that global nav bar touches top of viewport */
 body {
-  margin-top:0px;
   counter-reset: figures;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /*  ======================
@@ -46,13 +47,18 @@ body {
   main,
   aside,
   nav {
-    padding-left: 25px;
-    padding-right: 25px;
-    
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
-  blockquote {
+  blockquote
+ {
     margin-left: 0px !important;
+  }
+
+  ul,
+  ol {
+    margin-left: 1rem !important;
   }
 
   a.icons svg {
@@ -82,7 +88,7 @@ body {
 /* set size for >768px 120% */
 @media screen and (min-width: 768px) {
   html {
-    font-size: 110%;
+    font-size: 105%;
     line-height: 1.8;
   }
 
@@ -90,12 +96,17 @@ body {
   main,
   aside,
   nav {
-    padding-left: 60px;
-    padding-right: 60px;
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 
   blockquote {
-    margin-left: 30px !important;
+    margin-left: 2rem !important;
+  }
+
+  ul,
+  ol {
+    margin-left: 3rem !important;
   }
 
   abbr[title]:hover::after {
@@ -144,9 +155,12 @@ aside {
   border-radius: var(--radius);
   border: 1px solid LightGrey;
   max-width: var(--pagewidth);
-  margin: auto;
+  /* margin: auto; */
   box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+  padding-top: 0px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
 }
 
 /* padding so top of content is below fixed global nav */
@@ -158,7 +172,7 @@ margin-top: 3.5rem;
 
 article,
 main {
-  padding-top: 33px;
+  padding-top: 2rem;
 
 }
 
@@ -170,6 +184,11 @@ aside {
     TYPOGRAPHY IMAGES and TLDR
     ====================== */
 
+/* Paragraphs */
+
+p {
+  margin: 1em 0px;
+}
 
 /* Headings - shared */
 h1,
@@ -183,8 +202,7 @@ h6 {
   font-weight: 400;
   line-height: 1.8rem;
     /* keep the space between headings tight */
-    margin-bottom: 0.3rem;
-    margin-top: 0.4rem;
+    margin: 0.4em 0px;
 }
 
 /* Headings - individual */
@@ -251,8 +269,8 @@ a {
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid var(--accent);
-  margin: 30px;
-  padding: 20px;
+  margin: 2rem 0;
+  padding: 1rem;
   font-size: 0.9em;
   font-weight: 500;
   font-style:normal;
@@ -291,20 +309,15 @@ pre code {
   word-wrap: break-word;
 }
 
-/* Lists - remove left padding so indents overhang, set disc, and set marker colour */
+
 ul,
 ol {
-  padding-left: 0px;
-  padding-bottom: 1.0rem;
+  margin: 2rem 0;
   line-height: 1.6rem;
-  margin-top: 0px;
 }
 
-ul {
-  list-style-type: disc;
-}
 
-::marker {
+li::marker {
   color: var(--accent);
 }
 
@@ -410,20 +423,21 @@ hr {
 
 nav {
   position: fixed;
-  top: 0;
-  left: 8px;
-  right: 8px;
+  top: 0px;
   display: flex; 
   background-color: white;
   max-width: var(--pagewidth);
   margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
-  border-radius: 0 0   var(--radius) var(--radius);
+  border-radius: 0 0 var(--radius) var(--radius);
   border: 1px solid LightGrey;
   box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
   text-transform: uppercase;
   z-index: 1;
   transition: top 0.5s;
+  /* this is required as fixed items ignore the page (containers) padding/margin) */
+  left: 10px;
+  right: 10px;
 }
 
 article,
