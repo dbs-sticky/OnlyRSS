@@ -30,7 +30,7 @@
   <link rel="manifest" href="../manifest.json">
 
   <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="../styles/main32.css">
+  <link rel="stylesheet" type="text/css" href="../styles/main33.css">
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="../feed.xml">
 
   <style>
@@ -151,16 +151,14 @@
         something like “Figure 5.”:</p>
       <pre><code>figcaption::before {content: 'Figure ' counter(figures) '. ';}</code></pre>
       <h2>Implementation example</h2>
-      <p>The screenshots below show the CSS used on OnlyRSS.org to display figcaptions, and the HTML used to generate
+      <p>The code below shows the CSS used on OnlyRSS.org to display figcaptions, and the HTML used to generate
         figures 1 & 2.</p>
       <figure>
-        <img src="../images/numbering-figures-css.png" width="793" height="259"
-          alt="A screenshot showing the figcaption CSS used on onlyRSS.org">
+        <script src="https://gist.github.com/dbs-sticky/087c723dad39056686bb32b41de0ce5b.js"></script>
         <figcaption>The CSS used on OnlyRSS.org to automatically number all figures.</figcaption>
       </figure>
       <figure>
-        <img src="../images/numbering-figures-html.png" width="793" height="200"
-          alt="A screenshot showing the figcaption HTML used to display figure 1 and figure 2.">
+        <script src="https://gist.github.com/dbs-sticky/73f2ad2a6a10b060ed4b47d47f2c876d.js"></script>
         <figcaption>The HTML used on this page to display figures 1 & 2.</figcaption>
       </figure>
       <p>You’ll notice from figure 2 above that the figcaption HTML elements do NOT include the text “Figure 1.” or

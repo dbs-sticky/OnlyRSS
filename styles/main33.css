@@ -277,11 +277,10 @@ abbr {
 
 /* code blocks */
 pre code {
-  background-color: rgb(0, 0, 0);
-  border: 1px solid #999;
+  border: 1px solid rgb(221, 221, 221);
   display: inline-block;
   padding: 10px;
-  color: #cfcfcf;
+  color: #000000;
   border-radius: var(--radius);
   font-size: 0.7rem;
   /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
