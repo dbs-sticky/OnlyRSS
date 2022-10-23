@@ -5,9 +5,9 @@
   --saturation: 50%;
   --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
-  --radius: 8px;
-  /* left/right gap between browser edge and content for narrow displays. Set here as it's used in <body> and separately for the <nav> (nav uses "absolute" positioning so ignores the padding set on <body>, hence the inclusion as a variable. */
-  --viewport-padding: 10px; 
+  --radius: 10px;
+  /* This defines the left/right padding between the browser edge and content for narrow displays. Set here as it's used in <body> and separately for the <nav> (nav uses "absolute" positioning so ignores the padding set on <body>, hence the inclusion as a variable. */
+  --viewport-padding: 10px;
 }
 
 /* Switch to 'border box', and reset browser margin & padding to zero */
