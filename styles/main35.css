@@ -489,7 +489,8 @@ button:hover {
 /*  ======================
     RELATED ARTICLES
     ====================== */
-aside h1, h2 {
+aside h1,
+aside h2 {
   font-size: 1.2rem;
 }
     
