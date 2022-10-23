@@ -84,11 +84,11 @@
     function change1() {
       var image = document.getElementById('original_restored1');
       if (image_tracker1 == 'original1') {
-        image.src = '../images/mark-after.webp';
+        image.src = '/images/mark-after.webp';
         image_tracker1 = 'restored1';
       }
       else {
-        image.src = '../images/mark-before.webp';
+        image.src = '/images/mark-before.webp';
         image_tracker1 = 'original1';
       }
     };
@@ -97,11 +97,11 @@
     function change2() {
       var image = document.getElementById('original_restored2');
       if (image_tracker2 == 'original2') {
-        image.src = '../images/glyn-after.webp';
+        image.src = '/images/glyn-after.webp';
         image_tracker2 = 'restored2';
       }
       else {
-        image.src = '../images/glyn-before.webp';
+        image.src = '/images/glyn-before.webp';
         image_tracker2 = 'original2';
       }
     };
@@ -110,11 +110,11 @@
     function change3() {
       var image = document.getElementById('original_restored3');
       if (image_tracker3 == 'original3') {
-        image.src = '../images/rita-after.webp';
+        image.src = '/images/rita-after.webp';
         image_tracker3 = 'restored3';
       }
       else {
-        image.src = '../images/rita-before.webp';
+        image.src = '/images/rita-before.webp';
         image_tracker3 = 'original3';
       }
     };
@@ -123,11 +123,11 @@
     function change4() {
       var image = document.getElementById('original_restored4');
       if (image_tracker4 == 'original4') {
-        image.src = '../images/modern-2px-blur-face-colourised.webp';
+        image.src = '/images/modern-2px-blur-face-colourised.webp';
         image_tracker4 = 'restored4';
       }
       else {
-        image.src = '../images/modern-2px-blur.webp';
+        image.src = '/images/modern-2px-blur.webp';
         image_tracker4 = 'original4';
       }
     };
@@ -136,11 +136,11 @@
     function change5() {
       var image = document.getElementById('original_restored5');
       if (image_tracker5 == 'original5') {
-        image.src = '../images/edith-restored.webp';
+        image.src = '/images/edith-restored.webp';
         image_tracker5 = 'restored5';
       }
       else {
-        image.src = '../images/edith-original.webp';
+        image.src = '/images/edith-original.webp';
         image_tracker5 = 'original5';
       }
     };
@@ -150,11 +150,11 @@
     function change6() {
       var image = document.getElementById('original_restored6');
       if (image_tracker6 == 'original6') {
-        image.src = '../images/gillian-restored.webp';
+        image.src = '/images/gillian-restored.webp';
         image_tracker6 = 'restored6';
       }
       else {
-        image.src = '../images/gillian-original.webp';
+        image.src = '/images/gillian-original.webp';
         image_tracker6 = 'original6';
       }
     };
@@ -226,7 +226,7 @@
       <figure>
         <p style="text-align:center;"><strong>Click or tap the image to toggle between original and restored
             images</strong></p>
-        <img src="../images/mark-before.webp" id="original_restored1" width="1920" height="1080"
+        <img src="/images/mark-before.webp" id="original_restored1" width="1920" height="1080"
           alt="Two young boys on a ladybird ride. Showing a blurry original version, and a restored full colour version."
           onclick="change1();">
         <figcaption>My brother (right) and me (left) riding a ladybird carousel, circa 1979. Click or tap the image to
@@ -236,7 +236,7 @@
       <figure>
         <p style="text-align:center;"><strong>Click or tap the image to toggle between original and restored
             images</strong></p>
-        <img src="../images/glyn-before.webp" id="original_restored2" width="1080" height="1080"
+        <img src="/images/glyn-before.webp" id="original_restored2" width="1080" height="1080"
           alt="A red cast image of a young boy and his grandfather. Showing the original version, and a restored full colour version."
           onclick="change2();">
         <figcaption>My brother and paternal grandfather (aka <abbr
@@ -250,7 +250,7 @@
       <figure>
         <p style="text-align:center;"><strong>Click or tap the image to toggle between original and restored
             images</strong></p>
-        <img src="../images/rita-before.webp" id="original_restored3" width="1080" height="1920"
+        <img src="/images/rita-before.webp" id="original_restored3" width="1080" height="1920"
           alt="A young girl and her monther in black and white. And a full colour restored version"
           onclick="change3();">
         <figcaption>My mom and her mother, circa 1949. Click or tap the image to toggle between original and restored
@@ -260,7 +260,7 @@
       <figure>
         <p style="text-align:center;"><strong>Click or tap the image to toggle between original and restored
             images</strong></p>
-        <img src="../images/edith-original.webp" id="original_restored5" width="1000" height="1000"
+        <img src="/images/edith-original.webp" id="original_restored5" width="1000" height="1000"
           alt="A portrait photograph of a girl in her early twenties. The image is a duotone photograph and is out of focus. It's shows with a sharp full colour restored version."
           onclick="change5();">
         <figcaption>Edith Lilian Evans (nee Mabbett, born 1899), my great-grandmother, circa 1920. Click or tap the
@@ -271,7 +271,7 @@
       <figure>
         <p style="text-align:center;"><strong>Click or tap the image to toggle between original and restored
             images</strong></p>
-        <img src="../images/gillian-original.webp" id="original_restored6" width="1000" height="756"
+        <img src="/images/gillian-original.webp" id="original_restored6" width="1000" height="756"
           alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version."
           onclick="change6();">
         <figcaption>Gillian Heinson (my mom's cousin), circa 1947. Click or tap the image to toggle between original and
@@ -298,14 +298,14 @@
       <p>The original image is shown in Figure 6 below. The degraded image is shown in Figure 7, you can click or tap on
         Figure 7 to see the result of the restoration.</p>
       <figure>
-        <img src="../images/modern-original.webp" width="1000" height="1000"
+        <img src="/images/modern-original.webp" width="1000" height="1000"
           alt="A recent photo of my wife and I in colour, standing in front of a bush">
         <figcaption>The good lady her indoors, and me.</figcaption>
       </figure>
       <figure>
         <p style="text-align:center;"><strong>Click or tap the image below to toggle between degraded and restored
             images</strong></p>
-        <img src="../images/modern-2px-blur.webp" id="original_restored4" width="1000" height="1000"
+        <img src="/images/modern-2px-blur.webp" id="original_restored4" width="1000" height="1000"
           alt="A degraded version of the recent photo of my wife and I in colour, standing in front of a bush, also shown is the restored version"
           onclick="change4();">
         <figcaption>A degraded modern image, and the results of the restoration process. Click or tap the image to

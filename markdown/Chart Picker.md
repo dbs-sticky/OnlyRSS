@@ -12,7 +12,7 @@ I then decided to take my library of charts and generate a “chart picker” di
 
 ## Chart Picker links
 
-- [View\download the chart picker as a .png](../images/chart-picker-compressed.png)
+- [View\download the chart picker as a .png/images/chart-picker-compressed.png)
 - [View\download the chart picker as a .svg](../images/chart-picker-compressed.svg)
 - [View\edit your own instance of the chart picker at Excalidraw](https://t.co/swXFJLvAwM)
 - [Follow\contribute to the chart picker project at GitHub](https://github.com/dbs-sticky/ChartPicker)

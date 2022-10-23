@@ -115,12 +115,12 @@
       <p>I've pretty much copied their solution, but along the way I learnt how the sharing URL has to be structured
         such that after being clicked, the user is taken to the social network (Twitter or LinkedIn) and the article
         title and link are available and ready to be easily shared.</p>
-      <img src="../images/social-screenshot.png" loading="lazy"
+      <img src="/images/social-screenshot.png" loading="lazy"
         alt="A screenshot showing 3 links at the bottom of an article, for sharing to Twitter, LinkedIn, and Email"
         width="583" height="176">
       <p> If you combine this with OpenGraph metadata in each article, it makes for a very effective sharing experience,
         as you can see in the Twitter example below.</p>
-      <img src="../images/social-screenshot-twitter.png" loading="lazy"
+      <img src="/images/social-screenshot-twitter.png" loading="lazy"
         alt="A screenshot showing the result of sharing an article to Twitter that has the required OpenGrpah meta data included."
         width="585" height="435">
     </details>
@@ -135,7 +135,7 @@
       <p>The aim of an article is not to be read, the aim is the transfer of knowledge, and if that can be achieved with
         a simple summary, then that's good with me—I'm not going to fill a page with fluff and keep the reader guessing
         so they have to scroll past a hundred ads before they find what they are looking for!</p>
-      <img src="../images/tldr-screenshot.png" loading="lazy"
+      <img src="/images/tldr-screenshot.png" loading="lazy"
         alt="A screenshot showing an article title, summary paragraph, followed by the article byline." width="663"
         height="201">
     </details>
@@ -175,7 +175,7 @@
         <a href="https://github.com/mendhak">a very patient friend</a>, I got there in the end. Now, when I push to
         Master, before the website is deployed, the HTML is checked for errors.
       </p>
-      <img src="../images/deployment.webp" loading="lazy"
+      <img src="/images/deployment.webp" loading="lazy"
         alt="A screenshot from GitHub Actions showing a process flow of two jobs running in series i.e. A HTML validation job, followed by an FTP deployment job"
         width="454" height="126">
     </details>
@@ -248,7 +248,7 @@
       <p>I added the PWA shortcuts (aka jump list) a few days ago, but didn’t give each shortcut their own icon. Adding
         individual icons makes the PWA appear a little more "native", and less like a web page in disguise! I’m not very
         happy with the current icons I’ve created, so will probably update them soon.</p>
-      <img src="../images/pwa-shortcuts.webp" loading="lazy"
+      <img src="/images/pwa-shortcuts.webp" loading="lazy"
         alt="A screenshot showing the PWA shortcuts visible from the Windows taskbar" width="322" height="305">
     </details>
 
@@ -304,7 +304,7 @@
         the size of the button names e.g. RSS, About, and Changelog. When the page is first loaded these button names
         are displayed using the fallback font (while the primary font is loaded), this resulted in a noticeable movement
         of the nav bar buttons that was very distracting.</p>
-      <img src="../images/nav-issue.gif" loading="lazy"
+      <img src="/images/nav-issue.gif" loading="lazy"
         alt="An animated GIF showing a user selecting nav elements and the elements shifting position as they reload"
         width="368" height="68">
       <p>This was solved by switching the font used on the nav bar from <i>font-display: swap</i> to <i>font-display:
@@ -333,7 +333,7 @@
       <p> On article pages, I used the pseudo-element <i>::after</i> to append the content "close" or "open" to the
         &lt;summary&gt; text. I used <i>details[open] summary::after{ }</i> to target the summary element only when the
         detail element was open, the result was an open/close toggle built with just HTML & CSS.</p>
-      <img src="../images/details-summary-changelog.gif" loading="lazy"
+      <img src="/images/details-summary-changelog.gif" loading="lazy"
         alt="An animated GIF showing a user clicking a link that then displays an image below the link" width="744"
         height="217">
     </details>
