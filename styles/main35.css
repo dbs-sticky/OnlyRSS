@@ -6,7 +6,8 @@
   --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
   --radius: 8px;
-
+  /* left/right gap between browser edge and content for narrow displays. Set here as it's used in <body> and separately for the <nav> (nav uses "absolute" positioning so ignores the padding set on <body>, hence the inclusion as a variable. */
+  --viewport-padding: 10px; 
 }
 
 /* Switch to 'border box', and reset browser margin & padding to zero */
@@ -25,11 +26,10 @@ html {
   scroll-behavior: smooth;
 }
 
-/* so that global nav bar touches top of viewport */
 body {
   counter-reset: figures;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: var(--viewport-padding);
+  padding-right: var(--viewport-padding);
 }
 
 /*  ======================
@@ -429,9 +429,9 @@ nav {
   text-transform: uppercase;
   z-index: 1;
   transition: top 0.5s;
-  /* this is required as fixed items ignore the page (containers) padding/margin) */
-  left: 10px;
-  right: 10px;
+  /* this is required as fixed items (like the nav) ignore the containers padding/margin) */
+  left: var(--viewport-padding);
+  right: var(--viewport-padding);
 }
 
 article,
