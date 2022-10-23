@@ -35,14 +35,14 @@
   <style>
     @font-face {
       font-family: "print";
-      src: url(../fonts/Oldnewspapertypes-449D.woff2);
+      src: url(/fonts/Oldnewspapertypes-449D.woff2);
     }
   </style>
 
   <!-- Service worker for installable app-->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('../service-worker.js');
+      navigator.serviceWorker.register('/service-worker.js');
     }
   </script>
 </head>

@@ -38,42 +38,42 @@
       font-style: normal;
       font-weight: 400;
       font-display: block;
-      src: url(../fonts/RobotoCondensed-Regular.woff2) format('woff2');
+      src: url(/fonts/RobotoCondensed-Regular.woff2) format('woff2');
     }
 
     @font-face {
       font-family: 'Roboto Serif';
       font-style: normal;
       font-weight: 400;
-      src: url(../fonts/RobotoSerif-Regular.woff2) format('woff2');
+      src: url(/fonts/RobotoSerif-Regular.woff2) format('woff2');
     }
 
     @font-face {
       font-family: 'Roboto Serif';
       font-style: italic;
       font-weight: 400;
-      src: url(../fonts/RobotoSerif-Italic.woff2) format('woff2');
+      src: url(/fonts/RobotoSerif-Italic.woff2) format('woff2');
     }
 
     @font-face {
       font-family: 'Roboto Serif';
       font-style: normal;
       font-weight: 500;
-      src: url(../fonts/RobotoSerif-Medium.woff2) format('woff2');
+      src: url(/fonts/RobotoSerif-Medium.woff2) format('woff2');
     }
 
     @font-face {
       font-family: 'Roboto Serif';
       font-style: italic;
       font-weight: 500;
-      src: url(../fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
+      src: url(/fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
     }
   </style>
 
   <!-- Service worker for installable app-->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('../service-worker.js');
+      navigator.serviceWorker.register('/service-worker.js');
     }
   </script>
 
@@ -95,7 +95,7 @@
         <p>You can improve your visitors’ PWA install experience on mobile by adding product screenshots to your
           manifest file.</p>
       </div>
-      <p class="pubdate"><time datetime="2022-06-04">04 Jun 2022</time> · 3 mins · <a href="../pages/about.html"
+      <p class="pubdate"><time datetime="2022-06-04">04 Jun 2022</time> · 3 mins · <a href="/pages/about.html"
           title="About me, and about this website">Mark Evans</a></p>
     </header>
 
@@ -156,7 +156,7 @@
           href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">
           ‘platform’ member</a> to both ‘wide’, and ‘windows’, and neither resulted in the screenshots (or
         description) being visible. I’ve left those entries in my manifest file (in the hope that Edge/Chrome will
-        support them in future), they can be seen under the <a href="../manifest.json">screenshots section of my
+        support them in future), they can be seen under the <a href="/manifest.json">screenshots section of my
           manifest file</a>.</p>
     </section>
 
