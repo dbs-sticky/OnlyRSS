@@ -524,11 +524,11 @@ article summary:focus {
 
 /* append "open" to the end of summary text */
 article summary::after {
-  content: "open";
+  content: " open";
 }
 /* append "close" to the end of summary text when details is open */
 article details[open] summary::after {
-  content: "close";
+  content: " close";
 }
 
 /* ====== Details and Summary for changelog page i.e. uses <MAIN>====== */
