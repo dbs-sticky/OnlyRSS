@@ -1,343 +1,415 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Working from home hardware</title>
+    <meta
+      name="description"
+      content="An article describing my work-from-home hardware setup, and why I believe you should invest in yours."
+    />
+    <meta name="author" content="Mark Evans" />
+    <meta name="theme-color" content="#ffffff" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Working from home hardware</title>
-  <meta name="description"
-    content="An article describing my work-from-home hardware setup, and why I believe you should invest in yours.">
-  <meta name="author" content="Mark Evans">
-  <meta name="theme-color" content="#ffffff">
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="Mark Evans" />
+    <meta property="og:title" content="Working from home hardware" />
+    <meta
+      property="og:url"
+      content="https://onlyrss.org/posts/working-from-home-hardware.html"
+    />
+    <meta
+      property="og:image"
+      content="https://onlyrss.org/images/og/wfh-hardware-og.jpg"
+    />
+    <meta
+      property="og:description"
+      content="An article describing my work-from-home hardware setup, and why I believe you should invest in yours. If you’re going to spend 8hrs per day at your desk, you need to invest!"
+    />
+    <meta property="article:published_time" content="2021-02-18" />
 
-  <!--Open Graph protocol meta tags-->
-  <meta property="og:type" content="article">
-  <meta property="article:author" content="Mark Evans">
-  <meta property="og:title" content="Working from home hardware">
-  <meta property="og:url" content="https://onlyrss.org/posts/working-from-home-hardware.html">
-  <meta property="og:image" content="https://onlyrss.org/images/og/wfh-hardware-og.jpg">
-  <meta property="og:description"
-    content="An article describing my work-from-home hardware setup, and why I believe you should invest in yours. If you’re going to spend 8hrs per day at your desk, you need to invest!">
-  <meta property="article:published_time" content="2021-02-18">
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg" />
+    <link
+      rel="apple-touch-icon"
+      href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
 
-  <!--Favicons and Touch Icons and web manifest-->
-  <link rel="icon" href="/pwaicons/favicon.svg">
-  <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
-  <link rel="manifest" href="/manifest.json">
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main37.css" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for OnlyRSS.org"
+      href="/feed.xml"
+    />
 
-  <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="/styles/main36.css">
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
 
-  <style>
-    @font-face {
-      font-family: 'Roboto Condensed';
-      font-style: normal;
-      font-weight: 400;
-      font-display: block;
-      src: url(/fonts/RobotoCondensed-Regular.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: normal;
-      font-weight: 400;
-      src: url(/fonts/RobotoSerif-Regular.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: italic;
-      font-weight: 400;
-      src: url(/fonts/RobotoSerif-Italic.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: normal;
-      font-weight: 500;
-      src: url(/fonts/RobotoSerif-Medium.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+    </style>
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: italic;
-      font-weight: 500;
-      src: url(/fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
-    }
-  </style>
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </head>
 
-  <!-- Service worker for installable app-->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-  </script>
+  <body>
+    <nav id="navbar">
+      <a href="/index.html" title="Homepage">home</a>
+      <span></span>
+      <!--this is used via Flex: 1; to justify the global nav elements left and right-->
+      <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
+      <a href="/pages/changelog.html" title="View all website updates"
+        >changelog</a
+      >
+      <a href="/pages/about.html" title="Who made this site, and why?">about</a>
+    </nav>
+    <article>
+      <header>
+        <h1>Working from home hardware</h1>
+        <div class="tldr">
+          <p>
+            If you work from home on a regular basis, invest in a good
+            monitor—or better still, two! Wire up your home with Ethernet, and
+            for the love of all that's holy, ditch your tiny Bluetooth earbuds
+            and get a real wired headset!
+          </p>
+        </div>
+        <p class="pubdate">
+          <time datetime="2021-02-18">18 Feb 2021</time> · 5 mins ·
+          <a href="/pages/about.html" title="About me, and about this website"
+            >Mark Evans</a
+          >
+        </p>
+      </header>
 
-</head>
+      <section>
+        <!-- Intro - section -->
+        <h2>Background</h2>
+        <p>
+          I recently wrote about my
+          <a href="/posts/anatomy-of-a-lockdown-day.html">
+            weekday lockdown routine</a
+          >. In this article I’ll be describing the hardware I use to do my job
+          while working from home.
+        </p>
+        <p>
+          As a Product Manager for a suite of News and Data Analytics products,
+          I use the tools that most office workers are familiar with, i.e.
+          Office 365 apps, but I’m also often sketching UIs, writing
+          requirements in Confluence, or using tools such as PowerBI etc. to
+          analyse and visualise large datasets.
+        </p>
+        <p>
+          My PC is located in a bay window at one end of my kitchen diner, it’s
+          used by the whole family, and is always on. When I’m working from home
+          I use my work laptop via a docking station and a keyboard\mouse
+          switch, switching between work and home computers only requires the
+          push of a couple of buttons.
+        </p>
+      </section>
 
-<body>
-  <nav id="navbar">
-    <a href="/index.html" title="Homepage">home</a>
-    <span></span>
-    <!--this is used via Flex: 1; to justify the global nav elements left and right-->
-    <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
-    <a href="/pages/changelog.html" title="View all website updates">changelog</a>
-    <a href="/pages/about.html" title="Who made this site, and why?">about</a>
-  </nav>
-  <article>
-    <header>
-      <h1>Working from home hardware</h1>
-      <div class="tldr">
-        <p>If you work from home on a regular basis, invest in a good monitor—or better still, two! Wire up your home
-          with Ethernet, and for the love of all that's holy, ditch your tiny Bluetooth earbuds and get a real wired
-          headset! </p>
-      </div>
-      <p class="pubdate"><time datetime="2021-02-18">18 Feb 2021</time> · 5 mins · <a href="/pages/about.html"
-          title="About me, and about this website">Mark Evans</a></p>
-    </header>
+      <!-- hardware setup section-->
+      <section>
+        <h2>The setup</h2>
+        <p>Here’s my WFH components:</p>
+        <ul>
+          <li>2 x Dell U2715H monitors (27&quot; 2560x1440)</li>
+          <li>Logitech C920 HD webcam</li>
+          <li>Logitech MX Master mouse</li>
+          <li>TerraMaster F2-421 NAS (2x4GB raid 1)</li>
+          <li>Keychron K2 keyboard (with Red switches)</li>
+          <li>Ikea Bekant desk (160x80cm)</li>
+          <li>Dell D6000 Universal dock (provided by employer)</li>
+          <li>Dell Latitude 7490 laptop (provided by employer)</li>
+          <li>Plantronics C520 headset (provided by employer)</li>
+        </ul>
 
-    <section>
-      <!-- Intro - section -->
-      <h2>Background</h2>
-      <p>
-        I recently wrote about my
-        <a href="/posts/anatomy-of-a-lockdown-day.html">
-          weekday lockdown routine</a>. In this article I’ll be describing the hardware I use to do my
-        job while working from home.
-      </p>
-      <p> As a Product Manager for a suite of
-        News and Data Analytics products, I use the tools that most office
-        workers are familiar with, i.e. Office 365 apps, but I’m also often
-        sketching UIs, writing requirements in Confluence, or using tools
-        such as PowerBI etc. to analyse and visualise large datasets.
-      </p>
-      <p>
-        My PC is located in a bay window at one end of my kitchen diner,
-        it’s used by the whole family, and is always on. When I’m working
-        from home I use my work laptop via a docking station and a
-        keyboard\mouse switch, switching between work and home computers
-        only requires the push of a couple of buttons.
-      </p>
-    </section>
+        <p>
+          The setup is connected to a 300&#8239;Mbps (down) and 40&#8239;Mbps
+          (up) Broadband connection
+          <a href="https://en.wikipedia.org/wiki/G.fast">(g.fast)</a> via
+          Gigabit Ethernet.
+        </p>
 
-    <!-- hardware setup section-->
-    <section>
-      <h2>The setup</h2>
-      <p>Here’s my WFH components:</p>
-      <ul>
-        <li>2 x Dell U2715H monitors (27&quot; 2560x1440)</li>
-        <li>Logitech C920 HD webcam</li>
-        <li>Logitech MX Master mouse</li>
-        <li>TerraMaster F2-421 NAS (2x4GB raid 1)</li>
-        <li>Keychron K2 keyboard (with Red switches)</li>
-        <li>Ikea Bekant desk (160x80cm)</li>
-        <li>Dell D6000 Universal dock (provided by employer)</li>
-        <li>Dell Latitude 7490 laptop (provided by employer)</li>
-        <li>Plantronics C520 headset (provided by employer)</li>
-      </ul>
+        <figure>
+          <img
+            src="/images/article4figure1.jpg"
+            width="748"
+            height="464"
+            loading="lazy"
+            alt="A photograph of a large white computer desk, that includes a keyboard, mouse, mobile phone stand, laptop and stand, and two large monitors."
+          />
+          <figcaption>
+            My WFH desktop showing my dual monitor setup and docked laptop.
+          </figcaption>
+        </figure>
+      </section>
 
-      <p>
-        The setup is connected to a 300&#8239;Mbps (down) and 40&#8239;Mbps (up) Broadband
-        connection
-        <a href="https://en.wikipedia.org/wiki/G.fast">(g.fast)</a> via
-        Gigabit Ethernet.
-      </p>
+      <!-- Outputs section -->
+      <section>
+        <h2>Outputs</h2>
+        <h3>Monitors</h3>
+        <p>
+          If you are using a laptop when WFH and have NOT got it connected to an
+          external monitor, for the love of God please just stop right now, go
+          on Amazon, buy a new monitor (or two) and do not return to your laptop
+          until after the new monitor arrives. There are lots of good ways to
+          save money in life, not buying a decent monitor is not one of them!
+          <strong
+            >You are staring at your monitor for more than 8 hours a day, this
+            is not a component where you want to cut corners and
+            ‘make-do’</strong
+          >. Your employer should provide you with a suitable monitor, or
+          reimburse you if you buy your own. If your employer does not believe a
+          good monitor is worthwhile, then hold off on ordering a new monitor
+          from Amazon, as your highest priority is finding a new employer.
+        </p>
+        <p>
+          When deciding which monitor to choose, I’d suggest that anything with
+          a resolution of 2560×1440&#8239;px. A width of 2560&#8239;px means you
+          can have 2 apps of 1280&#8239;px side-by-side, and most apps run well
+          at 1280&#8239;px. Your laptop display can be reserved for your more
+          reference-style apps, e.g. calendar, chat application, etc., while
+          your main display is reserved for the apps required for your current
+          task.
+        </p>
+        <h3>Speakers</h3>
+        <p>
+          My family don’t need to hear what others are saying during my
+          conference calls, so I use a wired headset. I know many people use
+          Bluetooth headphones, and as good as modern Bluetooth is, I still find
+          it less hassle to use a wire (wired headphones don’t suddenly decide
+          to connect to other devices when you’re about to join a conference
+          call).
+        </p>
+      </section>
 
-      <figure>
-        <img src="/images/article4figure1.jpg" width="748" height="464" loading="lazy"
-          alt="A photograph of a large white computer desk, that includes a keyboard, mouse, mobile phone stand, laptop and stand, and two large monitors.">
-        <figcaption>My WFH desktop showing my dual monitor setup and docked laptop.</figcaption>
-      </figure>
-    </section>
+      <!-- inputs section -->
+      <section>
+        <h2>Inputs</h2>
+        <h3>Mice</h3>
+        <p>
+          Again, not a component where you want to make compromises.
+          <strong
+            >I’d recommend any of the Logitech mice in the
+            <a href="https://www.logitech.com/en-gb/mx/master-series.html"
+              >MX Master series</a
+            ></strong
+          >. They’re geared towards productivity, and include enough useful
+          features to make them good value for money. You don’t have to get the
+          latest version (the MX Master 3 retails for almost £100), the original
+          version is often heavily discounted and sometimes dips below £50
+          <a href="https://uk.camelcamelcamel.com/product/B00ULNAOMA"
+            >(view price history).</a
+          >
+        </p>
+        <h3>Keyboard</h3>
+        <p>
+          Whereas the benefit of a good monitor and mouse are clear, the return
+          on investment of a good quality keyboard is less clear. Keyboards come
+          in 2 main flavours:
+        </p>
+        <ol>
+          <li>
+            The rubber-dome keyboards that you’ll find on almost all office
+            desks across the World, and the
+          </li>
+          <li>
+            mechanical keyboards that you’ll find on the desk of any discerning
+            journalist, developer, or gamer (and maybe on the desks of very
+            discerning Product Managers).
+          </li>
+        </ol>
+        <p>
+          ‘Mechanical’ and ‘rubber-dome’ here refer to the type of switches used
+          for each key to register the key’s actuation. You can buy a good
+          rubber-dome keyboard for less than £20. To get a good mechanical
+          keyboard you’re looking at at least £50, with serious mechanical
+          keyboard enthusiasts (yes, it’s a whole thing) spending £100+ on the
+          keyboard itself, and then another £50+ on the keycaps (yes, that’s
+          also a whole thing). I have a mechanical keyboard on my desk, but I’m
+          not recommending anyone goes out and buys a mechanical keyboard. I’d
+          definitely put this component in the nice-to-have bucket.
+        </p>
+        <h3>Webcam</h3>
+        <p>
+          My wife and I both have the Logitech C920, this has been the go-to HD
+          webcam for streamers for many years now. When I bought mine back in
+          2018 I paid just £35—today they cost closer to £100. You can see how
+          the price has changed for this particular webcam since February 2020.
+        </p>
 
-    <!-- Outputs section -->
-    <section>
-      <h2>Outputs</h2>
-      <h3>Monitors</h3>
-      <p>
-        If you are using a laptop when WFH and have NOT got it connected to
-        an external monitor, for the love of God please just stop right now,
-        go on Amazon, buy a new monitor (or two) and do not return to your
-        laptop until after the new monitor arrives. There are lots of good
-        ways to save money in life, not buying a decent monitor is not one
-        of them!
-        <strong>You are staring at your monitor for more than 8 hours a day, this is
-          not a component where you want to cut corners and
-          ‘make-do’</strong>. Your employer should provide you with a suitable monitor, or
-        reimburse you if you buy your own. If your employer does not believe
-        a good monitor is worthwhile, then hold off on ordering a new
-        monitor from Amazon, as your highest priority is finding a new
-        employer.
-      </p>
-      <p>
-        When deciding which monitor to choose, I’d suggest that anything
-        with a resolution of 2560×1440&#8239;px. A width of 2560&#8239;px means you can
-        have 2 apps of 1280&#8239;px side-by-side, and most apps run well at
-        1280&#8239;px. Your laptop display can be reserved for your more
-        reference-style apps, e.g. calendar, chat application,
-        etc., while your main display is reserved for the apps required for
-        your current task.
-      </p>
-      <h3>Speakers</h3>
-      <p>
-        My family don’t need to hear what others are saying during my
-        conference calls, so I use a wired headset. I know many people use
-        Bluetooth headphones, and as good as modern Bluetooth is, I still
-        find it less hassle to use a wire (wired headphones don’t suddenly
-        decide to connect to other devices when you’re about to join a
-        conference call).
-      </p>
-    </section>
+        <figure>
+          <img
+            src="/images/article4figure2.png"
+            width="750"
+            height="389"
+            loading="lazy"
+            alt="A timeline chart showing how the price of a webcam has greatly increased during the pandemic."
+          />
+          <figcaption>
+            The price change in the Logitech C920, Feb 2020–Feb 2021.
+          </figcaption>
+        </figure>
 
-    <!-- inputs section -->
-    <section>
-      <h2>Inputs</h2>
-      <h3>Mice</h3>
-      <p>
-        Again, not a component where you want to make compromises.
-        <strong>I’d recommend any of the Logitech mice in the
-          <a href="https://www.logitech.com/en-gb/mx/master-series.html">MX Master series</a></strong>. They’re
-        geared towards productivity, and include enough
-        useful features to make them good value for money. You don’t
-        have to get the latest version (the MX Master 3 retails for almost
-        £100), the original version is often heavily discounted and
-        sometimes dips below £50
-        <a href="https://uk.camelcamelcamel.com/product/B00ULNAOMA">(view price history).</a>
-      </p>
-      <h3>Keyboard</h3>
-      <p>
-        Whereas the benefit of a good monitor and mouse are clear, the
-        return on investment of a good quality keyboard is less clear.
-        Keyboards come in 2 main flavours:
-      </p>
-      <ol>
-        <li>
-          The rubber-dome keyboards that you’ll find on almost
-          all office desks across the World, and the
-        </li>
-        <li>
-          mechanical keyboards that you’ll find on the desk of
-          any discerning journalist, developer, or gamer (and maybe on the desks of very discerning Product Managers).
-        </li>
-      </ol>
-      <p>
-        ‘Mechanical’ and ‘rubber-dome’ here refer to the
-        type of switches used for each key to register the key’s
-        actuation. You can buy a good rubber-dome keyboard for
-        less than £20. To get a good mechanical keyboard you’re looking
-        at at least £50, with serious mechanical keyboard enthusiasts (yes,
-        it’s a whole thing) spending £100+ on the keyboard itself, and
-        then another £50+ on the keycaps (yes, that’s also a whole
-        thing). I have a mechanical keyboard on my desk, but I’m not
-        recommending anyone goes out and buys a mechanical keyboard. I’d
-        definitely put this component in the nice-to-have bucket.
-      </p>
-      <h3>Webcam</h3>
-      <p>
-        My wife and I both have the Logitech C920, this has been the go-to HD webcam for streamers for many years now.
-        When I bought
-        mine back in 2018 I paid just £35—today they cost closer to £100.
-        You can see how the price has changed for this particular webcam
-        since February 2020.
-      </p>
+        <p>
+          Before spending money on a price-inflated HD webcam, the first thing
+          to try is to improve your lighting.
+          <strong
+            >There’s no point having a good quality camera if you have a south
+            facing window directly behind you</strong
+          >. Shut the blinds, and pick up some LED lighting that can be mounted
+          on top of the monitor. Maybe then consider a good webcam (after supply
+          has caught up with demand).
+        </p>
+        <h3>Microphone</h3>
+        <p>
+          As I mentioned above, I use a headset, and it’s not just because of
+          Bluetooth issues. The best way to avoid background noise during
+          conference calls is to use a dedicated headset with a mic, the mic is
+          located right next to your mouth, and is unlikely to pick up other
+          sounds from within your home. Bluetooth ear buds are great when you’re
+          out and about, or going for a run, and they are OK for the occasional
+          call, but, if you are working from home on a regular basis, then you
+          don’t need to compromise. Get a dedicated wired headset, the other
+          people on your call will thank you.
+        </p>
+      </section>
 
-      <figure>
-        <img src="/images/article4figure2.png" width="750" height="389" loading="lazy"
-          alt="A timeline chart showing how the price of a webcam has greatly increased during the pandemic.">
-        <figcaption>The price change in the Logitech C920, Feb 2020–Feb 2021.</figcaption>
-      </figure>
+      <!-- Other elements section -->
+      <section>
+        <h2>Other</h2>
+        <h3>Ethernet</h3>
+        <p>
+          I was lucky enough to wire up the house with Ethernet (CAT6) in
+          January 2020, just before the whole COVID-19 thing kicked off. At home
+          I have number of bandwidth hungry stationary devices i.e. 3 TVs, 2
+          desktop PCs, and a NAS. I also have a laptop (permanently on a desk),
+          a Chromebook (that get’s moved around a lot) and a very large number
+          of IoT devices. As good as modern Wi-Fi is, it just doesn’t have the
+          same level of consistency that you get from Ethernet cable, and when
+          you have 4 people potentially all on video calls at the same time,
+          consistency is what you want.
+          <strong
+            >If it is at all practical, I would strongly recommend wiring up
+            your home for Ethernet</strong
+          >.
+        </p>
+      </section>
 
-      <p>
-        Before spending money on a price-inflated HD webcam, the first thing
-        to try is to improve your lighting.
-        <strong>There’s no point having a good quality camera if you have a
-          south facing window directly behind you</strong>. Shut the blinds, and pick up some LED lighting that can be
-        mounted on top of the monitor. Maybe then consider a good webcam
-        (after supply has caught up with demand).
-      </p>
-      <h3>Microphone</h3>
-      <p>
-        As I mentioned above, I use a headset, and it’s not just because of
-        Bluetooth issues. The best way to avoid background noise during
-        conference calls is to use a dedicated headset with a mic, the mic
-        is located right next to your mouth, and is unlikely to pick up
-        other sounds from within your home. Bluetooth ear buds are great
-        when you’re out and about, or going for a run, and they are OK for
-        the occasional call, but, if you are working from home on a regular
-        basis, then you don’t need to compromise. Get a dedicated wired
-        headset, the other people on your call will thank you.
-      </p>
-    </section>
+      <!-- Conclusions section -->
+      <section>
+        <h2>Conclusions</h2>
+        <p>
+          I realise that my setup might be considered overkill, but my thinking
+          is simple, I’m spending &gt;8 hours a day sitting at that desk,
+          staring at those screens, tapping on that keyboard, and shifting
+          around that mouse, therefore it’s worth putting some thought (and some
+          money) into those components.
+        </p>
+      </section>
 
-    <!-- Other elements section -->
-    <section>
-      <h2>Other</h2>
-      <h3>Ethernet</h3>
-      <p>
-        I was lucky enough to wire up the house with Ethernet (CAT6) in
-        January 2020, just before the whole COVID-19 thing kicked off. At
-        home I have number of bandwidth hungry stationary devices i.e. 3
-        TVs, 2 desktop PCs, and a NAS. I also have a laptop (permanently on
-        a desk), a Chromebook (that get’s moved around a lot) and a very
-        large number of IoT devices. As good as modern Wi-Fi is, it just
-        doesn’t have the same level of consistency that you get from
-        Ethernet cable, and when you have 4 people potentially all on video
-        calls at the same time, consistency is what you want.
-        <strong>If it is at all practical, I would strongly recommend wiring up
-          your home for Ethernet</strong>.
-      </p>
-    </section>
+      <!-- feedback - section -->
+      <section>
+        <h2>Feedback</h2>
+        <p>
+          If you have any comments on this article then please get in touch via
+          Twitter (<a href="https://twitter.com/dbs_sticky" target="_blank"
+            >@dbs_sticky</a
+          >).
+        </p>
+      </section>
 
-    <!-- Conclusions section -->
-    <section>
-      <h2>Conclusions</h2>
-      <p>
-        I realise that my setup might be considered overkill, but
-        my thinking is simple, I’m spending &gt;8 hours a day sitting at
-        that desk, staring at those screens, tapping on that keyboard, and
-        shifting around that mouse, therefore it’s worth putting some
-        thought (and some money) into those components.
-      </p>
-    </section>
+      <!-- sharing - section -->
+      <section class="sharing">
+        <p>
+          Share this article:
+          <a
+            href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/working-from-home-hardware.html&text=Working%20from%20home%20hardware&via=dbs_sticky"
+            target="_blank"
+            >Twitter </a
+          >·
+          <a
+            href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/working-from-home-hardware.html&title=Working%20from%20home%20hardware"
+            target="_blank"
+          >
+            LinkedIn </a
+          >·
+          <a
+            href="mailto:?subject=OnlyRSS.org%20article:%20Working%20from%20home%20hardware&body=https://onlyrss.org/posts/working-from-home-hardware.html"
+            target="_blank"
+          >
+            Email</a
+          >
+        </p>
+      </section>
+    </article>
 
-    <!-- feedback - section -->
-    <section>
-      <h2>Feedback</h2>
-      <p>
-        If you have any comments on this article then please get in touch via Twitter (<a
-          href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-      </p>
-    </section>
-
-    <!-- sharing - section -->
-    <section class="sharing">
-      <p>
-        Share this article:
-        <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/working-from-home-hardware.html&text=Working%20from%20home%20hardware&via=dbs_sticky"
-          target="_blank">Twitter </a>·
-        <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/working-from-home-hardware.html&title=Working%20from%20home%20hardware"
-          target="_blank"> LinkedIn </a>·
-        <a href="mailto:?subject=OnlyRSS.org%20article:%20Working%20from%20home%20hardware&body=https://onlyrss.org/posts/working-from-home-hardware.html"
-          target="_blank"> Email</a>
-      </p>
-    </section>
-
-  </article>
-
-  <!-- related articles -->
-  <aside>
-    <h1>related articles</h1>
-    <a href="/posts/anatomy-of-a-lockdown-day.html">
-      <h2>Anatomy of a lockdown workday</h2>
-      <p>
-        A description of the routine I fell into while WFH during the COVID-19 pandemic.
-      </p>
-    </a>
-  </aside>
-</body>
-
+    <!-- related articles -->
+    <aside>
+      <h1>related articles</h1>
+      <a href="/posts/anatomy-of-a-lockdown-day.html">
+        <h2>Anatomy of a lockdown workday</h2>
+        <p>
+          A description of the routine I fell into while WFH during the COVID-19
+          pandemic.
+        </p>
+      </a>
+    </aside>
+  </body>
 </html>

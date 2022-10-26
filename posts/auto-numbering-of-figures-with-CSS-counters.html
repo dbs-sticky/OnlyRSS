@@ -1,237 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Automatically numbering figures using CSS counters</title>
+    <meta
+      name="description"
+      content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the ‘figure #’ alongside all figures."
+    />
+    <meta name="author" content="Mark Evans" />
+    <meta name="theme-color" content="#ffffff" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Automatically numbering figures using CSS counters</title>
-  <meta name="description"
-    content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the ‘figure #’ alongside all figures.">
-  <meta name="author" content="Mark Evans">
-  <meta name="theme-color" content="#ffffff">
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="Mark Evans" />
+    <meta
+      property="og:title"
+      content="Automatically numbering figures using CSS counters"
+    />
+    <meta
+      property="og:url"
+      content="https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html"
+    />
+    <meta
+      property="og:image"
+      content="https://onlyrss.org/images/og/numbering-og.jpg"
+    />
+    <meta
+      property="og:description"
+      content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the ‘figure #’ alongside all figures."
+    />
+    <meta property="article:published_time" content="2022-05-30" />
 
-  <!--Open Graph protocol meta tags-->
-  <meta property="og:type" content="article">
-  <meta property="article:author" content="Mark Evans">
-  <meta property="og:title" content="Automatically numbering figures using CSS counters">
-  <meta property="og:url" content="https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html">
-  <meta property="og:image" content="https://onlyrss.org/images/og/numbering-og.jpg">
-  <meta property="og:description"
-    content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the ‘figure #’ alongside all figures.">
-  <meta property="article:published_time" content="2022-05-30">
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg" />
+    <link
+      rel="apple-touch-icon"
+      href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
 
-  <!--Favicons and Touch Icons and web manifest-->
-  <link rel="icon" href="/pwaicons/favicon.svg">
-  <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
-  <link rel="manifest" href="/manifest.json">
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main37.css" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for OnlyRSS.org"
+      href="/feed.xml"
+    />
 
-  <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="/styles/main36.css">
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
 
-  <style>
-    @font-face {
-      font-family: 'Roboto Condensed';
-      font-style: normal;
-      font-weight: 400;
-      font-display: block;
-      src: url(/fonts/RobotoCondensed-Regular.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: normal;
-      font-weight: 400;
-      src: url(/fonts/RobotoSerif-Regular.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: italic;
-      font-weight: 400;
-      src: url(/fonts/RobotoSerif-Italic.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: normal;
-      font-weight: 500;
-      src: url(/fonts/RobotoSerif-Medium.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+    </style>
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: italic;
-      font-weight: 500;
-      src: url(/fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
-    }
-  </style>
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </head>
 
-  <!-- Service worker for installable app-->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-  </script>
+  <body>
+    <nav id="navbar">
+      <a href="/index.html" title="Homepage">home</a>
+      <span></span>
+      <!--this is used via Flex: 1; to justify the global nav elements left and right-->
+      <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
+      <a href="/pages/changelog.html" title="View all website updates"
+        >changelog</a
+      >
+      <a href="/pages/about.html" title="Who made this site, and why?">about</a>
+    </nav>
+    <article>
+      <header>
+        <h1>Automatically numbering figures using CSS counters</h1>
+        <div class="tldr">
+          <p>
+            You can use CSS Counters and the ::before pseudo selector to
+            automatically label and number figures within a webpage.
+          </p>
+        </div>
+        <p class="pubdate">
+          <time datetime="2022-05-30">30 May 2022</time> · 4 mins ·
+          <a href="/pages/about.html" title="About me, and about this website"
+            >Mark Evans</a
+          >
+        </p>
+      </header>
 
-</head>
+      <!--introduction-->
+      <section>
+        <h2>Background</h2>
+        <p>
+          For the first 13&nbsp;years of my career I worked as a research
+          scientist for the Defence Evaluation and Research Agency (<a
+            href="https://en.wikipedia.org/wiki/Defence_Evaluation_and_Research_Agency"
+            >DERA</a
+          >, an agency of the UK’s MoD). I worked on 3–5&nbsp;year projects
+          covering a wide range of subjects. Even though the projects varied,
+          they did all have one thing in common, i.e. one of the deliverables
+          was always a report, and much like the
+          <a href="https://youtu.be/Fy3rjQGc6lA"
+            >infamous TPS reports from Office Space</a
+          >, the DERA reports also had to adhere to a strict format.
+        </p>
+        <p>
+          One of those strict formats related to numbering, not just numbering
+          of chapters, but sections, paragraphs, figures, and list items.
+          Depending on how the document was structured, it was not unusual to
+          have a list item with a number such as 2.1.2.15. Don’t get me wrong,
+          this convention was actually useful, if you were on page 50 and wanted
+          to reference an item on page 5, the numbering made a lot of sense.
+        </p>
+        <p>
+          As useful as numbering was for those DERA reports, it’s not something
+          I find myself missing when writing a blog post. But, I do still find
+          myself numbering figures in blog posts, this is useful as I often
+          reference the figures from within the body text.
+        </p>
+        <p>
+          Anyone who has written a long report that requires any form of
+          numbering knows that it’s not something you should attempt to do
+          manually—it has to be automated—otherwise you’ll find yourself
+          updating all the following chapters/sections/paragraphs etc. each time
+          you insert a new one into the middle of the document.
+        </p>
+      </section>
 
-<body>
-  <nav id="navbar">
-    <a href="/index.html" title="Homepage">home</a>
-    <span></span>
-    <!--this is used via Flex: 1; to justify the global nav elements left and right-->
-    <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
-    <a href="/pages/changelog.html" title="View all website updates">changelog</a>
-    <a href="/pages/about.html" title="Who made this site, and why?">about</a>
-  </nav>
-  <article>
-    <header>
-      <h1>Automatically numbering figures using CSS counters</h1>
-      <div class="tldr">
-        <p>You can use CSS Counters and the ::before pseudo selector to automatically label and number figures within a
-          webpage.</p>
-      </div>
-      <p class="pubdate"><time datetime="2022-05-30">30 May 2022</time> · 4 mins · <a href="/pages/about.html"
-          title="About me, and about this website">Mark Evans</a></p>
-    </header>
+      <!--heading-->
+      <section>
+        <h2>Solution</h2>
+        <p>
+          There’s no solution for this in HTML/CSS that’s as convenient as the
+          numbering and cross-referencing that’s part of
+          <a
+            href="https://support.microsoft.com/en-us/office/create-a-cross-reference-300b208c-e45a-487a-880b-a02767d9774b"
+            >Microsoft Word</a
+          >, but, there is a CSS solution that can at least handle the numbering
+          part (but not the cross-referencing), and that solution is based on
+          CSS Counters.
+        </p>
+        <blockquote
+          cite="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters"
+        >
+          CSS Counters are, in essence, variables maintained by CSS whose values
+          may be incremented or decremented by CSS rules that track how many
+          times they’re used.
+          <p>Source: mdn web docs</p>
+        </blockquote>
+        <p>
+          To see a full description of CSS Counters and how they can be used,
+          visit the CSS Counters page over at
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters"
+            >mdn web docs</a
+          >. The use of CSS Counters below deals only with counting figures and
+          displaying that count within the figure’s caption i.e. the figcaption
+          HTML element.
+        </p>
+        <h3>Set the counter to zero</h3>
+        <p>
+          First, we define a counter called ‘figures’, and we set it to zero (it
+          defaults to zero when reset), this goes in the body CSS declaration:
+        </p>
+        <pre><code>body {counter-reset: figures;}</code></pre>
+        <h3>Increment the counter</h3>
+        <p>
+          Then, we increment the counter for each figcaption element that’s in
+          the page, this goes in the figcaption CSS declaration:
+        </p>
+        <pre><code>figcaption {counter-increment: figures;}</code></pre>
+        <h3>Display the current count</h3>
+        <p>
+          Lastly, we display the current count of figcaptions within the
+          figcaption CSS declaration. We do this by using the ::before pseudo
+          selector. We place the figcaption count between the text “Figure” and
+          “.”, so we end up with something like “Figure 5.”:
+        </p>
+        <pre><code>figcaption::before {content: 'Figure ' counter(figures) '. ';}</code></pre>
+        <h2>Implementation example</h2>
+        <p>
+          The code below shows the CSS used on OnlyRSS.org to display
+          figcaptions, and the HTML used to generate figures 1 & 2.
+        </p>
+        <figure>
+          <script src="https://gist.github.com/dbs-sticky/087c723dad39056686bb32b41de0ce5b.js"></script>
+          <figcaption>
+            The CSS used on OnlyRSS.org to automatically number all figures.
+          </figcaption>
+        </figure>
+        <figure>
+          <script src="https://gist.github.com/dbs-sticky/73f2ad2a6a10b060ed4b47d47f2c876d.js"></script>
+          <figcaption>
+            The HTML used on this page to display figures 1 & 2.
+          </figcaption>
+        </figure>
+        <p>
+          You’ll notice from figure 2 above that the figcaption HTML elements do
+          NOT include the text “Figure 1.” or “Figure 2.”, yet they are both
+          visible in the figures’ captions.
+        </p>
+      </section>
 
-    <!--introduction-->
-    <section>
-      <h2>Background</h2>
-      <p>For the first 13&nbsp;years of my career I worked as a research scientist for the Defence Evaluation and
-        Research Agency (<a href="https://en.wikipedia.org/wiki/Defence_Evaluation_and_Research_Agency">DERA</a>, an
-        agency of the UK’s MoD). I worked on 3–5&nbsp;year projects covering a wide range of subjects. Even though the
-        projects varied, they did all have one thing in common, i.e. one of the deliverables was always a report, and
-        much like the <a href="https://youtu.be/Fy3rjQGc6lA">infamous TPS reports from Office Space</a>, the DERA
-        reports also had to adhere to a strict format.</p>
-      <p>One of those strict formats related to numbering, not just numbering of chapters, but sections, paragraphs,
-        figures, and list items. Depending on how the document was structured, it was not unusual to have a list item
-        with a number such as 2.1.2.15. Don’t get me wrong, this convention was actually useful, if you were on page 50
-        and wanted to reference an item on page 5, the numbering made a lot of sense.</p>
-      <p>As useful as numbering was for those DERA reports, it’s not something I find myself missing when writing a blog
-        post. But, I do still find myself numbering figures in blog posts, this is useful as I often reference the
-        figures from within the body text.</p>
-      <p>Anyone who has written a long report that requires any form of numbering knows that it’s not something you
-        should attempt to do manually—it has to be automated—otherwise you’ll find yourself updating all the following
-        chapters/sections/paragraphs etc. each time you insert a new one into the middle of the document.</p>
-    </section>
+      <!--Issues-->
+      <section>
+        <h2>Issues with this solution</h2>
+        <p>
+          Although the solution described above provides an easy method for
+          automatically numbering figures within a page (actually, across all
+          figures on a site that share the same style sheet,) it does have a few
+          drawbacks:
+        </p>
+        <h3>Cross-referencing</h3>
+        <p>
+          One of the main reasons for numbering figures is so they can easily be
+          referenced from within the article body e.g. “as you can see in figure
+          5”. Although adding new figures into the article will not require you
+          to manually update the figure numbers, you will still have to update
+          any cross-references, as there’s no link between the figure number and
+          the cross-reference
+        </p>
+        <h3>Accessibility</h3>
+        <p>
+          Although this solution automatically adds “Figure #” in your
+          figcaptions, it’s important to note that anything added via the
+          ::before or ::after pseudo selectors is NOT guaranteed to be available
+          for reading aloud by screen readers (if you try and select the
+          figcaption text above you’ll notice that “Figure 1”. cannot be
+          selected.) But, I’ve read a couple of articles recently (<a
+            href="https://jhalabi.com/blog/before-after-accessibility"
+            >here</a
+          >
+          and
+          <a
+            href="https://uselessdivs.com/blog/the-effect-of-css-on-screen-readers"
+            >here</a
+          >) that seem to suggest that the majority of popular screen readers do
+          in fact read ::before and ::after elements, even though they are not
+          part of the <abbr title="Document Object Model">DOM</abbr>.
+        </p>
+        <h3>RSS aggregators e.g. Feedly, Inoreader etc.</h3>
+        <p>
+          RSS aggregators won’t be using your CSS to display the article content
+          from your RSS feed, so anything added by your CSS isn’t going to
+          appear when your articles are viewed in those apps.
+        </p>
+      </section>
 
-    <!--heading-->
-    <section>
-      <h2>Solution</h2>
-      <p>There’s no solution for this in HTML/CSS that’s as convenient as the numbering and cross-referencing that’s
-        part of <a
-          href="https://support.microsoft.com/en-us/office/create-a-cross-reference-300b208c-e45a-487a-880b-a02767d9774b">Microsoft
-          Word</a>, but, there is a CSS solution that can at least handle the numbering part (but not the
-        cross-referencing), and that solution is based on CSS Counters.</p>
-      <blockquote cite="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters">
-        CSS Counters are, in essence, variables maintained by CSS whose values may be incremented or decremented by CSS
-        rules that track how many times they’re used.<p>Source: mdn web docs</p>
-      </blockquote>
-      <p>To see a full description of CSS Counters and how they can be used, visit the CSS Counters page over at <a
-          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters">mdn web
-          docs</a>. The use of CSS Counters below deals only with counting figures and displaying that count within the
-        figure’s caption i.e. the figcaption HTML element.</p>
-      <h3>Set the counter to zero</h3>
-      <p>First, we define a counter called ‘figures’, and we set it to zero (it defaults to zero when reset), this goes
-        in the body CSS declaration:</p>
-      <pre><code>body {counter-reset: figures;}</code></pre>
-      <h3>Increment the counter</h3>
-      <p>Then, we increment the counter for each figcaption element that’s in the page, this goes in the figcaption CSS
-        declaration:</p>
-      <pre><code>figcaption {counter-increment: figures;}</code></pre>
-      <h3>Display the current count</h3>
-      <p>Lastly, we display the current count of figcaptions within the figcaption CSS declaration. We do this by using
-        the ::before pseudo selector. We place the figcaption count between the text “Figure” and “.”, so we end up with
-        something like “Figure 5.”:</p>
-      <pre><code>figcaption::before {content: 'Figure ' counter(figures) '. ';}</code></pre>
-      <h2>Implementation example</h2>
-      <p>The code below shows the CSS used on OnlyRSS.org to display figcaptions, and the HTML used to generate
-        figures 1 & 2.</p>
-      <figure>
-        <script src="https://gist.github.com/dbs-sticky/087c723dad39056686bb32b41de0ce5b.js"></script>
-        <figcaption>The CSS used on OnlyRSS.org to automatically number all figures.</figcaption>
-      </figure>
-      <figure>
-        <script src="https://gist.github.com/dbs-sticky/73f2ad2a6a10b060ed4b47d47f2c876d.js"></script>
-        <figcaption>The HTML used on this page to display figures 1 & 2.</figcaption>
-      </figure>
-      <p>You’ll notice from figure 2 above that the figcaption HTML elements do NOT include the text “Figure 1.” or
-        “Figure 2.”, yet they are both visible in the figures’ captions.</p>
+      <!-- feedback - section -->
+      <section>
+        <h2>Feedback</h2>
+        <p>
+          If you have any comments on this article then please get in touch via
+          Twitter (<a href="https://twitter.com/dbs_sticky" target="_blank"
+            >@dbs_sticky</a
+          >).
+        </p>
+      </section>
 
-    </section>
+      <!-- sharing - section -->
+      <section class="sharing">
+        <p>
+          Share this article:
+          <a
+            href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html&text=Automatically%20numbering%20figures%20using%20CSS%20counters&via=dbs_sticky"
+            target="_blank"
+            >Twitter </a
+          >·
+          <a
+            href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html&title=Automatically%20numbering%20figures%20using%20CSS%20counters"
+            target="_blank"
+          >
+            LinkedIn </a
+          >·
+          <a
+            href="mailto:?subject=OnlyRSS.org%20article:%20Automatically%20numbering%20figures%20using%20CSS%20counters&body=https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html"
+            target="_blank"
+          >
+            Email</a
+          >
+        </p>
+      </section>
+    </article>
 
-    <!--Issues-->
-    <section>
-      <h2>Issues with this solution</h2>
-      <p>Although the solution described above provides an easy method for automatically numbering figures within a page
-        (actually, across all figures on a site that share the same style sheet,) it does have a few drawbacks:
-      </p>
-      <h3>Cross-referencing</h3>
-      <p>One of the main reasons for numbering figures is so they can easily be referenced from within the article body
-        e.g. “as you can see in figure 5”. Although adding new figures into the article will not require you to manually
-        update the figure numbers, you will still have to update any cross-references, as there’s no link between the
-        figure number and the cross-reference</p>
-      <h3>Accessibility</h3>
-      <p>Although this solution automatically adds “Figure #” in your figcaptions, it’s important to note that anything
-        added via the ::before or ::after pseudo selectors is NOT guaranteed to be available for reading aloud by screen
-        readers (if you try and select the figcaption text above you’ll notice that “Figure 1”. cannot be selected.)
-        But, I’ve read a couple of articles recently (<a
-          href="https://jhalabi.com/blog/before-after-accessibility">here</a> and <a
-          href="https://uselessdivs.com/blog/the-effect-of-css-on-screen-readers">here</a>) that seem to suggest that
-        the majority of popular screen readers do in fact read ::before and ::after elements, even though they are not
-        part of the <abbr title="Document Object Model">DOM</abbr>.</p>
-      <h3>RSS aggregators e.g. Feedly, Inoreader etc.</h3>
-      <p>RSS aggregators won’t be using your CSS to display the article content from your RSS feed, so anything added by
-        your CSS isn’t going to appear when your articles are viewed in those apps.</p>
-    </section>
-
-    <!-- feedback - section -->
-    <section>
-      <h2>Feedback</h2>
-      <p>
-        If you have any comments on this article then please get in touch via Twitter (<a
-          href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
-      </p>
-    </section>
-
-    <!-- sharing - section -->
-    <section class="sharing">
-      <p>
-        Share this article:
-        <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html&text=Automatically%20numbering%20figures%20using%20CSS%20counters&via=dbs_sticky"
-          target="_blank">Twitter </a>·
-        <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html&title=Automatically%20numbering%20figures%20using%20CSS%20counters"
-          target="_blank"> LinkedIn </a>·
-        <a href="mailto:?subject=OnlyRSS.org%20article:%20Automatically%20numbering%20figures%20using%20CSS%20counters&body=https://onlyrss.org/posts/auto-numbering-of-figures-with-CSS-counters.html"
-          target="_blank"> Email</a>
-      </p>
-    </section>
-
-  </article>
-
-  <!-- related articles -->
-  <aside>
-    <h1>related articles</h1>
-    <a href="/posts/drop-caps-and-indents.html">
-      <h2>Drop caps and indents</h2>
-      <p>
-        A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
-      </p>
-    </a>
-    <a href="/posts/loading-images-only-when-they-are-needed.html">
-      <h2>Loading images only when (or if) they are needed</h2>
-      <p>
-        Using the Details & Summary elements with lazy loading to load and display images only when/if they’re
-        requested.
-      </p>
-    </a>
-  </aside>
-
-</body>
-
+    <!-- related articles -->
+    <aside>
+      <h1>related articles</h1>
+      <a href="/posts/drop-caps-and-indents.html">
+        <h2>Drop caps and indents</h2>
+        <p>
+          A niche & nerdy look at how paragraphs can be visually distinguished
+          using a little CSS.
+        </p>
+      </a>
+      <a href="/posts/loading-images-only-when-they-are-needed.html">
+        <h2>Loading images only when (or if) they are needed</h2>
+        <p>
+          Using the Details & Summary elements with lazy loading to load and
+          display images only when/if they’re requested.
+        </p>
+      </a>
+    </aside>
+  </body>
 </html>

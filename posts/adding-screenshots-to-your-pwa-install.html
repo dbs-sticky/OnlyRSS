@@ -1,190 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adding screenshots to your PWA install experience</title>
+    <meta
+      name="description"
+      content="Better inform your site visitors about your PWA before they commit to installation, with app screenshots."
+    />
+    <meta name="author" content="Mark Evans" />
+    <meta name="theme-color" content="#ffffff" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Adding screenshots to your PWA install experience</title>
-  <meta name="description"
-    content="Better inform your site visitors about your PWA before they commit to installation, with app screenshots.">
-  <meta name="author" content="Mark Evans">
-  <meta name="theme-color" content="#ffffff">
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article" />
+    <meta property="article:author" content="Mark Evans" />
+    <meta
+      property="og:title"
+      content="Adding screenshots to your PWA install experience"
+    />
+    <meta
+      property="og:url"
+      content="https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html"
+    />
+    <meta
+      property="og:image"
+      content="https://onlyrss.org/images/og/pwa-screenshots-og.png"
+    />
+    <meta
+      property="og:description"
+      content="Better inform your site visitors about your PWA before they commit to installation, with app screenshots."
+    />
+    <meta property="article:published_time" content="2022-06-04" />
 
-  <!--Open Graph protocol meta tags-->
-  <meta property="og:type" content="article">
-  <meta property="article:author" content="Mark Evans">
-  <meta property="og:title" content="Adding screenshots to your PWA install experience">
-  <meta property="og:url" content="https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html">
-  <meta property="og:image" content="https://onlyrss.org/images/og/pwa-screenshots-og.png">
-  <meta property="og:description"
-    content="Better inform your site visitors about your PWA before they commit to installation, with app screenshots.">
-  <meta property="article:published_time" content="2022-06-04">
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg" />
+    <link
+      rel="apple-touch-icon"
+      href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
 
-  <!--Favicons and Touch Icons and web manifest-->
-  <link rel="icon" href="/pwaicons/favicon.svg">
-  <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
-  <link rel="manifest" href="/manifest.json">
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main37.css" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed for OnlyRSS.org"
+      href="/feed.xml"
+    />
 
-  <!--stylesheet and RSS-->
-  <link rel="stylesheet" type="text/css" href="/styles/main36.css">
-  <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
 
-  <style>
-    @font-face {
-      font-family: 'Roboto Condensed';
-      font-style: normal;
-      font-weight: 400;
-      font-display: block;
-      src: url(/fonts/RobotoCondensed-Regular.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: normal;
-      font-weight: 400;
-      src: url(/fonts/RobotoSerif-Regular.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: italic;
-      font-weight: 400;
-      src: url(/fonts/RobotoSerif-Italic.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: normal;
-      font-weight: 500;
-      src: url(/fonts/RobotoSerif-Medium.woff2) format('woff2');
-    }
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+    </style>
 
-    @font-face {
-      font-family: 'Roboto Serif';
-      font-style: italic;
-      font-weight: 500;
-      src: url(/fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
-    }
-  </style>
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </head>
 
-  <!-- Service worker for installable app-->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-  </script>
+  <body>
+    <nav>
+      <a href="/index.html" title="Homepage">home</a>
+      <span></span>
+      <!--this is used via Flex: 1; to justify the global nav elements left and right-->
+      <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
+      <a href="/pages/changelog.html" title="View all website updates"
+        >changelog</a
+      >
+      <a href="/pages/about.html" title="Who made this site, and why?">about</a>
+    </nav>
+    <article>
+      <header>
+        <h1>Adding screenshots to your PWA install experience</h1>
+        <div class="tldr">
+          <p>
+            You can improve your visitors’ PWA install experience on mobile by
+            adding product screenshots to your manifest file.
+          </p>
+        </div>
+        <p class="pubdate">
+          <time datetime="2022-06-04">04 Jun 2022</time> · 3 mins ·
+          <a href="/pages/about.html" title="About me, and about this website"
+            >Mark Evans</a
+          >
+        </p>
+      </header>
 
-</head>
+      <!--introduction-->
+      <section>
+        <h2>Background</h2>
+        <p>
+          During February 2022 OnlyRSS.org became a
+          <a href="https://en.wikipedia.org/wiki/Progressive_web_application"
+            >Progressive Web App</a
+          >
+          (PWA). The plan wasn’t really for anyone to install OnlyRSS on their
+          mobile or desktop, it was for me to understand what was required to
+          turn a website into a PWA—and the best way for me to understand that
+          was to do it.
+        </p>
+        <p>
+          The Google Play and Apple App store are great places to discover new
+          apps, and once you find an app that might be useful, you get to read a
+          description and view some screenshots of the app before you decide to
+          install. There is no convenient store for PWAs, so initial
+          discoverability is still an issue. But, once a visitor does happen
+          upon your PWA enabled website, and is prompted to install your PWA,
+          there is now a solution for providing the visitor with screenshots and
+          a description. And all that’s required is a few new entries in the
+          existing manifest file.
+        </p>
+      </section>
 
-<body>
-  <nav>
-    <a href="/index.html" title="Homepage">home</a>
-    <span></span>
-    <!--this is used via Flex: 1; to justify the global nav elements left and right-->
-    <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
-    <a href="/pages/changelog.html" title="View all website updates">changelog</a>
-    <a href="/pages/about.html" title="Who made this site, and why?">about</a>
-  </nav>
-  <article>
-    <header>
-      <h1>Adding screenshots to your PWA install experience</h1>
-      <div class="tldr">
-        <p>You can improve your visitors’ PWA install experience on mobile by adding product screenshots to your
-          manifest file.</p>
-      </div>
-      <p class="pubdate"><time datetime="2022-06-04">04 Jun 2022</time> · 3 mins · <a href="/pages/about.html"
-          title="About me, and about this website">Mark Evans</a></p>
-    </header>
+      <!--Solution-->
+      <section>
+        <h2>New manifest file entries</h2>
+        <p>
+          Below you can see the required entries in the manifest file for the
+          screenshots and description. Webp images are supported, so after
+          capturing suitable screenshots, I’d recommend using a tool such as
+          <a href="https://compress-or-die.com/webp">CompressOrDie</a> to
+          convert them to webp, and then compress them as best you can without
+          degrading the quality too much (my images are ≈40&#8239;KB each).
+        </p>
 
-    <!--introduction-->
-    <section>
-      <h2>Background</h2>
-      <p>During February 2022 OnlyRSS.org became a <a
-          href="https://en.wikipedia.org/wiki/Progressive_web_application">Progressive Web App</a> (PWA). The plan
-        wasn’t really for anyone to install OnlyRSS on their mobile or desktop, it was for me to understand what was
-        required to turn a website into a PWA—and the best way for me to understand that was to do it.</p>
-      <p>The Google Play and Apple App store are great places to discover new apps, and once you find an app that might
-        be useful, you get to read a description and view some screenshots of the app before you decide to install.
-        There is no convenient store for PWAs, so initial discoverability is still an issue. But, once a visitor does
-        happen upon your PWA enabled website, and is prompted to install your PWA, there is now a solution for providing
-        the visitor with screenshots and a description. And all that’s required is a few new entries in the existing
-        manifest file.</p>
-    </section>
+        <script src="https://gist.github.com/dbs-sticky/12bb850fc88c2eb3a4babaa918629121.js"></script>
+      </section>
 
-    <!--Solution-->
-    <section>
-      <h2>New manifest file entries</h2>
-      <p>Below you can see the required entries in the manifest file for the screenshots and description. Webp images
-        are supported, so after capturing suitable screenshots, I’d recommend using a tool such as <a
-          href="https://compress-or-die.com/webp">CompressOrDie</a> to convert them to webp, and then compress them as
-        best you can without degrading the quality too much (my images are ≈40&#8239;KB each).</p>
+      <!--result - section-->
+      <section>
+        <h2>Result</h2>
+        <p>
+          Once the new manifest entries have been added, when a visitor accesses
+          your website on Chrome on Android (or Samsung Internet on Samsung
+          devices), in addition to being prompted to install your PWA, they will
+          have the option to swipe-up on the install prompt and view your app
+          description and screenshots [<span class="fig-ref">fig.&nbsp;1</span
+          >]. The visitor can tap on the screenshots and view them full size.
+        </p>
+        <figure>
+          <img
+            src="/images/pwa-install.gif"
+            width="400"
+            height="711"
+            loading="lazy"
+            alt="Animated GIF showing the user expanding the PWA install prompt on a mobile phone, and then being presented with the PWA description, and 2 screenshots."
+          />
+          <figcaption>
+            Improved PWA install prompt, showing description and screenshots on
+            Chrome on Android.
+          </figcaption>
+        </figure>
+      </section>
 
-      <script src="https://gist.github.com/dbs-sticky/12bb850fc88c2eb3a4babaa918629121.js"></script>
-    </section>
+      <!-- compatibility - section -->
+      <section>
+        <h2>Compatibility</h2>
+        <p>
+          According to<a
+            href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility"
+          >
+            mdn web docs</a
+          >, app screenshots are supported in:
+        </p>
+        <ul>
+          <li>Edge on Desktop (≥88),</li>
+          <li>Chrome on Android (≥88), and</li>
+          <li>Samsung Internet on mobile(≥15.0).</li>
+        </ul>
+        <p>
+          I’ve tested them on Android, where they work as advertised,
+          <strong
+            >but I had no luck getting them to work on Windows with Edge</strong
+          >. I added additional screenshots to the manifest and set the
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms."
+          >
+            ‘platform’ member</a
+          >
+          to both ‘wide’, and ‘windows’, and neither resulted in the screenshots
+          (or description) being visible. I’ve left those entries in my manifest
+          file (in the hope that Edge/Chrome will support them in future), they
+          can be seen under the
+          <a href="/manifest.json">screenshots section of my manifest file</a>.
+        </p>
+      </section>
 
-    <!--result - section-->
-    <section>
-      <h2>Result</h2>
-      <p>Once the new manifest entries have been added, when a visitor accesses your website on Chrome on Android (or
-        Samsung Internet on Samsung devices), in addition to being prompted to install your PWA, they will have the
-        option to swipe-up on the install prompt and view your app description and screenshots [<span
-          class="fig-ref">fig.&nbsp;1</span>]. The visitor can tap on the screenshots and view them full size.</p>
-      <figure>
-        <img src="/images/pwa-install.gif" width="400" height="711" loading="lazy"
-          alt="Animated GIF showing the user expanding the PWA install prompt on a mobile phone, and then being presented with the PWA description, and 2 screenshots.">
-        <figcaption>Improved PWA install prompt, showing description and screenshots on Chrome on Android.
-        </figcaption>
-      </figure>
-    </section>
+      <!-- conclusions - section -->
+      <section>
+        <h2>Conclusions</h2>
+        <p>
+          Adding screenshots and a description to your PWA is yet one more step
+          in moving your app away from being “just a website” and towards being
+          an “application”. It’s easy to implement, and improves the
+          installation experience for Android (and Samsung) visitors on mobile.
+          I also suspect that in future, these app screenshots and description
+          will start to surface in web search results (alongside an install
+          prompt), and maybe even in app stores&#8239;&#129310;.
+        </p>
+      </section>
 
-    <!-- compatibility - section -->
-    <section>
-      <h2>Compatibility</h2>
-      <p>According to<a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility">
-          mdn web
-          docs</a>, app screenshots are supported in:</p>
-      <ul>
-        <li>Edge on Desktop (≥88),</li>
-        <li>Chrome on Android (≥88), and</li>
-        <li>Samsung Internet on mobile(≥15.0).</li>
-      </ul>
-      <p>I’ve tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on
-          Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a
-          href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">
-          ‘platform’ member</a> to both ‘wide’, and ‘windows’, and neither resulted in the screenshots (or
-        description) being visible. I’ve left those entries in my manifest file (in the hope that Edge/Chrome will
-        support them in future), they can be seen under the <a href="/manifest.json">screenshots section of my
-          manifest file</a>.</p>
-    </section>
-
-    <!-- conclusions - section -->
-    <section>
-      <h2>Conclusions</h2>
-      <p>
-        Adding screenshots and a description to your PWA is yet one more step in moving your app away from being “just
-        a website” and towards being an “application”. It’s easy to implement, and improves the installation
-        experience for Android (and Samsung) visitors on mobile. I also suspect that in future, these app screenshots
-        and description will start to surface in web search results (alongside an install prompt), and maybe even in
-        app stores&#8239;&#129310;.
-      </p>
-    </section>
-
-    <!-- sharing - section -->
-    <section class="sharing">
-      <p>
-        Share this article:
-        <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html&text=Adding%20screenshots%20to%20your%20PWA%20install%20experience&via=dbs_sticky"
-          target="_blank">Twitter </a>·
-        <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html&title=Adding%20screenshots%20to%20your%20PWA%20install%20experience."
-          target="_blank"> LinkedIn </a>·
-        <a href="mailto:?subject=OnlyRSS.org%20article:%20Adding%20screenshots%20to%20your%20PWA%20install%20experience&body=https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html"
-          target="_blank"> Email</a>
-      </p>
-    </section>
-  </article>
-</body>
-
+      <!-- sharing - section -->
+      <section class="sharing">
+        <p>
+          Share this article:
+          <a
+            href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html&text=Adding%20screenshots%20to%20your%20PWA%20install%20experience&via=dbs_sticky"
+            target="_blank"
+            >Twitter </a
+          >·
+          <a
+            href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html&title=Adding%20screenshots%20to%20your%20PWA%20install%20experience."
+            target="_blank"
+          >
+            LinkedIn </a
+          >·
+          <a
+            href="mailto:?subject=OnlyRSS.org%20article:%20Adding%20screenshots%20to%20your%20PWA%20install%20experience&body=https://onlyrss.org/posts/adding-screenshots-to-your-pwa-install.html"
+            target="_blank"
+          >
+            Email</a
+          >
+        </p>
+      </section>
+    </article>
+  </body>
 </html>
