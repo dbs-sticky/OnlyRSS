@@ -13,4 +13,49 @@
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   }
+
+  "files.autoSave": "afterDelay",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
+  "markdownConverter.ConversionType": ["HTML"],
+  "editor.renderWhitespace": "all",
+  "gitlens.hovers.currentLine.over": "line",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.enableSmartCommit": true,
+  "html.autoClosingTags": false,
+  "git.confirmSync": false,
+  "vscode-edge-devtools.mirrorEdits": true,
+  "vscode-edge-devtools.webhint": false,
+  "workbench.sideBar.location": "right",
+  "editor.unicodeHighlight.allowedCharacters": {
+    "’": true,
+    "‘": true,
+    "–": true
+  },
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.unicodeHighlight.includeStrings": false,
+  "vscode-edge-devtools.fallbackRevision": "@a41122be052fe9616f0def5fe6842fa942930d46",
+  "vscode-edge-devtools.cssMirrorContent": true,
+  "htmlhint.options": {
+    "attr-lowercase": false
+  },
+  "htmlhint.documentSelector": ["html", "htm"],
+  "spellright.ignoreRegExpsByClass": {
+    "html": [
+      "/<script>[^]*?</script>/gm",
+      "/<code>[^]*?</code>/gm",
+      "/<style>[^]*?</style>/gm"
+    ]
+  },
+  "editor.fontSize": 15,
+  "editor.wordWrap": "on"
+
 }
