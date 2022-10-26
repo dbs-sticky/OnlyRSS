@@ -23,9 +23,7 @@ html {
   font-weight: 400;
   color: var(--bodytext);
   overflow-y: scroll; /* stops horizontal shift due to scrollbar */
-  accent-color: var(
-    --accent
-  ); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
+  accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
   scroll-behavior: smooth;
 }
 
