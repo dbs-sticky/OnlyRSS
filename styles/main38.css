@@ -228,6 +228,7 @@ h3 {
 strong {
   font-weight: 500;
   font-style: italic;
+  color: #000000;
 }
 
 /* Links */
@@ -389,7 +390,8 @@ hr {
   font-weight: 500;
   font-size: 0.8rem;
   margin-bottom: 2rem;
-  padding: 0.1rem 1rem;
+  padding: 0.5rem 1rem;
+  line-height: 0;
 }
 
 /* removed the link indicator used for all other links */
@@ -482,9 +484,14 @@ button:hover {
 /*  ======================
     RELATED ARTICLES
     ====================== */
-aside h1,
+
+aside h1 {
+  color: var(--bodytext);
+  font-size: 1.4rem;
+}
+
 aside h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 aside p {
