@@ -2,9 +2,8 @@
 :root {
   --pagewidth: 960px;
   --hue: 215;
-  --saturation: 50%;
-  /* --accent: hsl(var(--hue), var(--saturation), 50%); */
-  --accent: #0f5474;
+  --saturation: 40%;
+  --accent: hsl(var(--hue), var(--saturation), 50%);
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
   --radius: 10px;
   --bodytext: #46484b;
@@ -321,7 +320,7 @@ li::marker {
 /* article byline */
 .pubdate {
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   border-bottom: 1px solid var(--accent);
   margin-bottom: 20px;
   padding-bottom: 10px;
@@ -688,18 +687,14 @@ a.icons:active {
 
 /* non editable text field for "subscribe to RSS" field */
 .textfield {
-  -webkit-border-radius: var(--radius);
-  -moz-border-radius: var(--radius);
   border-radius: var(--radius);
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
-  color: black;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   background: rgb(216, 216, 216);
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
+  padding: 5px 10px;
   border-style: none;
-  width: 30ch;
+  width: 33ch;
 }
 
 /*  ======================
