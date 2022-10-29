@@ -50,11 +50,11 @@ body {
   nav {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-top: 2rem;
+    /* padding-top: 2rem; */
   }
 
   body {
-    padding-top: 2rem;
+    /* padding-top: 2rem; */
   }
 
   blockquote {
@@ -160,21 +160,9 @@ aside {
   /* margin: auto; */
   /* box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%); */
   /* margin-bottom: 20px; */
-  padding-top: 0px;
+  /* padding-top: 10px; */
   /* margin-left: 10px;
   margin-right: 10px; */
-}
-
-/* padding so top of content is below fixed global nav */
-nav + article,
-nav + main,
-nav + main.home-grid {
-  margin-top: 3.5rem;
-}
-
-article,
-main {
-  padding-top: 2rem;
 }
 
 aside {
@@ -339,6 +327,15 @@ li::marker {
   padding-bottom: 10px;
 }
 
+.avatar {
+  width: 50px;
+  display:inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  margin-right: 1rem;
+}
+
 /* Figures & images */
 figure {
   margin: 0;
@@ -424,22 +421,22 @@ hr {
     ====================== */
 
 nav {
-  position: fixed;
-  top: 0px;
   display: flex;
-  background-color: white;
+  background-color: transparent;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  transition: top 0.5s;
   max-width: var(--pagewidth);
   margin: auto;
-  font-family: "Roboto Condensed", sans-serif;
-  border-radius: 0 0 var(--radius) var(--radius);
-  border: 1px solid LightGrey;
-  box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
-  text-transform: uppercase;
-  z-index: 1;
-  transition: top 0.5s;
-  /* this is required as fixed items (like the nav) ignore the containers padding/margin) */
-  left: var(--viewport-padding);
-  right: var(--viewport-padding);
+}
+
+.top-bar {
+  background:#2D2926;
+  margin-bottom: 2rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  border-bottom: 1px solid #999999;
+
 }
 
 article,
@@ -455,11 +452,11 @@ aside {
 }
 
 nav a {
-  color: var(--accent);
-  padding: 5px 10px;
+  color: #FFFFFF;
+  padding: 3px 10px;
   text-decoration: none;
   font-size: 17px;
-  border-bottom: 3px solid transparent;
+  border-bottom: 2px solid transparent;
 }
 
 nav a:hover,
