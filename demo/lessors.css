@@ -1,15 +1,9 @@
 /* define global site variables */
 :root {
   --pagewidth: 960px;
-  --hue: 215;
-  --saturation: 40%;
   --links: #00C19F;
   --accent: #e5004b;
-  --accent-light: hsl(var(--hue), var(--saturation), 90%);
-  --radius: 10px;
   --bodytext: #46484b;
-  /* This defines the left/right padding between the browser edge and content for narrow displays. Set here as it's used in <body> and separately for the <nav> (nav uses "absolute" positioning so ignores the padding set on <body>, hence the inclusion as a variable. */
-  --viewport-padding: 10px;
 }
 
 /* Switch to 'border box', and reset browser margin & padding to zero */
@@ -28,11 +22,6 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  counter-reset: figures;
-  padding-left: var(--viewport-padding);
-  padding-right: var(--viewport-padding);
-}
 
 /*  ======================
     SET MEDIA QUERIES
@@ -46,47 +35,18 @@ body {
   }
 
   article,
-  main,
-  aside,
   nav {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    /* padding-top: 2rem; */
   }
 
-  body {
-    /* padding-top: 2rem; */
-  }
-
-  blockquote {
+   blockquote {
     margin-left: 0px !important;
   }
 
   ul,
   ol {
     margin-left: 1rem !important;
-  }
-
-  a.icons svg {
-    width: 28px !important;
-    /* set icon width (height is auto) - adjust this to scale them */
-  }
-
-  .container h2 {
-    font-size: 1.1rem;
-  }
-  /* full width learning log table on mobile */
-  .learning-log {
-    margin: auto;
-    width: 100%;
-  }
-
-  /* hero image to ignore page padding */
-  .img-hero {
-    margin-left: -25px;
-    margin-right: -25px;
-    margin-top: -40px;
-    width: calc(100% + 50px);
   }
 }
 
@@ -98,8 +58,6 @@ body {
   }
 
   article,
-  main,
-  aside,
   nav {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
@@ -113,53 +71,17 @@ body {
   ol {
     margin-left: 3rem !important;
   }
-
-  abbr[title]:hover::after {
-    content: "" !important;
-  }
-
-  a.icons svg {
-    width: 60px !important;
-    /* set icon width (height is auto) - adjust this to scale them */
-  }
-
-  .container h2 {
-    font-size: 0.9rem;
-  }
-  /* 60% width learning log table desktops/tablets */
-  .learning-log {
-    margin: auto;
-    width: 70%;
-  }
-
-  /* set hero image to ignore page padding */
-  .img-hero {
-    margin-left: -60px;
-    margin-right: -60px;
-    margin-top: -40px;
-    width: calc(100% + 120px);
-  }
-}
-
-/*  ======================
-    PAGE DESIGN
-    ====================== */
-
-/* the article and aside containers are the same, with the exception of the top padding */
-
-body {
-  background-color: #ffffff;
-}
-
-aside {
-  padding-top: 15px;
 }
 
 /*  ======================
     TYPOGRAPHY IMAGES and Summary
     ====================== */
 
-/* Paragraphs */
+article {
+  max-width: var(--pagewidth);
+  margin: auto;
+  margin-bottom: 20px;
+}
 
 p {
   margin: 1.4em 0px;
@@ -173,20 +95,18 @@ h4,
 h5,
 h6 {
   font-family: "Roboto Condensed", sans-serif;
-  color: var(--bodytext);
   font-weight: 400;
-  line-height: 1.8rem;
+  line-height: 1.6rem;
   /* keep the space between headings tight */
-  margin: 0.4em 0px;
+  margin: 0px 0px;
 }
 
 /* Headings - individual */
 h1 {
   font-size: 2rem;
-  margin-top: 0px;
   text-transform: uppercase;
   line-height: 2.5rem;
-  color: black;
+  color: var(--accent);
 }
 
 h2 {
@@ -200,7 +120,7 @@ h3 {
 
 /* keep the space between any heading and the fist paragraph tight */
 :where(h1, h2, h3, h4, h5, h6) + p {
-  margin-top: 0px;
+  /* margin-top: 0px; */
 }
 
 strong {
@@ -219,7 +139,6 @@ em {
 a {
   color: var(--links);
   text-decoration: none;
-  /* transition from normal colour to hover colour */
 }
 
 a:hover {
@@ -243,34 +162,7 @@ blockquote {
 q {
   font-style: italic;
   color: black;
-font-weight: 500;
-}
-
-/* abbreviations */
-abbr[title]:hover::after {
-  content: " (" attr(title) ")";
-}
-
-abbr:hover {
-  cursor: help;
-}
-
-abbr {
-  text-decoration: dotted var(--accent) underline;
-  color: black;
-}
-
-/* code blocks */
-pre code {
-  border: 1px solid rgb(221, 221, 221);
-  display: inline-block;
-  padding: 10px;
-  color: #000000;
-  border-radius: var(--radius);
-  font-size: 0.7rem;
-  /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  font-weight: 500;
 }
 
 ul,
@@ -307,38 +199,12 @@ figure {
   margin-bottom: 15px;
 }
 
-/* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
-.fig-ref {
-  font-size: smaller;
-  font-style: italic;
-}
-
-figcaption {
-  counter-increment: figures; /* count the number of fig captions */
-  font-size: 80%;
-  margin-top: 5px;
-  padding-top: 8px;
-  font-style: italic;
-  border-top: 2px solid var(--accent);
-}
-
-figcaption::before {
-  content: "Figure " counter(figures) ". "; /* display the figure number in the caption */
-}
-
 /* images */
 img {
   display: block;
   margin: auto;
   max-width: 100%;
   height: auto;
-}
-
-/* hero image- size is set in media queries */
-.img-hero {
-  padding-bottom: 30px;
-  max-width: 970px;
-  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 /* rule, only used on About page */
@@ -359,23 +225,10 @@ hr {
     ====================== */
 
 .sharing {
-  background-color: var(--accent-light);
-  border-radius: var(--radius);
-  font-weight: 500;
   font-size: 0.8rem;
   margin-bottom: 2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0rem;
   line-height: 0;
-}
-
-/* removed the link indicator used for all other links */
-.sharing a {
-  color: var(--accent);
-}
-
-/* override the internal/external colour for links */
-.sharing a:hover {
-  color: var(--accent);
 }
 
 /*  ======================
@@ -387,7 +240,6 @@ nav {
   background-color: transparent;
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
-  transition: top 0.5s;
   max-width: var(--pagewidth);
   margin: auto;
 }
@@ -399,32 +251,19 @@ nav {
   margin-right: -1rem;
   border-bottom: 1px solid #999999;
 
-}
 
-article,
-main,
-aside {
-  background-color: #ffffff;
-  /* border-radius: var(--radius); */
-  /* border: 1px solid LightGrey; */
-  max-width: var(--pagewidth);
-  margin: auto;
-  /* box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%); */
-  margin-bottom: 20px;
 }
 
 nav a {
   color: #FFFFFF;
   padding: 3px 10px;
   text-decoration: none;
-  font-size: 17px;
-  border-bottom: 2px solid transparent;
+  font-size: 1rem;
 }
 
 nav a:hover,
 nav a.nav-active {
-  border-bottom: 3px solid var(--accent);
-  transition: border-color 1s ease;
+  text-decoration: none;
 }
 
 /* a span is placed between the home and other nav link to split them left and right */
@@ -433,9 +272,6 @@ nav span {
 }
 
 button {
-  -webkit-border-radius: var(--radius);
-  -moz-border-radius: var(--radius) 5;
-  border-radius: var(--radius);
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   color: #ffffff;
@@ -447,39 +283,6 @@ button {
 }
 
 button:hover {
-  filter: brightness(125%);
   text-decoration: none;
   cursor: pointer;
 }
-
-/*  ======================
-    RELATED ARTICLES
-    ====================== */
-
-aside h1 {
-  color: var(--bodytext);
-  font-size: 1.4rem;
-}
-
-aside h2 {
-  font-size: 1.3rem;
-}
-
-aside p {
-  line-height: 1.5;
-  font-size: 0.8rem;
-}
-
-aside h2::after {
-  position: relative;
-  content: "°";
-  font-size: 80%;
-  color: var(--accent);
-}
-
-aside h2:hover {
-  text-decoration: none;
-  color: var(--accent);
-  transition: color 0.4s;
-}
-
