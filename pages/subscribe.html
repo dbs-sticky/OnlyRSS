@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/main40.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
+    <!--load self-hosted fonts-->
     <style>
       @font-face {
         font-family: "Roboto Condensed";
@@ -98,15 +99,8 @@
       <a href="/index.html" title="Homepage">home</a>
       <span></span>
       <!--this is used via Flex: 1; to justify the global nav elements left and right-->
-      <a
-        class="nav-active"
-        href="/pages/subscribe.html"
-        title="Subscribe via RSS"
-        >rss</a
-      >
-      <a href="/pages/changelog.html" title="View all website updates"
-        >changelog</a
-      >
+      <a class="nav-active" href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
+      <a href="/pages/changelog.html" title="View all website updates">changelog</a>
       <a href="/pages/about.html" title="Who made this site, and why?">about</a>
     </nav>
     <article>
@@ -115,22 +109,13 @@
       </header>
 
       <p>
-        If you are already familiar with RSS<a href="/posts/rss-part-1.html"
-          >—and you really should be</a
-        >—then simply copy the feed URL below and add it to your RSS aggregator
-        of choice.
+        If you are already familiar with RSS<a href="/posts/rss-part-1.html">—and you really should be</a>—then simply copy the feed URL below and add it to your RSS aggregator of choice.
       </p>
       <p>
-        <input
-          class="textfield"
-          type="text"
-          value="https://onlyrss.org/feed.xml"
-          readonly
-          id="myInput"
-        />
+        <input class="textfield" type="text" value="https://onlyrss.org/feed.xml" readonly id="myInput"/>
         <button onclick="myFunction()">Copy</button>
       </p>
-      <hr />
+      <hr/>
 
       <!-- Feedly -->
       <section>
@@ -145,16 +130,10 @@
         </ol>
         <details>
           <summary>Show me how: click to</summary>
-          <img
-            src="/images/feedlysubscribe.gif"
-            width="800"
-            height="777"
-            alt="Animated GIF showing how to subscribe to a feed in Feedly"
-            loading="lazy"
-          />
+          <img src="/images/feedlysubscribe.gif" width="800" height="777" alt="Animated GIF showing how to subscribe to a feed in Feedly" loading="lazy"/>
         </details>
       </section>
-      <hr />
+      <hr/>
 
       <!-- Inoreader -->
       <section>
@@ -169,16 +148,10 @@
         </ol>
         <details>
           <summary>Show me how: click to</summary>
-          <img
-            src="/images/inoreadersubscribe.gif"
-            width="800"
-            height="777"
-            alt="Animated GIF showing how to subscribe to a feed in Inoreader"
-            loading="lazy"
-          />
+          <img src="/images/inoreadersubscribe.gif" width="800" height="777" alt="Animated GIF showing how to subscribe to a feed in Inoreader" loading="lazy"/>
         </details>
       </section>
-      <hr />
+      <hr/>
     </article>
   </body>
 </html>
