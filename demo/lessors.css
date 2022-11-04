@@ -261,6 +261,14 @@ nav a {
   font-size: 1rem;
 }
 
+/* a[title="Homepage"] {
+margin-left: -10px;
+}
+
+a[title="Who made this site, and why?"] {
+  margin-right: -10px;
+  } */
+
 nav a:hover,
 nav a.nav-active {
   text-decoration: none;
