@@ -1,33 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Using Virtual Desktops in Windows 10</title>
-    <meta
-      name="description"
-      content="How to take advantage of Windows Virtual Desktops when shifting between tasks."
-    />
-    <meta name="author" content="Mark Evans" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="How to take advantage of Windows Virtual Desktops when shifting between tasks.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
 
     <!--Open Graph protocol meta tags-->
-    <meta property="og:type" content="article" />
-    <meta property="article:author" content="Mark Evans" />
-    <meta property="og:title" content="Using Virtual Desktops in Windows 10" />
-    <meta
-      property="og:url"
-      content="https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html"
-    />
-    <meta
-      property="og:image"
-      content="https://onlyrss.org/images/og/virtual-desktops-og.png"
-    />
-    <meta
-      property="og:description"
-      content="How to take advantage of Windows Virtual Desktops when shifting between tasks."
-    />
-    <meta property="article:published_time" content="2021-02-06" />
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Using Virtual Desktops in Windows 10">
+    <meta property="og:url" content="https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/virtual-desktops-og.png">
+    <meta property="og:description" content="How to take advantage of Windows Virtual Desktops when shifting between tasks.">
+    <meta property="article:published_time" content="2021-02-06">
 
     <!--Favicons and Touch Icons and web manifest-->
     <link rel="icon" href="/pwaicons/favicon.svg">
@@ -41,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/main40.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
+    <!--load self-hosted fonts-->
     <style>
       @font-face {
         font-family: "Roboto Condensed";
@@ -93,9 +82,7 @@
       <span></span>
       <!--this is used via Flex: 1; to justify the global nav elements left and right-->
       <a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a>
-      <a href="/pages/changelog.html" title="View all website updates"
-        >changelog</a
-      >
+      <a href="/pages/changelog.html" title="View all website updates">changelog</a>
       <a href="/pages/about.html" title="Who made this site, and why?">about</a>
     </nav>
     <article>
@@ -103,29 +90,19 @@
         <h1>Using Virtual Desktops in Windows 10</h1>
         <div class="tldr">
           <p>
-            Group your app windows together based on the specific tasks you are
-            trying to achieve e.g. create monthly report, write user stories
-            etc. and then place each group in a Windows virtual desktop.
+            Group your app windows together based on the specific tasks you are trying to achieve e.g. create monthly report, write user stories etc. and then place each group in a Windows virtual desktop.
           </p>
         </div>
         <p class="pubdate">
-          <time datetime="2021-02-06">6 Feb 2021</time> · 6 mins ·
-          <a href="/pages/about.html" title="About me, and about this website"
-            >Mark Evans</a
-          >
+          <time datetime="2021-02-06">6 Feb 2021</time> · 6 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
         </p>
       </header>
 
-      <section>
         <!-- Intro - section -->
+      <section>
         <h2>Introduction</h2>
         <p>
-          I’ve always been aware of virtual desktops, but, as someone who has a
-          dual monitor setup (2×2560&#8239;px&nbsp;×1440&#8239;px) I never
-          thought virtual desktops were something that would benefit me. I
-          always assumed that they would mostly be of benefit to people who only
-          had access to a single, small display—it turns out that the opposite
-          is true.
+          I’ve always been aware of virtual desktops, but, as someone who has a dual monitor setup (2×2560&#8239;px&nbsp;×1440&#8239;px) I never thought virtual desktops were something that would benefit me. I always assumed that they would mostly be of benefit to people who only had access to a single, small display—it turns out that the opposite is true.
         </p>
       </section>
 
@@ -133,60 +110,28 @@
       <section>
         <h2>A typical day</h2>
         <p>
-          On any typical workday I might have the following applications open on
-          my PC:
+          On any typical workday I might have the following applications open on my PC:
         </p>
         <p>
-          Tasks (Outlook for Web), Agenda (Outlook for Web), Email (Outlook for
-          Web), MS Teams (chats and meetings), Journal (Excel, where I document
-          my activities), WhatsApp (non-work chat), Signal (non-work chat),
-          Feedly (news aggregator), BBC.co.uk (news), Confluence (User Stories),
-          JIRA (backlog), Word, Excel, PowerPoint, Adobe Analytics (product
-          analytics),Tableau (product analytics), Axure or Excalidraw
-          (prototyping & sketching).
+          Tasks (Outlook for Web), Agenda (Outlook for Web), Email (Outlook for Web), MS Teams (chats and meetings), Journal (Excel, where I document my activities), WhatsApp (non-work chat), Signal (non-work chat), Feedly (news aggregator), BBC.co.uk (news), Confluence (User Stories), JIRA (backlog), Word, Excel, PowerPoint, Adobe Analytics (product analytics),Tableau (product analytics), Axure or Excalidraw (prototyping & sketching).
         </p>
         <p>
-          In turns out that these applications fit quite nicely into groups,
-          where each group is based around different tasks:
+          In turns out that these applications fit quite nicely into groups, where each group is based around different tasks:
         </p>
 
         <ol>
-          <li>
-            <strong>Plan, record, and communicate</strong> (Tasks, Agenda,
-            Email, MS Teams, Journal)
-          </li>
-          <li>
-            <strong>Taking a break</strong> (WhatsApp, Signal, Feedly, BBC News)
-          </li>
-          <li>
-            <strong>Monthly reporting</strong> (Tableau, Adobe Analytics, Excel)
-          </li>
-          <li>
-            <strong>User Story creation</strong> (Confluence, JIRA, Axure or
-            Excalidraw)
-          </li>
+          <li><strong>Plan, record, and communicate</strong> (Tasks, Agenda, Email, MS Teams, Journal)</li>
+          <li><strong>Taking a break</strong> (WhatsApp, Signal, Feedly, BBC News)</li>
+          <li><strong>Monthly reporting</strong> (Tableau, Adobe Analytics, Excel)</li>
+          <li><strong>User Story creation</strong> (Confluence, JIRA, Axure or Excalidraw)</li>
         </ol>
 
         <p>
-          №1 & №2 are ‘reference tasks’, I need these open all day as I’ll check
-          them frequently, №3 & №4 are examples of ‘focused tasks’, this is
-          where I’d spend the majority of my day (I’d typically never have more
-          than 2 of these on the go at the same time). Each of the above task
-          groups is mutually exclusive. I’m either drafting my monthly report or
-          taking a break, I’m not documenting a User Story while also
-          communicating with a colleague via MS Teams. Many of the apps within
-          each task group benefits from being visible at the same time e.g. when
-          I’m planning my day it’s good to see my task list and agenda
-          side-by-side, when I’m checking to see who is trying to contact me,
-          it’s good to see emails and MS Teams open at the same time. Taking the
-          above into account, you end up with the following basic requirements:
+          №1 & №2 are ‘reference tasks’, I need these open all day as I’ll check them frequently, №3 & №4 are examples of ‘focused tasks’, this is where I’d spend the majority of my day (I’d typically never have more than 2 of these on the go at the same time). Each of the above task groups is mutually exclusive. I’m either drafting my monthly report or taking a break, I’m not documenting a User Story while also communicating with a colleague via MS Teams. Many of the apps within each task group benefits from being visible at the same time e.g. when I’m planning my day it’s good to see my task list and agenda side-by-side, when I’m checking to see who is trying to contact me, it’s good to see emails and MS Teams open at the same time. Taking the above into account, you end up with the following basic requirements:
         </p>
 
         <ol>
-          <li>
-            The ability to group multiple apps together (by task). i.e. form
-            ‘task groups’.
-          </li>
+          <li>The ability to group multiple apps together (by task). i.e. form ‘task groups’.</li>
           <li>The ability to view apps side-by-side within the task groups.</li>
           <li>The ability to only view one task group at a time.</li>
           <li>The ability to quickly switch between task groups.</li>
@@ -194,15 +139,7 @@
         </ol>
 
         <p>
-          The Windows Taskbar does not show you a list of tasks, it shows you a
-          list of apps (it’s an ‘App bar’), and as I mention above, planning my
-          day requires 2 apps, writing my monthly report requires 3 apps. There
-          is no real task switcher in Windows i.e. there’s nothing that allows
-          you to easily switch between groups of apps (I think Windows Sets was
-          Microsoft’s proposed solution to this, it would have satisfied
-          requirements №1, 3 & 4 from the list above…but not 2. But, it
-          currently looks like Sets is not going to become a feature in Windows
-          10).
+          The Windows Taskbar does not show you a list of tasks, it shows you a list of apps (it’s an ‘App bar’), and as I mention above, planning my day requires 2 apps, writing my monthly report requires 3 apps. There is no real task switcher in Windows i.e. there’s nothing that allows you to easily switch between groups of apps (I think Windows Sets was Microsoft’s proposed solution to this, it would have satisfied requirements №1, 3 & 4 from the list above…but not 2. But, it currently looks like Sets is not going to become a feature in Windows 10).
         </p>
       </section>
 
@@ -213,28 +150,15 @@
           First, let’s start with a definition of what a virtual desktop is:
         </p>
         <blockquote>
-          In computing, a virtual desktop is a term used with respect to user
-          interfaces to describe ways in which the virtual space of a computer’s
-          desktop environment is expanded beyond the physical limits of the
-          screen’s display area through the use of software. This compensates
-          for a limited desktop area and can also be helpful in reducing
-          clutter.
+          In computing, a virtual desktop is a term used with respect to user interfaces to describe ways in which the virtual space of a computer’s desktop environment is expanded beyond the physical limits of the screen’s display area through the use of software. This compensates for a limited desktop area and can also be helpful in reducing clutter.
         </blockquote>
         <p>
-          Although virtual desktops have been around since the late 1980s, they
-          were not available natively in Windows until the launch of Windows 10.
-          Because virtual desktops are discrete, make full use of the real
-          desktop, and allow fast switching via keyboard shortcuts, they satisfy
-          all 4 requirements from my list.
+          Although virtual desktops have been around since the late 1980s, they were not available natively in Windows until the launch of Windows 10. Because virtual desktops are discrete, make full use of the real desktop, and allow fast switching via keyboard shortcuts, they satisfy all 4 requirements from my list.
         </p>
 
         <h3>An example</h3>
         <p>
-          To keep things simple, I’m going to assume that I’m only working on a
-          single focused task and am not taking any breaks. This leaves me with
-          only two task groups required for my day i.e. 1) plan, record &
-          communicate, 2) monthly reporting. For me, these task groups would
-          look like those displayed in the image below:
+          To keep things simple, I’m going to assume that I’m only working on a single focused task and am not taking any breaks. This leaves me with only two task groups required for my day i.e. 1) plan, record & communicate, 2) monthly reporting. For me, these task groups would look like those displayed in the image below:
         </p>
 
         <figure>
@@ -1180,41 +1104,13 @@
         </figure>
 
         <p>
-          As I have a dual monitor setup, each virtual desktop includes both
-          monitors. My first virtual desktop includes three web instances of
-          Outlook (tasks, calendar, and emails), MS Teams (for chat and
-          meetings), and Excel (for my journal). The second virtual desktop
-          includes a web browser (product analytics via Adobe Analytics and
-          Tableau) and Excel (monthly report). All the apps are open and sized
-          appropriately, so there’s no need to switch between, minimise,
-          maximise, resize, or drag any windows. The only window management
-          that’s required is via the keyboard shortcuts that enable moving
-          between virtual desktops i.e. Ctrl+Win+LeftArrow and
-          Ctrl+Win+RightArrow. And it’s this change that I believe is what makes
-          virtual desktops so valuable.
+          As I have a dual monitor setup, each virtual desktop includes both monitors. My first virtual desktop includes three web instances of Outlook (tasks, calendar, and emails), MS Teams (for chat and meetings), and Excel (for my journal). The second virtual desktop includes a web browser (product analytics via Adobe Analytics and Tableau) and Excel (monthly report). All the apps are open and sized appropriately, so there’s no need to switch between, minimise, maximise, resize, or drag any windows. The only window management that’s required is via the keyboard shortcuts that enable moving between virtual desktops i.e. Ctrl+Win+LeftArrow and Ctrl+Win+RightArrow. And it’s this change that I believe is what makes virtual desktops so valuable.
         </p>
         <p>
-          It was only when I started to use virtual desktops in this way that I
-          realised how much time I was spending scanning the taskbar looking for
-          apps, moving them around, resizing them, and opening and closing them.
-          And I was repeating this process multiple times per day as I was
-          switching between tasks. With virtual desktops, I’ll set up my
-          reference desktop as soon as I start my day, I’ll check for any unread
-          emails, and see what meetings and tasks I have scheduled, once that’s
-          done, I’ll then setup my focused desktop. Every ½ hour or so I’ll
-          quickly switch back to my reference desktop to see if there are any
-          new messages or meeting requests, if not, I’ll jump straight back into
-          my focused desktop. The process of switching takes less than a second,
-          and I’ve not had to hunt and peck at the Taskbar, or do any window
-          managed to achieve this.
+          It was only when I started to use virtual desktops in this way that I realised how much time I was spending scanning the taskbar looking for apps, moving them around, resizing them, and opening and closing them. And I was repeating this process multiple times per day as I was switching between tasks. With virtual desktops, I’ll set up my reference desktop as soon as I start my day, I’ll check for any unread emails, and see what meetings and tasks I have scheduled, once that’s done, I’ll then setup my focused desktop. Every ½ hour or so I’ll quickly switch back to my reference desktop to see if there are any new messages or meeting requests, if not, I’ll jump straight back into my focused desktop. The process of switching takes less than a second, and I’ve not had to hunt and peck at the Taskbar, or do any window managed to achieve this.
         </p>
         <p>
-          Even in this simple example with only 2 task groups, I’ve saved myself
-          a lot of window management, but, typically I’d have 4 virtual desktops
-          on the go, I’d have my ‘taking a break’ group, and sometimes a second
-          focused group (I find it hard to focus on a single task for
-          8&nbsp;hours, so I like to switch between two different tasks whenever
-          possible).
+          Even in this simple example with only 2 task groups, I’ve saved myself a lot of window management, but, typically I’d have 4 virtual desktops on the go, I’d have my ‘taking a break’ group, and sometimes a second focused group (I find it hard to focus on a single task for 8&nbsp;hours, so I like to switch between two different tasks whenever possible).
         </p>
       </section>
 
@@ -1222,29 +1118,16 @@
       <section>
         <h2>Using Windows Virtual Desktops</h2>
         <p>
-          To create a virtual desktop, click the Task View icon located on the
-          Taskbar (or use the shortcut Win + Tab), then, in the top left corner,
-          select ‘New desktop’. To move between these 2 desktops, use
-          Ctrl+Win+LeftArrow and Ctrl+Win+RightArrow.
+          To create a virtual desktop, click the Task View icon located on the Taskbar (or use the shortcut Win + Tab), then, in the top left corner, select ‘New desktop’. To move between these 2 desktops, use Ctrl+Win+LeftArrow and Ctrl+Win+RightArrow.
         </p>
         <p>
-          While in the Task View, you can also drag apps into the virtual
-          desktops, or right click the app and select "move to", to move apps
-          between virtual desktops.
+          While in the Task View, you can also drag apps into the virtual desktops, or right click the app and select "move to", to move apps between virtual desktops.
         </p>
 
         <figure>
-          <img
-            src="/images/article2figure2.webp"
-            width="884"
-            height="569"
-            loading="lazy"
-            alt="Three images showing the timeline icon on the Windows 10 taskbar, the new desktop button in the virtual desktop view, and the add new desktop option."
-          />
+          <img src="/images/article2figure2.webp" width="884" height="569" loading="lazy" alt="Three images showing the timeline icon on the Windows 10 taskbar, the new desktop button in the virtual desktop view, and the add new desktop option.">
           <figcaption>
-            The Timeline icon in the Windows taskbar. The new desktop option as
-            seen from within the timeline view. And the ‘switch desktop’ options
-            (Windows 10).
+            The Timeline icon in the Windows taskbar. The new desktop option as seen from within the timeline view. And the ‘switch desktop’ options (Windows 10).
           </figcaption>
         </figure>
       </section>
@@ -1253,12 +1136,7 @@
       <section>
         <h2>What if I only have a small single display?</h2>
         <p>
-          If you are limited to a single small display, then it’s likely that
-          you are running your apps maximised and using the Taskbar to quickly
-          switch between them. If this is the case, then virtual desktops aren’t
-          going to provide you with any extra utility (at least not as far as I
-          can tell, if you’ve found them useful in this scenario, then let me
-          know).
+          If you are limited to a single small display, then it’s likely that you are running your apps maximised and using the Taskbar to quickly switch between them. If this is the case, then virtual desktops aren’t going to provide you with any extra utility (at least not as far as I can tell, if you’ve found them useful in this scenario, then let me know).
         </p>
       </section>
 
@@ -1266,11 +1144,7 @@
       <section>
         <h2>Summary</h2>
         <p>
-          Virtual Desktops might not be for everyone, but since using them I’ve
-          been surprised at how much more efficient I find my app management on
-          Windows. Virtual Desktops is something I’ll be sticking with, and I’m
-          hoping that Microsoft continue to build on this new Windows 10
-          feature.
+          Virtual Desktops might not be for everyone, but since using them I’ve been surprised at how much more efficient I find my app management on Windows. Virtual Desktops is something I’ll be sticking with, and I’m hoping that Microsoft continue to build on this new Windows 10 feature.
         </p>
       </section>
 
@@ -1278,10 +1152,7 @@
       <section>
         <h2>Feedback</h2>
         <p>
-          If you have any comments on this article then please get in touch via
-          Twitter (<a href="https://twitter.com/dbs_sticky" target="_blank"
-            >@dbs_sticky</a
-          >).
+          If you have any comments on this article then please get in touch via Twitter (<a href="https://twitter.com/dbs_sticky" target="_blank">@dbs_sticky</a>).
         </p>
       </section>
 
@@ -1289,23 +1160,9 @@
       <div class="sharing">
         <p>
           Share this article:
-          <a
-            href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html&text=Using%20Virtual%20Desktops%20in%20Windows%2010&via=dbs_sticky"
-            target="_blank"
-            >Twitter </a
-          >·
-          <a
-            href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html&title=Using%20Virtual%20Desktops%20in%20Windows%2010"
-            target="_blank"
-          >
-            LinkedIn </a
-          >·
-          <a
-            href="mailto:?subject=OnlyRSS.org%20article:%20Using%20Virtual%20Desktops%20in%20Windows%2010&body=https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html"
-            target="_blank"
-          >
-            Email</a
-          >
+          <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html&text=Using%20Virtual%20Desktops%20in%20Windows%2010&via=dbs_sticky" target="_blank">Twitter </a>·
+          <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html&title=Using%20Virtual%20Desktops%20in%20Windows%2010" target="_blank">LinkedIn </a>·
+          <a href="mailto:?subject=OnlyRSS.org%20article:%20Using%20Virtual%20Desktops%20in%20Windows%2010&body=https://onlyrss.org/posts/using-virtual-desktops-in-windows-10.html" target="_blank">Email</a>
         </p>
       </div>
     </article>
