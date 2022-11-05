@@ -270,15 +270,20 @@ blockquote {
   border-left: 5px solid var(--accent);
   margin: 2rem 0;
   padding: 1rem;
-  font-size: 0.9em;
-  font-weight: 500;
-  font-style: normal;
+  font-size: 0.8rem
+}
+
+blockquote q {
+  font-size: 1.1rem;
+
 }
 
 /* quotes - should also be used within blockquotes */
 q {
   font-style: italic;
 }
+
+
 
 /* abbreviations */
 abbr[title]:hover::after {
