@@ -284,7 +284,6 @@ q {
 }
 
 
-
 /* abbreviations */
 abbr[title]:hover::after {
   content: " (" attr(title) ")";
@@ -739,6 +738,7 @@ a.icons:active {
   border: 1px solid LightGrey;
   margin: 15px;
   box-shadow: 0 0px 10px rgb(0 0 0 / 15%);
+  
 }
 
 .card:hover {
@@ -756,6 +756,7 @@ a.icons:active {
   display: flex;
   flex-direction: column;
   margin-bottom: 0px;
+
 }
 
 /* make the title and description expand to push the date/tag text to the bottom */
