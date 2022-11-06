@@ -776,42 +776,7 @@ a.icons:active {
   flex-direction: row;
   justify-content: space-between;
   padding: 10px 15px;
-}
-
-.DataViz-tag::after {
-  background-color: #d4e09b;
-  content: "DataViz";
-  font-size: 0.6rem;
-}
-
-.css-tag::after {
-  background-color: #9cb380;
-  content: "CSS";
-  font-size: 0.6rem;
-}
-
-.productivity-tag::after {
-  background-color: #94a89a;
-  content: "productivity";
-  font-size: 0.6rem;
-}
-
-.review-tag::after {
-  background-color: #c7ac92;
-  content: "review";
-  font-size: 0.6rem;
-}
-
-.js-tag::after {
-  background-color: #c792c4;
-  content: "JS";
-  font-size: 0.6rem;
-}
-
-.misc-tag::after {
-  background-color: #afafaf;
-  content: "Misc";
-  font-size: 0.6rem;
+  font-size: 0.75rem
 }
 
 /* apply general style to card tags */
@@ -821,33 +786,37 @@ a.icons:active {
   border-radius: 3px;
   padding: 2px 5px;
   margin-left: 5px;
-  font-size: 0.7rem
 }
 
 /* apply individual content to card tags */
 .DataViz-tag::after {
-  background-color: #d4e09b;
+  background-color: #7793df;
   content: "DataViz";
 }
 
 .css-tag::after {
-  background-color: #9cb380;
+  background-color: #a670b1;
   content: "CSS";
 }
 
 .productivity-tag::after {
-  background-color: #94a89a;
+  background-color: #5ca371;
   content: "productivity";
 }
 
 .review-tag::after {
-  background-color: #c7ac92;
+  background-color: #d18c6b;
   content: "review";
 }
 
 .js-tag::after {
   background-color: #c792c4;
   content: "JS";
+}
+
+.misc-tag::after {
+  background-color: #c2c2c2;
+  content: "Misc";
 }
 
 /*  ======================
