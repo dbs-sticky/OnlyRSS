@@ -755,10 +755,17 @@ a.icons:active {
 
 .card-body {
   width: 300px;
-  overflow: hidden;
   padding: 10px 15px 0px 15px;
   flex: 1;
+/* show ellipsis if more than 5 lines (heading and description) */
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  white-space: normal;
   }
+  
+
 
 .card-body h2 {
   font-weight: 600;
