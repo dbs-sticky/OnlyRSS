@@ -738,16 +738,15 @@ a.icons:active {
   width: 300px;
   height: 400px;
   border-radius: 10px;
-  border: 1px solid LightGrey;
   margin: 15px;
-  box-shadow: 0 0px 10px rgb(0 0 0 / 15%);
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .card-container:hover {
-  box-shadow: 0 0px 30px rgba(0, 0, 0, 15%);
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 20%);
 }
 
 .card-img {
@@ -757,7 +756,7 @@ a.icons:active {
 .card-body {
   width: 300px;
   overflow: hidden;
-  padding: 0px 10px;
+  padding: 10px 15px 0px 15px;
   flex: 1;
   }
 
@@ -767,12 +766,16 @@ a.icons:active {
   font-family: "OpenSans", sans-serif;
   line-height: 1.5rem;
 }
+
+.card-body p {
+  margin-top: 0px;
+}
  
 .card-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 10px;
+  padding: 10px 15px;
 }
 
 .DataViz-tag::after {
