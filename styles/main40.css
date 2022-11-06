@@ -66,7 +66,7 @@ body {
     /* set icon width (height is auto) - adjust this to scale them */
   }
 
-  .container h2 {
+  .card-body h2 {
     font-size: 1.1rem;
   }
   /* full width learning log table on mobile */
@@ -117,7 +117,7 @@ body {
     /* set icon width (height is auto) - adjust this to scale them */
   }
 
-  .container h2 {
+  .card-body h2 {
     font-size: 0.9rem;
   }
   /* 60% width learning log table desktops/tablets */
@@ -705,6 +705,7 @@ a.icons:active {
     homepage grid
     ====================== */
 
+
 .home-grid p {
   line-height: 1.8;
 }
@@ -722,97 +723,6 @@ a.icons:active {
   justify-content: center;
 }
 
-.container h2 {
-  font-weight: 600;
-  /* font size is set in media queries */
-  font-family: "OpenSans", sans-serif;
-  line-height: 1.5rem;
-}
-
-.card {
-  background-color: rgb(255, 255, 255);
-  transition: 0.5s;
-  width: 300px;
-  height: 400px;
-  border-radius: var(--radius);
-  border: 1px solid LightGrey;
-  margin: 15px;
-  box-shadow: 0 0px 10px rgb(0 0 0 / 15%);
-  
-}
-
-.card:hover {
-  box-shadow: 0 0px 30px rgba(0, 0, 0, 15%);
-}
-
-.card img {
-  border-radius: var(--radius) var(--radius) 0 0;
-}
-
-/* make the text container a vertical flexbox */
-.container {
-  padding: 10px 20px 10px 20px;
-  height: 180px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0px;
-
-}
-
-/* make the title and description expand to push the date/tag text to the bottom */
-.container div:first-of-type {
-  flex: 1;
-}
-
-/* make the date/tag row a flex row */
-.date {
-  display: flex;
-}
-
-/* make the date expand to push the tag text to the right */
-.date span:first-of-type {
-  flex: 1;
-}
-
-.date span::after {
-  font-family: "Roboto Condensed", sans-serif;
-  color: rgb(255, 255, 255);
-  border-radius: 3px;
-  padding: 2px 5px;
-  margin-left: 5px;
-  /* add space between tags */
-}
-
-.DataViz-tag::after {
-  background-color: #d4e09b;
-  content: "DataViz";
-  font-size: 0.6rem;
-}
-
-.css-tag::after {
-  background-color: #9cb380;
-  content: "CSS";
-  font-size: 0.6rem;
-}
-
-.productivity-tag::after {
-  background-color: #94a89a;
-  content: "productivity";
-  font-size: 0.6rem;
-}
-
-.review-tag::after {
-  background-color: #c7ac92;
-  content: "review";
-  font-size: 0.6rem;
-}
-
-.js-tag::after {
-  background-color: #c792c4;
-  content: "JS";
-  font-size: 0.6rem;
-}
-
 /* set the card link styles */
 .home-grid a {
   font-size: 14px;
@@ -820,6 +730,94 @@ a.icons:active {
   text-decoration: none;
 }
 
+/* the cards are made of a card-container (flex column, space-between), at the top of which is a card-img, then the card-body (flex 1), and then the card-footer. The card footer contains 2 divs (flex row space-between) for the date and tag */
+
+.card-container { 
+  background-color: rgb(255, 255, 255);
+  transition: 0.5s;
+  width: 300px;
+  height: 400px;
+  border-radius: 10px;
+  margin: 15px;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-container:hover {
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 20%);
+}
+
+.card-img {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.card-body {
+  width: 300px;
+  overflow: hidden;
+  padding: 10px 15px 0px 15px;
+  flex: 1;
+  }
+
+.card-body h2 {
+  font-weight: 600;
+  /* font size is set in media queries */
+  font-family: "OpenSans", sans-serif;
+  line-height: 1.5rem;
+}
+
+.card-body p {
+  margin-top: 0px;
+}
+ 
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 15px;
+  font-size: 0.75rem
+}
+
+/* apply general style to card tags */
+.card-tags span::after {
+  font-family: "Roboto Condensed", sans-serif;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin-left: 5px;
+}
+
+/* apply individual content to card tags */
+.DataViz-tag::after {
+  background-color: #7793df;
+  content: "DataViz";
+}
+
+.css-tag::after {
+  background-color: #a670b1;
+  content: "CSS";
+}
+
+.productivity-tag::after {
+  background-color: #5ca371;
+  content: "productivity";
+}
+
+.review-tag::after {
+  background-color: #d18c6b;
+  content: "review";
+}
+
+.js-tag::after {
+  background-color: #c792c4;
+  content: "JS";
+}
+
+.misc-tag::after {
+  background-color: #c2c2c2;
+  content: "Misc";
+}
 
 /*  ======================
     exercise randomiser in JavaScript article
