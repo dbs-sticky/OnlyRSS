@@ -61,12 +61,7 @@ body {
     margin-left: 1rem !important;
   }
 
-  a.icons svg {
-    width: 28px !important;
-    /* set icon width (height is auto) - adjust this to scale them */
-  }
-
-  .card-body h2 {
+   .card-body h2 {
     font-size: 1.1rem;
   }
   /* full width learning log table on mobile */
@@ -112,12 +107,7 @@ body {
     content: "" !important;
   }
 
-  a.icons svg {
-    width: 60px !important;
-    /* set icon width (height is auto) - adjust this to scale them */
-  }
-
-  .card-body h2 {
+   .card-body h2 {
     font-size: 0.9rem;
   }
   /* 60% width learning log table desktops/tablets */
@@ -636,14 +626,21 @@ summary span:first-of-type {
     social icons
     ====================== */
 
+.icon-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 /* remove the underline */
 a.icons {
   text-decoration: none;
+  display: block
 }
 
-/* set icon width (height is auto) - adjust this to scale them—this is overwritten in the media queries */
 a.icons svg {
-  width: 48px;
+  width: 68px;
 }
 
 /* on page load, fade icons to transparent */
