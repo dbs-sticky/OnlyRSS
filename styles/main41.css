@@ -629,18 +629,15 @@ summary span:first-of-type {
 .icon-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 /* remove the underline */
 a.icons {
   text-decoration: none;
-  display: block
-}
-
-a.icons svg {
-  width: 68px;
+  display: block;
+  width: 70px;
 }
 
 /* on page load, fade icons to transparent */
