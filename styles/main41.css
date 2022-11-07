@@ -628,16 +628,11 @@ summary span:first-of-type {
 
 .icon-row {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
 }
 
-/* remove the underline */
+/* let icons grow to fit the row width */
 a.icons {
-  text-decoration: none;
-  display: block;
-  width: 70px;
+  flex: 1;
 }
 
 /* on page load, fade icons to transparent */
