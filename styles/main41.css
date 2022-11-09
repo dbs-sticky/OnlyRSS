@@ -360,9 +360,9 @@ img {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-/* rule, only used on About page */
+/* rule, only used on About & subscribe pages */
 hr {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 /* automatically add the TLDR coloured text before the first paragraph in the TDLR div */
