@@ -575,6 +575,10 @@ main details img {
     changelog tags
     ====================== */
 
+/* Add some margin to the last image in the details - otherwise it's too close to the bottom */
+details img:last-of-type {
+  margin-bottom: 30px;
+}
 /* define the common style for all span::after (i.e. the tags) within summary elements */
 summary span::after {
   font-family: "Roboto Condensed", sans-serif;
