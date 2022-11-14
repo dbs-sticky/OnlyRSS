@@ -97,15 +97,28 @@
 
       <details>
         <summary>
-          <span><time datetime="2022-11-06">06 Nov 2022</time>: Added 2 new social icons and updated the icon row to Flexbox</span><span class="housekeeping-tag"></span>
+          <span><time datetime="2022-11-06">06 Nov 2022</time>: Added 2 new social icons and updated the icon row to CSS Flex</span><span class="housekeeping-tag"></span>
         </summary>
         <p>
-          Added SVG icons for Mastodon and YouTube. Also updated the icons' container to Flexbox. It's now always a single row, and fills the available width.
+          Added SVG icons for Mastodon and YouTube. Also updated the icons' container to Flex. It's now always a single row, and fills the available width.
         </p>
         <p>
           The entire icon row uses inline SVG elements—and only takes up 11KB uncompressed—so ≈3–4KB after Brotli text compression.
         </p>
         <img src="/images/icons-row.gif" loading="lazy" alt="An animated gif showing 11 social media icons fading from full colour to simple black and white outlines. " width="676" height="75">
+      </details>
+
+      <details>
+        <summary>
+          <span><time datetime="2022-11-05">05 Nov 2022</time>: Updated the homepage cards to be more "robust". </span><span class="ux-tag"></span>
+        </summary>
+        <p>
+          The cards used on the homepage were created before I really knew how to use CSS Flex properly, and they were far from ideal—changing the format of the text on the cards used to break the layout. I rebuilt them from the ground up using CSS Flex. Now the design is far better and won't break due to the cards' contents.
+        </p>
+        <p>
+          I also changed the date format and added a “misc” tag to all cards that didn't fit nicely into any of the existing categories.
+        </p>
+        <img src="/images/old-new-hp-cards.gif" loading="lazy" alt="An animated gif the old and new homepage card design. " width="650" height="284">
       </details>
 
       <details>
