@@ -229,27 +229,27 @@ a {
 }
 
 /* internal links */
-:where(p, li, figcaption, table) a::after {
+:where(p, li, figcaption, table, .pubdate) a::after {
   position: relative;
   content: "°";
   font-size: 80%;
   color: var(--accent);
 }
 
-:where(p, li, figcaption, table) a:hover {
+:where(p, li, figcaption, table, .pubdate) a:hover {
   text-decoration: none;
   color: var(--accent);
 }
 
 /* external links */
-:where(p, li, figcaption, table) a[href^="http"]::after {
+:where(p, li, figcaption, table, .pubdate) a[href^="http"]::after {
   position: relative;
   content: "°";
   font-size: 80%;
   color: red;
 }
 
-:where(p, li, figcaption, table) a[href^="http"]:hover {
+:where(p, li, figcaption, table, .pubdate) a[href^="http"]:hover {
   text-decoration: none;
   color: red;
 }
@@ -311,15 +311,15 @@ li::marker {
   color: var(--accent);
 }
 
-
+/* article byline and sharing icons */
 .pubrow {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid var(--accent);
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
-/* article byline */
 .pubdate {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
