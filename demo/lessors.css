@@ -145,6 +145,21 @@ a:hover {
   text-decoration: underline solid;
 }
 
+summary {
+  text-align: right;
+  cursor: pointer;
+  font-family: "Roboto Condensed";
+  color:var(--links);
+}
+
+details div {
+  font-family: "Roboto Condensed";
+  border: 1px solid #b9b9b9;
+  border-radius: 5px;
+  padding: 15px;
+  background: #eeeeee;
+  margin-bottom: 20px;
+}
 
 
 /* blockquotes  */
