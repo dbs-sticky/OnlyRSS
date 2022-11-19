@@ -311,13 +311,18 @@ li::marker {
   color: var(--accent);
 }
 
+
+.pubrow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent);
+  margin-bottom: 30px;
+}
+
 /* article byline */
 .pubdate {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
-  border-bottom: 1px solid var(--accent);
-  margin-bottom: 20px;
-  padding-bottom: 10px;
 }
 
 /* Figures & images */
