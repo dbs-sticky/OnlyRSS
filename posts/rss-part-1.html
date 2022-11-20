@@ -26,7 +26,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main41.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main42.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
     <!--load self-hosted fonts-->
@@ -93,9 +93,33 @@
             An RSS aggregator can save you a huge amount of time by bringing new web content to you. This includes blog posts, news articles, and search engine results.
           </p>
         </div>
-        <p class="pubdate">
-          <time datetime="2021-03-07">7 Mar 2021</time> · 3 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
-        </p>
+
+        <!-- Flexrow -->
+        <div class="pubrow">
+
+          <!-- date and author: flex item 1 -->
+          <div>
+            <span class="pubdate">
+              <time datetime="2021-03-07">7 Mar 2021</time> · 3 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+            </span>
+          </div>
+
+          <!-- Sharing icons: flex item 2-->
+          <div>
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/rss-part-1.html&text=RSS%20Part%201:%20What%20is%20RSS%20and%20what%20are%20‘aggregators’?&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+              <img src="/images/twitter.svg" alt="Twitter icon for sharing article">
+            </a>
+
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/rss-part-1.html&title=RSS%20Part%201:%20What%20is%20RSS%20and%20what%20are%20‘aggregators’?" target="_blank" title="Share this article on LinkedIn">
+              <img src="/images/linkedin.svg" alt="LinkedIn icon for sharing article">
+            </a>
+
+            <a href="mailto:?subject=OnlyRSS.org%20article:%20RSS%20Part%201:%20What%20is%20RSS%20and%20what%20are%20‘aggregators’?&body=https://onlyrss.org/posts/rss-part-1.html" target="_blank" title="Share this article via email">
+              <img src="/images/email.svg" alt="Email icon for sharing article">
+            </a>
+          </div>
+
+        </div>  <!--class pubrow-->
       </header>
 
       <!-- Intro - section -->
@@ -187,15 +211,6 @@
         </p>
       </section>
 
-      <!-- sharing - section -->
-      <div class="sharing">
-        <p>
-          Share this article:
-          <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/rss-part-1.html&text=RSS%20Part%201:%20What%20is%20RSS%20and%20what%20are%20‘aggregators’?&via=dbs_sticky" target="_blank">Twitter </a>·
-          <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/rss-part-1.html&title=RSS%20Part%201:%20What%20is%20RSS%20and%20what%20are%20‘aggregators’?" target="_blank"> LinkedIn </a>·
-          <a href="mailto:?subject=OnlyRSS.org%20article:%20RSS%20Part%201:%20What%20is%20RSS%20and%20what%20are%20‘aggregators’?&body=https://onlyrss.org/posts/rss-part-1.html" target="_blank"> Email</a>
-        </p>
-      </div>
     </article>
   </body>
 </html>

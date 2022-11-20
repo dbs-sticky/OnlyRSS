@@ -26,7 +26,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main41.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main42.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
@@ -93,9 +93,33 @@
             Working from home—and ditching the lengthy commute—can benefit both you and your employer. Here's how it changed my weekdays.
           </p>
         </div>
-        <p class="pubdate">
-          <time datetime="2021-02-07">7 Feb 2021</time> · 4 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
-        </p>
+
+        <!-- Flexrow -->
+        <div class="pubrow">
+
+          <!-- date and author: flex item 1 -->
+          <div>
+            <span class="pubdate">
+              <time datetime="2021-02-07">7 Feb 2021</time> · 4 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+            </span>
+          </div>
+
+          <!-- Sharing icons: flex item 2-->
+          <div>
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/anatomy-of-a-lockdown-day.html&text=Anatomy%20of%20a%20lockdown%20workday&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+              <img src="/images/twitter.svg" alt="Twitter icon for sharing article">
+            </a>
+
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/anatomy-of-a-lockdown-day.html&title=Anatomy%20of%20a%20lockdown%20workday" target="_blank" title="Share this article on LinkedIn">
+              <img src="/images/linkedin.svg" alt="LinkedIn icon for sharing article">
+            </a>
+
+            <a href="mailto:?subject=OnlyRSS.org%20article:%20Anatomy%20of%20a%20lockdown%20workday&body=https://onlyrss.org/posts/anatomy-of-a-lockdown-day.html" target="_blank" title="Share this article via email">
+              <img src="/images/email.svg" alt="Email icon for sharing article">
+            </a>
+          </div>
+
+        </div>  <!--class pubrow-->
       </header>
 
       <!--introduction-->
@@ -174,15 +198,6 @@
         </p>
       </section>
 
-      <!-- sharing - section -->
-      <div class="sharing">
-        <p>
-          Share this article:
-          <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/anatomy-of-a-lockdown-day.html&text=Anatomy%20of%20a%20lockdown%20workday&via=dbs_sticky" target="_blank">Twitter </a>·
-          <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/anatomy-of-a-lockdown-day.html&title=Anatomy%20of%20a%20lockdown%20workday" target="_blank">LinkedIn </a>·
-          <a href="mailto:?subject=OnlyRSS.org%20article:%20Anatomy%20of%20a%20lockdown%20workday&body=https://onlyrss.org/posts/anatomy-of-a-lockdown-day.html" target="_blank">Email</a>
-        </p>
-      </div>
     </article>
 
     <!-- related articles -->

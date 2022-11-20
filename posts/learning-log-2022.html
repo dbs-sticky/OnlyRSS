@@ -26,7 +26,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main41.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main42.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
@@ -94,9 +94,33 @@
             My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the total redesign and rebuild of this website. On this page you'll find links to all the resources I used.
           </p>
         </div>
-        <p class="pubdate">
-          <time datetime="2022-12-17">17 Dec 2022</time> · 2 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
-        </p>
+
+        <!-- Flexrow -->
+        <div class="pubrow">
+
+          <!-- date and author: flex item 1 -->
+          <div>
+            <span class="pubdate">
+              <time datetime="2022-12-17">17 Dec 2022</time> · 2 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+            </span>
+          </div>
+
+          <!-- Sharing icons: flex item 2-->
+          <div>
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/learning-log-2022.html&text=Learning%20Log%202022&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+              <img src="/images/twitter.svg" alt="Twitter icon for sharing article">
+            </a>
+
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/learning-log-2022.html&title=Learning%20Log%202022" target="_blank" title="Share this article on LinkedIn">
+              <img src="/images/linkedin.svg" alt="LinkedIn icon for sharing article">
+            </a>
+
+            <a href="mailto:?subject=OnlyRSS.org%20article:%20Learning%20Log%202022&body=https://onlyrss.org/posts/learning-log-2022.html" target="_blank" title="Share this article via email">
+              <img src="/images/email.svg" alt="Email icon for sharing article">
+            </a>
+          </div>
+
+        </div>  <!--class pubrow-->
       </header>
 
       <!--Goals-->
@@ -254,14 +278,6 @@
         </table>
       </section>
 
-      <!-- sharing - section -->
-      <div class="sharing">
-        <p>Share this article:
-          <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/learning-log-2022.html&text=Learning%20Log%202022&via=dbs_sticky" target="_blank">Twitter </a>·
-          <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/learning-log-2022.html&title=Learning%20Log%202022" target="_blank">LinkedIn </a>·
-          <a href="mailto:?subject=OnlyRSS.org%20article:%20Learning%20Log%202022&body=https://onlyrss.org/posts/learning-log-2022.html" target="_blank">Email</a>
-        </p>
-      </div>
     </article>
   </body>
 </html>

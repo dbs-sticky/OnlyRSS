@@ -320,10 +320,17 @@ li::marker {
   margin-bottom: 2rem;
 }
 
+/* convert the social icons to inline elements */
+.pubrow img {
+  display:inline;
+}
+
 .pubdate {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
 }
+
+
 
 /* Figures & images */
 figure {
