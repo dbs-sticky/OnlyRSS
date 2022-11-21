@@ -99,10 +99,13 @@
           <span><time datetime="2022-11-20">20 Nov 2022</time>: Replaced article sharing links with SVG icons, and moved to the top of articles </span><span class="ux-tag"></span>
         </summary>
         <p>
-          A colleague suggested that I move my article sharing links from the bottom of the page to the top. In a perfect world people would read an article before deciding to share it, but we don't live in a perfect world, so I decided to implement his suggestion. 
+          A colleague suggested that I move my article sharing links from the bottom of the page to the top. In a perfect world people would read an article before deciding to share it, but we don't live in a perfect world (Trump, Putin, Brexit, the US date format), so I decided to implement his suggestion. 
         </p>
         <p>
           I also took the opportunity to replace the old text links with SVG icons (total file size of icons = 996&#8239;Bytes).
+        </p>
+        <p>
+          Normally I'd "inline" my SVGs in the HTML, but as these sharing icons are used on every article page I decided to link out to them via <i>&#60;img src="…"</i>, this has a downside I was not aware of. With inline elements you can use CSS to directly affect the SVG's paths, e.g. fill, stroke, opacity etc. when linking out to the SVG files, you cannot do this. To achieve the “fade to colour” effect shown below I had to resort to the use of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" title="The MDN page explaining what CSS Filters are"> CSS Filters</a>.
         </p>
         <img src="/images/pubrow.gif" loading="lazy" alt="An animated gif showing 11 social media icons fading from full colour to simple black and white outlines. " width="650" height="62">
       </details>
