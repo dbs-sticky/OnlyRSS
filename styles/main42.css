@@ -332,22 +332,10 @@ li::marker {
 
 .pubrow img {
   filter:opacity(40%) grayscale();
-
-  /* start with icon fill fully transparent */
   transition: all 0.4s ease-in-out;
-
-  -webkit-animation: fadein 3s;
-  /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s;
-  /* Firefox < 16 */
-  -ms-animation: fadein 3s;
-  /* Internet Explorer */
-  -o-animation: fadein 3s;
-  /* Opera < 12.1 */
-  animation: fadein 3s;
 }
 
-/* on hover, remove the opacity and greyscale effects to reveal the colour*/
+/* on hover, remove filter that's applied above*/
 .pubrow img:hover {
   filter: none;
 }
@@ -691,15 +679,6 @@ a.icons svg {
   stroke: #2e2e2e;
   /* set stoke colour to match the font colour  */
   stroke-width: 0.3px;
-  -webkit-animation: fadein 3s;
-  /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s;
-  /* Firefox < 16 */
-  -ms-animation: fadein 3s;
-  /* Internet Explorer */
-  -o-animation: fadein 3s;
-  /* Opera < 12.1 */
-  animation: fadein 3s;
 }
 
 /* on hover, fade to fully opaque and grow i.e. reveal the colour that's set in the HTML SVG */
