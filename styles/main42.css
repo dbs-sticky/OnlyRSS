@@ -886,37 +886,34 @@ a.icons:active {
   Learning log tags and table
   ====================== */
 
-/* format tags */
-.course:before {
-  background-color: rgb(101, 168, 75);
+/* format tags. Requires both classes below i.e. learning-log + xxxx */
+
+.learning-format:before {
   font-size: 0.7rem;
   font-family: "Roboto Condensed", sans-serif;
   color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 1px 5px;
   margin-left: 5px;
+}
+
+.course:before {
+  background-color: rgb(101, 168, 75);
   content: "course";
+}
+
+.tutorial:before {
+  background-color: rgb(153, 75, 168);
+  content: "tutorial";
 }
 
 .book:before {
   background-color: rgb(82, 143, 223);
-  font-size: 0.7rem;
-  font-family: "Roboto Condensed", sans-serif;
-  color: rgb(255, 255, 255);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 5px;
   content: "book";
 }
 
 .video:before {
   background-color: rgb(226, 128, 99);
-  font-size: 0.7rem;
-  font-family: "Roboto Condensed", sans-serif;
-  color: rgb(255, 255, 255);
-  border-radius: 3px;
-  padding: 1px 5px;
-  margin-left: 5px;
   content: "video";
 }
 
