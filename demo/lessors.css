@@ -199,12 +199,33 @@ li::marker {
 }
 
 /* article byline */
+/* article byline and sharing icons */
+.pubrow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--accent);
+  margin-bottom: 2rem;
+  padding-bottom: 10px;
+  align-items: flex-end;
+}
+
 .pubdate {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
-  border-bottom: 1px solid var(--accent);
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+}
+
+.pubrow svg {
+  height: 35px;
+  transition: all 0.3s ease-in-out;
+  vertical-align: bottom;
+}
+
+.pubrow svg:hover {
+  transform: scale(1.2);
+}
+
+.pubrow a:hover {
+  text-decoration: none;
 }
 
 .avatar {
