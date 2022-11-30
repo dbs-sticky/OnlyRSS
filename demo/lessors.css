@@ -214,13 +214,13 @@ li::marker {
   font-size: 0.85rem;
 }
 
-.pubrow svg {
+ svg {
   height: 35px;
   transition: all 0.3s ease-in-out;
   vertical-align: bottom;
 }
 
-.pubrow svg:hover {
+ svg:hover {
   transform: scale(1.2);
 }
 
