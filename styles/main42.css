@@ -396,10 +396,10 @@ hr {
 }
 
 /*  ======================
-    FEEDBACK
+    ARTICLE FEEDBACK IN FOOTER
     ====================== */
 
-.feedback {
+article>footer {
   background-color: var(--accent-light);
   border-radius: var(--radius);
   font-weight: 500;
@@ -409,15 +409,15 @@ hr {
 }
 
 /* removed the link indicator used for all other links */
-.feedback a::after {
+article>footer a::after {
   content: none;
 }
-.feedback a {
+article>footer a {
   color: var(--accent);
 }
 
 /* override the internal/external colour for links */
-.feedback a:hover {
+article>footer a:hover {
   color: var(--accent);
 }
 
