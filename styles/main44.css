@@ -444,6 +444,11 @@ nav {
   right: var(--viewport-padding);
 }
 
+/* this forces all elements to the right of the Home button to move to the far-right */
+nav :first-child {
+  margin-right: auto;
+}
+
 article,
 main,
 aside {
@@ -470,10 +475,7 @@ nav a.nav-active {
   transition: border-color 1s ease;
 }
 
-/* a span is placed between the home and other nav link to split them left and right */
-nav span {
-  flex: 1;
-}
+
 
 button {
   -webkit-border-radius: var(--radius);
