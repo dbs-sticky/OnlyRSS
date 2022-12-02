@@ -158,9 +158,9 @@ aside {
 }
 
 /* padding so top of content is below fixed global nav */
-nav + article,
-nav + main,
-nav + main.home-grid {
+header + article,
+header + main,
+header + main.home-grid {
   margin-top: 3.5rem;
 }
 
