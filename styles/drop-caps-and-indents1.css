@@ -85,3 +85,14 @@ p+p {
   text-decoration: none;
   cursor: pointer;
 }
+
+ul {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li:first-child {
+margin-right: auto;
+}

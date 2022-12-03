@@ -11,14 +11,6 @@
   --viewport-padding: 10px;
 }
 
-header, footer {
-  border: 1px solid red;
-}
-
- section {
-  border: 1px solid blue;
-}
-
 /* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
@@ -995,3 +987,4 @@ td.progressbar:before {
   ); /* the x0.92 is to stop the line hitting the right edge of the cell, due to the 15px margin */
   border-bottom: 1pt solid rgb(226, 226, 226);
 }
+
