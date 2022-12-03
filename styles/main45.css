@@ -11,13 +11,13 @@
   --viewport-padding: 10px;
 }
 
-/* header, footer, section {
+header, footer {
   border: 1px solid red;
 }
 
  section {
   border: 1px solid blue;
-} */
+}
 
 /* Switch to 'border box', and reset browser margin & padding to zero */
 * {

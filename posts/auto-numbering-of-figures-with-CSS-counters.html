@@ -174,7 +174,9 @@
           Lastly, we display the current count of figcaptions within the figcaption CSS declaration. We do this by using the ::before pseudo selector. We place the figcaption count between the text “Figure” and “.”, so we end up with something like “Figure 5.”:
         </p>
         <pre><code>figcaption::before {content: 'Figure ' counter(figures) '. ';}</code></pre>
+      </section>
 
+      <section>
         <h2>Implementation example</h2>
         <p>
           The code below shows the CSS used on OnlyRSS.org to display figcaptions, and the HTML used to generate figures 1 & 2.
