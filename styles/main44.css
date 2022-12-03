@@ -48,8 +48,8 @@ body {
   main,
   aside,
   nav {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
   blockquote {
@@ -94,8 +94,8 @@ body {
   main,
   aside,
   nav {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+    padding-left: 3.5rem !important;
+    padding-right: 3.5rem !important;
   }
 
   blockquote {
@@ -429,12 +429,11 @@ nav ul {
   display: flex;
   gap: 1rem;
   list-style-type: none;
-  margin: 0 2rem;
-  padding: 0;
+  margin: 0 !important;
 }
 
 nav li a {
-  padding: 10px 0;
+  padding: 0.6rem 0;
 }
 
 /* remove the default link style i.e. "°" */
@@ -445,7 +444,8 @@ nav li a::after {
 
 nav {
   position: fixed;
-  padding: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   top: 0px;
   background-color: white;
   max-width: var(--pagewidth);
