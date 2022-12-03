@@ -11,6 +11,14 @@
   --viewport-padding: 10px;
 }
 
+/* header, footer, section {
+  border: 1px solid red;
+}
+
+ section {
+  border: 1px solid blue;
+} */
+
 /* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
@@ -550,30 +558,30 @@ aside h2:hover {
     DETAILS & SUMMARY
     ====================== */
 
-/* ====== Details and Summary for ARTICLE pages i.e. uses <article>====== */
-article summary {
+/* ====== Details and Summary - normal style====== */
+.show-me summary {
   cursor: pointer;
   font-weight: 500;
   color: var(--accent);
 }
 
 /* remove the focus box, and make focused text underlined, (for users who tab through the page */
-article summary:focus {
+.show-me summary:focus {
   outline: 0;
   text-decoration: underline;
 }
 
 /* append "open" to the end of summary text */
-article summary::after {
+.show-me summary::after {
   content: " open";
 }
 /* append "close" to the end of summary text when details is open */
-article details[open] summary::after {
+ details.show-me[open] summary::after {
   content: " close";
 }
 
-/* ====== Details and Summary for changelog page i.e. uses <MAIN>====== */
-main summary {
+/* ====== Details and Summary for changelog page====== */
+.changelog summary {
   font-weight: 400;
   display: flex;
   align-items: center; /* centre them vertically */
@@ -582,12 +590,12 @@ main summary {
 }
 
 /* remove the focus box, and make bold the focus state (for users who tab through the page */
-main summary:focus {
+.changelog:focus summary {
   outline: 0;
   font-weight: 500;
 }
 
-main details {
+ .changelog {
   background-color: var(--accent-light);
   border-radius: var(--radius);
   line-height: 1.5rem;
@@ -596,19 +604,19 @@ main details {
   padding: 0.35rem 0.7rem 0.35rem;
 }
 
-main details[open] summary {
+ .changelog[open] summary {
   border-bottom: 1px solid #aaa;
   margin-bottom: 1rem;
 }
 
 /* remove the arrow on iOS */
-main details summary::-webkit-details-marker {
+ .changelog summary::-webkit-details-marker {
   display: none;
 }
 
 /* add a radius to all images on the Changelog page in the details elements */
 /* THIS WILL TARGET ALL IMAGES IN <DETAILS> ON ANY PAGES THAT USE <MAIN> */
-main details img {
+ .changelog img {
   border-radius: var(--radius);
 }
 
@@ -617,11 +625,11 @@ main details img {
     ====================== */
 
 /* Add some margin to the last image in the details - otherwise it's too close to the bottom */
-details img:last-of-type {
+.changelog img:last-of-type {
   margin-bottom: 30px;
 }
 /* define the common style for all span::after (i.e. the tags) within summary elements */
-summary span::after {
+.changelog summary span::after {
   font-family: "Roboto Condensed", sans-serif;
   color: rgb(255, 255, 255);
   border-radius: 3px;
@@ -631,7 +639,7 @@ summary span::after {
 }
 
 /* let the first span (i.e. the date and description) expand to take all the available width (forcing tags to be right-aligned */
-summary span:first-of-type {
+.changelog summary span:first-of-type {
   flex: 1;
   /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
 }
@@ -908,7 +916,7 @@ a.icons:active {
   Learning log tags and table
   ====================== */
 
-/* format tags. Requires both classes below i.e. learning-log + xxxx */
+/* format tags. Requires both classes below i.e. learning-log + [tag-name] */
 
 .learning-format:before {
   font-size: 0.7rem;
