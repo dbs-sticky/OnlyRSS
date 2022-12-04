@@ -714,34 +714,17 @@ a.icons {
   flex: 1;
 }
 
-/* on page load, fade icons to transparent */
-@keyframes fadein {
-  from {
-    fill-opacity: 1;
-  }
-
-  to {
-    fill-opacity: 0.2;
-  }
-}
-
-/* set the svg icon fill to transparent, the fill colour is set in the HTML SVG, and is unique to each icon */
+/* the fill colour is set in the HTML SVG, and is unique to each icon */
 a.icons svg {
-  fill-opacity: 0.2;
-  /* start with icon fill fully transparent */
+  /* grow on hover for 0.7s  */
   transition: all 0.7s ease-in-out;
-  /* fade opacity and grow on hover for 0.7s  */
   stroke: #2e2e2e;
   /* set stoke colour to match the font colour  */
   stroke-width: 0.3px;
-
-  /* works with keyframes above to fade in on page load */
-  animation: fadein ease 10s;
 }
 
-/* on hover, fade to fully opaque and grow i.e. reveal the colour that's set in the HTML SVG */
+/* grow on-hover */
 a.icons svg:hover {
-  fill-opacity: 1;
   transform: scale(1.3);
 }
 
