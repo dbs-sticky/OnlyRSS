@@ -366,14 +366,13 @@ li::marker {
   font-size: 0.85rem;
 }
 
-.pubrow img {
-  filter:opacity(40%) grayscale();
-  transition: all 0.4s ease-in-out;
+.pubrow svg {
+  transition: all 0.7s ease-in-out;
 }
 
-/* on hover, remove filter that's applied above*/
-.pubrow img:hover {
-  filter: none;
+/* grow on hover*/
+.pubrow svg:hover {
+  transform: scale(1.3);
 }
 
 /* Figures & images */
