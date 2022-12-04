@@ -11,6 +11,40 @@
   --viewport-padding: 10px;
 }
 
+/*  ======================
+    ONLY USED FOR DEBUGGING - comment-out before deployment
+    ====================== */
+
+body, main, article {
+  counter-reset: section;
+  counter-reset: section-heading;
+}
+
+header {
+  border: 1px solid blue;
+}
+
+section {
+  border: 1px solid red;
+  counter-increment: section;
+}
+
+h2 {
+  counter-increment: section-heading;
+}
+
+section>:first-child::before {
+  content: ' (section ' counter(section) ') ' ;
+  color: red;
+}
+
+h2::after {
+  content: ' (heading ' counter(section-heading) ')' ;
+  color: red;
+}
+
+/* -----------------END OF DEBUGGING SECTION ---------------------------*/
+
 /* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
