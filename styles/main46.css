@@ -15,7 +15,7 @@
     ONLY USED FOR DEBUGGING - comment-out before deployment
     ====================== */
 
-body, main, article {
+/* body, main, article {
   counter-reset: section;
   counter-reset: section-heading;
 }
@@ -41,7 +41,7 @@ section>:first-child::before {
 h2::after {
   content: ' (heading ' counter(section-heading) ')' ;
   color: red;
-}
+} */
 
 /* -----------------END OF DEBUGGING SECTION ---------------------------*/
 
