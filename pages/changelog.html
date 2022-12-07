@@ -103,18 +103,12 @@
       <h2>Latest update</h2>
       <details class="changelog" open>
         <summary >
-          <span><time datetime="2022-11-20">20 Nov 2022</time>: Replaced article sharing links with SVG icons, and moved to the top of articles </span><span class="ux-tag"></span>
+          <span><time datetime="2022-12-07">07 Dec 2022</time>: Updated the sharing icons to inline SVGs </span><span class="ux-tag"></span>
         </summary>
         <p>
-          A colleague suggested that I move my article sharing links from the bottom of the page to the top. In a perfect world people would read an article before deciding to share it, but we don't live in a perfect world (Trump, Putin, Brexit, the US date format), so I decided to implement his suggestion. 
+          My previous Changelog update was about moving the article sharing options from the bottom of article pages to the top, and changing them from text to SVG icons. Initially the SVGs were linked to the page via IMG tags, but I decided to use inline SVGs so I could better target their attributes (fill etc.) via CSS. I also changed the email icon so it better matches the style of the Twitter and LinkedIn icons. Each uses a cut-out, so the shadow can be seen through the icon on hover. This can be seen in the GIF below:
         </p>
-        <p>
-          I also took the opportunity to replace the old text links with SVG icons (total file size of icons = 996&#8239;Bytes).
-        </p>
-        <p>
-          Normally I'd "inline" my SVGs in the HTML, but as these sharing icons are used on every article page I decided to link out to them via <i>&#60;img src="…"</i>, this has a downside I was not aware of. With inline elements you can use CSS to directly affect the SVG's paths, e.g. fill, stroke, opacity etc. When linking out to the SVG files you cannot do this. To achieve the “fade to colour” effect shown below I had to resort to the use of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" title="The MDN page explaining what CSS Filters are"> CSS Filters</a>.
-        </p>
-        <img src="/images/pubrow.gif" loading="lazy" alt="An animated gif showing 11 social media icons fading from full colour to simple black and white outlines. " width="650" height="62">
+        <img src="/images/sharing-icons.gif" loading="lazy" alt="An animated gif showing 3 social sharing icons which grow larger on hover. " width="420" height="162">
       </details>
       </section>
 
@@ -122,6 +116,23 @@
       <section>
       <h2>Previous updates</h2>
       <p>Click on an update to see more details.</p>
+
+    <details class="changelog">
+      <summary >
+        <span><time datetime="2022-11-20">20 Nov 2022</time>: Replaced article sharing links with SVG icons, and moved to the top of articles </span><span class="ux-tag"></span>
+      </summary>
+      <p>
+        A colleague suggested that I move my article sharing links from the bottom of the page to the top. In a perfect world people would read an article before deciding to share it, but we don't live in a perfect world (Trump, Putin, Brexit, the US date format), so I decided to implement his suggestion. 
+      </p>
+      <p>
+        I also took the opportunity to replace the old text links with SVG icons (total file size of icons = 996&#8239;Bytes).
+      </p>
+      <p>
+        Normally I'd "inline" my SVGs in the HTML, but as these sharing icons are used on every article page I decided to link out to them via <i>&#60;img src="…"</i>, this has a downside I was not aware of. With inline elements you can use CSS to directly affect the SVG's paths, e.g. fill, stroke, opacity etc. When linking out to the SVG files you cannot do this. To achieve the “fade to colour” effect shown below I had to resort to the use of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" title="The MDN page explaining what CSS Filters are"> CSS Filters</a>.
+      </p>
+      <img src="/images/pubrow.gif" loading="lazy" alt="An animated gif showing 11 social media icons fading from full colour to simple black and white outlines. " width="650" height="62">
+    </details>
+
       <details class="changelog">
         <summary>
           <span><time datetime="2022-11-06">06 Nov 2022</time>: Added 2 new social icons and updated the icon row to CSS Flex</span><span class="housekeeping-tag"></span>
