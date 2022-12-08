@@ -115,6 +115,10 @@ body {
     margin-top: -40px;
     width: calc(100% + 50px);
   }
+
+ img.avatar {
+    display: none;
+  }
 }
 
 /* set size for >768px 120% */
@@ -164,6 +168,11 @@ body {
     margin-top: -40px;
     width: calc(100% + 120px);
   }
+
+  img.avatar {
+    display: inline-block;
+  }
+
 }
 
 /*  ======================
@@ -348,17 +357,29 @@ li::marker {
 }
 
 /* article byline and sharing icons */
+
 .pubrow {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--accent);
   margin-bottom: 2rem;
 }
 
 .pubdate {
+  display: flex;
+  align-items: center;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
+}
+
+.avatar {
+  width: 50px;
+  display:inline-block;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  margin-right: 1rem;
 }
 
 .pubrow svg {
