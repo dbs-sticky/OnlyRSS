@@ -116,9 +116,11 @@ body {
     width: calc(100% + 50px);
   }
 
- img.avatar {
-    display: none;
+  .pubrow {
+    flex-direction: column;
+    gap: 0.5rem;
   }
+
 }
 
 /* set size for >768px 120% */
@@ -169,8 +171,9 @@ body {
     width: calc(100% + 120px);
   }
 
-  img.avatar {
-    display: inline-block;
+  .pubrow {
+    flex-direction: row;
+    justify-content: space-between;
   }
 
 }
@@ -367,27 +370,29 @@ li::marker {
   margin-bottom: 2rem;
 }
 
+.pubavatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
 .pubdate {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
 }
 
-.avatar {
-  width: 50px;
-  display:inline-block;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-  margin-right: 1rem;
+/* added this as the SVG links seem to have a vertical offset due to the link underline */
+.svgrow {
+  height: 35px;
 }
 
 .pubrow svg {
   transition: all 0.7s ease-in-out;
-  /* fill: var(--accent); */
   fill: var(--accent);
   width: 35px;
-  height: 35px;
   filter: drop-shadow(0 0 3px rgb(0 0 0 / 0.3));
 }
 
