@@ -124,7 +124,6 @@ body {
 /* hide thumb images and reduce card height */
   .card-container img:first-child {
     display: none;
-    visibility: hidden;
 }
 
   .card-container {
@@ -194,7 +193,6 @@ body {
 /* show thumb images and increase card height */
   .card-container img:first-child {
     display: block;
-    visibility:visible;
   }
 
   .card-container {
