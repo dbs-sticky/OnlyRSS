@@ -121,6 +121,16 @@ body {
     gap: 0.5rem;
   }
 
+/* hide thumb images and reduce card height */
+  .card-container img:first-child {
+    display: none;
+    visibility: hidden;
+}
+
+  .card-container {
+    height: 200px;
+  }
+
 }
 
 /* set size for >768px 120% */
@@ -179,6 +189,16 @@ body {
   /* push the byline date text to the far left on wide displays */
   .byline-copy {
     margin-right: auto;
+  }
+
+/* show thumb images and increase card height */
+  .card-container img:first-child {
+    display: block;
+    visibility:visible;
+  }
+
+  .card-container {
+    height: 400px;
   }
 
 }
@@ -813,7 +833,7 @@ a.icons:active {
   background-color: rgb(255, 255, 255);
   transition: 0.5s;
   width: 300px;
-  height: 400px;
+  /* height: 400px; */
   border-radius: 10px;
   margin: 15px;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
