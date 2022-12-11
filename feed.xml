@@ -20,6 +20,187 @@
 
     <!-- Blog articles -->
 
+<!-- Learning Log 2022 -->
+    <item>
+      <guid isPermaLink="false">article19</guid>
+      <title>Learning Log: 2022</title>
+      <link>https://onlyrss.org/posts/learning-log-2022.html</link>
+      <pubDate>Sat, 10 Dec 2022 11:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+        <body>
+          <article>
+            <!--Goals-->
+            <section>
+              <h2>2022 goals</h2>
+              <p>
+                My primary learning goal for 2022 was to gain a deeper understanding of the online presentation of unstructured content.
+              </p>
+              <p>
+                In addition to understanding the basics, I also wanted to be able to put what I had learnt into practice. This required the continuation of my deep dive into HTML & CSS, and a total redesign and rebuild of this website—with a focus on typography and speed.
+              </p>
+              <p>
+                In addition to my primary goal, I also made a start on the understanding, querying, and manipulation of structured data, as this will be my focus for 2023.
+              </p>
+              <p>
+                Below is a list of the resources I used during 2022 to help me achieve my learning goals  (&#9733; = highly recommended).
+              </p>
+            </section>
+
+            <!--Typography-->
+            <section>
+              <h2>Resources</h2>
+              <h3>Typography</h3>
+
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://practicaltypography.com/" target="_blank">Practical Typography</a>&nbsp;&#9733;</td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.amazon.co.uk/Elements-Typographic-Style-Version-4-0/dp/0881792128" target="_blank">The Elements of Typographic Style</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://betterwebtype.com/web-typography-book/" target="_blank">Better Web Type</a>&nbsp;&#9733;</td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://blog.typekit.com/2016/04/29/combining-typefaces-free-guide-to-great-typography/" target="_blank">Combining typefaces</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://fonts.google.com/knowledge">Google’s ‘Font Knowledge’</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!--HTML and CSS-->
+            <section>
+              <h3>HTML & CSS</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.theodinproject.com/" target="_blank">The Odin Project (only the HTML & CSS parts)</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.internetingishard.com/" target="_blank">Interneting is hard!</a>&nbsp;&#9733;</td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format tutorial"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.joshwcomeau.com/css/interactive-guide-to-flexbox/" target="_blank">An Interactive Guide to Flexbox</a>&nbsp;&#9733;</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!--Data Viz-->
+            <section>
+              <h3>Data visualisation</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.amazon.co.uk/Better-Data-Visualizations-Scholars-Researchers/dp/0231193114/" target="_blank">Better Data Visualizations</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.amazon.co.uk/dp/B00E8W7NGA/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1" target="_blank">Cartographies of time</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+            
+            <!--Misc-->
+            <section>
+              <h3>Miscellaneous</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="learning-format video"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.youtube.com/watch?v=D56hs0Twfco" target="_blank">Figma Web Design Tutorial</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://skills.github.com/" target="_blank">GitHub Skills</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 100%"><a href="https://www.nngroup.com/articles/ux-writing-study-guide/" target="_blank">UX writing guide</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!--manipulating data-->
+            <section>
+              <h3>Understanding, querying, and exploring data (2023 goals)</h3>
+              <p>Planned and in progress</p>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 15%"><a href="https://www.linkedin.com/learning/paths/become-a-data-analyst" target="_blank">LinkedIn's ‘Become a data analyst’</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 26%"><a href="https://www.w3schools.com/sql/default.asp" target="_blank">W3School's ‘SQL tutorial’</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format book"></span></td>
+                    <td class="progressbar" style="--progress: 5%"><a href="https://dbeaver.com/doc/dbeaver.pdf" target="_blank">DBeaver User Manual</a></td>
+                  </tr>
+                  <tr>
+                    <td><span class="learning-format course"></span></td>
+                    <td class="progressbar" style="--progress: 1%"><a href="https://learn.microsoft.com/en-us/certifications/exams/pl-300" target="_blank">PL-300: Power BI Data Analyst</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+
+            <!-- feedback -->
+            <footer>
+              <p>
+                If you have any comments on this article then please get in touch via Twitter (<a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">@dbs_sticky</a>).
+              </p>
+            </footer>
+
+          </article>
+        </body>
+        ]]>            
+      </description>
+    </item>
+
 <!-- zoom and enhance -->
     <item>
       <guid isPermaLink="false">article18</guid>
