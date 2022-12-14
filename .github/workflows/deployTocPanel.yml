@@ -28,11 +28,13 @@ jobs:
     - name: Install Git
       run: sudo apt -y install git
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        ftp-server: ftp://${{ secrets.FTP_SERVER }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
+         server: ${{ secrets.FTP_SERVER }}
+         username: ${{ secrets.FTP_USERNAME }}
+         password: ${{ secrets.ftp_password }}
+         protocol: ftps
+         port: 21
 
 
 
