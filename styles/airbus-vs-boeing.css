@@ -4,7 +4,8 @@
 --percentagefactor: 0.4px;
 --chart-radius: 10px;
 --boeing-colour: #1D439C;
---airbus-colour: #BDD4F1;
+--airbus-colour: #5197ee;
+--background-color: #eeece7;
 
 }
 
@@ -19,7 +20,8 @@
   justify-content: center;
   align-items: center;
   color: white;
-  text-shadow: 0px 0px 3px #000000;
+  position: relative;
+  border-right: 1px solid var(--background-color);
 }
 
 
@@ -33,17 +35,19 @@
   justify-content: center;
   align-items: center;
   color: white;
-  text-shadow: 0px 0px 2px #000000;
+  position: relative;
+  border-left: 1px solid var(--background-color);
   }
 
 .boeing>div>span,
 .airbus>div>span {
-/* display: none; */
+position: absolute;
 }
 
 .chart {
   display: flex;
   justify-content: center;
+  padding: 2rem;
   /* gap: 1rem; */
 }
 
@@ -65,9 +69,9 @@
   height: 30px;
 }
 
-.chart {
-  background: #eeece7;
-  padding: 2rem;
+.paper {
+  background: var(--background-color);
+  padding: 1rem;
   margin: 2rem;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
 }
@@ -75,4 +79,18 @@
 .airlines {
   width: 30px;
   /* transform:rotate(90deg); */
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo span {
+  padding: 5px;
+}
+
+.logo img {
+  width: 40px;
+
 }
