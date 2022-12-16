@@ -1,7 +1,7 @@
 
 :root {
---fleetfactor: 0.2px;
---percentagefactor: 0.5px;
+--fleetfactor: 0.15px;
+--percentagefactor: 0.4px;
 --chart-radius: 10px;
 --boeing-colour: #1D439C;
 --airbus-colour: #BDD4F1;
@@ -14,8 +14,16 @@
   width: calc(var(--airbus)*var(--percentagefactor));
   margin-bottom: 1rem;
   background: var(--airbus-colour);
-  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   border-radius: var(--chart-radius) 0 0 var(--chart-radius);
+  position: relative;
+}
+
+.airbus div span {
+position: absolute;
+left: 70px;
+top: 70px;
+min-width: 200px;
+  /* top: calc(((var(--airbus) + var(--boeing))*var(--fleetfactor) - 1rem)*0.5); */
 }
 
 .boeing>div {
@@ -23,7 +31,6 @@
   width: calc(var(--boeing)*var(--percentagefactor));
   margin-bottom: 1rem;
   background: var(--boeing-colour);
-  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   border-radius: 0 var(--chart-radius) var(--chart-radius) 0;
   }
 
@@ -40,4 +47,11 @@
 .chart svg {
   width: 200px;
   height: 30px;
+}
+
+.chart {
+  background: #eeece7;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
 }
