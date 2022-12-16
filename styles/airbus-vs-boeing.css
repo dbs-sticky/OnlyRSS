@@ -2,30 +2,42 @@
 :root {
 --fleetfactor: 0.2px;
 --percentagefactor: 0.5px;
+--chart-radius: 10px;
+--boeing-colour: #1D439C;
+--airbus-colour: #BDD4F1;
 
 }
 
 .airbus>div {
-margin-left: auto;
-height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
-width: calc(var(--airbus)*var(--percentagefactor));
-border: 1px solid blue;
-margin-bottom: 1rem;
+  margin-left: auto;
+  height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
+  width: calc(var(--airbus)*var(--percentagefactor));
+  margin-bottom: 1rem;
+  background: var(--airbus-colour);
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  border-radius: var(--chart-radius) 0 0 var(--chart-radius);
 }
 
 .boeing>div {
   height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
   width: calc(var(--boeing)*var(--percentagefactor));
-  border: 1px solid red;
   margin-bottom: 1rem;
+  background: var(--boeing-colour);
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  border-radius: 0 var(--chart-radius) var(--chart-radius) 0;
   }
 
-  .boeing>div>span {
-    display: none;
-  }
+.boeing>div>span {
+  display: none;
+}
 
-  .chart {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
+.chart {
+  display: flex;
+  justify-content: center;
+  /* gap: 1rem; */
+}
+
+.chart svg {
+  width: 200px;
+  height: 30px;
+}
