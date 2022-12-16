@@ -1,7 +1,7 @@
 
 :root {
 --fleetfactor: 0.15px;
---percentagefactor: 0.4px;
+--percentagefactor: 350px;
 --chart-radius: 10px;
 --boeing-colour: #1D439C;
 --airbus-colour: #5197ee;
@@ -12,7 +12,7 @@
 .airbus>div {
   margin-left: auto;
   height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
-  width: calc(var(--airbus)*var(--percentagefactor));
+  width: calc(var(--airbus)/(calc(var(--airbus) + var(--boeing)))* var(--percentagefactor));
   margin-bottom: 1rem;
   background: var(--airbus-colour);
   border-radius: var(--chart-radius) 0 0 var(--chart-radius);
@@ -27,7 +27,7 @@
 
 .boeing>div {
   height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
-  width: calc(var(--boeing)*var(--percentagefactor));
+  width: calc(var(--boeing)/(calc(var(--airbus) + var(--boeing)))* var(--percentagefactor));
   margin-bottom: 1rem;
   background: var(--boeing-colour);
   border-radius: 0 var(--chart-radius) var(--chart-radius) 0;
