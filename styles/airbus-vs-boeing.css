@@ -1,0 +1,31 @@
+
+:root {
+--fleetfactor: 0.2px;
+--percentagefactor: 0.5px;
+
+}
+
+.airbus>div {
+margin-left: auto;
+height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
+width: calc(var(--airbus)*var(--percentagefactor));
+border: 1px solid blue;
+margin-bottom: 1rem;
+}
+
+.boeing>div {
+  height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
+  width: calc(var(--boeing)*var(--percentagefactor));
+  border: 1px solid red;
+  margin-bottom: 1rem;
+  }
+
+  .boeing>div>span {
+    display: none;
+  }
+
+  .chart {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
