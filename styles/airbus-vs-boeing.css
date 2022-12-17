@@ -104,9 +104,6 @@
   flex-grow: 2;
 }
 
-.airline-labels-left img svg {
-  width: 50px;
-}
 
 .airline-lables-right {
   display: flex;
