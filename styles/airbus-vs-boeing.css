@@ -43,6 +43,17 @@
 .airbus>div>span {
   position: absolute;
 }
+.airbus>svg {
+  display:block;
+  margin-bottom: 20px;
+  margin-left: auto;
+}
+
+.boeing>svg {
+  display:block;
+  margin-bottom: 20px;
+  margin-right: auto;
+}
 
 .chart {
   display: flex;
@@ -61,6 +72,9 @@
   padding: 1rem;
   margin-bottom: 2rem;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  font-family: "OpenSans", sans-serif;
+  font-size: 0.9rem;
+  min-width: 750px;
 }
 
 .airlines {
@@ -80,4 +94,14 @@
 .logo img {
   width: 40px;
 
+}
+
+.fleet-size {
+  left: 130px;
+  transform:rotate(90deg);
+  min-width: 150px;
+  text-align: center;
+  color:black;
+  border-bottom: 2px solid rgb(99, 99, 99);
+  font-size: 1.1rem;
 }
