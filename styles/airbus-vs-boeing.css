@@ -9,11 +9,37 @@
 
 }
 
+.paper {
+  background: var(--background-color);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  font-family: "OpenSans", sans-serif;
+  font-size: 0.9rem;
+  min-width: 750px;
+}
+
+.boeing>svg,
+.airbus>svg {
+  display:block;
+  margin: 20px;
+  height: 40px;
+}
+
+.boeing>svg {
+  margin-right: auto;
+}
+
+.airbus>svg {
+  margin-left: auto;
+}
+
 .chart {
   display: flex;
   flex-direction: row;
   justify-content: center;
   min-width: 600px;
+  margin-bottom: 1rem;
 }
 
 .airbus {
@@ -71,19 +97,15 @@
   border-left: 1px solid var(--background-color);
   }
 
-.fleet-size {
-  display: flex;
-  align-items: center;
-  margin-left: 1rem;
-  border-left: 2px solid grey;
-  padding-left: 1rem;
-}
-
 .airline-lables-left {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-grow: 2;
+}
+
+.airline-labels-left img svg {
+  width: 50px;
 }
 
 .airline-lables-right {
@@ -99,34 +121,6 @@
   margin-left: 1rem;
   border-left: 2px solid grey;
   padding-left: 1rem;
-}
-
-
-.airbus>svg {
-  display:block;
-  margin-bottom: 20px;
-  margin-left: auto;
-}
-
-.boeing>svg {
-  display:block;
-  margin-bottom: 20px;
-  margin-right: auto;
-}
-
-.chart svg {
-  width: 200px;
-  height: 30px;
-}
-
-.paper {
-  background: var(--background-color);
-  padding: 1rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
-  font-family: "OpenSans", sans-serif;
-  font-size: 0.9rem;
-  min-width: 750px;
 }
 
 
