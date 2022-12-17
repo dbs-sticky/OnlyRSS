@@ -9,40 +9,99 @@
 
 }
 
-.airbus>div {
-  margin-left: auto;
+.chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-width: 600px;
+}
+
+.airbus {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.boeing {
+  min-width: 300px;
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.airline-airbus-row {
+  min-width: 400px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}
+
+.boeing-airbus-row {
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.airbus-fleet {
   height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
   width: calc(var(--airbus)/(calc(var(--airbus) + var(--boeing)))* var(--percentagefactor));
-  margin-bottom: 1rem;
   background: var(--airbus-colour);
   border-radius: var(--chart-radius) 0 0 var(--chart-radius);
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  position: relative;
   border-right: 1px solid var(--background-color);
 }
 
 
-.boeing>div {
+.boeing-fleet {
   height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
   width: calc(var(--boeing)/(calc(var(--airbus) + var(--boeing)))* var(--percentagefactor));
-  margin-bottom: 1rem;
   background: var(--boeing-colour);
   border-radius: 0 var(--chart-radius) var(--chart-radius) 0;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  position: relative;
   border-left: 1px solid var(--background-color);
   }
 
-.boeing>div>span,
-.airbus>div>span {
-  position: absolute;
+.fleet-size {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  border-left: 2px solid grey;
+  padding-left: 1rem;
 }
+
+.airline-lables-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 2;
+}
+
+.airline-lables-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 2;
+}
+
+.fleet-size {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  border-left: 2px solid grey;
+  padding-left: 1rem;
+}
+
+
 .airbus>svg {
   display:block;
   margin-bottom: 20px;
@@ -53,13 +112,6 @@
   display:block;
   margin-bottom: 20px;
   margin-right: auto;
-}
-
-.chart {
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
-  /* gap: 1rem; */
 }
 
 .chart svg {
@@ -77,10 +129,6 @@
   min-width: 750px;
 }
 
-.airlines {
-  width: 30px;
-  /* transform:rotate(90deg); */
-}
 
 .logo {
   display: flex;
@@ -94,14 +142,4 @@
 .logo img {
   width: 40px;
 
-}
-
-.fleet-size {
-  left: 130px;
-  transform:rotate(90deg);
-  min-width: 150px;
-  text-align: center;
-  color:black;
-  border-bottom: 2px solid rgb(99, 99, 99);
-  font-size: 1.1rem;
 }
