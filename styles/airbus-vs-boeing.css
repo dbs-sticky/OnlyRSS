@@ -101,16 +101,13 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex-grow: 2;
 }
 
-
-.airline-lables-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-grow: 2;
+.chart-logo {
+    width: 50px;
+    padding: 5px;
 }
+
 
 .fleet-size {
   display: flex;
@@ -194,7 +191,6 @@
 }
 
 
-
 .boeing-segment {
   background: var(--boeing-colour);
   height: calc(var(--boeing)*0.5px);
@@ -207,7 +203,6 @@
 
 .bar-logo {
   height: 40px;
-  color: black;
   padding: 5px;
 }
 
