@@ -150,6 +150,7 @@
   font-size: 0.8rem;
   flex-grow: 1;
   min-width: 0px;
+  gap: 2px;
 }
 
 /* round-off the top of the bars */
