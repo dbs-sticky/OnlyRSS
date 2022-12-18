@@ -16,7 +16,7 @@
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   font-family: "OpenSans", sans-serif;
   font-size: 0.9rem;
-  min-width: 750px;
+  /* min-width: 750px; */
 }
 
 .boeing>svg,
@@ -152,6 +152,7 @@
   color: white;
   font-size: 0.8rem;
   flex-grow: 1;
+  min-width: 0px;
 }
 
 /* round-off the top of the bars */
@@ -165,6 +166,34 @@
   align-items: center;
   justify-content:center;
 }
+
+
+
+/* rotate segment labels on mobile displays */
+@media screen and (min-width: 320px) {
+  .airbus-segment span,
+  .boeing-segment span {
+    transform: rotate(-90deg);
+  }
+
+  .bar-chart {
+    gap: 0.5rem;
+  }
+}
+
+/* remove text rotating on larger displays */
+@media screen and (min-width: 768px) {
+  .airbus-segment span,
+  .boeing-segment span {
+    transform: none;
+  }
+
+  .bar-chart {
+    gap: 1rem;
+  }
+}
+
+
 
 .boeing-segment {
   background: var(--boeing-colour);
