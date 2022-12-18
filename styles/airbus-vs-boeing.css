@@ -154,6 +154,11 @@
   flex-grow: 1;
 }
 
+/* round-off the top of the bars */
+.bars div:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
 .airbus-segment,
 .boeing-segment {
   display: flex;

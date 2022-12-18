@@ -102,10 +102,10 @@
 
     <article>
       <header>
-        <h1>Airbus vs. Boeing</h1>
+        <h1>Airbus vs. Boeing: an experiment in charting</h1>
         <div class="tldr">
           <p>
-          My first attempt at creating a data visualisation using just HTML & CSS. This visual depicts the share of Boeing versus Airbus aircraft for the World's 10 largest airlines. 
+          My first attempt at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus aircraft for the world's 10 largest airlines. 
           </p>
         </div>
 
@@ -145,12 +145,12 @@
 
       <section>
         <p>
-        Inspiration for this data visualisation came from the recent chart on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women who smoke (for the world's 50 most populous countries).
+        Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women who smoke (for the world's 50 most populous countries).
         <p>
         Their chart was an image, I wanted to see if I could build a similar chart using HTML & CSS. I'm sure there are charting libraries that would let me build something similar, but I wanted full control of the design, and I also wanted to test my knowledge of CSS.
         </p>
         <p>
-          The result of my attempt is the chart below. In the chart, the vertical axis is used to show the airline's total fleet size, and the horizontal axis shows the percentage split between Boeing and Airbus.
+          The result is the first chart shown below. In the chart, the vertical axis is used to show the airline's total fleet size, and the horizontal axis shows the percentage split between Boeing and Airbus. The chart is sorted descending by total fleet size (in-service and stored aircraft only).
         </p>
         <p>
           If the chart were to be rotated 90°, and the elements shared a common baseline, then it would be a <a href="https://en.wikipedia.org/wiki/Mosaic_plot" target="_blank">mosaic plot (or a Marimekko chart)</a>
@@ -168,7 +168,7 @@
               <div class="airline-airbus-row"><div class="airbus-fleet" title="American Airlines" style=" --airbus: 481; --boeing: 474;">50.4%</div><div class="airline-lables-left"><div><img src="/images/american-airlines.svg"></div></div></div>
               <div class="airline-airbus-row"><div class="airbus-fleet" title="Delta Air Lines" style=" --airbus: 407; --boeing: 522;"><span>43.8%</span></div><div class="airline-lables-left"><div><img src="/images/delta-air-lines.svg"></div></div></div>
               <div class="airline-airbus-row"><div class="airbus-fleet" title="United Airlines" style=" --airbus: 185; --boeing: 676;"><span>21.5%</span></div><div class="airline-lables-left"><div><img src="/images/united_airlines.svg"></div></div></div>
-              <div class="airline-airbus-row"><div class="airbus-fleet" title="Southwest Airlines" style=" --airbus: 0; --boeing: 790;"><span style="right: 20px; color: black;">0.0%</span></div><div class="airline-lables-left"><div><img src="/images/southwest-airlines.svg"></div></div></div>
+              <div class="airline-airbus-row"><div class="airbus-fleet" title="Southwest Airlines" style=" --airbus: 0; --boeing: 790;"><span style="right: 20px; color: black;"></span></div><div class="airline-lables-left"><div><img src="/images/southwest-airlines.svg"></div></div></div>
               <div class="airline-airbus-row"><div class="airbus-fleet" title="China Southern Airlines" style=" --airbus: 372; --boeing: 265;"><span>58.4%</span></div></div>
               <div class="airline-airbus-row"><div class="airbus-fleet" title="Air China" style=" --airbus: 293; --boeing: 185;"><span>61.3%</span></div></div>
               <div class="airline-airbus-row"><div class="airbus-fleet" title="China Eastern Airlines" style=" --airbus: 378; --boeing: 51;"><span>88.1%</span></div></div>
@@ -193,11 +193,11 @@
             <div class="boeing-airbus-row"><div class="boeing-fleet" title="Southwest Airlines" style=" --airbus: 0; --boeing: 790;"><span>100.0%</span></div></div>
             <div class="boeing-airbus-row"><div class="boeing-fleet" title="China Southern Airlines" style=" --airbus: 372; --boeing: 265;"><span>41.6%</span></div><div class="airline-lables-right"><div><img src="/images/china-southern.svg"></div></div></div>
             <div class="boeing-airbus-row"><div class="boeing-fleet" title="Air China" style=" --airbus: 293; --boeing: 185;"><span>38.7%</span></div><div class="airline-lables-right"><div><img src="/images/air-china.svg"></div></div></div>
-            <div class="boeing-airbus-row"><div class="boeing-fleet" title="China Eastern Airlines" style=" --airbus: 378; --boeing: 51;"><span style="left: 50px; color: black;">11.9%</span></div><div class="airline-lables-right"><div><img src="/images/china-eastern.svg"></div></div></div>
+            <div class="boeing-airbus-row"><div class="boeing-fleet" title="China Eastern Airlines" style=" --airbus: 378; --boeing: 51;"><span style="font-size: 0.8rem">11.9%</span></div><div class="airline-lables-right"><div><img src="/images/china-eastern.svg"></div></div></div>
 
             <div class="boeing-airbus-row"><div class="boeing-fleet" title="FedEx" style=" --airbus: 66; --boeing: 293;"><span">81.6%</span></div><div class="airline-lables-right"></div></div>
             <div class="boeing-airbus-row"><div class="boeing-fleet" title="Turkish Airlines" style=" --airbus: 200; --boeing: 143;"><span>41.7%</span></div><div class="airline-lables-right"><div><img src="/images/turkish-airlines.svg"></div></div></div>
-            <div class="boeing-airbus-row"><div class="boeing-fleet" title="Lufthansa" style=" --airbus: 279; --boeing: 29;"><span style="left: 40px; color: black;">9.4%</span></div><div class="airline-lables-right"><div><img src="/images/lufthansa.svg"></div></div></div>
+            <div class="boeing-airbus-row"><div class="boeing-fleet" title="Lufthansa" style=" --airbus: 279; --boeing: 29;"><span style="font-size: 0.8rem">9.4%</span></div><div class="airline-lables-right"><div><img src="/images/lufthansa.svg"></div></div></div>
             </div>
 
           </div>
@@ -237,7 +237,7 @@
               <div class="bar-logo"><img src="/images/united-small.svg" title="United Airlines"></div>
             </div>
             <div class="bars">
-              <div class="airbus-segment" style="--airbus: 0;">0.0%</div>
+            <!-- no airbus div as the value is 0.0% -->
               <div class="boeing-segment" style="--boeing: 790;">100.0%</div>
               <div class="bar-logo"><img src="/images/southwest-small.svg" title="Southwest Airlines"></div>
             </div>
@@ -274,6 +274,11 @@
 
           </div>
         </div>
+
+          <p>
+            It's not as visually interesting, but it is more informative (e.g. it's easier to gauge the relative differences between the total fleet sizes). It's still not quite what I'd add to a report (or in one of my products). To get to that point, I'd replace the logos with names, and maybe rotate it through 90° (so it becomes a bar chart), this would let me use horizontal labels for the airlines' names.
+          </p>
+
       </section>
 
       
