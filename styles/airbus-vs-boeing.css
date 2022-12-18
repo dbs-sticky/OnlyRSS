@@ -171,3 +171,9 @@
   height: calc(var(--airbus)*0.5px);
 }
 
+.bar-logo {
+  height: 50px;
+  color: black;
+  padding: 5px;
+}
+
