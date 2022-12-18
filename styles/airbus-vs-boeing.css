@@ -134,3 +134,40 @@
   width: 40px;
 
 }
+
+/* For the stacked bar chart */
+
+.bar-chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  font-size: 0.8rem;
+  flex-grow: 1;
+}
+
+.airbus-segment,
+.boeing-segment {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.boeing-segment {
+  background: var(--boeing-colour);
+  height: calc(var(--boeing)*0.5px);
+}
+
+.airbus-segment {
+  background: var(--airbus-colour);
+  height: calc(var(--airbus)*0.5px);
+}
+
