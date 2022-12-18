@@ -1,0 +1,184 @@
+
+:root {
+--fleetfactor: 0.15px;
+--percentagefactor: 350px;
+--chart-radius: 10px;
+--boeing-colour: #1D439C;
+--airbus-colour: #5197ee;
+--background-color: #eeece7;
+
+}
+
+.paper {
+  background: var(--background-color);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  font-family: "OpenSans", sans-serif;
+  font-size: 0.9rem;
+  /* min-width: 750px; */
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.airbus-left {
+  flex-grow: calc(1 - (var(--airbus)/(calc(var(--airbus) + var(--boeing)))));
+  display: flex;
+  justify-content: flex-end;
+}
+
+.airbus-left>img {
+  max-height: 40px;
+  display: hidden;
+}
+
+.airbus-fleet {
+  height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
+  flex-grow: calc(var(--airbus)/(calc(var(--airbus) + var(--boeing))));
+  background: var(--airbus-colour);
+  border-radius: var(--chart-radius) 0 0 var(--chart-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-right: 1px solid var(--background-color);
+}
+
+
+.boeing-fleet {
+  height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
+  flex-grow: calc(var(--boeing)/(calc(var(--airbus) + var(--boeing))));
+  background: var(--boeing-colour);
+  border-radius: 0 var(--chart-radius) var(--chart-radius) 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-left: 1px solid var(--background-color);
+  }
+
+.boeing-right {
+  flex-grow: calc(1 - (var(--boeing)/(calc(var(--airbus) + var(--boeing)))));
+}
+
+.airline-lables-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.chart-logo {
+    width: 50px;
+    padding: 5px;
+}
+
+
+.fleet-size {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  border-left: 2px solid grey;
+  padding-left: 1rem;
+}
+
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo span {
+  padding: 5px;
+}
+
+.logo img {
+  width: 40px;
+
+}
+
+/* For the stacked bar chart */
+
+.bar-chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  font-size: 0.8rem;
+  flex-grow: 1;
+  min-width: 0px;
+  gap: 2px;
+}
+
+/* round-off the top of the bars */
+.bars div:first-child {
+  border-radius: 5px 5px 0 0;
+}
+
+.airbus-segment,
+.boeing-segment {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+
+
+/* rotate segment labels on mobile displays */
+@media screen and (min-width: 320px) {
+  .airbus-segment span,
+  .boeing-segment span {
+    transform: rotate(-90deg);
+  }
+
+  .bar-chart {
+    gap: 0.5rem;
+  }
+}
+
+/* remove text rotating on larger displays */
+@media screen and (min-width: 768px) {
+  .airbus-segment span,
+  .boeing-segment span {
+    transform: none;
+  }
+
+  .bar-chart {
+    gap: 1rem;
+  }
+}
+
+
+.boeing-segment {
+  background: var(--boeing-colour);
+  height: calc(var(--boeing)*0.5px);
+}
+
+.airbus-segment {
+  background: var(--airbus-colour);
+  height: calc(var(--airbus)*0.5px);
+}
+
+.bar-logo {
+  height: 40px;
+  padding: 5px;
+}
+

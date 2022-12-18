@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Airbus vs Boeing</title>
+    <meta name="description" content="My 2022 learning goals and resources. In this post I outline my learnig goals for 2022 (to gain a deeper understanding of the online presentation of unstructured content) and link to the resources I used.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Learning log: 2022">
+    <meta property="og:url" content="https://onlyrss.org/posts/learning-log-2022.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/learning-log-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="My 2022 learning goals and resources. In this post I outline my learnig goals for 2022 (to gain a deeper understanding of the online presentation of unstructured content) and link to the resources I used.">
+    <meta property="article:published_time" content="2022-12-10">
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main53.css">
+    <link rel="stylesheet" type="text/css" href="/styles/airbus-vs-boeing-charts.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    
+    <!--load self-hosted fonts-->
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "OpenSans";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
+      }
+
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </head>
+
+  <body>
+    
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/index.html" title="Homepage">home</a></li>
+          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
+          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
+          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article>
+      <header>
+        <h1>Airbus vs. Boeing: an experiment in charting</h1>
+        <div class="tldr">
+          <p>
+          My first attempt at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus aircraft for the world's 10 largest airlines. 
+          </p>
+        </div>
+
+        <!-- Flexrow -->
+        <div class="byline">
+
+          <div>
+            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
+          </div>
+          
+          <div class="byline-copy">
+            <time datetime="2022-12-10">10 Dec 2022</time> · 2 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          </div>
+
+          <div class="byline-svgs">
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/learning-log-2022.html&text=Learning%20Log%202022&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-2 6.5v.4a7 7 0 0 1-10.8 5.9H7c1 0 2.2-.5 3-1-1 0-2-.8-2.3-1.8l.5.1h.6c-1-.3-2-1.3-2-2.5L8 11a2.8 2.8 0 0 1-1.1-2.2c0-.4 0-.8.3-1.2a7 7 0 0 0 5 2.6v-.6c0-1.4 1-2.5 2.5-2.5.7 0 1.3.3 1.8.8.6-.1 1-.4 1.5-.6a3 3 0 0 1-1.1 1.4c.5-.1 1-.2 1.5-.5-.4.5-.8 1-1.3 1.3H17Z"/>
+              </svg>
+            </a>
+
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/learning-log-2022.html&title=Learning%20Log%202022" target="_blank" title="Share this article on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM9 17H6.5v-7H9v7ZM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3c.8 0 1.3.5 1.3 1.2s-.5 1.2-1.4 1.2ZM18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3-.3 0-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1 1.2 0 2.2 1 2.2 3.2V17Z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:?subject=OnlyRSS.org%20article:%20Learning%20Log%202022&body=https://onlyrss.org/posts/learning-log-2022.html" target="_blank" title="Share this article via email">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <path  d="M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>  <!--class byline-->
+      </header>
+
+      <section>
+        <p>
+        Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women who smoke (for the world's 50 most populous countries).
+        <p>
+        Their chart was an image, I wanted to see if I could build a similar chart using HTML & CSS. I'm sure there are charting libraries that would let me build something similar, but I wanted full control of the design, and I also wanted to test my knowledge of CSS.
+        </p>
+        <p>
+          The result is the first chart shown below. In the chart, the vertical axis is used to show the airline's total fleet size, and the horizontal axis shows the percentage split between Boeing and Airbus. The chart is sorted descending by total fleet size (in-service and stored aircraft only).
+        </p>
+        <p>
+          If the chart were to be rotated 90°, and the elements shared a common baseline, then it would be a <a href="https://en.wikipedia.org/wiki/Mosaic_plot" target="_blank">mosaic plot (or a Marimekko chart)</a>
+        </p>
+      </section>
+
+      <section>
+        <div class="paper">
+          <div class="chart">
+
+              <div class="row" style=" --airbus: 481; --boeing: 474;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>50.4%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>49.6%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 407; --boeing: 522;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>43.8%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>56.2%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 185; --boeing: 676;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>21.5%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>78.5%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 0; --boeing: 790;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"></div>
+                <div class="boeing-fleet" title="American Airlines"><span>100.0%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 372; --boeing: 265;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>58.4%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>41.6%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 293; --boeing: 185;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>61.3%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>38.7%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 378; --boeing: 51;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>88.1%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>11.9%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 66; --boeing: 293;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>18.4%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>81.6%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 200; --boeing: 143;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>58.3%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>41.7%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+              <div class="row" style=" --airbus: 279; --boeing: 29;">
+                <div class="airbus-left"><img src="/images/american-small.svg" title="American Airlines"></div>
+                <div class="airbus-fleet" title="American Airlines"><span>90.6%</span></div>
+                <div class="boeing-fleet" title="American Airlines"><span>9.4%</span></div>
+                <div class="boeing-right"></div>
+              </div>
+
+          </div>
+         <hr>
+
+          <div class="logo">
+            <span><img src="/images/cirium-logo.svg"></span><span>All data sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a></span>
+          </div>
+
+        </div>
+      </section>
+
+      <section>
+        <p>
+          The chart above looks OK, and might be suitable for sharing on social media as an infographic, but, I wouldn't add it into a report, and as a Product Manager I wouldn't include it in any of the analytics products I manage. For that I'd probably stick with the ubiquitous stacked column chart.
+        </p>
+          <p>
+            A stacked column chart version using the same data is shown below. This was far easier to create using HTML & CSS (mostly <a href="https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png" target="_blank">Flexbox</a>) than the chart above.
+        </p>
+        <div class="paper">
+
+          <div class="bar-chart">
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 481;"><span>50.4%</span></div>
+              <div class="boeing-segment" style="--boeing: 474;"><span>49.6%</span></div>
+              <div class="bar-logo"><img src="/images/american-small.svg" title="American Airlines"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 407;"><span>43.8%</span></div>
+              <div class="boeing-segment" style="--boeing: 522;"><span>56.2%</span></div>
+              <div class="bar-logo"><img src="/images/delta-small.svg" title="Delta Airlines"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 185;"><span>21.5%</span></div>
+              <div class="boeing-segment" style="--boeing: 676;"><span>78.5%</span></div>
+              <div class="bar-logo"><img src="/images/united-small.svg" title="United Airlines"></div>
+            </div>
+
+            <div class="bars">
+            <!-- no airbus div as the value is 0.0% -->
+              <div class="boeing-segment" style="--boeing: 790;"><span>100.0%</span></div>
+              <div class="bar-logo"><img src="/images/southwest-small.svg" title="Southwest Airlines"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 372;"><span>58.4%</span></div>
+              <div class="boeing-segment" style="--boeing: 265;"><span>41.6%</span></div>
+              <div class="bar-logo"><img src="/images/china-southern-small.svg" title="China Southern Airlines"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 293;"><span>61.3%</span></div>
+              <div class="boeing-segment" style="--boeing: 185;"><span>38.7%</span></div>
+              <div class="bar-logo"><img src="/images/air-china-small.svg" title="Air China"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 378;"><span>88.1%</span></div>
+              <div class="boeing-segment" style="--boeing: 51;"><span>11.9%</span></div>
+              <div class="bar-logo"><img src="/images/china-eastern-small.svg" title="China Eastern Airlines"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 66;"><span>18.4%</span></div>
+              <div class="boeing-segment" style="--boeing: 293;"><span>81.6%</span></div>
+              <div class="bar-logo"><img src="/images/fedex-small.svg" title="FedEx"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 200;"><span>58.3%</span></div>
+              <div class="boeing-segment" style="--boeing: 143;"><span>41.7%</span></div>
+              <div class="bar-logo"><img src="/images/turkish-small.svg" title="Turkish Airlines"></div>
+            </div>
+
+            <div class="bars">
+              <div class="airbus-segment" style="--airbus: 279;"><span>90.6%</span></div>
+              <div class="boeing-segment" style="--boeing: 29;"><span>9.4%</span></div>
+              <div class="bar-logo"><img src="/images/lufthansa-small.svg" title="Lufthansa"></div>
+            </div>
+
+          </div>
+        </div>
+
+          <p>
+            It's not as visually interesting, but it is more informative (e.g. it's easier to gauge the relative differences between the total fleet sizes). It's still not quite what I'd add to a report (or in one of my products). To get to that point, I'd replace the logos with names, and maybe rotate it through 90° (so it becomes a bar chart), this would let me use horizontal labels for the airlines' names.
+          </p>
+
+      </section>
+
+      
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via Twitter (<a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">@dbs_sticky</a>).
+        </p>
+      </footer>
+
+    </article>
+  </body>
+</html>
