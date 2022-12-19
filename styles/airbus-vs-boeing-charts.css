@@ -28,8 +28,6 @@
 
 .row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .airbus-left {
@@ -41,8 +39,14 @@
 
 
 .airbus-left img {
-  height: 40px;
+  width: 50px;
   padding: 5px;
+}
+
+.airbus-left>div,
+.row span {
+  /* visibility: hidden;
+  display:none; */
 }
 
 .airbus-fleet {
@@ -68,6 +72,7 @@
   align-items: center;
   color: white;
   border-left: 1px solid var(--background-color);
+
   }
 
 .boeing-right {
