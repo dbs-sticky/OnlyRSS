@@ -1,17 +1,70 @@
 
 :root {
---fleetfactor: 0.15px;
+
 --percentagefactor: 350px;
 --chart-radius: 10px;
 --boeing-colour: #1D439C;
 --airbus-colour: #5197ee;
 --background-color: #eeece7;
+}
+
+
+/* rotate segment labels on mobile displays */
+@media screen and (min-width: 320px) {
+  .airbus-segment span,
+  .boeing-segment span {
+    transform: rotate(-90deg);
+    font-size: 0.7rem;
+  }
+
+  .bar-chart {
+    gap: 0.25rem;
+  }
+
+  :root {
+    --fleetfactor: 0.07px;
+    }
+
+  .row {
+    font-size: 0.7rem;
+  }
+
+  .airbus-left img {
+    width: 30px;
+    padding: 5px;
+  }
+
+}
+
+/* remove text rotating on larger displays */
+@media screen and (min-width: 768px) {
+  .airbus-segment span,
+  .boeing-segment span {
+    transform: none;
+    font-size: 0.7rem;
+  }
+
+  .bar-chart {
+    gap: 1rem;
+  }
+
+  :root {
+    --fleetfactor: 0.15px;
+    }
+
+    .row {
+      font-size: 0.9rem;
+    }
+
+  .airbus-left img {
+    width: 50px;
+  }
 
 }
 
 .paper {
   background: var(--background-color);
-  padding: 1rem;
+  padding: 0.5rem;
   margin-bottom: 2rem;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   font-family: "OpenSans", sans-serif;
@@ -39,7 +92,6 @@
 
 
 .airbus-left img {
-  width: 50px;
   padding: 5px;
 }
 
@@ -70,7 +122,7 @@
   align-items: center;
   color: white;
   border-left: 1px solid var(--background-color);
-position: relative;
+  position: relative;
   }
 
 .boeing-right {
@@ -119,7 +171,6 @@ position: relative;
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 2rem;
-  gap: 1rem;
 }
 
 .bars {
@@ -145,33 +196,6 @@ position: relative;
   justify-content:center;
 }
 
-
-
-/* rotate segment labels on mobile displays */
-@media screen and (min-width: 320px) {
-  .airbus-segment span,
-  .boeing-segment span {
-    transform: rotate(-90deg);
-    font-size: 0.7rem;
-  }
-
-  .bar-chart {
-    gap: 0.25rem;
-  }
-}
-
-/* remove text rotating on larger displays */
-@media screen and (min-width: 768px) {
-  .airbus-segment span,
-  .boeing-segment span {
-    transform: none;
-    font-size: 0.7rem;
-  }
-
-  .bar-chart {
-    gap: 1rem;
-  }
-}
 
 .boeing-segment {
   background: var(--boeing-colour);
