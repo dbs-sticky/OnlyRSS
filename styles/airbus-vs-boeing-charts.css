@@ -43,10 +43,8 @@
   padding: 5px;
 }
 
-.airbus-left>div,
 .row span {
-  /* visibility: hidden;
-  display:none; */
+  position: absolute;
 }
 
 .airbus-fleet {
@@ -72,7 +70,7 @@
   align-items: center;
   color: white;
   border-left: 1px solid var(--background-color);
-
+position: relative;
   }
 
 .boeing-right {
