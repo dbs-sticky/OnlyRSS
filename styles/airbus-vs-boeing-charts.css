@@ -1,6 +1,5 @@
 
 :root {
-
 --percentagefactor: 350px;
 --chart-radius: 5px;
 --boeing-colour: #1D439C;
@@ -76,14 +75,12 @@
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   font-family: "OpenSans", sans-serif;
   font-size: 0.9rem;
-  /* min-width: 750px; */
 }
 
 .chart {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-
 }
 
 .row {
@@ -96,7 +93,6 @@
   justify-content: flex-end;
   align-items: center;
 }
-
 
 .airbus-left img {
   padding: 5px;
@@ -154,19 +150,20 @@
   margin-left: 1rem;
   border-left: 2px solid grey;
   padding-left: 1rem;
+  position: absolute;
 }
 
 
-.logo {
+.source {
   display: flex;
   justify-content: flex-start;
 }
 
-.logo span {
+.source span {
   padding: 5px;
 }
 
-.logo img {
+.source img {
   width: 40px;
 
 }
@@ -214,8 +211,8 @@
   height: calc(var(--airbus)*0.5px);
 }
 
-.bar-logo {
-  height: 40px;
+.bar-logo img {
+  height: 50px;
   padding: 5px;
 }
 
