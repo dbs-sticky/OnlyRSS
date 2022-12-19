@@ -36,11 +36,13 @@
   flex-grow: calc(1 - (var(--airbus)/(calc(var(--airbus) + var(--boeing)))));
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
-.airbus-left>img {
-  max-height: 40px;
-  display: hidden;
+
+.airbus-left img {
+  height: 40px;
+  padding: 5px;
 }
 
 .airbus-fleet {
