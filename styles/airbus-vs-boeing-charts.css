@@ -175,6 +175,7 @@
   flex-direction: row;
   justify-content: space-around;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .bars {
@@ -216,3 +217,36 @@
   padding: 5px;
 }
 
+.bar-legend {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.boeing-legend  {
+ display: flex;
+ width: 84px;
+ aspect-ratio: 1;
+ border-radius: 50%;
+ justify-content: center;
+ align-items: center;
+ background: var(--boeing-colour);
+ color: white;
+ text-align: center;
+}
+
+.airbus-legend  {
+  display: flex;
+  width: 74px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--airbus-colour);
+  color: white;
+  text-align: center;
+ }
