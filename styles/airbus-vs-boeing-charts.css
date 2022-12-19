@@ -2,7 +2,7 @@
 :root {
 
 --percentagefactor: 350px;
---chart-radius: 10px;
+--chart-radius: 5px;
 --boeing-colour: #1D439C;
 --airbus-colour: #5197ee;
 --background-color: #eeece7;
@@ -19,6 +19,10 @@
 
   .bar-chart {
     gap: 0.25rem;
+  }
+
+  .chart {
+    gap: 0.5rem;
   }
 
   :root {
@@ -41,10 +45,14 @@
   .airbus-segment span,
   .boeing-segment span {
     transform: none;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 
   .bar-chart {
+    gap: 1rem;
+  }
+
+  .chart {
     gap: 1rem;
   }
 
@@ -65,7 +73,6 @@
 .paper {
   background: var(--background-color);
   padding: 0.5rem;
-  margin-bottom: 2rem;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   font-family: "OpenSans", sans-serif;
   font-size: 0.9rem;
@@ -76,7 +83,7 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-  gap: 1rem;
+
 }
 
 .row {
@@ -103,7 +110,7 @@
   height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
   flex-grow: calc(var(--airbus)/(calc(var(--airbus) + var(--boeing))));
   background: var(--airbus-colour);
-  border-radius: var(--chart-radius) 0 0 var(--chart-radius);
+  border-radius:  var(--chart-radius) 0 0 var(--chart-radius);
   display: flex;
   justify-content: center;
   align-items: center;
