@@ -77,6 +77,38 @@
         src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
       }
 
+      :root {
+        --american-a: 479;
+        --american-b: 474;
+
+        --delta-a: 408;
+        --delta-b: 522;
+
+        --united-a: 185;
+        --united-b: 678;
+
+        --southwest-a: 0;
+        --southwest-b: 790;
+
+        --china-southern-a: 372;
+        --china-southern-b: 254;
+
+        --air-china-a: 293;
+        --air-china-b: 183;
+
+        --china-eastern-a: 378;
+        --china-eastern-b: 51;
+
+        --turkish-a: 188;
+        --turkish-b: 135;
+
+        --lufthansa-a: 279;
+        --lufthansa-b: 29;
+
+        --ryanair-a: 0;
+        --ryanair-b: 270;
+      }
+
     </style>
 
     <!-- Service worker for installable app-->
@@ -143,6 +175,7 @@
         </div>  <!--class byline-->
       </header>
 
+
       <section>
         <p>
         Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women who smoke (for the world's 50 most populous countries).
@@ -161,73 +194,73 @@
         <div class="paper">
           <div class="chart">
 
-              <div class="row" style=" --airbus: 481; --boeing: 474;">
-                <div class="airbus-left"><div><img src="/images/american-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>50.4%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>49.6%</span></div>
+              <div class="row" style=" --airbus: var(--american-a); --boeing: var(--american-b);" title="American Airlines">
+                <div class="airbus-left"><div><img src="/images/american-small.svg"></div></div>
+                <div class="airbus-fleet"><span>50.3%</span></div>
+                <div class="boeing-fleet"><span>49.7%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 407; --boeing: 522;">
-                <div class="airbus-left"><div><img src="/images/delta-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>43.8%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>56.2%</span></div>
+              <div class="row" style=" --airbus: var(--delta-a); --boeing: var(--delta-b);" title="Delta Air Lines">
+                <div class="airbus-left"><div><img src="/images/delta-small.svg"></div></div>
+                <div class="airbus-fleet"><span>43.9%</span></div>
+                <div class="boeing-fleet"><span>56.1%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 185; --boeing: 676;">
-                <div class="airbus-left"><div><img src="/images/united-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>21.5%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>78.5%</span></div>
+              <div class="row" style=" --airbus: var(--united-a); --boeing: var(--united-b);" title="United Airlines">
+                <div class="airbus-left"><div><img src="/images/united-small.svg"></div></div>
+                <div class="airbus-fleet"><span>21.4%</span></div>
+                <div class="boeing-fleet"><span>78.6%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 0; --boeing: 790;">
-                <div class="airbus-left"><div><img src="/images/southwest-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span></span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>100.0%</span></div>
+              <div class="row" style=" --airbus: var(--southwest-a); --boeing: var(--southwest-b);" title="Southwest Airlines">
+                <div class="airbus-left"><div><img src="/images/southwest-small.svg"></div></div>
+                <div class="airbus-fleet"><span></span></div>
+                <div class="boeing-fleet"><span>100.0%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 372; --boeing: 265;">
-                <div class="airbus-left"><div><img src="/images/china-southern-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>58.4%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>41.6%</span></div>
+              <div class="row" style=" --airbus: var(--china-southern-a); --boeing: var(--china-southern-b);" title="China Southern Airlines">
+                <div class="airbus-left"><div><img src="/images/china-southern-small.svg"></div></div>
+                <div class="airbus-fleet"><span>59.4%</span></div>
+                <div class="boeing-fleet"><span>40.6%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 293; --boeing: 185;">
-                <div class="airbus-left"><div><img src="/images/air-china-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>61.3%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>38.7%</span></div>
+              <div class="row" style=" --airbus: var(--air-china-a); --boeing: var(--air-china-b);" title="Air China">
+                <div class="airbus-left"><div><img src="/images/air-china-small.svg"></div></div>
+                <div class="airbus-fleet"><span>61.6%</span></div>
+                <div class="boeing-fleet"><span>38.4%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 378; --boeing: 51;">
-                <div class="airbus-left"><div><img src="/images/china-eastern-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>88.1%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>11.9%</span></div>
+              <div class="row" style=" --airbus: var(--china-eastern-a); --boeing: var(--china-eastern-b);" title="China Eastern Airlines">
+                <div class="airbus-left"><div><img src="/images/china-eastern-small.svg"></div></div>
+                <div class="airbus-fleet"><span>88.1%</span></div>
+                <div class="boeing-fleet"><span>11.9%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 66; --boeing: 293;">
-                <div class="airbus-left"><div><img src="/images/fedex-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>18.4%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>81.6%</span></div>
+              <div class="row" style=" --airbus: var(--turkish-a); --boeing: var(--turkish-b);" title="Turkish Airlines">
+                <div class="airbus-left"><div><img src="/images/turkish-small.svg"></div></div>
+                <div class="airbus-fleet"><span>58.2%</span></div>
+                <div class="boeing-fleet"><span>41.8%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 200; --boeing: 143;">
-                <div class="airbus-left"><div><img src="/images/turkish-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>58.3%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>41.7%</span></div>
+              <div class="row" style=" --airbus: var(--lufthansa-a); --boeing: var(--lufthansa-b);" title="Lufthansa">
+                <div class="airbus-left"><div><img src="/images/lufthansa-small.svg"></div></div>
+                <div class="airbus-fleet"><span>90.6%</span></div>
+                <div class="boeing-fleet"><span>9.4%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
-              <div class="row" style=" --airbus: 279; --boeing: 29;">
-                <div class="airbus-left"><div><img src="/images/lufthansa-small.svg" title="American Airlines"></div></div>
-                <div class="airbus-fleet" title="American Airlines"><span>90.6%</span></div>
-                <div class="boeing-fleet" title="American Airlines"><span>9.4%</span></div>
+              <div class="row" style=" --airbus: var(--ryanair-a); --boeing: var(--ryanair-b);" title="Ryanair">
+                <div class="airbus-left"><div><img src="/images/ryanair-small.svg"></div></div>
+                <div class="airbus-fleet"><span></span></div>
+                <div class="boeing-fleet"><span>100.0%</span></div>
                 <div class="boeing-right"></div>
               </div>
 
@@ -252,64 +285,64 @@
 
           <div class="bar-chart">
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 481;"><span>50.4%</span></div>
-              <div class="boeing-segment" style="--boeing: 474;"><span>49.6%</span></div>
-              <div class="bar-logo"><img src="/images/american-small.svg" title="American Airlines"></div>
+            <div class="bars" style=" --airbus: var(--american-a); --boeing: var(--american-b);" title="American Airlines">
+              <div class="airbus-segment"><span>50.3%</span></div>
+              <div class="boeing-segment"><span>49.7%</span></div>
+              <div class="bar-logo"><img src="/images/american-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 407;"><span>43.8%</span></div>
-              <div class="boeing-segment" style="--boeing: 522;"><span>56.2%</span></div>
-              <div class="bar-logo"><img src="/images/delta-small.svg" title="Delta Airlines"></div>
+            <div class="bars" style=" --airbus: var(--delta-a); --boeing: var(--delta-b);" title="Delta Air Lines">
+              <div class="airbus-segment"><span>43.9%</span></div>
+              <div class="boeing-segment"><span>56.1%</span></div>
+              <div class="bar-logo"><img src="/images/delta-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 185;"><span>21.5%</span></div>
-              <div class="boeing-segment" style="--boeing: 676;"><span>78.5%</span></div>
-              <div class="bar-logo"><img src="/images/united-small.svg" title="United Airlines"></div>
+            <div class="bars" style=" --airbus: var(--united-a); --boeing: var(--united-b);" title="United Airlines">
+              <div class="airbus-segment"><span>21.4%</span></div>
+              <div class="boeing-segment"><span>78.6%</span></div>
+              <div class="bar-logo"><img src="/images/united-small.svg"></div>
             </div>
 
-            <div class="bars">
+            <div class="bars" style=" --airbus: var(--southwest-a); --boeing: var(--southwest-b);" title="Southwest Airlines">
             <!-- no airbus div as the value is 0.0% -->
-              <div class="boeing-segment" style="--boeing: 790;"><span>100.0%</span></div>
-              <div class="bar-logo"><img src="/images/southwest-small.svg" title="Southwest Airlines"></div>
+              <div class="boeing-segment"><span>100.0%</span></div>
+              <div class="bar-logo"><img src="/images/southwest-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 372;"><span>58.4%</span></div>
-              <div class="boeing-segment" style="--boeing: 265;"><span>41.6%</span></div>
-              <div class="bar-logo"><img src="/images/china-southern-small.svg" title="China Southern Airlines"></div>
+            <div class="bars" style=" --airbus: var(--china-southern-a); --boeing: var(--china-southern-b);" title="China Southern Airlines">
+              <div class="airbus-segment"><span>59.4%</span></div>
+              <div class="boeing-segment"><span>40.6%</span></div>
+              <div class="bar-logo"><img src="/images/china-southern-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 293;"><span>61.3%</span></div>
-              <div class="boeing-segment" style="--boeing: 185;"><span>38.7%</span></div>
-              <div class="bar-logo"><img src="/images/air-china-small.svg" title="Air China"></div>
+            <div class="bars" style=" --airbus: var(--air-china-a); --boeing: var(--air-china-b);" title="Air China">
+              <div class="airbus-segment"><span>61.6%</span></div>
+              <div class="boeing-segment"><span>38.4%</span></div>
+              <div class="bar-logo"><img src="/images/air-china-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 378;"><span>88.1%</span></div>
-              <div class="boeing-segment" style="--boeing: 51;"><span>11.9%</span></div>
-              <div class="bar-logo"><img src="/images/china-eastern-small.svg" title="China Eastern Airlines"></div>
+            <div class="bars" style=" --airbus: var(--china-eastern-a); --boeing: var(--china-eastern-b);" title="China Eastern Airlines">
+              <div class="airbus-segment"><span>88.1%</span></div>
+              <div class="boeing-segment"><span>11.9%</span></div>
+              <div class="bar-logo"><img src="/images/china-eastern-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 66;"><span>18.4%</span></div>
-              <div class="boeing-segment" style="--boeing: 293;"><span>81.6%</span></div>
-              <div class="bar-logo"><img src="/images/fedex-small.svg" title="FedEx"></div>
+            <div class="bars" style=" --airbus: var(--turkish-a); --boeing: var(--turkish-b);" title="Turkish Airlines">
+              <div class="airbus-segment"><span>58.2%</span></div>
+              <div class="boeing-segment"><span>41.8%</span></div>
+              <div class="bar-logo"><img src="/images/turkish-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 200;"><span>58.3%</span></div>
-              <div class="boeing-segment" style="--boeing: 143;"><span>41.7%</span></div>
-              <div class="bar-logo"><img src="/images/turkish-small.svg" title="Turkish Airlines"></div>
+            <div class="bars" style=" --airbus: var(--lufthansa-a); --boeing: var(--lufthansa-b);" title="Lufthansa">
+              <div class="airbus-segment"><span>90.6%</span></div>
+              <div class="boeing-segment"><span>9.4%</span></div>
+              <div class="bar-logo"><img src="/images/lufthansa-small.svg"></div>
             </div>
 
-            <div class="bars">
-              <div class="airbus-segment" style="--airbus: 279;"><span>90.6%</span></div>
-              <div class="boeing-segment" style="--boeing: 29;"><span>9.4%</span></div>
-              <div class="bar-logo"><img src="/images/lufthansa-small.svg" title="Lufthansa"></div>
+            <div class="bars" style=" --airbus: var(--ryanair-a); --boeing: var(--ryanair-b);" title="Ryanair">
+              <!-- <div class="airbus-segment"><span></span></div> -->
+              <div class="boeing-segment"><span>100.0%</span></div>
+              <div class="bar-logo"><img src="/images/ryanair-small.svg"></div>
             </div>
 
           </div>
