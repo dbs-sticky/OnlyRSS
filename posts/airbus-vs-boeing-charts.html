@@ -137,7 +137,7 @@
         <h1>Airbus vs. Boeing: an experiment in charting</h1>
         <div class="tldr">
           <p>
-          The results of my first attempts at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus passenger aircraft for the world's 10 largest airlines.
+          Here are the results of my first attempts to create data visualisations using just HTML & CSS. These charts depict the respective shares of Boeing and Airbus passenger aircraft at the world's 10 largest airlines.
           </p>
         </div>
 
@@ -179,9 +179,9 @@
       <section>
         <h2>Background</h2>
         <p>
-        Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women who smoke (for the world's 50 most populous countries).
+        Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women among smokers (across the world's 50 most populous countries).
         <p>
-        Their chart was an embedded image, I wanted to see if I could build a similar chart using HTML & CSS. I'm sure there are charting libraries that would let me build something similar, but I wanted full control of the design, and more importantly, I wanted to test my knowledge of CSS.
+        Their chart was an embedded image. I wanted to see if I could build a similar chart using HTML & CSS. I'm sure there are charting libraries that would let me build something similar, but I wanted full control of the design, and more importantly, I wanted to test my knowledge of CSS.
         </p>
       </section>
 
@@ -191,7 +191,7 @@
         The result is the first chart shown below. In the chart, the vertical axis is used to show the airline's total fleet size (in-service and stored passenger aircraft only), and the horizontal axis shows the percentage split between Boeing and Airbus. The chart is sorted descending by total fleet size.
         </p>
         <p>
-          If the chart were to be rotated 90° and the elements shared a common baseline, then it would be a <a href="https://en.wikipedia.org/wiki/Mosaic_plot" target="_blank">mosaic plot (or a Marimekko chart)</a>
+          If the chart were to be rotated 90° and the elements shared a common baseline, then it would be a <a href="https://en.wikipedia.org/wiki/Mosaic_plot" target="_blank">mosaic plot (or a Marimekko chart).</a>
         </p>
 
         <div class="paper">
@@ -277,13 +277,13 @@
 
 
         <p>
-          The first skeleton version of the chart was done in about an hour—and I won't lie, I was very proud of myself—it then took me many hours (<em>OK, OK, it took me days!</em>) and 3 iterations to get to the finished version.
+          The first, skeleton version of the chart was done in about an hour – and I won't lie, I was very proud of myself. It then took me many hours (<em>okay, okay, days</em>) and three iterations to get to the finished version.
         </p>
         <p>
-          It's all built using <a href="https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png" target="_blank">CSS Flexbox</a>, which as the name suggests, is very…flexible, which  means there is often more than one way to achieve similar results. Multiple iterations were required as my first version only worked on desktop and tablets, not on mobile i.e. it wasn't <a href="https://www.w3schools.com/html/html_responsive.asp" target="_blank">responsive</a>.
+          It's all built using <a href="https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png" target="_blank">CSS Flexbox</a>, which, as the name suggests, is very… flexible, so there is often more than one way to achieve similar results. Multiple iterations were required as my first version only worked on desktop and tablets, not on mobile ie, it wasn't <a href="https://www.w3schools.com/html/html_responsive.asp" target="_blank">responsive</a>.
         </p>
         <p>
-          The chart above looks OK, and might be suitable as an infographic, but I wouldn't add it to a report, and as a Product Manager I wouldn't include it in any of the analytics products I manage. For that I'd probably stick with the ubiquitous stacked column chart.
+          The chart above looks okay, and might be suitable as an infographic, but I wouldn't add it to a report, and as a product manager I wouldn't include it in any of my analytics products. For that, I'd probably stick with the ubiquitous stacked column chart.
         </p>
       </section>
 
@@ -368,7 +368,7 @@
         </div>
 
           <p>
-            It's not as visually interesting, but it is more informative e.g. it's easier to gauge the relative differences between the total fleet sizes.
+            It's not as visually interesting, but it is more informative. For example, it's easier to gauge the relative differences between the total fleet sizes.
           </p>
           <p>
             It's still not quite what I'd add to a report or in one of my products. To get to that point I'd replace the logos with names, and rotate it through 90° (so it becomes a bar chart), this would let me use horizontal text labels for the airlines' names.
@@ -379,12 +379,12 @@
       <section>
         <h2>The data source</h2>
         <p>
-          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (aka parked) or in-service Boeing or Airbus passenger aircraft (freighters were not included). Data was captured on 19th Dec 2022 using the search criteria shown in the screenshot below.
+          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service Boeing or Airbus passenger aircraft (freighters were not included). Data was captured on 19 December 2022 using the search criteria shown in the screenshot below.
         </p>
         <figure>
           <img src="/images/top-ten.webp" width="840" height="529" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
           <figcaption>
-            A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page.
+            A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page
           </figcaption>
         </figure>
       </section>
