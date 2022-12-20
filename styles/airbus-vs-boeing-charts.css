@@ -191,8 +191,16 @@
 }
 
 /* round-off the top of the bars */
-.bars div:first-child {
+.bars div:first-of-type{
   border-radius: 5px 5px 0 0;
+}
+
+/* show the total aircraft for the 1st and last bar */
+.bar-total {
+
+  text-align: center;
+  color: black;
+  font-weight: bold;
 }
 
 .airbus-segment,
