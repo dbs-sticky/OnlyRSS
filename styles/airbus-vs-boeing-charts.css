@@ -228,13 +228,12 @@
 
 .chart-legend {
   position: absolute;
-  top: 40%;
-  left: 10px;
+  top: 23%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 5px;
-}
+  }
 
 .bar-legend {
   position: absolute;
@@ -249,7 +248,7 @@
 .boeing-legend,
 .airbus-legend {
   display: flex;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
