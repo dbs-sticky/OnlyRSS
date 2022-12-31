@@ -20,6 +20,243 @@
 
     <!-- Blog articles -->
 
+<!-- Airbus vs Boeing: An experiment in charting -->
+    <item>
+      <guid isPermaLink="false">article20</guid>
+      <title>Airbus vs Boeing: An experiment in charting</title>
+      <link>https://onlyrss.org/posts/airbus-vs-boeing-charts.html</link>
+      <pubDate>Tue, 20 Dec 2022 11:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+        <body>
+          <section>
+            <h2>Background</h2>
+            <p>
+            Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women among smokers (across the world's 50 most populous countries).
+            <p>
+            Their chart was an embedded image. I wanted to see if I could build a similar chart using HTML & CSS. I'm sure there are charting libraries that would let me build something similar, but I wanted full control of the design, and more importantly, I wanted to test my knowledge of CSS.
+            </p>
+          </section>
+
+          <section>
+            <h2>The result</h2>
+            <p>
+            The result is the first chart shown below. In the chart, the vertical axis is used to show the airline's total fleet size (in-service and stored passenger aircraft only), and the horizontal axis shows the percentage split between Boeing and Airbus. The chart is sorted descending by total fleet size.
+            </p>
+            <p>
+              If the chart were to be rotated 90° and the elements shared a common baseline, then it would be a <a href="https://en.wikipedia.org/wiki/Mosaic_plot" target="_blank">mosaic plot (or a Marimekko chart).</a>
+            </p>
+
+            <div class="paper">
+              <div class="chart">
+
+                <div class="chart-legend">
+                  <div class="boeing-legend"><div>Boeing<br>56.7%</div></div>
+                  <div class="airbus-legend"><div>Airbus<br>43.3%</div></div>
+                </div>
+
+                  <div class="row" style=" --airbus: var(--american-a); --boeing: var(--american-b);" title="American Airlines">
+                    <div class="airbus-left"><div><img src="/images/american-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>50.3%</span></div>
+                    <div class="boeing-fleet"><span>49.7%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--delta-a); --boeing: var(--delta-b);" title="Delta Air Lines">
+                    <div class="airbus-left"><div><img src="/images/delta-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>43.9%</span></div>
+                    <div class="boeing-fleet"><span>56.1%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--united-a); --boeing: var(--united-b);" title="United Airlines">
+                    <div class="airbus-left"><div><img src="/images/united-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>21.4%</span></div>
+                    <div class="boeing-fleet"><span>78.6%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--southwest-a); --boeing: var(--southwest-b);" title="Southwest Airlines">
+                    <div class="airbus-left"><div><img src="/images/southwest-small.svg"></div></div>
+                    <div class="airbus-fleet"><span></span></div>
+                    <div class="boeing-fleet"><span>100.0%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--china-southern-a); --boeing: var(--china-southern-b);" title="China Southern Airlines">
+                    <div class="airbus-left"><div><img src="/images/china-southern-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>59.4%</span></div>
+                    <div class="boeing-fleet"><span>40.6%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--air-china-a); --boeing: var(--air-china-b);" title="Air China">
+                    <div class="airbus-left"><div><img src="/images/air-china-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>61.6%</span></div>
+                    <div class="boeing-fleet"><span>38.4%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--china-eastern-a); --boeing: var(--china-eastern-b);" title="China Eastern Airlines">
+                    <div class="airbus-left"><div><img src="/images/china-eastern-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>88.1%</span></div>
+                    <div class="boeing-fleet"><span>11.9%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--turkish-a); --boeing: var(--turkish-b);" title="Turkish Airlines">
+                    <div class="airbus-left"><div><img src="/images/turkish-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>58.2%</span></div>
+                    <div class="boeing-fleet"><span>41.8%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--lufthansa-a); --boeing: var(--lufthansa-b);" title="Lufthansa">
+                    <div class="airbus-left"><div><img src="/images/lufthansa-small.svg"></div></div>
+                    <div class="airbus-fleet"><span>90.6%</span></div>
+                    <div class="boeing-fleet"><span>9.4%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+                  <div class="row" style=" --airbus: var(--ryanair-a); --boeing: var(--ryanair-b);" title="Ryanair">
+                    <div class="airbus-left"><div><img src="/images/ryanair-small.svg"></div></div>
+                    <div class="airbus-fleet"><span></span></div>
+                    <div class="boeing-fleet"><span>100.0%</span></div>
+                    <div class="boeing-right"></div>
+                  </div>
+
+              </div>
+            </div>
+
+
+            <p>
+              The first, skeleton version of the chart was done in about an hour – and I won't lie, I was very proud of myself. It then took me many hours (<em>okay, okay, days</em>) and three iterations to get to the finished version.
+            </p>
+            <p>
+              It's all built using <a href="https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png" target="_blank">CSS Flexbox</a>, which, as the name suggests, is very… flexible, so there is often more than one way to achieve similar results. Multiple iterations were required as my first version only worked on desktop and tablets, not on mobile ie, it wasn't <a href="https://www.w3schools.com/html/html_responsive.asp" target="_blank">responsive</a>.
+            </p>
+            <p>
+              The chart above looks okay, and might be suitable as an infographic, but I wouldn't add it to a report, and as a product manager I wouldn't include it in any of my analytics products. For that, I'd probably stick with the ubiquitous stacked column chart.
+            </p>
+          </section>
+
+          <section>
+            <h2>An alternative</h2>
+
+              <p>
+                A stacked column chart version using the same data is shown below. This was far easier to create than the chart above.
+            </p>
+            <div class="paper">
+
+              <div class="bar-chart">
+
+                <div class="bar-legend">
+                  <div class="boeing-legend"><div>Boeing<br>56.7%</div></div>
+                  <div class="airbus-legend"><div>Airbus<br>43.3%</div></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--american-a); --boeing: var(--american-b);" title="American Airlines">
+                  <span class="bar-total">953&#9992;</span>
+                  <div class="airbus-segment"><span>50.3%</span></div>
+                  <div class="boeing-segment"><span>49.7%</span></div>
+                  <div class="bar-logo"><img src="/images/american-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--delta-a); --boeing: var(--delta-b);" title="Delta Air Lines">
+                  <div class="airbus-segment"><span>43.9%</span></div>
+                  <div class="boeing-segment"><span>56.1%</span></div>
+                  <div class="bar-logo"><img src="/images/delta-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--united-a); --boeing: var(--united-b);" title="United Airlines">
+                  <div class="airbus-segment"><span>21.4%</span></div>
+                  <div class="boeing-segment"><span>78.6%</span></div>
+                  <div class="bar-logo"><img src="/images/united-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--southwest-a); --boeing: var(--southwest-b);" title="Southwest Airlines">
+                <!-- no airbus div as the value is 0.0% -->
+                  <div class="boeing-segment"><span>100.0%</span></div>
+                  <div class="bar-logo"><img src="/images/southwest-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--china-southern-a); --boeing: var(--china-southern-b);" title="China Southern Airlines">
+                  <div class="airbus-segment"><span>59.4%</span></div>
+                  <div class="boeing-segment"><span>40.6%</span></div>
+                  <div class="bar-logo"><img src="/images/china-southern-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--air-china-a); --boeing: var(--air-china-b);" title="Air China">
+                  <div class="airbus-segment"><span>61.6%</span></div>
+                  <div class="boeing-segment"><span>38.4%</span></div>
+                  <div class="bar-logo"><img src="/images/air-china-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--china-eastern-a); --boeing: var(--china-eastern-b);" title="China Eastern Airlines">
+                  <div class="airbus-segment"><span>88.1%</span></div>
+                  <div class="boeing-segment"><span>11.9%</span></div>
+                  <div class="bar-logo"><img src="/images/china-eastern-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--turkish-a); --boeing: var(--turkish-b);" title="Turkish Airlines">
+                  <div class="airbus-segment"><span>58.2%</span></div>
+                  <div class="boeing-segment"><span>41.8%</span></div>
+                  <div class="bar-logo"><img src="/images/turkish-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--lufthansa-a); --boeing: var(--lufthansa-b);" title="Lufthansa">
+                  <div class="airbus-segment"><span>90.6%</span></div>
+                  <div class="boeing-segment"><span>9.4%</span></div>
+                  <div class="bar-logo"><img src="/images/lufthansa-small.svg"></div>
+                </div>
+
+                <div class="bars" style=" --airbus: var(--ryanair-a); --boeing: var(--ryanair-b);" title="Ryanair">
+                  <span class="bar-total">270&#9992;</span>
+
+                  <div class="boeing-segment"><span>100.0%</span></div>
+                  <div class="bar-logo"><img src="/images/ryanair-small.svg"></div>
+                </div>
+
+              </div>
+            </div>
+
+              <p>
+                It's not as visually interesting, but it is more informative. For example, it's easier to gauge the relative differences between the total fleet sizes.
+              </p>
+              <p>
+                It's still not quite what I'd add to a report or in one of my products. To get to that point I'd replace the logos with names, and rotate it through 90° (so it becomes a bar chart), this would let me use horizontal text labels for the airlines' names.
+              </p>
+
+          </section>
+
+          <section>
+            <h2>The data source</h2>
+            <p>
+              All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service Boeing or Airbus passenger aircraft (freighters were not included). Data was captured on 19 December 2022 using the search criteria shown in the screenshot below.
+            </p>
+            <figure>
+              <img src="/images/top-ten.webp" width="840" height="529" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
+              <figcaption>
+                A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page
+              </figcaption>
+            </figure>
+          </section>
+
+          
+          <!-- feedback -->
+          <footer>
+            <p>
+              If you have any comments on this article then please get in touch via Twitter (<a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">@dbs_sticky</a>).
+            </p>
+          </footer>
+
+        </article>
+
+        </body>
+        ]]>
+      </description>
+    </item>
+
 <!-- Learning Log 2022 -->
     <item>
       <guid isPermaLink="false">article19</guid>
