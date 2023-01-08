@@ -7,6 +7,7 @@
   --accent-light: hsl(var(--hue), var(--saturation), 90%);
   --radius: 10px;
   --bodytext: #46484b;
+  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   /* This defines the left/right padding between the browser edge and content for narrow displays. Set here as it's used in <body> and separately for the <nav> (nav uses "absolute" positioning so ignores the padding set on <body>, hence the inclusion as a variable. */
   --viewport-padding: 10px;
 }
@@ -370,6 +371,19 @@ pre code {
   /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+
+/* keyboard buttons */
+
+kbd {
+  font-size: 0.85rem;
+  font-family: var(--mono-font);
+  color: var(--bodytext);
+  border: 1px solid var(--bodytext);
+  border-bottom: 2.5px solid var(--bodytext);
+  border-radius: 4px;
+  padding: 0 0.1rem;
+
 }
 
 ul,
