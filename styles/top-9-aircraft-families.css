@@ -47,7 +47,7 @@
 
  .quantity {
   position: absolute;
-  width: calc(var(--quant)*0.15%);
+  width: calc(var(--quant)*0.2%);
   aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid var(--paper-color);
