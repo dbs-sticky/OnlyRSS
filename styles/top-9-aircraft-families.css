@@ -36,7 +36,7 @@
 
 
 .chart {
-  margin: 1rem;
+  margin: 2rem;
   position: relative;
   aspect-ratio: 1;   /* keep it square */
   border: 1px grey solid;
@@ -88,7 +88,7 @@
 .y-ticks {
   position: absolute;
   height: 100%;
-  top: -1rem;
+  top: 0rem;
   left: -2rem;
 }
   
