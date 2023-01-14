@@ -9,13 +9,17 @@
 
 /* rotate segment labels on mobile displays */
 @media screen and (min-width: 320px) {
-
+.paper {
+  font-size: 0.6rem;
+}
 
 }
 
 /* remove text rotating on larger displays */
 @media screen and (min-width: 768px) {
-
+  .paper {
+    font-size: 0.8rem;
+  }
 
 }
 
@@ -24,7 +28,6 @@
   padding: 0.5rem;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   font-family: "OpenSans", sans-serif;
-  font-size: 0.9rem;
   aspect-ratio: 1;   /* keep it square */
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -41,7 +44,7 @@
 
  .quantity {
   position: absolute;
-  width: calc(var(--quant)*0.01px);
+  width: calc(var(--quant)*0.15%);
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid grey;
@@ -55,25 +58,54 @@
   place-items: center;
 }
 
-.x-labels {
-/* position: absolute;
-bottom: -2rem; */
-display:flex;
-justify-content: space-between;
-}
-
+/* position the fleet size labels */
 .quantity>div {
-position: absolute;
-bottom: -2rem;
-}
-
-
-.labels {
-  display: flex;
-  align-items: center;
-  margin-left: 1rem;
-  border-left: 2px solid grey;
-  padding-left: 1rem;
   position: absolute;
+  bottom: -2rem;
 }
+
+/* move the x axis values to the bottom of the chart */
+.x-ticks {
+  position: absolute;
+  bottom: -2rem;
+  width: 100%;
+}
+
+/* spread the x axis labels out along the x-axis */
+.x-ticks>div {
+  display:flex;
+  justify-content: space-between;
+  margin-top: -1rem;
+}
+
+/* center the x-axis description */
+.x-label {
+  text-align: center
+}
+
+  
+/* move the x axis values to the bottom of the chart */
+.y-ticks {
+  position: absolute;
+  height: 100%;
+  top: -1rem;
+  left: -2rem;
+}
+  
+  /* spread the x axis labels out along the x-axis */
+.y-ticks>div {
+  height: 100%;
+  display:flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+  
+/* center the x-axis description */
+.y-label {
+  text-align: center
+}
+
+
+
+
 

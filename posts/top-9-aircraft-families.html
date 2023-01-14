@@ -78,47 +78,47 @@
       }
 
       :root {
-        --max-quant: 5000;
+        --max-quant: 50;
         --max-x:700;
         --may-y:200;
 
-        --min-quant: 5000;
+        --min-quant: 50;
         --min-x:0;
         --min-y:0;
 
-        --a320: 15680;
+        --a320: 141.30;
         --a320-op: 439;
         --a320-le: 154;
 
-        --737: 12658;
+        --737: 126.95;
         --737-op: 570;
         --737-le: 174;
 
-        --777: 1993;
+        --777: 50.37;
         --777-op: 125;
         --777-le: 90;
 
-        --a330: 1733;
+        --a330: 46.97;
         --a330-op: 213;
         --a330-le: 89;
 
-        --787: 1612;
+        --787: 45.30;
         --787-op: 94;
         --787-le: 54;
 
-        --a350: 932;
+        --a350: 34.45;
         --a350-op: 58;
         --a350-le: 40;
 
-        --767: 892;
+        --767: 33.70;
         --767-op: 108;
         --767-le: 22;
 
-        --a220: 773;
+        --a220: 31.37;
         --a220-op: 31;
         --a220-le: 24;
 
-        --757: 702;
+        --757: 29.90;
         --757-op: 81;
         --757-le: 22;
       }
@@ -203,34 +203,53 @@
         </p>
 
         <div class="paper">
-          <div class="chart">
+            <div class="chart">
 
-            <div class="quantity" style=" --quant: var(--max-quant); --x-pos: var(--max-x); --y-pos: var(--max-y); background: white;  opacity: 0.5;"><div>max</div></div>
+              <!-- <div class="quantity" style=" --quant: var(--max-quant); --x-pos: var(--max-x); --y-pos: var(--max-y); background: white;  opacity: 0.5;"><div>max</div></div> -->
 
-            <div class="quantity" style=" --quant: var(--a320); --x-pos: var(--a320-op); --y-pos: var(--a320-le);"><div>a320</div></div>
-            <div class="quantity" style=" --quant: var(--737); --x-pos: var(--737-op); --y-pos: var(--737-le);"><div>737</div></div>
-            <div class="quantity" style=" --quant: var(--777); --x-pos: var(--777-op); --y-pos: var(--777-le);"><div>777</div></div>
-            <div class="quantity" style=" --quant: var(--a330); --x-pos: var(--a330-op); --y-pos: var(--a330-le);"><div>a330</div></div>
-            <div class="quantity" style=" --quant: var(--787); --x-pos: var(--787-op); --y-pos: var(--787-le);"><div>787</div></div>
-            <div class="quantity" style=" --quant: var(--a350); --x-pos: var(--a350-op); --y-pos: var(--a350-le);"><div>a350</div></div>
-            <div class="quantity" style=" --quant: var(--767); --x-pos: var(--767-op); --y-pos: var(--767-le);"><div>767</div></div>
-            <div class="quantity" style=" --quant: var(--a220); --x-pos: var(--a220-op); --y-pos: var(--a220-le);"><div>a220</div></div>
-            <div class="quantity" style=" --quant: var(--757); --x-pos: var(--757-op); --y-pos: var(--757-le);"><div>757</div></div>
+              <div class="quantity" style=" --quant: var(--a320); --x-pos: var(--a320-op); --y-pos: var(--a320-le);"><div>a320</div></div>
+              <div class="quantity" style=" --quant: var(--737); --x-pos: var(--737-op); --y-pos: var(--737-le);"><div>737</div></div>
+              <div class="quantity" style=" --quant: var(--777); --x-pos: var(--777-op); --y-pos: var(--777-le);"><div>777</div></div>
+              <div class="quantity" style=" --quant: var(--a330); --x-pos: var(--a330-op); --y-pos: var(--a330-le);"><div>a330</div></div>
+              <div class="quantity" style=" --quant: var(--787); --x-pos: var(--787-op); --y-pos: var(--787-le);"><div>787</div></div>
+              <div class="quantity" style=" --quant: var(--a350); --x-pos: var(--a350-op); --y-pos: var(--a350-le);"><div>a350</div></div>
+              <div class="quantity" style=" --quant: var(--767); --x-pos: var(--767-op); --y-pos: var(--767-le);"><div>767</div></div>
+              <div class="quantity" style=" --quant: var(--a220); --x-pos: var(--a220-op); --y-pos: var(--a220-le);"><div>a220</div></div>
+              <div class="quantity" style=" --quant: var(--757); --x-pos: var(--757-op); --y-pos: var(--757-le);"><div>757</div></div>
 
-            <div class="quantity" style=" --quant: var(--min-quant); --x-pos: var(--min-x); --y-pos: var(--min-y); background: white;  opacity: 0.5;"><div>min</div></div>
+              <!-- <div class="quantity" style=" --quant: var(--min-quant); --x-pos: var(--min-x); --y-pos: var(--min-y); background: white;  opacity: 0.5;"><div>min</div></div> -->
 
+          <div class="x-ticks">
+            <div>
+              <div>0</div>
+              <div>100</div>
+              <div>200</div>
+              <div>300</div>
+              <div>400</div>
+              <div>500</div>
+              <div>600</div>
+              <div>700</div>
+            </div>
           </div>
 
-          <div class="x-labels">
-            <div>0</div>
-            <div>100</div>
-            <div>200</div>
-            <div>300</div>
-            <div>400</div>
-            <div>500</div>
-            <div>600</div>
-            <div>700</div>
+          <div class="x-label"><div>Airlines operating the type</div></div>
+
+          <div class="y-ticks">
+            <div>
+              <div>0</div>
+              <div>100</div>
+              <div>200</div>
+              <div>300</div>
+              <div>400</div>
+              <div>500</div>
+              <div>600</div>
+              <div>700</div>
+            </div>
           </div>
+
+        </div>
+
+
 
         </div>
 
