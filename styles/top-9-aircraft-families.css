@@ -1,0 +1,70 @@
+
+:root {
+--chart-radius: 5px;
+--background-color: #eeece7;
+--x-axis-max: 700;
+--y-axis-max: 200;
+}
+
+
+/* rotate segment labels on mobile displays */
+@media screen and (min-width: 320px) {
+
+
+}
+
+/* remove text rotating on larger displays */
+@media screen and (min-width: 768px) {
+
+
+}
+
+.paper {
+  background: var(--background-color);
+  padding: 0.5rem;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  font-family: "OpenSans", sans-serif;
+  font-size: 0.9rem;
+  aspect-ratio: 1;   /* keep it square */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+
+.chart {
+  margin: 1rem;
+  position: relative;
+  aspect-ratio: 1;   /* keep it square */
+  border: 1px grey solid;
+ }
+
+ .quantity {
+  position: absolute;
+  width: calc(var(--quant)*0.01px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid grey;
+  left: calc((var(--x-pos)/var(--x-axis-max))*100%);
+  bottom: calc((var(--y-pos)/var(--y-axis-max))*100%);
+  display: grid;
+  place-items: center;
+  /* transform: translate(-50%, -50%); */
+ 
+}
+
+.quantity>div {
+position: absolute;
+bottom: -2rem;
+}
+
+
+.labels {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  border-left: 2px solid grey;
+  padding-left: 1rem;
+  position: absolute;
+}
+
