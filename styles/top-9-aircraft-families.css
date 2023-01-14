@@ -45,12 +45,21 @@
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid grey;
+  background-color: rgb(163, 209, 77);
   left: calc((var(--x-pos)/var(--x-axis-max))*100%);
-  bottom: calc((var(--y-pos)/var(--y-axis-max))*100%);
+  /* had to do the following (i.e. 1-...) as the translate only works correctly when reference the top left */
+  top: calc((1 - ((var(--y-pos)/var(--y-axis-max))))*100%);
+  /* the following transform is required so that the positioning above works on the centre of the circle. */
+  transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
-  /* transform: translate(-50%, -50%); */
- 
+}
+
+.x-labels {
+/* position: absolute;
+bottom: -2rem; */
+display:flex;
+justify-content: space-between;
 }
 
 .quantity>div {
