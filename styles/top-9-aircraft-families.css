@@ -1,7 +1,9 @@
 
 :root {
 --chart-radius: 5px;
---background-color: #eeece7;
+--paper-color: #eeece7;
+--boeing-accent: #1D439C;
+--airbus-accent: #5197ee;
 --x-axis-max: 700;
 --y-axis-max: 200;
 }
@@ -24,7 +26,7 @@
 }
 
 .paper {
-  background: var(--background-color);
+  background: var(--paper-color);
   padding: 0.5rem;
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   font-family: "OpenSans", sans-serif;
@@ -39,7 +41,8 @@
   margin: 3rem;
   position: relative;
   aspect-ratio: 1;   /* keep it square */
-  border: 1px grey solid;
+  border-left: 1px grey solid;
+  border-bottom: 1px grey solid;
  }
 
  .quantity {
@@ -47,8 +50,7 @@
   width: calc(var(--quant)*0.15%);
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1px solid grey;
-  background-color: rgb(163, 209, 77);
+  border: 2px solid var(--paper-color);
   left: calc((var(--x-pos)/var(--x-axis-max))*100%);
   /* had to do the following (i.e. 1-...) as the translate only works correctly when reference the top left */
   top: calc((1 - ((var(--y-pos)/var(--y-axis-max))))*100%);
@@ -58,10 +60,18 @@
   place-items: center;
 }
 
+.boeing {
+  background-color: var(--boeing-accent);
+}
+
+.airbus {
+  background-color: var(--airbus-accent);
+}
+
 /* position the fleet size labels */
 .quantity>div {
   position: absolute;
-  bottom: -2rem;
+  bottom: -1.5rem;
 }
 
 /* move the x axis values to the bottom of the chart */
@@ -93,16 +103,17 @@ justify-content: center;
 }
   
   /* spread the x axis labels out along the x-axis */
-.y-ticks div:first-child {
+.y-ticks>div:first-child {
   height: 100%;
   display:flex;
   flex-direction: column-reverse;
   justify-content: space-between;
+  text-align: right;
 }
   
 /* center the x-axis description */
-.y-label {
-  text-align: center;
+.y-label div {
+  /* text-align: center; */
   transform: rotate(-90deg);
 }
 
