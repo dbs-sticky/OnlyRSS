@@ -51,13 +51,14 @@
   fill: var(--airbus-accent);
 }
 
-svg text {
+.paper svg text {
    stroke: black;
-   stroke-width: 1px;
+   stroke-width: 0.5px;
    text-anchor: middle;
+   font-family: sans-serif;
 }
 
-svg {
+.paper svg {
   border: 1px solid grey;
   margin: 20px;
 }
