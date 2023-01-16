@@ -36,6 +36,33 @@
 }
 
 
+/* set SVG bubbles common parameters */
+.airbus-svg, .boeing-svg {
+  stroke: var(--paper-color);
+  stroke-width: 2px;
+}
+
+/* Set the Boeing bubble color */
+.boeing-svg {
+  fill: var(--boeing-accent);
+}
+/* /set the Airbus bubble color */
+.airbus-svg {
+  fill: var(--airbus-accent);
+}
+
+svg text {
+   stroke: black;
+   stroke-width: 1px;
+   text-anchor: middle;
+}
+
+svg {
+  border: 1px solid grey;
+  margin: 20px;
+}
+
+
 
 .chart {
   margin: 3rem;
