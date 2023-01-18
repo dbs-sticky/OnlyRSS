@@ -22,11 +22,11 @@
 }
 
 header {
-  border: 1px solid blue;
+  outline: 1px solid blue;
 }
 
 section {
-  border: 1px solid red;
+  outline: 1px solid red;
   counter-increment: section;
 }
 
@@ -42,8 +42,11 @@ section>:first-child::before {
 h2::after {
   content: ' (heading ' counter(section-heading) ')' ;
   color: red;
-} */
+}
 
+* {
+outline: 1px solid blue;
+} */
 /* -----------------END OF DEBUGGING SECTION ---------------------------*/
 
 /* Switch to 'border box', and reset browser margin & padding to zero */
