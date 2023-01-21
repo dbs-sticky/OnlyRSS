@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Airbus vs Boeing: An experiment in charting</title>
+    <meta name="description" content="The results of my first attempts at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus passenger aircraft for the world's 10 largest airlines.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Airbus vs Boeing: An experiment in charting">
+    <meta property="og:url" content="https://onlyrss.org/posts/airbus-vs-boeing-charts.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/airbus-vs-boeing-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="The results of my first attempts at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus passenger aircraft for the world's 10 largest airlines.">
+    <meta property="article:published_time" content="2022-20-12">
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main53.css">
+    <link rel="stylesheet" type="text/css" href="/styles/top-ten-airlines.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    
+    <!--load self-hosted fonts-->
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "OpenSans";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
+      }
+
+      :root {
+        --american-a: 479;
+        --american-b: 474;
+
+        --delta-a: 408;
+        --delta-b: 522;
+
+        --united-a: 185;
+        --united-b: 678;
+
+        --southwest-a: 0;
+        --southwest-b: 790;
+
+        --china-southern-a: 372;
+        --china-southern-b: 254;
+
+        --air-china-a: 293;
+        --air-china-b: 183;
+
+        --china-eastern-a: 378;
+        --china-eastern-b: 51;
+
+        --turkish-a: 188;
+        --turkish-b: 135;
+
+        --lufthansa-a: 279;
+        --lufthansa-b: 29;
+
+        --ryanair-a: 0;
+        --ryanair-b: 270;
+      }
+
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </head>
+
+  <body>
+    
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/index.html" title="Homepage">home</a></li>
+          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
+          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
+          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article>
+      <header>
+        <h1>Airbus vs. Boeing: an experiment in charting</h1>
+        <div class="tldr">
+          <p>
+          Here are the results of my first attempts to create data visualisations using just HTML & CSS. These charts depict the respective shares of Boeing and Airbus passenger aircraft at the world's 10 largest airlines.
+          </p>
+        </div>
+
+        <!-- Flexrow -->
+        <div class="byline">
+
+          <div>
+            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
+          </div>
+          
+          <div class="byline-copy">
+            <time datetime="2022-12-20">20 Dec 2022</time> · 3 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          </div>
+
+          <div class="byline-svgs">
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/airbus-vs-boeing-charts.html&text=Airbus%20vs%20Boeing%20An%20experiment%20in%20charting&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-2 6.5v.4a7 7 0 0 1-10.8 5.9H7c1 0 2.2-.5 3-1-1 0-2-.8-2.3-1.8l.5.1h.6c-1-.3-2-1.3-2-2.5L8 11a2.8 2.8 0 0 1-1.1-2.2c0-.4 0-.8.3-1.2a7 7 0 0 0 5 2.6v-.6c0-1.4 1-2.5 2.5-2.5.7 0 1.3.3 1.8.8.6-.1 1-.4 1.5-.6a3 3 0 0 1-1.1 1.4c.5-.1 1-.2 1.5-.5-.4.5-.8 1-1.3 1.3H17Z"/>
+              </svg>
+            </a>
+
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/airbus-vs-boeing-charts.html&title=Airbus%20vs%20Boeing%20An%20experiment%20in%20charting" target="_blank" title="Share this article on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM9 17H6.5v-7H9v7ZM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3c.8 0 1.3.5 1.3 1.2s-.5 1.2-1.4 1.2ZM18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3-.3 0-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1 1.2 0 2.2 1 2.2 3.2V17Z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:?subject=OnlyRSS.org%20article:Airbus%20vs%20Boeing%20An%20experiment%20in%20charting&body=https://onlyrss.org/posts/airbus-vs-boeing-charts.html" target="_blank" title="Share this article via email">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <path  d="M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>  <!--class byline-->
+      </header>
+
+
+      <section>
+        <h2>Background</h2>
+        <p>
+        Inspiration for the first chart came from the recent infographic on <a href="https://www.visualcapitalist.com/cp/visualizing-country-smoking-population/" target="_blank">VisualCapitalist.com</a> which displays the share of men versus the share of women among smokers (across the world's 50 most populous countries).
+        <p>
+        Their chart was an embedded image. I wanted to see if I could build a similar chart using HTML & CSS. I'm sure there are charting libraries that would let me build something similar, but I wanted full control of the design, and more importantly, I wanted to test my knowledge of CSS.
+        </p>
+      </section>
+
+      <section>
+        <h2>The result</h2>
+        <p>
+        The result is the first chart shown below. In the chart, the vertical axis is used to show the airline's total fleet size (in-service and stored passenger aircraft only), and the horizontal axis shows the percentage split between Boeing and Airbus. The chart is sorted descending by total fleet size.
+        </p>
+        <p>
+          If the chart were to be rotated 90° and the elements shared a common baseline, then it would be a <a href="https://en.wikipedia.org/wiki/Mosaic_plot" target="_blank">mosaic plot (or a Marimekko chart).</a>
+        </p>
+
+        <div class="paper">
+
+          <!-- American Airlines -->
+          <div class="fleet-container" title="American Airlines: 479 Airbus, 474 Boeing">
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=48; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=47; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- Delta Air Lines -->
+          <div class="fleet-container" title="Delta Air Lines: 479 Airbus, 474 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=41; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=52; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- United Airlines -->
+          <div class="fleet-container" title="United Airlines: 185 Airbus, 678 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=19; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=68; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- Southwest Airlines -->
+          <div class="fleet-container" title="Southwest Airlines: 0 Airbus, 790 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=0; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=79; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- China Southern Airlines -->
+          <div class="fleet-container" title="China Southern Airlines: 372 Airbus, 254 Boeing">
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=37; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=25; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- Air China -->
+          <div class="fleet-container" title="Air China: 293 Airbus, 183 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=29; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=18; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- China Eastern Airlines -->
+          <div class="fleet-container" title="China Eastern Airlines: 378 Airbus, 51 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=38; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=5; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- Turkish Airlines -->
+          <div class="fleet-container" title="Turkish Airlines: 188 Airbus, 135 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=19; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=14; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- Lufthansa -->
+          <div class="fleet-container" title="Lufthansa: 279 Airbus, 29 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=28; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=3; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+          <!-- Ryanair -->
+          <div class="fleet-container" title="Ryanair: 0 Airbus, 270 Boeing">
+            <span class="airbus">
+              <script>
+                for (var i = 1; i <=0; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          
+            <span class="boeing">
+              <script>
+                for (var i = 1; i <=27; i++) {document.write('<span><svg><path/></svg></span>');}
+              </script>
+            </span>
+          </div>
+
+        </div>
+
+
+        <p>
+          The first, skeleton version of the chart was done in about an hour – and I won't lie, I was very proud of myself. It then took me many hours (<em>okay, okay, days</em>) and three iterations to get to the finished version.
+        </p>
+        <p>
+          It's all built using <a href="https://css-tricks.com/wp-content/uploads/2022/02/css-flexbox-poster.png" target="_blank">CSS Flexbox</a>, which, as the name suggests, is very… flexible, so there is often more than one way to achieve similar results. Multiple iterations were required as my first version only worked on desktop and tablets, not on mobile ie, it wasn't <a href="https://www.w3schools.com/html/html_responsive.asp" target="_blank">responsive</a>.
+        </p>
+        <p>
+          The chart above looks okay, and might be suitable as an infographic, but I wouldn't add it to a report, and as a product manager I wouldn't include it in any of my analytics products. For that, I'd probably stick with the ubiquitous stacked column chart.
+        </p>
+      </section>
+
+
+
+      <section>
+        <h2>The data source</h2>
+        <p>
+          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service Boeing or Airbus passenger aircraft (freighters were not included). Data was captured on 19 December 2022 using the search criteria shown in the screenshot below.
+        </p>
+        <figure>
+          <img src="/images/top-ten.webp" width="840" height="529" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
+          <figcaption>
+            A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page
+          </figcaption>
+        </figure>
+      </section>
+
+      
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via Twitter (<a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">@dbs_sticky</a>).
+        </p>
+      </footer>
+
+    </article>
+  </body>
+</html>
