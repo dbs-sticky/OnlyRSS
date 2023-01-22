@@ -11,18 +11,20 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1rem;
+  background: var(--background-color);
+  padding: 1rem;
+  border-radius: var(--chart-radius); 
 }
 
 /* define the fleet container width */
 .fleet-container {
-  width: 190px;
-  /* border: 1px solid grey; */
+  width: 186px;
   border-radius: var(--chart-radius); 
   padding: 5px;
-  background: var(--background-color);
   font-size: 0px;
-  box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
+  /* box-shadow: 0 0px 10px rgb(0 0 0 / 20%); */
   height: fit-content;
+  background-color: white;
 }
 
 /* set the aircraft svg size and default fill color */
@@ -30,6 +32,32 @@
   fill: grey;
   aspect-ratio: 1;
   width: 22px;
+}
+
+/* Define the fleet card header that includes the logo and airline name */
+.fleet-header {
+  height: 80px;
+  font-size: 1.5rem;
+  color: grey;
+  display: grid;
+  place-items: center;
+}
+
+/* define the fleet card header logo */
+.fleet-header>img {
+width: 40px;
+}
+/* define the fleet card header airline name */
+.fleet-header>div {
+
+}
+
+.fleet-footer {
+  height: 50px;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: grey;
 }
 
 /* define the aircraft SVG path in the CSS t0 keep it out of the HTML, I never knew you could do this :-) */
