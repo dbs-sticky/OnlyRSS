@@ -36,16 +36,17 @@
 
 /* Define the fleet card header that includes the logo and airline name */
 .fleet-header {
-  height: 80px;
+  height: 90px;
   font-size: 1.5rem;
   color: grey;
   display: grid;
   place-items: center;
+  padding-top: 0.5rem;
 }
 
 /* define the fleet card header logo */
 .fleet-header>img {
-width: 40px;
+height: 40px;
 }
 /* define the fleet card header airline name */
 .fleet-header>div {
