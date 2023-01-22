@@ -62,8 +62,8 @@ height: 40px;
 .fleet-footer-a,
 .fleet-footer-b {
   height: 50px;
-  display: grid;
-  place-items: center;
+  Display: flex;
+  justify-content: space-around;
   font-size: 1.5rem;
   color: lightslategray;
 }
@@ -77,11 +77,30 @@ height: 40px;
 .fleet-container:hover .fleet-footer-a {
   display: none;
 }
+
+/* Set transition for footer on-hover fade-in */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /* on hover, show the B version */
 .fleet-container:hover .fleet-footer-b {
-  display: grid;
-  place-items: center;
+  animation: fadeIn 1.5s;
+  display: flex;  /* this is needed as the current display: none */
 }
+
+/* Set the airbus footer text to airbus color */
+.fleet-footer-b div:nth-child(1) {
+color: var(--airbus-colour)
+}
+
+/* Set the Boeing footer text to Boeing color */
+.fleet-footer-b div:nth-child(2) {
+  color: var(--boeing-colour)
+  }
+
+
 
 /* define the aircraft SVG path in the CSS t0 keep it out of the HTML, I never knew you could do this :-) */
 .fleet-container svg path {
