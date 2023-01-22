@@ -10,10 +10,11 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.1rem;
   background: var(--background-color);
-  padding: 1rem;
+  padding: 20px;
   border-radius: var(--chart-radius); 
+  font-family: "Roboto Condensed"
 }
 
 /* define the fleet container width */
@@ -22,26 +23,30 @@
   border-radius: var(--chart-radius); 
   padding: 5px;
   font-size: 0px;
-  /* box-shadow: 0 0px 10px rgb(0 0 0 / 20%); */
   height: fit-content;
-  background-color: white;
+  text-transform: uppercase;
 }
 
 /* set the aircraft svg size and default fill color */
 .fleet-container svg {
-  fill: grey;
+  fill: darkslategrey;
   aspect-ratio: 1;
   width: 22px;
 }
 
 /* Define the fleet card header that includes the logo and airline name */
 .fleet-header {
-  height: 90px;
+  height: 100px;
   font-size: 1.5rem;
-  color: grey;
+  color: darkslategrey;
   display: grid;
   place-items: center;
   padding-top: 0.5rem;
+}
+
+/* format the airline number differently */
+.fleet-header>div>span {
+  color: lightslategray;
 }
 
 /* define the fleet card header logo */
@@ -53,12 +58,29 @@ height: 40px;
 
 }
 
-.fleet-footer {
+/* set styles for the flee-footer */
+.fleet-footer-a,
+.fleet-footer-b {
   height: 50px;
   display: grid;
   place-items: center;
   font-size: 1.5rem;
-  color: grey;
+  color: lightslategray;
+}
+
+/* hide the b version by default i.e. the Airbus and Boeing totals */
+.fleet-footer-b {
+  display: none;
+}
+
+/* on hover, hide the A version */
+.fleet-container:hover .fleet-footer-a {
+  display: none;
+}
+/* on hover, show the B version */
+.fleet-container:hover .fleet-footer-b {
+  display: grid;
+  place-items: center;
 }
 
 /* define the aircraft SVG path in the CSS t0 keep it out of the HTML, I never knew you could do this :-) */
@@ -74,10 +96,17 @@ height: 40px;
 }
 
 /* define the airbus and boeing svg fill colours (only on-hover of the fleet-container div) */
-.fleet-container:hover > .boeing svg { fill: var(--boeing-colour); }
-.fleet-container:hover > .airbus svg { fill: var(--airbus-colour); }
+.fleet-container:hover > .boeing svg {
+  fill: var(--boeing-colour);
+}
+
+
+.fleet-container:hover > .airbus svg {
+  fill: var(--airbus-colour);
+}
 
 /* on-hover of fleet container set the cursor to the hand */
 .fleet-container:hover {
   cursor: pointer;
 }
+
