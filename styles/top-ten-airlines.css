@@ -5,16 +5,46 @@
 --background-color: #EEECE7;
 }
 
-
 .paper {
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: var(--chart-radius); 
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.chart {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.1rem;
-  background: var(--background-color);
-  padding: 20px;
-  border-radius: var(--chart-radius); 
-  font-family: "Roboto Condensed"
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.chart-title, .chart-subtitle {
+  text-transform: uppercase;
+  font-family: "RubikMonoOne-Regular", sans-serif;
+  letter-spacing: -2px;
+}
+
+.chart-title {
+font-size: 2rem;
+}
+
+.chart-subtitle {
+  font-size: 1.5rem;
+}
+
+.chart-description {
+  display: flex;
+  gap: 4rem;
+  line-height: 1.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.key {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
 }
 
 /* define the fleet container width */
@@ -30,7 +60,7 @@
 /* set the aircraft svg size and default fill color */
 .fleet-container svg {
   fill: darkslategrey;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
   width: 22px;
 }
 
@@ -52,10 +82,6 @@
 /* define the fleet card header logo */
 .fleet-header>img {
 height: 40px;
-}
-/* define the fleet card header airline name */
-.fleet-header>div {
-
 }
 
 /* set styles for the flee-footer */
@@ -113,7 +139,7 @@ color: var(--airbus-colour)
   display: inline-block;
 }
 
-/* define the airbus and boeing svg fill colours (only on-hover of the fleet-container div) */
+/* define the airbus and Boeing svg fill colours (only on-hover of the fleet-container div) */
 .fleet-container:hover > .boeing svg {
   fill: var(--boeing-colour);
 }
@@ -126,5 +152,9 @@ color: var(--airbus-colour)
 /* on-hover of fleet container set the cursor to the hand */
 .fleet-container:hover {
   cursor: pointer;
+}
+
+strong {
+  color: firebrick;
 }
 
