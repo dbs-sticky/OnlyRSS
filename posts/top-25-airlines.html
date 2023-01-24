@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The world's top ten airlines</title>
+    <title>The world's top 25 airlines</title>
     <meta name="description" content="The result of my second attempt at creating data visualisations using just HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the world's 10 largest passenger airlines.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
@@ -11,12 +11,12 @@
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
     <meta property="article:author" content="Mark Evans">
-    <meta property="og:title" content="The world's top ten airlines">
-    <meta property="og:url" content="https://onlyrss.org/posts/top-ten-airlines.html">
-    <meta property="og:image" content="https://onlyrss.org/images/og/top-ten-airlines-og.png">
+    <meta property="og:title" content="The world's top 25 airlines">
+    <meta property="og:url" content="https://onlyrss.org/posts/top-25-airlines.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/top-25-airlines-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:description" content="The result of my second attempt at creating data visualisations using just HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the world's 10 largest passenger airlines.">
+    <meta property="og:description" content="The result of my second attempt at creating data visualisations using just HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (Airbus and Boeing only) of the world's 25 largest passenger airlines.">
     <meta property="article:published_time" content="2023-01-28">
 
     <!--Favicons and Touch Icons and web manifest-->
@@ -29,7 +29,7 @@
 
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main53.css">
-    <link rel="stylesheet" type="text/css" href="/styles/top-ten-airlines.css">
+    <link rel="stylesheet" type="text/css" href="/styles/top-25-airlines.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
@@ -117,10 +117,10 @@
 
     <article>
       <header>
-        <h1>The world's top ten airlines</h1>
+        <h1>The world's top 25 airlines</h1>
         <div class="tldr">
           <p>
-            This article includes a 'small-multiple isotype infographic' designed to compare (by fleet size and composition) the world's top ten airlines. I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
+            This article includes a 'small-multiple isotype infographic' designed to compare the world's top 25 airlines (by fleet size, Boeing and Airbus aircraft only). I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
           </p>
         </div>
 
@@ -162,7 +162,7 @@
       <section>
         <h2>Background</h2>
         <p>
-          Inspiration for this chart came from the recent infographic on <a href="https://www.visualcapitalist.com/top-25-fleets-of-combat-tanks/" target="_blank">VisualCapitalist.com</a> which visualises the world’s top 25 fleets of combat tanks (they specifically state “combat” tanks, which intrigues me, are there pleasure tanks? or tanks designed for the daily commute?).</p>
+          Inspiration for this chart came from the recent infographic on <a href="https://www.visualcapitalist.com/top-25-fleets-of-combat-tanks/" target="_blank">VisualCapitalist.com</a> which visualises the world’s top 25 fleets of combat tanks (they specifically state “combat” tanks, which intrigues me, are there tanks designed for the daily commute?).</p>
           <p> Their chart was a jpg, and I (again) wanted to see if I could build something similar using HTML & CSS (without JavaScript or a charting library). I used the same set of airline fleet data that I used for my <a href="../posts/airbus-vs-boeing-charts.html"> previous data viz article</a>.
           <p>
       </section>
