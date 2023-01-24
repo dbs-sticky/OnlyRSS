@@ -52,18 +52,23 @@ font-size: 2rem;
 .fleet-container {
   width: 186px;
   border-radius: var(--chart-radius); 
-  padding: 5px;
   font-size: 0px;
   height: fit-content;
   text-transform: uppercase;
 }
 
+/* set each SVG container (i.e. the div) as an inline block so they "word-wrap" correctly */
+.fleet-container>span>div {
+  display: inline-block;
+  aspect-ratio: 1/1;
+  width: 8px;
+}
+
 /* set the aircraft svg size and default fill color */
 .fleet-container svg {
   fill: darkslategrey;
-  aspect-ratio: 1/1;
-  width: 22px;
 }
+
 
 /* Define the fleet card header that includes the logo and airline name */
 .fleet-header {
@@ -75,6 +80,8 @@ font-size: 2rem;
   padding-top: 0.5rem;
 }
 
+
+
 /* format the airline number differently */
 .fleet-header>div>span {
   color: lightslategray;
@@ -82,7 +89,7 @@ font-size: 2rem;
 
 /* define the fleet card header logo */
 .fleet-header>img {
-height: 40px;
+  height: 40px;
 }
 
 /* set styles for the flee-footer */
@@ -134,11 +141,6 @@ color: var(--airbus-colour)
   
 } */
 
-
-/* set each SVG container (i.e. the span) as an inline block so they "word-wrap" correctly */
-.fleet-container>span>span {
-  display: inline-block;
-}
 
 /* define the airbus and Boeing svg fill colours (only on-hover of the fleet-container div) */
 .fleet-container:hover > .boeing svg {
