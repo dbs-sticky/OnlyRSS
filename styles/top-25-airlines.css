@@ -90,6 +90,7 @@ font-size: 2rem;
 /* define the fleet card header logo */
 .fleet-header>img {
   height: 40px;
+  aspect-ratio: 1/1;
 }
 
 /* set styles for the flee-footer */
