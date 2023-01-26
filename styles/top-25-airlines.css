@@ -1,7 +1,9 @@
 :root {
 --chart-radius: 5px;
---boeing-colour: #1D439C;
---airbus-colour: #5197ee;
+--airbus-colour: #b44c4c;
+--boeing-colour: #3f5da3;
+--bombardier-colour: black;
+--comac-colour: #107215;
 --background-color: #EEECE7;
 }
 
@@ -155,13 +157,21 @@ color: var(--airbus-colour)
 
 
 /* define the airbus and Boeing svg fill colours */
+
+.fleet-container > .airbus svg {
+  fill: var(--airbus-colour);
+}
+
 .fleet-container .boeing svg {
   fill: var(--boeing-colour);
 }
 
+.fleet-container > .bombardier svg {
+  fill: var(--bombardier-colour);
+}
 
-.fleet-container > .airbus svg {
-  fill: var(--airbus-colour);
+.fleet-container > .comac svg {
+  fill: var(--comac-colour);
 }
 
 strong {
