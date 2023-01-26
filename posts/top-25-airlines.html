@@ -16,7 +16,7 @@
     <meta property="og:image" content="https://onlyrss.org/images/og/top-25-airlines-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:description" content="The result of my second attempt at creating data visualisations using just HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (Airbus and Boeing only) of the world's 25 largest passenger airlines.">
+    <meta property="og:description" content="The result of my second attempt at creating data visualisations using just HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size of the world's 25 largest passenger airlines.">
     <meta property="article:published_time" content="2023-01-28">
 
     <!--Favicons and Touch Icons and web manifest-->
@@ -120,7 +120,7 @@
         <h1>The world's top 25 airlines</h1>
         <div class="tldr">
           <p>
-            This article includes a 'small-multiple isotype infographic' designed to compare the world's top 25 airlines (by fleet size, Boeing and Airbus aircraft only). I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
+            This article includes a 'small-multiple isotype infographic' designed to compare the world's top 25 airlines (by fleet size). I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
           </p>
         </div>
 
@@ -163,7 +163,7 @@
         <h2>Background</h2>
         <p>
           Inspiration for this chart came from the recent infographic on <a href="https://www.visualcapitalist.com/top-25-fleets-of-combat-tanks/" target="_blank">VisualCapitalist.com</a> which visualises the world’s top 25 fleets of combat tanks (they specifically state “combat” tanks, which intrigues me, are there tanks designed for the daily commute?).</p>
-          <p> Their chart was a jpg, and I (again) wanted to see if I could build something similar using HTML & CSS (without JavaScript or a charting library). I used the same set of airline fleet data that I used for my <a href="../posts/airbus-vs-boeing-charts.html"> previous data viz article</a>.
+          <p> Their chart was a jpg, and I wanted to see if I could build something similar using HTML & CSS (without JavaScript or a charting library). I used a similar set of airline fleet data that I used for my <a href="../posts/airbus-vs-boeing-charts.html"> previous data viz article</a>.
           <p>
       </section>
 
@@ -185,7 +185,7 @@
           </div>
           <div class="chart-description">
             <div>
-              The chart is ordered descending by total fleet size (in-service and stored passenger Airbus and Boeing aircraft only). <strong>Hover (or tap) on individual airline groups to see the split by manufacturer</strong>.
+              The chart is ordered descending by total fleet size (in-service and stored passenger aircraft only).
             </div>
             <!-- <div class="key">
               <div>1x</div>
@@ -612,12 +612,14 @@
       <section>
         <h2>The data source</h2>
         <p>
-          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service Boeing or Airbus passenger aircraft (freighters were not included). Data was captured on 19 December 2022 using the search criteria shown in the screenshot below.
+          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023 using the search criteria shown in the screenshot below (click image to view full size).
         </p>
         <figure>
-          <img src="/images/top-ten.webp" width="840" height="529" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
+          <a href="../images/top-25-airlines-screenshot.webp">
+            <img src="../images/top-25-airlines-screenshot.webp" width="1574" height="1257" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
+          </a>
           <figcaption>
-            A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page
+            A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page (click image to view full size)
           </figcaption>
         </figure>
       </section>
