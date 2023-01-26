@@ -144,18 +144,24 @@ color: var(--airbus-colour)
 
 
 /* define the airbus and Boeing svg fill colours (only on-hover of the fleet-container div) */
-.fleet-container:hover > .boeing svg {
+/* .fleet-container:hover > .boeing svg {
   fill: var(--boeing-colour);
 }
 
 
 .fleet-container:hover > .airbus svg {
   fill: var(--airbus-colour);
+} */
+
+
+/* define the airbus and Boeing svg fill colours */
+.fleet-container .boeing svg {
+  fill: var(--boeing-colour);
 }
 
-/* on-hover of fleet container set the cursor to the hand */
-.fleet-container:hover {
-  cursor: pointer;
+
+.fleet-container > .airbus svg {
+  fill: var(--airbus-colour);
 }
 
 strong {
