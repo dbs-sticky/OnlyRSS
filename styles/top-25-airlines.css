@@ -1,14 +1,13 @@
 :root {
 --chart-radius: 5px;
+--background-color: #F8F3E9;
 
---airbus-colour: #1227df;
---boeing-colour: #10a3ad;
---bombardier-colour: black;
---comac-colour: #107215;
---embraer-colour: orange;
---atr-colour: #EB280F;
-
---background-color: #EEECE7;
+--airbus-colour: #264653;
+--boeing-colour: #f4a261;
+--bombardier-colour: #e76f51;
+--comac-colour: #e9c46a;
+--embraer-colour: #8ab17d;
+--atr-colour: #2a9d8f;
 }
 
 .paper {
