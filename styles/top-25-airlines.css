@@ -1,11 +1,12 @@
 :root {
 --chart-radius: 5px;
 
---airbus-colour: #b44c4c;
---boeing-colour: #3f5da3;
+--airbus-colour: #1227df;
+--boeing-colour: #10a3ad;
 --bombardier-colour: black;
 --comac-colour: #107215;
 --embraer-colour: orange;
+--atr-colour: #EB280F;
 
 --background-color: #EEECE7;
 }
@@ -81,7 +82,8 @@ font-size: 2rem;
   font-size: 1.5rem;
   color: darkslategrey;
   display: grid;
-  place-items: center;
+  justify-content: center;
+  align-items: end;
   padding-top: 0.5rem;
 }
 
@@ -127,7 +129,7 @@ font-size: 2rem;
 
 /* on hover, show the B version */
 .fleet-container:hover .fleet-footer-b {
-  animation: fadeIn 1.5s;
+  animation: fadeIn 1s;
   display: flex;  /* this is needed as the current display: none */
 }
 
@@ -183,6 +185,10 @@ color: var(--airbus-colour)
 
 .fleet-container > .embraer svg {
   fill: var(--embraer-colour);
+}
+
+.fleet-container > .atr svg {
+  fill: var(--atr-colour);
 }
 
 strong {
