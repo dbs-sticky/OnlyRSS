@@ -29,7 +29,7 @@
   font-family: "Roboto Condensed", sans-serif;
 }
 
-.chart-title, .chart-subtitle {
+.chart-title, .color-option {
   text-transform: uppercase;
   font-family: "RubikMonoOne-Regular", sans-serif;
   letter-spacing: -2px;
@@ -39,9 +39,25 @@
 font-size: 2rem;
 }
 
-.chart-subtitle {
+/* flex is used to place the checkbox label to the right of the checkbox */
+.color-option {
   font-size: 1.5rem;
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: flex-end;
+  gap: 10px;
+  /* align-items: center; */
+
 }
+
+.color-option label {
+
+}
+
+.color-option input {
+transform: scale(1.5);
+margin-bottom: 4px;
+  }
 
 .chart-description {
   display: flex;
@@ -140,27 +156,8 @@ color: var(--airbus-colour)
   }
 
 
-/* define the aircraft SVG path in the CSS t0 keep it out of the HTML, I never knew you could do this  REMOVED AS ITS NOT SUPPORTED IN SAFARI */
-/* .fleet-container svg path {
-  d: path("M15.4 19.6a983 983 0 0 1-4.6-8.7s-.7.5-1.8 1.7c-1.7 1.7-1.8 1.8-1.8 2l.1 1.3.2 1.3-.7.7-.7.8-.9-1.6-.8-1.6-1.6-.9-1.6-.8.7-.8.7-.7 1.4.2 1.4.2 1.8-1.8L9 9 4.5 6.7.1 4.3l.9-.9 1-.9L7.3 4l5.4 1.5L15.2 3 18 .3l.5-.1c.4 0 .7 0 1 .4.2.2.3.4.3.8 0 .5 0 .5-2.8 3.3l-2.5 2.5 1 4.2c.7 2.3 1.3 4.7 1.4 5.4l.3 1-.9 1c-.6.7-.9.9-1 .8Z");
-  
-} */
-
-
-/* define the airbus and Boeing svg fill colours (only on-hover of the fleet-container div) */
-/* .fleet-container:hover > .boeing svg {
-  fill: var(--boeing-colour);
-}
-
-
-.fleet-container:hover > .airbus svg {
-  fill: var(--airbus-colour);
-} */
-
-
-/* define the airbus and Boeing svg fill colours */
-
-
+/* define the manufacturer svg fill colours */
+/* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
 
 
 .fleet-container > .airbus svg {
@@ -185,13 +182,5 @@ color: var(--airbus-colour)
 
 .fleet-container > .atr svg {
   fill: var(--atr-colour);
-}
-
-/* .grey-fill {
-  fill: darkslategray !important;
-} */
-
-strong {
-  color: firebrick;
 }
 
