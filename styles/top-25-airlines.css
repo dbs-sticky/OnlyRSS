@@ -70,12 +70,6 @@ font-size: 2rem;
   width: 8px;
 }
 
-/* set the aircraft svg size and default fill color */
-.fleet-container svg {
-  fill: darkslategrey;
-}
-
-
 /* Define the fleet card header that includes the logo and airline name */
 .fleet-header {
   height: 100px;
