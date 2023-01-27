@@ -180,10 +180,10 @@
       <section>
         <h2>The result</h2>
         <p>
-         My 'small-multiple isotype infographic' (a very pretentious name for a chart that's basically full of tiny pictures of aircraft) was built using HTML, CSS, and just a little JavaScript—damn. I'm also pleased to say that no bitmap images were hurt during the creation of this chart (all images are SVGs).
+         My 'small-multiple isotype infographic' (a very pretentious name for a chart that's full of tiny pictures of aircraft) was built using HTML, CSS, and just a little JavaScript.
         </p>
         <p>
-          I've included details on how I built it, and what I learnt along the way after the infographic—that information is strictly for nerds, or “normies” who are trying to fall asleep.
+          I've included details on how I built it and what I learnt along the way after the infographic—that information is strictly for nerds, or “normies” who are trying to fall asleep.
         </p>
       </section>
     </article>
@@ -610,6 +610,25 @@
         </div>
 
     <article>
+
+      <section>
+        <h2>How's it built</h2>
+        <p>
+          The main canvas uses CSS Flexbox with the smaller fleets laid out in a simple Flexbox row, with flex wrap enabled. When viewed on a large display it's a 5x5 matrix of isotype charts, but on smaller displays the charts will simply wrap to the next row, while maintaining their size.
+        </p>
+        <p>
+          Each tiny aircraft image is an inline-SVG (basically it's just text, about the size of a long paragraph), and there are 10,016 tiny aircraft in the chart! The advantage of using inline SVGs is that they can be directly affected by the CSS, so it's possible to adjust things like the stroke, opacity, or fill  easily. 
+        </p>
+        <p>
+          Rather than copy and paste the SVG element 10,016 times into the HTML, I decided to use a little JavaScript to add the SVG elements the correct number of times based on the number of aircraft from each manufacturer. Strictly speaking the JavaScript wasn't necessary, but it did make creating the page a lot easier.
+        </p>
+        <p>
+          I placed a "grey-fill" style in the HTML head, so this is what's used by default to fill the aircraft images, when the "assault your retinas" option is ticked, this style is removed, and the manufacturer colours are then visible. 
+        </p>
+        <p>
+          Each airline logo is also an SVG, there are actually no bitmap images used in the chart at all. If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality.
+        </p>
+      </section>
 
       <section>
         <h2>The data source</h2>
