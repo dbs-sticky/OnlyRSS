@@ -111,23 +111,6 @@
 
     </script>
 
-    <script>
-      var checkbox = document.querySelector("#checkboxId");
-
-      checkbox.addEventListener('change', function() {
-        if (this.checked) {
-          document.querySelectorAll('.grey-fill').forEach(e => {
-            e.classList.remove("grey-fill");
-          });
-        }
-        else {
-          document.querySelectorAll('svg.aircraft').forEach(e => {
-            e.classList.add("grey-fill");
-          });
-        }
-      });
-    </script>
-
   </head>
 
   <body>
@@ -649,5 +632,23 @@
       </footer>
 
     </article>
+    
+    <script>
+      var checkbox = document.querySelector("#checkboxId");
+
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          document.querySelectorAll('.grey-fill').forEach(e => {
+            e.classList.remove("grey-fill");
+          });
+        }
+        else {
+          document.querySelectorAll('svg.aircraft').forEach(e => {
+            e.classList.add("grey-fill");
+          });
+        }
+      });
+    </script>
+
   </body>
 </html>
