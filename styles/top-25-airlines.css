@@ -187,6 +187,10 @@ color: var(--airbus-colour)
   fill: var(--atr-colour);
 }
 
+/* .grey-fill {
+  fill: darkslategray !important;
+} */
+
 strong {
   color: firebrick;
 }
