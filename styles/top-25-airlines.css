@@ -75,16 +75,18 @@ margin-bottom: 4px;
 .fleet-container {
   width: 186px;
   border-radius: var(--chart-radius); 
-  font-size: 0px;
+  font-size: 8px;
+  line-height: 10px;
   height: fit-content;
   text-transform: uppercase;
+
 }
 
 /* set each SVG container (i.e. the div) as an inline block so they "word-wrap" correctly */
 .fleet-container>span>div {
-  display: inline-block;
-  aspect-ratio: 1/1;
-  width: 8px;
+  display: inline;
+  /* aspect-ratio: 1/1;
+  width: 8px; */
 }
 
 /* Define the fleet card header that includes the logo and airline name */
@@ -98,7 +100,9 @@ margin-bottom: 4px;
   padding-top: 0.5rem;
 }
 
-
+.boeing div, .airbus div {
+  display: inline-block;
+}
 
 /* format the airline number differently */
 .fleet-header>div>span {
@@ -159,27 +163,27 @@ color: var(--airbus-colour)
 /* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
 
 
-.fleet-container > .airbus svg {
-  fill: var(--airbus-colour);
+.fleet-container  .airbus  {
+  color: var(--airbus-colour);
 }
 
-.fleet-container .boeing svg {
-  fill: var(--boeing-colour);
+.fleet-container .boeing  {
+  color: var(--boeing-colour);
 }
 
-.fleet-container > .bombardier svg {
-  fill: var(--bombardier-colour);
+.fleet-container  .bombardier  {
+  color: var(--bombardier-colour);
 }
 
-.fleet-container > .comac svg {
-  fill: var(--comac-colour);
+.fleet-container  .comac  {
+  color: var(--comac-colour);
 }
 
-.fleet-container > .embraer svg {
-  fill: var(--embraer-colour);
+.fleet-container  .embraer  {
+  color: var(--embraer-colour);
 }
 
-.fleet-container > .atr svg {
-  fill: var(--atr-colour);
+.fleet-container  .atr  {
+  color: var(--atr-colour);
 }
 
