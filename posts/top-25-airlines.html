@@ -85,8 +85,8 @@
       }
 /* override page border style just for this article */
       article {
-        box-shadow: none;
-        border: 0;
+        box-shadow: none !important;
+        border: 0 !important;
       }
 
     </style>
@@ -182,6 +182,8 @@
         <p>
           I've included details on how I built it, and what I learnt along the way after the infographic—that information is strictly for nerds, or “normies” who are trying to fall asleep.
         </p>
+      </section>
+    </article>
 
         <div class="paper">
           <div class="chart-title">
@@ -194,18 +196,14 @@
             <div>
               The chart is ordered descending by total fleet size (in-service and stored passenger aircraft only).
             </div>
-            <!-- <div class="key">
-              <div>1x</div>
-              <div>
-                <svg><path width="20" height="20" d="M15.391 19.6271C15.3697 19.5937 14.3401 17.6156 13.1032 15.2315C11.8662 12.8474 10.8349 10.8772 10.8114 10.8533C10.784 10.8253 10.1294 11.449 8.98219 12.5959C7.3063 14.2714 7.19571 14.3917 7.19635 14.5386C7.19673 14.6247 7.26561 15.2583 7.34941 15.9465L7.50178 17.1978L6.77759 17.9252L6.0534 18.6525L5.213 17.0527L4.37259 15.4529L2.79099 14.6272C1.92111 14.173 1.20894 13.7912 1.2084 13.7786C1.20786 13.766 1.52726 13.4364 1.91817 13.046L2.62891 12.3363L4.02307 12.5055L5.41723 12.6747L7.22302 10.8696C8.63121 9.46195 9.01506 9.05466 8.96637 9.01981C8.93203 8.99523 6.92082 7.9295 4.49701 6.65152L0.0900901 4.32793L1.00018 3.41783L1.91028 2.50774L7.35001 3.94934L12.7898 5.39094L15.2771 2.90853C17.0205 1.16857 17.8246 0.395968 17.9656 0.325277C18.0954 0.260172 18.2782 0.217136 18.4813 0.203868C18.8808 0.177763 19.1782 0.294551 19.4427 0.581475C19.6884 0.848101 19.7681 1.04922 19.767 1.40045C19.7653 1.94294 19.796 1.90624 17.0027 4.70739L14.485 7.23228L15.5725 11.433C16.1707 13.7434 16.7904 16.1391 16.9497 16.7569L17.2394 17.8801L16.3346 18.784C15.6623 19.4557 15.4198 19.6724 15.391 19.6271Z" /></svg>
-              </div>
-              <div> = 10 aircraft</div>
-            </div> -->
+
           </div>
+
+
 
           <div class="chart">
 
-  <!-- Delta Air Lines -->
+            <!-- Delta Air Lines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/delta-small.svg" alt="Delta logo">
@@ -224,7 +222,7 @@
               <div class="fleet-footer-b"><div>A: 416</div> <div>B: 524</div></div>
             </div>
 
-  <!-- American Airlines -->
+            <!-- American Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/american-small.svg" alt="American Airlines logo">
@@ -240,7 +238,7 @@
               <div class="fleet-footer-b"><div>A: 483</div> <div>B: 483</div></div>
             </div>
 
-  <!-- United Airlines -->
+            <!-- United Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/united-small.svg" alt="United Airlines logo">
@@ -259,7 +257,7 @@
               <div class="fleet-footer-b"><div>A: 185</div> <div>B: 691</div></div>
             </div>
 
-  <!-- Southwest Airlines -->
+            <!-- Southwest Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/southwest-small.svg" alt="Southwest logo">
@@ -272,7 +270,7 @@
               <div class="fleet-footer-b"><div>A: 0</div> <div>B: 808</div></div>
             </div>
 
-  <!-- China Southern Airlines -->
+            <!-- China Southern Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/china-southern-small.svg" alt="China Southern logo">
@@ -291,7 +289,7 @@
               <div class="fleet-footer-b"><div>A: 374</div> <div>B: 254</div></div>
             </div>
 
-  <!-- SkyWest Airlines -->
+            <!-- SkyWest Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/skywest-small.svg" alt="SkyWest Airlines logo">
@@ -307,7 +305,7 @@
               <div class="fleet-footer-b"><div>A: 374</div> <div>B: 254</div></div>
             </div>
 
-  <!-- Air China -->
+            <!-- Air China -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/air-china-small.svg" alt="Air China logo">
@@ -326,7 +324,7 @@
               <div class="fleet-footer-b"><div>A: 296</div> <div>B: 183</div></div>
             </div>
 
-  <!-- China Eastern Airlines -->
+            <!-- China Eastern Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/china-eastern-small.svg" alt="China Eastern logo">
@@ -345,7 +343,7 @@
               <div class="fleet-footer-b"><div>A: 380</div> <div>B: 50</div></div>
             </div>
 
-  <!-- Turkish Airlines -->
+            <!-- Turkish Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/turkish-small.svg" alt="Turkish Airlines logo">
@@ -361,7 +359,7 @@
               <div class="fleet-footer-b"><div>A: 190</div> <div>B: 136</div></div>
             </div>
 
-  <!-- Lufthansa -->
+            <!-- Lufthansa -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/lufthansa-small.svg" alt="Lufthansa logo">
@@ -377,7 +375,7 @@
               <div class="fleet-footer-b"><div>A: 278</div> <div>B: 30</div></div>
             </div>
 
-  <!-- IndiGo -->
+            <!-- IndiGo -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/indigo-small.svg" alt="IndiGo logo">
@@ -393,7 +391,7 @@
               <div class="fleet-footer-b"><div>A: 0</div> <div>B: 266</div></div>
             </div>
 
-  <!-- JetBlue Airways -->
+            <!-- JetBlue Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/jetblue-small.svg" alt="JetBlue Airways logo">
@@ -409,7 +407,7 @@
               <div class="fleet-footer-b"><div>A: 230</div> <div>B: 0</div></div>
             </div>
 
-  <!-- Ryanair -->
+            <!-- Ryanair -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/ryanair-small.svg" alt="Ryanair logo">
@@ -422,7 +420,7 @@
               <div class="fleet-footer-b"><div>A: 0</div> <div>B: 270</div></div>
             </div>
 
-  <!-- British Airways -->
+            <!-- British Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/british-small.svg" alt="British Airways logo">
@@ -438,7 +436,7 @@
               <div class="fleet-footer-b"><div>A: 165</div> <div>B: 94</div></div>
             </div>
 
-  <!-- Emirates Airline -->
+            <!-- Emirates Airline -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/emirates-small.svg" alt="Emirates Airline logo">
@@ -454,7 +452,7 @@
               <div class="fleet-footer-b"><div>A: 121</div> <div>B: 134</div></div>
             </div>
 
-  <!-- Alaska Airlines -->
+            <!-- Alaska Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/alaska-small.svg" alt="Alaska Airlines logo">
@@ -470,7 +468,7 @@
               <div class="fleet-footer-b"><div>A: 47</div> <div>B: 202</div></div>
             </div>
 
-  <!-- Endeavor Air -->
+            <!-- Endeavor Air -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/endeavor-small.svg" alt="Endeavor Air logo">
@@ -483,7 +481,7 @@
               <div class="fleet-footer-b"><div>A: 40</div> <div>B: 183</div></div>
             </div>
 
-  <!-- Republic Airways -->
+            <!-- Republic Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/republic-small.svg" alt="Republic Airways logo">
@@ -496,7 +494,7 @@
               <div class="fleet-footer-b"><div>A: 40</div> <div>B: 183</div></div>
             </div>
 
-  <!-- Hainan Airlines -->
+            <!-- Hainan Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/hainan-small.svg" alt="Hainan Airlines logo">
@@ -512,7 +510,7 @@
               <div class="fleet-footer-b"><div>A: 40</div> <div>B: 183</div></div>
             </div>
 
-  <!-- Air France -->
+            <!-- Air France -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/turkish-small.svg" alt="Air France logo">
@@ -528,7 +526,7 @@
               <div class="fleet-footer-b"><div>A: 150</div> <div>B: 72</div></div>
             </div>
 
-  <!-- Qatar Airways -->
+            <!-- Qatar Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/lufthansa-small.svg" alt="Qatar Airways logo">
@@ -544,7 +542,7 @@
               <div class="fleet-footer-b"><div>A: 115</div> <div>B: 105</div></div>
             </div>
 
-  <!-- Envoy Air -->
+            <!-- Envoy Air -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/envoy-small.svg" alt="Envoy Air logo">
@@ -557,7 +555,7 @@
               <div class="fleet-footer-b"><div>A: 40</div> <div>B: 162</div></div>
             </div>
 
-  <!-- ANA -->
+            <!-- ANA -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/ana-small.svg" alt="ANA logo">
@@ -573,7 +571,7 @@
               <div class="fleet-footer-b"><div>A: 40</div> <div>B: 162</div></div>
             </div>
 
-  <!-- Shenzhen Airlines -->
+            <!-- Shenzhen Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/shenzhen-small.svg" alt="Shenzhen Airlines logo">
@@ -589,7 +587,7 @@
               <div class="fleet-footer-b"><div>A: 116</div> <div>B: 82</div></div>
             </div>
 
-  <!-- Spirit Airlines -->
+            <!-- Spirit Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
                 <img src="/images/spirit-small.svg" alt="Spirit Airlines logo">
@@ -605,27 +603,13 @@
           </div>
         </div>
 
-
-        <p>
-
-        </p>
-      </section>
-
-
+    <article>
 
       <section>
         <h2>The data source</h2>
         <p>
-          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023 using the search criteria shown in the screenshot below (click image to view full size).
+          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
         </p>
-        <figure>
-          <a href="../images/top-25-airlines-screenshot.webp">
-            <img src="../images/top-25-airlines-screenshot.webp" width="1574" height="1257" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
-          </a>
-          <figcaption>
-            A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page (click image to view full size)
-          </figcaption>
-        </figure>
       </section>
 
       
