@@ -1,9 +1,12 @@
 :root {
 --chart-radius: 5px;
+
 --airbus-colour: #b44c4c;
 --boeing-colour: #3f5da3;
 --bombardier-colour: black;
 --comac-colour: #107215;
+--embraer-colour: orange;
+
 --background-color: #EEECE7;
 }
 
@@ -91,8 +94,9 @@ font-size: 2rem;
 
 /* define the fleet card header logo */
 .fleet-header>img {
-  height: 40px;
-  aspect-ratio: 1/1;
+  max-height: 40px;
+  max-width: 70px;
+  /* aspect-ratio: 1/1; */
 }
 
 /* set styles for the flee-footer */
@@ -158,6 +162,9 @@ color: var(--airbus-colour)
 
 /* define the airbus and Boeing svg fill colours */
 
+
+
+
 .fleet-container > .airbus svg {
   fill: var(--airbus-colour);
 }
@@ -172,6 +179,10 @@ color: var(--airbus-colour)
 
 .fleet-container > .comac svg {
   fill: var(--comac-colour);
+}
+
+.fleet-container > .embraer svg {
+  fill: var(--embraer-colour);
 }
 
 strong {
