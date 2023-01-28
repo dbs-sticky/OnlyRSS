@@ -81,7 +81,15 @@
         font-family: "RubikMonoOne-Regular";
         font-style: normal;
         font-weight: 400;
-        src: url(/fonts/RubikMonoOne-Regular.ttf) format('truetype');
+        src: url(/fonts/RubikMonoOne-Regular.ttf) format("truetype");
+      }
+
+      /* This is required for thr Unicode aircraft font */
+      @font-face {
+        font-family: "Noto-Symbols";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/NotoSansSymbols2.woff2) format("woff2");
       }
 /* override page border style just for this article */
       article {
@@ -104,7 +112,7 @@
     <script>
       function myFunction(lastNumber) {
         for (var i = 1; i <= lastNumber; i++) {
-          document.write('&#128743;');
+          document.write('🛧');
   }
 }
 

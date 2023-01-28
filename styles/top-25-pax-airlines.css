@@ -90,8 +90,9 @@ margin-bottom: 4px;
 
 .isotype {
   line-height: 9px;
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: -1px;
+  font-family: "Noto-Symbols"
 }
 
 
