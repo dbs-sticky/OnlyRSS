@@ -86,7 +86,7 @@
 
       /* This is required for the Unicode aircraft font, I used font forge to remove all glyphs except for U1F6E7 */
       @font-face {
-        font-family: "Noto-Symbols";
+        font-family: "Noto-aircraft";
         font-style: normal;
         font-weight: 400;
         src: url(/fonts/NotoSansSymbols2-ac-only.woff2) format("woff2");
@@ -113,8 +113,8 @@
       function myFunction(lastNumber) {
         for (var i = 1; i <= lastNumber; i++) {
           document.write('🛧');
-  }
-}
+        }
+      }
 
     </script>
 
@@ -499,15 +499,17 @@
 
       <section>
         <h2>How's it built</h2>
+        <h3>The layout</h3>
         <p>
-          The main canvas uses CSS Flexbox with the smaller fleets laid out in a simple Flexbox row, with flex wrap enabled. When viewed on a large display it's a 5x5 matrix of isotype charts, but on smaller displays the charts will simply wrap to the next row, while maintaining their size.
+          The main canvas uses CSS Flexbox with the smaller isotype charts laid out in a simple Flexbox row, with flex wrap enabled. When viewed on a large display it's a 5x5 matrix of isotype charts, but on smaller displays the charts will simply wrap to the next row, while maintaining their size.
         </p>
+        <h3>The little aircraft!</h3>
         <p>
-          Each tiny aircraft image is an inline-SVG (basically it's just text, about the size of a long paragraph), and there are 10,016 tiny aircraft in the chart! The advantage of using inline SVGs is that they can be directly affected by the CSS, so it's possible to adjust things like the stroke, opacity, or fill  easily. 
+          Each tiny aircraft image is the <a href="https://www.compart.com/en/unicode/U+1F6E7" target="_blank" >Up-Pointing Airplane Unicode glyph (&amp;#x1F6E7;)</a>, and there are 10,016 tiny aircraft in the chart! My first version of this chart used an inline SVG for the aircraft, it worked, but it wasn't very performant. It then hit me that I could simply use an aircraft Unicode glyph, and this solution seemed to work on my desktop, but not on Android.
+          <p>
+          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" target="_blank"> Noto Sans Symbols 2</a>. The problem with this was it was >300KB in size (as it contained many symbols). I then learnt about <a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (4KB, yeah!). 
         </p>
-        <p>
-          Rather than copy and paste the SVG element 10,016 times into the HTML, I decided to use a little JavaScript to add the SVG elements the correct number of times based on the number of aircraft from each manufacturer. Strictly speaking the JavaScript wasn't necessary, but it did make creating the page a lot easier.
-        </p>
+        <h3>Populating the isotypes</h3>
         <p>
           I placed a "grey-fill" style in the HTML head, so this is what's used by default to fill the aircraft images, when the "assault your retinas" option is ticked, this style is removed, and the manufacturer colours are then visible. 
         </p>
