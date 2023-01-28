@@ -1,0 +1,181 @@
+:root {
+--chart-radius: 5px;
+--background-color: #F8F3E9;
+
+--airbus-colour: #6395a8;
+--boeing-colour: #f4a261;
+--bombardier-colour: #e76f51;
+--comac-colour: #e9c46a;
+--embraer-colour: #8ab17d;
+--atr-colour: #2a9d8f;
+}
+
+.paper {
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: var(--chart-radius); 
+  font-family: "Roboto Condensed", sans-serif;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.chart {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.1rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.chart-title, .color-option {
+  text-transform: uppercase;
+  font-family: "RubikMonoOne-Regular", sans-serif;
+  letter-spacing: -2px;
+}
+
+.chart-title {
+font-size: 2rem;
+}
+
+/* flex is used to place the checkbox label to the right of the checkbox */
+.color-option {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: flex-end;
+  gap: 10px;
+  /* align-items: center; */
+
+}
+
+
+.color-option input {
+transform: scale(1.5);
+margin-bottom: 4px;
+  }
+
+.chart-description {
+  display: flex;
+  gap: 4rem;
+  line-height: 1.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.key {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/* define the fleet container width */
+.fleet-container {
+  width: 186px;
+  border-radius: var(--chart-radius); 
+  height: fit-content;
+  text-transform: uppercase;
+}
+
+/* Define the fleet card header that includes the logo and airline name */
+.fleet-header {
+  height: 100px;
+  font-size: 1.5rem;
+  color: darkslategrey;
+  display: grid;
+  justify-content: center;
+  align-items: end;
+  padding-top: 0.5rem;
+  padding-bottom: 10px;
+}
+
+.isotype {
+  line-height: 9px;
+  font-size: 9px;
+  letter-spacing: -1px;
+}
+
+
+/* format the airline number differently */
+.fleet-header>div>span {
+  color: lightslategray;
+}
+
+/* define the fleet card header logo */
+.fleet-header>img {
+  max-height: 40px;
+  max-width: 70px;
+  /* aspect-ratio: 1/1; */
+}
+
+/* set styles for the flee-footer */
+.fleet-footer-a,
+.fleet-footer-b {
+  height: 50px;
+  Display: flex;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  color: lightslategray;
+  padding-top: 10px;
+}
+
+/* hide the b version by default i.e. the Airbus and Boeing totals */
+.fleet-footer-b {
+  display: none;
+}
+
+/* on hover, hide the A version */
+.fleet-container:hover .fleet-footer-a {
+  display: none;
+}
+
+/* Set transition for footer on-hover fade-in */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* on hover, show the B version */
+.fleet-container:hover .fleet-footer-b {
+  animation: fadeIn 1s;
+  display: flex;  /* this is needed as the current display: none */
+}
+
+/* Set the airbus footer text to airbus color */
+.fleet-footer-b div:nth-child(1) {
+color: var(--airbus-colour)
+}
+
+/* Set the Boeing footer text to Boeing color */
+.fleet-footer-b div:nth-child(2) {
+  color: var(--boeing-colour)
+  }
+
+
+/* define the manufacturer svg fill colours */
+/* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
+
+
+.fleet-container  .airbus  {
+  color: var(--airbus-colour);
+}
+
+.fleet-container .boeing  {
+  color: var(--boeing-colour);
+}
+
+.fleet-container  .bombardier  {
+  color: var(--bombardier-colour);
+}
+
+.fleet-container  .comac  {
+  color: var(--comac-colour);
+}
+
+.fleet-container  .embraer  {
+  color: var(--embraer-colour);
+}
+
+.fleet-container  .atr  {
+  color: var(--atr-colour);
+}
+
