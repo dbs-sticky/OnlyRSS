@@ -74,6 +74,8 @@ margin-bottom: 4px;
   border-radius: var(--chart-radius); 
   height: fit-content;
   text-transform: uppercase;
+  padding-bottom: 30px;
+
 }
 
 /* Define the fleet card header that includes the logo and airline name */
@@ -81,20 +83,14 @@ margin-bottom: 4px;
   height: 100px;
   font-size: 1.5rem;
   color: darkslategrey;
-  display: grid;
+}
+
+.fleet-header div {
+  height: 50px;
+  display: flex;
   justify-content: center;
-  align-items: end;
-  padding-top: 0.5rem;
-  padding-bottom: 10px;
+  align-items: flex-end;
 }
-
-.isotype {
-  line-height: 9px;
-  font-size: 10px;
-  letter-spacing: -1px;
-  font-family: "Noto-Symbols"
-}
-
 
 /* format the airline number differently */
 .fleet-header>div>span {
@@ -102,11 +98,20 @@ margin-bottom: 4px;
 }
 
 /* define the fleet card header logo */
-.fleet-header>img {
+.fleet-header img {
   max-height: 40px;
   max-width: 70px;
-  /* aspect-ratio: 1/1; */
 }
+
+.isotype {
+  line-height: 9px;
+  font-size: 10px;
+  letter-spacing: -1px;
+  font-family: "Noto-Symbols";
+}
+
+
+
 
 /* set styles for the flee-footer */
 .fleet-footer-a,
@@ -116,7 +121,6 @@ margin-bottom: 4px;
   justify-content: space-around;
   font-size: 1.5rem;
   color: lightslategray;
-  padding-top: 10px;
 }
 
 /* hide the b version by default i.e. the Airbus and Boeing totals */

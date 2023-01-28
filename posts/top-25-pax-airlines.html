@@ -84,12 +84,12 @@
         src: url(/fonts/RubikMonoOne-Regular.ttf) format("truetype");
       }
 
-      /* This is required for thr Unicode aircraft font */
+      /* This is required for the Unicode aircraft font, I used font forge to remove all glyphs except for U1F6E7 */
       @font-face {
         font-family: "Noto-Symbols";
         font-style: normal;
         font-weight: 400;
-        src: url(/fonts/NotoSansSymbols2.woff2) format("woff2");
+        src: url(/fonts/NotoSansSymbols2-ac-only.woff2) format("woff2");
       }
 /* override page border style just for this article */
       article {
@@ -220,7 +220,7 @@
             <!-- Delta Air Lines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/delta-small.svg" alt="Delta logo">
+                <div><img src="/images/delta-small.svg" alt="Delta logo"></div>
                 <div><span>1.</span> Delta Air.</div>
               </div>
                 <div class="isotype"><span class="boeing aircraft grey-fill"><script>myFunction(524);</script></span><span class="airbus aircraft grey-fill"><script>myFunction(416);</script></span><span class="bombardier aircraft grey-fill"><script>myFunction(36);</script></span></div>
@@ -231,7 +231,7 @@
             <!-- American Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/american-small.svg" alt="American Airlines logo">
+                <div><img src="/images/american-small.svg" alt="American Airlines logo"></div>
                 <div><span>2.</span> American</div>
               </div>
                 <div class="isotype"><span class="boeing aircraft grey-fill"><script>myFunction(483);</script></span><span class="airbus aircraft grey-fill"><script>myFunction(483);</script></span></div>
@@ -242,7 +242,7 @@
             <!-- United Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/united-small.svg" alt="United Airlines logo">
+                <div><img src="/images/united-small.svg" alt="United Airlines logo"></div>
                 <div><span>3.</span> United</div>
               </div>
                 <div class="isotype"><span class="boeing aircraft grey-fill"><script>myFunction(691);</script></span><span class="airbus aircraft grey-fill"><script>myFunction(185);</script></span><span class="bombardier aircraft grey-fill"><script>myFunction(10);</script></span></div>
@@ -253,7 +253,7 @@
             <!-- Southwest Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/southwest-small.svg" alt="Southwest logo">
+                <div><img src="/images/southwest-small.svg" alt="Southwest logo"></div>
                 <div><span>4.</span> Southwest</div>
               </div>
                 <div class="isotype"><span class="boeing aircraft grey-fill"><script>myFunction(808);</script></span></div>
@@ -264,7 +264,7 @@
             <!-- China Southern Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/china-southern-small.svg" alt="China Southern logo">
+                <div><img src="/images/china-southern-small.svg" alt="China Southern logo"></div>
                 <div><span>5.</span> China South.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(374);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(254);</script></span><span class="comac aircraft grey-fill"><script>myFunction(15);</script></span></div>
@@ -275,7 +275,7 @@
             <!-- SkyWest Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/skywest-small.svg" alt="SkyWest Airlines logo">
+                <div><img src="/images/skywest-small.svg" alt="SkyWest Airlines logo"></div>
                 <div><span>6.</span> SkyWest</div>
               </div>
                 <div class="isotype"><span class="bombardier aircraft grey-fill"><script>myFunction(369);</script></span><span class="embraer aircraft grey-fill"><script>myFunction(236);</script></span></div>
@@ -286,7 +286,7 @@
             <!-- Air China -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/air-china-small.svg" alt="Air China logo">
+                <div><img src="/images/air-china-small.svg" alt="Air China logo"></div>
                 <div><span>7.</span> Air China</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(296);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(183);</script></span><span class="comac aircraft grey-fill"><script>myFunction(15);</script></span></div>
@@ -297,7 +297,7 @@
             <!-- China Eastern Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/china-eastern-small.svg" alt="China Eastern logo">
+                <div><img src="/images/china-eastern-small.svg" alt="China Eastern logo"></div>
                 <div><span>8.</span> China East.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(380);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(50);</script></span><span class="comac aircraft grey-fill"><script>myFunction(1);</script></span></div>
@@ -308,7 +308,7 @@
             <!-- Turkish Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/turkish-small.svg" alt="Turkish Airlines logo">
+                <div><img src="/images/turkish-small.svg" alt="Turkish Airlines logo"></div>
                 <div><span>9.</span> Turkish</div>
               </div>
               <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(190);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(136);</script></span></div>
@@ -319,7 +319,7 @@
             <!-- Lufthansa -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/lufthansa-small.svg" alt="Lufthansa logo">
+                <div><img src="/images/lufthansa-small.svg" alt="Lufthansa logo"></div>
                 <div><span>10.</span> Lufthansa</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(278);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(30);</script></span></div>
@@ -330,7 +330,7 @@
             <!-- IndiGo -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/indigo-small.svg" alt="IndiGo logo">
+                <div><img src="/images/indigo-small.svg" alt="IndiGo logo"></div>
                 <div><span>11.</span> IndiGo</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(266);</script></span><span class="atr aircraft grey-fill"><script>myFunction(39);</script></span></div>
@@ -341,7 +341,7 @@
             <!-- JetBlue Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/jetblue-small.svg" alt="JetBlue Airways logo">
+                <div><img src="/images/jetblue-small.svg" alt="JetBlue Airways logo"></div>
                 <div><span>12.</span> JetBlue Air.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(230);</script></span><span class="embraer aircraft grey-fill"><script>myFunction(60);</script></span></div>
@@ -352,7 +352,7 @@
             <!-- Ryanair -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/ryanair-small.svg" alt="Ryanair logo">
+                <div><img src="/images/ryanair-small.svg" alt="Ryanair logo"></div>
                 <div><span>13.</span> Ryanair</div>
               </div>
                 <div class="isotype"><span class="boeing aircraft grey-fill"><script>myFunction(273);</script></span></div>
@@ -363,7 +363,7 @@
             <!-- British Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/british-small.svg" alt="British Airways logo">
+                <div><img src="/images/british-small.svg" alt="British Airways logo"></div>
                 <div><span>14.</span> British Air.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(164);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(94);</script></span></div>
@@ -374,7 +374,7 @@
             <!-- Emirates Airline -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/emirates-small.svg" alt="Emirates Airline logo">
+                <div><img src="/images/emirates-small.svg" alt="Emirates Airline logo"></div>
                 <div><span>15.</span> Emirates</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(121);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(134);</script></span></div>
@@ -385,7 +385,7 @@
             <!-- Alaska Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/alaska-small.svg" alt="Alaska Airlines logo">
+                <div><img src="/images/alaska-small.svg" alt="Alaska Airlines logo"></div>
                 <div><span>16.</span> Alaska Air.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(47);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(202);</script></span></div>
@@ -396,7 +396,7 @@
             <!-- Endeavor Air -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/endeavor-small.svg" alt="Endeavor Air logo">
+                <div><img src="/images/endeavor-small.svg" alt="Endeavor Air logo"></div>
                 <div><span>17.</span> Endeavor.</div>
               </div>
                 <div class="isotype"><span class="bombardier aircraft grey-fill"><script>myFunction(248);</script></span></div>
@@ -407,7 +407,7 @@
             <!-- Republic Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/republic-small.svg" alt="Republic Airways logo">
+                <div><img src="/images/republic-small.svg" alt="Republic Airways logo"></div>
                 <div><span>18.</span> Republic Air.</div>
               </div>
                 <div class="isotype"><span class="embraer aircraft grey-fill"><script>myFunction(230);</script></span></div>
@@ -418,7 +418,7 @@
             <!-- Hainan Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/hainan-small.svg" alt="Hainan Airlines logo">
+                <div><img src="/images/hainan-small.svg" alt="Hainan Airlines logo"></div>
                 <div><span>19.</span> Hainan Air.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(40);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(183);</script></span></div>
@@ -429,7 +429,7 @@
             <!-- Air France -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/turkish-small.svg" alt="Air France logo">
+                <div><img src="/images/turkish-small.svg" alt="Air France logo"></div>
                 <div><span>20.</span> Air France</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(150);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(72);</script></span></div>
@@ -440,7 +440,7 @@
             <!-- Qatar Airways -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/lufthansa-small.svg" alt="Qatar Airways logo">
+                <div><img src="/images/lufthansa-small.svg" alt="Qatar Airways logo"></div>
                 <div><span>21.</span> Qatar Air.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(115);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(105);</script></span></div>
@@ -451,7 +451,7 @@
             <!-- Envoy Air -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/envoy-small.svg" alt="Envoy Air logo">
+                <div><img src="/images/envoy-small.svg" alt="Envoy Air logo"></div>
                 <div><span>23.</span> Envoy Air</div>
               </div>
                 <div class="isotype"><span class="bombardier aircraft grey-fill"><script>myFunction(205);</script></span></div>
@@ -462,7 +462,7 @@
             <!-- ANA -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/ana-small.svg" alt="ANA logo">
+                <div><img src="/images/ana-small.svg" alt="ANA logo"></div>
                 <div><span>23.</span> ANA</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(40);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(162);</script></span></div>
@@ -473,7 +473,7 @@
             <!-- Shenzhen Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/shenzhen-small.svg" alt="Shenzhen Airlines logo">
+                <div><img src="/images/shenzhen-small.svg" alt="Shenzhen Airlines logo"></div>
                 <div><span>24.</span> Shenzhen</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(116);</script></span><span class="boeing aircraft grey-fill"><script>myFunction(82);</script></span></div>
@@ -484,7 +484,7 @@
             <!-- Spirit Airlines -->
             <div class="fleet-container">
               <div class="fleet-header">
-                <img src="/images/spirit-small.svg" alt="Spirit Airlines logo">
+                <div><img src="/images/spirit-small.svg" alt="Spirit Airlines logo"></div>
                 <div><span>25.</span> Spirit Air.</div>
               </div>
                 <div class="isotype"><span class="airbus aircraft grey-fill"><script>myFunction(195);</script></span></div>
