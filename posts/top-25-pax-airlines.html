@@ -558,7 +558,7 @@
         <p>
           I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" target="_blank">Mendhak</a>, again) to build the 'view by manufacturer' option, so I decided to leave this JavaScript in place.
         </p>
-        <h3>Toggling the 'view by manufacturer' option</h3>
+        <h3>Enabling the “Assault my retinas” option</h3>
         <p>
           I placed a "grey-fill" style in the HTML head (which sets the aircraft font colour to grey) and applied it to all the aircraft spans. When the "assault your retinas" option is ticked, this style is removed, and the manufacturer colours (defined in the CSS) are then visible. 
         </p>
@@ -575,6 +575,13 @@
           This is going to come in handy. The largest resources loaded for the majority of my pages are the font files, and I've always wanted to reduce the size of the files by removing glyphs I know I'm never going to use. I didn't know of an easy way to do this until I came across this <a href="https://www.grantojanen.com/videos/pg/optimize-fonts.html">guide</a> (and then downloaded the free and opensource software '<a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>'). 
         </p>
         <h3>Line breaks in HTML do matter (but only sometimes)</h3>
+        <p>
+          I was under the misguided assumption that line breaks in HTML had to effect on what was rendered in the browser. For the isotope charts where an airline had aircraft from more than a single manufacturer, this required multiple &lt;span&gt; elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the &lt;span&gt; elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the &lt;span&gt; elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/" target="_blank"> JSFiddle</a>.
+        </p>
+        <h3>You can define your inline SVG's path in your CSS</h3>
+        <p>
+          In the first version of this infographic I used an inline SVG for the aircraft glyph, but that meant repeating the SVG 10,016 times in the HTML. I was therefore very pleased to discover that the SVG's path could be pulled out of the inline SVG and instead <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/path" target="_blank"> defined in the CSS</a>. I was then very unpleased to discover that this was <a href="https://caniuse.com/mdn-svg_elements_path_d_path" target="_blank"> not supported in Safari!</a>
+        </p>
       </section>
 
       <section>
