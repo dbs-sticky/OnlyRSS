@@ -100,7 +100,7 @@ margin-bottom: 4px;
 /* define the fleet card header logo */
 .fleet-header img {
   max-height: 40px;
-  max-width: 70px;
+  max-width: 90px;
 }
 
 .isotype {
@@ -109,9 +109,6 @@ margin-bottom: 4px;
   letter-spacing: -1px;
   font-family: "Noto-aircraft";
 }
-
-
-
 
 /* set styles for the flee-footer */
 .fleet-footer-a,

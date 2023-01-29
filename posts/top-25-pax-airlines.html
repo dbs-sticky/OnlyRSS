@@ -115,7 +115,6 @@
           document.write('🛧');
         }
       }
-
     </script>
 
   </head>
@@ -138,7 +137,7 @@
         <h1>The world's top 25 airlines</h1>
         <div class="tldr">
           <p>
-            This article includes a 'small-multiple isotype infographic' designed to compare the world's top 25 airlines (by fleet size). I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
+            This article includes a 'small-multiple isotype infographic' designed to rank the world's top 25 airlines (by fleet size). I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
           </p>
         </div>
 
@@ -501,15 +500,48 @@
         <h2>How's it built</h2>
         <h3>The layout</h3>
         <p>
-          The main canvas uses CSS Flexbox with the smaller isotype charts laid out in a simple Flexbox row, with flex wrap enabled. When viewed on a large display it's a 5x5 matrix of isotype charts, but on smaller displays the charts will simply wrap to the next row, while maintaining their size.
+          The infographic uses CSS Flexbox where the smaller isotype charts are laid out in a simple Flexbox row, with flex wrap enabled. When viewed on a large display it's a 5x5 matrix of isotype charts, but on smaller displays the charts will simply wrap to the next row, while maintaining their size.
         </p>
         <h3>The little aircraft!</h3>
         <p>
           Each tiny aircraft image is the <a href="https://www.compart.com/en/unicode/U+1F6E7" target="_blank" >Up-Pointing Airplane Unicode glyph (&amp;#x1F6E7;)</a>, and there are 10,016 tiny aircraft in the chart! My first version of this chart used an inline SVG for the aircraft, it worked, but it wasn't very performant. It then hit me that I could simply use an aircraft Unicode glyph, and this solution seemed to work on my desktop, but not on Android.
           <p>
-          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" target="_blank"> Noto Sans Symbols 2</a>. The problem with this was it was >300KB in size (as it contained many symbols). I then learnt about <a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (4KB, yeah!). 
+          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" target="_blank"> Noto Sans Symbols 2</a>. My only issue with this font is that it it's >300KB in size (it contained a lot of symbols). I then learnt about <a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (4KB, yeah!). 
         </p>
         <h3>Populating the isotypes</h3>
+        <p>
+          As mentioned above, 10,016 aircraft glyphs are used in the chart, and although I could have entered them into the HTML manually, I actually updated the dataset quite a few times while making the chart, and updating the number of aircraft for each airline (and manufacturer) would have been laborious. In order to make things a bit easier, I decided to let JavaScript (and my friend, <a href="https://github.com/mendhak" target="_blank">Mendhak</a>, help me out.)
+        </p>
+        <p>
+          The JavaScript function is a simple loop that adds a string of aircraft glyphs into a &lt;span&gt; element based on a number I enter i.e the number of aircraft from each manufacturer for each airline.
+        </p>
+        <p>
+          Here's the JavaScript function:
+        </p>
+<pre>
+  <code>
+    function <b>myFunction(lastNumber)</b> {
+      for (var i = 1; i <= lastNumber; i++) {       
+        document.write('🛧');
+      }
+    }
+  </code>
+</pre>
+
+        <p>
+          And here's the HTML:
+        </p>
+<pre>
+  <code>
+    &lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;&lt;script&gt;<b>myFunction(40)</b>;&lt;/script&gt;&lt;/span&gt;       
+  </code>
+</pre>
+
+        </p>
+        <p>
+          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" target="_blank">Mendhak</a>) to build the 'view by manufacturer' option.
+        </p>
+        <h3>Toggling the 'view by manufacturer' option</h3>
         <p>
           I placed a "grey-fill" style in the HTML head, so this is what's used by default to fill the aircraft images, when the "assault your retinas" option is ticked, this style is removed, and the manufacturer colours are then visible. 
         </p>
