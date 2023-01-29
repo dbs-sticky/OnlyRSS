@@ -72,7 +72,6 @@ margin-bottom: 4px;
   width: 186px;
   border-radius: var(--chart-radius); 
   height: fit-content;
-  text-transform: uppercase;
   padding-bottom: 30px;
 
 }
@@ -82,6 +81,7 @@ margin-bottom: 4px;
   height: 100px;
   font-size: 1.5rem;
   color: darkslategrey;
+  text-transform: uppercase;
 }
 
 .fleet-header div {
@@ -109,52 +109,61 @@ margin-bottom: 4px;
   font-family: "Noto-aircraft";
 }
 
+.fleet-footer {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 20px;
+}
+
+.footer-total {
+  font-size: 2rem;
+}
+
+.footer-man-totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 /* used in the body text to show the aircraft glyphs */
 .ac-glyph {
   font-family: "Noto-aircraft";
 }
 
-/* set styles for the flee-footer */
-.fleet-footer-a,
-.fleet-footer-b {
-  height: 50px;
-  Display: flex;
-  justify-content: space-around;
-  font-size: 1.5rem;
-  color: lightslategray;
-}
 
-/* hide the b version by default i.e. the Airbus and Boeing totals */
+/* hide the b version by default i.e. the Airbus and Boeing totals
 .fleet-footer-b {
   display: none;
 }
 
 /* on hover, hide the A version */
-.fleet-container:hover .fleet-footer-a {
+/* .fleet-container:hover .fleet-footer-a {
   display: none;
-}
+} */
 
 /* Set transition for footer on-hover fade-in */
-@keyframes fadeIn {
+/* @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
-}
+} */
 
 /* on hover, show the B version */
-.fleet-container:hover .fleet-footer-b {
+/* .fleet-container:hover .fleet-footer-b {
   animation: fadeIn 1s;
   display: flex;  /* this is needed as the current display: none */
-}
+} */
 
 /* Set the airbus footer text to airbus color */
-.fleet-footer-b div:nth-child(1) {
+/* .fleet-footer-b div:nth-child(1) {
 color: var(--airbus-colour)
-}
+} */
 
 /* Set the Boeing footer text to Boeing color */
-.fleet-footer-b div:nth-child(2) {
+/* .fleet-footer-b div:nth-child(2) {
   color: var(--boeing-colour)
-  }
+  }  */
+
+
 
 
 /* define the manufacturer svg fill colours */
