@@ -556,15 +556,15 @@
 </pre>
 
         <p>
-          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" target="_blank">Mendhak</a>, again) to build the 'view by manufacturer' option, so I decided to leave this JavaScript in place.
+          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" target="_blank">Mendhak</a>, again) to build the 'Assault my retinas' option, so I decided to leave this JavaScript in place.
         </p>
         <h3>Enabling the “Assault my retinas” option</h3>
         <p>
-          I placed a "grey-fill" style in the HTML head (which sets the aircraft font colour to grey) and applied it to all the aircraft spans. When the "assault your retinas" option is ticked, this style is removed, and the manufacturer colours (defined in the CSS) are then visible. 
+          I placed a "grey-fill" style in the HTML head (which sets the aircraft font colour to grey) and applied it to all the aircraft spans. When the 'assault your retinas' option is ticked, this style is removed, and the manufacturer colours (defined in the CSS) are then visible. 
         </p>
         <h3>The airline logos</h3>
         <p>
-          Each airline logo is an SVG (cleaned up in Figma, and then compressed using <a href="https://jakearchibald.github.io/svgomg/" target="_blank" >SVGOMG</a> ). There are actually no bitmap images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet).
+          Each airline logo is an SVG (cleaned up in Figma, and then compressed using <a href="https://jakearchibald.github.io/svgomg/" target="_blank" >SVGOMG</a> ). There are no bitmap images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet).
         </p>
       </section>
 
