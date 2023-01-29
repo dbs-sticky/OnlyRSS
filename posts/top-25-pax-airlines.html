@@ -497,7 +497,7 @@
     <article>
 
       <section>
-        <h2>How's it built</h2>
+        <h2>How it's built</h2>
         <h3>The layout</h3>
         <p>
           The infographic uses CSS Flexbox where the smaller isotype charts are laid out in a simple Flexbox row, with flex wrap enabled. When viewed on a large display it's a 5x5 matrix of isotype charts, but on smaller displays the charts will simply wrap to the next row.
@@ -543,8 +543,6 @@
   </code>
 </pre>
 
-        </p>
-
         <p>
           The HTML output (as viewed in the browser's Developer Console):
         </p>
@@ -566,8 +564,17 @@
         </p>
         <h3>The airline logos</h3>
         <p>
-          Each airline logo is an SVG (cleaned up in Figma, and then compressed using <a href="https://jakearchibald.github.io/svgomg/" target="_blank" >SVGOMG</a> ), there are actually no bitmap images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet).
+          Each airline logo is an SVG (cleaned up in Figma, and then compressed using <a href="https://jakearchibald.github.io/svgomg/" target="_blank" >SVGOMG</a> ). There are actually no bitmap images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet).
         </p>
+      </section>
+
+      <section>
+        <h2>What I learnt</h2>
+        <h3>How to remove unwanted glyphs from a font file</h3>
+        <p>
+          This is going to come in handy. The largest resources loaded for the majority of my pages are the font files, and I've always wanted to reduce the size of the files by removing glyphs I know I'm never going to use. I didn't know of an easy way to do this until I came across this <a href="https://www.grantojanen.com/videos/pg/optimize-fonts.html">guide</a> (and then downloaded the free and opensource software '<a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>'). 
+        </p>
+        <h3>Line breaks in HTML do matter (but only sometimes)</h3>
       </section>
 
       <section>
