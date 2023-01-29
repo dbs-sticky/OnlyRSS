@@ -20,18 +20,17 @@
 }
 
 .chart {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.1rem;
-  font-family: "Roboto Condensed", sans-serif;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));  font-family: "Roboto Condensed", sans-serif;
 }
 
 .chart-title, .color-option {
   text-transform: uppercase;
   font-family: "RubikMonoOne-Regular", sans-serif;
   letter-spacing: -2px;
+  line-height: 2.2rem;
+  padding-bottom: 1rem;
 }
 
 .chart-title {
@@ -40,13 +39,11 @@ font-size: 2rem;
 
 /* flex is used to place the checkbox label to the right of the checkbox */
 .color-option {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   flex-direction:row-reverse;
   justify-content: flex-end;
   gap: 10px;
-  /* align-items: center; */
-
 }
 
 .color-option input {
@@ -69,7 +66,6 @@ margin-bottom: 4px;
 
 /* define the fleet container width */
 .fleet-container {
-  width: 186px;
   border-radius: var(--chart-radius); 
   height: fit-content;
   padding-bottom: 30px;
@@ -118,6 +114,7 @@ margin-bottom: 4px;
 
 .footer-total {
   font-size: 2rem;
+  padding-top: 5px;
 }
 
 .footer-man-totals {
