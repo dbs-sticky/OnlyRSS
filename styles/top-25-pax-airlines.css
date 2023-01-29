@@ -110,6 +110,11 @@ margin-bottom: 4px;
   font-family: "Noto-aircraft";
 }
 
+/* used in the body text to show the aircraft glyphs */
+.ac-glyph {
+  font-family: "Noto-aircraft";
+}
+
 /* set styles for the flee-footer */
 .fleet-footer-a,
 .fleet-footer-b {
