@@ -1,6 +1,6 @@
 :root {
 --chart-radius: 5px;
---background-color: #F8F3E9;
+--background-color: #f8f5ee;
 
 --airbus-colour: #6395a8;
 --boeing-colour: #f4a261;
@@ -22,7 +22,8 @@
 .chart {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));  font-family: "Roboto Condensed", sans-serif;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 .chart-title, .color-option {
@@ -34,7 +35,7 @@
 }
 
 .chart-title {
-font-size: 2rem;
+  font-size: 2rem;
 }
 
 /* flex is used to place the checkbox label to the right of the checkbox */
@@ -47,8 +48,8 @@ font-size: 2rem;
 }
 
 .color-option input {
-transform: scale(1.5);
-margin-bottom: 4px;
+  transform: scale(1.5);
+  margin-bottom: 4px;
   }
 
 .chart-description {
@@ -58,18 +59,11 @@ margin-bottom: 4px;
   padding-bottom: 3.5rem;
 }
 
-.key {
-  display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
 /* define the fleet container width */
 .fleet-container {
   border-radius: var(--chart-radius); 
   height: fit-content;
   padding-bottom: 30px;
-
 }
 
 /* Define the fleet card header that includes the logo and airline name */
@@ -77,7 +71,6 @@ margin-bottom: 4px;
   height: 100px;
   font-size: 1.5rem;
   color: darkslategrey;
-  text-transform: uppercase;
 }
 
 .fleet-header div {
@@ -102,7 +95,7 @@ margin-bottom: 4px;
   line-height: 9px;
   font-size: 10px;
   letter-spacing: -1px;
-  font-family: "Noto-aircraft";
+  font-family: "Noto-aircraft", sans-serif;
 }
 
 .fleet-footer {
@@ -110,6 +103,10 @@ margin-bottom: 4px;
   display: flex;
   justify-content: space-between;
   line-height: 20px;
+}
+
+.show-footer {
+  display: flex;
 }
 
 .footer-total {
@@ -126,41 +123,6 @@ margin-bottom: 4px;
 .ac-glyph {
   font-family: "Noto-aircraft";
 }
-
-
-/* hide the b version by default i.e. the Airbus and Boeing totals
-.fleet-footer-b {
-  display: none;
-}
-
-/* on hover, hide the A version */
-/* .fleet-container:hover .fleet-footer-a {
-  display: none;
-} */
-
-/* Set transition for footer on-hover fade-in */
-/* @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-} */
-
-/* on hover, show the B version */
-/* .fleet-container:hover .fleet-footer-b {
-  animation: fadeIn 1s;
-  display: flex;  /* this is needed as the current display: none */
-} */
-
-/* Set the airbus footer text to airbus color */
-/* .fleet-footer-b div:nth-child(1) {
-color: var(--airbus-colour)
-} */
-
-/* Set the Boeing footer text to Boeing color */
-/* .fleet-footer-b div:nth-child(2) {
-  color: var(--boeing-colour)
-  }  */
-
-
 
 
 /* define the manufacturer svg fill colours */
