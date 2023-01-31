@@ -121,9 +121,21 @@
       }
     </script>
 
+    <!-- This us run on page load, the manufacturer colours and subtotals are displayed  -->
+    <script>
+      function setColor() {
+        document.querySelectorAll('.aircraft').forEach(e => {
+        e.classList.remove("grey-fill");
+              });
+        document.querySelectorAll('.footer-man-totals').forEach(e => {
+        e.classList.remove("footer-man-hide");
+            });
+          }
+    </script>
+
   </head>
 
-  <body>
+  <body onload="setColor()">
     
     <header>
       <nav>
@@ -209,7 +221,7 @@
 
           <div class="color-option">
             <label for="checkboxId">Split by manufacturer</label>
-            <input type="checkbox" id="checkboxId">
+            <input type="checkbox" id="checkboxId" checked>
           </div>
 
           <div class="chart-description">
@@ -792,32 +804,32 @@
 
     <script>
       // find all SVG elements with class=aircraft, and remove (or add) class=grey-fill
-      var checkbox = document.querySelector("#checkboxId");
+        var checkbox = document.querySelector("#checkboxId");
 
-      checkbox.addEventListener('change', function() {
-        if (this.checked) {
-          document.querySelectorAll('.aircraft').forEach(e => {
-            e.classList.remove("grey-fill");
-          });
-        }
-        else {
-          document.querySelectorAll('.aircraft').forEach(e => {
-            e.classList.add("grey-fill");
-          });
-        }
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            document.querySelectorAll('.aircraft').forEach(e => {
+              e.classList.remove("grey-fill");
+            });
+          }
+          else {
+            document.querySelectorAll('.aircraft').forEach(e => {
+              e.classList.add("grey-fill");
+            });
+          }
 
-        if (this.checked) {
-          document.querySelectorAll('.footer-man-totals').forEach(e => {
-            e.classList.remove("footer-man-hide");
-          });
-        }
-        else {
-          document.querySelectorAll('.footer-man-totals').forEach(e => {
-            e.classList.add("footer-man-hide");
-          });
-        }
+          if (this.checked) {
+            document.querySelectorAll('.footer-man-totals').forEach(e => {
+              e.classList.remove("footer-man-hide");
+            });
+          }
+          else {
+            document.querySelectorAll('.footer-man-totals').forEach(e => {
+              e.classList.add("footer-man-hide");
+            });
+          }
 
-      });
+        });
     </script>
 
   </body>
