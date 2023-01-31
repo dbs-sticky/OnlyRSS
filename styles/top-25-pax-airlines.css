@@ -1,12 +1,12 @@
 :root {
 --chart-radius: 5px;
---background-color: #f8f5ee;
+--background-color: #f8f6f2;
 
---airbus-colour: #6395a8;
---boeing-colour: #f4a261;
---bombardier-colour: #e76f51;
---comac-colour: #e9c46a;
---embraer-colour: #8ab17d;
+--airbus-colour: #3978d6;
+--boeing-colour: #e09e23;
+--bombardier-colour: #e73d26;
+--comac-colour: #5cc00a;
+--embraer-colour: #d486db;
 --atr-colour: #2a9d8f;
 }
 
