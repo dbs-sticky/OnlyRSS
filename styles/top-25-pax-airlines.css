@@ -68,17 +68,19 @@
 
 /* Define the fleet card header that includes the logo and airline name */
 .fleet-header {
-  height: 90px;
-  font-size: 1.6rem;
+  height: 40px;
+  font-size: 1.2rem;
   color: darkslategrey;
+  display: flex;
+  padding: 0 3px;
 }
 
 /* Give the img a height of 40px and display center middle */
 .fleet-header div:first-child img {
-  height: 40px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 35px;
   display: block;
+  /* filter: drop-shadow(3px 1px 2px rgb(0 0 0 / 0.3)); */
+  opacity: 0.7;
 }
 
 
@@ -87,6 +89,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  align-self: flex-end;
+
 }
 
 /* format the airline number differently */
