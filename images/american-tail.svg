@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+  <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+  <mask id="a" width="1770" height="1379" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+    <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+  </mask>
+  <g mask="url(#a)">
+    <path fill="#841C1B" d="M-84 1324h1340l-21 55H-84v-55Z"/>
+    <path fill="#D7D4DF" d="M-84 1269h1362l-22 55H-84v-55Z"/>
+    <path fill="#C7C5D2" d="M-84 1214h1383l-21 55H-84v-55Z"/>
+    <path fill="#FBF9FC" d="M-84 1158h1405l-22 56H-84v-56Z"/>
+    <path fill="#D7D4DF" d="M-84 495h1661l-21 56H-84v-56Z"/>
+    <path fill="#C7C5D2" d="M-84 937h1490l-21 55H-84v-55Zm0-111h1533l-22 56H-84v-56Zm0-551h1747l-22 55H-84v-55Zm1532-111h258l-22 56h-276l40-56ZM-84 551h1640l-22 55H-84v-55Z"/>
+    <path fill="#B5171D" d="M-84 1102h1426l-21 55H-84v-55Z"/>
+    <path fill="#841C1B" d="M-84 1047h1447l-21 55H-84v-55Z"/>
+    <path fill="#1C1D4D" d="M220 1129h502l-20 28H220v-28Z"/>
+    <path fill="#1D3160" d="M227 1102h516l-21 28H227v-28Z"/>
+    <path fill="#1C1D4D" d="M234 1047h550l-41 55H234v-55Z"/>
+    <path fill="#B5171D" d="M-84 771h1554l-21 55H-84v-55Zm910 221h559l-10 55H784l42-55Z"/>
+    <path fill="#841C1B" d="M-84 716h1576l-22 55H-84v-55Z"/>
+    <path fill="#B5171D" d="M1075 661h438l-6 55h-473l41-55Z"/>
+    <path fill="#FBF9FC" d="M-84 882h1511l-21 55H-84v-55Zm0-662h1768l-21 55H-84v-55Zm0 386h1618l-21 55H-84v-55Z"/>
+    <path fill="#B5171D" d="M-84 440h1683l-22 55H-84v-55Z"/>
+    <path fill="#841C1B" d="M-84 385h1704l-21 55H-84v-55Z"/>
+    <path fill="#1D3160" d="M248 1020h557l-21 28H248v-28Z"/>
+    <path fill="#B5171D" d="M1324 330h317l-21 55h-338l42-55ZM-84 109h1811l-22 55H-84v-55Z"/>
+    <path fill="#841C1B" d="M-84 54h1832l-21 55H-84V54Z"/>
+    <path fill="#B5171D" d="M-84-1h1853l-21 55H-84V-1Z"/>
+    <path fill="#1C1D4D" d="M376 964h470l-21 28H376v-28Z"/>
+    <path fill="#1D3160" d="M383 937h483l-20 28H383v-28Z"/>
+    <path fill="#1C1D4D" d="M390 882h518l-41 55H390v-55Z"/>
+    <path fill="#1D3160" d="M404 855h524l-21 28H404v-28Z"/>
+    <path fill="#1C1D4D" d="M696 638h396l-21 28H696v-28Z"/>
+    <path fill="#1D3160" d="M703 611h409l-20 28H703v-28Z"/>
+    <path fill="#1C1D4D" d="M710 556h444l-42 55H710v-55Z"/>
+    <path fill="#1D3160" d="M724 529h450l-20 28H724v-28Z"/>
+    <path fill="#1C1D4D" d="M534 798h438l-21 28H534v-28Z"/>
+    <path fill="#1D3160" d="M541 771h451l-20 28H541v-28Z"/>
+    <path fill="#1C1D4D" d="M548 716h486l-42 55H548v-55Z"/>
+    <path fill="#1D3160" d="M562 689h492l-21 28H562v-28Z"/>
+    <path fill="#1C1D4D" d="M885 467h336l-21 28H885v-28Z"/>
+    <path fill="#1D3160" d="M892 440h349l-20 28H892v-28Z"/>
+    <path fill="#1C1D4D" d="M899 385h384l-42 55H899v-55Z"/>
+    <path fill="#1D3160" d="M913 358h390l-21 28H913v-28Z"/>
+    <path fill="#1C1D4D" d="M1206 137h262l-21 28h-241v-28Z"/>
+    <path fill="#1D3160" d="M1213 110h275l-20 28h-255v-28Z"/>
+    <path fill="#1C1D4D" d="M1220 55h310l-42 55h-268V55Zm62-82h310l-42 55h-268v-55Z"/>
+    <path fill="#1D3160" d="M1234 28h316l-20 28h-296V28Z"/>
+    <path fill="#1C1D4D" d="M1042 302h304l-21 28h-283v-28Z"/>
+    <path fill="#1D3160" d="M1049 275h317l-20 28h-297v-28Z"/>
+    <path fill="#1C1D4D" d="M1056 220h351l-41 55h-310v-55Z"/>
+    <path fill="#1D3160" d="M1070 193h358l-21 28h-337v-28Z"/>
+  </g>
+</svg>
