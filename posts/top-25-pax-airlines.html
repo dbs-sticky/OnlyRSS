@@ -192,7 +192,7 @@
               </svg>
             </a>
 
-            <a href="mailto:?subject=OnlyRSS.org%20article:Infographic:%20Largest%2025%20passenger%20airlines&body=https://onlyrss.org/posts/top-25-pax-airlines.html" target="_blank" title="Share this article via email">
+            <a href="mailto:?subject=OnlyRSS.org%20article:Infographic:%2025%20Largest%20passenger%20airlines&body=https://onlyrss.org/posts/top-25-pax-airlines.html" target="_blank" title="Share this article via email">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
                 <path  d="M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z"/>
               </svg>
@@ -206,7 +206,7 @@
       <section>
         <h2>Background</h2>
         <p>
-          Inspiration for this chart came from the recent infographic on <a href="https://www.visualcapitalist.com/top-25-fleets-of-combat-tanks/" target="_blank">VisualCapitalist.com</a> which visualises the world’s top 25 fleets of combat tanks (they specifically state “combat” tanks, which intrigues me, are there tanks designed for the daily commute?).</p>
+          Inspiration for this chart came from the recent infographic on <a href="https://www.visualcapitalist.com/top-25-fleets-of-combat-tanks/">VisualCapitalist.com</a> which visualises the world’s top 25 fleets of combat tanks (they specifically state “combat” tanks, which intrigues me, are there tanks designed for the daily commute?).</p>
           <p> Their chart was a jpg, and I wanted to see if I could build something similar using HTML & CSS (without JavaScript or a charting library). I used a similar set of airline fleet data that I used for my <a href="../posts/airbus-vs-boeing-charts.html"> previous data viz article</a>.
           <p>
       </section>
@@ -708,13 +708,13 @@
         </p>
         <h3>The aircraft glyph</h3>
         <p>
-          Each tiny aircraft image is the <a href="https://www.compart.com/en/unicode/U+1F6E7" target="_blank" >Up-Pointing Airplane Unicode glyph (&amp;#x1F6E7;)</a>, and there are 10,016 tiny aircraft in the chart! My first attempt at this chart used inline SVGs for the aircraft, it worked, but it wasn't very performant. It then hit me that I could simply use an aircraft Unicode glyph i.e. a font, and this solution worked on my desktop, but not on Android, where the aircraft glyph was replaced with squares.
+          Each tiny aircraft image is the <a href="https://www.compart.com/en/unicode/U+1F6E7" title="view this glyph">Up-Pointing Airplane Unicode glyph (&amp;#x1F6E7;)</a>, and there are 10,016 tiny aircraft in the chart! My first attempt at this chart used inline SVGs for the aircraft, it worked, but it wasn't very performant. It then hit me that I could simply use an aircraft Unicode glyph i.e. a font, and this solution worked on my desktop, but not on Android, where the aircraft glyph was replaced with squares.
           <p>
-          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" target="_blank"> Noto Sans Symbols 2</a>. My only issue with this font was the size, i.e. it's >300KB (it contained a lot of symbols). I then learnt about <a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (4KB, yeah!). 
+          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" title="view this font on Google Fonts"> Noto Sans Symbols 2</a>. My only issue with this font was the size, i.e. it's >300&#8239;KB (it contained a lot of symbols). I then learnt about <a href="https://fontforge.org/en-US/" title="visit the Font Forge home page">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (3&#8239;KB, yeah!). 
         </p>
         <h3>Populating the isotypes</h3>
         <p>
-          As mentioned above, 10,016 aircraft glyphs are used in the chart, and although I could have entered them into the HTML manually, I actually updated the dataset quite a few times while making the chart, and updating the number of aircraft for each airline (and manufacturer) would have been laborious. In order to make things easier, I decided to let JavaScript (and my friend, <a href="https://github.com/mendhak" target="_blank">Mendhak</a>, help me out).
+          As mentioned above, 10,016 aircraft glyphs are used in the chart, and although I could have entered them into the HTML manually, I actually updated the dataset quite a few times while making the chart, and updating the number of aircraft for each airline (and manufacturer) would have been laborious. In order to make things easier, I decided to let JavaScript (and my friend, <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, help me out).
         </p>
         <p>
           The JavaScript function is a simple loop that adds a string of aircraft glyphs into a &lt;span&gt; element based on a number I enter i.e. the number of aircraft from each manufacturer for each airline.
@@ -756,7 +756,7 @@
 </pre>
 
         <p>
-          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" target="_blank">Mendhak</a>, again) to build the 'Split by manufacturer' option, so I decided to leave this JavaScript in place.
+          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, again) to build the 'Split by manufacturer' option, so I decided to leave this JavaScript in place.
         </p>
         <h3>Enabling the “Split by manufacturer” option</h3>
         <p>
@@ -764,7 +764,7 @@
         </p>
         <h3>The airline tailfins</h3>
         <p>
-          Each airline tailfin is an SVG. Most were created from scratch in Figma (some were modified from existing SVGs kindly sent to me by another nerd friend i.e. <a href="https://github.com/pwrignall">Paul</a>.</p>
+          Each airline tailfin is an SVG. Most were created from scratch in Figma (some were modified from existing SVGs kindly sent to me by another nerd friend i.e. <a href="https://github.com/pwrignall" title="view Paul's GitHub page">Paul</a>.</p>
         <p>
           There are no bitmap/raster images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet). A screenshot of the zoomed in isotype chart for Alaska Airlines is shown below.
         </p>
@@ -775,22 +775,22 @@
         <h2>What I learnt</h2>
         <h3>How to remove unwanted glyphs from a font file</h3>
         <p>
-          This is going to come in handy. The largest resources loaded for the majority of my pages are the font files, and I've always wanted to reduce the size of the files by removing glyphs I know I'm never going to use. I didn't know of an easy way to do this until I came across this <a href="https://www.grantojanen.com/videos/pg/optimize-fonts.html">guide</a> (and then downloaded the free and open source software '<a href="https://fontforge.org/en-US/" target="_blank">Font Forge</a>'). 
+          This is going to come in handy. The largest resources loaded for the majority of my pages are the font files, and I've always wanted to reduce the size of the files by removing glyphs I know I'm never going to use. I didn't know of an easy way to do this until I came across this <a href="https://www.grantojanen.com/videos/pg/optimize-fonts.html" title="view Grant Ojanen's tutorial">guide</a> (and then downloaded the free and open source software '<a href="https://fontforge.org/en-US/" title="view the Font Forge home page">Font Forge</a>'). 
         </p>
         <h3>Line breaks in HTML do matter (but only sometimes)</h3>
         <p>
-          I was under the misguided assumption that line breaks in HTML had no effect on what was rendered in the browser. For the isotope charts where an airline had aircraft from more than a single manufacturer, this required multiple &lt;span&gt; elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the &lt;span&gt; elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the &lt;span&gt; elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/" target="_blank"> JSFiddle</a>.
+          I was under the misguided assumption that line breaks in HTML had no effect on what was rendered in the browser. For the isotope charts where an airline had aircraft from more than a single manufacturer, this required multiple &lt;span&gt; elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the &lt;span&gt; elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the &lt;span&gt; elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/"> JSFiddle</a>.
         </p>
         <h3>You can define your inline SVG's path in your CSS… but not in Safari!</h3>
         <p>
-          In the first version of this infographic, I used an inline SVG for the aircraft glyph, but that meant repeating the SVG 10,016 times in the HTML. I was therefore very pleased to discover that the SVG's path could be pulled out of the inline SVG and instead <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/path" target="_blank"> defined in the CSS</a>. I was then very unpleased to discover that this was <a href="https://caniuse.com/mdn-svg_elements_path_d_path" target="_blank"> not supported in Safari!</a>
+          In the first version of this infographic, I used an inline SVG for the aircraft glyph, but that meant repeating the SVG 10,016 times in the HTML. I was therefore very pleased to discover that the SVG's path could be pulled out of the inline SVG and instead <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/path" title="view the 'path()' definition page at MDN docs"> defined in the CSS</a>. I was then very unpleased to discover that this was <a href="https://caniuse.com/mdn-svg_elements_path_d_path" title="view the browser support for 'SVG Element Path'"> not supported in Safari!</a>
         </p>
       </section>
 
       <section>
         <h2>The data source</h2>
         <p>
-          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a>. Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
+          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
         </p>
       </section>
 
