@@ -951,10 +951,12 @@ a.icons:active {
   exercise circuits randomiser in "app"
   ====================== */
 
+
 #card {
   max-width: 30rem;
   margin: auto;
   padding: 30px;
+  font-family:'OpenSans', sans-serif;
 }
 
 #head {
@@ -964,9 +966,10 @@ a.icons:active {
 
 #exercises {
   list-style-position: outside;
-  line-height: 1.7rem;
+  line-height: 1.3rem;
   padding-left: 10%;
   margin-top: 40px;
+  font-size: 0.9rem;
 }
 
 .app-btn-close {
