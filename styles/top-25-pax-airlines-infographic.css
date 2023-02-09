@@ -21,7 +21,7 @@
   margin-top: 70px;
 }
 
-.chart {
+infographic-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,14 +106,16 @@
   max-width: 90px;
 }
 
-.isotype {
+isotype-✈️ {
+  display: block;
   line-height: 14px;
   font-size: 16px;
   letter-spacing: -1px;
   font-family: "Noto-aircraft", sans-serif;
 }
 
-.fleet-footer {
+fleet-🦶 {
+  display: block;
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
