@@ -10,54 +10,40 @@
 .paper {
   padding: 20px;
   font-family: "Roboto Condensed", sans-serif;
-  max-width: 1800px;
+  max-width: 2200px;
   margin: auto;
   margin-bottom: 20px;
   margin-top: 70px;
-}
-
-infographic-grid {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.chart-title, .color-option {
-  text-transform: uppercase;
-  font-family: "RubikMonoOne", sans-serif;
-  letter-spacing: -2px;
-  line-height: 3rem;
-  padding-bottom: 1rem;
 }
 
 .chart-title {
   font-size: 3rem;
 }
 
-/* flex is used to place the checkbox label to the right of the checkbox */
-.color-option {
-  font-size: 1.2rem;
-  display: flex;
-  flex-direction:row-reverse;
-  justify-content: flex-end;
-  gap: 10px;
+.chart-title, .color-option {
+  text-transform: uppercase;
+  font-family: "RubikMonoOne", sans-serif;
+  letter-spacing: -1px;
+  line-height: 3rem;
 }
 
 .color-option input {
-  transform: scale(1.5);
-  margin-bottom: 4px;
+  transform: scale(1.4);
   }
 
 .chart-description {
-  display: flex;
-  gap: 4rem;
-  line-height: 1.6rem;
-  padding-bottom: 3.5rem;
+  line-height: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+infographic-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 /* define the isotype */
 iso-container {
-  border-radius: var(--chart-radius); 
   height: fit-content;
   padding-bottom: 30px;
 }
@@ -96,6 +82,7 @@ isotype-🛧 {
   font-family: "Noto-aircraft", sans-serif;
 }
 
+/* justify the total and subtotals */
 iso-footer {
   display: flex;
   margin-top: 5px;
@@ -107,11 +94,7 @@ iso-total {
   font-size: 2.2rem;
   padding-top: 5px;
 }
-
-.show-footer {
-  display: flex;
-}
-
+/* place sub totals in a column and align-right */
 .footer-man-totals {
   display: flex;
   flex-direction: column;
@@ -119,7 +102,7 @@ iso-total {
   font-size: 22px;
 }
 
-/* define the manufacturer svg fill colours */
+/* define the manufacturer aircraft font colours */
 /* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
 
 

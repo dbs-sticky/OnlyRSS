@@ -33,6 +33,7 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
+    <!-- used for the top navigation -->
     <style>
       @font-face {
         font-family: "Roboto Condensed";
@@ -42,41 +43,7 @@
         src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
       }
 
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
-
+      /* used for the title and Split by Manufacturer title */
       @font-face {
         font-family: "RubikMonoOne";
         font-style: normal;
@@ -96,20 +63,20 @@
         color: darkslategray !important;
         }
 
-        .footer-man-hide {
-          visibility: hidden;
+      .footer-man-hide {
+        visibility: hidden;
+      }
+
+      @media (max-width: 500px) {
+        .fleet-header {
+          font-size: 1.7rem;
         }
 
-        @media (max-width: 500px) {
-          .fleet-header {
-            font-size: 1.7rem;
-          }
-
-          .footer-man-totals {
-            font-size: 1.3rem;
-            line-height: 1.5rem;
-          }
+        .footer-man-totals {
+          font-size: 1.3rem;
+          line-height: 1.5rem;
         }
+      }
     </style>
 
     <!-- Service worker for installable app-->
