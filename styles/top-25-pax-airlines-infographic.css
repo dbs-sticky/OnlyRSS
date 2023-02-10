@@ -1,0 +1,131 @@
+:root {
+--airbus-colour: #3978d6;
+--boeing-colour: #e09e23;
+--bombardier-colour: #e73d26;
+--comac-colour: #d486db;
+--embraer-colour: #5cc00a;
+--atr-colour: #2a9d8f;
+}
+
+.paper {
+  padding: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  max-width: 2200px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+.chart-title {
+  font-size: 3rem;
+}
+
+.chart-title, .color-option {
+  text-transform: uppercase;
+  font-family: "RubikMonoOne", sans-serif;
+  letter-spacing: -1px;
+  line-height: 3rem;
+}
+
+.color-option input {
+  transform: scale(1.4);
+  }
+
+.chart-description {
+  line-height: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+infographic-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* define the isotype */
+iso-container {
+  height: fit-content;
+  padding-bottom: 30px;
+}
+
+/* Define the isotype header that includes the tailfin and airline name */
+iso-header {
+  height: 50px;
+  font-size: 1.8rem;
+  color: darkslategrey;
+  display: flex;
+  padding: 0 3px;
+}
+
+/* Give the tailfin a height*/
+iso-tail img {
+  height: 40px;
+  display: block;
+  filter: drop-shadow(0px 0px 1px rgb(0 0 0 / 0.5));
+  opacity: 0.8;
+}
+
+/* Enable ellipsis for airline names */
+iso-airline-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: flex-end;
+  padding-bottom: 5px;
+}
+
+isotype-🛧 {
+  display: block;
+  line-height: 14px;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-family: "Noto-aircraft", sans-serif;
+}
+
+/* justify the total and subtotals */
+iso-footer {
+  display: flex;
+  margin-top: 5px;
+  justify-content: space-between;
+  line-height: 25px;
+}
+
+iso-total {
+  font-size: 2.2rem;
+  padding-top: 5px;
+}
+/* place sub totals in a column and align-right */
+.footer-man-totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 22px;
+}
+
+/* define the manufacturer aircraft font colours */
+/* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
+
+
+iso-container .airbus  {
+  color: var(--airbus-colour);
+}
+
+iso-container .boeing  {
+  color: var(--boeing-colour);
+}
+
+iso-container .bombardier  {
+  color: var(--bombardier-colour);
+}
+
+iso-container .comac  {
+  color: var(--comac-colour);
+}
+
+iso-container .embraer  {
+  color: var(--embraer-colour);
+}
+
+iso-container .atr  {
+  color: var(--atr-colour);
+}
