@@ -1,7 +1,4 @@
 :root {
---chart-radius: 5px;
---background-color: #f8f6f2;
-
 --airbus-colour: #3978d6;
 --boeing-colour: #e09e23;
 --bombardier-colour: #e73d26;
@@ -11,9 +8,7 @@
 }
 
 .paper {
-  /* background: var(--background-color); */
   padding: 20px;
-  border-radius: var(--chart-radius); 
   font-family: "Roboto Condensed", sans-serif;
   max-width: 1800px;
   margin: auto;
@@ -25,7 +20,6 @@ infographic-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  font-family: "Roboto Condensed", sans-serif;
 }
 
 .chart-title, .color-option {
@@ -61,15 +55,15 @@ infographic-grid {
   padding-bottom: 3.5rem;
 }
 
-/* define the fleet container width */
-.fleet-container {
+/* define the isotype */
+iso-container {
   border-radius: var(--chart-radius); 
   height: fit-content;
   padding-bottom: 30px;
 }
 
-/* Define the fleet card header that includes the logo and airline name */
-.fleet-header {
+/* Define the isotype header that includes the tailfin and airline name */
+iso-header {
   height: 50px;
   font-size: 1.8rem;
   color: darkslategrey;
@@ -77,17 +71,16 @@ infographic-grid {
   padding: 0 3px;
 }
 
-/* Give the img a height of 40px and display center middle */
-.fleet-header div:first-child img {
+/* Give the tailfin a height*/
+iso-tail img {
   height: 40px;
   display: block;
   filter: drop-shadow(0px 0px 1px rgb(0 0 0 / 0.5));
   opacity: 0.8;
 }
 
-
-/* Target the title of the header only and enable ellipsis */
-.fleet-header div:nth-child(2) {
+/* Enable ellipsis for airline names */
+iso-airline-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -95,18 +88,7 @@ infographic-grid {
 
 }
 
-/* format the airline number differently */
-.fleet-header>div>span {
-  color: lightslategray;
-}
-
-/* define the fleet card header logo */
-.fleet-header img {
-  max-height: 40px;
-  max-width: 90px;
-}
-
-isotype-✈️ {
+isotype-🛧 {
   display: block;
   line-height: 14px;
   font-size: 16px;
@@ -114,22 +96,20 @@ isotype-✈️ {
   font-family: "Noto-aircraft", sans-serif;
 }
 
-fleet-🦶 {
-  display: block;
-  margin-top: 5px;
+iso-footer {
   display: flex;
+  margin-top: 5px;
   justify-content: space-between;
   line-height: 25px;
+}
 
+iso-total {
+  font-size: 2.2rem;
+  padding-top: 5px;
 }
 
 .show-footer {
   display: flex;
-}
-
-.footer-total {
-  font-size: 2.2rem;
-  padding-top: 5px;
 }
 
 .footer-man-totals {
@@ -138,37 +118,32 @@ fleet-🦶 {
   align-items: flex-end;
   font-size: 22px;
 }
-/* used in the body text to show the aircraft glyphs */
-.ac-glyph {
-  font-family: "Noto-aircraft";
-}
-
 
 /* define the manufacturer svg fill colours */
 /* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
 
 
-.fleet-container  .airbus  {
+iso-container .airbus  {
   color: var(--airbus-colour);
 }
 
-.fleet-container .boeing  {
+iso-container .boeing  {
   color: var(--boeing-colour);
 }
 
-.fleet-container  .bombardier  {
+iso-container .bombardier  {
   color: var(--bombardier-colour);
 }
 
-.fleet-container  .comac  {
+iso-container .comac  {
   color: var(--comac-colour);
 }
 
-.fleet-container  .embraer  {
+iso-container .embraer  {
   color: var(--embraer-colour);
 }
 
-.fleet-container  .atr  {
+iso-container .atr  {
   color: var(--atr-colour);
 }
 

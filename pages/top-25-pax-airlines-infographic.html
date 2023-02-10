@@ -154,7 +154,6 @@
       </nav>
     </header>
 
-      <header>
         <div class="paper">
 
           <div class="chart-title">
@@ -167,467 +166,465 @@
           </div>
 
           <div class="chart-description">
-            <div>
+            <p>
               Fleets are ordered descending by fleet size. Only stored and in-service passenger aircraft are included. Each <span style="font-family:Noto-aircraft, sans-serif;">🛧</span> represents a single real aircraft in the airline's fleet.
             </p>
             <p>
               Data was sourced from Cirium's Ascend Fleets Analyzer on 26 January 2023.
             </p>
-            </div>
           </div>
-
 
 
           <infographic-grid>
 
             <!-- Delta Air Lines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/delta-tail.svg" alt="Delta Air Lines tailfin"></div>
-                <div><span>1.</span>Delta Air Lines</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(524);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(416);</script></span><span class="bombardier aircraft grey-fill"><script>drawAircraft(36);</script></span></isotype-✈️>
-              <fleet-🦶>
-                <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/delta-tail.svg" alt="Delta Air Lines tailfin"></iso-tail>
+                <iso-airline-name>1. Delta Air Lines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(524);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(416);</script></span><span class="bombardier aircraft grey-fill"><script>drawAircraft(36);</script></span></isotype-🛧>
+              <iso-footer>
+                <iso-total>
                   976
-                </div>
+                </iso-total>
                 <div class="footer-man-totals footer-man-hide">
                   <div class="boeing aircraft grey-fill">Boeing: 524</div>
                   <div class="airbus aircraft grey-fill">Airbus: 416</div>
                   <div class="bombardier aircraft grey-fill">CRJ: 36</div>
                 </div>
-              </fleet-🦶>
-            </div>
+              </iso-footer>
+            </iso-container>
 
             <!-- American Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/american-tail.svg" alt="American Airlines tailfin"></div>
-                <div><span>2.</span>American Airlines</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(483);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(483);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/american-tail.svg" alt="American Airlines tailfin"></iso-tail>
+                <iso-airline-name>2. American Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(483);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(483);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     966
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 483</div>
                     <div class="airbus aircraft grey-fill">Airbus: 483</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- United Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/united-tail.svg" alt="United Airlines tailfin"></div>
-                <div><span>3.</span>United Airlines</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(691);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(185);</script></span><span class="bombardier aircraft grey-fill"><script>drawAircraft(10);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/united-tail.svg" alt="United Airlines tailfin"></iso-tail>
+                <iso-airline-name>3. United Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(691);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(185);</script></span><span class="bombardier aircraft grey-fill"><script>drawAircraft(10);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     886
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 691</div>
                     <div class="airbus aircraft grey-fill">Airbus: 185</div>
                     <div class="bombardier aircraft grey-fill">CRJ: 10</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Southwest Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/southwest-tail.svg" alt="Southwest Airlines tailfin"></div>
-                <div><span>4.</span>Southwest Airlines</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(808);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/southwest-tail.svg" alt="Southwest Airlines tailfin"></iso-tail>
+                <iso-airline-name>4. Southwest Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(808);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     808
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 808</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- China Southern Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/china-south-tail.svg" alt="China Southern Airlines tailfin"></div>
-                <div><span>5.</span>China Southern Airlines</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(374);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(254);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(15);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/china-south-tail.svg" alt="China Southern Airlines tailfin"></iso-tail>
+                <iso-airline-name>5. China Southern Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(374);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(254);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(15);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     643
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 374</div>
                     <div class="boeing aircraft grey-fill">Boeing: 254</div>
                     <div class="comac aircraft grey-fill">Comac: 15</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- SkyWest Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/skywest-tail.svg" alt="SkyWest Airlines tailfin"></div>
-                <div><span>6.</span>SkyWest</div>
-              </div>
-                <isotype-✈️><span class="bombardier aircraft grey-fill"><script>drawAircraft(369);</script></span><span class="embraer aircraft grey-fill"><script>drawAircraft(236);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/skywest-tail.svg" alt="SkyWest Airlines tailfin"></iso-tail>
+                <iso-airline-name>6. SkyWest</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="bombardier aircraft grey-fill"><script>drawAircraft(369);</script></span><span class="embraer aircraft grey-fill"><script>drawAircraft(236);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     605
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="bombardier aircraft grey-fill">CRJ: 369</div>
                     <div class="embraer aircraft grey-fill">Embraer: 236</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Air China -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/air-china-tail.svg" alt="Air China tailfin"></div>
-                <div><span>7.</span>Air China</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(296);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(183);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(15);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/air-china-tail.svg" alt="Air China tailfin"></iso-tail>
+                <iso-airline-name>7. Air China</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(296);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(183);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(15);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     494
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 296</div>
                     <div class="boeing aircraft grey-fill">Boeing: 183</div>
                     <div class="comac aircraft grey-fill">Comac: 15</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- China Eastern Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/china-eastern-tail.svg" alt="China Eastern Airlines tailfin"></div>
-                <div><span>8.</span>China Eastern Airlines</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(380);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(50);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(1);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/china-eastern-tail.svg" alt="China Eastern Airlines tailfin"></iso-tail>
+                <iso-airline-name>8. China Eastern Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(380);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(50);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(1);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     431
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 380</div>
                     <div class="boeing aircraft grey-fill">Boeing: 50</div>
                     <div class="comac aircraft grey-fill">Comac: 1</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Turkish Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/turkish-tail.svg" alt="Turkish Airlines tailfin"></div>
-                <div><span>9.</span>Turkish Airlines</div>
-              </div>
-              <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(190);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(136);</script></span></isotype-✈️>
-              <fleet-🦶>
-                <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/turkish-tail.svg" alt="Turkish Airlines tailfin"></iso-tail>
+                <iso-airline-name>9. Turkish Airlines</iso-airline-name>
+              </iso-header>
+              <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(190);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(136);</script></span></isotype-🛧>
+              <iso-footer>
+                <iso-total>
                   326
-                </div>
+                </iso-total>
                 <div class="footer-man-totals footer-man-hide">
                   <div class="airbus aircraft grey-fill">Airbus: 190</div>
                   <div class="boeing aircraft grey-fill">Boeing: 136</div>
                 </div>
-              </fleet-🦶>
-            </div>
+              </iso-footer>
+            </iso-container>
 
             <!-- Lufthansa -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/lufthansa-tail.svg" alt="Lufthansa tailfin"></div>
-                <div><span>10.</span>Lufthansa</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(278);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(30);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/lufthansa-tail.svg" alt="Lufthansa tailfin"></iso-tail>
+                <iso-airline-name>10. Lufthansa</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(278);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(30);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     308
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 278</div>
                     <div class="boeing aircraft grey-fill">Boeing: 30</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- IndiGo -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/indigo-tail.svg" alt="IndiGo tailfin"></div>
-                <div><span>11.</span>IndiGo</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(266);</script></span><span class="atr aircraft grey-fill"><script>drawAircraft(39);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/indigo-tail.svg" alt="IndiGo tailfin"></iso-tail>
+                <iso-airline-name>11. IndiGo</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(266);</script></span><span class="atr aircraft grey-fill"><script>drawAircraft(39);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     305
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 266</div>
                     <div class="atr aircraft grey-fill">ATR: 39</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- JetBlue Airways -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/jetblue-tail.svg" alt="JetBlue Airways tailfin"></div>
-                <div><span>12.</span>JetBlue Airways</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(230);</script></span><span class="embraer aircraft grey-fill"><script>drawAircraft(60);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/jetblue-tail.svg" alt="JetBlue Airways tailfin"></iso-tail>
+                <iso-airline-name>12. JetBlue Airways</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(230);</script></span><span class="embraer aircraft grey-fill"><script>drawAircraft(60);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     290
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 230</div>
                     <div class="embraer aircraft grey-fill">Embraer: 60</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Ryanair -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/ryanair-tail.svg" alt="Ryanair tailfin"></div>
-                <div><span>13.</span>Ryanair</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(273);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/ryanair-tail.svg" alt="Ryanair tailfin"></iso-tail>
+                <iso-airline-name>13. Ryanair</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(273);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     273
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 273</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- British Airways -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/british-tail.svg" alt="British Airways tailfin"></div>
-                <div><span>14.</span>British Airways</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(164);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(94);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/british-tail.svg" alt="British Airways tailfin"></iso-tail>
+                <iso-airline-name>14. British Airways</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(164);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(94);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     258
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 164</div>
                     <div class="boeing aircraft grey-fill">Boeing: 94</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Emirates Airline -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/emirates-tail.svg" alt="Emirates Airline tailfin"></div>
-                <div><span>15.</span>Emirates Airline</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(134);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(121);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/emirates-tail.svg" alt="Emirates Airline tailfin"></iso-tail>
+                <iso-airline-name>15. Emirates Airline</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(134);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(121);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     255
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 134</div>
                     <div class="airbus aircraft grey-fill">Airbus: 121</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Alaska Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/alaska-tail.svg" alt="Alaska Airlines tailfin"></div>
-                <div><span>16.</span>Alaska Airlines</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(202);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(47);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/alaska-tail.svg" alt="Alaska Airlines tailfin"></iso-tail>
+                <iso-airline-name>16. Alaska Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(202);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(47);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     249
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 202</div>
                     <div class="airbus aircraft grey-fill">Airbus: 47</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Endeavor Air -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/delta-tail.svg" alt="Endeavor Air tailfin"></div>
-                <div><span>17.</span>Endeavor Air</div>
-              </div>
-                <isotype-✈️><span class="bombardier aircraft grey-fill"><script>drawAircraft(248);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/delta-tail.svg" alt="Endeavor Air tailfin"></iso-tail>
+                <iso-airline-name>17. Endeavor Air</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="bombardier aircraft grey-fill"><script>drawAircraft(248);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     248
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="bombardier aircraft grey-fill">CRJ: 248</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Republic Airways -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/republic-tail.svg" alt="Republic Airways tailfin"></div>
-                <div><span>18.</span>Republic Airways</div>
-              </div>
-                <isotype-✈️><span class="embraer aircraft grey-fill"><script>drawAircraft(230);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/republic-tail.svg" alt="Republic Airways tailfin"></iso-tail>
+                <iso-airline-name>18. Republic Airways</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="embraer aircraft grey-fill"><script>drawAircraft(230);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     230
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="embraer aircraft grey-fill">Embraer: 230</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Hainan Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/hainan-tail.svg" alt="Hainan Airlines tailfin"></div>
-                <div><span>19.</span>Hainan Airlines</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(183);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(40);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/hainan-tail.svg" alt="Hainan Airlines tailfin"></iso-tail>
+                <iso-airline-name>19. Hainan Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(183);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(40);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     223
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 183</div>
                     <div class="airbus aircraft grey-fill">Airbus: 40</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Air France -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/air-france-tail.svg" alt="Air France tailfin"></div>
-                <div><span>20.</span>Air France</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(150);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(72);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/air-france-tail.svg" alt="Air France tailfin"></iso-tail>
+                <iso-airline-name>20. Air France</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(150);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(72);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     222
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 150</div>
                     <div class="boeing aircraft grey-fill">Boeing: 72</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Qatar Airways -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/qatar-tail.svg" alt="Qatar Airways tailfin"></div>
-                <div><span>21.</span>Qatar Airways</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(115);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(105);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/qatar-tail.svg" alt="Qatar Airways tailfin"></iso-tail>
+                <iso-airline-name>21. Qatar Airways</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(115);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(105);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     220
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 115</div>
                     <div class="boeing aircraft grey-fill">Boeing: 105</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Envoy Air -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/envoy-tail.svg" alt="Envoy Air tailfin"></div>
-                <div><span>22.</span>Envoy Air</div>
-              </div>
-                <isotype-✈️><span class="embraer aircraft grey-fill"><script>drawAircraft(205);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/envoy-tail.svg" alt="Envoy Air tailfin"></iso-tail>
+                <iso-airline-name>22. Envoy Air</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="embraer aircraft grey-fill"><script>drawAircraft(205);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     205
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="embraer aircraft grey-fill">Embraer: 205</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- ANA -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/ana-tail.svg" alt="ANA tailfin"></div>
-                <div><span>23.</span>ANA</div>
-              </div>
-                <isotype-✈️><span class="boeing aircraft grey-fill"><script>drawAircraft(162);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(40);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/ana-tail.svg" alt="ANA tailfin"></iso-tail>
+                <iso-airline-name>23. ANA</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(162);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(40);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     202
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="boeing aircraft grey-fill">Boeing: 162</div>
                     <div class="airbus aircraft grey-fill">Airbus: 40</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Shenzhen Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/shenzhen-tail.svg" alt="Shenzhen Airlines tailfin"></div>
-                <div><span>24.</span>Shenzhen Airlines</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(116);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(82);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/shenzhen-tail.svg" alt="Shenzhen Airlines tailfin"></iso-tail>
+                <iso-airline-name>24. Shenzhen Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(116);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(82);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     198
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 116</div>
                     <div class="boeing aircraft grey-fill">Boeing: 82</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
             <!-- Spirit Airlines -->
-            <div class="fleet-container">
-              <div class="fleet-header">
-                <div><img src="/images/spirit-tail.svg" alt="Spirit Airlines tailfin"></div>
-                <div><span>25.</span>Spirit Airlines</div>
-              </div>
-                <isotype-✈️><span class="airbus aircraft grey-fill"><script>drawAircraft(195);</script></span></isotype-✈️>
-                <fleet-🦶>
-                  <div class="footer-total">
+            <iso-container>
+              <iso-header>
+                <iso-tail><img src="/images/spirit-tail.svg" alt="Spirit Airlines tailfin"></iso-tail>
+                <iso-airline-name>25. Spirit Airlines</iso-airline-name>
+              </iso-header>
+                <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(195);</script></span></isotype-🛧>
+                <iso-footer>
+                  <iso-total>
                     195
-                  </div>
+                  </iso-total>
                   <div class="footer-man-totals footer-man-hide">
                     <div class="airbus aircraft grey-fill">Airbus: 195</div>
                   </div>
-                </fleet-🦶>
-            </div>
+                </iso-footer>
+            </iso-container>
 
           </infographic-grid>
 
