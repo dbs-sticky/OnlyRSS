@@ -89,7 +89,7 @@
       }
     </script>
 
-    <!-- This us run on page load, the manufacturer colours and subtotals are displayed  -->
+    <!-- This is run on page load, the manufacturer colours and subtotals are displayed  -->
     <script>
       function setColor() {
         document.querySelectorAll('.aircraft').forEach(e => {
@@ -118,8 +118,8 @@
           </div>
 
           <div class="color-option">
-            <label for="checkboxId">Split by manufacturer</label>
-            <input type="checkbox" id="checkboxId" checked>
+            <label for="checkboxId">Hide manufacturer information</label>
+            <input type="checkbox" id="checkboxId">
           </div>
 
           <div class="chart-description">
@@ -596,23 +596,23 @@
         checkbox.addEventListener('change', function() {
           if (this.checked) {
             document.querySelectorAll('.aircraft').forEach(e => {
-              e.classList.remove("grey-fill");
+              e.classList.add("grey-fill");
             });
           }
           else {
             document.querySelectorAll('.aircraft').forEach(e => {
-              e.classList.add("grey-fill");
+              e.classList.remove("grey-fill");
             });
           }
 
           if (this.checked) {
             document.querySelectorAll('.footer-man-totals').forEach(e => {
-              e.classList.remove("footer-man-hide");
+              e.classList.add("footer-man-hide");
             });
           }
           else {
             document.querySelectorAll('.footer-man-totals').forEach(e => {
-              e.classList.add("footer-man-hide");
+              e.classList.remove("footer-man-hide");
             });
           }
 
