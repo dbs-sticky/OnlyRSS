@@ -13,7 +13,7 @@
   max-width: 2200px;
   margin: auto;
   margin-bottom: 20px;
-  margin-top: 70px;
+  margin-top: 40px;
 }
 
 .chart-title {
@@ -71,7 +71,7 @@ iso-airline-name {
   overflow: hidden;
   text-overflow: ellipsis;
   align-self: flex-end;
-
+  padding-bottom: 5px;
 }
 
 isotype-🛧 {
@@ -129,4 +129,3 @@ iso-container .embraer  {
 iso-container .atr  {
   color: var(--atr-colour);
 }
-
