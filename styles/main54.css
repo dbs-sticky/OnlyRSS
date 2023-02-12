@@ -108,7 +108,6 @@ body {
   }
   /* full width learning log table on mobile */
   .learning-log {
-    margin: auto;
     width: 100%;
   }
 
@@ -172,7 +171,6 @@ body {
   }
   /* 60% width learning log table desktops/tablets */
   .learning-log {
-    margin: auto;
     width: 70%;
   }
 
@@ -979,11 +977,91 @@ a.icons:active {
 }
 
 /*  ======================
-  Learning log tags and table
+  Learning table
   ====================== */
 
-/* format tags. Requires both classes below i.e. learning-log + [tag-name] */
+/* table formatting - width is set in media queries */
+.learning-log {
+  table-layout:fixed;
+  margin: auto;
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-collapse: collapse; /* creates single border between cells */
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;  /* border radius option above does not work without this  */
+  font-family: "Roboto Condensed", sans-serif;
+  color:var(--bodytext);
+}
 
+/* define the header row font and background colour */
+.learning-log th {
+  font-weight: 400;
+  color: black;
+  background-color: var(--accent-light);
+}
+
+/* pad all header and cell elements */
+.learning-log th,
+.learning-log td {
+  padding: 7px 10px;
+}
+
+/* fix the width of the 1st column, i.e. the tag column */
+.learning-log th:nth-child(1) {
+  width: 70px;
+}
+
+/* set the last column, i.e the progress indicator to a foxed percentage */
+.learning-log th:nth-child(3) {
+  width: 30%;
+}
+
+/* set column 2 i.e. resource name and link */
+.learning-log td:nth-child(2) {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* override the usual link colour of black */
+.learning-log a{
+  color: var(--bodytext);
+}
+
+/* define the style of the progress indicator */
+progress-meter {
+  display: block;
+  height: 10px;
+  box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  padding: 1px;
+  /* below only required if the value text is shown */
+  /* text-align: end; */
+    /* line-height: 10px; */
+}
+/* define the style of the inside of the progress indicator */
+progress-percent {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  /* font-size: 70%; */
+  border-radius: 6px;
+  background-color: var(--accent-light);
+  width: calc(var(--progress) * 1%);
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* reset Counter = progress, then display progress as a value.*/
+/* progress-percent::after {
+  counter-reset: meter var(--progress);
+  content: counter(meter) '%';
+} */
+
+
+/* format tags. Requires both classes below i.e. learning-log + [tag-name] */
 .learning-format:before {
   font-size: 0.7rem;
   font-family: "Roboto Condensed", sans-serif;
@@ -1012,53 +1090,3 @@ a.icons:active {
   background-color: rgb(226, 128, 99);
   content: "video";
 }
-
-/* table formatting - width is set in media queries */
-.learning-log {
-  margin: auto;
-  text-align: left;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  border-collapse: collapse; /* creates single border between cells */
-  font-size: 0.85rem;
-  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
-  border-radius: var(--radius) var(--radius) 0 0;
-  overflow: hidden;
-}
-
-/* set the first column to 15% of the whole table width */
-.learning-log th:first-child {
-  width: 15%;
-}
-/* define the header row font and background colour */
-.learning-log th {
-  font-weight: 500;
-  background-color: var(--accent-light);
-}
-
-.learning-log th,
-.learning-log td {
-  padding: 7px 15px;
-  /* border-bottom: 0.5px solid rgb(211, 211, 211); */
-}
-
-.learning-log tbody tr:last-of-type {
-  border-bottom: 3px solid var(--accent-light);
-}
-
-/* Progress bar within table cells */
-td.progressbar {
-  position: relative;
-}
-
-/* --progress is in the HTML as an inline style */
-td.progressbar:before {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  width: calc(
-    var(--progress) * 0.92
-  ); /* the x0.92 is to stop the line hitting the right edge of the cell, due to the 15px margin */
-  border-bottom: 1pt solid rgb(226, 226, 226);
-}
-
