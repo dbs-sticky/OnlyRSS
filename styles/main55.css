@@ -296,6 +296,20 @@ strong {
   color: #000000;
 }
 
+/* define a highlighter pen style with a bit of overspill */
+mark {
+  margin: 0 -0.3em;
+  padding: 0.1em 0.3em;
+  border-radius: 0.5em 0.2em;
+  background: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 225, 0, 0.2),
+    rgba(255, 225, 0, 0.6) 20%,
+    rgba(255, 225, 0, 0.3)
+  );
+}
+
 /* Links */
 a {
   color: #000000;
