@@ -111,14 +111,6 @@ body {
     width: 100%;
   }
 
-  /* hero image to ignore page padding */
-  .img-hero {
-    margin-left: -25px;
-    margin-right: -25px;
-    margin-top: -40px;
-    width: calc(100% + 50px);
-  }
-
   .byline {
     flex-direction: column;
     gap: 0.5rem;
@@ -172,14 +164,6 @@ body {
   /* 60% width learning log table desktops/tablets */
   .learning-log {
     width: 70%;
-  }
-
-  /* set hero image to ignore page padding */
-  .img-hero {
-    margin-left: -60px;
-    margin-right: -60px;
-    margin-top: -40px;
-    width: calc(100% + 120px);
   }
 
   .byline {
@@ -440,13 +424,6 @@ img {
   margin: auto;
   max-width: 100%;
   height: auto;
-}
-
-/* hero image- size is set in media queries */
-.img-hero {
-  padding-bottom: 30px;
-  max-width: 970px;
-  border-radius: var(--radius) var(--radius) 0 0;
 }
 
 /* rule, only used on About & subscribe pages */
@@ -1027,12 +1004,12 @@ a.icons:active {
   width: 70px;
 }
 
-/* set the last column, i.e the progress indicator to a foxed percentage */
+/* set the last column, i.e the progress indicator to a fixed percentage */
 .learning-log th:nth-child(3) {
   width: 30%;
 }
 
-/* set column 2 i.e. resource name and link */
+/* set column 2 i.e. resource name and link to truncate and show ellipsis */
 .learning-log td:nth-child(2) {
   display: block;
   overflow: hidden;
@@ -1045,38 +1022,39 @@ a.icons:active {
   color: var(--bodytext);
 }
 
-/* define the style of the progress indicator */
+/* define the style of the progress container */
 progress-meter {
   display: block;
   height: 10px;
   box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
   border-radius: 5px;
   padding: 1px;
-  /* below only required if the value text is shown */
-  /* text-align: end; */
-    /* line-height: 10px; */
 }
-/* define the style of the inside of the progress indicator */
+
+/* define the style of the inside of the progress container */
 progress-percent {
   display: block;
   height: 100%;
   overflow: hidden;
-  /* font-size: 70%; */
-  border-radius: 6px;
-  background-color: var(--accent-light);
+  border-radius: 5px;
+  background-color: #F7A3A3;
   width: calc(var(--progress) * 1%);
   font-family: "Roboto Condensed", sans-serif;
 }
 
-/* reset Counter = progress, then display progress as a value.*/
-/* progress-percent::after {
-  counter-reset: meter var(--progress);
-  content: counter(meter) '%';
-} */
+/* change the colour when the progress is 100% */
+progress-percent[style="--progress: 100"] {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #a3e2c0;
+  width: calc(var(--progress) * 1%);
+  font-family: "Roboto Condensed", sans-serif;
+}
 
-
-/* format tags. Requires both classes below i.e. learning-log + [tag-name] */
-.learning-format:before {
+/* format the common tag elements */
+:where(course-tag, tutorial-tag, book-tag, video-tag ):before {
   font-size: 0.7rem;
   font-family: "Roboto Condensed", sans-serif;
   color: rgb(255, 255, 255);
@@ -1085,22 +1063,23 @@ progress-percent {
   margin-left: 5px;
 }
 
-.course:before {
+/* now format the specific tags, including the text */
+course-tag:before {
   background-color: rgb(101, 168, 75);
   content: "course";
 }
 
-.tutorial:before {
+tutorial-tag:before {
   background-color: rgb(153, 75, 168);
   content: "tutorial";
 }
 
-.book:before {
+book-tag:before {
   background-color: rgb(82, 143, 223);
   content: "book";
 }
 
-.video:before {
+video-tag:before {
   background-color: rgb(226, 128, 99);
   content: "video";
 }
