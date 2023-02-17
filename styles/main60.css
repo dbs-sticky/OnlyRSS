@@ -867,14 +867,17 @@ card-body p {
  
 card-footer {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   padding: 10px 15px;
   font-size: 0.75rem
 }
 
+/* Let the datestamp grow to fill the space and push the tags to the right */
+card-footer div:first-child {
+  flex: 1;
+}
+
 /* apply general style to card tags */
-:where(dataviz-tag, misc-tag, js-tag, css-tag, review-tag, productivity-tag)::after {
+:where(dataviz-tag, misc-tag, webdev-tag, review-tag, productivity-tag, prodman-tag)::after {
   font-family: "Roboto Condensed", sans-serif;
   color: rgb(255, 255, 255);
   border-radius: 3px;
@@ -888,29 +891,29 @@ dataviz-tag::after {
   content: "DataViz";
 }
 
-css-tag::after {
-  background-color: #a670b1;
-  content: "CSS";
-}
-
 productivity-tag::after {
   background-color: #5ca371;
-  content: "productivity";
+  content: "Productivity";
 }
 
 review-tag::after {
   background-color: #d18c6b;
-  content: "review";
+  content: "Review";
 }
 
-js-tag::after {
+webdev-tag::after {
   background-color: #c792c4;
-  content: "JS";
+  content: "WebDev";
 }
 
 misc-tag::after {
-  background-color: #c2c2c2;
+  background-color: #5a5a5a;
   content: "Misc";
+}
+
+prodman-tag::after {
+  background-color: #aa1585;
+  content: "Product Management";
 }
 
 /*  ======================
