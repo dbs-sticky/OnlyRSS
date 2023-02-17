@@ -697,15 +697,6 @@ aside h2:hover {
 .changelog img:last-of-type {
   margin-bottom: 30px;
 }
-/* define the common style for all span::after (i.e. the tags) within summary elements */
-.changelog summary span::after {
-  font-family: "Roboto Condensed", sans-serif;
-  color: rgb(255, 255, 255);
-  border-radius: 3px;
-  padding: 2px 5px;
-  margin-left: 5px;
-  /* add space between tags */
-}
 
 /* let the first span (i.e. the date and description) expand to take all the available width (forcing tags to be right-aligned */
 .changelog summary span:first-of-type {
@@ -713,32 +704,41 @@ aside h2:hover {
   /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
 }
 
+/* define the common style for  tags) within summary elements */
+:where(ux-tag, performance-tag, content-tag, seo-tag, housekeeping-tag)::after {
+  font-family: "Roboto Condensed", sans-serif;
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin-left: 5px;
+}
+
 /* set individual tag colours and font sizes, i.e.initialisms are set smaller. */
-.performance-tag::after {
+performance-tag::after {
   background-color: rgb(180, 163, 66);
   content: "performance";
   font-size: 0.7rem;
 }
 
-.ux-tag::after {
+ux-tag::after {
   background-color: rgb(71, 69, 187);
   content: "UX";
   font-size: 0.6rem;
 }
 
-.content-tag::after {
+content-tag::after {
   background-color: rgb(93, 170, 62);
   content: "content";
   font-size: 0.7rem;
 }
 
-.seo-tag::after {
+seo-tag::after {
   background-color: rgb(223, 82, 82);
   content: "SEO";
   font-size: 0.6rem;
 }
 
-.housekeeping-tag::after {
+housekeeping-tag::after {
   background-color: rgb(223, 139, 82);
   content: "housekeeping";
   font-size: 0.7rem;
