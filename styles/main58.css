@@ -103,7 +103,7 @@ body {
     margin-left: 1rem !important;
   }
 
-   .card-body h2 {
+    card-body h2 {
     font-size: 1.1rem;
   }
   /* full width learning log table on mobile */
@@ -117,11 +117,11 @@ body {
   }
 
 /* hide thumb images and reduce card height */
-  .card-container img:first-child {
+  card-container img:first-child {
     display: none;
 }
 
-  .card-container {
+  card-container {
     height: 200px;
   }
 
@@ -158,7 +158,7 @@ body {
     margin-left: 3rem !important;
   }
 
-   .card-body h2 {
+   card-body h2 {
     font-size: 0.9rem;
   }
   /* 60% width learning log table desktops/tablets */
@@ -177,11 +177,11 @@ body {
   }
 
 /* show thumb images and increase card height */
-  .card-container img:first-child {
+  card-container img:first-child {
     display: block;
   }
 
-  .card-container {
+  card-container {
     height: 400px;
   }
 
@@ -794,10 +794,6 @@ a.icons:active {
     ====================== */
 
 
-.home-grid p {
-  line-height: 1.8;
-}
-
 .home-grid {
   font-family: "OpenSans", sans-serif;
   font-weight: 400;
@@ -820,7 +816,7 @@ a.icons:active {
 
 /* the cards are made of a card-container (flex column, space-between), at the top of which is a card-img, then the card-body (flex 1), and then the card-footer. The card footer contains 2 divs (flex row space-between) for the date and tag */
 
-.card-container { 
+card-container { 
   background-color: rgb(255, 255, 255);
   transition: 0.5s;
   width: 300px;
@@ -831,17 +827,22 @@ a.icons:active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  line-height: 1.8;
 }
 
-.card-container:hover {
+card-container:hover {
   box-shadow: 0 0px 30px rgba(0, 0, 0, 20%);
 }
 
-.card-img {
+card-header img {
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-.card-body {
+card-header {
+  display: block;
+}
+
+card-body {
   width: 300px;
   padding: 10px 15px 0px 15px;
   flex: 1;
@@ -852,21 +853,19 @@ a.icons:active {
   -webkit-box-orient: vertical;
   white-space: normal;
   }
-  
 
-
-.card-body h2 {
+card-body h2 {
   font-weight: 600;
   /* font size is set in media queries */
   font-family: "OpenSans", sans-serif;
   line-height: 1.5rem;
 }
 
-.card-body p {
+card-body p {
   margin-top: 0px;
 }
  
-.card-footer {
+card-footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -875,7 +874,7 @@ a.icons:active {
 }
 
 /* apply general style to card tags */
-.card-tags span::after {
+:where(dataviz-tag, misc-tag, js-tag, css-tag, review-tag, productivity-tag)::after {
   font-family: "Roboto Condensed", sans-serif;
   color: rgb(255, 255, 255);
   border-radius: 3px;
@@ -884,32 +883,32 @@ a.icons:active {
 }
 
 /* apply individual content to card tags */
-.DataViz-tag::after {
+dataviz-tag::after {
   background-color: #7793df;
   content: "DataViz";
 }
 
-.css-tag::after {
+css-tag::after {
   background-color: #a670b1;
   content: "CSS";
 }
 
-.productivity-tag::after {
+productivity-tag::after {
   background-color: #5ca371;
   content: "productivity";
 }
 
-.review-tag::after {
+review-tag::after {
   background-color: #d18c6b;
   content: "review";
 }
 
-.js-tag::after {
+js-tag::after {
   background-color: #c792c4;
   content: "JS";
 }
 
-.misc-tag::after {
+misc-tag::after {
   background-color: #c2c2c2;
   content: "Misc";
 }
