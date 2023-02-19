@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Air India: putting their recent orders into context</title>
+    <meta name="description" content="The result of my second attempt at creating data visualisations using HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Infographic: The 25 largest passenger airlines">
+    <meta property="og:url" content="https://onlyrss.org/posts/top-25-pax-airlines.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/top-25-pax-airlines-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="The result of my second attempt at creating data visualisations using HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.">
+    <meta property="article:published_time" content="2023-02-09">
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main60.css">
+    <link rel="stylesheet" type="text/css" href="/styles/the-air-india-order.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    
+    <!--load self-hosted fonts-->
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "OpenSans";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "RubikMonoOne";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RubikMonoOne-Regular.woff2) format("woff2");
+      }
+
+      /* This is required for the Unicode aircraft font, I used font forge to remove all glyphs except for U1F6E7 */
+      @font-face {
+        font-family: "Noto-aircraft";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/NotoSansSymbols2-ac-only.woff2) format("woff2");
+      }
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+
+    <script>
+      function drawAircraft(numAircraft) {
+        for (var i = 1; i <= numAircraft; i++) {
+          document.write('🛧');
+        }
+      }
+    </script>
+
+  </head>
+
+  <body onload="setColor()">
+    
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/index.html" title="Homepage">home</a></li>
+          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
+          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
+          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article>
+      <header>
+        <h1>Air India: putting their recent 'orders' into context</h1>
+        <div class="tldr">
+          <p>
+            This article includes a 'small-multiples isotype infographic' which displays the 25 largest passenger airlines (individual airline operators i.e. not airline groups). Ranked by fleet size and split by manufacturer. I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
+          </p>
+        </div>
+
+        <!-- Flexrow -->
+        <div class="byline">
+
+          <div>
+            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
+          </div>
+          
+          <div class="byline-copy">
+            <time datetime="2023-02-19">19 Feb 2023</time> · 1 min · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          </div>
+
+          <div class="byline-svgs">
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/top-25-pax-airlines.html&text=Infographic:%2025%20Largest%20passenger%20airlines&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-2 6.5v.4a7 7 0 0 1-10.8 5.9H7c1 0 2.2-.5 3-1-1 0-2-.8-2.3-1.8l.5.1h.6c-1-.3-2-1.3-2-2.5L8 11a2.8 2.8 0 0 1-1.1-2.2c0-.4 0-.8.3-1.2a7 7 0 0 0 5 2.6v-.6c0-1.4 1-2.5 2.5-2.5.7 0 1.3.3 1.8.8.6-.1 1-.4 1.5-.6a3 3 0 0 1-1.1 1.4c.5-.1 1-.2 1.5-.5-.4.5-.8 1-1.3 1.3H17Z"/>
+              </svg>
+            </a>
+
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/top-25-pax-airlines.html&text=Infographic:%2025%20Largest%20passenger%20airlines" target="_blank" title="Share this article on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM9 17H6.5v-7H9v7ZM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3c.8 0 1.3.5 1.3 1.2s-.5 1.2-1.4 1.2ZM18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3-.3 0-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1 1.2 0 2.2 1 2.2 3.2V17Z"/>
+              </svg>
+            </a>
+
+            <a href="mailto:?subject=OnlyRSS.org%20article:Infographic:%2025%20Largest%20passenger%20airlines&body=https://onlyrss.org/posts/top-25-pax-airlines.html" target="_blank" title="Share this article via email">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                <path  d="M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z"/>
+              </svg>
+            </a>
+          </div>
+
+        </div>  <!--class byline-->
+      </header>
+
+
+      <section>
+        <h2>Background</h2>
+        <p>
+          Inspiration for this chart came from the recent infographic on <a href="https://www.visualcapitalist.com/top-25-fleets-of-combat-tanks/" title="view the article at Visual Capitalist">VisualCapitalist.com</a> which visualises the world’s top 25 fleets of combat tanks (they specifically state “combat” tanks, which intrigues me, are there tanks designed for the daily commute?).</p>
+          <p> Their chart was a jpg, and I wanted to see if I could build something similar using HTML & CSS (without JavaScript or a charting library). I used a similar set of airline fleet data that I used for my <a href="../posts/airbus-vs-boeing-charts.html" title="read my previous data viz article"> previous data viz article</a>.
+          <p>
+      </section>
+
+        <div class="paper">
+
+          <div class="chart-title">
+            Air India's fleet
+          </div>
+
+          <div class="chart-description">
+            <div>
+              Solid colours represent their current fleet i.e. in-service, stored, and firm orders.<br>
+              Faded colours represent the aircraft currently on Letter of Intent (LOI).
+            </div>
+          </div>
+
+
+
+          <div class="chart">
+
+            <!-- Delta Air Lines -->
+            <div class="fleet-container">
+              <div class="fleet-header">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" fill-rule="evenodd" clip-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 2304 674">
+                    <path fill="#d9000d" d="M993 0H877L488 303c-79 55-148 109-198 122-69 17-158 27-290 25 40 8 74 13 97 15 108 14 185 51 251 98 43 32 69 59 100 77 34 20 80 34 120 34s80-5 113-14c-35 2-81-1-114-8s-103-32-111-72c-7-39 89-69 128-74 99-14 183-11 214-8-41-16-52-36-52-52 0-17 11-33 18-45L993 0z"/>
+                    <path fill="#ef7000" d="m581 300-5 2c11 51 21 89 42 129l33 67h10l-23-75c-12-44-30-78-57-123zM335 541zm193-245-4-3c-38 34-65 63-89 101-22 37-89 132-100 147 11-15 87-103 117-133 32-33 52-66 76-112zm65-3-4 3c23 47 42 80 73 114l73 85h7l-63-98c-22-39-49-68-86-104zm19-36-1 6c49 17 87 27 132 29l79 7 5-9-80-19c-44-12-83-14-135-14zm-10 26-3 4c34 39 62 67 100 91l56 39 6-10-48-45c-33-33-65-54-111-79zm143-61c-45 0-83 8-133 21v6c52 4 91 4 135-5 26-6 77-14 118-20l3-5c-42 2-96 4-123 3zm-136 49-2 5c43 29 76 48 120 62l61 22 5-10-57-31c-40-23-77-36-127-48zm-60 33c-16 50-26 87-27 133l-6 88 9-4 18-81c11-44 13-83 11-135l-5-1zM849 30zM518 287l-3-5-2 1-25 20-109 76c-39 35-99 86-111 95 15-11 111-77 148-99 39-24 67-50 102-88zM268 474zm300-169h-5c-3 52-3 91 7 135 4 15 8 40 13 66h1a956 956 0 0 1 10-2l-2-66c-1-46-9-84-24-133zM416 589zm120-289c-28 44-47 78-60 121-13 41-53 150-60 168 8-17 58-122 79-159 22-40 34-77 46-128l-5-2zm72-71 2 5c51-9 88-19 129-39 38-20 145-66 162-72-17 6-128 41-169 51-44 12-79 29-124 55zm293-106zm-186 22c31-29 120-104 134-115l-85 58-163 127-2 2 4 4c46-24 79-44 112-76z"/>
+                    <path fill="#d9000d" d="M1780 374c-15 0-17 7-17 7l-14 21h-13l-7 11h14l-56 90h60l52-90h118l-8 17h-76c-15 0-19 10-19 10l-8 14s-6 11 8 11h61c11 0 8 8 8 8l-6 13s-4 6-9 6h-19c-8 0-1-12-1-12h-59l-4 8s-6 15 12 15h113c15 0 20-10 20-10l14-27s8-13-8-13h-62c-11 0-7-13 1-13h74c9 0 12-5 12-5l12-22h16l7-10h-14l10-17c4-7-1-12-10-12zm-110 0-7 13h59l5-13h-57zm150 11h100c10 0 7 7 7 7l-4 10h-117l6-11s2-6 8-6zm-936 16-7 10h30l-42 67s-13 21 14 21h76c12 0 8 11 8 11h63l2-10s4-13-11-13h-86c-17 0-7-13-7-13l40-61h32l-26 41s-3 5-11 5h-7l-7 11h57c17 0 23-12 23-12l29-47h28l6-10zm683 1-7 12h82c5 0 5 3 5 3l-6 10h-80c-12 0-17 9-17 9l-10 18s-3 10 7 10h66c11 0 7 10 7 10l-7 12s-4 6-9 6h-18c-7 0-4-9-4-9l2-7h-55l-6 13c-5 13 9 15 9 15l-7 12h38l6-12h79c8 0 13-8 13-8l21-33s9-11-6-11h-68c-10 0-3-13 1-13h78c9 0 12-6 12-6l12-20h12l7-11h-157Zm-456 1c-11 0-14 8-14 8l-10 15h58l4-6s4-8 10-8h13c14 0 8 10 8 10l-14 21h-43l-7 12h29c13 0 10 6 10 6l-15 24s-2 4-9 4h-13c-12 0-7-12-7-12h-56l-2 8s-6 14 6 14h109c18 0 25-10 25-10l16-25c7-11-1-16-1-16h6c4 0 8-6 8-6l18-27s7-12-9-12h-120zm152 0-8 12h21l-19 28h-24l-6 11h24l-27 46h58l50-86h23l8-11zm122 0-6 11h21l-20 31h-32l-5 8s14 2 7 13c-5 8-4 8-9 13-4 5-6 22 6 22h76l7-10h-25c-15 0-7-11-7-11l9-11c5-7 0-14 0-14h16c7 0 13-10 13-10l18-32h23l7-10zm631 0-7 11h35c11 0 2 16-7 16h-55l-14 25s-14 21 4 21h119c10 0 8 7 8 7l-15 27h57l49-89s3-7 9-7h20c7 0 1 9 1 9l-48 87h58l49-89s3-7 9-7h10l5-11zm94 12h22c6 0 1 8 1 8l-23 41h-79c-12 0-5-11-5-11l6-11h54c6 0 9-6 9-6l9-17s1-4 6-4zm39 226h-26l44-53-18 53zm-52-66-84 99h83l11-14h35l-5 14h76l28-99h-144zm-128 0-52 99h83l50-99h-81zm-114 34-19 34c-2 4-5 6-13 6h-18l27-50h18c9 0 7 7 5 10zm62-34h-154l-51 99h162c21 0 25-9 25-9l37-69c5-10 1-21-19-21zm-244 0-15 30-22-30h-83l-52 99h64l20-39 25 39h75l51-99h-63zm-224 0-52 99h83l50-99h-81zm-196 34-4 11c-2 4-5 5-13 5h-18l12-26h18c9 0 7 7 5 10zm62-34h-153l-52 99h83l16-33c6 0 8 4 8 4l16 28h75l-19-34c21 0 25-8 25-8l20-35c5-10 1-21-19-21zm-254 0-51 99h82l51-99h-82zm-129 66h-25l44-53-19 53zm-51-66-84 99h82l12-14h35l-5 14h76l27-99H881z"/>
+                  </svg>
+
+              </div>
+                <div class="isotype"><span class="airbus aircraft"><script>drawAircraft(75);</script></span><span class="airbus-loi aircraft"><script>drawAircraft(250);</script></span><span class="boeing aircraft"><script>drawAircraft(51);</script></span><span class="boeing-loi aircraft"><script>drawAircraft(220);</script></span></div>
+              <div class="fleet-footer">
+                <div class="footer-total">
+                  126→ 596 (↑473%)
+                </div>
+                <div class="footer-man-totals footer-man-hide">
+                  <div class="airbus aircraft">Airbus: 75</div>
+                  <div class="airbus aircraft">Airbus (LOI): 250</div>
+                  <div class="boeing aircraft">Boeing: 51</div>
+                  <div class="boeing aircraft">Boeing (LOI): 220</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      <section>
+        <h2>The data source</h2>
+        <p>
+          Data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Current fleet includes in-service, stored/parked, and aircraft on firm order. Data was captured on 19 February 2023.
+        </p>
+      </section>
+
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+        </p>
+      </footer>
+
+    </article>
+
+    <!-- related articles -->
+    <aside>
+      <h1>related articles</h1>
+      <a href="../posts/top-25-pax-airlines.html">
+        <h2>Infographic: The world's largest 25 airlines</h2>
+        <p>
+          A 'small-multiples isotype infographic' that shows the world's top 25 passenger airlines, broken down by aircraft manufacturer.
+        </p>
+      </a>
+    </aside>
+
+  </body>
+</html>

@@ -1,0 +1,133 @@
+:root {
+--chart-radius: 5px;
+--background-color: #f8f6f2;
+
+--airbus-colour: #0066ff;
+--boeing-colour: #ff0000;
+--airbus-loi-colour: #0066ff56;
+--boeing-loi-colour: #ff00004d;
+
+}
+
+.paper {
+  background: var(--background-color);
+  padding: 20px;
+  border-radius: var(--chart-radius); 
+  font-family: "Roboto Condensed", sans-serif;
+  max-width: 1100px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.chart {
+  /* display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); */
+  /* font-family: "Roboto Condensed", sans-serif; */
+}
+
+.chart-title, .color-option {
+  text-transform: uppercase;
+  font-family: "RubikMonoOne", sans-serif;
+  letter-spacing: -2px;
+  line-height: 2.2rem;
+  padding-bottom: 1rem;
+}
+
+.chart-title {
+  font-size: 2rem;
+}
+
+/* flex is used to place the checkbox label to the right of the checkbox */
+.color-option {
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.color-option input {
+  transform: scale(1.5);
+  margin-bottom: 4px;
+  }
+
+.chart-description {
+  display: flex;
+  gap: 4rem;
+  line-height: 1.5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* define the fleet container width */
+.fleet-container {
+  border-radius: var(--chart-radius); 
+  height: fit-content;
+  padding-bottom: 30px;
+}
+
+
+/* Give the img a height of 40px and display center middle */
+.fleet-header  {
+  max-width: 700px;
+  /* filter: drop-shadow(0px 0px 5px rgb(0 0 0 / 0.5)); */
+  margin: auto;
+  padding: 30px;
+}
+
+
+.isotype {
+  line-height: 30px;
+  font-size: 24px;
+  font-family: "Noto-aircraft", sans-serif;
+}
+
+.fleet-footer {
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 26px;
+}
+
+.show-footer {
+  display: flex;
+}
+
+.footer-total {
+  font-size: 2rem;
+  padding-top: 5px;
+}
+
+.footer-man-totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 1.2rem;
+}
+/* used in the body text to show the aircraft glyphs */
+.ac-glyph {
+  font-family: "Noto-aircraft";
+}
+
+
+/* define the manufacturer svg fill colours */
+/* These colours are overridden by a grey-fill in the Head of the HTML, that .grey-fill class is then removed via a checkbox and a script in the bottom of the page body*/
+
+
+.fleet-container  .airbus  {
+  color: var(--airbus-colour);
+}
+
+.fleet-container .boeing  {
+  color: var(--boeing-colour);
+}
+
+.fleet-container  .airbus-loi  {
+  color: var(--airbus-loi-colour);
+}
+
+.fleet-container  .boeing-loi  {
+  color: var(--boeing-loi-colour);
+}
+
+
