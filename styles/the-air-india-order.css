@@ -83,27 +83,13 @@
 }
 
 .fleet-footer {
-  margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
-  line-height: 26px;
-}
-
-.show-footer {
-  display: flex;
-}
-
-.footer-total {
-  font-size: 2rem;
-  padding-top: 5px;
-}
-
-.footer-man-totals {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   font-size: 1.2rem;
+  line-height: 1.6rem;
 }
+
 /* used in the body text to show the aircraft glyphs */
 .ac-glyph {
   font-family: "Noto-aircraft";
