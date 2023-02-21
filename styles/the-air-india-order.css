@@ -19,13 +19,6 @@
   margin-bottom: 20px;
 }
 
-.chart {
-  /* display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); */
-  /* font-family: "Roboto Condensed", sans-serif; */
-}
-
 .chart-title, .color-option {
   text-transform: uppercase;
   font-family: "RubikMonoOne", sans-serif;
