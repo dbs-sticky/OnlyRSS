@@ -854,6 +854,13 @@ card-container:hover {
 
 card-header img {
   border-radius: var(--radius) var(--radius) 0 0;
+  filter: saturate(75%);
+  transition: filter 500ms ease;
+}
+
+/* when you hover on the card, over saturate the image */
+card-container:hover > card-header img {
+  filter: saturate(125%);
 }
 
 card-header {
