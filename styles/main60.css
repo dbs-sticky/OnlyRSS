@@ -334,12 +334,30 @@ blockquote {
   border-left: 5px solid var(--accent);
   margin: 2rem 0;
   padding: 1rem;
-  font-size: 0.8rem
+  font-size: 0.8rem;
+
+}
+
+blockquote::before {
+  content: open-quote;
+  display: block;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: -1.5rem;
+  color: var(--accent);
+}
+
+blockquote::after {
+  content: no-close-quote;
 }
 
 blockquote q {
   font-size: 1.1rem;
+}
 
+/* Remove quote from the quote in a blockquote */
+blockquote q::before, blockquote q::after  {
+  content: "";
 }
 
 /* quotes - should also be used within blockquotes */
