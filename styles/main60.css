@@ -453,8 +453,7 @@ hr {
 .tldr p:first-child::before {
   font-weight: 500;
   color: #000000;
-  text-transform: uppercase;
-  content: "tldr: ";
+  content: "Tl;dr: ";
 }
 
 
