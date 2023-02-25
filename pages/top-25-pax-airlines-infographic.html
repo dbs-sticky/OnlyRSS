@@ -27,12 +27,13 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
     <link rel="manifest" href="/manifest.json">
 
+
     <!--RSS-->
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
     <!-- Add minified CSS , can always un-minify if needed via: https://unminify.com/  -->
     <style>
-      :root {--airbus-colour: #3978d6;--boeing-colour: #e09e23;--bombardier-colour: #e73d26;--comac-colour: #d486db;--embraer-colour: #5cc00a;--atr-colour: #2a9d8f;}.paper {padding: 20px;font-family: "Roboto Condensed", sans-serif;max-width: 2200px;margin: auto;margin-bottom: 20px;margin-top: 40px;}.chart-title {font-size: 3.5rem;}.chart-title, .color-option {text-transform: uppercase;font-family: "Roboto Condensed", sans-serif;line-height: 3.5rem;}.color-option input {transform: scale(1.4);}.chart-description {line-height: 1.5rem;padding-bottom: 2rem;}infographic-grid {display: grid;gap: 3rem;grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));}iso-container {height: fit-content;padding-bottom: 30px;}iso-header {height: 50px;font-size: 1.8rem;color: darkslategrey;display: flex;padding: 0 3px;}iso-tail img {height: 40px;display: block;filter: drop-shadow(0px 0px 1px rgb(0 0 0 / 0.5));opacity: 0.8;}iso-airline-name {white-space: nowrap;overflow: hidden;text-overflow: ellipsis;align-self: flex-end;padding-bottom: 5px;}isotype-🛧 {display: block;line-height: 14px;font-size: 16px;letter-spacing: -1px;font-family: "Noto-aircraft", sans-serif;}iso-footer {display: flex;margin-top: 5px;justify-content: space-between;line-height: 25px;}iso-total {font-size: 2.2rem;padding-top: 5px;}.footer-man-totals {display: flex;flex-direction: column;align-items: flex-end;font-size: 22px;}iso-container .airbus {color: var(--airbus-colour);}iso-container .boeing {color: var(--boeing-colour);}iso-container .bombardier {color: var(--bombardier-colour);}iso-container .comac {color: var(--comac-colour);}iso-container .embraer {color: var(--embraer-colour);}iso-container .atr {color: var(--atr-colour);}
+      :root{--airbus-colour:#3978d6;--boeing-colour:#e09e23;--bombardier-colour:#e73d26;--comac-colour:#d486db;--embraer-colour:#5cc00a;--atr-colour:#2a9d8f}.paper{padding:20px;font-family:"Roboto Condensed",sans-serif;max-width:2200px;margin:40px auto 20px}.chart-title{font-size:3rem}.chart-title,.color-option{text-transform:uppercase;font-family:RubikMonoOne,sans-serif;letter-spacing:-1px;line-height:3rem}.color-option input{transform:scale(1.4)}.chart-description{line-height:1.5rem;padding-bottom:2rem}infographic-grid{display:grid;gap:3rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}iso-container{height:fit-content;padding-bottom:30px}iso-header{height:50px;font-size:1.8rem;color:#2f4f4f;display:flex;padding:0 3px}iso-tail svg{width:40px;height:40px;display:block;filter:drop-shadow(0px 0px 1px rgb(0 0 0 / .5))}iso-airline-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;align-self:flex-end;padding-bottom:5px}isotype-🛧{display:block;line-height:14px;font-size:16px;letter-spacing:-1px;font-family:Noto-aircraft,sans-serif}iso-footer{display:flex;margin-top:5px;justify-content:space-between;line-height:25px}iso-total{font-size:2.2rem;padding-top:5px}.footer-man-totals{display:flex;flex-direction:column;align-items:flex-end;font-size:22px}iso-container .airbus{color:var(--airbus-colour)}iso-container .boeing{color:var(--boeing-colour)}iso-container .bombardier{color:var(--bombardier-colour)}iso-container .comac{color:var(--comac-colour)}iso-container .embraer{color:var(--embraer-colour)}iso-container .atr{color:var(--atr-colour)}
     </style>
     
     <!--load self-hosted fonts-->
@@ -137,7 +138,15 @@
             <!-- Delta Air Lines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/delta-tail.svg" alt="Delta Air Lines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1790 1389">
+                    <path d="m1785 6 1-3h-392L11 1382l-4 5h1243v-2L1785 6Z" fill="#036"/>
+                    <path d="m982 418 639 5-39 107-232 591-649-423 281-280Z" fill="#C01933"/>
+                    <path d="m439 960 193 424h616l102-263-649-423-262 262Z" fill="#991933"/>
+                    <path d="m1576 544-77 197-352 248-152-99 581-346Z" fill="#036"/>
+                    <path d="m995 890 152 99-86 395H914l81-494Z" fill="#036"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>1. Delta Air Lines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(524);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(416);</script></span><span class="bombardier aircraft grey-fill"><script>drawAircraft(36);</script></span></isotype-🛧>
@@ -156,7 +165,61 @@
             <!-- American Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/american-tail.svg" alt="American Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <mask id="a" width="1770" height="1379" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                      <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    </mask>
+                    <g mask="url(#a)">
+                      <path fill="#841C1B" d="M-84 1324h1340l-21 55H-84v-55Z"/>
+                      <path fill="#D7D4DF" d="M-84 1269h1362l-22 55H-84v-55Z"/>
+                      <path fill="#C7C5D2" d="M-84 1214h1383l-21 55H-84v-55Z"/>
+                      <path fill="#FBF9FC" d="M-84 1158h1405l-22 56H-84v-56Z"/>
+                      <path fill="#D7D4DF" d="M-84 495h1661l-21 56H-84v-56Z"/>
+                      <path fill="#C7C5D2" d="M-84 937h1490l-21 55H-84v-55Zm0-111h1533l-22 56H-84v-56Zm0-551h1747l-22 55H-84v-55Zm1532-111h258l-22 56h-276l40-56ZM-84 551h1640l-22 55H-84v-55Z"/>
+                      <path fill="#B5171D" d="M-84 1102h1426l-21 55H-84v-55Z"/>
+                      <path fill="#841C1B" d="M-84 1047h1447l-21 55H-84v-55Z"/>
+                      <path fill="#1C1D4D" d="M220 1129h502l-20 28H220v-28Z"/>
+                      <path fill="#1D3160" d="M227 1102h516l-21 28H227v-28Z"/>
+                      <path fill="#1C1D4D" d="M234 1047h550l-41 55H234v-55Z"/>
+                      <path fill="#B5171D" d="M-84 771h1554l-21 55H-84v-55Zm910 221h559l-10 55H784l42-55Z"/>
+                      <path fill="#841C1B" d="M-84 716h1576l-22 55H-84v-55Z"/>
+                      <path fill="#B5171D" d="M1075 661h438l-6 55h-473l41-55Z"/>
+                      <path fill="#FBF9FC" d="M-84 882h1511l-21 55H-84v-55Zm0-662h1768l-21 55H-84v-55Zm0 386h1618l-21 55H-84v-55Z"/>
+                      <path fill="#B5171D" d="M-84 440h1683l-22 55H-84v-55Z"/>
+                      <path fill="#841C1B" d="M-84 385h1704l-21 55H-84v-55Z"/>
+                      <path fill="#1D3160" d="M248 1020h557l-21 28H248v-28Z"/>
+                      <path fill="#B5171D" d="M1324 330h317l-21 55h-338l42-55ZM-84 109h1811l-22 55H-84v-55Z"/>
+                      <path fill="#841C1B" d="M-84 54h1832l-21 55H-84V54Z"/>
+                      <path fill="#B5171D" d="M-84-1h1853l-21 55H-84V-1Z"/>
+                      <path fill="#1C1D4D" d="M376 964h470l-21 28H376v-28Z"/>
+                      <path fill="#1D3160" d="M383 937h483l-20 28H383v-28Z"/>
+                      <path fill="#1C1D4D" d="M390 882h518l-41 55H390v-55Z"/>
+                      <path fill="#1D3160" d="M404 855h524l-21 28H404v-28Z"/>
+                      <path fill="#1C1D4D" d="M696 638h396l-21 28H696v-28Z"/>
+                      <path fill="#1D3160" d="M703 611h409l-20 28H703v-28Z"/>
+                      <path fill="#1C1D4D" d="M710 556h444l-42 55H710v-55Z"/>
+                      <path fill="#1D3160" d="M724 529h450l-20 28H724v-28Z"/>
+                      <path fill="#1C1D4D" d="M534 798h438l-21 28H534v-28Z"/>
+                      <path fill="#1D3160" d="M541 771h451l-20 28H541v-28Z"/>
+                      <path fill="#1C1D4D" d="M548 716h486l-42 55H548v-55Z"/>
+                      <path fill="#1D3160" d="M562 689h492l-21 28H562v-28Z"/>
+                      <path fill="#1C1D4D" d="M885 467h336l-21 28H885v-28Z"/>
+                      <path fill="#1D3160" d="M892 440h349l-20 28H892v-28Z"/>
+                      <path fill="#1C1D4D" d="M899 385h384l-42 55H899v-55Z"/>
+                      <path fill="#1D3160" d="M913 358h390l-21 28H913v-28Z"/>
+                      <path fill="#1C1D4D" d="M1206 137h262l-21 28h-241v-28Z"/>
+                      <path fill="#1D3160" d="M1213 110h275l-20 28h-255v-28Z"/>
+                      <path fill="#1C1D4D" d="M1220 55h310l-42 55h-268V55Zm62-82h310l-42 55h-268v-55Z"/>
+                      <path fill="#1D3160" d="M1234 28h316l-20 28h-296V28Z"/>
+                      <path fill="#1C1D4D" d="M1042 302h304l-21 28h-283v-28Z"/>
+                      <path fill="#1D3160" d="M1049 275h317l-20 28h-297v-28Z"/>
+                      <path fill="#1C1D4D" d="M1056 220h351l-41 55h-310v-55Z"/>
+                      <path fill="#1D3160" d="M1070 193h358l-21 28h-337v-28Z"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>2. American Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(483);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(483);</script></span></isotype-🛧>
@@ -174,7 +237,17 @@
             <!-- United Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/united-tail.svg" alt="United Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#035990" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <mask id="a" width="1770" height="1379" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                      <path fill="#063E73" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    </mask>
+                    <g mask="url(#a)">
+                      <path fill="#57BFE6" fill-rule="evenodd" d="M491 330c78-14 164-8 230 28 44 22 85 64 106 108 35 68 31 161 10 233-59 210-259 402-456 490v-54l15 30c15-6 24-11 36-18l-51-103v-46c32-16 51-30 83-54 22 31 61 80 93 120 16-11 29-23 43-37-27-33-69-80-101-113 29-22 49-43 72-71l117 95c10-13 27-34 39-52-40-30-80-58-122-84 15-21 32-47 45-71 44 19 88 43 131 67 10-17 20-40 27-60-43-21-88-41-133-56 8-18 14-37 19-56 46 10 101 26 135 38 6-21 9-48 10-70-43-11-88-20-134-24 1-12 2-24 1-36 39 2 88 8 130 17-2-23-6-44-15-64-25-3-85-6-121-5-2-8-6-21-9-26 29-4 77-4 114-2-9-18-23-35-40-50-33 1-71 6-97 11-5-8-11-14-17-20 27-6 60-11 85-13-21-16-54-31-67-35-15 3-44 11-59 16l-23-12 43-14c-34-8-71-9-107-6l-4 2-28-3Zm221 6-20-9c75 9 148 27 206 77 96 77 136 191 116 312a784 784 0 0 1-220 396 977 977 0 0 1-413 264v-169s15-5 29-13c15 32 44 89 67 128 14-5 27-12 40-20 0 0-50-93-70-127 50-27 85-51 128-85 19 22 92 116 92 116 18-13 36-28 50-42 0 0-71-86-96-112 32-26 64-62 90-94 38 32 83 72 110 101 19-20 35-41 47-59-37-34-76-65-115-96 22-28 41-59 56-90 43 24 84 52 126 80 13-22 25-47 33-69-43-28-87-51-131-74 9-25 16-50 22-76 47 16 91 37 135 59 7-26 10-55 10-84-44-20-89-35-135-49l-1-43c45 9 88 23 131 38-5-29-14-57-27-83-38-10-78-17-118-23l-13-33c36 3 76 9 105 16-14-26-39-50-65-69-25-1-50-2-77-1l-24-24 48-1 12-1c-36-19-77-33-119-40l-4 1-5-2Zm245 77-28-4c-11-12-23-22-33-28 39 12 95 30 145 84a407 407 0 0 1 92 377c-55 223-232 422-429 557H575l-42-70c52-28 104-59 153-97l79 102c18-13 35-27 52-43l3-2c-27-39-64-83-82-101 38-32 74-70 106-107 30 30 61 62 90 94 20-21 36-42 52-64-31-32-62-61-94-91 29-35 50-69 69-106 33 25 65 51 97 78 13-25 26-51 36-77-32-28-65-51-99-73 12-28 24-66 29-91 32 17 71 43 98 62 8-28 10-73 9-98-23-15-62-36-96-52 0-17 0-36-3-54 32 13 62 27 92 43-5-37-18-71-35-103-26-9-53-19-80-27-6-14-12-27-20-40a576 576 0 0 1 70 20c-5-9-13-17-20-25l-4-4c-23-25-49-46-78-60Zm170 151c-7-16-15-32-24-47l26 9a442 442 0 0 1 106 387 809 809 0 0 1-187 365c-36 42-76 84-118 121h-23l-66-85c45-38 76-72 113-115a1361 1361 0 0 1 71 82c19-22 38-44 55-67-24-27-47-55-73-81 28-38 60-87 76-117 25 22 51 48 74 73 14-26 26-53 36-82-23-26-49-51-73-70 13-33 25-70 31-102 24 16 48 36 71 58 6-35 8-73 6-111-21-18-43-34-65-50-1-21-1-40-4-61l50 31 7 4c-10-45-30-87-54-127l-35-15Zm65 25 1-1c8 6 15 14 21 22l7 7a468 468 0 0 1 85 402 839 839 0 0 1-197 380H957c32-28 59-59 85-90l2-2c20 25 40 50 58 76 20-22 38-46 55-69-18-26-37-51-57-75 30-40 57-83 81-126 16 18 27 33 38 48l16 21c15-28 29-62 36-87-12-19-32-46-52-67 14-32 25-80 30-110 22 22 35 36 49 55 8-41 8-85 5-127-12-16-29-30-44-42-1-25-4-48-8-73l32 24c-17-61-49-115-91-166Zm142 284c-3-36-6-59-12-86l4 3c25 56 46 114 43 181-6 160-63 300-149 428h-8l-36-58c30-41 57-85 80-129a352 352 0 0 1 28 46c14-29 29-66 36-93l-25-44c14-40 24-77 31-117l23 29c9-44 11-86 10-127 0 0-14-21-25-33Zm54 166c-2 14-3 28-6 40Zm-6 40-7-9Zm-7-9c-7 44-18 85-33 125Zm-33 125 11 29Zm11 29c-9 30-20 61-34 94Zm-34 94c-3-10-9-22-15-31Zm-15-31c-19 38-42 78-64 112Zm-64 112h57Zm57 0c31-60 55-124 73-189Zm73-189c15-61 28-127 21-194Zm21-194h-1Zm-49 351c18-55 40-132 52-195-7 82-25 168-50 227h-29l21-45 6 13Zm-961 25c37-12 73-25 108-42l27 49H381v-7Z" clip-rule="evenodd"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>3. United Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(691);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(185);</script></span><span class="bombardier aircraft grey-fill"><script>drawAircraft(10);</script></span></isotype-🛧>
@@ -193,7 +266,14 @@
             <!-- Southwest Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/southwest-tail.svg" alt="Southwest Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385">
+                    <path d="M1776.5 3 1242 1382H7L1389.5 3h387Z" fill="#fff"/>
+                    <path d="M1390.5 5.5h129l-1138 1374H13L1390.5 5.5Z" fill="#FFC000"/>
+                    <path d="M1578.5 5.5H1773l-300.5 775-540 599H415L1578.5 5.5Z" fill="#C00000"/>
+                    <path d="m1429.5 891.5-189 488H982l447.5-488Z" fill="#085296"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>4. Southwest Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(808);</script></span></isotype-🛧>
@@ -210,7 +290,19 @@
             <!-- China Southern Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/china-south-tail.svg" alt="China Southern Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385">
+                    <path d="m1777 3-535 1379H7L1390 3h387Z" fill="#008DD2" />
+                    <mask id="a" maskUnits="userSpaceOnUse" x="772" y="610" width="681" height="360" fill="#000">
+                      <path fill="#fff" d="M772 610h681v360H772z"/>
+                      <path d="M1441 725c0-56-39-103-118-103-53 0-115 45-115 158v167c23-16 53-29 70-29V762c0-59 44-77 64-77a51 51 0 0 0-18 40c0 32 27 59 58 59 32-1 57-24 59-59m-657 0c0-56 39-103 118-103 54 0 116 45 116 158v167c-23-16-55-29-72-29V762c0-59-43-77-63-77a54 54 0 0 1 18 40c0 32-27 59-58 59-33-1-57-24-59-59Z"/>
+                    </mask>
+                    <path d="M1441 725c0-56-39-103-118-103-53 0-115 45-115 158v167c23-16 53-29 70-29V762c0-59 44-77 64-77a51 51 0 0 0-18 40c0 32 27 59 58 59 32-1 57-24 59-59m-657 0c0-56 39-103 118-103 54 0 116 45 116 158v167c-23-16-55-29-72-29V762c0-59-43-77-63-77a54 54 0 0 1 18 40c0 32-27 59-58 59-33-1-57-24-59-59Z" fill="#ED1B2F"/>
+                    <path d="M1208 947h-12v23l19-13-7-10Zm70-29 1 12h11v-12h-12Zm64-233 8 9 25-21h-33v12Zm-18 40h12-12Zm58 59v12-12Zm-598-59h-12v1l12-1Zm234 222-6 10 18 12v-22h-12Zm-72-29h-12v12h12v-12Zm-63-233v-12h-31l23 21 8-9Zm18 40h-12 12Zm-58 59v12-12Zm610-59c0-31-11-60-33-81-23-21-55-34-97-34v24c37 0 63 11 80 27s26 39 26 64h24Zm-130-115c-30 0-62 13-86 41-25 28-41 70-41 129h24c0-54 15-91 35-113 19-23 45-33 68-33v-24Zm-127 170v167h24V780h-24Zm19 177c11-7 23-14 35-19s23-8 29-8l-1-24c-11 0-24 4-37 10-13 5-27 13-39 21l13 20Zm75-39V762h-24v156h24Zm0-156c0-26 10-42 21-52s24-13 31-13v-24c-13 0-31 5-47 19a90 90 0 0 0-29 70h24Zm44-86c-7 6-13 13-16 22l21 10c3-6 6-10 11-14l-16-18Zm-16 22c-4 9-6 18-6 27h24c0-6 1-12 3-17l-21-10Zm-6 27c0 39 32 71 70 71v-24c-25 0-46-21-46-47h-24Zm70 71c39-1 69-29 71-70l-24-1c-1 29-21 46-47 47v24Zm-586-71c0-25 9-48 26-64s43-27 80-27v-24c-42 0-74 13-97 34-22 21-33 50-33 81h24Zm106-91c24 0 49 10 69 33 20 22 35 59 35 113h24c0-59-16-101-41-129-24-28-57-41-87-41v24Zm104 146v167h24V780h-24Zm19 157c-12-8-27-16-40-21-14-6-28-10-39-10v24c6 0 17 3 29 8 13 5 26 12 37 19l13-20Zm-67-19V762h-24v156h24Zm0-156c0-33-12-55-28-70a74 74 0 0 0-47-19v24c7 0 20 3 31 13 10 10 20 26 20 52h24Zm-83-68c4 4 8 8 10 14l22-10c-4-8-9-16-16-22l-16 18Zm10 14c3 5 4 11 4 17h24c0-9-2-18-6-27l-22 10Zm4 17c0 26-21 47-46 47v24c38 0 70-32 70-71h-24Zm-46 47c-26-1-45-18-47-47l-24 1c2 41 32 69 71 70v-24Z" fill="#fff" mask="url(#a)"/>
+                    <path d="M1262 1038c16-27 23-57 23-88v-22l-7 1c-38 9-72 29-98 58-11-34-33-64-63-84l-3-2-4 2c-30 20-53 50-64 84-26-29-61-49-99-58l-8-1v22c0 35 11 70 31 99 25 36 69 69 144 69 81 0 125-41 148-80Zm-86-424 4-3-2-4a68 68 0 0 0-50-41v-36a49 49 0 0 0 34-46 49 49 0 1 0-64 45v37a71 71 0 0 0-50 40l-2 5 5 3c26 17 46 44 56 74l6 18 6-18c10-30 30-56 57-74Z" fill="#ED1B2F" stroke="#fff" stroke-width="12"/>
+                    <path d="m943 614-2-5-13 5 13 5c56 19 89 79 89 138v205l1 1 7 8 6 6 2-8c9-26 34-56 61-71l2-2V737c0-57-40-120-99-134v-41a47 47 0 0 0 33-46 48 48 0 0 0-48-48c-26 0-48 22-48 48a48 48 0 0 0 34 46v39a136 136 0 0 0-40 8l2 5Zm341-5-2 5 2-5h-1a227 227 0 0 0-13-4l-25-4v-39a47 47 0 0 0 32-46c0-26-21-48-46-48a48 48 0 0 0-15 94v41c-29 7-53 26-70 49-18 25-29 56-29 85v159l2 2a142 142 0 0 1 61 71l2 8 6-6 7-8 1-1V757c0-59 32-119 87-138l13-5-12-5Z" fill="#ED1B2F" stroke="#fff" stroke-width="10"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>5. China Southern Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(374);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(254);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(15);</script></span></isotype-🛧>
@@ -229,7 +321,18 @@
             <!-- SkyWest Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/skywest-tail.svg" alt="SkyWest Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385" fill="none">
+                    <path fill="#11356F" d="m1777 3-535 1379H7L1390 3h387Z"/>
+                    <mask id="a" width="1146" height="893" x="401" y="413" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+                      <path fill="#fff" d="m1547 646-991 660-155-233 991-660 155 233Z"/>
+                    </mask>
+                    <g fill="#F9F9F9" mask="url(#a)">
+                      <path d="m829 884 23 115-14-34-50-68-48 40-37 30-11 76-2-35-36-104-52 46 70 202 56-36-11-30 6-30 34 40 56-38-69-75 8-33 74 81 9 10c12 18 2 25-9 33l-13 8 7 44c10-4 18-9 38-22 15-10 36-24 41-52 2-12 0-24-1-36l-1-15-16-163-52 46Zm-220 125-5-9c-20-30-55-19-96 8-12 8-34 25-45 48-11 25-8 50 4 68 19 28 45 23 64 19l21-4c16-4 21-6 28-4 4 1 8 3 11 7 5 8 7 23-9 34-9 6-18 5-23 2-4-2-6-5-9-8l-3-6-54 47 1 1c24 36 61 25 103-3 17-12 44-31 53-65 6-22 3-43-8-60-20-29-47-24-64-21l-22 5c-17 5-21 5-27 4-3 0-8-2-11-6-5-7-5-18 9-28 7-4 19-8 27 4l5 11 50-44Z"/>
+                      <path d="m885 827-20 18-28-51 56-48 50 103 18 48-29-168 45-40 53 94 24 52-37-161 56-49 44 231-74 49-38-67-17-33 7 31 14 92-74 50-43-80-7-71Zm276-147c7-4 13-4 18 4 4 5 8 17 10 23l-28 24c-7-19-16-40 0-51Zm44 67c4 14 2 22-8 29-8 5-16 4-21-5l-6-16 76-66c-1-5-5-17-13-28-20-31-53-27-86-5-44 29-50 56-47 81 2 19 12 47 22 61 4 6 14 21 35 22 10 1 19-2 28-6l23-13c22-15 42-32 48-55 4-15 1-27-4-40l-47 41Zm124-143-18 5c-13 4-23 7-28 0-4-6 0-13 7-17 7-5 13-6 18 1l4 9 44-38-2-4c-15-22-43-13-78 9-14 10-27 21-36 36-12 21-9 41 0 54 14 21 36 17 50 14l19-5c13-3 21-5 25 2 4 5 3 13-6 19-4 3-14 8-21-3l-3-5-43 38 2 3c10 15 27 18 47 8 15-7 26-15 31-17 13-9 32-24 40-42 7-18 6-39-4-53-15-23-36-17-48-14Zm66-78-27 25 20 59c3 8 6 15 10 21 7 10 16 18 34 14 8-2 16-6 23-10 12-9 22-18 30-27l-11-32-8 7c-3 2-12 8-17-1l-8-18-20-56 18-12-8-24-18 12-13-38-53 46 11 29-13 8 8 25 42-28Z"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>6. SkyWest</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="bombardier aircraft grey-fill"><script>drawAircraft(369);</script></span><span class="embraer aircraft grey-fill"><script>drawAircraft(236);</script></span></isotype-🛧>
@@ -247,7 +350,19 @@
             <!-- Air China -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/air-china-tail.svg" alt="Air China tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385" fill="none">
+                    <path fill="#fff" d="m1777 3-535 1379H7L1390 3h387Z"/>
+                    <mask id="a" width="682" height="748" x="774" y="459" maskUnits="userSpaceOnUse" style="mask-type:luminance">
+                      <path fill="#fff" d="M1456 460H774v747h682V460Z"/>
+                    </mask>
+                    <g fill="#ED1C24" fill-rule="evenodd" clip-rule="evenodd" mask="url(#a)">
+                      <path d="M863 720h-77s-8 0-12 8c0 0 28-4 49 16 0 0 12 4 12 45v207s0 69 49 97c0 0 56 41 134-4 0 0 40-28 40-102V821s-4-73 29-126c0 0 24-44 89-81 0 0 40-20 114-20 0 0 65 4 101-37 0 0 45-36 65-97 0 0-45 40-110 44 0 0-117 0-154 17 0 0-158 24-211 215 0 0-12 28-12 89v150s4 33-29 33c0 0-28 0-28-33V784s4-56-32-60c0 0-9-17 28-13 0 0 41 9 57-12 0 0 16-20 12-48 0 0-8 24-37 28 0 0-44 0-56 8 0 0-17 0-21 33Z"/>
+                      <path d="M867 1105s25 33 77 29c0 0 65 8 102-33 0 0 37-28 37-101V829s-5-85 40-134c0 0 29-49 98-65 0 0 12-12 81-12 0 0 57 8 101-36 0 0-8 44-53 81 0 0-20 20-81 24 0 0-57 4-81 41 0 0-32 28-32 97v187s4 73-41 118c0 0-37 44-114 48 0 0-93 0-134-73Z"/>
+                      <path d="M1018 1203s69 0 117-49c0 0 45-45 45-114V866s-4-69 53-90c0 0 44-28 101 13 0 0 65 44 33 121 0 0-21 41-69 17 0 0-33-13-33-53 0 0 12 28 33 12 0 0 16-16-4-37 0 0-17-20-41-8 0 0-12 4-12 41 0 0 12 162-16 211 0 0-17 53-73 89 0 0-65 37-134 21Z"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>7. Air China</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(296);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(183);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(15);</script></span></isotype-🛧>
@@ -266,7 +381,9 @@
             <!-- China Eastern Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/china-eastern-tail.svg" alt="China Eastern Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385" fill="none"><path fill="#fff" d="m1777 3-535 1379H7L1390 3h387Z"/><path fill="#1B1D80" fill-rule="evenodd" d="M1419 757c-274 6-538 68-563 156v26c0 87 181 113 372 139l5-5-5-10h-5c-109-31-217-68-217-104 0-72 181-139 388-176l15-5 26-21h-16Z" clip-rule="evenodd"/><path fill="#DF0011" fill-rule="evenodd" d="M1114 1182c-139-37-279-156-258-264 31-166 248-321 517-393 10 0 10-5 5-5h-372c-62 0-78 10-99 41L731 799c-5 10-15 15-36 15h-88c104 300 218 373 331 373h181s6-5-5-5Z" clip-rule="evenodd"/></svg>
+                </iso-tail>
                 <iso-airline-name>8. China Eastern Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(380);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(50);</script></span><span class="comac aircraft grey-fill"><script>drawAircraft(1);</script></span></isotype-🛧>
@@ -285,7 +402,12 @@
             <!-- Turkish Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/turkish-tail.svg" alt="Turkish Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385" fill="none">
+                    <path fill="#C70A0C" d="m1777 3-535 1379H7L1390 3h387Z"/>
+                    <path fill="#fff" fill-rule="evenodd" d="M437 955a479 479 0 1 0 533-530l-25 25a462 462 0 0 1 179 52c-217 73-333 185-342 299-3 71 29 122 73 164l-307-22c-9 0-11 10-1 13l731 209a452 452 0 0 1-816-234l-25 24Zm717-436c-110 84-155 241-115 392 36 137 139 198 255 231a449 449 0 0 0-140-623Z" clip-rule="evenodd"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>9. Turkish Airlines</iso-airline-name>
               </iso-header>
               <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(190);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(136);</script></span></isotype-🛧>
@@ -303,7 +425,13 @@
             <!-- Lufthansa -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/lufthansa-tail.svg" alt="Lufthansa tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385" fill="none">
+                    <path fill="#151B55" d="m1777 3-535 1379H7L1390 3h387Z"/>
+                    <path stroke="#ffffff" stroke-width="30" d="M1101 1028a275 275 0 1 0 0-550 275 275 0 0 0 0 550Z"/>
+                    <path fill="#ffffff" d="M1192 742h-22l7-11h11c38 0 66 2 92 6l12-11c-29-5-64-8-100-8h-8l5-11h10c37 0 71 3 103 10l13-12a618 618 0 0 0-173-8c-20 43-53 69-89 68-14 0-32-6-55-18l-22-13 7-6 49 22 11-8-100-46-15 12-36-15 1 15c48 22 68 34 118 70 66 47 124 72 206 89l21-21h-5c-54 0-102-17-130-47 23-15 52-21 92-21l41 2 12-12a483 483 0 0 0-96-2l9-11a588 588 0 0 1 98 3l11-11c-21-3-51-5-78-5Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>10. Lufthansa</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(278);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(30);</script></span></isotype-🛧>
@@ -321,7 +449,14 @@
             <!-- IndiGo -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/indigo-tail.svg" alt="IndiGo tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1781 1385" fill="none">
+                    <path fill="#fff" d="m1777 3-535 1379H7L1390 3h387Z"/>
+                    <path fill="#01236B" stroke="#fff" stroke-miterlimit="10" stroke-width="1.7" d="M1552 234a73 73 0 0 1-101-7 74 74 0 0 1 2-104c29-25 74-23 101 6 29 30 28 79-2 105Zm-81-93c-19 16-19 47-1 67s47 23 65 7c20-17 19-48 1-68-18-19-46-22-65-6Zm-59 224c-42 35-105 31-144-11-41-44-42-110 2-150 14-12 37-31 87-28l-1 29c-41-2-59 12-68 20-37 36-23 85 0 109 35 37 83 30 107 10 28-24 35-70 10-99l-52 47-19-20 74-67c58 57 46 126 4 160Zm-366 325L906 536l23-20 140 154-23 20Zm187-166c-35 29-75 19-100-8a71 71 0 0 1 1-103c7-6 16-10 22-12l11-3 20 22-6-1c-5 0-22 5-32 14-18 17-16 44 0 63 18 22 46 26 67 9 2-1 32-30-1-66l-91-101 20-18 92 101c25 28 30 76-3 103Zm-85 74-51-56c-28-31-44-18-53-11-12 8-16 32 0 50l56 61-20 17-54-60c-29-31-21-68 1-88 11-10 51-30 86 8l55 61-20 18Zm31-266c-14-18 9-38 23-22 15 18-11 38-23 22Zm121 128-97-107 20-18 97 106-20 19Z"/>
+                    <path fill="#01236B" d="m1491 733-250 647H625s295-291 492-424c198-132 374-223 374-223Z"/>
+                    <path fill="#84C4F2" d="m1710 168-136 352s-234 150-364 246c-131 96-695 614-695 614h-78s551-614 734-787c184-172 539-425 539-425Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>11. IndiGo</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(266);</script></span><span class="atr aircraft grey-fill"><script>drawAircraft(39);</script></span></isotype-🛧>
@@ -339,7 +474,35 @@
             <!-- JetBlue Airways -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/jetblue-tail.svg" alt="JetBlue Airways tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <mask id="a" width="1770" height="1379" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                      <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    </mask>
+                    <g mask="url(#a)">
+                      <path fill="#00B2E3" d="M1084 22a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#0083D4" d="M884 222a199 199 0 1 0 398 0 199 199 0 0 0-398 0Z"/>
+                      <path fill="#0033A1" d="M1483 22a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#00205C" d="M1283 222a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#00B2E3" d="M1084 421a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#00205C" d="M685 421a199 199 0 1 0 398 0 199 199 0 0 0-398 0Z"/>
+                      <path fill="#0083D4" d="M1483 421a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#0033A1" d="M1283 621a200 200 0 1 0 399-1 200 200 0 0 0-399 1Zm-798 0a199 199 0 1 0 398 0 199 199 0 0 0-398 0Z"/>
+                      <path fill="#8DC6E8" d="M884 621a199 199 0 1 0 398 0 199 199 0 0 0-398 0Z"/>
+                      <path fill="#00B2E3" d="M685 820a199 199 0 1 0 398 0 199 199 0 0 0-398 0Z"/>
+                      <path fill="#0083D4" d="M1084 820a200 200 0 1 0 399-1 200 200 0 0 0-399 1Zm-796 0a199 199 0 1 0 398 0 199 199 0 0 0-398 0Z"/>
+                      <path fill="#00B2E3" d="M1283 1020a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#00205C" d="M884 1020a200 200 0 1 0 399-1 200 200 0 0 0-399 1Zm-795 0a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#0033A1" d="M488 1020a200 200 0 1 0 399-1 200 200 0 0 0-399 1Zm596 199a200 200 0 1 0 399-1 200 200 0 0 0-399 1Zm-1198 0a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#0083D4" d="M685 1219a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#00B2E3" d="M288 1219a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#00205C" d="M1283 1419a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#8DC6E8" d="M887 1419a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#0033A1" d="M488 1419a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                      <path fill="#0083D4" d="M86 1419a200 200 0 1 0 399-1 200 200 0 0 0-399 1Z"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>12. JetBlue Airways</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(230);</script></span><span class="embraer aircraft grey-fill"><script>drawAircraft(60);</script></span></isotype-🛧>
@@ -357,7 +520,13 @@
             <!-- Ryanair -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/ryanair-tail.svg" alt="Ryanair tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#213D86" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <path fill="#F4CA35" d="M1316 508c41 14 84 24 128 29l31 1 1-1c19 0 32-8 50-12 2 0 7-1 9 1 1 4-1 7-5 10-22 17-48 29-73 39v-1l-25 8c-30 9-65 15-98 13-62-4-116-26-171-24a153 153 0 0 0-165 129c1 22 33 31 45 50 7 11 10 23 15 35 13 24 26 47 42 70 9 15 25 28 42 37 23 16 44 37 56 59l-1 1c14 22 22 44 32 67l14 40c2 1 2 3 2 5 4 11 7 22 12 32-2 2 1 2 1 4 0 6 6 15-2 19-11-10-17-25-23-36-14-23-29-46-46-69h1l-33-41c-50-54-122-87-174-139h-1c-5-4-7-9-11-14l-16-29c-16-25-32-51-42-76-3-12-6-22-7-35l-2-4c1-12-28-19-12-42 10-11 49-24 63-45 0-3 1-7-2-9 0-3-2-5-4-7-7-10-27-2-27-16 2 0 0-2 1-3-1-6-1-11 1-17 4-11 8-24 7-35 1-4 5-7 9-9l24-4 1 1c19-2 42 0 55 15 5 11 1 24-2 36-1 7-8 12-7 19 3 2 8 2 11 1 29-18 54-42 75-66 19-18 48-25 74-21 53 4 97 22 146 34h1Z"/>
+                    <path fill="#F4CA35" d="M1179 604c8 10-2 18-5 27-31 47-42 100-62 150-2 2-5 2-7 2-6-4-6-11-5-16 4-55 18-106 41-154 6-8 15-17 27-15 4 1 8 3 11 6Zm82 14c4 18-9 32-14 48-30 61-67 120-85 185 0 2-2 5-4 6-2 0-5-1-5-3-6-26 1-52 7-77 17-54 38-110 67-160 4-3 4-5 8-6 10-1 21 0 26 7Zm87 3c9 6 4 18 1 25-35 79-92 146-116 229-7 17-11 35-16 53-1 3-6 3-9 3-3-8-2-17-2-26 7-66 23-130 55-188l44-83c5-8 12-15 22-17 8-1 16 1 21 4Zm97 4c6 10 0 20-2 29-23 63-65 116-98 173-29 48-48 100-68 151-6 16-9 33-17 48l-4 1c-5-5-4-11-5-16 4-64 28-122 51-180 29-65 68-127 95-194 3-8 11-18 22-22 11-1 20 3 26 10Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>13. Ryanair</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(273);</script></span></isotype-🛧>
@@ -374,7 +543,14 @@
             <!-- British Airways -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/british-tail.svg" alt="British Airways tailfin"></iso-tail>
+                <iso-tail>
+                  <svg viewBox="0 0 1770 1379" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1769.5 0L1235 1379H0L1382.5 0H1769.5Z" fill="white"/>
+                    <path d="M997.996 1181.5C862.496 1151.5 738.996 1141 655.496 1134C571.996 1127 525.996 1111 464.996 1072.5C403.996 1034 377.5 1002.5 377.5 1002.5L240 1140C240 1140 267 1175.5 291 1204C315 1232.5 379.996 1275 416 1304C452.004 1333 496 1379 496 1379H1213C1213 1379 1133.5 1211.5 997.996 1181.5Z" fill="#EC3535"/>
+                    <path d="M1535.5 108.563C1386 145.125 1088.5 277 985.5 396.019L554.5 826.062C554.5 826.062 861 631.563 1026 556.563C1191 481.563 1316 454.063 1418.5 478.563C1521 503.063 1518.5 647.062 1518.5 647.062L1727.5 108.563C1727.5 108.563 1685 72 1535.5 108.563Z" fill="#EC3535"/>
+                    <path d="M920.254 896.516C838.882 918.704 651 918.704 651 918.704C651 918.704 749.997 1014.01 825.249 1020.26C900.5 1026.5 946 1006.6 982.456 1006.6C1018.91 1006.6 1128.16 1019.4 1187.38 1059.09C1246.6 1098.77 1314.34 1176 1314.34 1176L1443 830.379C1443 830.379 1359 776 1336.07 769.362C1313.13 762.723 1267.05 759.548 1207.83 769.362C1148.61 779.176 1113 787.5 1079.17 805.204C1045.33 822.908 1001.63 874.328 920.254 896.516Z" fill="#0C0E4E"/>
+                    </svg>
+                </iso-tail>
                 <iso-airline-name>14. British Airways</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(164);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(94);</script></span></isotype-🛧>
@@ -392,7 +568,16 @@
             <!-- Emirates Airline -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/emirates-tail.svg" alt="Emirates Airline tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <path fill="#FC544D" d="m1435 863-125 323-481 193H485s-7-97 291-223c297-126 659-293 659-293Z"/>
+                    <path fill="#010103" d="m1435 863-125 323-481 193H485s-7-97 291-223c297-126 659-293 659-293Z"/>
+                    <path fill="#FB0B02" d="m1046 572-561 807H141s244-302 423-472c179-169 482-335 482-335Z"/>
+                    <path fill="#FB0B02" d="m1046 572-561 807H141s244-302 423-472c179-169 482-335 482-335Z"/>
+                    <path fill="#01811F" d="M1047 570s207-136 372-239 318-243 318-243l-176 450-775 409 261-377Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>15. Emirates Airline</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(134);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(121);</script></span></isotype-🛧>
@@ -410,7 +595,22 @@
             <!-- Alaska Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/alaska-tail.svg" alt="Alaska Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#00416A" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <mask id="a" width="1770" height="1379" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                      <path fill="#00416A" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    </mask>
+                    <g mask="url(#a)">
+                      <path fill="#B1D78A" d="M1633 652c-21-172-86-169-127-231-42-63-235-162-338-202-76-30-138-10-205 4 103 12 276 61 322 98 12 11 23 24 32 37 47 15 90 43 122 81l33 35c8 8 18 13 26 21l65 67a21 21 0 0 1 8 16c0 2-1 7-5 4-3-3-9-5-11-2-3 6 3 14 9 21l14 32c12 23 21 47 27 72 8 24 16 47 26 70 20 48 27 100 20 151l-14 97c5-23 12-51 23-88 29-98-5-112-26-283m-770 896c-30 4-50 8-69 6-83-10-241-46-301-143s-165-179-183-302c-18-120-40-228-17-320 0 26 1 51 3 77 4 36 19 70 32 172 6 51 27 88 57 129 12 16 25 32 36 50l8 25c15 34 44 90 82 102 7 2 14 5 20 9 5 6 10 12 13 19 11 13 23 23 36 32l8 12c71 103 191 122 275 132Z"/>
+                      <path fill="#46A8C6" d="M406 1148c-4-11-10-21-16-32l-3-7c-18-33-32-67-42-102-11-38-12-79-4-117 9-28 19-56 31-83 17-46 23-95 37-142 16-41 39-78 68-110 46-55 101-102 162-139 10-2 20-5 29-10 23-13 34-38 57-51 30-17 62-47 97-53l40-5c19-6 38-14 58-19 8-4 17-6 27-7 19 0 39 4 59 3 21-3 42-12 63-15a6 6 0 0 1 6 1c2 3 0 5-1 7-6 8-12 20-6 28a20 20 0 0 0 17 5c23 0 46-8 68-1 12 3 25 4 38 5l42 5 8 2a7 7 0 0 1 4 6c0 5-6 7-7 12a8 8 0 0 0 4 8c19 8 39 14 60 17l14 5-1-2c-9-13-19-24-31-35-50-41-254-97-350-101-97-5-198 41-313 85-114 43-171 162-252 241-80 78-81 238-73 320 4 36 19 70 32 172 6 51 27 88 57 129 13 16 25 32 36 50-3-24-8-47-16-69"/>
+                      <path fill="#0F7BB6" d="M1630 775c-10-22-19-46-26-70-6-25-15-49-27-72-4-11-9-22-15-32-5-7-11-14-8-20 2-4 8-2 11 1s5-1 5-4a20 20 0 0 0-8-15l-66-67c-8-9-18-14-26-22l-32-35c-36-43-85-73-140-87 25 8 22 19 34 39 13 21 42 40 62 56 13 9 25 20 36 31 17 18 25 41 37 63 4 8 5 18 12 25 7 6 19 8 24 16 5 9 0 20 0 30 1 21 90 80 31 100l-4 2a6 6 0 0 0 0 5c1 15 13 27 23 39 18 23 28 51 30 80 0 9-1 59-12 73-1 2 0 3 2 4 8 2 19 10 18 17-2 21-15 39-18 60-3 31 19 63 12 94-6 27-33 48-33 76 1 7 1 14-1 20-4 5-9 9-15 12-31 19-45 55-72 79-16 13-36 21-53 34-19 14-45 55-70 57l-25-4c-13-1-26 3-38 10-24 11-47 17-72 26-27 12-52 32-75 49-49 34-97 70-154 90-9 3-21 3-24-5s12-17 13-27c-9-2-16 5-24 11a93 93 0 0 1-54 14c-36 3-72 0-107-9-20-5-39-13-57-24-42-29-91-41-128-77l-17-14 7 12c79 114 219 126 300 134 37 3 74-5 175 3 102 8 109-28 270-86 61-21 118-51 153-107l56-93c9-14 19-28 26-43s20-37 25-32c3 1 2 9 5 11s3-1 4-2c24-38 26-75 29-119 4-54 12-104 20-156 8-51 1-103-18-151"/>
+                      <path fill="#00416A" d="M1496 1078c-4 2-7 8-9 12l-13 18c-4 7-10 11-14 18l-3 6c-2 5-3 11-3 16s2 10 3 14c1 10-4 17-8 26-6 14-14 28-22 42 16-17 32-34 46-53 6-11 12-23 16-35 7-18 2-39 10-57 2-5 2-11-4-8m-59-397c29 55 43 117 42 179 0 9 1 20 10 23 10 3 9-100 8-109l-8-43c-2-17-12-29-18-44-5-14-12-28-21-40-7-8-12-18-14-29l1-12c0-24-34-33-41-55-2-12-7-23-14-33-14-15-30-29-47-42-17-12-46-14-66-18a21 21 0 0 0-19 3c8 10 18 17 30 23 22 14 42 32 59 53s27 46 45 66c21 24 39 50 54 77m-638 381c-3-6-8-1-12 1l-23 16c-6 5-11 12-13 20-2 7-2 16 3 19a15 15 0 0 0 12-1c4-2 8-3 11-6l13-10c5-5 9-11 11-17a21 21 0 0 0-2-22Zm79 54c46 7 94 10 141 11 14-1 27-5 40-10 10-5 14-7 15-11 1-8 1-16-2-24-3-7-8-12-13-17l-15-11c-5-4-11-4-46-2-23 2-45 7-65 16-12 6-22 13-31 23-9 7-21 11-27 18-4 6 0 7 3 7Zm385-217c-9-7-20-11-31-15l-23-2c-1 1 1 3 5 5l18 12c5 5 10 10 7 15s-13 4-20 0l-22-14c-4-2-7-2-6 2s3 9 0 11a18 18 0 0 1-20-4l-22-21-19-12c-6-5-12-9-19-12-20-4-41-5-61-1-32 5-39 11-49 10-6-1-7-3-9-8-1-6-3-7-6-8l-12-4c-13-5-24-14-31-26l-19-31c-5-7-8-8-14-8-9 0-13 12-17 30-3 18-4 34-13 39a27 27 0 0 1-22 1c-6-2-12-3-19-3-10 0-19 3-27 9-10 6-21 11-32 14-13 3-17 3-21 3-3 1-5 0-7 9-3 8-7 17-12 18-5 0-9-1-12-4l-18-12a23 23 0 0 0-26 4c-16 20-27 44-30 70-5 36-9 70 0 74 10 3 25-41 39-34 14 5 7 111 7 134-1 23-6 58 3 81 9 24 18 35 54 65 18 14 35 29 51 44 11 10 23 18 35 25a16 16 0 0 0 19-2l4-6c3-14 12-27 23-37 16-12 19-23 15-30s-10-7-21-5c-18 5-38 6-57 3-28-4-70-15-74-35-2-14 9-28 12-39 3-12 9-33-3-43-8-6-14 3-18 9-4 5-15 11-15-4 1-15 1-29 3-43l-3-36a28 28 0 0 1 9-26l32-18c7-4 14-8 14-18 2-14 7-28 13-40 4-7 7-14 9-22 0-5 3-10 12-12 8-1 11-1 9 6-3 7-5 15-6 23a16 16 0 0 0 10 14 29 29 0 0 0 29 2 89 89 0 0 1 91 0l32 8 7-2a10 10 0 0 0 3-11c-1-6-8-20-2-23 7-3 14 6 19 19 5 14 12 27 21 39 9 8 19 13 30 15 13 5 21 4 26 25 3 12 5 25 6 38 0 21-4 25-4 40 0 17 2 22-4 30-3 3-5 5-8 3-2-2 0-4 1-8v-20l-1-8c0-4-2-6-5-5-6 0-10 6-20 6l-46 3-66 3c-20 1-41 1-61-1l-31-4c-4 0-25 2-28 16-2 7-1 10 4 11 5 2 27 3 38 4l46 6 35-2c9 0 29 2 29 30 0 10 1 18 8 23 17 10 35 19 54 26 17 9 37 12 56 7 11-5 15-12 12-23-4-10-5-19 0-22 4-4 10-8 31-7 12 1 29 7 36-4 7-12 17-22 29-29 18-13 28-21 27-52-3-40-2-80 0-120 5-32 25-48 37-71 10-20 15-30 0-38M650 498l-6 3-17 9c-13 6-23 11-25 26v6l1 2c3 4 16-3 19-5 5-3 8-8 10-13l8-11 8-12c1-2 2-4 1-5m91 326c1 5 6 11 18 7l49-15c12-2 24-3 36-2 7 1 7-6 4-7l-40-12c-7-2-14-2-21 0l-36 12c-10 3-14 9-10 18m22-119c2 5 8 8 23 6 17-1 75-10 91 2 9 7 10 9 11 25 2 17 3 16 6 16 2 1 9-3 17-17 8-13 40-27 83-31s79-4 123 19 91 59 114 48c11-5 19-24 7-70-7-31-20-59-40-83-7-8-18-17-25-13-8 5 2 29 9 41 7 11 8 18-6 13-15-5-29-14-40-25-14-14-35-53-47-47-11 7 4 33-2 36-7 3-19-12-30-27-12-16-20-34-34-39-15-5-54-9-110 15-47 22-89 51-125 86-26 28-27 40-25 45Zm440 152c0-2-5-3-8-2-14-2-28-7-39-16-14-13-27-29-34-37a40 40 0 0 0-38-15c-22 3-42 9-40 19 1 5 13 3 25 1 12-3 30-5 35 2 7 14 16 26 28 35 14 13 33 21 53 21 21 0 18-7 18-8Zm25-36-34 5c-3 0-9 0-8 4 0 4 13 9 33 7 19-3 28-5 27-12-1-6-10-5-19-4M557 612c3-12 15-20 14-32 0-1 0-2-3-1-15 7-29 30-40 41-30 30-57 63-81 98-20 45-27 95-22 145 2 26 7 52 14 78 5 22 5 47 12 67 2 7 6 12 11 15 2 1 6 1 6-6 0-62 2-125 6-187 4-35 13-70 27-103s58-60 57-96v-18m1028 474c-6 27-33 48-33 76 1 6 1 13-1 19-4 6-9 10-15 12-31 19-45 56-72 79-16 14-36 22-53 34-19 14-45 56-70 57-9 0-17-2-25-4-13 0-26 3-38 10-24 12-47 17-72 27-26 11-51 32-75 48-48 34-97 70-154 90-8 3-21 4-24-5-3-8 12-16 14-27-9-2-17 5-25 11-16 10-35 15-54 15-36 2-72-1-107-10-20-4-39-12-57-23-41-29-90-42-127-77-16-15-42-30-53-46-4-8-8-14-14-20-6-4-13-6-20-8-37-13-68-68-81-102-13-31-12-64-24-94l-16-33-3-7c-18-33-32-67-42-102-11-38-12-79-4-117 9-28 19-56 31-82 17-46 23-96 37-142 16-41 39-78 68-110 46-55 100-103 162-140 10-2 20-5 29-9 23-14 34-39 57-52 29-16 62-47 97-53l40-5 57-19c9-3 18-6 27-7 20 0 40 5 59 3 21-2 42-12 64-15a6 6 0 0 1 6 2c1 2 0 4-2 6-6 9-12 20-5 28a20 20 0 0 0 16 5c23 0 46-8 68-1 13 3 26 4 38 5l42 5 8 2a7 7 0 0 1 4 7c0 4-6 6-7 11a8 8 0 0 0 5 8c17 7 35 12 54 16 27 7 24 19 36 39s42 40 62 56c13 9 25 20 36 31 17 18 25 41 37 63 4 8 5 18 12 25 7 6 19 8 24 16 5 9 0 20 0 31 2 21 90 79 31 99l-4 2-1 5c2 15 14 27 24 39 17 23 28 51 29 81 1 8-1 59-11 73-2 2-1 3 1 4 9 2 19 9 18 16-2 21-15 40-17 60-3 32 18 63 11 94m-466-30c-5 0-6 0-8 3s-2 4 0 12c8 30 8 62 0 92-4 10 5 10 7 10h8c4 0 5-3 7-8 2-17 3-34 2-50 1-17-3-34-10-49-3-7-3-11-6-10ZM842 887l-11-7c-3-2-4-1-7 0-8 7-19 12-29 15l-32 6c-4 0-8-2-10 4-3 6-2 9 2 10 9 4 19 5 29 4 13-1 24-4 35-9 9-3 17-7 25-13 4-3 3-8-2-11m251 16c-13 7-27 10-41 9-13 0-26-1-38-3-5 0-7-5-7-11-1-12 7-9 14-9 8 0 15-2 26-1h41c7-1 13-4 18-9 3-2 4-1 7 5 2 6-7 11-20 18"/>
+                      <path fill="#7FA9C8" d="M1457 1131c-2 6-3 11-3 17 0 5 2 9 3 14 1 10-4 16-8 26-6 14-14 28-22 41 16-17 32-34 46-53 6-11 12-22 16-34 7-19 2-40 10-57 2-5 2-11-3-8-4 3-7 9-10 13l-12 18c-4 6-10 11-14 18l-3 5Zm21-272c0 10 1 21 10 24s9-100 7-109l-7-43c-2-17-12-29-18-44-6-14-13-28-21-40-7-8-12-18-14-29l1-12c0-24-34-34-41-55-2-12-7-23-14-33-14-15-30-30-47-42s-46-14-66-18a21 21 0 0 0-19 3c8 9 18 17 29 23 23 14 43 32 60 53 16 21 27 46 45 66 21 24 39 50 54 77l13 27c20 48 30 100 29 152M603 543c4 5 16-3 20-4 4-4 8-8 10-13l7-11 9-12 1-4c-1-1-4 1-5 2l-18 9c-13 6-23 11-25 26v6l1 1ZM474 830l-3 39-3 148c0 7-4 7-6 6-5-4-10-9-11-15-7-21-7-46-12-67-7-26-12-52-14-79-5-49 2-99 22-145 9-16 20-32 33-46 15-18 32-35 49-52 10-10 24-34 39-41 3-1 3 0 3 1 1 13-11 20-13 33v17c1 37-44 64-57 96-13 34-22 68-26 104"/>
+                      <path fill="#fff" d="M1022 889c7 0 14-2 25-1h41c7-1 13-4 18-9 3-2 5-1 7 5 3 6-7 11-20 18-12 7-27 10-41 9-13 0-25-1-38-3-5 0-6-5-7-11 0-11 7-9 15-9m-259 12c11 0 22-2 32-6 11-2 21-7 30-14 3-2 3-3 7 0 3 3 6 3 11 6a7 7 0 0 1 1 11c-7 6-15 10-24 13-11 5-23 8-35 9-10 1-20 0-29-4-4-1-5-5-3-10 3-5 7-5 10-5Zm356 273c-2 0-12 0-7-10 8-30 8-61 0-92-2-8-2-9 0-12 3-2 3-3 8-3 2 0 3 3 6 11 7 16 11 33 10 50 1 16 0 33-2 49-2 5-3 9-7 9h-8M911 786c-9 0-14 13-17 30-3 18-5 34-13 40a27 27 0 0 1-23 1c-6-2-12-4-18-3-10 0-20 3-28 8-9 7-20 12-31 14l-21 4c-4 0-6 0-8 8s-7 18-12 18c-4 1-8-1-11-3l-18-12a23 23 0 0 0-26 4c-17 20-27 44-30 70-5 36-9 70 0 73 10 3 25-41 40-34 13 6 6 112 6 135-1 23-6 57 3 81s18 35 54 65c18 14 35 28 51 44 11 9 23 18 35 25a16 16 0 0 0 23-8c3-15 12-28 23-38 16-12 19-22 15-29s-10-8-21-6c-18 5-38 6-57 4-28-5-70-16-74-35-2-14 9-28 12-40 3-11 9-32-3-42-8-6-14 3-18 8-4 6-15 12-15-3 1-15 1-30 3-43l-3-36a27 27 0 0 1 10-26l32-18c7-4 14-8 14-19 2-14 7-27 13-40 5-6 7-14 9-22 0-5 3-9 12-11 8-2 11-1 9 6-3 7-5 15-6 23a16 16 0 0 0 10 14 29 29 0 0 0 29 1 89 89 0 0 1 91 1l32 8 8-2a10 10 0 0 0 2-12c-1-6-8-19-2-22 7-3 14 6 19 18 5 14 12 27 21 39 9 8 19 13 30 16 13 4 21 3 26 24 3 13 6 26 6 39 0 21-3 24-3 39 0 18 1 23-5 31-2 2-5 5-8 2-2-2 0-4 1-7v-21l-1-8c0-3-2-5-5-5-6 1-10 6-20 7l-46 2c-42 3-85 4-127 2l-31-4c-4 0-24 3-28 16-2 8-1 11 4 12l38 4c10 1 34 5 46 5l35-1c9-1 29 1 30 29 0 10 0 18 7 23 17 10 36 19 54 27 17 9 37 11 56 6 11-5 16-12 12-22-4-11-5-19 0-23 4-4 10-8 32-7 12 1 28 7 35-4 7-12 17-22 29-29 19-12 28-21 27-52-2-40-2-80 1-120 4-32 24-48 36-71 10-19 15-30 0-37-9-7-20-12-31-15l-23-2c-1 1 1 3 5 5l18 12c5 5 10 10 7 15s-13 4-20 0l-22-14c-4-2-7-2-6 2s3 9 0 11a18 18 0 0 1-20-4c-8-7-11-12-22-21-6-4-12-9-19-12-6-5-12-9-19-12-20-5-41-5-61-1-32 5-39 11-49 10-6-1-7-3-9-8-1-6-3-7-6-8l-12-4c-13-5-24-14-31-26l-19-31c-5-7-8-9-14-8m109 339c14-2 27-5 40-10 10-5 13-7 15-11 1-8 0-17-2-25-3-6-8-11-13-16l-15-11c-5-4-11-5-46-2-23 1-45 7-66 16-11 5-21 13-30 23-9 7-21 11-27 18-5 7 0 7 3 7 47 7 94 11 141 12m-253-11 11-5 12-11c5-5 9-11 12-17a21 21 0 0 0-2-22c-3-6-9-1-13 1l-22 16c-6 5-11 12-13 20-2 7-2 16 3 19a13 13 0 0 0 11-1m419-283c0 4 14 8 33 6 19-3 28-5 27-11-1-7-10-6-18-5l-34 5c-4 0-9 1-9 5m-141-26c2 6 14 4 26 2 12-3 30-6 34 2 7 14 16 25 28 35 14 13 33 20 53 21 21-1 18-7 18-9-1-2-5-2-9-2-14-1-28-7-39-16-13-12-26-28-34-37a40 40 0 0 0-38-14c-21 2-41 9-39 18Zm-286 25 49-15c12-2 24-3 36-2 7 1 7-6 3-7l-40-11c-6-3-14-3-20 0l-36 11c-11 3-14 9-10 18 1 5 5 11 18 7m358-105c-43-22-80-22-123-19s-75 17-83 31-15 17-17 17-4 1-6-16c-1-17-2-18-11-24-16-13-73-4-91-3-15 2-21-1-23-6s-1-17 26-44c36-36 79-65 125-86 56-25 95-21 110-16s22 24 34 39c11 16 23 30 30 27 6-3-9-29 3-35 11-6 33 33 46 46 11 12 25 20 41 26 13 4 12-3 5-14s-16-36-9-40c7-5 18 5 25 13 20 24 33 52 40 82 12 46 5 65-7 71-23 10-71-27-113-49"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>16. Alaska Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(202);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(47);</script></span></isotype-🛧>
@@ -428,7 +628,15 @@
             <!-- Endeavor Air -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/delta-tail.svg" alt="Endeavor Air tailfin"></iso-tail>
+                <iso-tail>
+                  <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1790 1389">
+                    <path d="m1785 6 1-3h-392L11 1382l-4 5h1243v-2L1785 6Z" fill="#036"/>
+                    <path d="m982 418 639 5-39 107-232 591-649-423 281-280Z" fill="#C01933"/>
+                    <path d="m439 960 193 424h616l102-263-649-423-262 262Z" fill="#991933"/>
+                    <path d="m1576 544-77 197-352 248-152-99 581-346Z" fill="#036"/>
+                    <path d="m995 890 152 99-86 395H914l81-494Z" fill="#036"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>17. Endeavor Air</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="bombardier aircraft grey-fill"><script>drawAircraft(248);</script></span></isotype-🛧>
@@ -445,7 +653,19 @@
             <!-- Republic Airways -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/republic-tail.svg" alt="Republic Airways tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#00263A" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <g fill="#fff" clip-path="url(#a)">
+                      <path d="m628 988 12-17v21l19 7-20 6v20l-12-17-20 6 13-16-12-17 20 7Zm239 184 12-16v21l19 6-20 6v21l-12-17-20 6 13-17-12-17 20 7ZM717 936l-12-16 19 6 13-16-1 21 20 6-20 6v21l-12-17-20 6 13-17Zm-134 174-12-17 20 7 12-17v21l19 6-20 7v20l-12-17-20 6 13-16Zm306-40-12-17 20 7 13-17-1 21 19 7-19 5-1 21-12-17-19 6 12-16Zm-133 173-12-17 19 7 13-17-1 21 20 7-20 6v20l-12-17-20 6 13-16Zm-115-28-11-18 19 7 13-16-1 21 20 6-20 6v21l-12-17-20 6 12-16Zm128-93-9 11-68-79 23-30c11-15 24-15 35-6 13 10 18 26 11 42l44 15-9 12-42-16-14 17 29 34Zm-21-63c5-7 5-15-1-22l-7-8c-5-4-11-4-17 3l-15 20 24 28 16-21Zm43-16c-19-15-27-42-13-61 8-10 21-16 32-7 13 10 10 28-12 56l4 4c8 6 17 6 24-4 6-7 7-15 5-25l11-2c3 15 0 26-7 35-11 15-27 17-44 4Zm-2-22 3 3c18-25 18-33 10-38-6-5-12-2-16 4-7 8-6 21 3 31Zm21-77 8-10 11 13v-1c-6-12-6-22 0-31 9-11 23-11 37 0 19 15 33 42 18 61-6 7-15 11-23 7h-1l28 33-8 10-70-82Zm60-5-7-9-5-5c-8-5-16-6-22 1-4 5-4 11-3 17s3 12 9 18l10 13c5 5 15 6 22-3 7-10 6-22-4-32Zm-1-72 31 36 6 6c6 5 11 5 16-1 3-4 4-9 3-15-1-7-4-13-8-19l-29-32 8-10 44 50 6-8 8 8-7 9c-4 5-9 6-14 2l-3-3-1-1v1c6 11 6 20-1 29-8 10-18 10-28 2l-8-7-31-36 8-11Zm21-81 8-10 34 38v-1c-6-12-6-22 1-31 8-11 22-11 36 0 19 15 33 41 18 60-5 8-14 11-23 8h-1l9 10-8 10-74-84Zm83 20-7-9-6-5c-7-6-15-6-21 1-4 5-4 11-3 17s3 12 8 18l11 13c4 5 14 6 21-4 8-10 6-20-3-31Zm50-13c-4 5-10 6-14 2l-3-2-64-74 8-10 65 75 7-9 8 9-7 9Zm24-31c-4 5-10 6-15 2l-2-2-42-49 8-10 43 50 7-8 7 9-6 8Zm-75-64-2-4c-3-2-4-6 0-11 3-4 6-4 9-2l2 3c3 3 4 7 0 11-3 4-6 4-9 3Zm69 23c-22-16-30-41-16-60 9-10 20-13 31-9l-3 12c-8-3-14-2-19 4-7 9-5 20 4 30l8 9 5 5c8 6 17 6 23-3 5-6 6-13 0-23l10-5c7 13 6 26-2 36-10 14-26 16-41 4Zm126-115-25-15-24 31 14 29-9 12-48-106 11-14 90 52-9 11Zm-78-47v1l23 49 19-24-42-26Zm104 13c-5 6-10 7-15 3l-2-2-42-49 8-10 43 50 6-8 8 8-6 8Zm-74-64-3-3c-3-3-4-7 0-11 3-4 6-4 9-3l3 4c2 2 3 6-1 11-3 4-6 4-8 2Zm90 44-51-59 8-11 10 12h1c-4-9-6-18 1-28l3-3 9 10-3 4c-9 11-7 22 0 30l30 34-8 11Zm-23-96 8-10 29 20 22 17 1-1-13-24-19-38 8-10 30 20 22 15 1-1-14-24-19-36 8-10 39 74-10 12-32-21-17-11h-1l11 20 19 39-10 12-63-43Zm159-81c-4 5-9 6-14 2l-3-3-2-2c6 13 6 22-1 31-8 11-22 11-36 0-19-14-33-41-18-60 5-8 14-11 23-7l1-1-9-10 8-10 44 50 6-8 7 9-6 8v1Zm-23 1c0-7-3-12-8-18l-11-13c-4-5-14-6-21 3-8 10-7 21 3 32l7 8 6 5c7 6 15 7 21-1 4-5 4-10 3-16Zm15-115 8-11 43 97c4 10 4 15-1 22l-7 9-8-8 9-11-8-16-69-39 7-10 32 18 24 15 1-1-14-28-17-37Zm57 31-1-12c9 0 16-3 21-10 6-8 6-16 0-21-4-3-8-3-14 2l-5 4c-9 8-18 12-28 4s-14-23-2-38c7-9 15-13 25-13l1 12c-6-1-12 2-18 9-6 8-5 15 1 19 3 3 7 4 13-2l5-4c9-8 18-11 29-4 11 10 13 25 2 39-8 10-18 16-29 15Z"/>
+                    </g>
+                    <defs>
+                      <clipPath id="a">
+                        <path fill="#fff" d="m495 1128 778-1009 280 216-778 1008z"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>18. Republic Airways</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="embraer aircraft grey-fill"><script>drawAircraft(230);</script></span></isotype-🛧>
@@ -462,7 +682,12 @@
             <!-- Hainan Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/hainan-tail.svg" alt="Hainan Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#E40014" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <path fill="#EDE952" fill-rule="evenodd" d="m960 421 156-155a111 111 0 0 1-155 155ZM843 538l38-38 27 23c50 40 109 70 172 78 40 5 84-1 117-25 30-21 47-55 52-90 7-48-6-97-27-141l-20-37c21 30 38 64 49 100 14 43 20 91 7 135-9 35-32 65-63 83-35 20-77 24-116 20-51-6-100-26-144-52l-35-24c-12-8-24-17-37-24-6-4-13-7-20-8Zm-42 42c30 4 57 21 81 38h1c44 29 92 53 143 68 46 13 97 18 144 5 42-12 80-41 100-80 21-40 24-87 17-131a430 430 0 0 0-93-203c14 15 25 31 36 48l2 2c38 59 67 125 75 194 6 48 2 97-20 140-22 42-61 75-107 88-49 15-101 10-150-2a605 605 0 0 1-161-66c-23-12-46-25-71-34-17-7-36-11-55-9l58-58ZM675 706 481 899a340 340 0 0 1 250-50c54 9 106 28 156 49 34 15 70 28 106 37 60 15 123 21 184 8 45-9 87-31 121-62 28-25 49-57 62-91 18-46 23-95 20-143-4-59-20-116-42-169-35-84-87-161-148-228 62 71 111 154 133 245 14 59 17 122-4 179-16 45-48 84-89 108-49 28-107 35-162 30-60-6-119-26-173-52l-1-1c-50-24-102-49-158-56-20-3-41-2-61 3Zm245 319c-20-41-52-75-91-98-47-29-103-43-158-46-74-4-150 13-214 50 42-9 86-11 129-9 39 2 78 9 114 23 35 13 67 34 90 62 15 20 27 44 26 69-1 19-10 38-27 49-17 10-41 9-56-5a47 47 0 0 1-11-55c9-19 32-30 52-26-16-7-33-10-50-6-30 5-56 26-67 54-10 25-8 54 3 78 25 58 90 96 153 88a146 146 0 0 0 128-141c1-31-7-61-21-87Z" clip-rule="evenodd"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>19. Hainan Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(183);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(40);</script></span></isotype-🛧>
@@ -480,7 +705,15 @@
             <!-- Air France -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/air-france-tail.svg" alt="Air France tailfin"></iso-tail>
+                <iso-tail>
+                  <svg  viewBox="0 0 1781 1385" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1776.5 3L1242 1382H7L1389.5 3H1776.5Z" fill="white"/>
+                    <path d="M1743.43 81.7688C1487.43 343.386 710.487 1135.24 514.877 1334.56C483.157 1366.89 421.191 1380 421.191 1380H518C518 1380 579.966 1366.89 611.691 1334.56C775.696 1167.44 1348.35 583.809 1680 245.377L1743.43 81.7688Z" fill="#1E1D4B"/>
+                    <path d="M1613.85 415.992C1283.41 753.021 851.639 1193.07 712.79 1334.56C681.064 1366.89 619.098 1380 619.098 1380H645.276C645.276 1380 707.242 1366.89 738.968 1334.56C871.828 1199.18 1272.88 790.433 1596.73 460.153L1613.85 415.992Z" fill="#1E1D4B"/>
+                    <path d="M1524.03 647.667C1245.96 931.198 958.645 1224.01 850.154 1334.56C818.429 1366.89 756.463 1380 756.463 1380H965.808C965.808 1380 1027.77 1366.89 1059.5 1334.56C1121.73 1271.15 1242.8 1147.76 1387.22 1000.55L1524.03 647.667Z" fill="#C30017"/>
+                    <path d="M206.691 1334.56C174.966 1366.89 113 1380 113 1380H322.345C322.345 1380 384.311 1366.89 416.037 1334.56C640.668 1105.66 1631.97 95.336 1720.54 4H1511.19C1422.62 95.336 431.329 1105.66 206.691 1334.56Z" fill="#1E1D4B"/>
+                    </svg>
+                </iso-tail>
                 <iso-airline-name>20. Air France</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(150);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(72);</script></span></isotype-🛧>
@@ -498,7 +731,12 @@
             <!-- Qatar Airways -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/qatar-tail.svg" alt="Qatar Airways tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#fff" d="M1769.5 0 1235 1379H0L1382.5 0h387Z"/>
+                    <path fill="#5C0931" d="M506.4 1002.6C402.6 1114.2 425 1109 394 1170.3c-6 11.8 6.1 27.8 14.6 30.5 8.4 2.7 16.6 3.6 38-5.3 21.3-9 28.6-25.2 36.5-25.2 8 0-1.5 28.3-12.6 37.2-11 9-38.8 11-38.8 11l87.3 87.3s32.7-7 76.3-41c43.7-33.8 89.7-133.3 111-169.5 21.2-36.1 67.7-181.8 67.7-181.8s-36 5.5-48.2 0c-12.3-5.5 0-31 32.7-55.5 32.8-24.5 45.4-26.3 45.4-26.3l21.4-76.9s18.7 46.5 23.2 76.9c4.5 30.3 9 81.8 9 81.8s38.5-84.7 48.2-81.8c9.8 2.8 22.8 151.8 9.8 196.8s-65.5 82-92.5 103-101 84.5-97.2 87c3.7 2.5 11 .5 28.6 0s57.7-15.4 70.9-17.7a177 177 0 0 1 43.2 0c7.5 1.2 18.7 9.8 26.3 17.7 7.7 8 114.1 160.5 114.1 160.5l226.1-.5 14-36.5-42-.3s-24.5.8-25-1.7 25-7.4 25-7.4l50.5-12.1 39.5-102s-121-10-127.5-10-23-3-24.7-7.7c-1.7-4.7 10.7-9.3 19.7-12.3s150.5-16 150.5-16l38.5-99-184-14s-14.3-1-14.3-5c0-4.2 16.8-8 28.8-10s187-16 187-16l43.5-112.5s-96-28.5-145.2-58c-49.2-29.5-89-76.4-89-76.4s-19.4-21.5-12.3-26.8c7-5.3 24.5 0 24.5 0s61.5 1 98.2-10.9c19.4-6.3 25.3-5.4 47.8-21.4 22.5-16 30.8-39 30.8-39S1112.1 670 1100.6 670s-17 2-20.2-4.3c-3.3-6.3 18.1-21.3 18.1-21.3s179.3-111.9 301.3-169.6C1505 425 1621.1 383 1621.1 383l29-74.5s-207.5 74.5-291.6 107.6c-84.1 33.2-344.4 191-360.9 197.8-10.4 4.3-26.5 13.6-29.5 10.1s1-11.5 12-22 207.4-145.5 355.2-228.5c147.8-83 359.3-180 359.3-180l35-90.5s-144.5 59.5-394.3 211.3S1168.1 396 895 614c-273 217.8-284.9 277-388.6 388.6Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>21. Qatar Airways</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(115);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(105);</script></span></isotype-🛧>
@@ -516,7 +754,61 @@
             <!-- Envoy Air -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/envoy-tail.svg" alt="Envoy Air tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <mask id="a" width="1770" height="1379" x="0" y="0" maskUnits="userSpaceOnUse" style="mask-type:alpha">
+                      <path fill="#fff" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    </mask>
+                    <g mask="url(#a)">
+                      <path fill="#841C1B" d="M-84 1324h1340l-21 55H-84v-55Z"/>
+                      <path fill="#D7D4DF" d="M-84 1269h1362l-22 55H-84v-55Z"/>
+                      <path fill="#C7C5D2" d="M-84 1214h1383l-21 55H-84v-55Z"/>
+                      <path fill="#FBF9FC" d="M-84 1158h1405l-22 56H-84v-56Z"/>
+                      <path fill="#D7D4DF" d="M-84 495h1661l-21 56H-84v-56Z"/>
+                      <path fill="#C7C5D2" d="M-84 937h1490l-21 55H-84v-55Zm0-111h1533l-22 56H-84v-56Zm0-551h1747l-22 55H-84v-55Zm1532-111h258l-22 56h-276l40-56ZM-84 551h1640l-22 55H-84v-55Z"/>
+                      <path fill="#B5171D" d="M-84 1102h1426l-21 55H-84v-55Z"/>
+                      <path fill="#841C1B" d="M-84 1047h1447l-21 55H-84v-55Z"/>
+                      <path fill="#1C1D4D" d="M220 1129h502l-20 28H220v-28Z"/>
+                      <path fill="#1D3160" d="M227 1102h516l-21 28H227v-28Z"/>
+                      <path fill="#1C1D4D" d="M234 1047h550l-41 55H234v-55Z"/>
+                      <path fill="#B5171D" d="M-84 771h1554l-21 55H-84v-55Zm910 221h559l-10 55H784l42-55Z"/>
+                      <path fill="#841C1B" d="M-84 716h1576l-22 55H-84v-55Z"/>
+                      <path fill="#B5171D" d="M1075 661h438l-6 55h-473l41-55Z"/>
+                      <path fill="#FBF9FC" d="M-84 882h1511l-21 55H-84v-55Zm0-662h1768l-21 55H-84v-55Zm0 386h1618l-21 55H-84v-55Z"/>
+                      <path fill="#B5171D" d="M-84 440h1683l-22 55H-84v-55Z"/>
+                      <path fill="#841C1B" d="M-84 385h1704l-21 55H-84v-55Z"/>
+                      <path fill="#1D3160" d="M248 1020h557l-21 28H248v-28Z"/>
+                      <path fill="#B5171D" d="M1324 330h317l-21 55h-338l42-55ZM-84 109h1811l-22 55H-84v-55Z"/>
+                      <path fill="#841C1B" d="M-84 54h1832l-21 55H-84V54Z"/>
+                      <path fill="#B5171D" d="M-84-1h1853l-21 55H-84V-1Z"/>
+                      <path fill="#1C1D4D" d="M376 964h470l-21 28H376v-28Z"/>
+                      <path fill="#1D3160" d="M383 937h483l-20 28H383v-28Z"/>
+                      <path fill="#1C1D4D" d="M390 882h518l-41 55H390v-55Z"/>
+                      <path fill="#1D3160" d="M404 855h524l-21 28H404v-28Z"/>
+                      <path fill="#1C1D4D" d="M696 638h396l-21 28H696v-28Z"/>
+                      <path fill="#1D3160" d="M703 611h409l-20 28H703v-28Z"/>
+                      <path fill="#1C1D4D" d="M710 556h444l-42 55H710v-55Z"/>
+                      <path fill="#1D3160" d="M724 529h450l-20 28H724v-28Z"/>
+                      <path fill="#1C1D4D" d="M534 798h438l-21 28H534v-28Z"/>
+                      <path fill="#1D3160" d="M541 771h451l-20 28H541v-28Z"/>
+                      <path fill="#1C1D4D" d="M548 716h486l-42 55H548v-55Z"/>
+                      <path fill="#1D3160" d="M562 689h492l-21 28H562v-28Z"/>
+                      <path fill="#1C1D4D" d="M885 467h336l-21 28H885v-28Z"/>
+                      <path fill="#1D3160" d="M892 440h349l-20 28H892v-28Z"/>
+                      <path fill="#1C1D4D" d="M899 385h384l-42 55H899v-55Z"/>
+                      <path fill="#1D3160" d="M913 358h390l-21 28H913v-28Z"/>
+                      <path fill="#1C1D4D" d="M1206 137h262l-21 28h-241v-28Z"/>
+                      <path fill="#1D3160" d="M1213 110h275l-20 28h-255v-28Z"/>
+                      <path fill="#1C1D4D" d="M1220 55h310l-42 55h-268V55Zm62-82h310l-42 55h-268v-55Z"/>
+                      <path fill="#1D3160" d="M1234 28h316l-20 28h-296V28Z"/>
+                      <path fill="#1C1D4D" d="M1042 302h304l-21 28h-283v-28Z"/>
+                      <path fill="#1D3160" d="M1049 275h317l-20 28h-297v-28Z"/>
+                      <path fill="#1C1D4D" d="M1056 220h351l-41 55h-310v-55Z"/>
+                      <path fill="#1D3160" d="M1070 193h358l-21 28h-337v-28Z"/>
+                    </g>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>22. Envoy Air</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="embraer aircraft grey-fill"><script>drawAircraft(205);</script></span></isotype-🛧>
@@ -533,7 +825,13 @@
             <!-- ANA -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/ana-tail.svg" alt="ANA tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#223F9A" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <path fill="#fff" d="M814 761c-1-3-1-7 1-10 3-2 7-3 9-1l257 146 90-91-215-307-40 39 166 237a8 8 0 0 1-10 11L815 639l-91 90 216 307 39-39-165-236Zm-42 266L647 918c-3-3-7-4-10-2-4 2-5 7-4 11l90 326-45 45-113-410 87-87 279 244-65 65-30-27c-6-6-16-6-22 0l-98 98-17-61 74-73c5-6 5-15-1-20Zm492-491-126-105c-4-3-8-3-12 0-2 2-2 5-2 8l101 313-44 44-128-396 87-87 285 238-65 66-31-26c-7-6-16-6-22 0l-92 91-19-59 68-68c6-5 5-14 0-19Z"/>
+                    <path fill="#00B3F0" d="M1752 0h18l-535 1379h-157L1752 0Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>23. ANA</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="boeing aircraft grey-fill"><script>drawAircraft(162);</script></span><span class="airbus aircraft grey-fill"><script>drawAircraft(40);</script></span></isotype-🛧>
@@ -551,7 +849,12 @@
             <!-- Shenzhen Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/shenzhen-tail.svg" alt="Shenzhen Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#CC0327" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <path fill="#A27F3F" fill-rule="evenodd" d="m1270 1290-18 44c-22-6-44-21-63-50l-179-271-3-5c-16-24-24-36-48-37-15-1-26 9-29 22-2 6-6 6-9 5l-47-14c-2 0-4-4-4-8-1-14 7-35 20-44 35-28 90-19 130-11 64 13 143 38 211 72l4 2c17 8 35 17 45 32l23 35 34 53-25 65-77-116a98 98 0 0 0-49-36l117 176-24 62c-9-8-17-17-25-29l-149-226c-8-12-26-21-44-25l181 271c10 16 19 26 28 33ZM998 698c-13 14-46 10-61 2s1-27 33-20c17 4 35 10 52 17 19 7 39 14 59 18 55 11 114-24 109-72-24 13-60 19-90 16-24-3-47-9-71-16-32-8-64-17-97-17-35 0-54 34-30 49-69-18-126 27-115 95 11-9 49-6 90 6 60 17 131 51 167 79 6 6 5 5-2 2l-7-2c-50-18-113-25-158-10-45 16-81 56-87 104-7 53 18 103 65 121 35 14 74 11 105-11 11-9 21-23 25-34 2-5-1-8-4-9l-47-15c-3-1-4 0-8 4-7 10-19 17-37 14-37-6-46-42-34-73 8-24 31-40 54-46 48-13 98-2 144 9 59 15 126 37 179 64 11 5 12-1 6-9-45-60-82-98-142-140-76-54-179-98-259-103 9-9 35-13 56-9 17 2 33 8 48 14l12 4c32 12 60-9 45-32Z" clip-rule="evenodd"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>24. Shenzhen Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(116);</script></span><span class="boeing aircraft grey-fill"><script>drawAircraft(82);</script></span></isotype-🛧>
@@ -569,7 +872,12 @@
             <!-- Spirit Airlines -->
             <iso-container>
               <iso-header>
-                <iso-tail><img src="/images/spirit-tail.svg" alt="Spirit Airlines tailfin"></iso-tail>
+                <iso-tail>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 1770 1379">
+                    <path fill="#FFEC00" d="m1770 0-535 1379H0L1383 0h387Z"/>
+                    <path fill="#231F20" d="m1259 433 29-29-34-54 56-55 34 55 37-36 28 44-37 36 44 69c10 16 14 15 29 0l19-20 27 42c-10 13-24 29-40 45-37 35-59 39-82 2l-53-83-29 28-28-44Zm-76 73 56-54 109 172-56 54-109-172Zm-38-60 56-54 26 40-56 55-26-41Zm-109 204 109 172 54-53-109-172-54 53Zm112-121c-25 24-40 87-8 141l7 12v-1c-10-26 0-56 27-82 7-7 16-14 24-19l-39-61-11 10ZM957 727l56-54 109 172-56 54-109-172Zm-38-60 56-55 26 41-56 54-26-40Zm6 302c25-25 30-54 12-82-19-29-42-30-68-5s-28 55-12 82c17 27 42 30 68 5Zm-178-37 54-53 15 23c1-29 15-58 37-80 51-50 105-48 142 12 32 49 27 119-25 170-25 24-50 33-68 30l49 78-56 54-148-234Zm-60 250c5 6 10 9 17 7 7-1 16-7 28-18 12-12 24-28 16-40-6-10-13-7-28 5l-54 41c-36 27-61 29-80 0-29-47-5-94 48-146 38-37 91-75 125-29l-63 61c-5-7-12-8-19-5-7 2-15 9-22 16-16 15-23 29-15 41 3 5 10 6 25-6l52-40c42-33 70-37 91-3 26 40 5 91-54 148-39 39-98 82-132 32l65-64Z"/>
+                  </svg>
+                </iso-tail>
                 <iso-airline-name>25. Spirit Airlines</iso-airline-name>
               </iso-header>
                 <isotype-🛧><span class="airbus aircraft grey-fill"><script>drawAircraft(195);</script></span></isotype-🛧>
