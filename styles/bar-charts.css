@@ -6,18 +6,16 @@
 }
 
 .chart-container {
-    max-width: 300px;
+  max-width: 300px;
+  font-family: "OpenSans", sans-serif;
 }
 
 .bar-chart {
   padding: 0.5rem;
-  font-family: "OpenSans", sans-serif;
   font-size: 0.9rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* margin-bottom: 2rem; */
-
   gap: 5px;
 }
 
