@@ -1,180 +1,24 @@
 
 :root {
---percentagefactor: 350px;
---chart-radius: 5px;
 --boeing-colour: #1D439C;
 --airbus-colour: #5197ee;
 --background-color: #eeece7;
 }
 
-
-/* rotate segment labels on mobile displays */
-@media screen and (min-width: 320px) {
-  .airbus-segment span,
-  .boeing-segment span {
-    transform: rotate(-90deg);
-    font-size: 0.7rem;
-  }
-
-  .bar-chart {
-    gap: 0.25rem;
-  }
-
-  .chart {
-    gap: 0.5rem;
-  }
-
-  :root {
-    --fleetfactor: 0.07px;
-    }
-
-  .row {
-    font-size: 0.7rem;
-  }
-
-  .airbus-left img {
-    width: 30px;
-    padding: 5px;
-  }
-
+.chart-container {
+    max-width: 300px;
 }
 
-/* remove text rotating on larger displays */
-@media screen and (min-width: 768px) {
-  .airbus-segment span,
-  .boeing-segment span {
-    transform: none;
-    font-size: 0.9rem;
-  }
-
-  .bar-chart {
-    gap: 1rem;
-  }
-
-  .chart {
-    gap: 1rem;
-  }
-
-  :root {
-    --fleetfactor: 0.15px;
-    }
-
-    .row {
-      font-size: 0.9rem;
-    }
-
-  .airbus-left img {
-    width: 50px;
-  }
-
-}
-
-.paper {
+.bar-chart {
   padding: 0.5rem;
   font-family: "OpenSans", sans-serif;
   font-size: 0.9rem;
-}
-
-.chart {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.row {
-  display: flex;
-}
-
-.airbus-left {
-  flex-grow: calc(1 - (var(--airbus)/(calc(var(--airbus) + var(--boeing)))));
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.airbus-left img {
-  padding: 5px;
-}
-
-.row span {
-  position: absolute;
-}
-
-.airbus-fleet {
-  height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
-  flex-grow: calc(var(--airbus)/(calc(var(--airbus) + var(--boeing))));
-  background: var(--airbus-colour);
-  border-radius:  var(--chart-radius) 0 0 var(--chart-radius);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  border-right: 1px solid var(--background-color);
-}
-
-
-.boeing-fleet {
-  height: calc((var(--airbus) + var(--boeing))*var(--fleetfactor));
-  flex-grow: calc(var(--boeing)/(calc(var(--airbus) + var(--boeing))));
-  background: var(--boeing-colour);
-  border-radius: 0 var(--chart-radius) var(--chart-radius) 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  border-left: 1px solid var(--background-color);
-  position: relative;
-  }
-
-.boeing-right {
-  flex-grow: calc(1 - (var(--boeing)/(calc(var(--airbus) + var(--boeing)))));
-}
-
-.airline-lables-left {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.chart-logo {
-    width: 50px;
-    padding: 5px;
-}
-
-
-.fleet-size {
-  display: flex;
-  align-items: center;
-  margin-left: 1rem;
-  border-left: 2px solid grey;
-  padding-left: 1rem;
-  position: absolute;
-}
-
-
-.source {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.source span {
-  padding: 5px;
-}
-
-.source img {
-  width: 40px;
-
-}
-
-/* For the stacked bar chart */
-
-.bar-chart {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-bottom: 2rem;
-  position: relative;
+  /* margin-bottom: 2rem; */
+
+  gap: 5px;
 }
 
 .bars {
@@ -183,14 +27,17 @@
   justify-content: flex-end;
   color: white;
   font-size: 0.8rem;
-  flex-grow: 1;
-  min-width: 0px;
-  gap: 2px;
+  min-width: 75px;
 }
 
-/* round-off the top of the bars */
+/* round-off the top of the top bars */
 .bars div:first-of-type{
-  border-radius: 5px 5px 0 0;
+  border-radius: 7px 7px 0 0;
+}
+
+/* round-off the bottom of bottom the bars */
+.bars div:last-of-type{
+  border-radius: 0 0 7px 7px;
 }
 
 /* show the total aircraft for the 1st and last bar */
@@ -198,6 +45,7 @@
   text-align: center;
   color: black;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .airbus-segment,
@@ -231,4 +79,38 @@ background: white;
   stroke:rgb(0,0,0);
   stroke-width: 1;
 }
+
+.bar-footer {
+  color: black;
+}
+
+.percentage  {
+  background: white;
+}
+
+.percentage span {
+  color: black;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.bar-footer {
+  margin: auto;
+  border-top: 1px solid black;
+  width: 93%;
+  height: 130px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.bar-footer svg {
+  width: 60px;
+}
+
 
