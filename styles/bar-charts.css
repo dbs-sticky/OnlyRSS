@@ -5,8 +5,14 @@
 --background-color: #eeece7;
 }
 
-.chart-container {
-  max-width: 300px;
+infographic-container {
+display: flex;
+gap: 2rem;
+flex-wrap: wrap;
+}
+
+chart-container {
+  max-width: 250px;
   font-family: "OpenSans", sans-serif;
 }
 
@@ -25,7 +31,7 @@
   justify-content: flex-end;
   color: white;
   font-size: 0.8rem;
-  min-width: 75px;
+  min-width: 50px;
 }
 
 /* round-off the top of the top bars */
@@ -55,12 +61,12 @@
 
 .boeing-segment {
   background: var(--boeing-colour);
-  height: calc(var(--boeing)*0.5px);
+  height: calc(var(--boeing)*0.4px);
 }
 
 .airbus-segment {
   background: var(--airbus-colour);
-  height: calc(var(--airbus)*0.5px);
+  height: calc(var(--airbus)*0.4px);
 }
 
 .bar-logo img {
