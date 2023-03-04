@@ -21,6 +21,91 @@
     <!-- Blog articles -->
 
 
+        <!-- air india putting their recent order into context -->
+    <item>
+      <guid isPermaLink="false">article22</guid>
+      <title>Air India: putting their recent order into context</title>
+      <link>https://onlyrss.org/posts/the-air-india-order.html</link>
+      <pubDate>Tue, 21 Feb 2023 11:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+
+    <article>
+      <section>
+        <h2>Putting the numbers into context</h2>
+          <p>
+            A lot of articles have been written recently that discuss Air India's record-breaking order of new Airbus and Boeing aircraft. Many articles have not however mentioned the size and breakdown of Air India's current fleet.
+          </p>
+          <p> 
+            I thought I'd try and reuse the same data visualisation (the isotype chart) from my <a href="../posts/top-25-pax-airlines.html">previous blog post</a> and create a new isotype chart for Air India that attempts to compare their current fleet alongside their recent order.
+          </p>
+          <p>
+            Before we get to the chart, just a quick note on the order itself. Strictly speaking, it's not what would be referred to as a firm-order. Air India have signed a Letter of Intent (LoI), this is defined below:
+          </p>
+
+          <p>
+            <strong>Letter of Intent:</strong> a written document stating that a customer agrees in principle to purchase aircraft from a manufacturer at a given price and for a given quantity, sometimes including an approximate delivery schedule. However, a deposit has not been paid and the buyer has not fully committed to the purchase as they are still able to walk away from the deal. Thus, the manufacturer cannot guarantee the delivery slots until the finer details of the purchase agreement are negotiated and agreed upon. Once the purchase agreement is signed and a deposit paid, the LoI is converted to a firm-order.
+          </p>
+          <h3>The chart</h3>
+          <p>
+            Whenever the media quote a number or a statistic, you should always ask yourself one question i.e. Is this a big number? (Or, in some cases, is this a small number?). Well, when it comes to the Air India Letter of Intent… yes, it's a really big number!
+          </p>
+
+
+      </section>
+
+        <div class="paper">
+
+          <div class="chart-title">
+            Air India's fleet
+          </div>
+
+          <div class="chart-description">
+            <div>
+              Solid colours reflect their current fleet i.e. in-service, stored, and firm-orders (there are just 5 aircraft on firm-order).<br>
+              Faded colours reflect the aircraft currently on Letter of Intent (LoI).<br>
+              <p>
+              They have a current fleet of <mark>126</mark> aircraft, the current fleet plus the LoI fleet is <mark>596</mark> aircraft. That's an increase of <mark>373%</mark>.
+              <p>
+            </div>
+          </div>
+
+            <div>
+          <img src="../images/air-india-rss.webp">
+            </div>
+
+      <section>
+        <h2>The data source</h2>
+        <p>
+          Data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Current fleet includes in-service, stored/parked, and aircraft on firm order. Data was captured on 19 February 2023.
+        </p>
+      </section>
+
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+        </p>
+      </footer>
+
+    </article>
+
+    <!-- related articles -->
+    <aside>
+      <h1>related articles</h1>
+      <a href="../posts/top-25-pax-airlines.html">
+        <h2>Infographic: The world's largest 25 airlines</h2>
+        <p>
+          A 'small-multiples isotype infographic' that shows the world's top 25 passenger airlines, broken down by aircraft manufacturer.
+        </p>
+      </a>
+    </aside>
+
+  </body>
+
+                ]]>
+      </description>
+    </item>
     <!-- Infographic: 25 largest passenger airlines -->
     <item>
       <guid isPermaLink="false">article21</guid>
