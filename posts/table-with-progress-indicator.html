@@ -3,21 +3,21 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML & CSS table with progress bars</title>
-    <meta name="description" content="A single isotype chart designed to put the recent Air India order into content.">
+    <title>HTML & CSS table with progress bars and percentage</title>
+    <meta name="description" content="Just sharing the HTML & CSS I used to create my 'learning log' tables.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
 
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
     <meta property="article:author" content="Mark Evans">
-    <meta property="og:title" content="HTML & CSS table with progress bars">
-    <meta property="og:url" content="https://onlyrss.org/posts/the-air-india-order.html">
-    <meta property="og:image" content="https://onlyrss.org/images/og/air-india-og.png">
+    <meta property="og:title" content="HTML & CSS table with progress bars and percentage">
+    <meta property="og:url" content="https://onlyrss.org/posts/table-with-progress-indicator.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/html-table-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:description" content="A single isotype chart designed to put the recent Air India order into content.">
-    <meta property="article:published_time" content="2023-02-21">
+    <meta property="og:description" content="Just sharing the HTML & CSS I used to create my 'learning log' tables.">
+    <meta property="article:published_time" content="2023-03-04">
 
     <!--Favicons and Touch Icons and web manifest-->
     <link rel="icon" href="/pwaicons/favicon.svg">
@@ -29,7 +29,6 @@
 
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main60.css">
-    <link rel="stylesheet" type="text/css" href="/styles/the-air-india-order.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
@@ -75,21 +74,6 @@
         font-style: normal;
         font-weight: 400;
         src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "RubikMonoOne";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RubikMonoOne-Regular.woff2) format("woff2");
-      }
-
-      /* This is required for the Unicode aircraft font, I used font forge to remove all glyphs except for U1F6E7 */
-      @font-face {
-        font-family: "Noto-aircraft";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/NotoSansSymbols2-ac-only.woff2) format("woff2");
       }
     </style>
 
@@ -137,10 +121,10 @@
 
     <article>
       <header>
-        <h1>HTML & CSS table with progress bars</h1>
+        <h1>HTML & CSS table with progress bars and percentage</h1>
         <div class="tldr">
           <p>
-            I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. 
+            I thought I'd update the tables that I used in my recent 'Learning Log 2022' article and share the HTML & CSS. 
           </p>
         </div>
 
@@ -153,23 +137,23 @@
           </div>
           
           <div class="byline-copy">
-            <time datetime="2023-02-21">21 Feb 2023</time> (pancake day!) · 2 min · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+            <time datetime="2023-03-04">4 Mar 2023</time> · 2 min · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
           </div>
 
           <div class="byline-svgs">
-            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/the-air-india-order.html&text=Air%20India:%20putting%20their%20recent%20order%20into%20context&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
+            <a href="https://twitter.com/intent/tweet?url=https://onlyrss.org/posts/table-with-progress-indicator.html&text=HTML%20and%20CSS%20table%20with%20progress%20bars%20and%20percentage&via=dbs_sticky" target="_blank" title="Share this article on Twitter">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-2 6.5v.4a7 7 0 0 1-10.8 5.9H7c1 0 2.2-.5 3-1-1 0-2-.8-2.3-1.8l.5.1h.6c-1-.3-2-1.3-2-2.5L8 11a2.8 2.8 0 0 1-1.1-2.2c0-.4 0-.8.3-1.2a7 7 0 0 0 5 2.6v-.6c0-1.4 1-2.5 2.5-2.5.7 0 1.3.3 1.8.8.6-.1 1-.4 1.5-.6a3 3 0 0 1-1.1 1.4c.5-.1 1-.2 1.5-.5-.4.5-.8 1-1.3 1.3H17Z"/>
               </svg>
             </a>
 
-            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/the-air-india-order.html&text=Air%20India:%20putting%20their%20recent%20order%20into%20context" target="_blank" title="Share this article on LinkedIn">
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/table-with-progress-indicator.html&text=HTML%20and%20CSS%20table%20with%20progress%20bars%20and%20percentage" target="_blank" title="Share this article on LinkedIn">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM9 17H6.5v-7H9v7ZM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3c.8 0 1.3.5 1.3 1.2s-.5 1.2-1.4 1.2ZM18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3-.3 0-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1 1.2 0 2.2 1 2.2 3.2V17Z"/>
               </svg>
             </a>
 
-            <a href="mailto:?subject=OnlyRSS.org%20article:Air%20India:%20putting%20their%20recent%20order%20into%20context&body=https://onlyrss.org/posts/the-air-india-order.html" target="_blank" title="Share this article via email">
+            <a href="mailto:?subject=OnlyRSS.org%20article:HTML%20and%20CSS%20table%20with%20progress%20bars%20and%20percentage&body=https://onlyrss.org/posts/table-with-progress-indicator.html" target="_blank" title="Share this article via email">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" >
                 <path  d="M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z"/>
               </svg>
@@ -181,10 +165,19 @@
 
 
       <section>
-        <h2>Putting the numbers into context</h2>
+        <h2>Background</h2>
           <p>
-            A lot of articles have been written recently that discuss Air India's record-breaking order of new Airbus and Boeing aircraft. Many articles have not however mentioned the size and breakdown of Air India's current fleet.
+            I recently created my first tables in HTML for my <a href="../posts/learning-log-2022.html" title="Read the 'Learning Log 2022' article">Learning Log 2022 post</a>. Each row in the table was a course or book I had used during the previous year, and I wanted to add a progress indicator within the rows to show my progress. It took some effort to get the tables looking and functioning the way I wanted (mostly due to declaring the progress variable in the HTML and not the CSS) that I thought the solution worth updating and sharing.
           </p>
+          <p>
+            The difference between the table shown below and those used in my previous article is the inclusion of the percentage indicator. That required a little hack that takes advantage of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters" title="Read about CSS Counters at mozilla.org.">CSS Counters</a>.
+          </p>
+
+        <h2>The result</h2>
+          <p>
+            The table, CSS, and HTML are all included below. You can also visit <a href="https://codepen.io/dbssticky/pen/XWPWGzm" Title="View and edit the table in CodePen">CodePen</a> to see (and edit) the table. The CodePen version includes some helpful comments in the CSS.
+          </p>
+
 
           <table class="mine">
             <thead>
@@ -231,8 +224,19 @@
               </tr>
             </tbody>
           </table>
+
+          <br>
+
           <p>
+            The tags in the first column are added via ::before pseudo-elements.
           </p>
+          <p>
+            The second column will use an ellipsis when the text is too long for the column (I'm not a fan of unequal row heights in tables).
+          </p>
+          <p>
+            For the third column, the percentage progress for each row is declared in the HTML as a <a href="https://www.w3schools.com/css/css3_variables.asp" title="Read about CSS Variables at W3Schools.">CSS Variable</a>. This is then used to set the progress bar length, and also the percentage text. If the percentage is equal to 100%, then the text is swapped for a “✓” and the progress bar colour is changed to green. 
+          </p>
+
 
           <div><script src="https://gist.github.com/dbs-sticky/51790962d806ab80ca8f0cede31d6129.js"></script></div>
 
@@ -250,10 +254,10 @@
     <!-- related articles -->
     <aside>
       <h1>related articles</h1>
-      <a href="../posts/top-25-pax-airlines.html">
-        <h2>Infographic: The world's largest 25 airlines</h2>
+      <a href="../posts/learning-log-2022.html">
+        <h2>Learning Log 2022</h2>
         <p>
-          A 'small-multiples isotype infographic' that shows the world's top 25 passenger airlines, broken down by aircraft manufacturer.
+          My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.
         </p>
       </a>
     </aside>

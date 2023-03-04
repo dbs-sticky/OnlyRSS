@@ -453,7 +453,7 @@ hr {
 .tldr p:first-child::before {
   font-weight: 500;
   color: #000000;
-  content: "Tl;dr: ";
+  content: "TLDR: ";
 }
 
 
