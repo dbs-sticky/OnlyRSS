@@ -17,7 +17,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="Just sharing the HTML & CSS I used to create my 'learning log' tables.">
-    <meta property="article:published_time" content="2023-03-04">
+    <meta property="article:published_time" content="2023-03-05">
 
     <!--Favicons and Touch Icons and web manifest-->
     <link rel="icon" href="/pwaicons/favicon.svg">
@@ -78,7 +78,89 @@
     </style>
 
     <style>
-      table.mine {resize: both;font-family: Sans-serif;max-width: 780px;min-width: 300px;table-layout: fixed;margin: auto;text-align: left;margin-top: 50px;border-collapse: collapse;box-shadow: 0 0 10px 1px rgb(0 0 0 / 15%);border-radius: 10px;overflow: hidden;line-height: 2.5rem;}th {background-color: AliceBlue;}th, td {padding: 6px 10px;}th:nth-child(1) {width: 70px;}td:nth-child(2) {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}th:nth-child(3) {width: 30%;}progress-meter {display: block;height: 10px;box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);border-radius: 5px;padding: 1px;margin-right: 2rem;position: relative;}progress-percent {display: block;height: 100%;border-radius: 5px;width: calc(var(--progress) * 1%);background-color: IndianRed;font-size: 70%;color: grey;}progress-percent[style="--progress: 100"] {background-color: MediumAquamarine;}progress-percent::after {counter-reset: percent var(--progress);content: counter(percent) '%';position: absolute;right: -2rem;bottom: -0.9rem;}progress-percent[style="--progress: 100"]::after {content: '✓';right: -1rem;bottom: -0.9rem;}:where(course-tag, tutorial-tag, book-tag):before {font-size: 0.8rem;color: white;border-radius: 3px;padding: 1px 5px;}course-tag:before {background-color: MediumVioletRed;content: "course";}tutorial-tag:before {background-color: SteelBlue;content: "tutorial";}book-tag:before {background-color: MediumPurple;content: "book";}
+      table.mine {
+          font-family: Sans-serif;
+          width: 90%;
+          max-width: 700px;
+          table-layout: fixed;
+          margin: auto;
+          text-align: left;
+          margin-top: 50px;
+          border-collapse: collapse;
+          box-shadow: 0 0 10px 1px rgb(0 0 0 / 15%);
+          border-radius: 10px;
+          overflow: hidden;
+          line-height: 2.5rem;
+      }
+      th {
+          background-color: AliceBlue;
+      }
+      th,
+      td {
+          padding: 6px 10px;
+      }
+      th:nth-child(1) {
+          width: 70px;
+      }
+      td:nth-child(2) {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+      th:nth-child(3) {
+          width: 30%;
+      }
+      progress-meter {
+          display: block;
+          height: 10px;
+          box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+          border-radius: 5px;
+          padding: 1px;
+          margin-right: 2rem;
+          position: relative;
+      }
+      progress-percent {
+          display: block;
+          height: 100%;
+          border-radius: 5px;
+          width: calc(var(--progress) * 1%);
+          background-color: IndianRed;
+          font-size: 70%;
+          color: grey;
+      }
+      progress-percent[style="--progress: 100"] {
+          background-color: MediumAquamarine;
+      }
+      progress-percent::after {
+          counter-reset: percent var(--progress);
+          content: counter(percent) "%";
+          position: absolute;
+          right: -2rem;
+          bottom: -0.9rem;
+      }
+      progress-percent[style="--progress: 100"]::after {
+          content: "✓";
+          right: -1rem;
+          bottom: -0.9rem;
+      }
+      :where(course-tag, tutorial-tag, book-tag):before {
+          font-size: 0.8rem;
+          color: white;
+          border-radius: 3px;
+          padding: 1px 5px;
+      }
+      course-tag:before {
+          background-color: MediumVioletRed;
+          content: "course";
+      }
+      tutorial-tag:before {
+          background-color: SteelBlue;
+          content: "tutorial";
+      }
+      book-tag:before {
+          background-color: MediumPurple;
+          content: "book";
+      }
     </style>
 
     <style>
@@ -124,7 +206,7 @@
         <h1>HTML & CSS table with progress bars and percentage</h1>
         <div class="tldr">
           <p>
-            I thought I'd update the tables that I used in my recent 'Learning Log 2022' article and share the HTML & CSS. 
+            I updated the tables I used in my recent 'Learning Log 2022' article with percentage indicators and have shared the HTML & CSS. 
           </p>
         </div>
 
@@ -137,7 +219,7 @@
           </div>
           
           <div class="byline-copy">
-            <time datetime="2023-03-04">4 Mar 2023</time> · 2 min · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+            <time datetime="2023-03-05">5 Mar 2023</time> · 1 min · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
           </div>
 
           <div class="byline-svgs">
@@ -167,10 +249,10 @@
       <section>
         <h2>Background</h2>
           <p>
-            I recently created my first tables in HTML for my <a href="../posts/learning-log-2022.html" title="Read the 'Learning Log 2022' article">Learning Log 2022 post</a>. Each row in the table was a course or book I had used during the previous year, and I wanted to add a progress indicator within the rows to show my progress. It took some effort to get the tables looking and functioning the way I wanted (mostly due to declaring the progress variable in the HTML and not the CSS) that I thought the solution worth updating and sharing.
+            I recently created my first HTML tables for my <a href="../posts/learning-log-2022.html" title="Read the 'Learning Log 2022' article">Learning Log 2022 article</a>. Each row in the table was a course or book I had used during the previous year, and I wanted to add a progress indicator within the rows to show my progress. It took some effort to get the tables looking and functioning the way I wanted (mostly due to declaring the progress variable in the HTML and not the CSS) so I thought the solution was worth sharing.
           </p>
           <p>
-            The difference between the table shown below and those used in my previous article is the inclusion of the percentage indicator. That required a little hack that takes advantage of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters" title="Read about CSS Counters at mozilla.org.">CSS Counters</a>.
+            The difference between the table shown below and those used in my previous article is the inclusion of the percentage value. That required a little hack that takes advantage of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters" title="Read about CSS Counters at mozilla.org.">CSS Counters</a>.
           </p>
 
         <h2>The result</h2>
@@ -224,19 +306,24 @@
               </tr>
             </tbody>
           </table>
+      </section>
 
           <br>
 
+      <section>
+        <h2>Notes and code</h2>
           <p>
             The tags in the first column are added via ::before pseudo-elements.
           </p>
           <p>
-            The second column will use an ellipsis when the text is too long for the column (I'm not a fan of unequal row heights in tables).
+            The second column will use an ellipsis when the text is too long for the column (there's a special place in Hell for people who build tables with unequal row-heights).
           </p>
           <p>
             For the third column, the percentage progress for each row is declared in the HTML as a <a href="https://www.w3schools.com/css/css3_variables.asp" title="Read about CSS Variables at W3Schools.">CSS Variable</a>. This is then used to set the progress bar length, and also the percentage text. If the percentage is equal to 100%, then the text is swapped for a “✓” and the progress bar colour is changed to green. 
           </p>
-
+          <p>
+            To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
+          </p>
 
           <div><script src="https://gist.github.com/dbs-sticky/51790962d806ab80ca8f0cede31d6129.js"></script></div>
 
