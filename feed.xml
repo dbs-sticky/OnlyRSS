@@ -21,6 +21,65 @@
     <!-- Blog articles -->
 
 
+            <!-- html and css table -->
+    <item>
+      <guid isPermaLink="false">article23</guid>
+      <title>HTML and CSS table with progress bar and percentage</title>
+      <link>https://onlyrss.org/posts/table-with-progress-indicator.html</link>
+      <pubDate>Sun, 05 Mar 2023 11:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+      <section>
+        <h2>Background</h2>
+          <p>
+            I recently created my first HTML tables for my <a href="../posts/learning-log-2022.html" title="Read the 'Learning Log 2022' article">Learning Log 2022 article</a>. Each row in the table was a course or book I had used during the previous year, and I wanted to add a progress indicator within the rows to show my progress. It took some effort to get the tables looking and functioning the way I wanted (mostly due to declaring the progress variable in the HTML and not the CSS) so I thought the solution was worth sharing.
+          </p>
+          <p>
+            The difference between the table shown below and those used in my previous article is the inclusion of the percentage value. That required a little hack that takes advantage of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Counter_Styles/Using_CSS_counters" title="Read about CSS Counters at mozilla.org.">CSS Counters</a>.
+          </p>
+
+        <h2>The result</h2>
+          <p>
+            An image of the table is included below. You can visit <a href="https://codepen.io/dbssticky/pen/XWPWGzm" Title="View and edit the table in CodePen">CodePen</a> to see (and edit) the table and view the HTML & CSS. The CodePen version includes some helpful comments in the CSS.
+          </p>
+
+          <img src="https://onlyrss.org/images/og/html-table-og.png" alt="">
+
+      </section>
+
+          <br>
+
+      <section>
+        <h2>Notes and code</h2>
+          <p>
+            The tags in the first column are added via ::before pseudo-elements.
+          </p>
+          <p>
+            The second column will use an ellipsis when the text is too long for the column (there's a special place in Hell for people who build tables with unequal row-heights).
+          </p>
+          <p>
+            For the third column, the percentage progress for each row is declared in the HTML as a <a href="https://www.w3schools.com/css/css3_variables.asp" title="Read about CSS Variables at W3Schools.">CSS Variable</a>. This is then used to set the progress bar length, and also the percentage text. If the percentage is equal to 100%, then the text is swapped for a “✓” and the progress bar colour is changed to green. 
+          </p>
+          <p>
+            To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
+          </p>
+
+      </section>
+
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+        </p>
+      </footer>
+
+    </article>
+                ]]>
+      </description>
+    </item>
+
+
+
         <!-- air india putting their recent order into context -->
     <item>
       <guid isPermaLink="false">article22</guid>
