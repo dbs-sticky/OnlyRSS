@@ -1,3 +1,0 @@
- Disallow: /posts/the-air-india-order.html
- Disallow: /posts/top-25-airlines.html
- Disallow: /pages/top-25-pax-airlines-infographic.html
