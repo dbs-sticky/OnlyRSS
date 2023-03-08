@@ -649,13 +649,16 @@ aside h2:hover {
   cursor: pointer;
   font-weight: 500;
   color: var(--accent);
+  list-style: none;
+
 }
 
-/* remove the focus box, and make focused text underlined, (for users who tab through the page */
-.show-me summary:focus {
-  outline: 0;
-  text-decoration: underline;
+.show-me {
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding: 5px 0;
 }
+
 
 /* append "open" to the end of summary text */
 .show-me summary::after {
