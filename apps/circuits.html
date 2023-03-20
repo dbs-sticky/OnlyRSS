@@ -6,10 +6,9 @@
     <title>Circuits</title>
     <meta
       name="description"
-      content="A web app for generating a random selection of exercises for a circuit training session."
-    />
-    <meta name="author" content="Mark Evans" />
-    <meta name="theme-color" content="#ffffff" />
+      content="A web app for generating a random selection of exercises for a circuit training session.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
 
     <!--TODO add suitable OpenGraph data here-->
 
@@ -65,30 +64,54 @@
 
         // define the array
         const all_exercises = [
-          ["air squats ×40", "back squats ×20", "front squats ×20"],
           ["skip ×150"],
+          [
+            "air squats ×40", 
+            "back squats ×20", 
+            "front squats ×20"
+          ],
+          [
+            "dead lifts ×15",
+            "sumo lifts ×15"
+          ],
           ["burpees ×20"],
           ["row 500m"],
           [
-            "pull-ups ×10",
-            "ring pull-ups ×10",
+            "pull-ups ×10", 
+            "ring pull-ups ×10", 
             "finger board pull-ups ×10",
           ],
           ["sit-ups ×35"],
           ["good mornings ×20"],
-          ["push-ups ×25", "ring push-ups ×15"],
+          [
+            "push-ups ×25", 
+            "ring push-ups ×15"
+          ],
           ["lunges ×30"],
           ["curls ×15"],
           ["ring rows ×12"],
-          ["bench dips ×30", "assisted ring dips ×20"],
-          ["power snatch ×15", "power clean ×25", "power clean & jerk ×15"],
+          [
+            "bench dips ×30", 
+            "assisted ring dips ×20"
+          ],
+          [
+            "power snatch ×15", 
+            "snatch ×10"],
+          [
+            "power clean ×15", 
+            "squat clean ×10", 
+            "power clean & jerk ×10"
+          ],
           ["hanging leg raises ×25"],
           ["bench press ×15"],
           ["calf raises ×20"],
           ["plank 45s"],
           ["kettlebell swings ×30"],
           ["kettlebell push-press ×20(pa)"],
-          ["kettlebell bench rows ×20(pa)", "dynamic kettlebell rows ×40"],
+          [
+            "kettlebell bench rows ×20(pa)", 
+            "dynamic kettlebell rows ×40"
+          ],
           ["incline dumbbell flyes ×20"],
           ["dumbbell lateral raises ×20"],
           ["pullovers ×25"],
@@ -141,8 +164,7 @@
           step="1"
           min="1"
           max=""
-          oninput="numberOutputId.value = userInput.value"
-        />
+          oninput="numberOutputId.value = userInput.value">
         <p>
           <button class="app-workout" onclick="myFunction()">Create new workout</button>
         </p>
