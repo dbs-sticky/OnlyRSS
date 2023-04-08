@@ -258,6 +258,7 @@ h1 {
   text-transform: uppercase;
   line-height: 2.5rem;
   color: var(--accent);
+  text-wrap: balance;
 }
 
 h2 {
