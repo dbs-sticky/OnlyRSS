@@ -20,6 +20,120 @@
 
     <!-- Blog articles -->
 
+
+            <!-- Using 'text-wrap: balance' -->
+    <item>
+      <guid isPermaLink="false">article25</guid>
+      <title>Using 'text-wrap: balance'</title>
+      <link>https://onlyrss.org/posts/css-balance.html</link>
+      <pubDate>Tue, 11 Apr 2023 11:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+    <article>
+      <section>
+        <h2>
+          Background
+        </h2>
+          <p>
+            If you're reading this then you are probably already aware of the upcoming new CSS feature:
+          </p>
+          <pre><code>text-wrap: balance;</code></pre>
+          <p>
+            If not, then please visit the <a href="https://developer.chrome.com/blog/css-text-wrap-balance/" title="view the full explanation at the Chrome dev blog">Chrome dev blog</a> for the full details.
+          </p>
+          <p>
+            Basically, it's a way to "balance" titles, headings, and short paragraphs such that there are a similar number of words per line (and hence avoid widowed words). For simplicity, I'm going to refer to it as <em>CSS Balance</em> from now on.
+          </p>
+          <p>
+            I'm not going to repeat the information that's available on the Chrome dev blog, the aim of this article is to demonstrate the effect of using CSS Balance on a typical blog, specifically this blog. Basically, I'm going to show some examples so you can decide if it's something you should implement on your website.
+          </p>
+      </section>
+
+      <section>
+          <h2>Examples</h2>
+          <p>
+            The following examples have not been configured specifically to demonstrate the effects of CSS Balance, they are simply the result of enabling CSS Balance on titles and headings on this website.
+          </p>
+          <h3>Homepage cards</h3>
+          <p>
+            Figure 1 below shows the first 3 cards from my homepage. Figure 2 shows the same 3 cards but with CSS Balance enabled.
+          </p>
+
+         <figure>
+          <img src="https://onlyrss.org/images/balance-before.webp" width="995" height="437" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+          <figcaption>Figure 1. Without CSS Balance enabled.</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://onlyrss.org/images/balance-after.webp" width="995" height="437" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+          <figcaption>Figure 2.With CSS Balance enabled.</figcaption>
+        </figure>
+
+        <p>
+          As you can see, CSS Balance has had an effect on the titles of all 3 cards. The effect is probably most beneficial on the first card, where the words "Product" and "Manager" belong together, and on the second card, where the words "progress" and "bars" benefit from being together.
+        </p>
+        <p>
+           In total, 13 out of the 22 homepage cards have multiline titles, and each one of those multiline titles was altered when CSS Balance was enabled. 
+        </p>
+
+        <p>
+          Where CSS Balance is probably most beneficial is in stopping scenarios like that shown below in Figure 3, i.e. where a single number has appeared on a line by itself. Although to be fair, a non-breaking space should probably have been used in this scenario to keep "Windows" and "10" together.
+        </p>
+
+        <figure>
+          <img src="https://onlyrss.org/images/balance.webp" width="698" height="430" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+          <figcaption>Figure 3. Without CSS Balance (left), and with CSS Balance (right).</figcaption>
+        </figure>
+        <h3>
+          Article titles (Desktop)
+        </h3>
+        <p>
+          I use a wider article page layout compared to the majority of blogs i.e. 840px, and I don't tend to use very long article titles. Because of this, my article titles typically only span a single line, and therefore CSS Balance has no effect when viewing my articles on a typical desktop.
+        </p>
+
+
+        <h3>
+          Article titles (&lt;Desktop)
+        </h3>
+        <p>
+          Once you view articles on something narrower than a typical desktop display, the situation is very different.
+        </p>
+
+        <figure>
+          <img src="https://onlyrss.org/images/15-million-no-balance.gif" width="684" height="139" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+          <figcaption>Figure 4. Without CSS Balance.</figcaption>
+        </figure>
+
+        <p>
+          In Figure 4 above, where CSS Balance is NOT enabled, we see that as the viewport width is reduced, the last word on the first line simply drops to a new line, as you would expect. This is a good example of why CSS Balance is useful, without it "meters" becomes disconnected from "million", which then becomes disconnected from "15".
+        </p>
+
+        <p>
+          With CSS Balance enabled (Figure 5 below), there is far less movement of the title as the viewport width is reduced, and the phrase "15 million meters" remains together.
+        </p>
+
+
+        <figure>
+          <img src="https://onlyrss.org/images/15-million-balance.gif" width="684" height="139" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+          <figcaption>Figure 5. With CSS Balance.</figcaption>
+        </figure>
+
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+          So, should you enable CSS Balance on your website? Yeah, why not, it's literally 1 line of CSS. It's easy to enable it for your website (you'll need to try it in a canary build of Google Chrome) and then see if you like the effects. I'll be leaving it enabled on onlyrss.org, and will wait for browsers to add support.
+        </p>
+      </section>
+
+      <article>
+                ]]>
+      </description>
+    </item>
+
+
+
             <!-- 10 benefits of RSS for Product Managers -->
     <item>
       <guid isPermaLink="false">article24</guid>
