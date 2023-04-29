@@ -480,6 +480,15 @@ hr {
   font-size: 0.85rem;
 }
 
+/* Turn the "reading time" inot a tag */
+.byline-copy span {
+  background-color: #EAEAEA;
+  font-family: "Roboto Condensed", sans-serif;
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 0.7rem;
+}
+
 /* added this as the SVG links seem to have a vertical offset due to the link underline */
 .byline-svgs {
   height: 35px;
