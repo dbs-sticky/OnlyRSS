@@ -1,10 +1,8 @@
 /* define global site variables */
 :root {
   --pagewidth: 960px;
-  --hue: 215;
-  --saturation: 40%;
-  --accent: hsl(var(--hue), var(--saturation), 50%);
-  --accent-light: hsl(var(--hue), var(--saturation), 90%);
+  --accent: SteelBlue;
+  --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
   --radius: 10px;
   --bodytext: #46484b;
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
