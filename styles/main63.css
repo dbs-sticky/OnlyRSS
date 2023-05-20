@@ -4,13 +4,13 @@
   --accent: SteelBlue;
   --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
   --radius: 10px;
-  --bodytext: #46484b;
+  --bodytext: darkslategrey;
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  /* This defines the left/right padding between the browser edge and content for narrow displays. Set here as it's used in <body> and separately for the <nav> (nav uses "absolute" positioning so ignores the padding set on <body>, hence the inclusion as a variable. */
   --viewport-padding: 10px;
+  --background-color: white;
 }
 
-/*  ======================
+ /* ======================
     ONLY USED FOR DEBUGGING - comment-out before deployment
     ====================== */
 
@@ -58,8 +58,8 @@ html {
   font-family: "Roboto Serif", serif;
   font-weight: 400;
   color: var(--bodytext);
-  overflow-y: scroll; /* stops horizontal shift due to scrollbar */
-  accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
+  scrollbar-gutter: stable;
+  accent-color: var(--accent);
   scroll-behavior: smooth;
 }
 
@@ -67,7 +67,7 @@ body {
   counter-reset: figures;
   padding-left: var(--viewport-padding);
   padding-right: var(--viewport-padding);
-  background-color: #ffffff;
+  background-color: var(--background-color);
 }
 
 /*  ======================
@@ -195,7 +195,7 @@ body {
 article,
 main,
 aside {
-  background-color: #ffffff;
+  background-color: var(--background-color);
   border-radius: var(--radius);
   border: 1px solid LightGrey;
   max-width: var(--pagewidth);
@@ -205,12 +205,6 @@ aside {
   margin-bottom: 20px;
 }
 
-/* padding so top of content is below fixed global nav */
-header + article,
-header + main,
-header + main.home-grid {
-  margin-top: 3.5rem;
-}
 
 article,
 main {
@@ -253,7 +247,7 @@ h1 {
   text-transform: uppercase;
   line-height: 2.5rem;
   color: var(--accent);
-  text-wrap: balance;
+  text-wrap: balance; /* not yet supported May 2023 */
 }
 
 h2 {
@@ -273,7 +267,7 @@ h3 {
 strong {
   font-weight: 500;
   font-style: italic;
-  color: #000000;
+  color: black;
 }
 
 /* define a highlighter pen style with a bit of overspill */
@@ -292,7 +286,7 @@ mark {
 
 /* Links */
 a {
-  color: #000000;
+  color: black;
   text-decoration: none;
   transition: color 0.4s;
   /* transition from normal colour to hover colour */
@@ -376,7 +370,7 @@ pre code {
   border: 1px solid rgb(221, 221, 221);
   display: inline-block;
   padding: 10px;
-  color: #000000;
+  color: black;
   border-radius: var(--radius);
   font-size: 0.7rem;
   /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
@@ -448,7 +442,7 @@ hr {
 /* automatically add the TLDR coloured text before the first paragraph in the TDLR div */
 .tldr p:first-child::before {
   font-weight: 500;
-  color: #000000;
+  color: black;
   content: "TLDR: ";
 }
 
@@ -480,7 +474,7 @@ hr {
 
 /* Turn the "reading time" inot a tag */
 .byline-copy span {
-  background-color: #EAEAEA;
+  background-color: Gainsboro;
   font-family: "Roboto Condensed", sans-serif;
   border-radius: 3px;
   padding: 2px 5px;
@@ -551,12 +545,17 @@ nav li a::after {
   content: "";
 }
 
+/* make the nav stick to the top of the page when the gap benwteen the nav and the top of the page is zero i.e. always */
+header.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 1rem;
+}
 
 nav {
-  position: fixed;
   padding-top: 8px;
   padding-bottom: 8px;
-  top: 0px;
   background-color: white;
   max-width: var(--pagewidth);
   margin: auto;
@@ -565,11 +564,8 @@ nav {
   border: 1px solid LightGrey;
   box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
   text-transform: uppercase;
-  z-index: 1;
-  transition: top 0.5s;
-  /* this is required as fixed items (like the nav) ignore the containers padding/margin) */
-  left: var(--viewport-padding);
-  right: var(--viewport-padding);
+
+
 }
 
 /* this forces all elements to the right of the Home button to move to the far-right */
@@ -600,7 +596,7 @@ button {
   border-radius: var(--radius);
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
-  color: #ffffff;
+  color: white;
   font-size: 0.8rem;
   background: var(--accent);
   padding: 5px 10px 5px 10px;
@@ -786,8 +782,7 @@ a.icons {
 a.icons svg {
   /* grow on hover for 0.7s  */
   transition: all 0.7s ease-in-out;
-  stroke: #2e2e2e;
-  /* set stoke colour to match the font colour  */
+  stroke: var(--bodytext);
   stroke-width: 0.3px;
 }
 
@@ -808,7 +803,7 @@ a.icons:active {
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   font-size: 0.9rem;
-  background: rgb(216, 216, 216);
+  background: lightgray;
   padding: 5px 10px;
   border-style: none;
   width: 33ch;
@@ -830,6 +825,7 @@ a.icons:active {
   padding: 0px;
   max-width: 1024px;
   justify-content: center;
+  gap: 1.8rem;
 }
 
 /* set the card link styles */
@@ -842,12 +838,12 @@ a.icons:active {
 /* the cards are made of a card-container (flex column, space-between), at the top of which is a card-img, then the card-body (flex 1), and then the card-footer. The card footer contains 2 divs (flex row space-between) for the date and tag */
 
 card-container { 
-  background-color: rgb(255, 255, 255);
+  background-color: white;
   transition: 0.5s;
   width: 300px;
   /* height: 400px; */
   border-radius: 10px;
-  margin: 15px;
+  /* margin: 15px; */
   box-shadow: 0 0px 10px rgb(0 0 0 / 20%);
   display: flex;
   flex-direction: column;
@@ -1072,7 +1068,7 @@ progress-percent {
   height: 100%;
   overflow: hidden;
   border-radius: 5px;
-  background-color: #F7A3A3;
+  background-color: LightCoral;
   width: calc(var(--progress) * 1%);
   font-family: "Roboto Condensed", sans-serif;
 }
@@ -1083,7 +1079,7 @@ progress-percent[style="--progress: 100"] {
   height: 100%;
   overflow: hidden;
   border-radius: 6px;
-  background-color: #a3e2c0;
+  background-color: LightSeaGreen;
   width: calc(var(--progress) * 1%);
   font-family: "Roboto Condensed", sans-serif;
 }
@@ -1092,7 +1088,7 @@ progress-percent[style="--progress: 100"] {
 :where(course-tag, tutorial-tag, book-tag, video-tag ):before {
   font-size: 0.7rem;
   font-family: "Roboto Condensed", sans-serif;
-  color: rgb(255, 255, 255);
+  color: white;
   border-radius: 3px;
   padding: 1px 5px;
   margin-left: 5px;
