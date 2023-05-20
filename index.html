@@ -27,6 +27,19 @@
     <link rel="stylesheet" type="text/css" href="/styles/main63.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
+
+    <script>
+      const input = document.querySelector('#color-picker input');
+
+      // Get the CSS custom property
+      const customProperty = '--accent';
+
+      // When the user changes the value of the input, update the CSS custom property
+      input.addEventListener('change', () => {
+        document.documentElement.style.setProperty(customProperty, input.value);
+      });
+    </script>
+
     <!--Roboto Condensed for nav bar, Open Sans regular and bold for cards-->
     <style>
       @font-face {
@@ -50,7 +63,8 @@
         font-weight: 600;
         src: url(/fonts/OpenSans-Bold.woff2) format("woff2");
       }
-    </style>
+
+      </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -58,6 +72,7 @@
         navigator.serviceWorker.register("service-worker.js");
       }
     </script>
+
   </head>
 
   <body>
@@ -73,6 +88,11 @@
       </nav>
     </header>
 
+
+    <div id="color-picker">
+      <input type="color" name="color" value="#ffffff">
+      <input type="button" value="Set Color">
+    </div>
 
     <main class="home-grid">
 

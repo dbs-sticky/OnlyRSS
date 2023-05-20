@@ -1,14 +1,36 @@
 /* define global site variables */
 :root {
   --pagewidth: 960px;
-  --accent: SteelBlue;
+  /* --accent: SteelBlue; */
   --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
   --radius: 10px;
   --bodytext: darkslategrey;
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --viewport-padding: 10px;
   --background-color: white;
+
 }
+
+#color-picker input {
+    width: 100px;
+  }
+
+  #color-picker input[type=color] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+  }
+
+  #color-picker input[type=color]::-ms-color-picker {
+    width: 100%;
+  }
+
+  /* Set the CSS custom property to the value of the input */
+  :root {
+    --accent: var(--color-picker-color);
+  }
+
 
  /* ======================
     ONLY USED FOR DEBUGGING - comment-out before deployment
