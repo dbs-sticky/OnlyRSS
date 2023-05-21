@@ -3,12 +3,17 @@
   --pagewidth: 960px;
   --accent: SteelBlue;
   --accent-light: #dae6f0; /* Fallback*/
-  --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
   --radius: 10px;
   --bodytext: darkslategrey;
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --viewport-padding: 10px;
   --background-color: white;
+}
+
+@supports (--accent-light: color-mix(in srgb, var(--accent), transparent 80%)) {
+  :root {
+    --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
+  }
 }
 
  /* ======================
