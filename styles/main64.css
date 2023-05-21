@@ -2,6 +2,7 @@
 :root {
   --pagewidth: 960px;
   --accent: SteelBlue;
+  --accent-light: #dae6f0; /* Fallback*/
   --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
   --radius: 10px;
   --bodytext: darkslategrey;
