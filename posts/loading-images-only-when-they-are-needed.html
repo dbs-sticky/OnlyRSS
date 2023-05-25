@@ -7,7 +7,8 @@
     <meta name="description" content="Using the Details and Summary HTML elements combined with lazyloading to display and load images only when (or if) they are needed">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-
+    <meta name="view-transition" content="same-origin">
+    
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
     <meta property="article:author" content="Mark Evans">
@@ -93,7 +94,7 @@
 
     <article>
       <header>
-        <h1>Loading images only when (or if) they are needed</h1>
+        <h1 style="view-transition-name: post12">Loading images only when (or if) they are needed</h1>
         <div class="tldr">
           <p>
             Images placed inside the &lt;details&gt; HTML element with the attribute 'loading="lazy"' won't be loaded by the browser until (or if) the user selects to expand the &lt;summary&gt; section. This can mean faster page loads and an improved user experience, especially if the page includes many “optional” images.
