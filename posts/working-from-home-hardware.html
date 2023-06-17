@@ -77,6 +77,10 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
+
+    
+    <script src="../scripts/outline.js"></script>
+    <script src="../scripts/figures.js"></script>
   </head>
 
   <body>
@@ -99,6 +103,17 @@
           <p>
             If you work from home on a regular basis, invest in a good monitor—or better still, two! Wire up your home with Ethernet, and for the love of all that's holy, ditch your tiny Bluetooth earbuds and get a real wired headset!
           </p>
+
+          <details class="changelog">
+            <summary >
+              Table of Contents </ux-tag>
+            </summary>
+            <div>Sections</div>
+            <div id="doc_outline"></div>
+            <div>Figures</div>
+            <div id="doc_figures"></div>
+          </details>
+
         </div>
 
         <!-- Flexrow -->
@@ -143,9 +158,8 @@
                 <path  d="M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z"/>
               </svg>
             </a>
-          </div>
-
-        </div>  <!--class byline-->
+          </div>  <!--class byline-->
+        </div>
       </header>
 
       <!-- Intro - section -->
@@ -273,6 +287,12 @@
       </footer>
       
     </article>
+
+    <script>
+      // Call the function to create and display the outline
+      createOutline();
+      createFigures();
+      </script>
 
     <!-- related articles -->
     <aside>

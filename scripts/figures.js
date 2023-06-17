@@ -1,35 +1,34 @@
 // Define a function named createOutline
-function createOutline() {
+function createFigures() {
   // Get all the headings in the document
-  let headings = document.querySelectorAll("h2");
+  let headings = document.querySelectorAll("figure");
 
   // Create an empty array to store the outline items
-  let outline = [];
+  let figures = [];
 
   // Loop through the headings and extract the text and level
   for (let heading of headings) {
     let text = heading.textContent;
     let level = parseInt(heading.tagName.slice(1));
-    level -= 2;
     // Get the index of the heading in the headings array
     let index = Array.prototype.indexOf.call(headings, heading);
     // Generate an id based on the index
-    let id = "heading-" + index;
+    let id = "figure-" + index;
     // Set the id attribute of the heading element
     heading.setAttribute("id", id);
     // Push an object with the text, level and id to the outline array
-    outline.push({text, level, id});
+    figures.push({text, level, id});
   }
 
   // Create a function to display the outline as a nested list
-  function displayOutline(outline) {
+  function displayOutline(figures) {
     // Create an empty string to store the html output
     let html = "";
     // Keep track of the current level and the previous level
     let currentLevel = 0;
     let previousLevel = 0;
     // Loop through the outline items
-    for (let item of outline) {
+    for (let item of figures) {
       // Get the text and level of the item
       let text = item.text;
       let level = item.level;
@@ -57,5 +56,5 @@ function createOutline() {
   }
 
   // Display the outline in the div with id "docoutline"
-  document.getElementById("doc_outline").innerHTML = displayOutline(outline);
+  document.getElementById("doc_figures").innerHTML = displayOutline(figures);
 }
