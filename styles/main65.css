@@ -532,6 +532,39 @@ article>footer a:hover {
 }
 
 /*  ======================
+    OUTLINE
+    ====================== */
+
+.outline {
+  width: 200px;
+  position: fixed;
+  padding-left: 2rem;
+  font-family: "Roboto Condensed";
+}
+div.outline {
+  color: var(--accent);
+}
+
+
+.outline li:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.outline li a::after {
+  content: "";
+}
+
+.outline li {
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+
+/*  ======================
     NAVIGATION
     ====================== */
 
