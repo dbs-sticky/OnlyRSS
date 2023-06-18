@@ -535,16 +535,34 @@ article>footer a:hover {
     OUTLINE
     ====================== */
 
+/* only show the outline on viewports that exceed a certain width */
+@media only screen and (max-width: 1650px) {
+  .outline {
+    display: none !important;
+  }
+}
+
 .outline {
   width: 200px;
   position: fixed;
-  padding-left: 2rem;
-  font-family: "Roboto Condensed";
+  margin-left: calc(50vw - 750px);
+  font-family: "Roboto Condensed", sans-serif;
+  animation: fade-in-out 1s ease-in-out;
 }
+
+
+@keyframes fade-in-out {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 div.outline {
   color: var(--accent);
 }
-
 
 .outline li:last-of-type {
   margin-bottom: 1rem;
@@ -562,6 +580,10 @@ div.outline {
   overflow: hidden;
   white-space: nowrap;
   line-height: 1.5;
+
+  /* display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; */
 }
 
 /*  ======================
