@@ -20,9 +20,9 @@ function createOutline(elementType, targetId) {
     });
     
     
-		// Create a link to each heading inside an unordered list
-		let contentList = document.createElement("ul");
-		outline.forEach( o => { 
+    // Create a link to each heading inside an unordered list
+    let contentList = document.createElement("ul");
+    outline.forEach( o => { 
         let li = document.createElement("li");
         let a = document.createElement("a");
         a.setAttribute("href", `#${o.id}`);
