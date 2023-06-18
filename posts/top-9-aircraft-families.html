@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main66.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main67.css">
     <link rel="stylesheet" type="text/css" href="/styles/top-9-aircraft-families.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
@@ -132,6 +132,7 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
+    <script src="../scripts/outline.js"></script>
   </head>
 
   <body>
@@ -146,6 +147,13 @@
         </ul>
       </nav>
     </header>
+
+    <div class="outline">
+      <div>Sections</div>
+      <div id="doc_outline"></div>
+      <div>Figures</div>
+      <div id="doc_figures"></div>
+    </div>
 
     <article>
       <header>
@@ -286,5 +294,12 @@
       </footer>
 
     </article>
+
+    <script>
+      // Call the function to create and display the outline
+      createHeadingsOutline();
+      createFiguresOutline();
+    </script>
+
   </body>
 </html>
