@@ -4,23 +4,23 @@
  * @param {string} targetId The element ID into which the generated list of links will be added.
  */
 function createOutline(elementType, targetId) {
-    // Get all the headings in the document
-    let headings = document.querySelectorAll(elementType);
+    // Get all the items (eg, h2, figure) in the document
+    let elements = document.querySelectorAll(elementType);
 
     // Create an empty array to store the outline items
     let outline = [];
 
-    // Process each heading and add to the outline array
-    headings.forEach((heading, idx) => {
-        text = heading.textContent;
-        id = `${elementType}-${idx}`;
-        // Set an ID for each heading
-        heading.setAttribute("id", id);
+    // Process each item and add to the outline array
+    elements.forEach((element, index) => {
+        text = element.textContent;
+        id = `${elementType}-${index}`;
+        // Set an ID for each item
+        element.setAttribute("id", id);
         outline.push({text, id});
     });
     
     
-    // Create a link to each heading inside an unordered list
+    // Create a link to each item inside an unordered list
     let contentList = document.createElement("ul");
     outline.forEach( o => { 
         let li = document.createElement("li");
