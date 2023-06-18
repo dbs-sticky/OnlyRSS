@@ -1,7 +1,7 @@
 // Define a function named createOutline
 function createFigures() {
   // Get all the headings in the document
-  let headings = document.querySelectorAll("figure");
+  let headings = document.querySelectorAll("figcaption");
 
   // Create an empty array to store the outline items
   let figures = [];
