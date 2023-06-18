@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {string} elementType The element type to enumerate and create and outline of. eg: `h2`, `figure`
+ * @param {string} targetId The element ID into which the generated list of links will be added.
+ */
 function createOutline(elementType, targetId) {
     // Get all the headings in the document
     let headings = document.querySelectorAll(elementType);
@@ -33,10 +38,16 @@ function createOutline(elementType, targetId) {
   
 }
 
+/**
+ * Creates an outline from `h2` elements in the document and writes to `doc_outline`
+ */
 function createHeadingsOutline(){
   createOutline("h2", "doc_outline");
 }
 
+/**
+ * Creates an outline from `figure` elements in the document and writes to `doc_figures`
+ */
 function createFiguresOutline(){
   createOutline("figure", "doc_figures")
 }
