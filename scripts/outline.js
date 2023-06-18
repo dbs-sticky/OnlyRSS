@@ -1,61 +1,53 @@
-// Define a function named createOutline
-function createOutline() {
-  // Get all the headings in the document
-  let headings = document.querySelectorAll("h2");
+/**
+ * 
+ * @param {string} elementType The element type to enumerate and create and outline of. eg: `h2`, `figure`
+ * @param {string} targetId The element ID into which the generated list of links will be added.
+ */
+function createOutline(elementType, targetId) {
+    // Get all the items (eg, h2, figure) in the document
+    let elements = document.querySelectorAll(elementType);
 
-  // Create an empty array to store the outline items
-  let outline = [];
+    // Create an empty array to store the outline items
+    let outline = [];
 
-  // Loop through the headings and extract the text and level
-  for (let heading of headings) {
-    let text = heading.textContent;
-    let level = parseInt(heading.tagName.slice(1));
-    level -= 2;
-    // Get the index of the heading in the headings array
-    let index = Array.prototype.indexOf.call(headings, heading);
-    // Generate an id based on the index
-    let id = "heading-" + index;
-    // Set the id attribute of the heading element
-    heading.setAttribute("id", id);
-    // Push an object with the text, level and id to the outline array
-    outline.push({text, level, id});
-  }
+    // Process each item and add to the outline array
+    elements.forEach((element, index) => {
+        text = element.textContent;
+        id = `${elementType}-${index}`;
+        // Set an ID for each item
+        element.setAttribute("id", id);
+        outline.push({text, id});
+    });
+    
+    
+    // Create a link to each item inside an unordered list
+    let contentList = document.createElement("ul");
+    outline.forEach( o => { 
+        let li = document.createElement("li");
+        let a = document.createElement("a");
+        a.setAttribute("href", `#${o.id}`);
+        // Set title attribute, to help with long text
+        a.setAttribute("title", o.text.trim());
+        a.textContent = o.text;
+        li.appendChild(a);
+        contentList.appendChild(li);
+    });
+  
+  // Append the generated links to the outline div
+	document.getElementById(targetId).appendChild(contentList);
+  
+}
 
-  // Create a function to display the outline as a nested list
-  function displayOutline(outline) {
-    // Create an empty string to store the html output
-    let html = "";
-    // Keep track of the current level and the previous level
-    let currentLevel = 0;
-    let previousLevel = 0;
-    // Loop through the outline items
-    for (let item of outline) {
-      // Get the text and level of the item
-      let text = item.text;
-      let level = item.level;
-      // Update the current level
-      currentLevel = level;
-      // If the current level is greater than the previous level, start a new list
-      if (currentLevel > previousLevel) {
-        html += "<ul>";
-      }
-      // If the current level is less than the previous level, close the list
-      if (currentLevel < previousLevel) {
-        html += "</ul>".repeat(previousLevel - currentLevel);
-      }
-      // Get the id of the corresponding html element
-      let id = item.id;
-      // Add a list item with a hyperlink to the html element
-      html += "<li><a href='#" + id + "'>" + text + "</a></li>";
-      // Update the previous level
-      previousLevel = currentLevel;
-    }
-    // Close any remaining lists
-    html += "</ul>".repeat(currentLevel);
-    // Return the html output
-    return html;
-  }
+/**
+ * Creates an outline from `h2` elements in the document and writes to `doc_outline`
+ */
+function createHeadingsOutline(){
+  createOutline("h2", "doc_outline");
+}
 
-  // Display the outline in the div with id "docoutline"
-  document.getElementById("doc_outline").innerHTML = displayOutline(outline);
+/**
+ * Creates an outline from `figure` elements in the document and writes to `doc_figures`
+ */
+function createFiguresOutline(){
+  createOutline("figure", "doc_figures")
 }
