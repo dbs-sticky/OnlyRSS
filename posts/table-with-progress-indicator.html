@@ -87,6 +87,7 @@
           margin: auto;
           text-align: left;
           margin-top: 50px;
+          margin-bottom: 30px;
           border-collapse: collapse;
           box-shadow: 0 0 10px 1px rgb(0 0 0 / 15%);
           border-radius: 10px;
@@ -203,6 +204,8 @@
     <div class="outline">
       <div>Sections</div>
       <div id="doc_outline"></div>
+      <div>Figures</div>
+      <div id="doc_figures"></div>
     </div>
 
     <article>
@@ -278,52 +281,57 @@
             The table, CSS, and HTML are all included below. You can also visit <a href="https://codepen.io/dbssticky/pen/XWPWGzm" Title="View and edit the table in CodePen">CodePen</a> to see (and edit) the table. The CodePen version includes some helpful comments in the CSS.
           </p>
 
+          <figure>
+            <table class="mine">
+              <thead>
+                <tr>
+                  <th>Format</th><th>Resource</th><th>Progress</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><course-tag></course-tag></td>
+                  <td>LinkedIn's ‘Become a data analyst’</td>
+                  <td>
+                    <progress-meter>
+                      <progress-percent style="--progress: 25"></progress-percent>
+                    </progress-meter>
+                  </td>
+                </tr>
+                <tr>
+                  <td><tutorial-tag></tutorial-tag></td>
+                  <td>W3School's ‘SQL tutorial’</td>
+                  <td>
+                    <progress-meter>
+                      <progress-percent style="--progress: 100"></progress-percent>
+                    </progress-meter>
+                  </td>
+                </tr>
+                <tr>
+                  <td><book-tag></book-tag></td>
+                  <td>DBeaver User Manual</td>
+                  <td>
+                    <progress-meter>
+                      <progress-percent style="--progress: 75"></progress-percent>
+                    </progress-meter>
+                  </td>
+                </tr>
+                <tr>
+                  <td><course-tag></course-tag></td>
+                  <td>PL-300: Power BI Data Analyst</td>
+                  <td>
+                    <progress-meter>
+                      <progress-percent style="--progress: 60"></progress-percent>
+                    </progress-meter>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <figcaption>
+                The table with progress indicators.
+            </figcaption>
+          </figure>
 
-          <table class="mine">
-            <thead>
-              <tr>
-                <th>Format</th><th>Resource</th><th>Progress</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><course-tag></course-tag></td>
-                <td>LinkedIn's ‘Become a data analyst’</td>
-                <td>
-                  <progress-meter>
-                    <progress-percent style="--progress: 25"></progress-percent>
-                  </progress-meter>
-                </td>
-              </tr>
-              <tr>
-                <td><tutorial-tag></tutorial-tag></td>
-                <td>W3School's ‘SQL tutorial’</td>
-                <td>
-                  <progress-meter>
-                    <progress-percent style="--progress: 100"></progress-percent>
-                  </progress-meter>
-                </td>
-              </tr>
-              <tr>
-                <td><book-tag></book-tag></td>
-                <td>DBeaver User Manual</td>
-                <td>
-                  <progress-meter>
-                    <progress-percent style="--progress: 75"></progress-percent>
-                  </progress-meter>
-                </td>
-              </tr>
-              <tr>
-                <td><course-tag></course-tag></td>
-                <td>PL-300: Power BI Data Analyst</td>
-                <td>
-                  <progress-meter>
-                    <progress-percent style="--progress: 60"></progress-percent>
-                  </progress-meter>
-                </td>
-              </tr>
-            </tbody>
-          </table>
       </section>
 
           <br>
@@ -343,7 +351,13 @@
             To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
           </p>
 
-          <div><script src="https://gist.github.com/dbs-sticky/51790962d806ab80ca8f0cede31d6129.js"></script></div>
+          <figure>
+            <div><script src="https://gist.github.com/dbs-sticky/51790962d806ab80ca8f0cede31d6129.js"></script>
+            </div>
+            <figcaption>
+                The CSS (top) and HTML (bottom) used to style the table.
+            </figcaption>
+          </figure>
 
       </section>
 
