@@ -444,14 +444,12 @@ img {
 /* target figures that contain images with an onclick event (zoom and enhance article */
 figure:has(img[onclick])::before {
   position: absolute;
-  content: "Click to toggle";
+  content: "click/tap to toggle";
   font-weight: 500;
   padding: 0.5rem;
-  margin: 0.5rem;
   color: white;
   background: rgb(0, 0, 0, 70%);
-  border-radius: 5px;
-  pointer-events: none;
+  pointer-events: none; /* This lets users click through the overlay to the img below */
 }
 
 /* target image with an onclick event (zoom and enhance article */
