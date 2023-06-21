@@ -458,6 +458,10 @@ figure:has(img[onclick^="change"]) {
 cursor:pointer;
 }
 
+/* for removing the tap highlight on mobile */
+figure:has(img[onclick^="change"]):focus {
+  -webkit-tap-highlight-color: transparent; 
+}
 
 /* rule, only used on About & subscribe pages */
 hr {
