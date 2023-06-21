@@ -452,8 +452,8 @@ figure:has(img[onclick])::before {
   pointer-events: none; /* This lets users click through the overlay to the img below */
 }
 
-/* target image with an onclick event (zoom and enhance article */
-img[onclick^="change"] {
+/* target image with an onclick event (zoom and enhance article) */
+img[onclick] {
 cursor:pointer;
 -webkit-tap-highlight-color: transparent;  /* remove the blue highlight on img tap on mobile */
 }
