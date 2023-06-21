@@ -441,6 +441,23 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* target figures that contain images with an onclick event (zoom and enhance article */
+figure:has(img[onclick])::before {
+  position: absolute;
+  content: "Click to toggle";
+  font-weight: 500;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  color: white;
+  background: rgb(0, 0, 0, 70%);
+  border-radius: 5px;
+}
+
+/* target image with an onclick event (zoom and enhance article */
+figure:has(img[onclick^="change"]) {
+cursor:pointer;
+}
+
 
 /* rule, only used on About & subscribe pages */
 hr {
