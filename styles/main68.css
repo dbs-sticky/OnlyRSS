@@ -451,10 +451,11 @@ figure:has(img[onclick])::before {
   color: white;
   background: rgb(0, 0, 0, 70%);
   border-radius: 5px;
+  pointer-events: none;
 }
 
 /* target image with an onclick event (zoom and enhance article */
-figure:has(img[onclick^="change"]) {
+img[onclick^="change"] {
 cursor:pointer;
 }
 
