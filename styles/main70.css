@@ -454,19 +454,10 @@ figure:has(img[onclick])::before {
   pointer-events: none;
 }
 
-/* for removing the tap highlight on mobile */
-figure:has(img[onclick^="change"]):focus {
-  -webkit-tap-highlight-color: transparent; 
-}
-
 /* target image with an onclick event (zoom and enhance article */
 img[onclick^="change"] {
 cursor:pointer;
-}
-
-/* for removing the tap highlight on mobile */
-figure:has(img[onclick^="change"]):focus {
-  -webkit-tap-highlight-color: transparent; 
+-webkit-tap-highlight-color: transparent;  /* remove the blue highlight on img tap on mobile */
 }
 
 /* rule, only used on About & subscribe pages */
