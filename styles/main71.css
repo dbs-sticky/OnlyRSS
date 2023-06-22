@@ -441,21 +441,24 @@ img {
   max-width: 100%;
   height: auto;
 }
-/* target figures that contain images with an onclick event (zoom and enhance article */
+/* target figures that contain images with an onclick event (e.g. zoom and enhance article */
 figure:has(img[onclick])::before {
   position: absolute;
   content: "click/tap to toggle";
   font-weight: 500;
-  padding: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.4rem;
   color: white;
   background: rgb(0, 0, 0, 70%);
-  pointer-events: none; /* This lets users click through the overlay to the img below */
+  /* This lets users click through the overlay to the img below */
+  pointer-events: none;
 }
 
-/* target image with an onclick event (zoom and enhance article) */
+/* target image with an onclick event (e.g.zoom and enhance article) */
 img[onclick] {
 cursor:pointer;
--webkit-tap-highlight-color: transparent;  /* remove the blue highlight on img tap on mobile */
+/* remove the blue highlight on img tap on mobile */
+-webkit-tap-highlight-color: transparent; 
 }
 
 /* rule, only used on About & subscribe pages */
