@@ -442,6 +442,7 @@ img {
   height: auto;
 }
 /* target figures that contain images with an onclick event (e.g. zoom and enhance article */
+/* I tried to add the overlay to the img, not the figure, but for some reason it did not appear. */
 figure:has(img[onclick])::before {
   position: absolute;
   content: "click/tap to toggle";
