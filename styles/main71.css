@@ -558,7 +558,7 @@ article>footer a:hover {
     ====================== */
 
 /* only show the outline on viewports that exceed a certain width */
-@media only screen and (max-width: 1650px) {
+@media ( width <= 1550px) {
   .outline {
     display: none !important;
   }
@@ -572,6 +572,8 @@ article>footer a:hover {
   animation: fade-in-out 1s ease-in-out;
   color: var(--accent);
   opacity: 0.7;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
 }
 
 
