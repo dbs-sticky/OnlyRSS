@@ -1,0 +1,342 @@
+/* define global site variables */
+:root {
+  --pagewidth: 850px;
+  --links: #00C19F;
+  --accent: #FF6654;
+  --bodytext: black;
+}
+
+/* Switch to 'border box', and reset browser margin & padding to zero */
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-family: "Roboto Serif", serif;
+  font-weight: 400;
+  color: var(--bodytext);
+  overflow-y: scroll; /* stops horizontal shift due to scrollbar */
+  accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
+  scroll-behavior: smooth;
+  background-color: #FCFAF6;
+}
+
+
+/*  ======================
+    SET MEDIA QUERIES
+    ====================== */
+
+/* set size for 320px - 768px ≈16px/100% */
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 95%;
+    line-height: 1.6;
+  }
+
+  article,
+  nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+   blockquote {
+    margin-left: 0px !important;
+  }
+
+  ul,
+  ol {
+    margin-left: 1rem !important;
+  }
+}
+
+/* set size for >768px 120% */
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 105%;
+  }
+
+  article,
+  nav {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+
+  blockquote {
+    margin-left: 2rem !important;
+  }
+
+  ul,
+  ol {
+    margin-left: 3rem !important;
+  }
+}
+
+/*  ======================
+    TYPOGRAPHY IMAGES and Summary
+    ====================== */
+
+article {
+  max-width: var(--pagewidth);
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 1.4em 0px;
+  line-height: 1.9;
+}
+
+/* Headings - shared */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto Slab", serif;
+  font-weight: 500;
+  line-height: 1.6rem;
+  /* keep the space between headings tight */
+  margin: 0px 0px;
+  text-wrap: balance;
+}
+
+/* Headings - individual */
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  line-height: 3.5rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+/* keep the space between any heading and the fist paragraph tight */
+:where(h1, h2, h3, h4, h5, h6) + p {
+  /* margin-top: 0px; */
+}
+
+strong {
+  font-weight: 500;
+  font-style: italic;
+  color: #000000;
+}
+
+em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* Links */
+a {
+  color: var(--links);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline solid;
+}
+
+summary {
+  text-align: right;
+  cursor: pointer;
+  font-family: "Roboto Condensed";
+  color:var(--links);
+}
+
+details div {
+  font-family: "Roboto Condensed";
+  border: 1px solid #b9b9b9;
+  border-radius: 5px;
+  padding: 15px;
+  background: #eeeeee;
+  margin-bottom: 20px;
+}
+
+
+/* blockquotes  */
+blockquote {
+  margin: 2rem 0;
+  padding: 1rem;
+  font-size: 1.7em;
+  font-weight: 500;
+  font-style: normal;
+
+  width: 150%;
+  position: relative;
+  left: -25%;
+  text-align: center;
+}
+
+.social {
+display:flex;
+flex-direction:row-reverse;
+text-decoration: none;
+height: 35px;
+  }
+/* quotes - should also be used within blockquotes */
+q {
+  font-style: italic;
+  color: black;
+  font-weight: 500;
+}
+
+ul,
+ol {
+  margin: 2rem 0;
+  line-height: 1.6rem;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+/* article byline */
+/* article byline and sharing icons */
+.pubrow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 1rem;
+  align-items:center;
+}
+
+.pubdate {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 0.85rem;
+}
+
+ svg {
+  height: 30px;
+  margin: 0.8rem;
+  transition: all 0.3s ease-in-out;
+  vertical-align: bottom;
+}
+
+ svg:hover {
+  transform: scale(1.2);
+}
+
+.pubrow a:hover {
+  text-decoration: none;
+}
+
+
+/* Figures & images */
+figure {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+/* images */
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* rule, only used on About page */
+hr {
+  margin-bottom: 50px;
+}
+
+.tldr {
+  text-align: center;
+  font-style: italic;
+}
+/*  ======================
+    SOCIAL SHARING
+    ====================== */
+
+.sharing {
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0rem;
+  line-height: 0;
+}
+
+/*  ======================
+    NAVIGATION
+    ====================== */
+
+nav {
+  display: flex;
+  background-color: transparent;
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  max-width: var(--pagewidth);
+  margin: auto;
+}
+
+.top-bar {
+  background:#2D2926;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #999999;
+}
+
+nav a {
+  color: #FFFFFF;
+  padding: 3px 15px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+nav img {
+  width: 25px;
+  vertical-align: middle; 
+}
+
+nav a:first-child {
+margin: 5px 0px 5px -15px;
+}
+
+/* a[title="Homepage"] {
+margin-left: -10px;
+}
+
+a[title="Who made this site, and why?"] {
+  margin-right: -10px;
+  } */
+
+nav a:hover,
+nav a.nav-active {
+  text-decoration: none;
+}
+
+/* a span is placed between the home and other nav link to split them left and right */
+nav span {
+  flex: 1;
+}
+
+button {
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 0.8rem;
+  background: var(--accent);
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-style: none;
+}
+
+button:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+header + p:first-letter {
+  initial-letter: 2;
+  padding-right: 0.5rem;
+}
