@@ -573,9 +573,8 @@ article>footer a:hover {
   color: var(--accent);
   opacity: 0.7;
   padding-left: 1rem;
-  border-left: 2px solid var(--accent);
+  border-left: 2px solid var(--accent-light);
 }
-
 
 @keyframes fade-in-out {
   from {
