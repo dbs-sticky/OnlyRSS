@@ -105,7 +105,7 @@ h1 {
   font-size: 2.5rem;
   line-height: 3.5rem;
   text-align: center;
-  margin-top: 3rem;
+  margin: 2rem 0;
 }
 
 h2 {
@@ -143,17 +143,9 @@ a:hover {
   text-decoration: underline solid;
 }
 
-summary {
-  text-align: right;
-  cursor: pointer;
-  font-family: "Roboto Condensed";
-  color:var(--links);
-}
-
 /* quotes - should also be used within blockquotes */
 q {
   font-style: italic;
-  font-weight: 500;
 }
 
 /* blockquotes  */
@@ -191,7 +183,7 @@ li::marker {
   flex-direction: column;
   justify-content: space-between;
   border-bottom: 1px solid lightgray;
-  padding-bottom: 1rem;
+  padding: 1rem 0;
   align-items:center;
 }
 
@@ -201,10 +193,11 @@ li::marker {
 }
 
  svg {
-  height: 30px;
+  height: 25px;
   margin: 0.8rem;
   transition: all 0.3s ease-in-out;
   vertical-align: bottom;
+
 }
 
  svg:hover {
