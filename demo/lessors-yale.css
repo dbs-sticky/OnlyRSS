@@ -74,7 +74,7 @@ article {
  align-items: center;
 }
 
-p {
+p, q {
   margin: 0.7rem 0px;
   line-height: 1.9;
   max-width: var(--pagewidth);
@@ -146,6 +146,21 @@ a:hover {
 /* quotes - should also be used within blockquotes */
 q {
   font-style: italic;
+}
+
+aside {
+  position: relative;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 15rem;
+  width: 15rem;
+}
+
+aside div {
+  text-align: center;
 }
 
 /* blockquotes  */
