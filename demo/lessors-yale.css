@@ -1,6 +1,6 @@
 /* define global site variables */
 :root {
-  --pagewidth: 850px;
+  --pagewidth: 750px;
   --links: #00C19F;
   --accent: #FF6654;
   --bodytext: black;
@@ -29,20 +29,15 @@ html {
     ====================== */
 
 /* set size for 320px - 768px ≈16px/100% */
-@media screen and (min-width: 320px) {
+@media (width < 767px) {
   html {
     font-size: 95%;
     line-height: 1.6;
   }
 
-  article,
-  nav {
+  article {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-  }
-
-   blockquote {
-    margin-left: 0px !important;
   }
 
   ul,
@@ -52,20 +47,16 @@ html {
 }
 
 /* set size for >768px 120% */
-@media screen and (min-width: 768px) {
+@media (width > 768px) {
   html {
     font-size: 105%;
   }
 
-  article,
-  nav {
+  article {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
   }
 
-  blockquote {
-    margin-left: 2rem !important;
-  }
 
   ul,
   ol {
@@ -78,14 +69,20 @@ html {
     ====================== */
 
 article {
-  max-width: var(--pagewidth);
-  margin: auto;
-  margin-bottom: 20px;
+ display:flex;
+ flex-direction: column;
+ align-items: center;
 }
 
 p {
-  margin: 1.4em 0px;
+  margin: 0.7rem 0px;
   line-height: 1.9;
+  max-width: var(--pagewidth);
+}
+
+header + p:first-letter {
+  initial-letter: 2;
+  padding-right: 0.5rem;
 }
 
 /* Headings - shared */
@@ -98,15 +95,14 @@ h6 {
   font-family: "Roboto Slab", serif;
   font-weight: 500;
   line-height: 1.6rem;
-  /* keep the space between headings tight */
   margin: 0px 0px;
   text-wrap: balance;
+  max-width: var(--pagewidth);
 }
 
 /* Headings - individual */
 h1 {
   font-size: 2.5rem;
-  text-transform: uppercase;
   line-height: 3.5rem;
   text-align: center;
   margin-top: 3rem;
@@ -154,28 +150,20 @@ summary {
   color:var(--links);
 }
 
-details div {
-  font-family: "Roboto Condensed";
-  border: 1px solid #b9b9b9;
-  border-radius: 5px;
-  padding: 15px;
-  background: #eeeeee;
-  margin-bottom: 20px;
+/* quotes - should also be used within blockquotes */
+q {
+  font-style: italic;
+  font-weight: 500;
 }
-
 
 /* blockquotes  */
 blockquote {
   margin: 2rem 0;
-  padding: 1rem;
-  font-size: 1.7em;
-  font-weight: 500;
-  font-style: normal;
-
-  width: 150%;
-  position: relative;
-  left: -25%;
+  font-size: 1.4rem;
+  max-width: calc(var(--pagewidth)*1.5);
   text-align: center;
+  line-height: 1.5;
+  color: var(--accent);
 }
 
 .social {
@@ -184,12 +172,7 @@ flex-direction:row-reverse;
 text-decoration: none;
 height: 35px;
   }
-/* quotes - should also be used within blockquotes */
-q {
-  font-style: italic;
-  color: black;
-  font-weight: 500;
-}
+
 
 ul,
 ol {
@@ -267,76 +250,10 @@ hr {
   line-height: 0;
 }
 
-/*  ======================
-    NAVIGATION
-    ====================== */
 
-nav {
-  display: flex;
-  background-color: transparent;
-  font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
-  max-width: var(--pagewidth);
-  margin: auto;
-}
-
-.top-bar {
-  background:#2D2926;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #999999;
-}
-
-nav a {
-  color: #FFFFFF;
-  padding: 3px 15px;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-nav img {
-  width: 25px;
-  vertical-align: middle; 
-}
-
-nav a:first-child {
-margin: 5px 0px 5px -15px;
-}
-
-/* a[title="Homepage"] {
-margin-left: -10px;
-}
-
-a[title="Who made this site, and why?"] {
-  margin-right: -10px;
-  } */
-
-nav a:hover,
-nav a.nav-active {
-  text-decoration: none;
-}
-
-/* a span is placed between the home and other nav link to split them left and right */
-nav span {
-  flex: 1;
-}
-
-button {
-  font-family: "Roboto Condensed", sans-serif;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-size: 0.8rem;
-  background: var(--accent);
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
-  border-style: none;
-}
-
-button:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-header + p:first-letter {
-  initial-letter: 2;
-  padding-right: 0.5rem;
+iframe {
+  margin: 4rem;
+  width: 100%;
+  max-width: calc(var(--pagewidth)*1.5);
+  height: 2145;
 }
