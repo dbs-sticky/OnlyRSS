@@ -149,6 +149,7 @@ q {
 }
 
 aside {
+  padding: 0.5rem;
   position: relative;
   float: right;
   display: flex;
@@ -157,6 +158,13 @@ aside {
   align-items: center;
   height: 15rem;
   width: 15rem;
+  color: white;
+  line-height: 1.3;
+  font-family: 'Roboto Slab';
+  font-size: 1.2rem;
+  background: var(--accent);
+  text-wrap: balance;
+
 }
 
 aside div {
