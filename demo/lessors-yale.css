@@ -15,11 +15,7 @@
 
 html {
   font-family: "Roboto Serif", serif;
-  font-weight: 400;
-  color: var(--bodytext);
-  overflow-y: scroll; /* stops horizontal shift due to scrollbar */
   accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
-  scroll-behavior: smooth;
   background-color: #FCFAF6;
 }
 
@@ -72,6 +68,7 @@ article {
  display:flex;
  flex-direction: column;
  align-items: center;
+ margin-bottom: 5rem;
 }
 
 p, q {
@@ -108,24 +105,6 @@ h1 {
   margin: 2rem 0;
 }
 
-h2 {
-  font-size: 1.8rem;
-}
-
-h3 {
-  font-size: 1.4rem;
-}
-
-/* keep the space between any heading and the fist paragraph tight */
-:where(h1, h2, h3, h4, h5, h6) + p {
-  /* margin-top: 0px; */
-}
-
-strong {
-  font-weight: 500;
-  font-style: italic;
-  color: #000000;
-}
 
 em {
   font-style: normal;
@@ -148,27 +127,31 @@ q {
   font-style: italic;
 }
 
+div {
+  max-width: var(--pagewidth);
+}
+
 aside {
   padding: 0.5rem;
+  margin: 0 1rem;
   position: relative;
   float: right;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
   height: 15rem;
   width: 15rem;
   color: white;
   line-height: 1.3;
-  font-family: 'Roboto Slab';
+  font-family: 'Roboto Slab', serif;
   font-size: 1.2rem;
   background: var(--accent);
   text-wrap: balance;
-
+  text-align: center;
 }
 
-aside div {
-  text-align: center;
+aside div:first-child {
+  font-size: 4rem;
 }
 
 /* blockquotes  */
@@ -188,16 +171,6 @@ text-decoration: none;
 height: 35px;
   }
 
-
-ul,
-ol {
-  margin: 2rem 0;
-  line-height: 1.6rem;
-}
-
-li::marker {
-  color: var(--accent);
-}
 
 /* article byline */
 /* article byline and sharing icons */
@@ -232,20 +205,6 @@ li::marker {
 }
 
 
-/* Figures & images */
-figure {
-  margin: 0;
-  margin-bottom: 15px;
-}
-
-/* images */
-img {
-  display: block;
-  margin: auto;
-  max-width: 100%;
-  height: auto;
-}
-
 /* rule, only used on About page */
 hr {
   margin-bottom: 50px;
@@ -255,17 +214,6 @@ hr {
   text-align: center;
   font-style: italic;
 }
-/*  ======================
-    SOCIAL SHARING
-    ====================== */
-
-.sharing {
-  font-size: 0.8rem;
-  margin-bottom: 2rem;
-  padding: 0.5rem 0rem;
-  line-height: 0;
-}
-
 
 iframe {
   margin: 4rem;
