@@ -77,7 +77,7 @@ p, q {
   max-width: var(--pagewidth);
 }
 
-header + p:first-letter {
+header + div::first-letter {
   initial-letter: 2;
   padding-right: 0.5rem;
 }
