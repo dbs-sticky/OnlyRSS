@@ -1,10 +1,10 @@
 function getShareLink(ogTitle, ogUrl) {
   // Convert the title and URL to URIs.
-  var titleUri = encodeURIComponent(ogTitle);
-  var urlUri = encodeURIComponent(ogUrl)
+  let titleUri = encodeURIComponent(ogTitle);
+  let urlUri = encodeURIComponent(ogUrl)
 
   // Concatenate the titleURI and UrlUri together into a sharing link for each social network.
-  var Link =
+  let Link =
   "<a href='http://reddit.com/submit?url=" + urlUri + "&title=" + titleUri + "' target='_blank'" + " title='Share this article on Reddit'>" + "<div class='reddit-icon'></div></a>" + 
   "<a href='https://www.facebook.com/sharer/sharer.php?u=" + urlUri + "' target='_blank'" + " title='Share this article on Facebook'>" + "<div class='fb-icon'></div></a>" + 
   "<a href='https://x.com/intent/tweet?url=" + urlUri + "&text=" + titleUri + "' target='_blank'" + " title='Share this article on X'>" + "<div class='x-icon'></div></a>" + 
@@ -15,8 +15,8 @@ function getShareLink(ogTitle, ogUrl) {
 }
 
 // Get the title and URL from the Open Graph tags.
-var ogTitle = document.querySelector("meta[property=\"og:title\"]").content;
-var ogUrl = document.querySelector("meta[property=\"og:url\"]").content;
+let ogTitle = document.querySelector("meta[property=\"og:title\"]").content;
+let ogUrl = document.querySelector("meta[property=\"og:url\"]").content;
 
 // Create the links.
-var Link = getShareLink(ogTitle, ogUrl);
+let Link = getShareLink(ogTitle, ogUrl);
