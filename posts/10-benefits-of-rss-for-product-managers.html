@@ -72,9 +72,10 @@
     </style>
 
     <!-- load scripts-->
-    <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}</script>
-    <script src="../scripts/outline.js"></script>
-    <script src="../scripts/social.js"></script>
+    <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
+    </script>
+        <script src="../scripts/outline.js"></script>
+        <script src="../scripts/social.js"></script>
   </head>
 
   <body>
@@ -116,14 +117,8 @@
           </div>
 
           <div class="byline-svgs"> 
-            <script>
-              var byline = document.querySelector(".byline-svgs");
-              byline.innerHTML = Link;
-            </script>
+            <!-- populated by the social script at the end of the page -->
           </div>
-
-
-
 
         </div>  <!--class byline-->
       </header>
@@ -192,8 +187,14 @@
 
     <script>
       // Call the function to create and display the outline
-      createHeadingsOutline();
-      createFiguresOutline();
+        createHeadingsOutline();
+        createFiguresOutline();
+    </script>
+
+    <script>
+      // populate the social links
+      var byline = document.querySelector(".byline-svgs");
+      byline.innerHTML = Link;
     </script>
 
     <!-- related articles -->

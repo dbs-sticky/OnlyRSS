@@ -20,4 +20,3 @@ var ogUrl = document.querySelector("meta[property=\"og:url\"]").content;
 
 // Create the links.
 var Link = getShareLink(ogTitle, ogUrl);
-// document.write(Link);

@@ -132,7 +132,8 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
-    <script src="../scripts/outline.js"></script>
+        <script src="../scripts/outline.js"></script>
+        <script src="../scripts/social.js"></script>
   </head>
 
   <body>
@@ -291,8 +292,14 @@
 
     <script>
       // Call the function to create and display the outline
-      createHeadingsOutline();
-      createFiguresOutline();
+        createHeadingsOutline();
+        createFiguresOutline();
+    </script>
+
+    <script>
+      // populate the social links
+      var byline = document.querySelector(".byline-svgs");
+      byline.innerHTML = Link;
     </script>
 
   </body>
