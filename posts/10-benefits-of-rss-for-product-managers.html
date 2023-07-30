@@ -193,8 +193,7 @@
 
     <script>
       // populate the social links
-      let byline = document.querySelector(".byline-svgs");
-      byline.innerHTML = Link;
+      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
     </script>
 
     <!-- related articles -->

@@ -10,13 +10,9 @@ function getShareLink(ogTitle, ogUrl) {
   "<a href='https://x.com/intent/tweet?url=" + urlUri + "&text=" + titleUri + "' target='_blank'" + " title='Share this article on X'>" + "<div class='x-icon'></div></a>" + 
   "<a href='http://www.linkedin.com/shareArticle?mini=true&url=" + urlUri + "&title=" + titleUri + "' target='_blank'" + " title='Share this article on LinkedIn'>" + "<div class='linkedin-icon'></div></a>" + 
   "<a href='mailto:?subject=" + titleUri + "&body=" + urlUri + "' target='_blank'" + " title='Share this article on Email'>" + "<div class='email-icon'></div></a>";
-
   return Link; 
 }
 
 // Get the title and URL from the Open Graph tags.
 let ogTitle = document.querySelector("meta[property=\"og:title\"]").content;
 let ogUrl = document.querySelector("meta[property=\"og:url\"]").content;
-
-// Create the links.
-let Link = getShareLink(ogTitle, ogUrl);
