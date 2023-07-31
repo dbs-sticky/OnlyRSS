@@ -5,11 +5,11 @@ function getShareLink(ogTitle, ogUrl) {
 
   // Concatenate the titleURI and UrlUri together into a sharing link for each social network.
   let Link =
-  "<a href='http://reddit.com/submit?url=" + urlUri + "&title=" + titleUri + "' target='_blank'" + " title='Share this article on Reddit'>" + "<div class='reddit-icon'></div></a>" + 
-  "<a href='https://www.facebook.com/sharer/sharer.php?u=" + urlUri + "' target='_blank'" + " title='Share this article on Facebook'>" + "<div class='fb-icon'></div></a>" + 
-  "<a href='https://x.com/intent/tweet?url=" + urlUri + "&text=" + titleUri + "' target='_blank'" + " title='Share this article on X'>" + "<div class='x-icon'></div></a>" + 
-  "<a href='http://www.linkedin.com/shareArticle?mini=true&url=" + urlUri + "&title=" + titleUri + "' target='_blank'" + " title='Share this article on LinkedIn'>" + "<div class='linkedin-icon'></div></a>" + 
-  "<a href='mailto:?subject=" + titleUri + "&body=" + urlUri + "' target='_blank'" + " title='Share this article on Email'>" + "<div class='email-icon'></div></a>";
+  "<a href='http://reddit.com/submit?url=" + urlUri + "&title=" + titleUri + "' target='_blank'" + " title='Share this article on Reddit'>" + "<reddit-icon></reddit-icon></a>" + 
+  "<a href='https://www.facebook.com/sharer/sharer.php?u=" + urlUri + "' target='_blank'" + " title='Share this article on Facebook'>" + "<fb-icon></fb-icon></a>" + 
+  "<a href='https://x.com/intent/tweet?url=" + urlUri + "&text=" + titleUri + "' target='_blank'" + " title='Share this article on X'>" + "<x-icon></x-icon></a>" + 
+  "<a href='http://www.linkedin.com/shareArticle?mini=true&url=" + urlUri + "&title=" + titleUri + "' target='_blank'" + " title='Share this article on LinkedIn'>" + "<linkedin-icon></linkedin-icon></a>" + 
+  "<a href='mailto:?subject=" + titleUri + "&body=" + urlUri + "' target='_blank'" + " title='Share this article on Email'>" + "<email-icon></email-icon></a>";
   return Link; 
 }
 
