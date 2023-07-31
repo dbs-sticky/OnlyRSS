@@ -514,7 +514,7 @@ email-icon {
 }
 
 /* grow on hover*/
-.byline-svgs div:hover {
+.byline-svgs a *:hover {
   transform: scale(1.3);
 }
 
