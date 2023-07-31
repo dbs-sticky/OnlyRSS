@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main74.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main75.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
     <!--extra stylesheet for the Kindle-->
@@ -310,8 +310,7 @@
 
       <script>
         // populate the social links
-        var byline = document.querySelector(".byline-svgs");
-        byline.innerHTML = Link;
+        document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
       </script>
 
       <!-- feedback -->
