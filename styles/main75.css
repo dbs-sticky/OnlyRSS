@@ -809,6 +809,18 @@ aside h2:hover {
   margin-bottom: 1rem;
 }
 
+/* append "+" to the start of summary text */
+.changelog summary::before {
+  content: "+";
+  padding-right: 0.5rem;
+  font-size: 1.3rem;
+  width: 1rem;
+}
+/* append "-" to the start of summary text when changelog is open */
+ .changelog[open] summary::before {
+  content: "–";
+}
+
 /* remove the arrow on iOS */
  .changelog summary::-webkit-details-marker {
   display: none;
