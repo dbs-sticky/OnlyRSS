@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main74.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main75.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
@@ -77,7 +77,8 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
-    <script src="../scripts/outline.js"></script>
+        <script src="../scripts/outline.js"></script>
+        <script src="../scripts/social.js"></script>
   </head>
 
   <body>
@@ -118,27 +119,8 @@
             <time datetime="2022-12-10">10 Dec 2022</time> · <span>2 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
           </div>
 
-          <div class="byline-svgs">
-
-            <a href="https://www.reddit.com/submit?url=https://onlyrss.org/posts/learning-log-2022.html&title=Learning%20Log%202022" target="_blank" title="Share this article on Reddit">
-              <div class="reddit-icon"></div> 
-              </a>
-
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://onlyrss.org/posts/learning-log-2022.html" target="_blank" title="Share this article on Facebook">
-              <div class="fb-icon"></div> 
-              </a>
-
-            <a href="https://x.com/intent/tweet?url=https://onlyrss.org/posts/learning-log-2022.html&text=Learning%20Log%202022&via=dbs_sticky" target="_blank" title="Share this article on X">
-            <div class="x-icon"></div>
-            </a>
-
-            <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://onlyrss.org/posts/learning-log-2022.html&title=Learning%20Log%202022" target="_blank" title="Share this article on LinkedIn">
-              <div class="linkedin-icon"></div>  
-            </a>
-
-            <a href="mailto:?subject=OnlyRSS.org%20article:%20Learning%20Log%202022&body=https://onlyrss.org/posts/learning-log-2022.html" target="_blank" title="Share this article via email">
-              <div class="email-icon"></div>
-            </a>
+          <div class="byline-svgs"> 
+            <!-- populated by the social script at the end of the page -->
           </div>
 
         </div>  <!--class byline-->
@@ -329,8 +311,13 @@
 
     <script>
       // Call the function to create and display the outline
-      createHeadingsOutline();
-      createFiguresOutline();
+        createHeadingsOutline();
+        createFiguresOutline();
+    </script>
+
+    <script>
+      // populate the social links
+      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
     </script>
 
     <!-- related articles -->
