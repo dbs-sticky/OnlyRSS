@@ -508,10 +508,17 @@ email-icon {
   background-color: var(--accent);
 }
 
+/* without this the icons row does not align verticall correctlu (I don't understand why) */
+.byline-svgs {
+  display: inline-flex;
+  height: 35px;
+}
+
 /* drop a shadow*/
 .byline-svgs a {
   filter: drop-shadow(0 0 5px rgb(0 0 0 / 0.3));
 }
+
 
 /* grow on hover*/
 .byline-svgs a *:hover {
