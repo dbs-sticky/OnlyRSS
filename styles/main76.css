@@ -585,13 +585,6 @@ article>footer a:hover {
     OUTLINE
     ====================== */
 
-/* only show the outline on viewports that exceed a certain width */
-@media (width <= 1550px) {
-  .outline {
-    display: none !important;
-  }
-}
-
 .outline {
   width: 200px;
   position: fixed;
@@ -599,12 +592,28 @@ article>footer a:hover {
   font-family: "Roboto Condensed", sans-serif;
   animation: fade-in-out 1s ease-in-out;
   color: var(--accent);
-  opacity: 0.7;
   padding-left: 1rem;
   border-left: 2px solid var(--accent-light);
 }
 
-@keyframes fade-in-out {
+/* Fade in outline on screens greater than 1550px */
+@media (width > 1550px) {
+  .outline {
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+  }
+}
+
+/* Fade out outline on screens less than 1550px */
+@media (width <= 1550px) {
+  .outline {
+    opacity: 1;
+    animation: fade-out 0.5s forwards;
+  }
+}
+
+/* Define the fade-in animation */
+@keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -612,6 +621,17 @@ article>footer a:hover {
     opacity: 0.7;
   }
 }
+
+/* Define the fade-out animation */
+@keyframes fade-out {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 
 /* add some scrollmargin so the heading or top of figure is visible below the fixed global navigation */
 h2, figure {
