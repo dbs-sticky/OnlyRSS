@@ -590,7 +590,6 @@ article>footer a:hover {
   position: fixed;
   margin-left: calc(50vw - 750px);
   font-family: "Roboto Condensed", sans-serif;
-  animation: fade-in-out 1s ease-in-out;
   color: var(--accent);
   padding-left: 1rem;
   border-left: 2px solid var(--accent-light);
@@ -600,7 +599,7 @@ article>footer a:hover {
 @media (width > 1550px) {
   .outline {
     display: block;
-    animation: fade-in 0.7s forwards;
+    animation: fade-in 0.5s ease-in;
   }
 }
 
@@ -608,7 +607,7 @@ article>footer a:hover {
 @media (width <= 1550px) {
   .outline {
     display: none;
-    animation: fade-out 0.7s forwards;
+    animation: fade-out 0.5s ease-out;
   }
 }
 
