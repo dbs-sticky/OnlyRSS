@@ -811,12 +811,14 @@ aside h2:hover {
 }
 
 /* ====== Details and Summary for changelog page====== */
+
+  /* set summary elements to flex to enable the tags to be right-aligned */
 .changelog summary {
   font-weight: 400;
   display: flex;
   align-items: center; /* centre them vertically */
   cursor: pointer;
-  /* set summary elements to flex to enable the tags to be right-aligned, see below */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* remove the highlight when tapped */
 }
 
 /* remove the focus box, and make bold the focus state (for users who tab through the page */
@@ -834,21 +836,26 @@ aside h2:hover {
   padding: 0.35rem 0.7rem 0.35rem;
 }
 
- .changelog[open] summary {
-  border-bottom: 1px solid #aaa;
-  margin-bottom: 1rem;
+
+/* append ">" to the start of summary text */
+.changelog summary::before {
+  content: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 10' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 1 1 L 5 5 l -4 4' stroke='black'/%3E%3C/svg%3E");
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  border-radius: 7px;
+  background-color: white;
+  display: inline-block;
+  margin-left: -5px;
+  transition: transform 0.3s ease-out;
 }
 
-/* append "+" to the start of summary text */
-.changelog summary::before {
-  content: "+";
-  padding-right: 0.5rem;
-  font-size: 1.3rem;
-  width: 1rem;
-}
-/* append "-" to the start of summary text when changelog is open */
- .changelog[open] summary::before {
-  content: "–";
+/* rotate when opened/closed */
+.changelog[open] summary::before {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); /* added this line for Safari - yet it still doesn't work on Safari :-( */
 }
 
 /* remove the arrow on iOS */
