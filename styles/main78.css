@@ -293,6 +293,11 @@ mark {
   );
 }
 
+::selection {
+ background: yellow;
+ text-shadow: gray 2px 2px 10px;
+}
+
 /* Links */
 a {
   color: black;
