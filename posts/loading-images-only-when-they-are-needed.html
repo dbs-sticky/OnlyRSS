@@ -170,11 +170,11 @@
         </details>
 
         <p>
-          The HTML & CSS required to display the “Figure 1:click to open/close” above is shown below:
+          The HTML required to display the “Figure 1:click to open/close” above is shown below:
         </p>
 
-        <pre><code class="language-html">
-&lt;details&gt;
+<pre>
+<code class="language-html">&lt;details&gt;
   &lt;summary&gt;Figure 1: click to&lt;/summary&gt;
   &lt;figure&gt;
     &lt;img src=&quot;/images/subscribecompare.webp&quot; width=&quot;800&quot; height=&quot;1059&quot; loading=&quot;lazy&quot;/&gt;
@@ -182,11 +182,15 @@
       The original Subscribe page (left) alongside the final Subscribe page (right).
     &lt;/figcaption&gt;
   &lt;/figure&gt;
-&lt;/details&gt;
-        </code></pre>
-        
-        <pre><code class="language-css">
-article summary {
+&lt;/details&gt;</code>
+</pre>
+
+<p>
+  The required CSS:
+</p>
+
+<pre>
+<code class="language-css">article summary {
   cursor: pointer;
   color: #0f5474;
 }
@@ -198,8 +202,8 @@ article summary::after {
 /* append "close" to the end of summary text, when details is open */
 article details[open] summary::after {
   content: " close";
-}
-                  </code></pre>
+}</code>
+</pre>
 
         <p>
           This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the fold, but it didn’t help with page performance, as both animations were still being loaded by the browser.

@@ -306,8 +306,6 @@
 
       </section>
 
-          <br>
-
       <section>
         <h2>Notes and code</h2>
           <p>
@@ -322,11 +320,10 @@
           <p>
             To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
           </p>
-          <p>The CSS used to style the table.</p>
+          <p>The CSS used to style the table:</p>
 
-            <pre style="height: 500px;">
-              <code class="language-css">
-* {
+<pre style="height: 500px;">
+<code class="language-css">* {
   font-family: Sans-serif;
 }
 
@@ -427,15 +424,13 @@ tutorial-tag:before {
 book-tag:before {
   background-color: MediumPurple;
   content: "book";
-}
-              </code>
-            </pre>
+}</code>
+</pre>
 
-            <p>The HTML used to style the table.</p>
+            <p>The HTML used to generate the table:</p>
             
-            <pre style="height: 500px;">
-              <code  class="language-html">
-  &lt;table&gt;
+<pre style="height: 500px;">
+<code  class="language-html">&lt;table&gt;
 
   &lt;thead&gt;
     &lt;tr&gt;
@@ -487,9 +482,8 @@ book-tag:before {
     
   &lt;/tbody&gt;
   
-&lt;/table&gt;
-              </code>
-            </pre>
+&lt;/table&gt;</code>
+</pre>
       </section>
 
       <!-- feedback -->

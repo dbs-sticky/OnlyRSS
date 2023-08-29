@@ -31,6 +31,7 @@
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
     <!--extra stylesheet for the Kindle-->
     <link rel="stylesheet" type="text/css" href="../styles/why-i-prefer-the-kindle.css">
@@ -281,7 +282,7 @@
         <p>
           At first I thought I would have to create a new paragraph class in CSS specifically for the first paragraph of each section (that removed the default paragraph indent), and then add the class manually, but it turns out that CSS has an easy solution for this.</p>
           
-        <pre><code> p + p { text-indent: 1.5em; } </code></pre>
+        <pre><code class="language-css"> p + p { text-indent: 1.5em; }</code></pre>
 
         <p>
           The "+" above means that the style (the text-indent in this example) is only applied to paragraphs directly proceeding other paragraphs.
@@ -290,7 +291,7 @@
           Conversely, if you wanted to apply a specific style to the first paragraph only, i.e. the paragraph directly proceeding a heading e.g. Heading 1, then the CSS selector would be:
         </p>
 
-        <pre><code> h1 + p { ... } </code></pre>
+        <pre><code class="language-css">h1 + p { ... }</code></pre>
 
         <h3>Using the :target selector to show hidden content</h3>
         <p>
@@ -319,7 +320,7 @@
           If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
         </p>
       </footer>
-
     </article>
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>

@@ -31,6 +31,7 @@
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
     <!--load self-hosted fonts-->
     <style>
@@ -138,7 +139,23 @@
           Below you can see an example of the contents of an RSS feed. It’s simply a channel (e.g. your favourite news site), followed by a list of articles. Users of RSS never actually look at the feed (in the same way that you never see all the metadata associated with each e-mail you receive), it’s not meant for people, it’s meant for machines, i.e. the RSS aggregators.
         </p>
 
-        <script src="https://gist.github.com/dbs-sticky/6a81ab1692694c78353873b5349be067.js"></script>
+<pre>
+<code class="language-xml">&lt;channel&gt;
+&lt;title&gt;OnlyRSS&lt;/title&gt;
+&lt;link&gt;https://onlyrss.org&lt;/link&gt;
+&lt;description&gt;The latest posts from OnlyRSS.org&lt;/description&gt;
+    &lt;item&gt;
+        &lt;title&gt;Drawing with Excalidraw&lt;/title&gt;
+        &lt;link&gt;https://onlyrss.org/drawing-with-excalidraw&lt;/link&gt;
+        &lt;description&gt;Excalidraw is described by its creators...&lt;/description&gt;
+    &lt;/item&gt;
+    &lt;item&gt;
+        &lt;title&gt;Working from home hardware&lt;/title&gt;
+        &lt;link&gt;https://onlyrss.org/working-from-home-hardware&lt;/link&gt;
+        &lt;description&gt;I recently wrote about my weekday lockdown...&lt;/description&gt;
+    &lt;/item&gt;
+&lt;/channel&gt;</code>
+</pre>
       </section>
 
         <!-- RSS aggregators - section -->
@@ -224,6 +241,6 @@
       // populate the social links
       document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
     </script>
-
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>
