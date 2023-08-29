@@ -31,6 +31,7 @@
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
     
     <!--load self-hosted fonts-->
     <style>
@@ -321,15 +322,174 @@
           <p>
             To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
           </p>
+          <p>The CSS used to style the table.</p>
 
-          <figure>
-            <div><script src="https://gist.github.com/dbs-sticky/51790962d806ab80ca8f0cede31d6129.js"></script>
-            </div>
-            <figcaption>
-                The CSS (top) and HTML (bottom) used to style the table.
-            </figcaption>
-          </figure>
+            <pre style="height: 500px;">
+              <code class="language-css">
+* {
+  font-family: Sans-serif;
+}
 
+table {
+  width: 80%;
+  max-width: 700px;
+  table-layout: fixed;
+  margin: auto;
+  text-align: left;
+  margin-top: 50px;
+  border-collapse: collapse;
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
+  border-radius: 10px;
+  overflow: hidden; 
+  line-height: 2.5rem;
+}
+
+th {
+  background-color: AliceBlue;
+}
+
+th,
+td {
+  padding: 6px 10px;
+}
+
+th:nth-child(1) {
+  width: 70px;
+}
+
+td:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+th:nth-child(3) {
+  width: 30%;
+}
+
+progress-meter {
+  display: block;
+  height: 10px;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 1px;
+  margin-right: 2rem;
+  position: relative;
+}
+
+progress-percent {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  width: calc(var(--progress) * 1%); 
+  background-color: IndianRed;
+  font-size: 70%;
+  color: grey;
+}
+
+progress-percent[style="--progress: 100"] {
+  background-color: MediumAquamarine;
+}
+
+progress-percent::after {
+  counter-reset: percent var(--progress);
+  content: counter(percent) '%';
+  position: absolute;
+  right: -2rem;
+  bottom: -0.9rem;
+}
+
+progress-percent[style="--progress: 100"]::after {
+  content: '✓';
+  right: -1rem;
+  bottom: -0.9rem;
+}
+
+
+/* define the shared tag styles */
+:where(course-tag, tutorial-tag, book-tag):before {
+  font-size: 0.8rem;
+  color: white;
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+course-tag:before {
+  background-color: MediumVioletRed;
+  content: "course";
+}
+
+tutorial-tag:before {
+  background-color: SteelBlue;
+  content: "tutorial";
+}
+
+book-tag:before {
+  background-color: MediumPurple;
+  content: "book";
+}
+              </code>
+            </pre>
+
+            <p>The HTML used to style the table.</p>
+            
+            <pre style="height: 500px;">
+              <code  class="language-html">
+  &lt;table&gt;
+
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Format&lt;/th&gt;&lt;th&gt;Resource&lt;/th&gt;&lt;th&gt;Progress&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  
+  &lt;tbody&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;&lt;course-tag&gt;&lt;/course-tag&gt;&lt;/td&gt;
+      &lt;td&gt;LinkedIn's &lsquo;Become a data analyst&rsquo;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;progress-meter&gt;
+          &lt;progress-percent style=&quot;--progress: 25&quot;&gt;&lt;/progress-percent&gt;
+        &lt;/progress-meter&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;&lt;tutorial-tag&gt;&lt;/tutorial-tag&gt;&lt;/td&gt;
+      &lt;td&gt;W3School's &lsquo;SQL tutorial&rsquo;&lt;/td&gt;
+      &lt;td&gt;
+        &lt;progress-meter&gt;
+          &lt;progress-percent style=&quot;--progress: 100&quot;&gt;&lt;/progress-percent&gt;
+        &lt;/progress-meter&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;&lt;book-tag&gt;&lt;/book-tag&gt;&lt;/td&gt;
+      &lt;td&gt;DBeaver User Manual&lt;/td&gt;
+      &lt;td&gt;
+        &lt;progress-meter&gt;
+          &lt;progress-percent style=&quot;--progress: 75&quot;&gt;&lt;/progress-percent&gt;
+        &lt;/progress-meter&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+    &lt;tr&gt;
+      &lt;td&gt;&lt;course-tag&gt;&lt;/course-tag&gt;&lt;/td&gt;
+      &lt;td&gt;PL-300: Power BI Data Analyst&lt;/td&gt;
+      &lt;td&gt;
+        &lt;progress-meter&gt;
+          &lt;progress-percent style=&quot;--progress: 60&quot;&gt;&lt;/progress-percent&gt;
+        &lt;/progress-meter&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    
+  &lt;/tbody&gt;
+  
+&lt;/table&gt;
+              </code>
+            </pre>
       </section>
 
       <!-- feedback -->
@@ -362,6 +522,6 @@
         </p>
       </a>
     </aside>
-
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>

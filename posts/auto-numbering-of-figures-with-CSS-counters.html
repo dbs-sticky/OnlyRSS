@@ -31,6 +31,7 @@
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
     <!--load self-hosted fonts-->
     <style>
@@ -181,14 +182,41 @@
         <p>
           The code below shows the CSS used on OnlyRSS.org to display figcaptions, and the HTML used to generate figures 1 & 2.
         </p>
+
         <figure>
-          <script src="https://gist.github.com/dbs-sticky/087c723dad39056686bb32b41de0ce5b.js"></script>
+          <pre>
+            <code class="language-css">
+figcaption {
+  counter-increment: figures; /* count the number of fig captions */
+  font-size: 80%;
+  margin-top: 5px;
+  padding-top: 8px;
+  font-style: italic;
+  border-top: 2px solid var(--accent);
+}
+
+figcaption::before {
+  content: 'Figure ' counter(figures) '. '; /* display the figure number */
+}            </code>
+          </pre>
           <figcaption>
-            The CSS used on OnlyRSS.org to automatically number all figures.
+            The CSS used on to automatically number all figures.
           </figcaption>
         </figure>
+
         <figure>
-          <script src="https://gist.github.com/dbs-sticky/73f2ad2a6a10b060ed4b47d47f2c876d.js"></script>
+          <pre>
+            <code class="language-html">
+&lt;figure&gt;
+  …html
+  &lt;figcaption&gt;The CSS used to automatically number all figures.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  …html
+  &lt;figcaption&gt;The HTML used on this page to display figures 1 &amp; 2.&lt;/figcaption&gt;
+&lt;/figure&gt;</code>
+          </pre>
           <figcaption>
             The HTML used on this page to display figures 1 & 2.
           </figcaption>
@@ -259,5 +287,6 @@
         </p>
       </a>
     </aside>
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>

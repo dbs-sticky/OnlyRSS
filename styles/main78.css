@@ -379,21 +379,21 @@ abbr:hover {
   cursor: help;
 }
 
+
+/* the following has been commented out as code blocks are now styled by prism.css */
 /* code blocks */
-pre code {
+/* pre code {
   border: 1px solid rgb(221, 221, 221);
   display: inline-block;
   padding: 10px;
   color: black;
   border-radius: var(--radius);
   font-size: 0.7rem;
-  /* by default pre code blocks don't word-wrap, the following 2 lines changes this */
   white-space: pre-wrap;
   word-wrap: break-word;
-}
+} */
 
 /* keyboard buttons */
-
 kbd {
   font-size: 0.85rem;
   font-family: var(--mono-font);
