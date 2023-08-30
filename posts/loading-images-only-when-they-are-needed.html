@@ -31,6 +31,7 @@
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
     <!--load self-hosted fonts-->
     <style>
@@ -169,11 +170,40 @@
         </details>
 
         <p>
-          The HTML & CSS required to display the “Figure 1:click to open/close” above is shown below:
+          The HTML required to display the “Figure 1:click to open/close” above is shown below:
         </p>
 
-        <script src="https://gist.github.com/dbs-sticky/07b76b01c39d8dc7dc99fc753c055321.js"></script>
-        <script src="https://gist.github.com/dbs-sticky/09a8720a44e0fe5a2c1091403a041e6b.js"></script>
+<pre>
+<code class="language-html">&lt;details&gt;
+  &lt;summary&gt;Figure 1: click to&lt;/summary&gt;
+  &lt;figure&gt;
+    &lt;img src=&quot;/images/subscribecompare.webp&quot; width=&quot;800&quot; height=&quot;1059&quot; loading=&quot;lazy&quot;/&gt;
+    &lt;figcaption&gt;
+      The original Subscribe page (left) alongside the final Subscribe page (right).
+    &lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;/details&gt;</code>
+</pre>
+
+<p>
+  The required CSS:
+</p>
+
+<pre>
+<code class="language-css">article summary {
+  cursor: pointer;
+  color: #0f5474;
+}
+
+/* append "open" to the end of summary text when closed */
+article summary::after {
+  content: " open";
+}
+/* append "close" to the end of summary text, when details is open */
+article details[open] summary::after {
+  content: " close";
+}</code>
+</pre>
 
         <p>
           This solved the problem of the Feedly animation pushing the Inoreader animation and instructions below the fold, but it didn’t help with page performance, as both animations were still being loaded by the browser.
@@ -236,5 +266,6 @@
         </p>
       </a>
     </aside>
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>

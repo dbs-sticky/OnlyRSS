@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="stylesheet" type="text/css" href="/styles/top-25-pax-airlines-1.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
     
     <!--load self-hosted fonts-->
     <style>
@@ -729,36 +730,30 @@
           The JavaScript function:
         </p>
 <pre>
-  <code>
-  function <b>drawAircraft(numAircraft)</b> {
-    for (var i = 1; i <= numAircraft; i++) {     
-      document.write('<span class="ac-glyph">🛧</span>');
-    }
+<code class="language-js">function <b>drawAircraft(numAircraft)</b> {
+  for (var i = 1; i <= numAircraft; i++) {     
+    document.write('<span class="ac-glyph">🛧</span>');
   }
-  </code>
+}</code>
 </pre>
 
         <p>
           The HTML source:
         </p>
 <pre>
-  <code>
-  &lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;      
-    &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
-  &lt;/span&gt;
-  </code>
+<code class="language-html">&lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;      
+  &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
+&lt;/span&gt;</code>
 </pre>
 
         <p>
           The HTML output (as viewed in the browser's Developer Console):
         </p>
 <pre>
-  <code>
-  &lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;
-    &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
-    <span class="ac-glyph">🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧</span>      
-  &lt;/span&gt;
-  </code>
+<code class="language-html">&lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;
+  &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
+  <span class="ac-glyph">🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧</span>      
+&lt;/span&gt;</code>
 </pre>
 
         <p>
@@ -867,6 +862,6 @@
 
         });
     </script>
-
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>

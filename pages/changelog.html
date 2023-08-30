@@ -31,6 +31,7 @@
     <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main78.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
     <!--load self-hosted fonts-->
     <style>
@@ -572,7 +573,7 @@
           blue (internal links). This was working fine in paragraphs, but not in
           lists or fig captions. This was because I was simply using:
         </p>
-        <pre><code>p a {[style]}</code></pre>
+        <pre><code class="language-css">p a {…}</code></pre>
         <p>
           I wanted to apply the same style to lists and fig captions, but rather
           than repeating the same CSS for all three, I used—for the fist
@@ -581,7 +582,7 @@
             ><strong>::where</strong> CSS Selector</a
           >. So I now have:
         </p>
-        <pre><code>::where(p, li, figcaption) a {[style]}</code></pre>
+        <pre><code class="language-css">::where(p, li, figcaption) a {…}</code></pre>
         <p>I suspect I’ll be using this selector a lot going forward.</p>
       </details>
 
@@ -1490,5 +1491,6 @@
       </details>
       </section>
     </main>
+    <script src="../scripts/prism.js"></script>
   </body>
 </html>
