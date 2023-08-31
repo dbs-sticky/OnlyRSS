@@ -817,6 +817,14 @@ aside h2:hover {
 
 /* ====== Details and Summary for changelog page====== */
 
+/* Expand/Collapse options row */
+.changelog-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content:end;
+  margin-bottom: 1rem;
+}
+
   /* set summary elements to flex to enable the tags to be right-aligned */
 .changelog summary {
   font-weight: 400;
@@ -839,8 +847,8 @@ aside h2:hover {
   font-size: 0.8rem;
   margin-bottom: 1rem;
   padding: 0.35rem 0.7rem 0.35rem;
-}
 
+}
 
 /* append ">" to the start of summary text */
 .changelog summary::before {
