@@ -86,6 +86,22 @@
         detailsElements.forEach(detailsElement => detailsElement.open = status);
       }
       </script>
+
+      <!-- Filters -->
+      <script>
+        function toggleDetails(tagName) {
+          var detailsElements = document.querySelectorAll('details');
+          detailsElements.forEach(function(detailsElement) {
+            if (detailsElement.querySelector(tagName + "-tag")) {
+              if (detailsElement.style.display == 'none') {
+                detailsElement.style.display = 'block';
+              } else {
+                detailsElement.style.display = 'none';
+              }
+            }
+          });
+        }
+      </script>
   
   </head>
 
@@ -108,9 +124,37 @@
         <p>
           All changes are listed here—along with details of what I learnt. Expand an item to learn more.
         </p>
-        <div class="changelog-buttons">
-          <button onclick="openCloseDetails(true)">Expand</button><button onclick="openCloseDetails(false)">Collapse</button>
+
+        <div class="changelog-actions">
+          <div class="changelog-filters">
+            <div>
+              <input type="checkbox" onclick="toggleDetails('content')" checked>
+              <label for="content">content</label>
+            </div>
+
+            <div>
+              <input type="checkbox" onclick="toggleDetails('ux')" checked>
+              <label for="ux">ux</label>
+            </div>
+
+            <div>
+              <input type="checkbox" onclick="toggleDetails('performance')" checked>
+              <label for="performance">performance</label>
+            </div>
+
+            <div>
+              <input type="checkbox" onclick="toggleDetails('housekeeping')" checked>
+              <label for="housekeeping">housekeeping</label>
+            </div>
+          </div>
+
+    
+          <div class="changelog-buttons">
+            <button onclick="openCloseDetails(true)">Expand</button><button onclick="openCloseDetails(false)">Collapse</button>
+          </div>
+
         </div>
+
       </header>
 
       <details class="changelog">
@@ -133,22 +177,6 @@
         </p>
         <img src="/images/reddit-facebook.webp" loading="lazy" alt="A screenshot of an article byline showing small, blue, square iocns for Reddit, Facebook, Twitter, LinkedIn, and Email." width="548" height="342">
       </details>
-
-
-      <details class="changelog">
-        <summary >
-          <span><time datetime="2023-04-02">2 Apr 2023</time>: New article: <strong>10 benefits of RSS for Product Managers</strong></span><content-tag></content-tag>
-        </summary>
-        <p>
-          As a Product Manager and a fan of RSS, it was only a matter of time until I wrote about the benefits of RSS for Product Managers. This article is a classic listicle, big on numbers (in the range 1–10), short on details.
-        </p>
-        <p>
-           I suspect I'll create a follow-up article that goes into detail on how to achieve some of the benefits e.g. how to monitor the web for product/brand mentions using Feedly, Inoreader, or Google Alerts etc.
-        </p>
-        </p>
-        <p><a href="/posts/10-benefits-of-rss-for-product-managers.html">Go to article</a></p>
-      </details>
-
 
       <details class="changelog">
         <summary >
@@ -1130,8 +1158,7 @@
         <summary>
           <span
             ><time datetime="2022-03-09">09 Mar 2022</time>: Added OpenGraph
-            meta tags to most pages </span
-          ><seo-tag></seo-tag><ux-tag></ux-tag>
+            meta tags to most pages </span><ux-tag></ux-tag>
         </summary>
         <p>
           This required a lot of research and some testing to get it right (tip:

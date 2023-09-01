@@ -829,12 +829,34 @@ aside h2:hover {
 
 /* ====== Details and Summary for changelog page====== */
 
+.changelog-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* Filters */
+/* filter tags are defined with the changelog tag */
+.changelog-filters input {
+  transform: scale(1.3);
+}
+
+.changelog-filters {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.changelog-filters label {
+  position: relative;
+  bottom: 2px;
+}
+
 /* Expand/Collapse options row */
 .changelog-buttons {
   display: flex;
   gap: 0.5rem;
   justify-content:end;
-  margin-bottom: 1rem;
 }
 
 .changelog-buttons button:first-of-type {
@@ -917,44 +939,35 @@ aside h2:hover {
   /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
 }
 
-/* define the common style for  tags) within summary elements */
-:where(ux-tag, performance-tag, content-tag, seo-tag, housekeeping-tag)::after {
+/* define the common style for  tags) within summary elements and filter labels */
+:where(ux-tag, performance-tag, content-tag, seo-tag, housekeeping-tag)::after, .changelog-filters label {
   font-family: "Roboto Condensed", sans-serif;
   color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 2px 5px;
   margin-left: 5px;
+  font-size: 0.7rem;
 }
 
-/* set individual tag colours and font sizes, i.e.initialisms are set smaller. */
-performance-tag::after {
+/* set individual tag colours */
+performance-tag::after, .changelog-filters label[for="performance"] {
   background-color: rgb(180, 163, 66);
   content: "performance";
-  font-size: 0.7rem;
 }
 
-ux-tag::after {
+ux-tag::after, .changelog-filters label[for="ux"] {
   background-color: rgb(71, 69, 187);
   content: "UX";
-  font-size: 0.6rem;
 }
 
-content-tag::after {
+content-tag::after, .changelog-filters label[for="content"] {
   background-color: rgb(93, 170, 62);
   content: "content";
-  font-size: 0.7rem;
 }
 
-seo-tag::after {
-  background-color: rgb(223, 82, 82);
-  content: "SEO";
-  font-size: 0.6rem;
-}
-
-housekeeping-tag::after {
+housekeeping-tag::after, .changelog-filters label[for="housekeeping"] {
   background-color: rgb(223, 139, 82);
   content: "housekeeping";
-  font-size: 0.7rem;
 }
 
 /*  ======================
