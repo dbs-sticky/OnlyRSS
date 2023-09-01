@@ -83,9 +83,7 @@
     <script>
       function openCloseDetails(status) { 
         var detailsElements = document.querySelectorAll('.changelog');
-        detailsElements.forEach(function(detailsElement) {
-          detailsElement.open = status;
-        });
+        detailsElements.forEach(detailsElement => detailsElement.open = status);
       }
       </script>
   
