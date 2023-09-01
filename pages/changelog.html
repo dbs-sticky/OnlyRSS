@@ -79,19 +79,12 @@
       }
     </script>
 
-    <!-- To open/close all changelog entries-->
+    <!-- To expand/collapse all changelog entries-->
     <script>
-      function openDetails() { 
+      function openCloseDetails(status) { 
         var detailsElements = document.querySelectorAll('.changelog');
         detailsElements.forEach(function(detailsElement) {
-          detailsElement.open = true;
-        });
-      }
-
-      function closeDetails() { 
-        var detailsElements = document.querySelectorAll('.changelog');
-        detailsElements.forEach(function(detailsElement) {
-          detailsElement.open = false;
+          detailsElement.open = status;
         });
       }
       </script>
@@ -118,7 +111,7 @@
           All changes are listed here—along with details of what I learnt. Expand an item to learn more.
         </p>
         <div class="changelog-buttons">
-          <button onclick="openDetails()">Expand All</button><button onclick="closeDetails()">Collapse All</button>
+          <button onclick="openCloseDetails(true)">Expand</button><button onclick="openCloseDetails(false)">Collapse</button>
         </div>
       </header>
 

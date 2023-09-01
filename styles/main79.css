@@ -734,10 +734,9 @@ nav a.nav-active {
 }
 
 
-
 button {
-  -webkit-border-radius: var(--radius);
-  -moz-border-radius: var(--radius) 5;
+  /* -webkit-border-radius: var(--radius);
+  -moz-border-radius: var(--radius) 5; */
   border-radius: var(--radius);
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
@@ -747,12 +746,25 @@ button {
   padding: 5px 10px 5px 10px;
   text-decoration: none;
   border-style: none;
+  transition: background-color 200ms;
+  cursor: pointer;
 }
 
+/* Tint the background when hovering */
 button:hover {
-  filter: brightness(125%);
-  text-decoration: none;
-  cursor: pointer;
+  background-color: color-mix(in oklch, var(--accent) 100%, white 10%);
+}
+
+
+/* Shade the background when clicked */
+button:active {
+  background-color: color-mix(in oklch, var(--accent) 100%, black 20%);
+}
+
+/* add a focus ring */
+button:focus, button:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: 1px;
 }
 
 /*  ======================
@@ -820,9 +832,17 @@ aside h2:hover {
 /* Expand/Collapse options row */
 .changelog-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content:end;
   margin-bottom: 1rem;
+}
+
+.changelog-buttons button:first-of-type {
+  border-radius: var(--radius) 0 0 var(--radius)
+}
+
+.changelog-buttons button:last-of-type {
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
   /* set summary elements to flex to enable the tags to be right-aligned */
