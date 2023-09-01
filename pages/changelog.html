@@ -78,6 +78,17 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
+
+    <!-- To expand/collapse all changelog entries-->
+    <script>
+      function openCloseDetails(status) { 
+        var detailsElements = document.querySelectorAll('.changelog');
+        detailsElements.forEach(function(detailsElement) {
+          detailsElement.open = status;
+        });
+      }
+      </script>
+  
   </head>
 
   <body>
@@ -97,14 +108,14 @@
       <header>
         <h1>Changelog</h1>
         <p>
-          All website changes are listed here—along with details of what I learnt.
+          All changes are listed here—along with details of what I learnt. Expand an item to learn more.
         </p>
+        <div class="changelog-buttons">
+          <button onclick="openCloseDetails(true)">Expand</button><button onclick="openCloseDetails(false)">Collapse</button>
+        </div>
       </header>
 
-      <section>
-      <h2>Latest update</h2>
-
-      <details class="changelog" open>
+      <details class="changelog">
         <summary >
           <span><time datetime="2023-04-11">11 Apr 2023</time>: New article: <strong>Using 'text-wrap: balance'</strong></span><content-tag></content-tag>
         </summary>
@@ -114,14 +125,6 @@
         <p><a href="/posts/css-balance.html">Go to article</a></p>
       </details>
 
-      </section>
-
-
-
-
-      <section>
-      <h2>Previous updates</h2>
-      <p>Click on an update to see more details.</p>
 
       <details class="changelog">
         <summary >
@@ -1489,7 +1492,6 @@
           >
         </p>
       </details>
-      </section>
     </main>
     <script src="../scripts/prism.js"></script>
   </body>
