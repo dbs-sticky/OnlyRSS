@@ -20,8 +20,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.iconTheme": "material-icon-theme",
-  // "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
-  "editor.fontFamily": "CommitMono",
+  "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
+  // "editor.fontFamily": "CommitMono",
   "editor.fontLigatures": true,
   "markdownConverter.ConversionType": ["HTML"],
   "editor.renderWhitespace": "all",
@@ -57,7 +57,7 @@
       "/<style>[^]*?</style>/gm"
     ]
   },
-  "editor.fontSize": 15.5,
+  "editor.fontSize": 16,
   "editor.wordWrap": "on"
 
 }
