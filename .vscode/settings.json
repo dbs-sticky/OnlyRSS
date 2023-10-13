@@ -57,7 +57,7 @@
       "/<style>[^]*?</style>/gm"
     ]
   },
-  "editor.fontSize": 16,
+  "editor.fontSize": 15,
   "editor.wordWrap": "on"
 
 }
