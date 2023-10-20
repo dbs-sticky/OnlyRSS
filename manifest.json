@@ -5,6 +5,7 @@
   "background_color": "#ffffff",
   "display_override": ["window-controls-overlay"],
   "display": "standalone",
+  "orientation": "any",
   "scope": "./",
   "start_url": "index.html",
   "shortcuts": [
