@@ -230,6 +230,7 @@ aside {
 
 p {
   margin: 1.4em 0px;
+  text-wrap: pretty;
 }
 
 /* Headings - shared */
