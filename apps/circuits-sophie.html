@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Circuits</title>
+    <meta
+      name="description"
+      content="A web app for generating a random selection of exercises for a circuit training session.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="view-transition" content="same-origin">
+    <!--TODO add suitable OpenGraph data here-->
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main79.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(../fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "OpenSans";
+        font-style: normal;
+        font-weight: 400;
+        src: url(../fonts/OpenSans-Regular.woff2) format("woff2");
+      }
+
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("../service-worker.js");
+      }
+    </script>
+
+    <script>
+      // get the slider value
+      function getNumber() {
+        let input = document.getElementById("userInput").value;
+        return input;
+      }
+
+      // triggered by the main button: set the number of exercises to "n"
+      function myFunction() {
+        let n = getNumber();
+
+        // clear the list of any existing exercises
+        document.getElementById("exercises").innerHTML = "";
+
+        // define the array
+        const all_exercises = [
+          ["skip ×150"],
+          [
+            "air squats ×40", 
+            "back squats ×20", 
+            "front squats ×20"
+          ],
+          [
+            "dead lifts ×15",
+            "sumo lifts ×15"
+          ],
+          ["burpees ×20"],
+          ["row 500m"],
+          [
+            "pull-ups ×10", 
+            "ring pull-ups ×10", 
+            "finger board pull-ups ×10",
+          ],
+          ["sit-ups ×35"],
+          ["good mornings ×20"],
+          [
+            "push-ups ×25", 
+            "ring push-ups ×15"
+          ],
+          ["lunges ×30"],
+          ["curls ×15"],
+          ["ring rows ×12"],
+          [
+            "bench dips ×30", 
+            "assisted ring dips ×20"
+          ],
+          [
+            "power snatch ×15", 
+            "snatch ×10"],
+          [
+            "power clean ×15", 
+            "squat clean ×10", 
+            "power clean & jerk ×10"
+          ],
+          ["hanging leg raises ×25"],
+          ["bench press ×15"],
+          ["calf raises ×20"],
+          ["plank 45s"],
+          ["kettlebell swings ×30"],
+          ["kettlebell push-press ×20(pa)"],
+          [
+            "kettlebell bench rows ×20(pa)", 
+            "dynamic kettlebell rows ×40"
+          ],
+          ["incline dumbbell flyes ×20"],
+          ["dumbbell lateral raises ×20"],
+          ["pullovers ×25"],
+        ];
+
+        // Set the max value of the slider (with id=userInput) to the # of elements in the array
+        document
+          .getElementById("userInput")
+          .setAttribute("max", all_exercises.length);
+
+        // shuffle the full array
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+        }
+
+        // pull out the first n values from the shuffled array and display as ordered list
+        shuffleArray(all_exercises);
+        all_exercises.slice(0, n).forEach((e) => {
+          shuffleArray(e); // shuffle the nested array
+          exercises.innerHTML =
+            exercises.innerHTML + "<li>" + "&nbsp;" + e[0] + "</li>"; // choose the first element using e[0]
+        });
+      }
+    </script>
+  </head>
+
+  <body onload="myFunction()">
+    <button
+      class="app-btn-close"
+      onclick="location.href='../index.html'"
+      type="button"
+      title="close app and return to homepage"
+    >
+      &#x2715;
+    </button>
+    <div id="card">
+      <div id="head">
+        <p>
+          № of exercises:
+          <output name="numberOutputName" id="numberOutputId">12</output>
+        </p>
+        <input class="app-slider"
+          id="userInput"
+          type="range"
+          placeholder="12"
+          value="12"
+          step="1"
+          min="1"
+          max=""
+          oninput="numberOutputId.value = userInput.value">
+        <p>
+          <button class="app-workout" onclick="myFunction()">Create new workout</button>
+        </p>
+      </div>
+      <ol id="exercises"></ol>
+    </div>
+  </body>
+</html>

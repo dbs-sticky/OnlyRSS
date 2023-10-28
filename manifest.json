@@ -20,11 +20,11 @@
       ]
     },
     {
-      "name": "Articles",
-      "url": "index.html",
+      "name": "Sophie's app",
+      "url": "apps/circuits-sophie.html",
       "icons": [
         {
-          "src": "pwaicons/home_maskable_icon.png",
+          "src": "pwaicons/circuits_maskable_icon.png",
           "sizes": "128x128"
         }
       ]
