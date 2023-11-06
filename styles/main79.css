@@ -16,6 +16,7 @@
   }
 }
 
+
  /* ======================
     ONLY USED FOR DEBUGGING - comment-out before deployment
     ====================== */
@@ -1320,3 +1321,21 @@ video-tag:before {
   background-color: rgb(226, 128, 99);
   content: "video";
 }
+
+@media print {
+
+  article {
+    font-size: 12pt;
+  }
+
+  /* Hide nav and outline */
+  .outline, nav, .byline-svgs, aside, footer  {
+      display: none;
+    }
+
+ /* Hide article border */
+    article, main {
+      border: none;
+      box-shadow: none;
+    }
+  }
