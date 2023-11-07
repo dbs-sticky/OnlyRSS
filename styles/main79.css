@@ -1324,8 +1324,9 @@ video-tag:before {
 
 @media print {
 
-  article {
-    font-size: 12pt;
+  /* reduce the root font size */
+  :root {
+    font-size:small;
   }
 
   /* Hide nav and outline */
@@ -1338,4 +1339,5 @@ video-tag:before {
       border: none;
       box-shadow: none;
     }
+
   }
