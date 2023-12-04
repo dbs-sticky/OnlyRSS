@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Transitions</title>
+    <meta name="description" content="The result of enabling View Transitions on my blog for article titles.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="view-transition" content="same-origin">
+    
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="View Transitions">
+    <meta property="og:url" content="https://onlyrss.org/posts/view-transitions.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/view-transitions-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630"> 
+    <meta property="og:description" content="The result of enabling View Transitions on my blog for article titles.">
+    <meta property="article:published_time" content="2023-12-05">
+
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://onlyrss.org/posts/view-transitions.html"
+        },
+        "headline": "View Transitions",
+        "description": "The result of enabling View Transitions on my blog for article titles.",
+        "image": "https://onlyrss.org/images/og/view-transitions-og.png",  
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "2023-12-05"
+      }
+    </script>
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main80.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
+    
+    <!--load self-hosted fonts-->
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+    </style>
+
+    <!-- load scripts-->
+    <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
+    </script>
+        <script src="../scripts/outline.js"></script>
+        <script src="../scripts/social.js"></script>
+  </head>
+
+  <body>
+    
+    <header class="nav">
+      <nav>
+        <ul>
+          <li><a href="/index.html" title="Homepage">home</a></li>
+          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
+          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
+          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="outline">
+      <div>Sections</div>
+      <div id="doc_outline"></div>
+      <div>Figures</div>
+      <div id="doc_figures"></div>
+    </div>
+
+    <article>
+      <header>
+        <h1 style="view-transition-name: post24">View Transitions</h1>
+        <div class="tldr">
+          <p>
+            The result of enabling View Transitions on my blog for article titles.
+          </p>
+        </div>
+
+          <!-- Flexrow -->
+        <div class="byline">
+
+          <div>
+            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
+          </div>
+          
+          <div class="byline-copy">
+            <time datetime="2023-12-05">5 Dec 2023</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          </div>
+
+          <div class="byline-svgs"> 
+            <!-- populated by the social script at the end of the page -->
+          </div>
+
+        </div>  <!--class byline-->
+      </header>
+
+      <!--the problem-->
+      <section>
+          <p>
+            <section>
+              <h2>Background</h2>
+              <p>
+                I hadn't written an article for quite some time, so decided to write about the new View Transitions feature that has been added to Google Chrome. I actually implemented View Transitions about 6&nbsp;months ago on this site, and I couldn't remember why I hadn't already written about it. Then, during my research, I came across Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and then I remembered why. Dave's post covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+              </p>
+              <p>
+               However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
+              </p>
+            </section>
+          </p>
+
+          <figure>
+            <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting .">
+            <figcaption>View Transitions. This animation has been slowed to 25% of normal speed.</figcaption>
+          </figure>
+
+          <figure>
+            <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
+            <figcaption>View Transitions. This animation has been slowed to 25% of normal speed.</figcaption>
+          </figure>
+  
+          <pre><code class="language-css">text-wrap: balance;</code></pre>
+          <p>
+            If not, then please visit the <a href="https://developer.chrome.com/blog/css-text-wrap-balance/" title="view the full explanation at the Chrome dev blog">Chrome dev blog</a> for the full details.
+          </p>
+          <p>
+            Basically, it's a way to "balance" titles, headings, and short paragraphs such that there are a similar number of words per line (and hence avoid widowed words). For simplicity, I'm going to refer to it as <em>CSS Balance</em> from now on.
+          </p>
+          <p>
+            I'm not going to repeat the information that's available on the Chrome dev blog, the aim of this article is to demonstrate the effect of using CSS Balance on a typical blog, specifically this blog. Basically, I'm going to show some examples so you can decide if it's something you should implement on your website.
+          </p>
+      </section>
+
+      <section>
+          <h2>Examples</h2>
+          <p>
+            The following examples have not been configured specifically to demonstrate the effects of CSS Balance, they are simply the result of enabling CSS Balance on titles and headings on this website.
+          </p>
+          <h3>Homepage cards</h3>
+          <p>
+            Figure 1 below shows the first 3 cards from my homepage. Figure 2 shows the same 3 cards but with CSS Balance enabled.
+          </p>
+
+        <p>
+          As you can see, CSS Balance has had an effect on the titles of all 3 cards. The effect is probably most beneficial on the first card, where the words "Product" and "Manager" belong together, and on the second card, where the words "progress" and "bars" benefit from being together.
+        </p>
+        <p>
+           In total, 13 out of the 22 homepage cards have multiline titles, and each one of those multiline titles was altered when CSS Balance was enabled. 
+        </p>
+
+        <p>
+          Where CSS Balance is probably most beneficial is in stopping scenarios like that shown below in Figure 3, i.e. where a single number has appeared on a line by itself. Although to be fair, a non-breaking space should probably have been used in this scenario to keep "Windows" and "10" together.
+        </p>
+
+
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+          So, should you enable CSS Balance on your website? Yeah, why not, it's literally 1 line of CSS. It's easy to enable it for your website (you'll need to try it in a canary build of Google Chrome) and then see if you like the effects. I'll be leaving it enabled on onlyrss.org, and will wait for browsers to add support.
+        </p>
+      </section>
+
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+        </p>
+      </footer>
+
+    </article>
+
+    <script>
+      // Call the function to create and display the outline
+      createHeadingsOutline();
+      createFiguresOutline();
+    </script>
+
+    <script>
+      // populate the social links
+      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
+    </script>
+
+    <!-- related articles -->
+    <aside>
+      <h1>related articles</h1>
+      <a href="../posts/auto-numbering-of-figures-with-CSS-counters.html">
+        <h2>Automatically numbering figures using CSS Counters</h2>
+        <p>
+          You can use CSS Counters and the ::before pseudo selector to automatically label and number figures within a webpage.
+        </p>
+      </a>
+    </aside>
+    <script src="../scripts/prism.js"></script>
+  </body>
+</html>
