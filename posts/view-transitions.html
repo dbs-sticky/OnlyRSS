@@ -170,7 +170,7 @@
       <section>
         <h2>Browser support</h2>
         <p>
-          Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, and then paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
+          Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So, if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
         </p>
       </section>
 
@@ -192,10 +192,10 @@
       <section>
           <h2>Transition between page elements</h2>
           <p>
-            To achieve a transition between page elements, for example, a list of blog post titles on your blog's homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), you need give each of these locations the same name, to do this, we use the 'view-transitions-name' style.
+            To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), you need give each of these elements the same name, to do this, we use the 'view-transitions-name' style.
           </p>
           <p>
-            For example, on my blog's homepage, for the most recent blog post card, I have the following code:
+            For example, on my blog's homepage, for the most recent blog post i.e. post23, I have the following code:
               <pre><code class="language-html">&lt;card-body&gt;
   &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
   …
@@ -203,7 +203,7 @@
           </p>
 
           <p>
-            Then, on the associated blog post page, I have the following:
+            Then, on the actual blog post page, I have the following:
               <pre><code class="language-html">&lt;header&gt;
   &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
   …
@@ -211,7 +211,7 @@
 </code></pre>
           </p>
           <p>
-            The result is a smooth transition between the two locations and elements, as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
+            This is all the information the View Transitions API requires. The result is a smooth transition between the two elements (and locations), as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
 
           <figure>
             <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
