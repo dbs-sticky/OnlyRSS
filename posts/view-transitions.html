@@ -133,7 +133,7 @@
         <h1 style="view-transition-name: post24">View Transitions</h1>
         <div class="tldr">
           <p>
-            The result of enabling View Transitions on my blog for article titles.
+            Some basic instructions on how to implement simple View Transitions, including a couple of animated GIFs to show the results.
           </p>
         </div>
 
@@ -156,69 +156,64 @@
       </header>
 
       <!--the problem-->
+
       <section>
-          <p>
-            <section>
-              <h2>Background</h2>
-              <p>
-                I hadn't written an article for quite some time, so decided to write about the new View Transitions feature that has been added to Google Chrome. I actually implemented View Transitions about 6&nbsp;months ago on this site, and I couldn't remember why I hadn't already written about it. Then, during my research, I came across Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and then I remembered why. Dave's post covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
-              </p>
-              <p>
-               However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
-              </p>
-            </section>
-          </p>
-
-          <figure>
-            <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting .">
-            <figcaption>View Transitions. This animation has been slowed to 25% of normal speed.</figcaption>
-          </figure>
-
-          <figure>
-            <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
-            <figcaption>View Transitions. This animation has been slowed to 25% of normal speed.</figcaption>
-          </figure>
-  
-          <pre><code class="language-css">text-wrap: balance;</code></pre>
-          <p>
-            If not, then please visit the <a href="https://developer.chrome.com/blog/css-text-wrap-balance/" title="view the full explanation at the Chrome dev blog">Chrome dev blog</a> for the full details.
-          </p>
-          <p>
-            Basically, it's a way to "balance" titles, headings, and short paragraphs such that there are a similar number of words per line (and hence avoid widowed words). For simplicity, I'm going to refer to it as <em>CSS Balance</em> from now on.
-          </p>
-          <p>
-            I'm not going to repeat the information that's available on the Chrome dev blog, the aim of this article is to demonstrate the effect of using CSS Balance on a typical blog, specifically this blog. Basically, I'm going to show some examples so you can decide if it's something you should implement on your website.
-          </p>
+        <h2>Background</h2>
+        <p>
+          I hadn't written an article for quite some time, so decided to write about the new View Transitions feature that has been added to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+        </p>
+        <p>
+          However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
+        </p>
       </section>
 
       <section>
-          <h2>Examples</h2>
+        <h2>Transition between pages</h2>
+        <p>
+          To achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
+            <pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
+        </p>
+        <p>
+          The result is a subtle fade as you move between pages (the animation shown below has been slowed to 25% of normal speed). On mobile—especially when combined with a Progressive Web App (PWA)—the feeling you get is very “native-app” like.
+        </p>
+        <figure>
+          <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting .">
+          <figcaption>Transitions between pages. This animation has been slowed to 25% of normal speed.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+          <h2>Transition between page elements</h2>
           <p>
-            The following examples have not been configured specifically to demonstrate the effects of CSS Balance, they are simply the result of enabling CSS Balance on titles and headings on this website.
+            To achieve a transition between page elements, for example, a list of blog post titles on your blog's homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), you need give each of these locations the same name, to do this, we use the 'view-transitions-name' style.
           </p>
-          <h3>Homepage cards</h3>
           <p>
-            Figure 1 below shows the first 3 cards from my homepage. Figure 2 shows the same 3 cards but with CSS Balance enabled.
+            For example, on my blog's homepage, for the most recent blog post card, I have the following code:
+              <pre><code class="language-html">&lt;card-body&gt;
+  &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
+  …
+&lt;/card-body&gt;</code></pre>
           </p>
 
-        <p>
-          As you can see, CSS Balance has had an effect on the titles of all 3 cards. The effect is probably most beneficial on the first card, where the words "Product" and "Manager" belong together, and on the second card, where the words "progress" and "bars" benefit from being together.
-        </p>
-        <p>
-           In total, 13 out of the 22 homepage cards have multiline titles, and each one of those multiline titles was altered when CSS Balance was enabled. 
-        </p>
+          <p>
+            Then, on the associated blog post page, I have the following:
+              <pre><code class="language-html">&lt;header&gt;
+  &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
+  …
+&lt;/header&gt;
+</code></pre>
+          </p>
+          <p>
+            The result is a smooth transition between the two locations/elements, as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
 
-        <p>
-          Where CSS Balance is probably most beneficial is in stopping scenarios like that shown below in Figure 3, i.e. where a single number has appeared on a line by itself. Although to be fair, a non-breaking space should probably have been used in this scenario to keep "Windows" and "10" together.
-        </p>
-
-
+          <figure>
+            <img style="border: 1px solid lightgrey; border-radius: 5px;" src="../images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
+            <figcaption>Transition between page elements. This animation has been slowed to 25% of normal speed.</figcaption>
+          </figure>
+      </section>
 
       <section>
         <h2>Summary</h2>
-        <p>
-          So, should you enable CSS Balance on your website? Yeah, why not, it's literally 1 line of CSS. It's easy to enable it for your website (you'll need to try it in a canary build of Google Chrome) and then see if you like the effects. I'll be leaving it enabled on onlyrss.org, and will wait for browsers to add support.
-        </p>
       </section>
 
       <!-- feedback -->
