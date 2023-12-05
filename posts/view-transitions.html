@@ -160,7 +160,7 @@
       <section>
         <h2>Background</h2>
         <p>
-          I hadn't written an article for quite some time, so decided to write about the new View Transitions feature that has been added to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+          I hadn't written an article for quite some time, so decided to write about the new View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
         </p>
         <p>
           However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
@@ -168,9 +168,16 @@
       </section>
 
       <section>
+        <h2>Browser support</h2>
+        <p>
+          Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, and then paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
+        </p>
+      </section>
+
+      <section>
         <h2>Transition between pages</h2>
         <p>
-          To achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
+          With the Chrome feature flag enabled, to achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
             <pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
         </p>
         <p>
