@@ -145,7 +145,7 @@
           </div>
           
           <div class="byline-copy">
-            <time datetime="2023-12-05">5 Dec 2023</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+            <time datetime="2023-12-05">5 Dec 2023</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
           </div>
 
           <div class="byline-svgs"> 
@@ -160,7 +160,7 @@
       <section>
         <h2>Background</h2>
         <p>
-          I hadn't written an article for quite some time, so decided to write about the new View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+          I hadn't written an article for quite some time, so decided to write about the View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
         </p>
         <p>
           However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
@@ -192,10 +192,10 @@
       <section>
           <h2>Transition between page elements</h2>
           <p>
-            To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), you need give each of these elements the same name, to do this, we use the 'view-transitions-name' style.
+            To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), we need to create a link between the two elements, to do this, we use the 'view-transition-name' style.
           </p>
           <p>
-            For example, on my blog's homepage, for the most recent blog post i.e. post23, I have the following code:
+            For example, on my   blog's homepage, for the most recent blog post i.e. post23, I have the following code:
               <pre><code class="language-html">&lt;card-body&gt;
   &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
   …
@@ -203,7 +203,7 @@
           </p>
 
           <p>
-            Then, on the actual blog post page, I have the following:
+            Then, on the corresponding blog post page, I have the following:
               <pre><code class="language-html">&lt;header&gt;
   &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
   …
@@ -221,6 +221,9 @@
 
       <section>
         <h2>Summary</h2>
+        <p>
+          There's a lot more to View Transitions than I've covered here, but I wanted to keep this article to just the basics. If you want to learn more, then I recommend you read Dave Rupert's article "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>".
+        </p>
       </section>
 
       <!-- feedback -->
@@ -246,10 +249,10 @@
     <!-- related articles -->
     <aside>
       <h1>related articles</h1>
-      <a href="../posts/auto-numbering-of-figures-with-CSS-counters.html">
-        <h2>Automatically numbering figures using CSS Counters</h2>
+      <a href="../posts/adding-screenshots-to-your-pwa-install.html">
+        <h2>Adding screenshots to your PWA install experience</h2>
         <p>
-          You can use CSS Counters and the ::before pseudo selector to automatically label and number figures within a webpage.
+          Better inform your site visitors about your PWA before they commit to installation, with app screenshots.
         </p>
       </a>
     </aside>
