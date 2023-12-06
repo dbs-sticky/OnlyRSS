@@ -23,6 +23,106 @@
 
             <!-- Using 'text-wrap: balance' -->
     <item>
+      <guid isPermaLink="false">article26</guid>
+      <title>View Transitions: A basic implementation</title>
+      <link>https://onlyrss.org/posts/view-transitions.html</link>
+      <pubDate>Tue, 06 Dec 2023 16:00:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+
+    <article>
+      <section>
+        <h2>Background</h2>
+        <p>
+          I hadn't written an article for quite some time, so decided to write about the View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+        </p>
+        <p>
+          However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
+        </p>
+      </section>
+
+      <section>
+        <h2>Browser support</h2>
+        <p>
+          Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So, if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
+        </p>
+        <p>
+          Now that you've enabled the feature in Chrome, you can test the feature by navigating between pages on this site, or better still, try the following blogs which have both implemented View Transitions:
+          <ul>
+            <li><a href="https://daverupert.com/" title="Dave Rupert's blog" target="_blank">Dave Rupert's blog</a></li>
+            <li><a href="https://chriscoyier.net/" title="Chris Coyier's blog" target="_blank">Chris Coyier's blog</a></li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
+        <h2>Transition between pages</h2>
+        <p>
+          With the Chrome feature flag enabled, to achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
+        </p>
+            <pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
+        <p>
+          The result is a subtle fade as you move between pages (the animation shown below has been slowed to 25% of normal speed). On mobile—especially when combined with a Progressive Web App (PWA)—the feeling you get is very “native-app” like.
+        </p>
+        <figure>
+          <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting various pages from a mobile blog's top navigation menu. When the new page loads, the previous page fades away, and the new page fades into view.">
+          <figcaption>Transitions between pages. This animation has been slowed to 25% of normal speed.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+          <h2>Transition between page elements</h2>
+          <p>
+            To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), we need to create a link between the two elements, to do this, we use the 'view-transition-name' style.
+          </p>
+          <p>
+            For example, on my   blog's homepage, for the most recent blog post i.e. post23, I have the following code:
+          </p>
+              <pre><code class="language-html">&lt;card-body&gt;
+  &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
+  …
+&lt;/card-body&gt;</code></pre>
+          <p>
+            Then, on the corresponding blog post page, I have the following:
+          </p>
+              <pre><code class="language-html">&lt;header&gt;
+  &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
+  …
+&lt;/header&gt;
+</code></pre>
+
+          <p>
+            This is all the information the View Transitions API requires. The result is a smooth transition between the two elements (and locations), as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
+
+          <figure>
+            <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
+            <figcaption>Transition between page elements. This animation has been slowed to 25% of normal speed.</figcaption>
+          </figure>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+          There's a lot more to View Transitions than I've covered here, but I wanted to keep this article to just the basics. If you want to learn more, then I recommend you read Dave Rupert's article "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>".
+        </p>
+      </section>
+
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+        </p>
+      </footer>
+
+    </article>
+
+                ]]>
+      </description>
+    </item>
+
+
+            <!-- Using 'text-wrap: balance' -->
+    <item>
       <guid isPermaLink="false">article25</guid>
       <title>Using 'text-wrap: balance'</title>
       <link>https://onlyrss.org/posts/css-balance.html</link>
