@@ -859,6 +859,7 @@ aside h2:hover {
   display: flex;
   gap: 0.5rem;
   justify-content:end;
+  padding-bottom: 1rem;
 }
 
 .changelog-buttons button:first-of-type {
