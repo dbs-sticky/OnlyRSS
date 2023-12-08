@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Transitions: A basic implementation</title>
+    <meta name="description" content="The result of enabling View Transitions on my blog for article titles.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="view-transition" content="same-origin">
+    
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="View Transitions: A basic implementation">
+    <meta property="og:url" content="https://onlyrss.org/posts/view-transitions.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/view-transitions-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630"> 
+    <meta property="og:description" content="The result of enabling View Transitions on my blog for article titles.">
+    <meta property="article:published_time" content="2023-12-06">
+
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://onlyrss.org/posts/view-transitions.html"
+        },
+        "headline": "View Transitions: A basic implementation",
+        "description": "The result of enabling View Transitions on my blog for article titles.",
+        "image": "https://onlyrss.org/images/og/view-transitions-og.png",  
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "2023-12-06"
+      }
+    </script>
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main80.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    <link rel="stylesheet" type="text/css" href="/styles/prism.css">
+    
+    <!--load self-hosted fonts-->
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+    </style>
+
+    <!-- load scripts-->
+    <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
+    </script>
+        <script src="../scripts/outline.js"></script>
+        <script src="../scripts/social.js"></script>
+  </head>
+
+  <body>
+    
+    <header class="nav">
+      <nav>
+        <ul>
+          <li><a href="/index.html" title="Homepage">home</a></li>
+          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
+          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
+          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="outline">
+      <div>Sections</div>
+      <div id="doc_outline"></div>
+      <div>Figures</div>
+      <div id="doc_figures"></div>
+    </div>
+
+    <article>
+      <header>
+        <h1 style="view-transition-name: post24">View Transitions: A basic implementation</h1>
+        <div class="tldr">
+          <p>
+            Some instructions on how to implement simple View Transitions, including a couple of animated GIFs to show the results.
+          </p>
+        </div>
+
+          <!-- Flexrow -->
+        <div class="byline">
+
+          <div>
+            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
+          </div>
+          
+          <div class="byline-copy">
+            <time datetime="2023-12-06">6 Dec 2023</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          </div>
+
+          <div class="byline-svgs"> 
+            <!-- populated by the social script at the end of the page -->
+          </div>
+
+        </div>  <!--class byline-->
+      </header>
+
+      <!--the problem-->
+
+      <section>
+        <h2>Background</h2>
+        <p>
+          I hadn't written an article for quite some time, so decided to write about the View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+        </p>
+        <p>
+          However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
+        </p>
+      </section>
+
+      <section>
+        <h2>Browser support</h2>
+        <p>
+          Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So, if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
+        </p>
+        <p>
+          Now that you've enabled the feature in Chrome, you can test the feature by navigating between pages on this site, or better still, try the following blogs which have both implemented View Transitions:
+          <ul>
+            <li><a href="https://daverupert.com/" title="Dave Rupert's blog" target="_blank">Dave Rupert's blog</a></li>
+            <li><a href="https://chriscoyier.net/" title="Chris Coyier's blog" target="_blank">Chris Coyier's blog</a></li>
+          </ul>
+        </p>
+      </section>
+
+      <section>
+        <h2>Transition between pages</h2>
+        <p>
+          With the Chrome feature flag enabled, to achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
+        </p>
+            <pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
+        <p>
+          The result is a subtle fade as you move between pages (the animation shown below has been slowed to 25% of normal speed). On mobile—especially when combined with a Progressive Web App (PWA)—the feeling you get is very “native-app” like.
+        </p>
+        <figure>
+          <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="../images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting various pages from a mobile blog's top navigation menu. When the new page loads, the previous page fades away, and the new page fades into view.">
+          <figcaption>Transitions between pages. This animation has been slowed to 25% of normal speed.</figcaption>
+        </figure>
+      </section>
+
+      <section>
+          <h2>Transition between page elements</h2>
+          <p>
+            To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), we need to create a link between the two elements, to do this, we use the 'view-transition-name' style.
+          </p>
+          <p>
+            For example, on my   blog's homepage, for the most recent blog post i.e. post23, I have the following code:
+          </p>
+              <pre><code class="language-html">&lt;card-body&gt;
+  &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
+  …
+&lt;/card-body&gt;</code></pre>
+          <p>
+            Then, on the corresponding blog post page, I have the following:
+          </p>
+              <pre><code class="language-html">&lt;header&gt;
+  &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
+  …
+&lt;/header&gt;
+</code></pre>
+
+          <p>
+            This is all the information the View Transitions API requires. The result is a smooth transition between the two elements (and locations), as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
+
+          <figure>
+            <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="../images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
+            <figcaption>Transition between page elements. This animation has been slowed to 25% of normal speed.</figcaption>
+          </figure>
+      </section>
+
+      <section>
+        <h2>Summary</h2>
+        <p>
+          There's a lot more to View Transitions than I've covered here, but I wanted to keep this article to just the basics. If you want to learn more, then I recommend you read Dave Rupert's article "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>".
+        </p>
+      </section>
+
+      <!-- feedback -->
+      <footer>
+        <p>
+          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+        </p>
+      </footer>
+
+    </article>
+
+    <script>
+      // Call the function to create and display the outline
+      createHeadingsOutline();
+      createFiguresOutline();
+    </script>
+
+    <script>
+      // populate the social links
+      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
+    </script>
+
+    <!-- related articles -->
+    <aside>
+      <h1>related articles</h1>
+      <a href="../posts/adding-screenshots-to-your-pwa-install.html">
+        <h2>Adding screenshots to your PWA install experience</h2>
+        <p>
+          Better inform your site visitors about your PWA before they commit to installation, with app screenshots.
+        </p>
+      </a>
+      <a href="../posts/css-balance.html">
+        <h2>Using 'text-wrap: balance'</h2>
+        <p>
+          I demonstrate the effect of enabling 'text-wrap: balance' for titles and headings across onlyrss.org.
+        </p>
+      </a>
+    </aside>
+    <script src="../scripts/prism.js"></script>
+  </body>
+</html>

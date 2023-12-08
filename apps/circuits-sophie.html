@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Circuits</title>
+    <meta
+      name="description"
+      content="A web app for generating a random selection of exercises for a circuit training session.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="view-transition" content="same-origin">
+    <!--TODO add suitable OpenGraph data here-->
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main80.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(../fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "OpenSans";
+        font-style: normal;
+        font-weight: 400;
+        src: url(../fonts/OpenSans-Regular.woff2) format("woff2");
+      }
+
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("../service-worker.js");
+      }
+    </script>
+
+    <script>
+      // get the slider value
+      function getNumber() {
+        let input = document.getElementById("userInput").value;
+        return input;
+      }
+
+      // triggered by the main button: set the number of exercises to "n"
+      function myFunction() {
+        let n = getNumber();
+
+        // clear the list of any existing exercises
+        document.getElementById("exercises").innerHTML = "";
+
+        // define the array
+        const all_exercises = [
+          ["walking lunge with overhead weight"],
+          ["kettle swings (15)"],
+          ["ring star fish (20)"],
+          ["mountain climbers (40)"],
+          ["kettle bell triceps"],
+          ["kettle bell pullovers (10)"],
+          ["chainsaw row"],
+          ["burpees (10)"],
+          ["rowing (500m)"],
+          ["squat and stretch jumps (20)", "jumping lunges", "step up (25)"],
+          ["one leg squat", "squats", "squat with kettle bell (15)"],
+          ["ankle raises", "squat ankle raises (25)"],
+          ["v sits","single leg v sits (15)","sit ups (15)","candle stick lifts","roll ups"],
+          ["wind wipers","floor leg lifts (15)","hanging leg lifts"],
+          ["dish rocks","dish hold","fish kicks in dish (30)"],
+          ["ring reverse crunch","crunches","weighted russian twists (30)"],
+          ["pike hold","ring pikes","hanging knee tuck hold (10s)","hanging tuck ups","hanging wind wipers","hanging straddle hold","star leg planks (30)"],
+          ["plank", "commandos","elbow - knee (15)","ring saws","shoulder taps"],
+          ["push ups (arms out)","push ups (arms in)","bench press 20","flyes (10)"],
+          ["pull ups","chin ups (2)"],
+          ["handstand hold (30s)","handstand taps","handstand shoulder taps (15)","dumbell shoulder press"],
+        ];
+
+        //   const all_exercises = [
+        //   // legs
+        //   ["walking lunge with overhead weight (10 each leg)", "step up (15 each leg)", "one leg squat (10 each leg)", "deadlifts (10)", "good mornings (10)", "squats (15)", "squat with kettle bell (15)"],
+
+        //   // glutes/hips
+        //   ["bridges (15)", "hip thrusts (15)"],
+
+        //   // back
+        //   ["kettle swings (15)", "chainsaw row (10 each side)", "rowing (500m)"],
+
+        //   // chest
+        //   ["bench press (15)", "flyes (10)"],
+
+        //   // shoulders 
+        //   ["handstand hold (30 secs)", "handstand taps (10)", "handstand shoulder taps (15)", "dumbbell shoulder press (10)"],
+
+        //   // arms
+        //   ["kettle bell tricep extension (10)", "kettle bell pullovers (10)"],
+
+        //   // core stability
+        //   ["plank (60 secs)", "elbow-to-knee crunches (15)", "ring saws (10)", "dish hold (20 secs)", "dish rocks (15)"],
+
+        //   // core strength
+        //   ["v-sits (10)", "single leg v-sits (10 each)", "sit-ups (15)", "candle stick lifts (10)", "roll-ups (10)", "crunches (15)", "weighted Russian twists (30)"],
+
+        //   // legs/glutes 
+        //   ["mountain climbers (40)", "burpees (10)", "ankle raises (15)", "squat ankle raises (25)"],
+
+        //   // back/shoulders
+        //   ["pull-ups (10)", "chin-ups (10)", "wide grip pull-ups (10)"],
+        // ];
+
+
+      //   const all_exercises = [
+      //     // Chest  
+      //   [
+      //     "Push ups (10-12 reps)", 
+      //     "Decline push ups (8-10 reps)",
+      //     "Dumbbell bench press (10-12 reps)",
+      //     "Isometric push up hold (10-15 secs)"
+      //   ],
+      //     // Back
+      //   [  
+      //     "Barbell rows (8-10 reps)", 
+      //     "Chin ups (to failure)",
+      //     "Dumbbell rows (10-12 reps per side)",
+      //     "Superman holds (12-15 secs)"
+      //   ],
+      //     // Shoulders
+      //   [
+      //     "Lateral raises (12-15 reps)",
+      //     "Front raises (10-12 reps)",  
+      //     "Shoulder taps in plank (10 per side)",
+      //     "Handstand hold against wall (10-15 secs)"
+      //   ],
+      //     // Biceps  
+      //   [
+      //     "Chin ups (to failure)",
+      //     "Dumbbell hammer curls (10-12 reps)",
+      //     "Incline dumbbell curls (8-10 reps)", 
+      //     "Reverse barbell curls (8-10 reps)"
+      //   ],
+      //     // Triceps
+      //   [
+      //     "Dips (to failure)",
+      //     "Diamond push ups (8-10 reps)",
+      //     "Reverse grip tricep extensions (10-12 reps)",
+      //     "Overhead tricep extensions (10-12 reps)"
+      //   ],
+      //     // Legs 
+      //   [
+      //     "Goblet squats (6-8 reps)",
+      //     "Split squats (8-10 per side)", 
+      //     "Calf raises (12-15 reps)",
+      //     "Single leg glute bridges (10-12 per side)"
+      //   ],
+      //     // Calves
+      //   [
+      //     "Seated calf raises (12-15 reps)",
+      //     "Standing calf raises (15-20 reps)",
+      //     "Single leg calf raises (10-12 reps per side)",
+      //     "Jump rope (30 seconds)"
+      //   ],
+      //     // Abs
+      //   [
+      //     "Plank (30-45 secs)",
+      //     "Side plank (20-30 secs per side)", 
+      //     "Bicycle crunches (12-15 per side)",
+      //     "Reverse crunches on bench (10-12 reps)"
+      //   ],
+      //     // Glutes
+      //   [
+      //     "Barbell hip thrusts (15-20 reps)",
+      //     "Glute bridges (15-20 reps)",
+      //     "Donkey kicks (12-15 per side)",
+      //     "Curtsy lunges (10-12 per side)"
+      //   ],
+      //     // Full body/cardio 
+      //   [
+      //     "Mountain climbers (20-30 secs)",
+      //     "Tuck jumps (10-15 reps)", 
+      //     "Bench hops (15-20 reps)", 
+      //     "High knees (45 secs)"
+      //   ]
+      // ];
+
+        // Set the max value of the slider (with id=userInput) to the # of elements in the array
+        document
+          .getElementById("userInput")
+          .setAttribute("max", all_exercises.length);
+
+        // shuffle the full array
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+        }
+
+        // pull out the first n values from the shuffled array and display as ordered list
+        shuffleArray(all_exercises);
+        all_exercises.slice(0, n).forEach((e) => {
+          shuffleArray(e); // shuffle the nested array
+          exercises.innerHTML =
+            exercises.innerHTML + "<li>" + "&nbsp;" + e[0] + "</li>"; // choose the first element using e[0]
+        });
+      }
+    </script>
+  </head>
+
+  <body onload="myFunction()">
+    <button
+      class="app-btn-close"
+      onclick="location.href='../index.html'"
+      type="button"
+      title="close app and return to homepage"
+    >
+      &#x2715;
+    </button>
+    <div id="card">
+      <div id="head">
+        <p>
+          № of exercises:
+          <output name="numberOutputName" id="numberOutputId">12</output>
+        </p>
+        <input class="app-slider"
+          id="userInput"
+          type="range"
+          placeholder="12"
+          value="12"
+          step="1"
+          min="1"
+          max=""
+          oninput="numberOutputId.value = userInput.value">
+        <p>
+          <button class="app-workout" onclick="myFunction()">Create new workout</button>
+        </p>
+      </div>
+      <ol id="exercises"></ol>
+    </div>
+  </body>
+</html>

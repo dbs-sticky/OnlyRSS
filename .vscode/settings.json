@@ -21,6 +21,8 @@
   },
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
+  // "editor.fontFamily": "CommitMono",
+  "editor.fontLigatures": true,
   "markdownConverter.ConversionType": ["HTML"],
   "editor.renderWhitespace": "all",
   "gitlens.hovers.currentLine.over": "line",
@@ -55,7 +57,7 @@
       "/<style>[^]*?</style>/gm"
     ]
   },
-  "editor.fontSize": 15.5,
+  "editor.fontSize": 15,
   "editor.wordWrap": "on"
 
 }

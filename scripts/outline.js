@@ -1,62 +1,66 @@
-/**
- * 
- * @param {string} elementType The element type to enumerate and create and outline of. eg: `h2`, `figure`
- * @param {string} targetId The element ID into which the generated list of links will be added.
- */
+// Function to create an outline based on the specified element type and target ID
 function createOutline(elementType, targetId) {
-  // Get all the items (eg, h2, figure) in the document
-  let elements = document.querySelectorAll(elementType);
+  // Get all elements of the specified type
+  const elements = document.querySelectorAll(elementType);
+  // Initialize an empty array to store the outline
+  const outline = [];
 
-  // Create an empty array to store the outline items
-  let outline = [];
-
-  // Process each item and add to the outline array
+  // Iterate over each element
   elements.forEach((element, index) => {
-      // Check if the element type is figure
-      if (elementType === "figure") {
-          // Get the figcaption element inside the figure
-          let figcaption = element.querySelector("figcaption");
-          // Use the figcaption text as the link text
-          text = figcaption.textContent;
-      } else {
-          // Use the element text as the link text
-          text = element.textContent;
-      }
-      id = `${elementType}-${index}`;
-      // Set an ID for each item
-      element.setAttribute("id", id);
-      outline.push({text, id});
+    let text;
+    // If the element type is "figure", get the text content of the figcaption element
+    if (elementType === "figure") {
+      const figcaption = element.querySelector("figcaption");
+      text = figcaption ? figcaption.textContent : '';
+    } else {
+      // For other element types, get the text content of the element
+      text = element.textContent;
+    }
+    // Generate a unique ID for the element
+    const id = `${elementType}-${index}`;
+    // Set the ID of the element
+    element.id = id;
+    // Add the text and ID to the outline array
+    outline.push({text, id});
   });
-  
-  
-  // Create a link to each item inside an unordered list
-  let contentList = document.createElement("ul");
+
+  // Create a new unordered list element to hold the outline
+  const contentList = document.createElement("ul");
+  // Iterate over each item in the outline array
   outline.forEach( o => { 
-      let li = document.createElement("li");
-      let a = document.createElement("a");
-      a.setAttribute("href", `#${o.id}`);
-      // Set title attribute, to help with long text
-      a.setAttribute("title", o.text.trim());
-      a.textContent = o.text;
-      li.appendChild(a);
-      contentList.appendChild(li);
+    // Create a new list item element
+    const li = document.createElement("li");
+    // Create a new anchor element
+    const a = document.createElement("a");
+    // Set the href attribute of the anchor element to link to the corresponding element ID
+    a.href = `#${o.id}`;
+    // Set the title attribute of the anchor element to the trimmed text content
+    a.title = o.text.trim();
+    // Set the text content of the anchor element
+    a.textContent = o.text;
+    // Append the anchor element to the list item element
+    li.appendChild(a);
+    // Append the list item element to the content list
+    contentList.appendChild(li);
   });
 
-// Append the generated links to the outline div
-document.getElementById(targetId).appendChild(contentList);
-
+  // Get the target element by its ID
+  const targetElement = document.getElementById(targetId);
+  // If the target element exists, append the content list to it
+  if (targetElement) {
+    targetElement.appendChild(contentList);
+  } else {
+    // If the target element does not exist, log an error message
+    console.error(`Element with id "${targetId}" not found.`);
+  }
 }
 
-/**
-* Creates an outline from `h2` elements in the document and writes to `doc_outline`
-*/
-function createHeadingsOutline(){
-createOutline("h2", "doc_outline");
+// Function to create an outline for headings
+function createHeadingsOutline() {
+  createOutline("h2", "doc_outline");
 }
 
-/**
-* Creates an outline from `figure` elements in the document and writes to `doc_figures`
-*/
-function createFiguresOutline(){
-createOutline("figure", "doc_figures")
+// Function to create an outline for figures
+function createFiguresOutline() {
+  createOutline("figure", "doc_figures");
 }
