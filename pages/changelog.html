@@ -79,12 +79,12 @@
       }
     </script>
 
-    <!-- To expand/collapse all changelog entries-->
-    <script>
-      function openCloseDetails(status) { 
-        var detailsElements = document.querySelectorAll('.changelog');
-        detailsElements.forEach(detailsElement => detailsElement.open = status);
-      }
+    <!-- Expand or Collapse all Changelog entries-->
+    <script>      
+      const openCloseDetails = status => {
+        const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
+        detailsElements.forEach(detailsElement => detailsElement.open = status);// For each selected element, set its 'open' property to the passed status
+      };
       </script>
 
       <!-- Filters -->
