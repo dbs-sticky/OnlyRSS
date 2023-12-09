@@ -831,11 +831,39 @@ aside h2:hover {
 
 /* ====== Details and Summary for changelog page====== */
 
+/* This flexbox contains 2 children, the filters (left), and the expand/collapse (right) */
 .changelog-actions {
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
+
+.filter-btn {
+  border-radius: var(--radius);
+  font-family: "Roboto Condensed", sans-serif;
+  text-transform: uppercase;
+  color: var(--bodytext);
+  font-size: 0.8rem;
+  background: white;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border: var(--accent) 1px solid;
+  transition: background-color 200ms;
+  cursor: pointer;
+}
+
+/* hover state is the light accent colour */
+.filter-btn:hover {
+  background-color: var(--accent-light);
+}
+
+/* Active filter is not clickable, selected state is full accent colour */
+.filter-btn.active {
+  pointer-events: none;
+  background-color: var(--accent);
+  color: white;
+}
+
 
 .changelog-buttons button:first-of-type {
   border-radius: var(--radius) 0 0 var(--radius);
