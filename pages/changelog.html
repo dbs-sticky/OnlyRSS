@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main80.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main81.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
@@ -79,14 +79,6 @@
       }
     </script>
 
-    <!-- Expand or Collapse all Changelog entries-->
-    <script>      
-      const openCloseDetails = status => {
-        const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
-        detailsElements.forEach(detailsElement => detailsElement.open = status);// For each selected element, set its 'open' property to the passed status
-      };
-      </script>
-
   </head>
 
   <body>
@@ -109,6 +101,15 @@
           All changes are listed here—along with details of what I learnt. Expand an item to learn more.
         </p>
 
+        <div class="changelog-actions">
+
+          <div class="filter-button-row">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="ux">UX</button>
+            <button class="filter-btn" data-filter="content">CONTENT</button>
+            <button class="filter-btn" data-filter="housekeeping">HOUSEKEEPING</button>
+            <button class="filter-btn" data-filter="performance">PERFORMANCE</button>
+          </div>
 
           <div class="changelog-buttons">
             <button onclick="openCloseDetails(true)">Expand</button><button onclick="openCloseDetails(false)">Collapse</button>
@@ -117,8 +118,9 @@
         </div> 
 
       </header>
+      
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2023-12-06">6 Dec 2023</time>: New article: <strong>View Transitions: A basic implementation</strong></span><content-tag></content-tag>
         </summary>
@@ -129,7 +131,7 @@
       </details>
 
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2023-04-11">11 Apr 2023</time>: New article: <strong>Using 'text-wrap: balance'</strong></span><content-tag></content-tag>
         </summary>
@@ -140,7 +142,7 @@
       </details>
 
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2023-04-04">4 Apr 2023</time>: Added Reddit and Facebook sharing icons to articles</span><ux-tag></ux-tag>
         </summary>
@@ -150,7 +152,7 @@
         <img src="/images/reddit-facebook.webp" loading="lazy" alt="A screenshot of an article byline showing small, blue, square iocns for Reddit, Facebook, Twitter, LinkedIn, and Email." width="548" height="342">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2023-03-05">5 Mar 2023</time>: New article: <strong>HTML & CSS table with progress bars</strong></span><content-tag></content-tag>
         </summary>
@@ -160,7 +162,7 @@
         <p><a href="/posts/table-with-progress-indicator.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2023-02-25">25 Feb 2023</time>: Infographic: <strong>The 25 largest passenger airlines</strong></span><content-tag></content-tag>
         </summary>
@@ -173,7 +175,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2023-02-21">21 Feb 2023</time>: New article: <strong>Air India - Putting their recent order into context</strong></span><content-tag></content-tag>
         </summary>
@@ -183,7 +185,7 @@
         <p><a href="/posts/the-air-india-order.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2023-02-12">12 Feb 2023</time>: Used the HTML &lt;mark&gt; element for the first time</span><ux-tag></ux-tag>
         </summary>
@@ -196,7 +198,7 @@
         <img src="/images/mark.png" loading="lazy" alt="A screenshot of a paragraph of text. Within the paragraph are 3 values i.e. 0.25MB, 2.8MB, and 6.4MB. Each value is highlighted in yellow, as if someone has used a highlighter pen, this makes the 3 values stand out from the rest of the text." width="700" height="180">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2023-02-12">12 Feb 2023</time>: Updated progress indicators in Learning Log tables</span><ux-tag></ux-tag>
         </summary>
@@ -212,7 +214,7 @@
       </details>
 
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2023-02-04">04 Feb 2023</time>: New article: <strong>Infographic: The 25 largest passenger airlines</strong></span><content-tag></content-tag>
         </summary>
@@ -229,7 +231,7 @@
       </details>
 
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary >
           <span><time datetime="2022-12-20">20 Dec 2022</time>: New article: <strong>Airbus vs Boeing: An experiment in charting</strong></span><content-tag></content-tag>
         </summary>
@@ -246,7 +248,7 @@
       </details>
 
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2022-12-11">11 Dec 2022</time>: Removed images from homepage cards (on mobile displays) </span><ux-tag></ux-tag>
         </summary>
@@ -255,7 +257,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2022-12-11">11 Dec 2022</time>: Added the byline avatar to the mobile view</span><ux-tag></ux-tag>
         </summary>
@@ -267,7 +269,7 @@
         <img src="/images/byline-mobile.webp" loading="lazy" alt="A small screesnout of the mobile view of my article byline that includes an avater, some date information, and social icons for social networks." width="224" height="153">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span><time datetime="2022-12-10">10 Dec 2022</time>: New article: <strong>Learning Log: 2022</strong></span><content-tag></content-tag>
         </summary>
@@ -280,7 +282,7 @@
         <p><a href="/posts/learning-log-2022.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2022-12-09">09 Dec 2022</time>: Added an avatar to article bylines</span><ux-tag></ux-tag>
         </summary>
@@ -296,7 +298,7 @@
         <p style="text-align: center;"><i>“Now where exactly did I leave my slippers?”</i></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2022-12-07">07 Dec 2022</time>: Updated the sharing icons to inline SVGs </span><ux-tag></ux-tag>
         </summary>
@@ -306,7 +308,7 @@
         <img src="/images/sharing-icons.gif" loading="lazy" alt="An animated gif showing 3 social sharing icons which grow larger on hover. " width="420" height="162">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary >
           <span><time datetime="2022-11-20">20 Nov 2022</time>: Replaced article sharing links with SVG icons, and moved to the top of articles </span><ux-tag></ux-tag>
         </summary>
@@ -322,7 +324,7 @@
         <img src="/images/pubrow.gif" loading="lazy" alt="An animated gif showing 11 social media icons fading from full colour to simple black and white outlines. " width="650" height="62">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span><time datetime="2022-11-06">06 Nov 2022</time>: Added 2 new social icons and updated the icon row to CSS Flex</span><housekeeping-tag></housekeeping-tag>
         </summary>
@@ -335,7 +337,7 @@
         <img src="/images/icons-row.gif" loading="lazy" alt="An animated gif showing 11 social media icons fading from full colour to simple black and white outlines. " width="676" height="75">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span><time datetime="2022-11-05">05 Nov 2022</time>: Updated the homepage cards to be more “robust” </span><ux-tag></ux-tag>
         </summary>
@@ -348,7 +350,7 @@
         <img src="/images/old-new-hp-cards.gif" loading="lazy" alt="An animated gif the old and new homepage card design. " width="650" height="284">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span><time datetime="2022-10-02">02 Sep 2022</time>: New article: <strong>Zoom and enhance!</strong></span><content-tag></content-tag>
         </summary>
@@ -358,7 +360,7 @@
         <p><a href="/posts/zoom-and-enhance.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span><time datetime="2022-07-01">01 Jul 2022</time>: Added sharing links to all articles for Twitter, LinkedIn, and email</span><ux-tag></ux-tag>
         </summary>
@@ -375,7 +377,7 @@
         <img src="/images/social-screenshot-twitter.png" loading="lazy" alt="A screenshot showing the result of sharing an article to Twitter that has the required OpenGrpah meta data included." width="585" height="435">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span><time datetime="2022-07-01">01 Jul 2022</time>: Added a summary (TLDR) section at the top of each article page</span><ux-tag></ux-tag>
         </summary>
@@ -388,7 +390,7 @@
         <img src="/images/tldr-screenshot.png" loading="lazy" alt="A screenshot showing an article title, summary paragraph, followed by the article byline." width="663" height="201">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-06-26">26 Jun 2022</time>: Updated the
@@ -412,7 +414,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-06-25">25 Jun 2022</time>: Replaced ' with ‘
@@ -431,7 +433,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span
             ><time datetime="2022-06-23">23 Jun 2022</time>: Improved the
@@ -465,7 +467,7 @@
         <img src="/images/deployment.webp" loading="lazy" alt="A screenshot from GitHub Actions showing a process flow of two jobs running in series i.e. A HTML validation job, followed by an FTP deployment job" width="454" height="126">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-06-11">11 Jun 2022</time>: New article:
@@ -479,7 +481,7 @@
         <p><a href="/posts/my-first-javascript-app.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-06-04">04 Jun 2022</time>: New article:
@@ -498,7 +500,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span
             ><time datetime="2022-06-02">02 Jun 2022</time>: Copied hosting to
@@ -542,7 +544,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-05-30">30 May 2022</time>: New article:
@@ -561,7 +563,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-05-28">28 May 2022</time>: Fixed link styles
@@ -587,7 +589,7 @@
         <p>I suspect I’ll be using this selector a lot going forward.</p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-05-27">27 May 2022</time>: Added PWA Shortcut
@@ -604,7 +606,7 @@
         <img src="/images/pwa-shortcuts.webp" loading="lazy" alt="A screenshot showing the PWA shortcuts visible from the Windows taskbar" width="322" height="305">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-05-23">23 May 2022</time>: Implemented auto
@@ -630,7 +632,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-05-23">23 May 2022</time>: Fixed the global
@@ -646,7 +648,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-05-22">22 May 2022</time>: Improved the PWA
@@ -666,7 +668,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-04-13">13 Apr 2022</time>: Added Alt text to
@@ -692,7 +694,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-04-13">13 Apr 2022</time>: Made all fonts
@@ -724,7 +726,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-04-10">10 Apr 2022</time>: Added the global
@@ -742,7 +744,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-04-07">07 Apr 2022</time>: Defined two styles
@@ -764,7 +766,7 @@
         <img src="/images/details-summary-changelog.gif" loading="lazy" alt="An animated GIF showing a user clicking a link that then displays an image below the link" width="744" height="217">
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-04-04">04 Apr 2022</time>: New article:
@@ -785,7 +787,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-04-03">03 Apr 2022</time>: Created the
@@ -811,7 +813,7 @@
         <p><a href="subscribe.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-03-24">24 Mar 2022</time>: Changed the link
@@ -840,7 +842,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span
             ><time datetime="2022-03-20">20 Mar 2022</time>: Should your
@@ -882,7 +884,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span
             ><time datetime="2022-03-20">20 Mar 2022</time>: Swapped a
@@ -914,7 +916,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="performance">
         <summary>
           <span
             ><time datetime="2022-03-19">19 Mar 2022</time>: Added SVG social
@@ -955,7 +957,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-03-16">16 Mar 2022</time>: Right-aligned the
@@ -974,7 +976,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="performance">
         <summary>
           <span
             ><time datetime="2022-03-14">14 Mar 2022</time>: Moved the links to
@@ -993,7 +995,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-03-13">13 Mar 2022</time>: Created this
@@ -1010,7 +1012,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-03-12">12 Mar 2022</time>: Replaced the
@@ -1025,7 +1027,7 @@
         <p><a href="/pages/about.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span
             ><time datetime="2022-03-12">12 Mar 2022</time>: Switched GitHub
@@ -1039,7 +1041,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="performance">
         <summary>
           <span
             ><time datetime="2022-03-11">11 Mar 2022</time>: Moved font import
@@ -1055,7 +1057,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-03-11">11 Mar 2022</time>: Improved the PWA
@@ -1075,7 +1077,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="performance">
         <summary>
           <span
             ><time datetime="2022-03-10">10 Mar 2022</time>: Removed Google
@@ -1107,7 +1109,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="performance">
         <summary>
           <span
             ><time datetime="2022-03-10">10 Mar 2022</time>: Added
@@ -1126,7 +1128,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-03-09">09 Mar 2022</time>: Added OpenGraph
@@ -1141,7 +1143,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-03-08">08 Mar 2022</time>: My first use of the
@@ -1161,7 +1163,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-03-06">06 Mar 2022</time>: New article:
@@ -1178,7 +1180,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-03-05">05 Mar 2022</time>: Added ‘related
@@ -1192,7 +1194,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-02-28">28 Feb 2022</time>: Added
@@ -1211,7 +1213,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="performance">
         <summary>
           <span
             ><time datetime="2022-02-27">27 Feb 2022</time>: Converted the
@@ -1225,7 +1227,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-02-26">26 Feb 2022</time>: Made the site
@@ -1240,7 +1242,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-02-21">21 Feb 2022</time>: Project Unity. One
@@ -1257,7 +1259,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2022-02-13">13 Feb 2022</time>: OnlyRSS.org, now a
@@ -1272,7 +1274,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-01-17">17 Jan 2022</time>: New article:
@@ -1287,7 +1289,7 @@
         <p><a href="/posts/drop-caps-and-indents.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2022-01-12">12 Jan 2022</time>: New article:
@@ -1302,7 +1304,7 @@
         <p><a href="/posts/why-i-prefer-the-kindle.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-12-29">29 Dec 2021</time>: New RSS article:
@@ -1317,7 +1319,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-04-21">21 Apr 2021</time>: New article:
@@ -1336,7 +1338,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-04-09">09 Apr 2021</time>: New article:
@@ -1356,7 +1358,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2021-04-02">02 Apr 2021</time>: Updated the
@@ -1371,7 +1373,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-03-28">28 Mar 2021</time>: New article:
@@ -1386,7 +1388,7 @@
         <p><a href="/posts/chart-picker.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="ux">
         <summary>
           <span
             ><time datetime="2021-03-14">14 Mar 2021</time>: Updated the
@@ -1400,7 +1402,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="housekeeping">
         <summary>
           <span
             ><time datetime="2021-03-13">13 Mar 2021</time>: Changed the
@@ -1414,7 +1416,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-03-07">07 Mar 2021</time>: New article:
@@ -1428,7 +1430,7 @@
         <p><a href="/posts/rss-part-1.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-03-02">02 Mar 2021</time>: New article:
@@ -1442,7 +1444,7 @@
         <p><a href="/posts/drawing-with-excalidraw.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-02-18">18 Feb 2021</time>: New article:
@@ -1458,7 +1460,7 @@
         </p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-02-07">07 Feb 2021</time>: New article:
@@ -1472,7 +1474,7 @@
         <p><a href="/posts/anatomy-of-a-lockdown-day.html">Go to article</a></p>
       </details>
 
-      <details class="changelog">
+      <details class="changelog" data-category="content">
         <summary>
           <span
             ><time datetime="2021-02-06">06 Feb 2021</time>: New article:
@@ -1491,5 +1493,64 @@
       </details>
     </main>
     <script src="../scripts/prism.js"></script>
+
+    <!-- Filter Changelog entries-->
+    <script>
+      const filterList = document.querySelector('.filter-button-row'); // Select the container of filter buttons
+      const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all filter buttons
+      const changelogEntries = document.querySelectorAll('.changelog'); // Select all changelog entries
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+          const changelogfilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
+
+          if (!document.startViewTransition) { //this is fallback for Safari & firefox which don't support startViewTransition
+          console.log("button clicked = " + changelogfilter); // Log the filter value
+          updateActiveButton(e.target); // Update the active button
+          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          } else {
+
+          document.startViewTransition(() => {
+          console.log("button clicked = " + changelogfilter); // Log the filter value
+          updateActiveButton(e.target); // Update the active button
+          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          })
+        }
+        })
+      })
+
+      function updateActiveButton(newButton) {
+        filterList.querySelector('.active').classList.remove('active'); // Remove the 'active' class from the currently active button
+        newButton.classList.add('active'); // Add the 'active' class to the clicked button
+        console.log(newButton); // Log the new active button
+      }
+
+      function filterChangelogEntries(changelogFilter) {
+        changelogEntries.forEach((changelogEntry) => {
+          const changelogCategory = changelogEntry.getAttribute('data-category'); // Get the category of the current changelog entry
+          if (changelogFilter === 'all' || changelogFilter === changelogCategory) { // If the filter is 'all' or matches the category
+            changelogEntry.removeAttribute('hidden'); // Show the changelog entry
+          } else { // If the filter doesn't match the category
+            changelogEntry.setAttribute('hidden',''); // Hide the changelog entry
+          }
+        });
+      }
+    </script>
+
+    <!-- Expand or Collapse all Changelog entries-->
+      <script>
+        const openCloseDetails = status => {
+          const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
+          
+          if (!document.startViewTransition) { // Fallback for Safari & Firefox which don't support startViewTransition
+            detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
+          } else {
+            document.startViewTransition(() => {
+              detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
+            });
+          }
+        };
+      </script>
+
   </body>
 </html>
