@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main80.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main81.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
@@ -78,17 +78,6 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
-
-    <!-- Expand or Collapse all Changelog entries-->
-    <script>      
-      const openCloseDetails = status => {
-        const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
-        detailsElements.forEach(detailsElement => detailsElement.open = status);// For each selected element, set its 'open' property to the passed status
-      };
-      </script>
-
-
-
 
   </head>
 
@@ -1507,44 +1496,61 @@
 
     <!-- Filter Changelog entries-->
     <script>
-      const filterList = document.querySelector('.filter-button-row'); // Select the element that contains the filter buttons
-      const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all individual filter buttons
+      const filterList = document.querySelector('.filter-button-row'); // Select the container of filter buttons
+      const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all filter buttons
       const changelogEntries = document.querySelectorAll('.changelog'); // Select all changelog entries
 
       filterButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
-          const changelogfilter = e.target.getAttribute('data-filter'); // get the changelog category from the button
-          console.log("button clicked = " + changelogfilter);
-          updateActiveButton(e.target); // change the active button
-          filterChangelogEntries(changelogfilter); //filter the list
+          const changelogfilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
+
+          if (!document.startViewTransition) { //this is fallback for Safari & firefox which don't support startViewTransition
+          console.log("button clicked = " + changelogfilter); // Log the filter value
+          updateActiveButton(e.target); // Update the active button
+          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          } else {
+
+          document.startViewTransition(() => {
+          console.log("button clicked = " + changelogfilter); // Log the filter value
+          updateActiveButton(e.target); // Update the active button
+          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          })
+        }
         })
       })
 
-      // Find the active button and remove its active state, add active state to new button
       function updateActiveButton(newButton) {
-        filterList.querySelector('.active').classList.remove('active');//find the previously active button & remove the active class from it
-        newButton.classList.add('active');// add the active class to the new button
-        console.log(newButton);
+        filterList.querySelector('.active').classList.remove('active'); // Remove the 'active' class from the currently active button
+        newButton.classList.add('active'); // Add the 'active' class to the clicked button
+        console.log(newButton); // Log the new active button
       }
 
       function filterChangelogEntries(changelogFilter) {
-        changelogEntries.forEach((changelogEntries) => {
-          const changelogCategory = changelogEntries.getAttribute('data-category');
-          console.log("changelogCategory = " + changelogCategory);
-
-          if (changelogFilter === 'all' || changelogFilter === changelogCategory) {
-            changelogEntries.removeAttribute('hidden');
-          } else {
-            changelogEntries.setAttribute('hidden','');
+        changelogEntries.forEach((changelogEntry) => {
+          const changelogCategory = changelogEntry.getAttribute('data-category'); // Get the category of the current changelog entry
+          if (changelogFilter === 'all' || changelogFilter === changelogCategory) { // If the filter is 'all' or matches the category
+            changelogEntry.removeAttribute('hidden'); // Show the changelog entry
+          } else { // If the filter doesn't match the category
+            changelogEntry.setAttribute('hidden',''); // Hide the changelog entry
           }
         });
-
-
-
       }
-
     </script>
 
+    <!-- Expand or Collapse all Changelog entries-->
+      <script>
+        const openCloseDetails = status => {
+          const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
+          
+          if (!document.startViewTransition) { // Fallback for Safari & Firefox which don't support startViewTransition
+            detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
+          } else {
+            document.startViewTransition(() => {
+              detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
+            });
+          }
+        };
+      </script>
 
   </body>
 </html>
