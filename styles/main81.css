@@ -1,4 +1,11 @@
 /* define global site variables */
+
+@supports (--accent-light: color-mix(in srgb, var(--accent), transparent 80%)) {
+  :root {
+    --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
+  }
+}
+
 :root {
   --pagewidth: 960px;
   --accent: SteelBlue;
@@ -10,11 +17,7 @@
   --background-color: white;
 }
 
-@supports (--accent-light: color-mix(in srgb, var(--accent), transparent 80%)) {
-  :root {
-    --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
-  }
-}
+
 
 
  /* ======================
