@@ -877,6 +877,9 @@ aside h2:hover {
   color: white;
 }
 
+.compact-expand-btn.active svg path {
+  fill: white;
+}
 
 .compact-expand-btn:first-of-type, .filter-btn:first-of-type {
   border-radius: calc(var(--radius)*0.7) 0 0 calc(var(--radius)*0.7);

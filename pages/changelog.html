@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main82.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main83.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
@@ -116,14 +116,13 @@
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M18.57 7.82H5.43a2.75 2.75 0 0 0-2.75 2.75v2.86a2.75 2.75 0 0 0 2.75 2.75h13.14a2.75 2.75 0 0 0 2.75-2.75v-2.86a2.75 2.75 0 0 0-2.75-2.75M5.43 9.32h13.14c.69 0 1.25.56 1.25 1.25v2.86c0 .69-.56 1.25-1.25 1.25H5.43c-.69 0-1.25-.56-1.25-1.25v-2.86c0-.69.56-1.25 1.25-1.25m15.14 9.64a.75.75 0 0 1 .1 1.5H3.43a.75.75 0 0 1-.1-1.49h.1zm0-15.42a.75.75 0 0 1 .1 1.49H3.43a.75.75 0 0 1-.1-1.49h.1z"/>
             </svg>
           </button>
-            <button class ="compact-expand-btn" onclick="openCloseDetails(false)">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" d="M19.714 6.107a.75.75 0 0 1 .102 1.493l-.102.007H9.43a.75.75 0 0 1-.102-1.493l.102-.007zM6 6.107A.75.75 0 0 1 6.102 7.6L6 7.607H4.286a.75.75 0 0 1-.102-1.493l.102-.007zM6 11.25a.75.75 0 0 1 .102 1.493L6 12.75H4.286a.75.75 0 0 1-.102-1.493l.102-.007zM6 16.393a.75.75 0 0 1 .102 1.493L6 17.893H4.286a.75.75 0 0 1-.102-1.493l.102-.007zM19.714 11.25a.75.75 0 0 1 .102 1.493l-.102.007H9.43a.75.75 0 0 1-.102-1.493l.102-.007zM19.714 16.393a.75.75 0 0 1 .102 1.493l-.102.007H9.43a.75.75 0 0 1-.102-1.493l.102-.007z"></path>
+            <button class ="compact-expand-btn active" onclick="openCloseDetails(false)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path  fill="black" d="M19.714 6.107a.75.75 0 0 1 .102 1.493l-.102.007H9.43a.75.75 0 0 1-.102-1.493l.102-.007zM6 6.107A.75.75 0 0 1 6.102 7.6L6 7.607H4.286a.75.75 0 0 1-.102-1.493l.102-.007zM6 11.25a.75.75 0 0 1 .102 1.493L6 12.75H4.286a.75.75 0 0 1-.102-1.493l.102-.007zM6 16.393a.75.75 0 0 1 .102 1.493L6 17.893H4.286a.75.75 0 0 1-.102-1.493l.102-.007zM19.714 11.25a.75.75 0 0 1 .102 1.493l-.102.007H9.43a.75.75 0 0 1-.102-1.493l.102-.007zM19.714 16.393a.75.75 0 0 1 .102 1.493l-.102.007H9.43a.75.75 0 0 1-.102-1.493l.102-.007z"></path>
               </svg>
             </button>
-            <!-- <button class ="compact-expand-btn active" onclick="openCloseDetails(false)">Collapse</button> -->
           </div>
 
-        </div> 
+        </div>
 
       </header>
 
@@ -1581,6 +1580,26 @@
             });
           }
         };
+
+        // Set the active state to the selected Expand/Collapse button
+        // Select all buttons with the class 'compact-expand-btn'
+        const buttons = document.querySelectorAll('.compact-expand-btn');
+
+        // Loop through all buttons
+        buttons.forEach((button) => {
+          // Add an event listener for the 'click' event
+          button.addEventListener('click', function() {
+            // Remove 'Active' class from all buttons
+            buttons.forEach((btn) => {
+              btn.classList.remove('active');
+            });
+
+            // Add 'Active' class to the clicked button
+            this.classList.add('active');
+          });
+        });
+
+
       </script>
 
   </body>
