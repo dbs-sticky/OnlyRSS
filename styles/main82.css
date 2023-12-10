@@ -1,11 +1,5 @@
 /* define global site variables */
 
-@supports (--accent-light: color-mix(in srgb, var(--accent), transparent 80%)) {
-  :root {
-    --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
-  }
-}
-
 :root {
   --pagewidth: 960px;
   --accent: SteelBlue;
@@ -17,7 +11,11 @@
   --background-color: white;
 }
 
-
+@supports (--accent-light: color-mix(in srgb, var(--accent), transparent 80%)) {
+  :root {
+    --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
+  }
+}
 
 
  /* ======================
@@ -841,40 +839,51 @@ aside h2:hover {
   margin-bottom: 1rem;
 }
 
-.filter-btn {
-  border-radius: var(--radius);
+@media  (width < 500px) {
+  .changelog-actions {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+}
+
+.filter-btn, .compact-expand-btn {
+  border-radius: 0;
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   color: var(--bodytext);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   background: white;
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
   border: var(--accent) 1px solid;
   transition: background-color 200ms;
   cursor: pointer;
+  padding: 0.3rem;
+}
+
+.compact-expand-btn {
+  width: 25px;
+  padding: 0.2rem;
+
 }
 
 /* hover state is the light accent colour */
-.filter-btn:hover {
+.filter-btn:hover, .compact-expand-btn:hover {
   background-color: var(--accent-light);
 }
 
 /* Active filter is not clickable, selected state is full accent colour */
-.filter-btn.active {
+.filter-btn.active, .compact-expand-btn.active {
   pointer-events: none;
   background-color: var(--accent);
   color: white;
 }
 
 
-.changelog-buttons button:first-of-type {
-  border-radius: var(--radius) 0 0 var(--radius);
-  margin-right: 0.5rem;
+.compact-expand-btn:first-of-type, .filter-btn:first-of-type {
+  border-radius: calc(var(--radius)*0.7) 0 0 calc(var(--radius)*0.7);
 }
 
-.changelog-buttons button:last-of-type {
-  border-radius: 0 var(--radius) var(--radius) 0;
+.compact-expand-btn:last-of-type, .filter-btn:last-of-type {
+  border-radius: 0 calc(var(--radius)*0.7) calc(var(--radius)*0.7) 0;
 }
 
   /* set summary elements to flex to enable the tags to be right-aligned */
