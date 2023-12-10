@@ -859,6 +859,17 @@ aside h2:hover {
   padding: 0.3rem;
 }
 
+/* Hide the focus ring by default */
+.filter-btn:focus, .compact-expand-btn:focus {
+  outline: none
+}
+
+/* Show the focus ring when using non-mouse input */
+.filter-btn:focus-visible, .compact-expand-btn:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: 1px;
+}
+
 .compact-expand-btn {
   width: 25px;
   padding: 0.2rem;
