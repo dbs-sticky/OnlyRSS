@@ -126,7 +126,22 @@
         </div> 
 
       </header>
-      
+
+      <details class="changelog" data-category="ux">
+        <summary >
+          <span><time datetime="2023-12-10">10 Dec 2023</time>: Added filtering to the Changelog page</span><ux-tag></ux-tag>
+        </summary>
+        <p> 
+          There are 75 entries in the Changelog to date, so this page presented me with the perfect opportunity to try and build some filters.
+        </p>
+        <p>
+           I used my fledgling JavaScript "skills" to build a simple filter that would show/hide entries based on their category. My version did work, but it was pretty basic, so when Kevin Powell released his <a href="https://www.youtube.com/watch?v=jZiZs8cZAKU" title="Watch Kevin Powell's video on YouTube">video on building filters</a> I decided to rebuild my version using his code as a starting point. One advantage of using Kevin's code is that it includes some nice View Transitions (which required a single line of JavaScript!), although at the moment these are not supported on Firefox or Safari.
+        </p>
+        <p>
+          I also took this opportunity to update the Expand/Collapse buttons and replace the text with icons. I still have to update the code so that the currently selected option is clearly displayed to the user (as it does for the filters).
+        </p>
+        <img src="/images/changelog-filters.webp" loading="lazy" alt="A screenshot of the top of the Changelog page (Mobile) showing the Changelog filters, and the Expand and Collapse options." width="344" height="153">
+      </details>
 
       <details class="changelog" data-category="content">
         <summary >
