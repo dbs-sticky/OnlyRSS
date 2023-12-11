@@ -72,15 +72,30 @@
           <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
         </ul>
       </nav>
+
     </header>
+      <div style="margin: auto; width: var(--pagewidth); margin-bottom: 1rem;">
+        <div class="filter-button-row">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="webdev">webdev</button>
+          <button class="filter-btn" data-filter="product-management">product management</button>
+          <button class="filter-btn" data-filter="dataviz">dataviz</button>
+          <button class="filter-btn" data-filter="review">review</button>
+          <button class="filter-btn" data-filter="productivity">productivity</button>
+          <button class="filter-btn" data-filter="misc">misc</button>
+        </div>
+      </div>
+
 
     <main class="home-grid">
+
+
 
     <!-- List of articles -->
 
 
-      <a href="/posts/view-transitions.html">
-        <card-container>
+      <a href="/posts/view-transitions.html" data-category="webdev">
+        <card-container >
     
           <card-header>
             <img loading="lazy" src="/images/view-transitions-thumb.png" width="300" height="200" alt="An image that includes 2 screesnshots taken from the homepage and article page of this blog. An arrow has been drawn between a blog title on the homepage, and the same blog title on the article page. This is meant to demonstrate how a title on one page can transform into the same title on another page.">
@@ -100,7 +115,7 @@
       </a>
 
 
-      <a href="/posts/css-balance.html">
+      <a href="/posts/css-balance.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -120,7 +135,7 @@
         </card-container>
       </a>
 
-      <a href="/posts/10-benefits-of-rss-for-product-managers.html">
+      <a href="/posts/10-benefits-of-rss-for-product-managers.html" data-category="product-management">
         <card-container>
     
           <card-header>
@@ -140,7 +155,7 @@
         </card-container>
       </a>
 
-      <a href="/posts/table-with-progress-indicator.html">
+      <a href="/posts/table-with-progress-indicator.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -160,7 +175,7 @@
         </card-container>
       </a>
 
-      <a href="/posts/the-air-india-order.html">
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
         <card-container>
     
           <card-header>
@@ -180,7 +195,7 @@
         </card-container>
       </a>
 
-      <a href="/posts/top-25-pax-airlines.html">
+      <a href="/posts/top-25-pax-airlines.html" data-category="dataviz">
         <card-container>
     
           <card-header>
@@ -200,7 +215,7 @@
         </card-container>
       </a>
 
-      <a href="/posts/airbus-vs-boeing-charts.html">
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
         <card-container>
     
           <card-header>
@@ -221,7 +236,7 @@
       </a>
 
 
-      <a href="/posts/learning-log-2022.html">
+      <a href="/posts/learning-log-2022.html" data-category="misc">
         <card-container>
     
           <card-header>
@@ -241,7 +256,7 @@
         </card-container>
       </a>
 
-      <a href="/posts/zoom-and-enhance.html">
+      <a href="/posts/zoom-and-enhance.html" data-category="misc">
         <card-container>
     
           <card-header>
@@ -262,7 +277,7 @@
       </a>
 
 
-      <a href="/posts/my-first-javascript-app.html">
+      <a href="/posts/my-first-javascript-app.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -283,7 +298,7 @@
       </a>
 
 
-      <a href="/posts/adding-screenshots-to-your-pwa-install.html">
+      <a href="/posts/adding-screenshots-to-your-pwa-install.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -304,7 +319,7 @@
       </a>
 
 
-      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html">
+      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -325,7 +340,7 @@
       </a>
 
 
-      <a href="/posts/loading-images-only-when-they-are-needed.html">
+      <a href="/posts/loading-images-only-when-they-are-needed.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -346,7 +361,7 @@
       </a>
 
 
-      <a href="/posts/linking-tables-to-bar-charts.html">
+      <a href="/posts/linking-tables-to-bar-charts.html" data-category="dataviz">
         <card-container>
     
           <card-header>
@@ -367,7 +382,7 @@
       </a>
 
 
-      <a href="/posts/drop-caps-and-indents.html">
+      <a href="/posts/drop-caps-and-indents.html" data-category="webdev">
         <card-container>
     
           <card-header>
@@ -388,7 +403,7 @@
       </a>
 
 
-      <a href="/posts/why-i-prefer-the-kindle.html">
+      <a href="/posts/why-i-prefer-the-kindle.html" data-category="review">
         <card-container>
     
           <card-header>
@@ -409,7 +424,7 @@
       </a>
 
 
-      <a href="/posts/why-every-product-manager-should-build-a-website.html">
+      <a href="/posts/why-every-product-manager-should-build-a-website.html" data-category="product-management">
         <card-container>
     
           <card-header>
@@ -430,7 +445,7 @@
       </a>
 
 
-      <a href="/posts/my-rowing-tips-after-15-million-meters.html">
+      <a href="/posts/my-rowing-tips-after-15-million-meters.html" data-category="misc">
         <card-container>
     
           <card-header>
@@ -451,7 +466,7 @@
       </a>
 
 
-      <a href="/posts/chart-picker.html">
+      <a href="/posts/chart-picker.html" data-category="dataviz">
         <card-container>
     
           <card-header>
@@ -472,7 +487,7 @@
       </a>
 
 
-      <a href="/posts/rss-part-1.html">
+      <a href="/posts/rss-part-1.html" data-category="productivity">
         <card-container>
     
           <card-header>
@@ -493,7 +508,7 @@
       </a>
 
 
-      <a href="/posts/drawing-with-excalidraw.html">
+      <a href="/posts/drawing-with-excalidraw.html" data-category="review">
         <card-container>
     
           <card-header>
@@ -514,7 +529,7 @@
       </a>
 
 
-      <a href="/posts/working-from-home-hardware.html">
+      <a href="/posts/working-from-home-hardware.html" data-category="productivity">
         <card-container>
     
           <card-header>
@@ -535,7 +550,7 @@
       </a>
 
 
-      <a href="/posts/anatomy-of-a-lockdown-day.html">
+      <a href="/posts/anatomy-of-a-lockdown-day.html" data-category="productivity">
         <card-container>
     
           <card-header>
@@ -556,7 +571,7 @@
       </a>
 
 
-      <a href="/posts/using-virtual-desktops-in-windows-10.html">
+      <a href="/posts/using-virtual-desktops-in-windows-10.html" data-category="productivity">
         <card-container>
     
           <card-header>
@@ -578,5 +593,48 @@
 
 
     </main>
+
+    <!-- Filter Changelog entries-->
+    <script>
+      const filterList = document.querySelector('.filter-button-row'); // Select the container of filter buttons
+      const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all filter buttons
+      const changelogEntries = document.querySelectorAll("[data-category]"); // Select all changelog entries
+
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+          const changelogfilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
+          console.log(changelogfilter);
+
+          if (!document.startViewTransition) { //this is fallback for Safari & firefox which don't support startViewTransition
+          updateActiveButton(e.target); // Update the active button
+          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          } else {
+
+          document.startViewTransition(() => {
+          console.log("button clicked = " + changelogfilter); // Log the filter value
+          updateActiveButton(e.target); // Update the active button
+          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          })
+        }
+        })
+      })
+
+      function updateActiveButton(newButton) {
+        filterList.querySelector('.active').classList.remove('active'); // Remove the 'active' class from the currently active button
+        newButton.classList.add('active'); // Add the 'active' class to the clicked button
+      }
+
+      function filterChangelogEntries(changelogFilter) {
+        changelogEntries.forEach((changelogEntry) => {
+          const changelogCategory = changelogEntry.getAttribute('data-category'); // Get the category of the current changelog entry
+          if (changelogFilter === 'all' || changelogFilter === changelogCategory) { // If the filter is 'all' or matches the category
+            changelogEntry.removeAttribute('hidden'); // Show the changelog entry
+          } else { // If the filter doesn't match the category
+            changelogEntry.setAttribute('hidden',''); // Hide the changelog entry
+          }
+        });
+      }
+    </script>
+
   </body>
 </html>
