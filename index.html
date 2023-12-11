@@ -591,45 +591,44 @@
 
     <!-- Filter Changelog entries-->
     <script>
-      const filterList = document.querySelector('.filter-button-row'); // Select the container of filter buttons
-      const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all filter buttons
-      const Content = document.querySelectorAll("[data-category]"); // Select all the filterable content
 
-      // Add a click event listener to each filter button and get the filter value
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-          const AppliedFilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
+      const filterList = document.querySelector('.filter-button-row');    // Select the filter button row
+      const filterButtons = filterList.querySelectorAll('.filter-btn');   // Select all filter buttons
+      const content = document.querySelectorAll("[data-category]");       // Select all content items with a data-category attribute
 
-          if (!document.startViewTransition) { //this is fallback for Safari & firefox which don't support startViewTransition
-          updateActiveButton(e.target); // call the functin to update the button to"active"
-          filterContent(AppliedFilter); // call the filter function
-          } else {
+      filterButtons.forEach((button) => {                                 // For each filter button
+        button.addEventListener('click', (e) => {                         // Add a click event listener
+          const appliedFilter = e.target.dataset.filter;                  // Get the filter value from the clicked button
+          console.log('filter applied: ' + appliedFilter);                // Log the filter value to the console
 
-          document.startViewTransition(() => {
-          updateActiveButton(e.target); // call the functin to update the button to"active"
-          filterContent(AppliedFilter); // call the filter function
-          })
-        }
+          if (!document.startViewTransition) {                            // If there's no ongoing view transition
+            updateActiveButton(e.target);                                 // Update the active button
+            filterContentByCategory(appliedFilter);                       // Filter the content by the selected category
+          } else {                                                        // If there's an ongoing view transition
+            document.startViewTransition(() => {                          // Start a new view transition
+              updateActiveButton(e.target);                               // Update the active button
+              filterContentByCategory(appliedFilter);                     // Filter the content by the selected category
+            })
+          }
         })
       })
 
-      // functin to update the button to"active"
-      function updateActiveButton(newButton) {
-        filterList.querySelector('.active').classList.remove('active'); // Remove the 'active' class from the currently active button
-        newButton.classList.add('active'); // Add the 'active' class to the clicked button
+      function updateActiveButton(newButton) {                                     // Function to update the active button
+        filterList.querySelector('.active').classList.remove('active');            // Remove the 'active' class from the currently active button
+        newButton.classList.add('active');                                         // Add the 'active' class to the new button
       }
 
-      // filter function
-      function filterContent(AppliedFilter) {
-        Content.forEach((contentItem) => {
-          const contentCategory = contentItem.getAttribute('data-category'); // Get the category of the current changelog entry
-          if (AppliedFilter === 'all' || AppliedFilter === contentCategory) { // If the filter is 'all' or matches the category
-            contentItem.removeAttribute('hidden'); // Show the changelog entry
-          } else { // If the filter doesn't match the category
-            contentItem.setAttribute('hidden',''); // Hide the changelog entry
+      function filterContentByCategory(appliedFilter) {                           // Function to filter content by category
+        content.forEach((contentItem) => {                                        // For each content item
+          const contentCategory = contentItem.dataset.category;                   // Get the category of the content item
+          if (appliedFilter === 'all' || appliedFilter === contentCategory) {     // If the applied filter is 'all' or matches the content category
+            contentItem.hidden = false;                                           // Show the content item
+          } else {                                                                // If the applied filter doesn't match the content category
+            contentItem.hidden = true;                                            // Hide the content item
           }
         });
       }
+
     </script>
 
   </body>
