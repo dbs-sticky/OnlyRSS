@@ -72,9 +72,9 @@
           <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
         </ul>
       </nav>
-
     </header>
-      <div style="margin: auto; width: var(--pagewidth); margin-bottom: 1rem;">
+
+      <search>
         <div class="filter-button-row">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="webdev">webdev</button>
@@ -84,15 +84,10 @@
           <button class="filter-btn" data-filter="productivity">productivity</button>
           <button class="filter-btn" data-filter="misc">misc</button>
         </div>
-      </div>
-
+      </search>
 
     <main class="home-grid">
-
-
-
     <!-- List of articles -->
-
 
       <a href="/posts/view-transitions.html" data-category="webdev" style="view-transition-name: card24">
         <card-container>
@@ -598,39 +593,40 @@
     <script>
       const filterList = document.querySelector('.filter-button-row'); // Select the container of filter buttons
       const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all filter buttons
-      const changelogEntries = document.querySelectorAll("[data-category]"); // Select all changelog entries
+      const Content = document.querySelectorAll("[data-category]"); // Select all the filterable content
 
+      // Add a click event listener to each filter button and get the filter value
       filterButtons.forEach((button) => {
         button.addEventListener('click', (e) => {
-          const changelogfilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
-          console.log(changelogfilter);
+          const AppliedFilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
 
           if (!document.startViewTransition) { //this is fallback for Safari & firefox which don't support startViewTransition
-          updateActiveButton(e.target); // Update the active button
-          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          updateActiveButton(e.target); // call the functin to update the button to"active"
+          filterContent(AppliedFilter); // call the filter function
           } else {
 
           document.startViewTransition(() => {
-          console.log("button clicked = " + changelogfilter); // Log the filter value
-          updateActiveButton(e.target); // Update the active button
-          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
+          updateActiveButton(e.target); // call the functin to update the button to"active"
+          filterContent(AppliedFilter); // call the filter function
           })
         }
         })
       })
 
+      // functin to update the button to"active"
       function updateActiveButton(newButton) {
         filterList.querySelector('.active').classList.remove('active'); // Remove the 'active' class from the currently active button
         newButton.classList.add('active'); // Add the 'active' class to the clicked button
       }
 
-      function filterChangelogEntries(changelogFilter) {
-        changelogEntries.forEach((changelogEntry) => {
-          const changelogCategory = changelogEntry.getAttribute('data-category'); // Get the category of the current changelog entry
-          if (changelogFilter === 'all' || changelogFilter === changelogCategory) { // If the filter is 'all' or matches the category
-            changelogEntry.removeAttribute('hidden'); // Show the changelog entry
+      // filter function
+      function filterContent(AppliedFilter) {
+        Content.forEach((contentItem) => {
+          const contentCategory = contentItem.getAttribute('data-category'); // Get the category of the current changelog entry
+          if (AppliedFilter === 'all' || AppliedFilter === contentCategory) { // If the filter is 'all' or matches the category
+            contentItem.removeAttribute('hidden'); // Show the changelog entry
           } else { // If the filter doesn't match the category
-            changelogEntry.setAttribute('hidden',''); // Hide the changelog entry
+            contentItem.setAttribute('hidden',''); // Hide the changelog entry
           }
         });
       }
