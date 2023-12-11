@@ -1051,6 +1051,12 @@ a.icons:active {
     homepage grid
     ====================== */
 
+  /* filter row on homepage */
+  search {
+    margin: auto;
+    max-width: var(--pagewidth);
+    margin-bottom: 1rem;
+  }
 
 .home-grid {
   font-family: "OpenSans", sans-serif;
