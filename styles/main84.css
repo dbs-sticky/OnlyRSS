@@ -846,9 +846,8 @@ aside h2:hover {
   }
 }
 
-.filter-button-row {
+.filter-button-row, .changelog-button-row {
   display: flex;
-  gap: 0.2rem;
   height: 1.5rem;
 }
 
@@ -856,13 +855,15 @@ aside h2:hover {
   border-radius: 0;
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
-  color: var(--bodytext);
+  color: var(--accent);
   font-size: 0.7rem;
   background: white;
-  border: var(--accent) 1px solid;
+  border: var(--accent-light) 1px solid;
+  border-left: none;
   transition: background-color 200ms;
   cursor: pointer;
-  padding: 0.3rem 0.2rem 0.3rem 0.2rem;
+  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+
 }
 
 .filter-btn {
@@ -871,17 +872,6 @@ aside h2:hover {
   white-space: nowrap;
   min-width: 40px;
   max-width: max-content;
-}
-
-/* Hide the focus ring by default */
-.filter-btn:focus, .compact-expand-btn:focus {
-  outline: none
-}
-
-/* Show the focus ring when using non-mouse input */
-.filter-btn:focus-visible, .compact-expand-btn:focus-visible {
-  outline: solid 2px var(--accent);
-  outline-offset: 1px;
 }
 
 .compact-expand-btn {
@@ -895,11 +885,16 @@ aside h2:hover {
   background-color: var(--accent-light);
 }
 
+
 /* Active filter is not clickable, selected state is full accent colour */
 .filter-btn.active, .compact-expand-btn.active {
   pointer-events: none;
   background-color: var(--accent);
   color: white;
+}
+
+.compact-expand-btn svg path {
+  fill: var(--accent);
 }
 
 .compact-expand-btn.active svg path {
@@ -908,11 +903,25 @@ aside h2:hover {
 
 .compact-expand-btn:first-of-type, .filter-btn:first-of-type {
   border-radius: calc(var(--radius)*0.5) 0 0 calc(var(--radius)*0.5);
+  border-left: var(--accent-light) 1px solid;
 }
+
 
 .compact-expand-btn:last-of-type, .filter-btn:last-of-type {
   border-radius: 0 calc(var(--radius)*0.5) calc(var(--radius)*0.5) 0;
 }
+
+/* Hide the focus ring by default */
+.filter-btn:focus, .compact-expand-btn:focus {
+  outline: none
+}
+
+/* Show the focus ring when using non-mouse input */
+.filter-btn:focus-visible, .compact-expand-btn:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: 1px;
+}
+
 
   /* set summary elements to flex to enable the tags to be right-aligned */
 .changelog summary {
