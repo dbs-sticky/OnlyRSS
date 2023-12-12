@@ -1514,93 +1514,50 @@
         </p>
       </details>
     </main>
+    
     <script src="../scripts/prism.js"></script>
-
-    <!-- Filter Changelog entries-->
-    <script>
-      const filterList = document.querySelector('.filter-button-row'); // Select the container of filter buttons
-      const filterButtons = filterList.querySelectorAll('.filter-btn'); // Select all filter buttons
-      const changelogEntries = document.querySelectorAll('.changelog'); // Select all changelog entries
-
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-          const changelogfilter = e.target.getAttribute('data-filter'); // Get the filter value from the clicked button
-
-          if (!document.startViewTransition) { //this is fallback for Safari & firefox which don't support startViewTransition
-          console.log("button clicked = " + changelogfilter); // Log the filter value
-          updateActiveButton(e.target); // Update the active button
-          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
-          } else {
-
-          document.startViewTransition(() => {
-          console.log("button clicked = " + changelogfilter); // Log the filter value
-          updateActiveButton(e.target); // Update the active button
-          filterChangelogEntries(changelogfilter); // Filter the changelog entries based on the filter value
-          })
-        }
-        })
-      })
-
-      function updateActiveButton(newButton) {
-        filterList.querySelector('.active').classList.remove('active'); // Remove the 'active' class from the currently active button
-        newButton.classList.add('active'); // Add the 'active' class to the clicked button
-        console.log(newButton); // Log the new active button
-      }
-
-      function filterChangelogEntries(changelogFilter) {
-        changelogEntries.forEach((changelogEntry) => {
-          const changelogCategory = changelogEntry.getAttribute('data-category'); // Get the category of the current changelog entry
-          if (changelogFilter === 'all' || changelogFilter === changelogCategory) { // If the filter is 'all' or matches the category
-            changelogEntry.removeAttribute('hidden'); // Show the changelog entry
-          } else { // If the filter doesn't match the category
-            changelogEntry.setAttribute('hidden',''); // Hide the changelog entry
-          }
-        });
-      }
-    </script>
+    <script src="../scripts/filters.js"></script>
 
     <!-- Expand or Collapse all Changelog entries-->
-      <script>
-        const openCloseDetails = status => {
+    <script>
+      const openCloseDetails = status => {
 
-          const expCollList = document.querySelector('.changelog-button-row'); // Select the container of expand collapse buttons
-          const expCollButtons = expCollList.querySelectorAll('.compact-expand-btn'); // Select all expand collapse buttons
-          const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
+        const expCollList = document.querySelector('.changelog-button-row'); // Select the container of expand collapse buttons
+        const expCollButtons = expCollList.querySelectorAll('.compact-expand-btn'); // Select all expand collapse buttons
+        const detailsElements = document.querySelectorAll('.changelog'); // Select all elements with class 'changelog'
 
-           // Remove the 'active' class from the currently active button
-          // expCollList.querySelector('.active').classList.remove('active');
+          // Remove the 'active' class from the currently active button
+        // expCollList.querySelector('.active').classList.remove('active');
 
 
 
-          if (!document.startViewTransition) { // Fallback for Safari & Firefox which don't support startViewTransition
+        if (!document.startViewTransition) { // Fallback for Safari & Firefox which don't support startViewTransition
+          detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
+        } else {
+          document.startViewTransition(() => {
             detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
-          } else {
-            document.startViewTransition(() => {
-              detailsElements.forEach(detailsElement => detailsElement.open = status); // For each selected element, set its 'open' property to the passed status
-            });
-          }
-        };
-
-        // Set the active state to the selected Expand/Collapse button
-        // Select all buttons with the class 'compact-expand-btn'
-        const buttons = document.querySelectorAll('.compact-expand-btn');
-
-        // Loop through all buttons
-        buttons.forEach((button) => {
-          // Add an event listener for the 'click' event
-          button.addEventListener('click', function() {
-            // Remove 'Active' class from all buttons
-            buttons.forEach((btn) => {
-              btn.classList.remove('active');
-            });
-
-            // Add 'Active' class to the clicked button
-            this.classList.add('active');
           });
+        }
+      };
+
+      // Set the active state to the selected Expand/Collapse button
+      // Select all buttons with the class 'compact-expand-btn'
+      const buttons = document.querySelectorAll('.compact-expand-btn');
+
+      // Loop through all buttons
+      buttons.forEach((button) => {
+        // Add an event listener for the 'click' event
+        button.addEventListener('click', function() {
+          // Remove 'Active' class from all buttons
+          buttons.forEach((btn) => {
+            btn.classList.remove('active');
+          });
+
+          // Add 'Active' class to the clicked button
+          this.classList.add('active');
         });
+      });
 
-
-      </script>
-
+    </script>
   </body>
 </html>
