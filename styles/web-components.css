@@ -1,11 +1,11 @@
 dialog::backdrop {
-  background: rgba(0, 0, 0, 0.493);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(4px);
 
 }
 
 dialog {
-  border: none;
+  border: solid white 2px;
   background: rgba(0, 0, 0, 0.904);
   margin: auto;
   border-radius: 10px;
@@ -26,5 +26,7 @@ form {
   max-width: 1280px;
 
 }
+
+
 
 

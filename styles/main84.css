@@ -1415,3 +1415,8 @@ video-tag:before {
     margin-bottom: 2rem;
   }
 
+  /* don;t allow background content to scroll when the dialog is open */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
