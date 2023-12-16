@@ -1406,7 +1406,12 @@ video-tag:before {
   Image popups (Web Components - see Web Components.CSS for inner styles)
   ====================== */
 
-  dialog-image {
-    margin: 4rem;
+
+
+  .image-gallary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 
