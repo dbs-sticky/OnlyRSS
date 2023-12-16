@@ -5,9 +5,9 @@ dialog::backdrop {
 }
 
 dialog {
-  background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 0 32px #0003;
+  background: transparent;
+border: none;
+
   padding: 16px;
   width: 100%;
   max-width:fit-content;

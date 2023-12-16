@@ -2,11 +2,12 @@ class DialogImage extends HTMLElement {
 	constructor() {
 		super();
 	}
+
+
 	
 	connectedCallback() {
 		// Get my image, should be one only.
 		let img = this.querySelector('img');
-    console.log(img);
 
 		if(!img) {
 			console.warn('dialog-image: No image found. Exiting.');
@@ -20,14 +21,16 @@ class DialogImage extends HTMLElement {
 		}
 
 		let fullImageLink = parent.href;
-		
 		let dialog = document.createElement('dialog');
-		
+    let description = (img.getAttribute('title') || '');  // Get the title attribute, if any.
+
+
 		dialog.innerHTML = `
   <form method="dialog">
 		<p>
 		<img src="${fullImageLink}" loading="lazy">
 		</p>
+    <p>${description}</p>
 		<p style="text-align:center">
     <button type="submit">Close</button>
 		</p>
