@@ -1,0 +1,16 @@
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.493);
+  backdrop-filter: blur(4px);
+
+}
+
+dialog {
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 32px #0003;
+  padding: 16px;
+  width: 100%;
+  max-width:fit-content;
+  margin: auto;
+}
+

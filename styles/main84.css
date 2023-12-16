@@ -1401,3 +1401,12 @@ video-tag:before {
     }
 
   }
+
+/*  ======================
+  Image popups (Web Components - see Web Components.CSS for inner styles)
+  ====================== */
+
+  dialog-image {
+    margin: 4rem;
+  }
+
