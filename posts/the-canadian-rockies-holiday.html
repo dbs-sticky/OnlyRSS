@@ -159,28 +159,89 @@
 
       <section>
         <h2>Background</h2>
-        <p>
-          <!--TODO-->
-        </p>
+        <div class="filter-button-row">
+          <button class="filter-btn active" data-filter="all" title="All updates">All</button>
+          <button class="filter-btn" data-filter="bald hills" title="bald hills">bald hills</button>
+          <button class="filter-btn" data-filter="lake A" title="lake A">lake A</button>
+          <button class="filter-btn" data-filter="lake B" title="lake B">lake B</button>
+          <button class="filter-btn" data-filter="lake C" title="lake C">lake C</button>
+        </div>
 
         <div class="image-gallary">
-          <dialog-image>
+          
+          <dialog-image data-category="lake A">
             <a href="../images/rockies/rock1-large.webp">
               <img src="../images/rockies/rock1-small.webp" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
             </a>
           </dialog-image>
-          
-          <dialog-image>
-            <a href="../images/rockies/rock1-large.webp">
-              <img src="../images/rockies/rock1-small.webp" title="">
+
+          <dialog-image data-category="lake B">
+            <a href="https://source.unsplash.com/random/1200x800/?city">
+              <img src="https://source.unsplash.com/random/400x100/?city" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
             </a>
           </dialog-image>
-          
-          <dialog-image>
-            <a href="../images/rockies/rock1-large.webp">
-              <img src="../images/rockies/rock1-small.webp">
+
+          <dialog-image data-category="lake C">
+            <a href="https://source.unsplash.com/random/1200x800/?woman">
+              <img src="https://source.unsplash.com/random/200x100/?woman" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
             </a>
           </dialog-image>
+
+
+          <dialog-image data-category="bald hills">
+            <a href="https://source.unsplash.com/random/1200x800/?moon">
+              <img src="https://source.unsplash.com/random/300x100/?moon" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="lake A">
+            <a href="https://source.unsplash.com/random/1200x800/?sunset">
+              <img src="https://source.unsplash.com/random/300x100/?sunset" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="bald hills">
+            <a href="https://source.unsplash.com/random/1200x800/?girl">
+              <img src="https://source.unsplash.com/random/200x100/?girl" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="lake C">
+            <a href="https://source.unsplash.com/random/1200x800/?woman">
+              <img src="https://source.unsplash.com/random/200x100/?woman" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="bald hills">
+            <a href="https://source.unsplash.com/random/1200x800/?city">
+              <img src="https://source.unsplash.com/random/400x100/?city" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="lake A">
+            <a href="https://source.unsplash.com/random/1200x800/?sunset">
+              <img src="https://source.unsplash.com/random/300x100/?sunset" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="lake A">
+            <a href="https://source.unsplash.com/random/1200x800/?car">
+              <img src="https://source.unsplash.com/random/200x100/?car" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="lake A">
+            <a href="https://source.unsplash.com/random/1200x800/?moon">
+              <img src="https://source.unsplash.com/random/300x100/?moon" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
+          <dialog-image data-category="lake A">
+            <a href="https://source.unsplash.com/random/1200x800/?moon">
+              <img src="https://source.unsplash.com/random/300x100/?moon" title="Image taken from the Bald Hills trailhead (≈40 kilometers from Jasper). Past the lake (center of the image) you can see Leah Peak and Samson Peak.">
+            </a>
+          </dialog-image>
+
         </div>
 
       </section>
@@ -208,6 +269,7 @@
     </script>
 
     <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/filters.js"></script>
     
   </body>
 </html>
