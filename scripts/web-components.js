@@ -27,13 +27,11 @@ class DialogImage extends HTMLElement {
 
 		dialog.innerHTML = `
     <form method="dialog">
-
       <img src="${fullImageLink}" loading="lazy">
-
       <p>${description}</p>
-      <p style="text-align:center">
+      <footer>
       <button type="submit">Close</button>
-      </p>
+      </footer>
     </form>
 		`;
 		parent.parentNode.insertBefore(dialog, parent.nextSibling);
