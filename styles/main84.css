@@ -1406,8 +1406,6 @@ video-tag:before {
   Image popups (Web Components)
   ====================== */
 
-
-
   .image-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -1440,6 +1438,7 @@ video-tag:before {
     overflow: hidden;
   }
 
+
   dialog-image dialog::backdrop {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
@@ -1458,16 +1457,34 @@ video-tag:before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: max-content;
+
   }
 
   dialog-image form > p {
     padding: 0rem 3rem;
     color: white;
-    overflow: auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
   }
 
   dialog-image form > footer {
   margin-bottom: 1rem;
+}
 
+@media  (width < 768px) {
+  dialog-image form > p {
+    /* font-size: 90%; */
+    padding: 0rem 1rem;
   }
+}
+
+/* Hide the focus ring by default */
+dialog-image button:focus {
+  outline: none
+}
+
+/* Show the focus ring when using non-mouse input */
+dialog-image button:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: 1px;
+}
