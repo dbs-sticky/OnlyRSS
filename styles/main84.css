@@ -1411,6 +1411,7 @@ video-tag:before {
     flex-wrap: wrap;
     gap: 10px;
     margin: 2rem 0;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .image-gallery > dialog-image {
