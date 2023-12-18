@@ -1428,10 +1428,11 @@ video-tag:before {
     border-radius: 5px;
   }
 
-  .image-gallery::after {
+   .image-gallery::after {
     content: "";
     flex-grow: 999;
   }
+
 
   /* don't allow background content to scroll when the dialog is open */
   body:has(dialog[open]) {
