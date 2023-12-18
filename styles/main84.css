@@ -1403,7 +1403,7 @@ video-tag:before {
   }
 
 /*  ======================
-  Image popups (Web Components - see Web Components.CSS for inner styles)
+  Image popups (Web Components)
   ====================== */
 
 
@@ -1435,10 +1435,39 @@ video-tag:before {
     flex-grow: 999;
   }
 
-  
-
   /* don't allow background content to scroll when the dialog is open */
   body:has(dialog[open]) {
     overflow: hidden;
   }
 
+  dialog-image dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+  }
+
+  dialog-image dialog {
+    border: solid white 2px;
+    background: rgba(0, 0, 0, 0.904);
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  }
+
+  dialog-image form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: max-content;
+  }
+
+  dialog-image form > p {
+    padding: 0rem 3rem;
+    color: white;
+    overflow: auto;
+  }
+
+  dialog-image form > footer {
+  margin-bottom: 1rem;
+
+  }

@@ -30,7 +30,7 @@ class DialogImage extends HTMLElement {
       <img src="${fullImageLink}" loading="lazy">
       <p>${description}</p>
       <footer>
-      <button type="submit">Close</button>
+        <button type="submit">Close</button>
       </footer>
     </form>
 		`;
