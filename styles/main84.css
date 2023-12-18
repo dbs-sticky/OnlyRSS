@@ -1434,15 +1434,13 @@ video-tag:before {
     flex-grow: 999;
   }
 
-
   /* don't allow background content to scroll when the dialog is open */
   body:has(dialog[open]) {
     overflow: hidden;
   }
 
-
   dialog-image dialog::backdrop {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4px);
   }
 
@@ -1458,8 +1456,6 @@ video-tag:before {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-
   }
 
   dialog-image form > p {
@@ -1469,24 +1465,23 @@ video-tag:before {
 
   }
 
-  dialog-image form > footer {
-  margin-bottom: 1rem;
-}
-
-@media  (width < 768px) {
+  @media  (width < 768px) {
   dialog-image form > p {
-    /* font-size: 90%; */
     padding: 0rem 1rem;
+    }
   }
-}
 
-/* Hide the focus ring by default */
-dialog-image button:focus {
-  outline: none
-}
+  dialog-image form > footer {
+    margin-bottom: 1rem;
+  }
 
-/* Show the focus ring when using non-mouse input */
-dialog-image button:focus-visible {
-  outline: solid 2px var(--accent);
-  outline-offset: 1px;
-}
+  /* Hide the focus ring by default */
+  dialog-image button:focus {
+    outline: none
+  }
+
+  /* Show the focus ring when using non-mouse input */
+  dialog-image button:focus-visible {
+    outline: solid 2px var(--accent);
+    outline-offset: 1px;
+  }
