@@ -204,3 +204,24 @@ class ToC extends HTMLElement {
 
 // register component
 if(!customElements.get('table-of-contents')) customElements.define('table-of-contents', ToC);
+
+
+// —————————————————————————global nav Web Component—————————————————————————
+	
+
+class Nav extends HTMLElement {
+  
+  // connect component
+  connectedCallback() {
+    this.innerHTML = `
+  <ul>
+    <li><a href="../index.html" title="Homepage">home</a></li>
+    <li><a href="../pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
+    <li><a href="../pages/changelog.html" title="View all website updates">changelog</a></li>
+    <li><a href="../pages/about.html" title="Who made this site, and why?">about</a></li>
+  </ul>
+  `;
+  }
+}
+// register component
+if(!customElements.get('global-nav')) customElements.define('global-nav', Nav);

@@ -93,7 +93,7 @@ body {
   article,
   main,
   aside,
-  nav {
+  global-nav {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -145,7 +145,7 @@ body {
   article,
   main,
   aside,
-  nav {
+  global-nav {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
   }
@@ -523,73 +523,6 @@ hr {
 
 
 
-/*  ======================
-    NAVIGATION
-    ====================== */
-
-/* add some scrollmargin so the heading or top of figure is visible below the fixed global navigation */
-h2, figure {
-  scroll-margin-top: 55px;
-}
-
-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style-type: none;
-  margin: 0 !important;
-}
-
-nav li a {
-  padding: 0.6rem 0;
-}
-
-/* remove the default link style i.e. "°" */
-nav li a::after {
-  content: "";
-}
-
-/* make the nav stick to the top of the page when the gap benwteen the nav and the top of the page is zero i.e. always */
-header.nav {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  margin-bottom: 1rem;
-}
-
-nav {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  background-color: white;
-  max-width: var(--pagewidth);
-  margin: auto;
-  font-family: "Roboto Condensed", sans-serif;
-  border-radius: 0 0 var(--radius) var(--radius);
-  border: 1px solid LightGrey;
-  box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
-  text-transform: uppercase;
-
-
-}
-
-/* this forces all elements to the right of the Home button to move to the far-right */
-nav li:first-child {
-  margin-right: auto;
-}
-
-
-nav a {
-  color: var(--accent);
-  padding: 5px 10px;
-  text-decoration: none;
-  font-size: 17px;
-  border-bottom: 3px solid transparent;
-}
-
-nav a:hover,
-nav a.nav-active {
-  border-bottom: 3px solid var(--accent);
-  transition: border-color 1s ease;
-}
 
 
 button {
@@ -1251,7 +1184,7 @@ video-tag:before {
   }
 
   /* Hide nav and outline */
-  table-of-contents, nav, .byline-svgs, aside, footer  {
+  table-of-contents, global-nav, .byline-svgs, aside, footer  {
       display: none;
     }
 
@@ -1425,24 +1358,24 @@ table-of-contents {
       animation: fade-out 0.5s ease-out;
     }
 
-    ul {
+    & ul {
       margin: 0;
       padding: 0;
       font-size: 0.9rem;
     }
 
-    li {
+    & li {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
       line-height: 1.7;
       margin-left: -40px;
 
-        :last-of-type {
+      & :last-of-type {
           margin-bottom: 1rem;
         }
 
-        a::after {
+        & a::after {
           content: "";
         }
 
@@ -1473,3 +1406,69 @@ table-of-contents {
         opacity: 0;
       }
     }
+
+
+
+/* global nav Web Component */
+
+/* add some scrollmargin so the heading or top of figure is visible below the fixed global navigation */
+h2, figure {
+  scroll-margin-top: 55px;
+}
+
+/* make the nav stick to the top of the page when the gap benwteen the nav and the top of the page is zero i.e. always */
+
+
+global-nav {
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: white;
+  max-width: var(--pagewidth);
+  margin: auto;
+  font-family: "Roboto Condensed", sans-serif;
+  border-radius: 0 0 var(--radius) var(--radius);
+  border: 1px solid LightGrey;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 1rem;
+
+  & ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0 !important;
+  }
+
+  & li {
+    & a {
+    padding: 0.6rem 0;
+        /* remove the default link style i.e. "°" */
+        &::after {
+          content: "";
+        }
+    }
+
+    /* this forces all elements to the right of the Home button to move to the far-right */
+    &:first-child {
+      margin-right: auto;
+    }
+  }
+
+  & a {
+    color: var(--accent);
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    border-bottom: 3px solid transparent;
+      &:hover,
+      &.nav-active {
+        border-bottom: 3px solid var(--accent);
+        transition: border-color 1s ease;
+    }
+  }
+
+}
