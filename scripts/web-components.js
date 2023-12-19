@@ -113,3 +113,94 @@ class Social extends HTMLElement {
   
 // register component
 if(!customElements.get('social-icons')) customElements.define('social-icons', Social);
+
+
+// —————————————————————————Table of Contents Web Component—————————————————————————
+
+
+class ToC extends HTMLElement {
+
+  // connect component
+  connectedCallback() {
+
+    // Function to create an outline based on the specified element type
+    function createOutline(elementType) {
+      // Get all elements of the specified type
+      const elements = document.querySelectorAll(elementType);
+      // If there are no elements of the specified type, return an empty string
+      if (elements.length === 0) {
+        return '';
+      }
+      // Initialize an empty array to store the outline
+      const outline = [];
+
+      // Iterate over each element
+      elements.forEach((element, index) => {
+        let text;
+        // If the element type is "figure", get the text content of the figcaption element
+        if (elementType === "figure") {
+          const figcaption = element.querySelector("figcaption");
+          text = figcaption ? figcaption.textContent : '';
+        } else {
+          // For other element types, get the text content of the element
+          text = element.textContent;
+        }
+        // Generate a unique ID for the element
+        const id = `${elementType}-${index}`;
+        // Set the ID of the element
+        element.id = id;
+        // Add the text and ID to the outline array
+        outline.push({text, id});
+      });
+
+      // Create a new unordered list element to hold the outline
+      const contentList = document.createElement("ul");
+      // Iterate over each item in the outline array
+      outline.forEach( o => { 
+        // Create a new list item element
+        const li = document.createElement("li");
+        // Create a new anchor element
+        const a = document.createElement("a");
+        // Set the href attribute of the anchor element to link to the corresponding element ID
+        a.href = `#${o.id}`;
+        // Set the title attribute of the anchor element to the trimmed text content
+        a.title = o.text.trim();
+        // Set the text content of the anchor element
+        a.textContent = o.text;
+        // Append the anchor element to the list item element
+        li.appendChild(a);
+        // Append the list item element to the content list
+        contentList.appendChild(li);
+      });
+
+      // Return the content list
+      return contentList.outerHTML;
+    }
+
+    // Function to create an outline for headings
+    function createHeadingsOutline() {
+      // Get the content list for headings
+      const contentList = createOutline.call(this, "h2");
+      // If the content list is not empty, set the innerHTML of the <table-of-contents> element
+      if (contentList !== '') {
+        this.innerHTML = '<div>Sections</div>' + contentList;
+      }
+    }
+
+    // Function to create an outline for figures
+    function createFiguresOutline() {
+      // Get the content list for figures
+      const contentList = createOutline.call(this, "figure");
+      // If the content list is not empty, set the innerHTML of the <table-of-contents> element
+      if (contentList !== '') {
+        this.innerHTML += '<div>Figures</div>' + contentList;
+      }
+    }
+
+    createHeadingsOutline.call(this);
+    createFiguresOutline.call(this);
+  }
+}
+
+// register component
+if(!customElements.get('table-of-contents')) customElements.define('table-of-contents', ToC);

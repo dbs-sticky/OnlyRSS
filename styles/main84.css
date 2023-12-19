@@ -525,7 +525,7 @@ hr {
     OUTLINE
     ====================== */
 
-.outline {
+table-of-contents {
   width: 200px;
   position: fixed;
   margin-left: calc(50vw - 750px);
@@ -537,7 +537,7 @@ hr {
 
 /* Fade in outline on screens greater than 1550px */
 @media (width > 1550px) {
-  .outline {
+  table-of-contents {
     display: block;
     animation: fade-in 0.5s ease-in;
   }
@@ -545,7 +545,7 @@ hr {
 
 /* Fade out outline on screens less than 1550px */
 @media (width <= 1550px) {
-  .outline {
+  table-of-contents {
     display: none;
     animation: fade-out 0.5s ease-out;
   }
@@ -583,21 +583,21 @@ h2, figure {
 
 
 /* add some sopace between the outline and figure lists */
-.outline li:last-of-type {
+table-of-contents li:last-of-type {
   margin-bottom: 1rem;
 }
 
-.outline li a::after {
+table-of-contents li a::after {
   content: "";
 }
 
-.outline ul {
+table-of-contents ul {
   margin: 0;
   padding: 0;
   font-size: 0.9rem;
 }
 
-.outline li {
+table-of-contents li {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -1328,7 +1328,7 @@ video-tag:before {
   }
 
   /* Hide nav and outline */
-  .outline, nav, .byline-svgs, aside, footer  {
+  table-of-contents, nav, .byline-svgs, aside, footer  {
       display: none;
     }
 
