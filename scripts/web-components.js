@@ -1,3 +1,5 @@
+
+// —————————————————————————image dialog modal Web Component—————————————————————————
 class DialogImage extends HTMLElement {
 	constructor() {
 		super();
@@ -51,3 +53,22 @@ class DialogImage extends HTMLElement {
 }
 
 if(!customElements.get('dialog-image')) customElements.define('dialog-image', DialogImage);
+
+
+// —————————————————————————feedback Web Component—————————————————————————
+	
+class Feedback extends HTMLElement {
+  
+  // connect component
+  connectedCallback() {
+    this.innerHTML = `
+    <p>
+    If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+  </p>
+  `;
+  }
+  
+}
+
+// register component
+customElements.define( 'feedback-contact', Feedback );
