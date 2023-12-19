@@ -521,93 +521,16 @@ hr {
 }
 
 
+
+
 /*  ======================
-    OUTLINE
+    NAVIGATION
     ====================== */
-
-table-of-contents {
-  width: 200px;
-  position: fixed;
-  margin-left: calc(50vw - 750px);
-  font-family: "Roboto Condensed", sans-serif;
-  color: var(--accent);
-  padding-left: 1rem;
-  border-left: 2px solid var(--accent-light);
-}
-
-/* Fade in outline on screens greater than 1550px */
-@media (width > 1550px) {
-  table-of-contents {
-    display: block;
-    animation: fade-in 0.5s ease-in;
-  }
-}
-
-/* Fade out outline on screens less than 1550px */
-@media (width <= 1550px) {
-  table-of-contents {
-    display: none;
-    animation: fade-out 0.5s ease-out;
-  }
-}
-
-/* Define the fade-in animation */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    display: none;
-  }
-  to {
-    opacity: 1;
-    display: block;
-  }
-}
-
-/* Define the fade-out animation */
-@keyframes fade-out {
-  from {
-    display: block;
-    opacity: 1;
-  }
-  to {
-    display: none;
-    opacity: 0;
-  }
-}
-
 
 /* add some scrollmargin so the heading or top of figure is visible below the fixed global navigation */
 h2, figure {
   scroll-margin-top: 55px;
 }
-
-
-/* add some sopace between the outline and figure lists */
-table-of-contents li:last-of-type {
-  margin-bottom: 1rem;
-}
-
-table-of-contents li a::after {
-  content: "";
-}
-
-table-of-contents ul {
-  margin: 0;
-  padding: 0;
-  font-size: 0.9rem;
-}
-
-table-of-contents li {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  line-height: 1.7;
-  margin-left: -40px;
-}
-
-/*  ======================
-    NAVIGATION
-    ====================== */
 
 nav ul {
   display: flex;
@@ -1478,3 +1401,75 @@ social-icons {
       }
   }
 }
+
+
+/* Table of Contents Web Component */
+
+table-of-contents {
+
+  width: 200px;
+  position: fixed;
+  margin-left: calc(50vw - 750px);
+  font-family: "Roboto Condensed", sans-serif;
+  color: var(--accent);
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-light);
+
+    @media (width > 1550px) {
+      display: block;
+      animation: fade-in 0.5s ease-in;
+    }
+    
+    @media (width <= 1550px) {
+      display: none;
+      animation: fade-out 0.5s ease-out;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    li {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      line-height: 1.7;
+      margin-left: -40px;
+
+        :last-of-type {
+          margin-bottom: 1rem;
+        }
+
+        a::after {
+          content: "";
+        }
+
+    }
+}
+
+    
+    /* Define the fade-in animation */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        display: none;
+      }
+      to {
+        opacity: 1;
+        display: block;
+      }
+    }
+    
+    /* Define the fade-out animation */
+    @keyframes fade-out {
+      from {
+        display: block;
+        opacity: 1;
+      }
+      to {
+        display: none;
+        opacity: 0;
+      }
+    }
