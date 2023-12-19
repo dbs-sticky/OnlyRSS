@@ -90,7 +90,7 @@ class Social extends HTMLElement {
     let titleUri = encodeURIComponent(ogTitle);
     let urlUri = encodeURIComponent(ogUrl)
 
-    // Concatenate the titleURI and UrlUri together into a sharing link for each social network.
+    // Concatenate the titleURI and UrlUri together into links for each network.
     this.innerHTML = `
       <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
         <reddit-icon></reddit-icon>
