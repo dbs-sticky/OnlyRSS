@@ -73,4 +73,4 @@ class Feedback extends HTMLElement {
 }
 
 // register component
-customElements.define( 'feedback-contact', Feedback );
+if(!customElements.get('feedback-contact')) customElements.define('feedback-contact', Feedback);
