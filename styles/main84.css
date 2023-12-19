@@ -1485,3 +1485,20 @@ dialog-image {
   }
 
 }
+
+.arrow-top {
+  position: fixed;
+  bottom: 6%;
+  right: 1.5%;
+  display: none;
+  z-index: 9999;
+  background: transparent;
+  border: 3px solid #e82a62;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  font-size:50px;
+  text-decoration:none;
+  color:#e82a62;
+  }
