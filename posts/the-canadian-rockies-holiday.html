@@ -148,9 +148,7 @@
             <time datetime="2023-12-06">6 Dec 2023</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a><!--TODO add meta data-->
           </div>
 
-          <div class="byline-svgs"> 
-            <!-- populated by the social script at the end of the page -->
-          </div>
+          <social-icons></social-icons>
 
         </div>  <!--class byline-->
       </header>
@@ -343,11 +341,6 @@
       // Call the function to create and display the outline
       createHeadingsOutline();
       createFiguresOutline(); // TODO remove figure outline?
-    </script>
-
-    <script>
-      // populate the social links
-      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
     </script>
 
     <script src="../scripts/web-components.js"></script>

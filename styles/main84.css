@@ -488,51 +488,7 @@ hr {
 /*  ======================
     ARTICLE BYLINE
     ====================== */
-reddit-icon {
-  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.92 14.87c.07.07.07.19 0 .26-.4.4-1.03.6-1.91.6l-.01-.01c-.9 0-1.52-.2-1.92-.59a.18.18 0 0 1 0-.26c.07-.07.2-.07.26 0 .3.32.87.48 1.65.48H12c.8 0 1.3-.16 1.66-.48a.18.18 0 0 1 .26 0Zm-.1-2.86a.79.79 0 0 0-.79.79.79.79 0 0 0 1.58 0 .79.79 0 0 0-.79-.79Zm-2.85.79a.79.79 0 0 0-1.58 0 .79.79 0 0 0 1.58 0ZM21 5v14c0 1-1 2-2 2H5c-1 0-2-1-2-2V5c0-1 1-2 2-2h14c1 0 2 1 2 2Zm-3 6.89a1.3 1.3 0 0 0-2.25-.95 6.8 6.8 0 0 0-3.48-1.02L13 7.58l2 .47v.03a1.09 1.09 0 0 0 2.17 0 1.09 1.09 0 0 0-2.1-.39l-2.16-.5a.18.18 0 0 0-.22.12l-.82 2.6a7 7 0 0 0-3.65 1.01 1.32 1.32 0 1 0-1.57 2.1 2.4 2.4 0 0 0-.04.43c0 1.96 2.4 3.55 5.36 3.55 2.95 0 5.35-1.6 5.35-3.55 0-.13 0-.27-.03-.4.41-.23.7-.66.7-1.16Z'/%3E%3C/svg%3E");
-}
 
-fb-icon {
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath d='M19,3H5C3.895,3,3,3.895,3,5v14c0,1.105,0.895,2,2,2h7.621v-6.961h-2.343v-2.725h2.343V9.309 c0-2.324,1.421-3.591,3.495-3.591c0.699-0.002,1.397,0.034,2.092,0.105v2.43h-1.428c-1.13,0-1.35,0.534-1.35,1.322v1.735h2.7 l-0.351,2.725h-2.365V21H19c1.105,0,2-0.895,2-2V5C21,3.895,20.105,3,19,3z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-x-icon {
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.1 21h13.8c1.2 0 2.1-1 2.1-2.1V5.1C21 3.9 20 3 18.9 3H5.1C3.9 3 3 4 3 5.1v13.8C3 20.1 4 21 5.1 21Zm5.5-8.4L5.8 6.1h3.7l3.2 4.3L16.6 6h1l-4.4 5 5 6.8h-3.7l-3.4-4.6-4.3 4.6h-1l4.8-5.3ZM9.1 6.9H7.4l7.5 10.2h1.8L9 6.9Z'/%3E%3C/svg%3E");
-}
-
-linkedin-icon {
-  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM9 17H6.5v-7H9v7ZM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3c.8 0 1.3.5 1.3 1.2s-.5 1.2-1.4 1.2ZM18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3-.3 0-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1 1.2 0 2.2 1 2.2 3.2V17Z'%3E%3C/path%3E%3C/svg%3E");
-}
-
-email-icon {
-  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z'/%3E%3C/svg%3E");
-}
-
-/* this targets all decendents of the <a> tag, i.e. each of the cutsom HTML elements used for the social icons defined in the URLs above */
-.byline-svgs a * {
-  display: inline-block;
-  transition: all 0.7s ease-in-out;
-  width: 35px;
-  height: 35px;
-  background-color: var(--accent);
-}
-
-/* without this the icons row does not align verticall correctlu (I don't understand why) */
-.byline-svgs {
-  display: inline-flex;
-  height: 35px;
-}
-
-/* drop a shadow*/
-.byline-svgs a {
-  filter: drop-shadow(0 0 5px rgb(0 0 0 / 0.3));
-}
-
-
-/* grow on hover*/
-.byline-svgs a *:hover {
-  transform: scale(1.3);
-}
 
 .byline {
   display: flex;
@@ -1479,4 +1435,46 @@ feedback-contact {
       color: var(--accent); 
         }
 
+}
+
+/* social icons Web Component */
+
+reddit-icon {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.92 14.87c.07.07.07.19 0 .26-.4.4-1.03.6-1.91.6l-.01-.01c-.9 0-1.52-.2-1.92-.59a.18.18 0 0 1 0-.26c.07-.07.2-.07.26 0 .3.32.87.48 1.65.48H12c.8 0 1.3-.16 1.66-.48a.18.18 0 0 1 .26 0Zm-.1-2.86a.79.79 0 0 0-.79.79.79.79 0 0 0 1.58 0 .79.79 0 0 0-.79-.79Zm-2.85.79a.79.79 0 0 0-1.58 0 .79.79 0 0 0 1.58 0ZM21 5v14c0 1-1 2-2 2H5c-1 0-2-1-2-2V5c0-1 1-2 2-2h14c1 0 2 1 2 2Zm-3 6.89a1.3 1.3 0 0 0-2.25-.95 6.8 6.8 0 0 0-3.48-1.02L13 7.58l2 .47v.03a1.09 1.09 0 0 0 2.17 0 1.09 1.09 0 0 0-2.1-.39l-2.16-.5a.18.18 0 0 0-.22.12l-.82 2.6a7 7 0 0 0-3.65 1.01 1.32 1.32 0 1 0-1.57 2.1 2.4 2.4 0 0 0-.04.43c0 1.96 2.4 3.55 5.36 3.55 2.95 0 5.35-1.6 5.35-3.55 0-.13 0-.27-.03-.4.41-.23.7-.66.7-1.16Z'/%3E%3C/svg%3E");
+}
+
+fb-icon {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' %3E%3Cpath d='M19,3H5C3.895,3,3,3.895,3,5v14c0,1.105,0.895,2,2,2h7.621v-6.961h-2.343v-2.725h2.343V9.309 c0-2.324,1.421-3.591,3.495-3.591c0.699-0.002,1.397,0.034,2.092,0.105v2.43h-1.428c-1.13,0-1.35,0.534-1.35,1.322v1.735h2.7 l-0.351,2.725h-2.365V21H19c1.105,0,2-0.895,2-2V5C21,3.895,20.105,3,19,3z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+x-icon {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.1 21h13.8c1.2 0 2.1-1 2.1-2.1V5.1C21 3.9 20 3 18.9 3H5.1C3.9 3 3 4 3 5.1v13.8C3 20.1 4 21 5.1 21Zm5.5-8.4L5.8 6.1h3.7l3.2 4.3L16.6 6h1l-4.4 5 5 6.8h-3.7l-3.4-4.6-4.3 4.6h-1l4.8-5.3ZM9.1 6.9H7.4l7.5 10.2h1.8L9 6.9Z'/%3E%3C/svg%3E");
+}
+
+linkedin-icon {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2ZM9 17H6.5v-7H9v7ZM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3c.8 0 1.3.5 1.3 1.2s-.5 1.2-1.4 1.2ZM18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3-.3 0-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1 1.2 0 2.2 1 2.2 3.2V17Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+email-icon {
+  -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='M3 7.5V19c0 1.1 1 2 2 2h14a2 2 0 0 0 2-2V7.7l-8.9 6.7-9.1-7ZM21 5l-9 6.8L3 5c0-1.1 1-2 2-2h14c1.1 0 2 1 2 2Z'/%3E%3C/svg%3E");
+}
+
+/* this targets all decendents of the <a> tag, i.e. each of the cutsom HTML elements used for the social icons defined in the URLs above */
+
+social-icons {
+  display: inline-flex;
+  height: 35px;
+  & a {
+    filter: drop-shadow(0 0 5px rgb(0 0 0 / 0.3));
+      & * {
+        display: inline-block;
+        transition: all 0.7s ease-in-out;
+        width: 35px;
+        height: 35px;
+        background-color: var(--accent);
+          &:hover {
+            transform: scale(1.3);
+          }
+      }
+  }
 }
