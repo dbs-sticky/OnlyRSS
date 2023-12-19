@@ -62,9 +62,11 @@ class Feedback extends HTMLElement {
   // connect component
   connectedCallback() {
     this.innerHTML = `
+    <div>
     <p>
-    If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
+    If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">X</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
   </p>
+  <div>
   `;
   }
   

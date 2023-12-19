@@ -564,31 +564,6 @@ email-icon {
   font-size: 0.7rem;
 }
 
-/*  ======================
-    ARTICLE FEEDBACK IN FOOTER
-    ====================== */
-
-article>footer {
-  background-color: var(--accent-light);
-  border-radius: var(--radius);
-  font-weight: 500;
-  font-size: 0.8rem;
-  margin-bottom: 2rem;
-  padding: 0.25rem 1rem;
-}
-
-/* removed the link indicator used for all other links */
-article>footer a::after {
-  content: none;
-}
-article>footer a {
-  color: var(--accent);
-}
-
-/* override the internal/external colour for links */
-article>footer a:hover {
-  color: var(--accent);
-}
 
 /*  ======================
     OUTLINE
@@ -1447,7 +1422,7 @@ video-tag:before {
   }
 
 /*  ======================
-  Web Components
+  Web Components - see web-components.js for innerHTML
   ====================== */
 
 /* image dialog modal popup Web Component */
@@ -1485,5 +1460,23 @@ dialog-image {
           }
         }
   }
+
+}
+
+/* Feedback footer Web Component */
+
+feedback-contact {
+
+  display: block;
+  background-color: var(--accent-light);
+  border-radius: var(--radius);
+  font-weight: 500;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  padding: 0.25rem 1rem;
+
+    & a {
+      color: var(--accent); 
+        }
 
 }
