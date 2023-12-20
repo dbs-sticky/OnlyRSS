@@ -1266,6 +1266,7 @@ dialog-image {
           padding: 0rem 3rem;
           color: white;
           font-family: var(--system);
+          line-height: 1.6;
         }
 
         @media  (width < 768px) {
