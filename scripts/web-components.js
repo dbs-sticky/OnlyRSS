@@ -26,10 +26,11 @@ class DialogImage extends HTMLElement {
     let fullImageLink = parent.href;
     let dialog = document.createElement('dialog');
     let description = (img.getAttribute('title') || '');  // Get the title attribute, if any.
+    let altText = (img.getAttribute('alt') || '');  // Get the alt text attribute, if any.
 
     dialog.innerHTML = `
     <form method="dialog">
-      <img id="dialogImage" src="${fullImageLink}" loading="lazy">
+      <img id="dialogImage" src="${fullImageLink}" alt="${altText}" loading="lazy">
       <p id="dialogDescription">${description}</p>
       <footer>
         <button type="submit">Close</button>
