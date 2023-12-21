@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Holiday: The Canadian Rockies</title>
-    <meta name="description" content="The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the  dialog HTML element and construct my inaugural Web Component.">
+    <meta name="description" content="The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the dialog HTML element and construct my inaugural Web Component.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
     <meta name="view-transition" content="same-origin">
@@ -14,11 +14,11 @@
     <meta property="article:author" content="Mark Evans">
     <meta property="og:title" content="Holiday: The Canadian Rockies">
     <meta property="og:url" content="https://onlyrss.org/posts/the-canadian-rockies-holiday.html">
-    <meta property="og:image" content="https://onlyrss.org/images/og/view-transitions-og.png"><!--TODO OG image-->
+    <meta property="og:image" content="https://onlyrss.org/images/og/canada-gallery-og.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630"> 
     <meta property="og:description" content="A photo tour of our recent trip to the Canadian Rockies">
-    <meta property="article:published_time" content="2023-12-06"><!--TODO date-->
+    <meta property="article:published_time" content="2023-12-21">
 
     <!-- schema.org tags -->
     <script type="application/ld+json">
@@ -30,8 +30,8 @@
           "@id": "https://onlyrss.org/posts/the-canadian-rockies-holiday.html"
         },
         "headline": "Holiday: The Canadian Rockies",
-        "description": "The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the  dialog HTML element and construct my inaugural Web Component.",
-        "image": "https://onlyrss.org/images/og/view-transitions-og.png",  <!--TODO OG image-->
+        "description": "The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the dialog HTML element and construct my inaugural Web Component.",
+        "image": "https://onlyrss.org/images/og/canada-gallery-og.jpg",
         "author": {
           "@type": "Person",
           "name": "Mark Evans",
@@ -45,7 +45,7 @@
             "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
           }
         },
-        "datePublished": "2023-12-06" <!--TODO date-->
+        "datePublished": "2023-12-21"
       }
     </script>
 
@@ -114,7 +114,7 @@
         <h1 style="view-transition-name: post25">Holiday: The Canadian Rockies</h1>
         <div class="tldr">
           <p>
-            The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the  &lt;dialog&gt; element and construct my inaugural Web Component.
+            The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the  <code>&lt;dialog&gt;</code> element and construct my inaugural Web Component.
           </p>
         </div>
 
@@ -126,7 +126,7 @@
           </div>
           
           <div class="byline-copy">
-            <time datetime="2023-12-06">6 Dec 2023</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a><!--TODO add meta data-->
+            <time datetime="2023-12-21">21 Dec 2023</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
           </div>
 
           <social-icons></social-icons>
@@ -137,11 +137,12 @@
       <section>
         <h2>Introduction</h2>
         <p>
-          To celebrate our 20<sup>th</sup> wedding anniversary the wife and I spent two weeks in Canada during late September 2023. We flew into Vancouver and then drove to Whistler, Clearwater, Jasper, Banff, and finished in Calgary. The scenery was breathtaking and the weather was perfect. The following image gallery is a selection of my favourite photographs from the trip.
+          To celebrate our 20<sup>th</sup> wedding anniversary the wife and I spent two weeks in Canada during late September 2023. We flew into Vancouver and then drove to Whistler, Clearwater, Jasper, Banff, and finished in Calgary. The scenery was breathtaking, and the weather was perfect. The following image gallery is a selection of my favourite photographs from the trip.
         </p>
         <p>
-          Click/tap on an image to enlarge and see a description. Use the filter buttons to view images from a specific location.
+          Click/tap on an image to enlarge and see a description. Use the filter buttons to limit images to a specific location.
         </p>
+      </section>
 
       <section>
         <h2>Gallery</h2>
@@ -262,7 +263,7 @@
               <img
               src="../images/rockies/peyto-2-small.webp"
               alt="A photograph with pine trees in the foreground, a large deep-blue coloured lake in the middle ground, and high mountains in the background."
-              title="Image taken from the Peyto Lake Upper Viewpoint in Banff National Park. Of all the lakes we visited —and there were many—I think Peyto was my favourite."
+              title="Image taken from the Peyto Lake Upper Viewpoint in Banff National Park. Of all the lakes we visited—and there were many—I think Peyto was my favourite."
               loading="lazy">
             </a>
           </dialog-image>
@@ -322,7 +323,7 @@
               <img
               src="../images/rockies/louise-7-small.webp"
               alt="A photograph of a middle-aged male and female, who have their arms linked and are smiling at the camera. They are standing near the edge of a high cliff. In the background far below, is a deep-blue coloured lake."
-              title="The image was captured from the top of the Beehive, overlooking Lake Louise. I'm smiling; partly because I'm happy, but mostly because I recently got my teeth straightened—and it was expensive."
+              title="The image was captured from the top of the Beehive, overlooking Lake Louise. I'm smiling; partly because I'm happy, but mostly because I recently got my teeth straightened—which was expensive—so smiling is my way of trying to maximise the return on investment."
               loading="lazy">
             </a>
           </dialog-image>
@@ -453,9 +454,61 @@
       
       <section>
         <h2>Building the gallery</h2>
+        <p>
+          I needed some help with this post. I'd already built filters for the Homepage and Changelog page, so I had that ready to go, but, I wasn't sure I had the CSS skills to get the gallery working the way I wanted, I managed to get close, but not close enough, so I followed an <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">online tutorial</a>.
+        </p>
+        <p>
+          I wanted the image popups to be a Web Component, so I could easily reuse them in future by simply using a custom HTML tag e.g. <code>&lt;dialog-image&gt;</code>. I also wanted to use the <code>&lt;dialog&gt;</code> element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">now that it's supported across the main browsers</a>), which I'd never used before, to serve up the full-sized images. Luckily, a <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">tutorial appeared recently</a> which describes how to do exactly that.
+        </p>
+        <p>
+          Links to all the resources I used are listed below:
+        </p>
+
+        <ul>
+          <li><strong>The gallery filters:</strong> <a href="https://www.youtube.com/watch?v=jZiZs8cZAKU" title="Watch Kevin Powell's video on YouTube">Kevin Powell's video on YouTube</a> </li>
+          <li><strong>The gallery design/CSS:</strong> <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">LogRocket's image gallery tutorial</a></li>
+          <li><strong>The popup Web Component:</strong> <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">Raymond Camden's dialog Web Component tutorial</a> </li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Web Components</h2>
+        <p>
+          Here's a definition of Web Components I just pulled off the web:
+        </p>
+        <blockquote>
+           <q>Web Components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps. Custom components and widgets build on the Web Component standards, will work across modern browsers, and can be used with any JavaScript library or framework that works with HTML.</q>
+           <br>
+            <cite><a href="https://www.webcomponents.org/introduction">— WebComponents.org</a></cite>
+        </blockquote>
+        <p>
+          So basically, developers now have the ability to create their own custom HTML tags, and via JavaScript and CSS, control how they work and look. This is a big deal, and I'm sure it will be a game changer for web development in the future. I'm not going to go into any more detail here, but if you want to learn more, I recommend you check out <a href="https://www.webcomponents.org/introduction">WebComponents.org</a>.
+        </p>
+        <p>
+          The image popup Web Component I created for this post was my first Web Component. I then went off on a bit of a "Web Component All The Things" binge, and created 4 more. I targeted article page elements that are common across all articles, and then created a Web Component for each. So far, I've converted the following page elements into reusable Web Components:
+        </p>
+
+          <ul>
+            <li>Global navigation</li>
+            <li>Table of contents</li>
+            <li>Feedback footer</li>
+            <li>Share buttons</li>
+          </ul>
+
+        <p>
+          I suspect I'll create a few more, and that the amount of copying & pasting I'll be doing in future will be greatly decreased!
+        </p>
       </section>
 
-      
+      <section>
+        <h2>Conclusions</h2>
+         <p>
+          I am aware that this article is the modern-day equivalent of a slideshow of holiday snaps, but I don't care. I'm pleased with how gallery and popups look and am glad I went off on a Web Component creation tangent, as it's going to make my website much easy to maintain in future.
+        </p>
+        <p>
+          The page requires just <mark>1.1MB</mark> of resources to load, although each thumbnail image selected will trigger the load of the full-sized image (<mark>≈150KB each</mark>). Even so, I'm pleased with the overall page performance.
+        </p>
+      </section>
 
       <!-- feedback -->
       <footer>
@@ -463,12 +516,6 @@
       </footer>
 
     </article>
-
-    <script>
-      // Call the function to create and display the outline
-      // createHeadingsOutline();
-      // createFiguresOutline(); 
-    </script>
 
     <script src="../scripts/web-components.js"></script>
     <script src="../scripts/filters.js"></script>
