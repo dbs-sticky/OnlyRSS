@@ -63,16 +63,7 @@
 
   <body>
         
-    <header  class="nav">
-      <nav>
-        <ul>
-          <li><a class="nav-active" href="/index.html" title="Homepage">home</a></li>
-          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
-          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
-          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
-        </ul>
-      </nav>
-    </header>
+    <global-nav></global-nav>
 
       <search>
         <div class="filter-button-row">
@@ -88,6 +79,27 @@
 
     <main class="home-grid">
     <!-- List of articles -->
+    
+    <!-- <a href="/posts/the-canadian-rockies-holiday.html" data-category="misc" style="view-transition-name: card25">
+      <card-container>
+  
+        <card-header>
+          <img loading="lazy" src="/images/canada-gallery-thumb.webp" width="300" height="200" alt="A thumbnail size image that shows a small photo gallary and a Web Components logo.">
+        </card-header>
+          
+        <card-body>
+          <h2 style="view-transition-name: post25">Holiday: The Canadian Rockies</h2>
+          <p>A gallery of images from my recent trip to the Canadian Rockies. Built with a Web Component!</p>
+        </card-body>
+        
+        <card-footer>
+          <div><time datetime="2023-12-06">21 Dec 2023</time> (4 min)</div>
+          <misc-tag></misc-tag>
+        </card-footer>
+        
+      </card-container>
+    </a> -->
+
 
       <a href="/posts/view-transitions.html" data-category="webdev" style="view-transition-name: card24">
         <card-container>
@@ -588,5 +600,6 @@
 
     </main>
     <script src="./scripts/filters.js"></script>
+    <script src="./scripts/web-components.js"></script>
   </body>
 </html>

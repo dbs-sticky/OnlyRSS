@@ -103,27 +103,15 @@
     <!-- load scripts-->
     <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
     </script>
-        <script src="../scripts/outline.js"></script>
-        <script src="../scripts/social.js"></script>
+        
+
   </head>
 
   <body>
     
-    <header class="nav">
-      <nav>
-        <ul>
-          <li><a href="/index.html" title="Homepage">home</a></li>
-          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
-          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
-          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
-        </ul>
-      </nav>
-    </header>
+    <global-nav></global-nav>
 
-    <div class="outline">
-      <div>Sections</div>
-      <div id="doc_outline"></div>
-    </div>
+    <table-of-contents></table-of-contents>
 
     <article>
       <header>
@@ -145,9 +133,7 @@
             <time datetime="2023-04-02">2 Apr 2023</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
           </div>
 
-          <div class="byline-svgs"> 
-            <!-- populated by the social script at the end of the page -->
-          </div>
+          <social-icons></social-icons>
 
         </div>  <!--class byline-->
       </header>
@@ -206,24 +192,11 @@
       </section>
 
       <!-- feedback -->
-      <footer>
-        <p>
-          If you have any comments on this article, please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
-        </p>
-      </footer>
+        <footer>
+          <feedback-contact></feedback-contact>
+        </footer>
 
     </article>
-
-    <script>
-      // Call the function to create and display the outline
-        createHeadingsOutline();
-        createFiguresOutline();
-    </script>
-
-    <script>
-      // populate the social links
-      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
-    </script>
 
     <!-- related articles -->
     <aside>
@@ -236,5 +209,6 @@
       </a>
     </aside>
 
+    <script src="../scripts/web-components.js"></script>
   </body>
 </html>

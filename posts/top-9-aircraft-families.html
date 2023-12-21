@@ -161,29 +161,15 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
-        <script src="../scripts/outline.js"></script>
-        <script src="../scripts/social.js"></script>
+        
+
   </head>
 
   <body>
     
-    <header class="nav">
-      <nav>
-        <ul>
-          <li><a href="/index.html" title="Homepage">home</a></li>
-          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
-          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
-          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
-        </ul>
-      </nav>
-    </header>
+    <global-nav></global-nav>
 
-    <div class="outline">
-      <div>Sections</div>
-      <div id="doc_outline"></div>
-      <div>Figures</div>
-      <div id="doc_figures"></div>
-    </div>
+      <table-of-contents></table-of-contents>
 
     <article>
       <header>
@@ -312,23 +298,15 @@
 
       <!-- feedback -->
       <footer>
-        <p>
-          If you have any comments on this article then please get in touch via <a href="https://twitter.com/dbs_sticky" title="My Twitter profile" target="_blank">Twitter</a> or <a href="https://mastodon.social/@DBSSticky#" title="My Mastodon profile" target="_blank">Mastodon</a>.
-        </p>
+        <feedback-contact></feedback-contact>
       </footer>
 
     </article>
 
-    <script>
-      // Call the function to create and display the outline
-        createHeadingsOutline();
-        createFiguresOutline();
-    </script>
 
-    <script>
-      // populate the social links
-      document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
-    </script>
 
+
+
+    <script src="../scripts/web-components.js"></script>
   </body>
 </html>
