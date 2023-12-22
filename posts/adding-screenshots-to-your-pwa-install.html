@@ -205,9 +205,38 @@
           <li>Samsung Internet on mobile (≥15.0)</li>
         </ul>
         <p>
-          I've tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">'platform' member</a> to both 'wide' and 'windows', and neither resulted in the screenshots (or description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will support them in the future); they can be seen under the <a href="/manifest.json">screenshots section of my manifest file</a>.
+          I've tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on Windows</strong>. I added additional screenshots to the manifest and set the <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">'platform' member</a> to both 'wide' and 'windows', and neither resulted in the screenshots (or description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will support them in the future); they can be seen under the <a href="/manifest.json">screenshots section of my manifest file</a>.
         </p>
       </section>
+
+            <!-- compatibility update- section -->
+            <section>
+              <h2 style="color: red">Compatibility Update - Dec 2023</h2>
+              <p>
+               I finally managed to fix the issue where the screenshots were not showing during the desktop install. I updated the Manifest file with the following:
+              </p>
+<pre>
+  <code class="language-json">"screenshots":[
+    {
+      "src": "pwaicons/screenshot2.webp",
+      "sizes": "485x1024",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "The About page shown on mobile."
+    },
+    {
+      "src": "pwaicons/screenshot3.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "The About page shown on desktop."
+    },
+  ],</code>
+  </pre>
+  <p>
+    The <code>"form_factor": "wide"</code> is required for so that the image thumbnails show during the desktop install.
+  </p>
+            </section>
 
       <!-- conclusions - section -->
       <section>
