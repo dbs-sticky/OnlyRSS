@@ -122,7 +122,7 @@
         <h1 style="view-transition-name: post12">Loading images only when (or if) they are needed</h1>
         <div class="tldr">
           <p>
-            Images placed inside the &lt;details&gt; HTML element with the attribute 'loading="lazy"' won't be loaded by the browser until (or if) the user selects to expand the &lt;summary&gt; section. This can mean faster page loads and an improved user experience, especially if the page includes many “optional” images.
+            Images placed inside the <code>&lt;details&gt;</code> HTML element with the attribute 'loading="lazy"' won't be loaded by the browser until (or if) the user selects to expand the <code>&lt;summary&gt;</code> section. This can mean faster page loads and an improved user experience, especially if the page includes many “optional” images.
           </p>
         </div>
 
@@ -169,7 +169,7 @@
         <h2>The solution</h2>
         <p>
           I’ve already used a non-JS method for hiding content until it’s requested by the user on the <a href="/pages/changelog.html">Changelog</a> page i.e. the
-          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary">&lt;details&gt; and &lt;summary&gt; HTML elements</a>. So I decided to use these elements with the summary text of 'Show me how', which when clicked would display the contents of the &lt;details&gt; element i.e. the animated GIF. You can see this in action for a static image by clicking on the text below to display Figure 1.
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary"><code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> HTML elements</a>. So I decided to use these elements with the summary text of 'Show me how', which when clicked would display the contents of the <code>&lt;details&gt;</code> element i.e. the animated GIF. You can see this in action for a static image by clicking on the text below to display Figure 1.
         </p>
 
         <details class="show-me">
@@ -224,7 +224,7 @@ article details[open] summary::after {
 
         <p>
           I’d previously used the image attribute 'loading="lazy"' to improve page performance by letting the browser decide if an image
-          needed to be loaded e.g. was the user close to scrolling to the part of the page that contained the image? I didn’t expect this to influence images hidden within the &lt;details&gt; element—I was wrong. After applying 'loading="lazy"' to both animations, they were no longer loaded by the browser until the user clicked on the summary text. This was exactly the solution I was after.
+          needed to be loaded e.g. was the user close to scrolling to the part of the page that contained the image? I didn’t expect this to influence images hidden within the <code>&lt;details&gt;</code> element—I was wrong. After applying 'loading="lazy"' to both animations, they were no longer loaded by the browser until the user clicked on the summary text. This was exactly the solution I was after.
         </p>
         <p>
           With this solution in place the <a href="/pages/subscribe.html">subscribe</a> page loads quickly—around 40ms—with all the content being above the fold, and the animations only loading if the user selects the relevant summary text.

@@ -6,10 +6,10 @@
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 10px;
   --bodytext: darkslategrey;
-  --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
   --viewport-padding: 10px;
   --background-color: white;
-  --system: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --mono-font: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
 /* This CSS rule checks if the browser supports the '--accent-light' property with a specific value.
@@ -350,19 +350,15 @@ abbr:hover {
   cursor: help;
 }
 
-
-/* the following has been commented out as code blocks are now styled by prism.css */
-/* code blocks */
-/* pre code {
-  border: 1px solid rgb(221, 221, 221);
-  display: inline-block;
-  padding: 10px;
-  color: black;
-  border-radius: var(--radius);
-  font-size: 0.7rem;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-} */
+/* inline code only, prism.js handles code blocks */
+code {
+  font-family: var(--mono-font);
+  font-size: 0.85rem;
+  color: var(--bodytext);
+  background-color: WhiteSmoke;
+  border-radius: 4px;
+  padding: 0.3rem;
+}
 
 /* keyboard buttons */
 kbd {
@@ -1231,7 +1227,7 @@ dialog-image {
         & p {
           padding: 0rem 3rem;
           color: white;
-          font-family: var(--system);
+          font-family: var(--system-font);
           line-height: 1.6;
         }
 
@@ -1243,6 +1239,7 @@ dialog-image {
   }
 
 }
+
 
 /* Feedback footer Web Component */
 
