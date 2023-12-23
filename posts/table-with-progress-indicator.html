@@ -322,7 +322,7 @@
       <section>
         <h2>Notes and code</h2>
           <p>
-            The tags in the first column are added via ::before pseudo-elements.
+            The tags in the first column are added via <code>::before</code> pseudo-elements.
           </p>
           <p>
             The second column will use an ellipsis when the text is too long for the column (there's a special place in Hell for people who build tables with unequal row-heights).
@@ -331,7 +331,7 @@
             For the third column, the percentage progress for each row is declared in the HTML as a <a href="https://www.w3schools.com/css/css3_variables.asp" title="Read about CSS Variables at W3Schools.">CSS Variable</a>. This is then used to set the progress bar length, and also the percentage text. If the percentage is equal to 100%, then the text is swapped for a “✓” and the progress bar colour is changed to green. 
           </p>
           <p>
-            To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
+            To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the <code>::before</code> element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
           </p>
           <p>The CSS used to style the table:</p>
 
