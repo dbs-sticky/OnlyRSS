@@ -1014,6 +1014,7 @@ prodman-tag::after {
   padding-left: 10%;
   margin-top: 40px;
   font-size: 0.9rem;
+  background-color: white;
 }
 
 .app-btn-close {

@@ -48,6 +48,8 @@
       }
     </script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
     <script>
       // get the slider value
       function getNumber() {
@@ -138,6 +140,7 @@
             exercises.innerHTML + "<li>" + "&nbsp;" + e[0] + "</li>"; // choose the first element using e[0]
         });
       }
+     
     </script>
   </head>
 
@@ -167,9 +170,21 @@
           oninput="numberOutputId.value = userInput.value">
         <p>
           <button class="app-workout" onclick="myFunction()">Create new workout</button>
+          <button id="download">Download</button>
         </p>
       </div>
       <ol id="exercises"></ol>
     </div>
   </body>
+
+  <script>
+      document.getElementById('download').addEventListener('click', function() {
+        html2canvas(document.getElementById('exercises')).then(function(canvas) {
+            var link = document.createElement('a');
+            link.download = 'exercises.png';
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        });
+    });
+</script>
 </html>
