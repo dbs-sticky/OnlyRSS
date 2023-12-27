@@ -86,8 +86,8 @@ body {
 
   .byline {
     flex-direction: column;
-    gap: 0.5rem;
-  }
+  } 
+
 
 /* hide thumb images and reduce card height */
   card-container img:first-child {
@@ -141,14 +141,9 @@ body {
 
   .byline {
     flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
-  }
+  } 
 
-  /* push the byline date text to the far left on wide displays */
-  .byline-copy {
-    margin-right: auto;
-  }
+
 
 /* show thumb images and increase card height */
   card-container img:first-child {
@@ -449,7 +444,7 @@ hr {
 
 
 /*  ======================
-    ARTICLE BYLINE
+    ARTICLE BYLINE (for inner styles see Web Components styles at the end of this file)
     ====================== */
 
 
@@ -460,32 +455,8 @@ hr {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--accent);
   margin-bottom: 2rem;
+  gap: 0.5rem;
 }
-
-.byline-avatar {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-}
-
-.byline-copy {
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 0.85rem;
-}
-
-/* Turn the "reading time" into a tag */
-.byline-copy span {
-  background-color: Gainsboro;
-  font-family: "Roboto Condensed", sans-serif;
-  border-radius: 3px;
-  padding: 2px 5px;
-  font-size: 0.7rem;
-}
-
-
-
-
 
 
 button {
@@ -1140,25 +1111,6 @@ video-tag:before {
   content: "video";
 }
 
-@media print {
-
-  /* reduce the root font size */
-  :root {
-    font-size:small;
-  }
-
-  /* Hide nav and outline */
-  table-of-contents, global-nav, .byline-svgs, aside, footer  {
-      display: none;
-    }
-
- /* Hide article border */
-    article, main {
-      border: none;
-      box-shadow: none;
-    }
-
-  }
 
 /*  ======================
   Image gallery (requires <dialog-image> Web Component)
@@ -1259,6 +1211,48 @@ feedback-contact {
         }
 
 }
+
+
+/* —————byline metadata Web Component————— */
+
+
+by-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+    @media (width < 768px) {
+      flex-direction: column;
+    }
+    
+    @media (width >= 768px) {
+      flex-direction: row;
+    }
+
+  }
+
+.byline-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+}
+
+.byline-copy {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 0.85rem;
+
+  & span { /* Turn the "reading time" into a tag */
+    background-color: Gainsboro;
+    font-family: "Roboto Condensed", sans-serif;
+    border-radius: 3px;
+    padding: 2px 5px;
+    font-size: 0.7rem;
+  }
+
+}
+
+
 
 /* —————social icons Web Component————— */
 
@@ -1439,3 +1433,25 @@ global-nav {
   }
 
 }
+
+
+/* set Print styles */
+@media print {
+
+  /* reduce the root font size */
+  :root {
+    font-size:small;
+  }
+
+  /* Hide nav and outline */
+  table-of-contents, global-nav, social-icons, aside, footer  {
+      display: none;
+    }
+
+ /* Hide article border */
+    article, main {
+      border: none;
+      box-shadow: none;
+    }
+
+  }
