@@ -1217,16 +1217,15 @@ feedback-contact {
 
 
 by-line {
+  display: flex;
   align-items: center;
   gap: 1rem;
 
     @media (width < 768px) {
-      display: flex;
       flex-direction: column;
     }
     
     @media (width >= 768px) {
-      display: flex;
       flex-direction: row;
     }
 
