@@ -3,10 +3,6 @@
 
 
 class DialogImage extends HTMLElement {
-	constructor() {
-		super();
-	}
-
 	
   connectedCallback() {
     // Get my image, should be one only.
@@ -39,19 +35,18 @@ class DialogImage extends HTMLElement {
     `;
     parent.parentNode.insertBefore(dialog, parent.nextSibling);
 
-    img.addEventListener('click', e => {
-        e.preventDefault();
-        dialog.showModal();
+      img.addEventListener('click', e => {
+          e.preventDefault();
+          dialog.showModal();
 
-        // Get the naturalWidth of the linked image and set it to the width of the <p>
-        let dialogImage = dialog.querySelector('#dialogImage');
-        let dialogDescription = dialog.querySelector('#dialogDescription');
-        dialogImage.onload = function() {
-            dialogDescription.style.maxWidth = this.naturalWidth + 'px';
-        };
-    });
-}
-
+          // Get the naturalWidth of the linked image and set it to the width of the <p>
+          let dialogImage = dialog.querySelector('#dialogImage');
+          let dialogDescription = dialog.querySelector('#dialogDescription');
+          dialogImage.onload = function() {
+              dialogDescription.style.maxWidth = this.naturalWidth + 'px';
+          };
+      });
+  }
 }
 
 if(!customElements.get('dialog-image')) customElements.define('dialog-image', DialogImage);
@@ -71,6 +66,7 @@ class Feedback extends HTMLElement {
   `;
   }
 }
+
 // register component
 if(!customElements.get('feedback-contact')) customElements.define('feedback-contact', Feedback);
 
