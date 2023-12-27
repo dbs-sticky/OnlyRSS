@@ -89,6 +89,13 @@ body {
     gap: 0.5rem;
   }
 
+  by-line {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:  1rem;
+  }
+
 /* hide thumb images and reduce card height */
   card-container img:first-child {
     display: none;
@@ -148,6 +155,12 @@ body {
   /* push the byline date text to the far left on wide displays */
   .byline-copy {
     margin-right: auto;
+  }
+
+  by-line {
+    display:flex;
+    align-items: center;
+    gap: 1rem;
   }
 
 /* show thumb images and increase card height */

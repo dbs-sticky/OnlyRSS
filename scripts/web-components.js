@@ -116,6 +116,51 @@ class Social extends HTMLElement {
 if(!customElements.get('social-icons')) customElements.define('social-icons', Social);
 
 
+// —————————————————————————byline Web Component—————————————————————————
+	
+
+class byline extends HTMLElement {
+
+  connectedCallback() {
+    // Get the date and change the formet.
+    let ogDate = document.querySelector("meta[property=\"article:published_time\"]").content;
+    let date = new Date(ogDate);
+    let day = String(date.getDate()).padStart(2, '0');
+    let month = date.toLocaleString('default', { month: 'short' });
+    let year = date.getFullYear();
+    let formattedDate = `${day} ${month} ${year}`;
+  
+    // calculate the reading time
+    // Select all the <p> tags in the document.
+    let pTags = document.querySelectorAll('p');
+  
+    // Calculate the total number of characters in these tags.
+    let totalChars = 0;
+    pTags.forEach(pTag => {
+      totalChars += pTag.textContent.length;
+    });
+  
+    // Assume an average reading speed of 1250 characters per minute.
+    let readingSpeed = 1250;
+  
+    // Calculate the reading time in minutes.
+    let readingTime = Math.ceil(totalChars / readingSpeed);
+  
+    this.innerHTML = `
+      <div>
+        <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50">
+      </div>
+      <div class="byline-copy">
+        <time datetime="${ogDate}">${formattedDate}</time> · <span>${readingTime} min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+      </div>
+    `;
+  }
+}
+  
+// register component
+if(!customElements.get('by-line')) customElements.define('by-line', byline);
+
+
 // —————————————————————————Table of Contents Web Component—————————————————————————
 
 
