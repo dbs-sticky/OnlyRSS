@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title> <!--TODO title-->
+    <meta name="description" content=""> <!--TODO description-->
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="view-transition" content="same-origin">
+
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans"><!--TODO title-->
+    <meta property="og:title" content="">
+    <meta property="og:url" content=""> <!--TODO URL - absolute-->
+    <meta property="og:image" content=""> <!--TODO OG image URL absolute-->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content=""><!--TODO description-->
+    <meta property="article:published_time" content=""> <!--TODO date e.g. 2023-12-29-->
+    
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "" <!--TODO URL - absolute-->
+        },
+        "headline": "", <!--TODO title-->
+        "description": "", <!--TODO description-->
+        "image": "", <!--TODO OG image URL absolute-->
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "" <!--TODO date e.g. 2023-12-29-->
+      }
+    </script>
+
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main86.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    
+    <!--load self-hosted fonts-->
+    <style>
+      @font-face {
+        font-family: "Roboto Condensed";
+        font-style: normal;
+        font-weight: 400;
+        font-display: block;
+        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 400;
+        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: normal;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+      }
+
+      @font-face {
+        font-family: "Roboto Serif";
+        font-style: italic;
+        font-weight: 500;
+        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+      }
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+  </head>
+
+  <body>
+
+    <global-nav></global-nav>
+    <table-of-contents></table-of-contents>
+
+    <article>
+
+      <header>
+        <h1 style="view-transition-name: post"></h1> <!--TODO View transition number and title e.g. view-transition-name: post27-->
+        <div class="tldr">
+          <p>
+            <!--TODO TLDR text-->
+          </p>
+        </div>
+        <div class="byline">
+          <by-line></by-line>
+          <social-icons></social-icons>
+        </div>
+      </header>
+
+      <section>
+        <h2></h2>
+        <p></p>
+      </section>
+
+      <footer>
+        <feedback-contact></feedback-contact>
+      </footer>
+
+    </article>
+
+    <aside>
+      <h1>related articles</h1> 
+      <a href=""> <!--TODO related relative path e.g. ../posts/learning-log-2022.html -->
+        <h2></h2> <!--TODO related title -->
+        <p>
+          <!--TODO related description -->
+        </p>
+      </a>
+    </aside>
+
+    <script src="../scripts/web-components.js"></script>
+  </body>
+</html>
