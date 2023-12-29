@@ -167,8 +167,17 @@ class ToC extends HTMLElement {
 
     // Function to create an outline based on the specified element type
     function createOutline(elementType) {
-      // Get all elements of the specified type
-      const elements = document.querySelectorAll(elementType);
+      // Get all article elements
+      const articles = document.querySelectorAll('article');
+      // Initialize an empty array to store the elements of the specified type
+      let elements = [];
+      // Iterate over each article
+      articles.forEach(article => {
+        // Get all elements of the specified type within the current article
+        const articleElements = article.querySelectorAll(elementType);
+        // Add the elements to the elements array
+        elements = [...elements, ...articleElements];
+      });
       // If there are no elements of the specified type, return an empty string
       if (elements.length === 0) {
         return '';

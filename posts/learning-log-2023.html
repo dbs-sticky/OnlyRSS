@@ -7,7 +7,8 @@
     <meta name="description" content="My 2023 learning goals and resources. In this post I outline my learning goals for 2023 and list the resources I used.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">    <meta name="view-transition" content="same-origin">
+    <meta name="view-transition" content="same-origin">
+
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
     <meta property="article:author" content="Mark Evans">
@@ -17,7 +18,37 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:description" content="My 2023 learning goals and resources. In this post I outline my learning goals for 2023 and list the resources I used.">
-    <meta property="article:published_time" content="2023-12-10">
+    <meta property="article:published_time" content="2023-12-29">
+    
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://onlyrss.org/posts/learning-log-2023.html"
+        },
+        "headline": "Learning log: 2023",
+        "description": "My 2023 learning goals and resources. In this post I outline my learning goals for 2023 and list the resources I used.",
+        "image": "https://onlyrss.org/images/og/learning-log-og.jpg",  
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "2022-12-29"
+      }
+    </script>
+
 
     <!--Favicons and Touch Icons and web manifest-->
     <link rel="icon" href="/pwaicons/favicon.svg">
@@ -76,53 +107,27 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
-        <script src="../scripts/outline.js"></script>
-        <script src="../scripts/social.js"></script>
   </head>
 
   <body>
-    
-    <header class="nav">
-      <nav>
-        <ul>
-          <li><a href="/index.html" title="Homepage">home</a></li>
-          <li><a href="/pages/subscribe.html" title="Subscribe via RSS">rss</a></li>
-          <li><a href="/pages/changelog.html" title="View all website updates">changelog</a></li>
-          <li><a href="/pages/about.html" title="Who made this site, and why?">about</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <div class="outline">
-      <div>Sections</div>
-      <div id="doc_outline"></div>
-    </div>
+    <global-nav></global-nav>
+    <table-of-contents></table-of-contents>
 
     <article>
       <header>
-        <h1>Learning log: 2023</h1>
+        <h1 style="view-transition-name: post17">Learning log: 2023</h1>
         <div class="tldr">
           <p>
             My focus this year was on the manipulation and display of structured data (and then of course, like everyone else, I got a bit distracted by generative AI). On this page you'll find links to all the resources I used.
           </p>
         </div>
 
-        <!-- Flexrow -->
         <div class="byline">
-          
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2023-12-10">10 Dec 2023</time> · 2 mins · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
-          </div>
+          <by-line></by-line>
+          <social-icons></social-icons>
+        </div>
 
-          <div class="byline-svgs"> 
-            <!-- populated by the social script at the end of the page -->
-          </div>
-
-        </div>  <!--class byline-->
       </header>
 
       <!--Goals-->
@@ -283,7 +288,6 @@
         </table>
       </section>
 
-      
 
       <!-- feedback -->
       <footer>
@@ -292,22 +296,17 @@
 
     </article>
 
-    <script>
-      // Call the function to create and display the outline
-      createHeadingsOutline();
-      createFiguresOutline();
-    </script>
-
     <!-- related articles -->
     <aside>
       <h1>related articles</h1>
       <a href="../posts/learning-log-2022.html">
-        <h3>Learning Log: 2022</h3>
+        <h2>Learning Log: 2022</h2>
         <p>
           My 2022 learning goals and resources. In this post I outline my learning goals for 2022 and list the resources I used.
         </p>
       </a>
     </aside>
 
+    <script src="../scripts/web-components.js"></script>
   </body>
 </html>
