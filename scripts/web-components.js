@@ -3,9 +3,7 @@
 
 
 class DialogImage extends HTMLElement {
-	
   connectedCallback() {
-    // Get my image, should be one only.
     let img = this.querySelector('img');
 
     if(!img) {
@@ -21,31 +19,67 @@ class DialogImage extends HTMLElement {
 
     let fullImageLink = parent.href;
     let dialog = document.createElement('dialog');
-    let description = (img.getAttribute('title') || '');  // Get the title attribute, if any.
-    let altText = (img.getAttribute('alt') || '');  // Get the alt text attribute, if any.
+    let description = (img.getAttribute('title') || '');
+    let altText = (img.getAttribute('alt') || '');
 
     dialog.innerHTML = `
     <form method="dialog">
       <img id="dialogImage" src="${fullImageLink}" alt="${altText}" loading="lazy">
       <p id="dialogDescription">${description}</p>
       <footer>
+        <button id="prev" type="button">&lt; Previous</button>
         <button type="submit">Close</button>
+        <button id="next" type="button">Next &gt;</button>
       </footer>
     </form>
     `;
     parent.parentNode.insertBefore(dialog, parent.nextSibling);
 
-      img.addEventListener('click', e => {
-          e.preventDefault();
-          dialog.showModal();
+    let nextButton = dialog.querySelector('#next');
+    let prevButton = dialog.querySelector('#prev');
 
-          // Get the naturalWidth of the linked image and set it to the width of the <p>
-          let dialogImage = dialog.querySelector('#dialogImage');
-          let dialogDescription = dialog.querySelector('#dialogDescription');
-          dialogImage.onload = function() {
-              dialogDescription.style.maxWidth = this.naturalWidth + 'px';
-          };
-      });
+    // Check if there are dialog-image siblings before or after the current one
+    let nextDialogImage = this.nextElementSibling;
+    let prevDialogImage = this.previousElementSibling;
+
+
+    // Add event listeners to the Next and Previous buttons
+    nextButton.addEventListener('click', () => {
+      if (nextDialogImage && nextDialogImage.nodeName === 'DIALOG-IMAGE') {
+        dialog.close();
+        nextDialogImage.showDialog();
+      } else {
+        nextButton.disabled = true;
+        nextButton.title = "Sorry, you've reached the end of the gallery"
+      }
+    });
+
+    prevButton.addEventListener('click', () => {
+      if (prevDialogImage && prevDialogImage.nodeName === 'DIALOG-IMAGE') {
+        dialog.close();
+        prevDialogImage.showDialog();
+      } else {
+        prevButton.disabled = true;
+        prevButton.title = "Sorry, you're at the start of the gallery"
+      }
+    });
+
+
+    img.addEventListener('click', e => {
+        e.preventDefault();
+        dialog.showModal();
+
+        let dialogImage = dialog.querySelector('#dialogImage');
+        let dialogDescription = dialog.querySelector('#dialogDescription');
+        dialogImage.onload = function() {
+            dialogDescription.style.maxWidth = this.naturalWidth + 'px';
+        };
+    });
+  }
+
+  showDialog() {
+    let img = this.querySelector('img');
+    if (img) img.click();
   }
 }
 

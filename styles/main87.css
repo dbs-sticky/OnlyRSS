@@ -1177,6 +1177,13 @@ dialog-image {
         flex-direction: column;
         align-items: center;
 
+         & button:disabled {
+          background-color: grey;
+          color: white;
+          cursor: not-allowed;
+          opacity: 0.5;
+         }
+
         & p {
           padding: 0rem 3rem;
           color: white;
