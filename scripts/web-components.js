@@ -45,14 +45,14 @@ class DialogImage extends HTMLElement {
 
     // Add event listeners to the Next and Previous buttons to open the next/previous dialog and close the current dialog
     nextButton.addEventListener('click', () => {
-      if (nextDialogImage && nextDialogImage.nodeName === 'DIALOG-IMAGE') {
+      if (nextDialogImage instanceof DialogImage) {
         dialog.close();
         nextDialogImage.showDialog();
       }
     });
 
     prevButton.addEventListener('click', () => {
-      if (prevDialogImage && prevDialogImage.nodeName === 'DIALOG-IMAGE') {
+      if (prevDialogImage instanceof DialogImage) {
         dialog.close();
         prevDialogImage.showDialog();
       }
@@ -68,7 +68,7 @@ class DialogImage extends HTMLElement {
       let prevDialogImage = this.previousElementSibling;
 
       // Check if there is a next image
-      if (nextDialogImage && nextDialogImage.nodeName === 'DIALOG-IMAGE') {
+      if (nextDialogImage instanceof DialogImage) {
         nextButton.disabled = false;
       } else {
         nextButton.disabled = true;
@@ -76,7 +76,7 @@ class DialogImage extends HTMLElement {
       }
 
       // Check if there is a previous image
-      if (prevDialogImage && prevDialogImage.nodeName === 'DIALOG-IMAGE') {
+      if (prevDialogImage instanceof DialogImage) {
         prevButton.disabled = false;
       } else {
         prevButton.disabled = true;
