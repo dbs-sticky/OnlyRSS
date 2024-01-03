@@ -43,14 +43,11 @@ class DialogImage extends HTMLElement {
     let prevDialogImage = this.previousElementSibling;
 
 
-    // Add event listeners to the Next and Previous buttons
+    // Add event listeners to the Next and Previous buttons to open the next/previous dialog and close the current dialog
     nextButton.addEventListener('click', () => {
       if (nextDialogImage && nextDialogImage.nodeName === 'DIALOG-IMAGE') {
         dialog.close();
         nextDialogImage.showDialog();
-      } else {
-        nextButton.disabled = true;
-        nextButton.title = "Sorry, you've reached the end of the gallery"
       }
     });
 
@@ -58,23 +55,40 @@ class DialogImage extends HTMLElement {
       if (prevDialogImage && prevDialogImage.nodeName === 'DIALOG-IMAGE') {
         dialog.close();
         prevDialogImage.showDialog();
-      } else {
-        prevButton.disabled = true;
-        prevButton.title = "Sorry, you're at the start of the gallery"
       }
     });
 
-
+    // Add event listener to the Close button to set the width and check for next/previous images
     img.addEventListener('click', e => {
-        e.preventDefault();
-        dialog.showModal();
+      e.preventDefault();
+      dialog.showModal();
 
-        let dialogImage = dialog.querySelector('#dialogImage');
-        let dialogDescription = dialog.querySelector('#dialogDescription');
-        dialogImage.onload = function() {
-            dialogDescription.style.maxWidth = this.naturalWidth + 'px';
-        };
-    });
+      // Check if there are dialog-image siblings before or after the current one
+      let nextDialogImage = this.nextElementSibling;
+      let prevDialogImage = this.previousElementSibling;
+
+      // Check if there is a next image
+      if (nextDialogImage && nextDialogImage.nodeName === 'DIALOG-IMAGE') {
+        nextButton.disabled = false;
+      } else {
+        nextButton.disabled = true;
+        nextButton.title = "Sorry, you've reached the end of the gallery";
+      }
+
+      // Check if there is a previous image
+      if (prevDialogImage && prevDialogImage.nodeName === 'DIALOG-IMAGE') {
+        prevButton.disabled = false;
+      } else {
+        prevButton.disabled = true;
+        prevButton.title = "Sorry, you're at the start of the gallery";
+      }
+
+      let dialogImage = dialog.querySelector('#dialogImage');
+      let dialogDescription = dialog.querySelector('#dialogDescription');
+      dialogImage.onload = function() {
+          dialogDescription.style.maxWidth = this.naturalWidth + 'px';
+      };
+  });
   }
 
   showDialog() {
