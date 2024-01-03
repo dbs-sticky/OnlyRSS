@@ -43,7 +43,7 @@ class DialogImage extends HTMLElement {
     let prevDialogImage = this.previousElementSibling;
 
 
-    // Add event listeners to the Next and Previous buttons to open the next/previous dialog and close the current dialog
+    // Add event listeners to the Next and Previous buttons to open the next/previous dialog and close the current dialog, but only if there is a next/previous dialog-image sibling and it's not been hidden by a filter
     nextButton.addEventListener('click', () => {
       if (nextDialogImage instanceof DialogImage && !nextDialogImage.hidden) {
         dialog.close();
@@ -67,7 +67,7 @@ class DialogImage extends HTMLElement {
       let nextDialogImage = this.nextElementSibling;
       let prevDialogImage = this.previousElementSibling;
 
-      // Check if there is a next image
+      // Check if there is a next image and it's not been hidden by a filter
       if (nextDialogImage instanceof DialogImage && !nextDialogImage.hidden) {
         nextButton.disabled = false;
       } else {
@@ -75,7 +75,7 @@ class DialogImage extends HTMLElement {
         nextButton.title = "Sorry, you've reached the end of the gallery";
       }
 
-      // Check if there is a previous image
+      // Check if there is a previous image and it's not been hidden by a filter
       if (prevDialogImage instanceof DialogImage && !prevDialogImage.hidden) {
         prevButton.disabled = false;
       } else {
