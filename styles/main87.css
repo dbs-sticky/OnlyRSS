@@ -1081,7 +1081,7 @@ progress-percent[style="--progress: 100"] {
 }
 
 /* format the common tag elements */
-:where(course-tag, tutorial-tag, book-tag, video-tag ):before {
+:where(course-tag, tutorial-tag, book-tag, video-tag, practice-tag):before {
   font-size: 0.7rem;
   font-family: "Roboto Condensed", sans-serif;
   color: white;
@@ -1109,6 +1109,11 @@ book-tag:before {
 video-tag:before {
   background-color: rgb(226, 128, 99);
   content: "video";
+}
+
+practice-tag:before {
+  background-color: rgb(241, 63, 93);
+  content: "practice";
 }
 
 
