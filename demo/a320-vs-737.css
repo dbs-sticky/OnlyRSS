@@ -72,7 +72,7 @@ article {
 }
 
 p, q {
-  margin: 0.7rem 0px;
+  margin: 2rem 0px;
   line-height: 1.9;
   max-width: var(--pagewidth);
 }
@@ -91,11 +91,11 @@ h5,
 h6 {
   font-family: "Roboto Slab", serif;
   font-weight: 500;
-  line-height: 1.6rem;
+  line-height: 2rem;
   margin: 0px 0px;
   text-wrap: balance;
   max-width: var(--pagewidth);
-}
+text-align: start;}
 
 /* Headings - individual */
 h1 {
@@ -105,6 +105,9 @@ h1 {
   margin: 2rem 0;
 }
 
+:where(h2, h3, h4, h5, h6) + P {
+  margin-top: 0.3rem;
+}
 
 em {
   font-style: normal;
@@ -127,13 +130,14 @@ q {
   font-style: italic;
 }
 
-div {
-  max-width: var(--pagewidth);
-}
+
+/* data-wrapper {
+  max-width: calc(var(--pagewidth)*1.5);
+} */
 
 aside {
   padding: 0.5rem;
-  margin: 0 1rem;
+  margin: 1rem;
   position: relative;
   float: right;
   display: flex;
@@ -146,28 +150,21 @@ aside {
   font-family: 'Roboto Slab', serif;
   font-size: 1.2rem;
   background: var(--accent);
-  text-wrap: balance;
   text-align: center;
-}
 
-aside div:first-child {
-  font-size: 4rem;
+  &  div:first-child {
+    font-size: 5rem;
+  }
 }
 
 /* blockquotes  */
 blockquote {
-
   margin: 2rem 0;
   font-size: 1.4rem;
   max-width: calc(var(--pagewidth)*1.5);
   text-align: center;
   line-height: 1.5;
   color: var(--accent);
-}
-
-.wrapper {
-margin: 2rem 0;
-/* min-width: 900px; */
 }
 
 .social {
@@ -221,9 +218,3 @@ hr {
   font-style: italic;
 }
 
-iframe {
-  margin: 4rem;
-  width: 100%;
-  max-width: calc(var(--pagewidth)*1.5);
-  height: 2145;
-}
