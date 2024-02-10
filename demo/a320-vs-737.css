@@ -31,10 +31,7 @@ html {
   display: grid;
   grid-template-columns:
     [grid-start] 1fr 
-    [content-start] minmax(
-      min(100%, var(--max-content-width)),
-      1fr
-    )
+    [content-start] minmax(min(100%, var(--max-content-width)), 1fr)
     [content-end] 1fr 
     [grid-end];
   width: min(100% - 2rem, var(--breakout-grid-width));
