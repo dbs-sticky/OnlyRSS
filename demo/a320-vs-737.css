@@ -1,11 +1,9 @@
-/* define global site variables */
 :root {
   --links: #00C19F;
   --accent: #FF6654;
   --bodytext: black;
 }
 
-/* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -21,7 +19,7 @@ html {
 /* SmolCSS Snippet Styles */
 
  .smol-breakout-grid {
-  --max-content-width: 80ch;
+  --max-content-width: 70ch;
   --breakout-difference: 0.6;
 
   /*  Compute total allowed grid width to `--breakout-difference` larger than content area  */
@@ -40,7 +38,6 @@ html {
     [content-end] 1fr 
     [grid-end];
   width: min(100% - 2rem, var(--breakout-grid-width));
-
   margin:  auto;
 }
 
@@ -61,12 +58,15 @@ html {
 @media (width < 767px) {
   html {
     font-size: 95%;
-    line-height: 1.6;
   }
 
   article {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  p {
+    margin: 1rem 0px;
+    line-height: 1.7;
   }
 
   ul,
@@ -82,10 +82,13 @@ html {
   }
 
   article {
-    padding-left: 3.5rem;
-    padding-right: 3.5rem;
+    padding: 0 2rem;
   }
 
+  p {
+    margin: 1rem 0px;
+    line-height: 1.9;
+  }
 
   ul,
   ol {
@@ -97,22 +100,7 @@ html {
     TYPOGRAPHY IMAGES and Summary
     ====================== */
 
-article {
- display:flex;
- flex-direction: column;
- align-items: center;
- margin-bottom: 5rem;
-}
 
-p, q {
-  margin: 2rem 0px;
-  line-height: 1.9;
-}
-
-header + div::first-letter {
-  initial-letter: 2;
-  padding-right: 0.5rem;
-}
 
 /* Headings - shared */
 h1,
@@ -163,8 +151,7 @@ q {
 
 aside {
   padding: 0.5rem;
-  margin: 1rem;
-  position: relative;
+  margin-top:  2rem;
   float: right;
   display: flex;
   flex-direction: column;
@@ -185,12 +172,19 @@ aside {
 
 /* blockquotes  */
 blockquote {
-  margin: 1rem 0;
-  font-size: 1.4rem;
-  max-width: calc(var(--pagewidth)*1.5);
+  margin: 3rem 0;
   text-align: center;
-  line-height: 1.5;
   color: var(--accent);
+
+    @media (width < 767px) {
+        line-height: 2rem;
+        font-size: 1.5rem;
+      }
+
+    @media (width > 768px) {
+        line-height: 2.5rem;
+        font-size: 1.8rem;
+      }
 }
 
 .social {
@@ -205,11 +199,20 @@ height: 35px;
 /* article byline and sharing icons */
 .pubrow {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid lightgray;
   padding: 1rem 0;
   align-items:center;
+
+    @media (width < 767px) {
+      flex-direction: column;
+    }
+
+    @media (width > 768px) {
+      flex-direction: row;
+      }
+
 }
 
 .pubdate {
@@ -219,14 +222,14 @@ height: 35px;
 
  svg {
   height: 25px;
-  margin: 0.8rem;
+  margin: 0.3rem;
   transition: all 0.3s ease-in-out;
   vertical-align: bottom;
 
 }
 
  svg:hover {
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
 .pubrow a:hover {
