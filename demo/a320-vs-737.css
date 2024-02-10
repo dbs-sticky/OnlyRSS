@@ -1,6 +1,5 @@
 /* define global site variables */
 :root {
-  --pagewidth: 700px;
   --links: #00C19F;
   --accent: #FF6654;
   --bodytext: black;
@@ -15,8 +14,42 @@
 
 html {
   font-family: "Roboto Serif", serif;
-  accent-color: var(--accent); /* not required yet, but this will effect checkboxes, radio buttons, progress bars, and ranges  */
+  accent-color: var(--accent);
   background-color: #FCFAF6;
+}
+
+/* SmolCSS Snippet Styles */
+
+ .smol-breakout-grid {
+  --max-content-width: 80ch;
+  --breakout-difference: 0.6;
+
+  /*  Compute total allowed grid width to `--breakout-difference` larger than content area  */
+  --breakout-grid-width: calc(
+      var(--max-content-width) +
+      (var(--max-content-width) * var(--breakout-difference))
+    );
+
+  display: grid;
+  grid-template-columns:
+    [grid-start] 1fr 
+    [content-start] minmax(
+      min(100%, var(--max-content-width)),
+      1fr
+    )
+    [content-end] 1fr 
+    [grid-end];
+  width: min(100% - 2rem, var(--breakout-grid-width));
+
+  margin:  auto;
+}
+
+.smol-breakout-grid > *:not(.breakout) {
+  grid-column: content;
+}
+
+.smol-breakout-grid > .breakout {
+  grid-column: grid;
 }
 
 
@@ -74,7 +107,6 @@ article {
 p, q {
   margin: 2rem 0px;
   line-height: 1.9;
-  max-width: var(--pagewidth);
 }
 
 header + div::first-letter {
@@ -91,11 +123,10 @@ h5,
 h6 {
   font-family: "Roboto Slab", serif;
   font-weight: 500;
-  line-height: 2rem;
   margin: 0px 0px;
   text-wrap: balance;
   max-width: var(--pagewidth);
-text-align: start;}
+}
 
 /* Headings - individual */
 h1 {
@@ -130,11 +161,6 @@ q {
   font-style: italic;
 }
 
-
-/* data-wrapper {
-  max-width: calc(var(--pagewidth)*1.5);
-} */
-
 aside {
   padding: 0.5rem;
   margin: 1rem;
@@ -159,7 +185,7 @@ aside {
 
 /* blockquotes  */
 blockquote {
-  margin: 2rem 0;
+  margin: 1rem 0;
   font-size: 1.4rem;
   max-width: calc(var(--pagewidth)*1.5);
   text-align: center;
@@ -216,5 +242,9 @@ hr {
 .tldr {
   text-align: center;
   font-style: italic;
+}
+
+data-wrapper {
+  margin: 2rem 0;
 }
 
