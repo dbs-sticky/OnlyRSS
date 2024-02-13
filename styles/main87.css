@@ -21,9 +21,8 @@
     --bodytext: rgb(204, 204, 204);
     --background-color: rgb(26, 26, 26);
     --card-background-color: rgb(44, 44, 44);
+
   }
-
-
 }
 
 /* This CSS rule checks if the browser supports the '--accent-light' property with a specific value.
@@ -189,6 +188,15 @@ aside {
   margin-bottom: 20px;
 }
 
+@media (prefers-color-scheme: dark) {
+  article,
+  main,
+  aside {
+    border: none;
+    box-shadow: none
+  }
+}
+
 
 article,
 main {
@@ -259,6 +267,12 @@ strong {
   color: black;
 }
 
+@media (prefers-color-scheme: dark) {
+  strong {
+    color: white;
+  }
+}
+
 /* define a highlighter pen style with a bit of overspill */
 mark {
   margin: 0 -0.3em;
@@ -286,6 +300,12 @@ a {
   /* transition from normal colour to hover colour */
 }
 
+@media (prefers-color-scheme: dark) {
+  a {
+    color: white;
+  }
+}
+
 /* internal links */
 :where(p, li, figcaption, table, .byline-copy) a::after {
   position: relative;
@@ -293,6 +313,7 @@ a {
   font-size: 80%;
   color: var(--accent);
 }
+
 
 :where(p, li, figcaption, table, .byline-copy) a:hover {
   text-decoration: none;
@@ -319,7 +340,12 @@ blockquote {
   margin: 2rem 0;
   padding: 1rem;
   font-size: 0.8rem;
+}
 
+@media (prefers-color-scheme: dark) {
+  blockquote {
+    background: var(--card-background-color);
+  }
 }
 
 blockquote::before {
@@ -367,6 +393,12 @@ code {
   background-color: WhiteSmoke;
   border-radius: 4px;
   padding: 0.3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  code {
+    background-color: var(--card-background-color);
+  }
 }
 
 /* keyboard buttons */
@@ -1030,7 +1062,7 @@ prodman-tag::after {
 /* define the header row font and background colour */
 .learning-log th {
   font-weight: 400;
-  color: black;
+  color: var(--bodytext);
   background-color: var(--accent-light);
 }
 
@@ -1039,6 +1071,13 @@ prodman-tag::after {
 .learning-log td {
   padding: 7px 10px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .learning-log td {
+    background-color: var(--card-background-color);
+  }
+}
+
 
 /* fix the width of the 1st column, i.e. the tag column */
 .learning-log th:nth-child(1) {
@@ -1268,14 +1307,17 @@ by-line {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 0.85rem;
 
-  & span { /* Turn the "reading time" into a tag */
+  & span { /* Turn the "reading duration" into a tag */
     background-color: Gainsboro;
-    font-family: "Roboto Condensed", sans-serif;
     border-radius: 3px;
     padding: 2px 5px;
     font-size: 0.7rem;
-  }
 
+    @media (prefers-color-scheme: dark) {
+        background-color: white;
+        color: black;
+      }
+  }
 }
 
 
