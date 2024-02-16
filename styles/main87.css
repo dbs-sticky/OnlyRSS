@@ -1278,7 +1278,7 @@ feedback-contact {
       justify-content: center;
     }
 
-    & img {
+    & svg {
       width: 8rem;
       margin: 1rem;
     }
