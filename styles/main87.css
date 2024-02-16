@@ -1263,17 +1263,34 @@ dialog-image {
 
 feedback-contact {
 
-  display: block;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
   background-color: var(--accent-light);
   border-radius: var(--radius);
   font-weight: 500;
   font-size: 0.8rem;
   margin: 2rem 0;
-  padding: 0.25rem 1rem;
 
-    & a {
-      color: var(--accent); 
-        }
+
+    @media (width < 768px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & img {
+      width: 8rem;
+      margin: 1rem;
+    }
+
+    & p {
+      margin: 1rem;
+
+      & a {
+        color: var(--accent); 
+          }
+
+    }
 
 }
 
