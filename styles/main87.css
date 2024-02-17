@@ -10,9 +10,10 @@
   --viewport-padding: 10px;
   --background-color: white;
   --card-background-color: var(--background-color);
-  --heading-font: "slab";
-  --system-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --mono-font: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  --heading-font: "slab", serif;
+  --body-font: "Roboto Serif", serif;
+  --cta-font: "Roboto Condensed", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,6 +36,50 @@
   }
 }
 
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "slab";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(/fonts/slab.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+}
+
 /* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
@@ -43,7 +88,7 @@
 }
 
 html {
-  font-family: "Roboto Serif", serif;
+  font-family: var(--body-font);
   font-weight: 400;
   color: var(--bodytext);
   scrollbar-gutter: stable;
@@ -221,7 +266,7 @@ p {
 
 /* Headings - shared */
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Slab", sans-serif;
+  font-family: var(--heading-font);
   color: var(--bodytext);
   line-height: 1.8rem;
   margin: 0.4em 0px;
@@ -501,7 +546,7 @@ button {
   /* -webkit-border-radius: var(--radius);
   -moz-border-radius: var(--radius) 5; */
   border-radius: var(--radius);
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font)
   text-transform: uppercase;
   color: white;
   font-size: 0.8rem;
@@ -619,7 +664,7 @@ aside h2:hover {
 
 .filter-btn, .compact-expand-btn {
   border-radius: 0;
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   text-transform: uppercase;
   color: var(--accent);
   font-size: 0.7rem;
@@ -763,7 +808,7 @@ aside h2:hover {
 
 /* define the common style for  tags) within summary elements and filter labels */
 :where(ux-tag, performance-tag, content-tag, seo-tag, housekeeping-tag)::after, .changelog-filters label {
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 2px 5px;
@@ -827,7 +872,7 @@ a.icons:active {
 /* non editable text field for "subscribe to RSS" field */
 .textfield {
   border-radius: var(--radius);
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   text-transform: uppercase;
   font-size: 0.9rem;
   background: lightgray;
@@ -848,7 +893,6 @@ a.icons:active {
   }
 
 .home-grid {
-  font-family: "OpenSans", sans-serif;
   font-weight: 400;
   background-color: transparent;
   display: flex;
@@ -918,7 +962,7 @@ card-body {
 card-body h2 {
   font-weight: 600;
   /* font size is set in media queries */
-  font-family: "OpenSans", sans-serif;
+  font-family: var(--heading-font);
   line-height: 1.5rem;
   text-wrap: balance;
 }
@@ -940,7 +984,7 @@ card-footer div:first-child {
 
 /* apply general style to card tags */
 :where(dataviz-tag, misc-tag, webdev-tag, review-tag, productivity-tag, prodman-tag)::after {
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   color: rgb(255, 255, 255);
   border-radius: 3px;
   padding: 2px 5px;
@@ -1009,7 +1053,7 @@ prodman-tag::after {
   max-width: 30rem;
   margin: auto;
   padding: 30px;
-  font-family:'OpenSans', sans-serif;
+  font-family: var(--cta-font);
 }
 
 #head {
@@ -1047,8 +1091,9 @@ prodman-tag::after {
   box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
   border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;  /* border radius option above does not work without this  */
-  font-family: "Slab", sans-serif;
-  color:var(--bodytext);
+  font-family: var(--cta-font);
+  color: var(--bodytext);
+
 }
 
 /* define the header row font and background colour */
@@ -1111,7 +1156,7 @@ progress-percent {
   border-radius: 5px;
   background-color: LightCoral;
   width: calc(var(--progress) * 1%);
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
 }
 
 /* change the colour when the progress is 100% */
@@ -1122,13 +1167,13 @@ progress-percent[style="--progress: 100"] {
   border-radius: 6px;
   background-color: LightSeaGreen;
   width: calc(var(--progress) * 1%);
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
 }
 
 /* format the common tag elements */
 :where(course-tag, tutorial-tag, book-tag, video-tag, practice-tag):before {
   font-size: 0.7rem;
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   color: white;
   border-radius: 3px;
   padding: 1px 5px;
@@ -1226,6 +1271,7 @@ dialog-image {
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: var(--cta-font);
 
          & button:disabled {
           background-color: grey;
@@ -1237,7 +1283,7 @@ dialog-image {
         & p {
           padding: 0rem 3rem;
           color: white;
-          font-family: var(--system-font);
+          font-family: var(--body-font);
           line-height: 1.6;
         }
 
@@ -1313,7 +1359,7 @@ by-line {
 }
 
 .byline-copy {
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   font-size: 0.85rem;
 
   & span { /* Turn the "reading duration" into a tag */
@@ -1381,7 +1427,7 @@ table-of-contents {
   width: 200px;
   position: fixed;
   margin-left: calc(50vw - 750px);
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   color: var(--accent);
   padding-left: 1rem;
   border-left: 2px solid var(--accent-light);
@@ -1464,7 +1510,7 @@ global-nav {
   background-color: var(--card-background-color);
   max-width: var(--pagewidth);
   margin: auto;
-  font-family: "Slab", sans-serif;
+  font-family: var(--cta-font);
   border-radius: 0 0 var(--radius) var(--radius);
   /* border: 1px solid LightGrey; */
   box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
