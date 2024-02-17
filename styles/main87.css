@@ -1,12 +1,12 @@
 /* define global site variables */
 
 :root {
-  --pagewidth: 960px;
+  --pagewidth: 850px;
   --shadow: rgb(0 0 0 / 20%);
   --accent: SteelBlue;
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 10px;
-  --bodytext: darkslategrey;
+  --bodytext: rgb(20, 20, 20);
   --viewport-padding: 10px;
   --background-color: white;
   --card-background-color: var(--background-color);
@@ -225,11 +225,11 @@ article,
 main,
 aside {
   background-color: var(--background-color);
-  border-radius: var(--radius);
-  border: 1px solid LightGrey;
+  /* border-radius: var(--radius); */
+  /* border: 1px solid LightGrey; */
   max-width: var(--pagewidth);
   margin: auto;
-  box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%);
+  /* box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%); */
   padding-top: 0px;
   margin-bottom: 20px;
 }
@@ -1426,7 +1426,7 @@ table-of-contents {
 
   width: 200px;
   position: fixed;
-  margin-left: calc(50vw - 750px);
+  margin-left: calc(47vw - 650px);
   font-family: var(--cta-font);
   color: var(--accent);
   padding-left: 1rem;
@@ -1511,9 +1511,8 @@ global-nav {
   max-width: var(--pagewidth);
   margin: auto;
   font-family: var(--cta-font);
-  border-radius: 0 0 var(--radius) var(--radius);
-  /* border: 1px solid LightGrey; */
-  box-shadow: 0px 0px 10px rgb(0 0 0 / 15%);
+  box-shadow: 0 5px 5px -2px rgb(255, 255, 255);
+  border-bottom: solid 2px var(--accent-light);
   text-transform: uppercase;
   position: sticky;
   top: 0;
@@ -1550,7 +1549,7 @@ global-nav {
     border-bottom: 3px solid transparent;
       &:hover,
       &.nav-active {
-        border-bottom: 3px solid var(--accent);
+        border-bottom: 3px solid var(--accent-light);
         transition: border-color 1s ease;
     }
   }
