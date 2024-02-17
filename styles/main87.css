@@ -220,17 +220,10 @@ p {
 }
 
 /* Headings - shared */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: "Slab", sans-serif;
   color: var(--bodytext);
-  font-weight: 400;
   line-height: 1.8rem;
-  /* keep the space between headings tight */
   margin: 0.4em 0px;
 }
 
@@ -242,19 +235,17 @@ sup {
 h1 {
   font-size: 2rem;
   margin-top: 0px;
-  text-transform: uppercase;
   line-height: 2.5rem;
-  color: var(--accent);
-  text-wrap: balance; /* not yet supported May 2023 */
+  text-wrap: balance; 
 }
 
 h2 {
-  font-size: 1.8rem;
-  color: var(--accent);
+  font-size: 1.6rem;
 }
 
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
+  color: var(--accent);
 }
 
 /* keep the space between any heading and the fist paragraph tight */
