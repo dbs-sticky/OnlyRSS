@@ -10,7 +10,6 @@
   --viewport-padding: 10px;
   --background-color: white;
   --card-background-color: var(--background-color);
-
   --heading-font: "slab", serif;
   --body-font: "Roboto Serif", serif;
   --cta-font: "Roboto Condensed", sans-serif;
@@ -147,16 +146,6 @@ body {
     flex-direction: column;
   } 
 
-
-/* hide thumb images and reduce card height */
-  card-container img:first-child {
-    display: none;
-}
-
-  card-container {
-    height: 200px;
-  }
-
 }
 
 /* set size for >768px 120% */
@@ -207,10 +196,6 @@ body {
 /* show thumb images and increase card height */
   card-container img:first-child {
     display: block;
-  }
-
-  card-container {
-    height: 400px;
   }
 
 }
@@ -892,31 +877,18 @@ search {
   margin-bottom: 1rem;
 }
 
-card-container { 
+card-container {
   display: block;
-  background-color: var(--card-background-color);
-  max-width: var(--pagewidth);
-  height: 200px;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 0.6rem;
   border-bottom: solid grey 1px;
 }
 
-
-card-body p {
-/* show ellipsis if more than 5 lines (heading and description) */
-  overflow: hidden;
-  display: -webkit-box !important;
- -webkit-line-clamp: 3;
- -webkit-box-orient: vertical;
-  white-space: normal;
-  }
-
- 
 card-footer {
   display: flex;
-  font-size: 0.75rem
 }
+
 
 /* Let the datestamp grow to fill the space and push the tags to the right */
 card-footer div:first-child {
@@ -930,6 +902,7 @@ card-footer div:first-child {
   border-radius: 3px;
   padding: 2px 5px;
   margin-left: 5px;
+  font-size: 0.75rem;
 }
 
 /* apply individual content to card tags */
