@@ -6,7 +6,7 @@
   --accent: SteelBlue;
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 10px;
-  --bodytext: rgb(20, 20, 20);
+  --bodytext: black;
   --viewport-padding: 10px;
   --background-color: white;
   --card-background-color: var(--background-color);
