@@ -531,7 +531,7 @@ button {
   /* -webkit-border-radius: var(--radius);
   -moz-border-radius: var(--radius) 5; */
   border-radius: var(--radius);
-  font-family: var(--cta-font)
+  font-family: var(--cta-font);
   text-transform: uppercase;
   color: white;
   font-size: 0.8rem;
@@ -888,7 +888,6 @@ card-container {
 card-footer {
   display: flex;
 }
-
 
 /* Let the datestamp grow to fill the space and push the tags to the right */
 card-footer div:first-child {
