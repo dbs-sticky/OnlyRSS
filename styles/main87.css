@@ -6,7 +6,7 @@
   --accent: SteelBlue;
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 10px;
-  --bodytext: black;
+  --bodytext: rgb(30, 30, 30);
   --viewport-padding: 10px;
   --background-color: white;
   --card-background-color: var(--background-color);
@@ -1318,13 +1318,12 @@ social-icons {
   display: inline-flex;
   height: 35px;
   & a {
-    filter: drop-shadow(0 0 5px rgb(0 0 0 / 0.3));
       & * {
         display: inline-block;
         transition: all 0.7s ease-in-out;
         width: 35px;
         height: 35px;
-        background-color: var(--accent);
+        background-color: rgb(78, 78, 78);
           &:hover {
             transform: scale(1.3);
           }
