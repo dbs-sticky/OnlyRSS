@@ -2,13 +2,13 @@
 
 :root {
   --pagewidth: 850px;
-  --shadow: rgb(0 0 0 / 20%);
-  --accent: SteelBlue;
+  --shadow: oklch(0% 0 0 / 20%);
+  --accent: oklch(58.8% 0.099 245.74);
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 10px;
-  --bodytext: rgb(30, 30, 30);
+  --bodytext: oklch(23.5% 0 0);
   --viewport-padding: 10px;
-  --background-color: white;
+  --background-color: oklch(98.43% 0.004 106.47);
   --card-background-color: var(--background-color);
   --heading-font: "slab", serif;
   --body-font: "Roboto Serif", serif;
@@ -17,10 +17,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: SteelBlue;
+    --accent: oklch(58.8% 0.099 245.74);
     --accent-light: #dae6f0; /* Fallback*/
     --bodytext: rgb(204, 204, 204);
-    --background-color: rgb(26, 26, 26);
+    --background-color: oklch(98.43% 0.004 106.47);
     --card-background-color: rgb(44, 44, 44);
 
   }
@@ -28,10 +28,10 @@
 
 /* This CSS rule checks if the browser supports the '--accent-light' property with a specific value.
    The value is a color-mix function that mixes the '--accent' color with 80% transparency in the sRGB color space. */
-@supports (--accent-light: color-mix(in srgb, var(--accent), transparent 80%)) {
+@supports (--accent-light: color-mix(in oklch, var(--accent), transparent 80%)) {
   :root {
     /* If supported, the '--accent-light' property is set to the color-mix function result. */
-    --accent-light: color-mix(in srgb, var(--accent), transparent 80%);
+    --accent-light: color-mix(in oklch, var(--accent), transparent 80%);
   }
 }
 
@@ -266,7 +266,8 @@ h1 {
   font-size: 2rem;
   margin-top: 0px;
   line-height: 2.5rem;
-  text-wrap: balance; 
+  text-wrap: balance;
+  color: var(--accent);
 }
 
 h2 {
@@ -880,14 +881,15 @@ search {
 card-container {
   display: block;
   line-height: 1.6;
-  margin-top: 2rem;
+  margin-top: 3rem;
   padding-bottom: 0.6rem;
-  border-bottom: solid grey 1px;
 }
 
 card-footer {
   display: flex;
 }
+
+
 
 /* Let the datestamp grow to fill the space and push the tags to the right */
 card-footer div:first-child {
@@ -934,6 +936,7 @@ prodman-tag::after {
   background-color: #aa1585;
   content: "Product Management";
 }
+
 
 /*  ======================
     exercise randomiser in JavaScript article
