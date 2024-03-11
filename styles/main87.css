@@ -20,7 +20,7 @@
     --accent: oklch(58.8% 0.099 245.74);
     --accent-light: #dae6f0; /* Fallback*/
     --bodytext: rgb(204, 204, 204);
-    --background-color: oklch(98.43% 0.004 106.47);
+    --background-color:  rgb(44, 44, 44);
     --card-background-color: rgb(44, 44, 44);
 
   }
@@ -137,6 +137,7 @@ body {
     card-body h2 {
     font-size: 1.1rem;
   }
+  
   /* full width learning log table on mobile */
   .learning-log {
     width: 100%;
@@ -191,13 +192,6 @@ body {
     flex-direction: row;
   } 
 
-
-
-/* show thumb images and increase card height */
-  card-container img:first-child {
-    display: block;
-  }
-
 }
 
 /*  ======================
@@ -247,6 +241,10 @@ aside {
 p {
   margin: 1.4em 0px;
   text-wrap: pretty;
+}
+
+header p {
+  margin: 1em 0px;
 }
 
 /* Headings - shared */
@@ -502,13 +500,6 @@ cursor:pointer;
 /* rule, only used on About & subscribe pages */
 hr {
   margin-bottom: 25px;
-}
-
-/* automatically add the TLDR coloured text before the first paragraph in the TDLR div */
-.tldr p:first-child::before {
-  font-weight: 500;
-  color: var(--bodytext);
-  content: "TLDR: ";
 }
 
 
@@ -880,60 +871,47 @@ search {
 
 card-container {
   display: block;
-  line-height: 1.6;
   margin-top: 3rem;
   padding-bottom: 0.6rem;
 }
 
 card-footer {
-  display: flex;
-}
-
-
-
-/* Let the datestamp grow to fill the space and push the tags to the right */
-card-footer div:first-child {
-  flex: 1;
+  font-family: var(--cta-font);
 }
 
 /* apply general style to card tags */
 :where(dataviz-tag, misc-tag, webdev-tag, review-tag, productivity-tag, prodman-tag)::after {
-  font-family: var(--cta-font);
-  color: rgb(255, 255, 255);
+  color: var(--bodytext);
   border-radius: 3px;
   padding: 2px 5px;
   margin-left: 5px;
   font-size: 0.75rem;
+  border: 1px solid grey
+
 }
 
 /* apply individual content to card tags */
 dataviz-tag::after {
-  background-color: #7793df;
   content: "DataViz";
 }
 
 productivity-tag::after {
-  background-color: #5ca371;
   content: "Productivity";
 }
 
 review-tag::after {
-  background-color: #d18c6b;
   content: "Review";
 }
 
 webdev-tag::after {
-  background-color: #c792c4;
   content: "WebDev";
 }
 
 misc-tag::after {
-  background-color: #5a5a5a;
   content: "Misc";
 }
 
 prodman-tag::after {
-  background-color: #aa1585;
   content: "Product Management";
 }
 
