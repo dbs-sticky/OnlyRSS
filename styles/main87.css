@@ -562,32 +562,25 @@ button:active {
     RELATED ARTICLES
     ====================== */
 
-aside h1 {
-  color: var(--bodytext);
-  font-size: 1.4rem;
+aside {
+
+  >h1 {
+    color: black;
+    border-bottom: 1px solid black;
+    text-align: center; 
+    margin-bottom: -0.5rem; /* Offset the border-bottom upwards by 0.5rem */
+    line-height: 0.1em;
+    margin: 3rem 0;
+
+    span {
+      background: var(--background-color);
+      padding:0 1rem;
+    }
+
+  }
+
 }
 
-aside h2 {
-  font-size: 1.3rem;
-}
-
-aside p {
-  line-height: 1.5;
-  font-size: 0.8rem;
-}
-
-aside h2::after {
-  position: relative;
-  content: "°";
-  font-size: 80%;
-  color: var(--accent);
-}
-
-aside h2:hover {
-  text-decoration: none;
-  color: var(--accent);
-  transition: color 0.4s;
-}
 
 /*  ======================
     DETAILS & SUMMARY
@@ -1304,7 +1297,7 @@ social-icons {
         transition: all 0.7s ease-in-out;
         width: 35px;
         height: 35px;
-        background-color: rgb(78, 78, 78);
+        background-color: var(--accent);
           &:hover {
             transform: scale(1.3);
           }
