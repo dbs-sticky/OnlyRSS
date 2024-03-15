@@ -1181,17 +1181,35 @@ dialog-image {
 
 /* Feedback footer Web Component */
 
-feedback-contact {
+footer {
+  background-color: var(--accent-light);
+  margin: 0 -10px 0 -10px;
+}
 
+footer div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer img {
+  height: 60px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: inline-block;
+  box-shadow: 0px 0px 7px 0px var(--accent);
+}
+
+feedback-contact {
   display: flex;
   justify-content:space-between;
   align-items: center;
-  background-color: var(--accent-light);
-  border-radius: var(--radius);
   font-weight: 500;
-  font-size: 0.8rem;
-  margin: 2rem 0;
-
+  font-family: var(--cta-font);
+  max-width: var(--pagewidth);
+  margin: auto;
+  padding: 1rem;
 
     @media (width < 768px) {
       flex-direction: column;
@@ -1200,7 +1218,6 @@ feedback-contact {
 
     & svg {
       width: 8rem;
-      margin: 1rem;
     }
 
     & p {
@@ -1232,13 +1249,6 @@ by-line {
     }
 
   }
-
-.byline-avatar {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  border: 2px solid var(--accent);
-}
 
 .byline-copy {
   font-family: var(--cta-font);
