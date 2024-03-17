@@ -13,6 +13,7 @@
   --heading-font: "slab", serif;
   --body-font: "Roboto Serif", serif;
   --cta-font: "Roboto Condensed", sans-serif;
+  --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -418,7 +419,7 @@ code {
 
 /* keyboard buttons */
 kbd {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-family: var(--mono-font);
   color: var(--bodytext);
   border: 1px solid var(--bodytext);
