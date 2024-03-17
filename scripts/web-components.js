@@ -225,13 +225,15 @@ class byline extends HTMLElement {
   
     // Calculate the reading time in minutes.
     let readingTime = Math.ceil(totalChars / readingSpeed);
+
+    // If the reading time is just 1 minute, then state "min", else "mins"
+    let units = readingTime === 1 ? 'min' : 'mins';
   
     this.innerHTML = `
 
       <card-footer>
         <time datetime="${ogDate}">${formattedDate}</time>
-        <article-duration> • ${readingTime} min • </article-duration>
-        <misc-tag></misc-tag>
+        <article-duration> • ${readingTime} ${units} </article-duration>
       </card-footer>
     `;
   }
