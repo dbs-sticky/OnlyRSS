@@ -186,7 +186,7 @@ body {
   }
   /* 60% width learning log table desktops/tablets */
   .learning-log {
-    width: 70%;
+    width: 100%;
   }
 
   .byline {

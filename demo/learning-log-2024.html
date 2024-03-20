@@ -236,6 +236,16 @@
               <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
             </tr>
             <tr>
+              <td><book-tag></book-tag></td>
+              <td><a href="https://www.goodreads.com/book/show/182761576-thinking-with-type" target="_blank">Thinking with Type: A Critical Guide for Designers, Writers, Editors, and Students.</a></td>
+              <td><progress-meter><progress-percent style="--progress: 50"></progress-percent></progress-meter></td>
+            </tr>
+            <tr>
+              <td><book-tag></book-tag></td>
+              <td><a href="https://www.goodreads.com/book/show/182761416-universal-principles-of-typography" target="_blank">Universal Principles of Typography: 100 Key Concepts for Choosing and Using Type.</a></td>
+              <td><progress-meter><progress-percent style="--progress: 0"></progress-percent></progress-meter></td>
+            </tr>
+            <tr>
               <td><course-tag></course-tag></td>
               <td><a href="https://www.nan.fyi/svg-paths" target="_blank">Understanding SVG paths</a></td>
               <td><progress-meter><progress-percent style="--progress: 28"></progress-percent></progress-meter></td>
@@ -244,30 +254,64 @@
         </table>
       </section>
 
-
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/learning-log-2023.html">
-        <h2>Learning Log: 2023</h2>
-        <p>
-          My 2023 learning goals and resources. In this post I outline my learning goals for 2023 and list the resources I used.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/learning-log-2023.html" data-category="misc" >
+        <card-container style="view-transition-name: post26">
+
+          <card-body>
+            <h1>Learning Log: 2023</h1>
+            <p>My focus this year was meant to be SQL & Python, but it ended up being mostly JavaScript, and then I got a bit distracted by GenAI.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-12-29">29 Dec 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
-      <a href="../posts/learning-log-2022.html">
-        <h2>Learning Log: 2022</h2>
-        <p>
-          My 2022 learning goals and resources. In this post I outline my learning goals for 2022 and list the resources I used.
-        </p>
+      <a href="/posts/learning-log-2022.html" data-category="misc" >
+        <card-container style="view-transition-name: post17">
+
+          <card-body>
+            <h1>Learning Log: 2022</h1>
+            <p>My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-10">10 Dec 2022</time>
+            <article-duration> • 2 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+      <a href="/posts/table-with-progress-indicator.html" data-category="webdev">
+        <card-container style="view-transition-name: post21">
+
+          <card-body>
+            <h1>HTML & CSS table with progress bars</h1>
+            <p>I share the code I used to create the tables from my recent 'Learning Log: 2022' article.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-03-05">5 Mar 2023</time>
+            <article-duration> • 1 min • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+      <footer>
+        <feedback-contact></feedback-contact>
+      </footer>
 
     <script src="../scripts/web-components.js"></script>
   </body>
