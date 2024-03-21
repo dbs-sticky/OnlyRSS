@@ -173,6 +173,7 @@ class Social extends HTMLElement {
 
     // Concatenate the titleURI and UrlUri together into links for each network.
     this.innerHTML = `
+    <div>
       <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
         <reddit-icon></reddit-icon>
       </a>
@@ -188,6 +189,7 @@ class Social extends HTMLElement {
       <a href='mailto:?subject=${titleUri}&body=${urlUri}' target='_blank' title='Share this article on Email'>
         <email-icon></email-icon>
       </a>
+    </div>
     `;
   }
 }
@@ -233,7 +235,7 @@ class byline extends HTMLElement {
 
       <card-footer>
         <time datetime="${ogDate}">${formattedDate}</time>
-        <article-duration> • ${readingTime} ${units} </article-duration>
+        <article-duration> • ${readingTime} ${units} • </article-duration>
       </card-footer>
     `;
   }
