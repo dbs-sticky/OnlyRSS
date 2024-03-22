@@ -1,14 +1,12 @@
 /* define global site variables */
 
 :root {
-  /* --pagewidth: 850px; */
   --pagewidth: 95ch;
   --shadow: oklch(0% 0 0 / 20%);
   --accent: oklch(58.8% 0.099 245.74);
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 0.5rem;
   --bodytext: oklch(23.5% 0 0);
-  --viewport-padding: 10px;
   --background-color: oklch(98.43% 0.004 106.47);
   --card-background-color: var(--background-color);
   --heading-font: "slab", serif;
@@ -84,8 +82,8 @@
 /* Switch to 'border box', and reset browser margin & padding to zero */
 * {
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -99,8 +97,6 @@ html {
 
 body {
   counter-reset: figures;
-  padding-left: var(--viewport-padding);
-  padding-right: var(--viewport-padding);
   background-color: var(--background-color);
 }
 
@@ -135,10 +131,6 @@ body {
   ol {
     margin-left: 1rem !important;
   }
-
-    card-body h2 {
-    font-size: 1.1rem;
-  }
   
   /* full width learning log table on mobile */
   .learning-log {
@@ -154,7 +146,7 @@ body {
 /* set size for >768px 120% */
 @media (width >= 768px) {
   html {
-    font-size: 105%;
+    /* font-size: 105%; */
     line-height: 2;
   }
 
@@ -182,9 +174,6 @@ body {
     margin-left: 3rem !important;
   }
 
-   card-body h2 {
-    font-size: 0.9rem;
-  }
   /* 60% width learning log table desktops/tablets */
   .learning-log {
     width: 100%;
@@ -206,13 +195,10 @@ article,
 main,
 aside {
   background-color: var(--background-color);
-  /* border-radius: var(--radius); */
-  /* border: 1px solid LightGrey; */
   max-width: var(--pagewidth);
   margin: auto;
-  /* box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 15%); */
-  padding-top: 0px;
-  margin-bottom: 20px;
+  padding-top: 0;
+  margin-bottom: 5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -231,7 +217,7 @@ main {
 }
 
 aside {
-  padding-top: 15px;
+  padding-top: 1rem;
 }
 
 /*  ======================
@@ -241,12 +227,12 @@ aside {
 /* Paragraphs */
 
 p {
-  margin: 1.4em 0px;
+  margin: 1.4em 0;
   text-wrap: pretty;
 }
 
 header p {
-  margin: 1em 0px;
+  margin: 1rem 0px;
 }
 
 /* Headings - shared */
@@ -254,17 +240,17 @@ h1,h2,h3,h4,h5,h6 {
   font-family: var(--heading-font);
   color: var(--bodytext);
   line-height: 1.8rem;
-  margin: 0.4em 0px;
+  margin: 0.4em 0;
 }
 
 sup {
-  font-size:x-small
+  font-size:x-small;
 }
 
 /* Headings - individual */
 h1 {
   font-size: 2.5rem;
-  margin-top: 0px;
+  margin-top: 0;
   line-height: 2.8rem;
   text-wrap: balance;
   color: var(--accent);
@@ -281,7 +267,7 @@ h3 {
 
 /* keep the space between any heading and the fist paragraph tight */
 :where(h1, h2, h3, h4, h5, h6) + p {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 strong {
@@ -298,22 +284,10 @@ strong {
 
 /* define a highlighter pen style with a bit of overspill */
 mark {
-  margin: 0 -0.3em;
-  padding: 0.1em 0.3em;
-  border-radius: 0.5em 0.2em;
-  background: transparent;
-  background-image: linear-gradient(
-    to right,
-    rgba(255, 225, 0, 0.2),
-    rgba(255, 225, 0, 0.6) 20%,
-    rgba(255, 225, 0, 0.3)
-  );
+padding: 0.2rem;
+border-radius: 0.3rem
 }
 
-::selection {
- background: yellow;
- text-shadow: gray 2px 2px 10px;
-}
 
 /* Links */
 a {
@@ -352,18 +326,12 @@ a {
 
 /* blockquotes  */
 blockquote {
-  background: #f9f9f9;
-  border-left: 5px solid var(--accent);
+  border-left: 0.5rem solid var(--accent);
   margin: 2rem 0;
   padding: 1rem;
   font-size: 0.8rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  blockquote {
-    background: var(--card-background-color);
-  }
-}
 
 blockquote::before {
   content: open-quote;
@@ -1291,20 +1259,20 @@ social-icons {
 
 table-of-contents {
 
-  width: 200px;
+  width: 13rem;
   position: fixed;
-  margin-left: calc(47vw - 650px);
+  margin-left: calc(47vw - 38rem);
   font-family: var(--cta-font);
   color: var(--accent);
   padding-left: 1rem;
   border-left: 2px solid var(--accent-light);
 
-    @media (width > 1550px) {
+    @media (width > 88rem) {
       display: block;
       animation: fade-in 0.5s ease-in;
     }
     
-    @media (width <= 1550px) {
+    @media (width <= 88rem) {
       display: none;
       animation: fade-out 0.5s ease-out;
     }
@@ -1320,7 +1288,7 @@ table-of-contents {
       overflow: hidden;
       white-space: nowrap;
       line-height: 1.7;
-      margin-left: -40px;
+      margin-left: -2.5rem;
 
       & :last-of-type {
           margin-bottom: 1rem;
@@ -1364,7 +1332,7 @@ table-of-contents {
 
 /* add some scrollmargin so the heading or top of figure is visible below the fixed global navigation */
 h2, figure {
-  scroll-margin-top: 55px;
+  scroll-margin-top: 3rem;
 }
 
 /* make the nav stick to the top of the page when the gap benwteen the nav and the top of the page is zero i.e. always */
