@@ -1,11 +1,12 @@
 /* define global site variables */
 
 :root {
-  --pagewidth: 850px;
+  /* --pagewidth: 850px; */
+  --pagewidth: 95ch;
   --shadow: oklch(0% 0 0 / 20%);
   --accent: oklch(58.8% 0.099 245.74);
   --accent-light: #dae6f0; /* Fallback*/
-  --radius: 10px;
+  --radius: 0.5rem;
   --bodytext: oklch(23.5% 0 0);
   --viewport-padding: 10px;
   --background-color: oklch(98.43% 0.004 106.47);
@@ -529,6 +530,8 @@ button {
   border-style: none;
   transition: background-color 200ms;
   cursor: pointer;
+  touch-action: manipulation; /* The manipulation value disables gestures like ‘double-tap to zoom’. */
+  user-select: none; /* disables the ability for text in buttons to be selectable */
 }
 
 /* Tint the background when hovering */
@@ -1369,8 +1372,8 @@ h2, figure {
 
 global-nav {
   display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   background-color: var(--card-background-color);
   max-width: var(--pagewidth);
   margin: auto;
@@ -1393,10 +1396,6 @@ global-nav {
   & li {
     & a {
     padding: 0.6rem 0;
-        /* remove the default link style i.e. "°" */
-        &::after {
-          content: "";
-        }
     }
 
     /* this forces all elements to the right of the Home button to move to the far-right */
@@ -1409,7 +1408,6 @@ global-nav {
     color: var(--accent);
     padding: 5px 10px;
     text-decoration: none;
-    font-size: 17px;
     border-bottom: 3px solid transparent;
       &:hover,
       &.nav-active {
