@@ -284,8 +284,9 @@ strong {
 
 /* define a highlighter pen style with a bit of overspill */
 mark {
-padding: 0.2rem;
-border-radius: 0.3rem
+padding: 0.2rem 0.5rem;
+border-radius: 0.3rem;
+background-color: #ffdd33;
 }
 
 
