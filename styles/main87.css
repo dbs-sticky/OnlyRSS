@@ -1,23 +1,25 @@
 /* define global site variables */
 
 :root {
-  --pagewidth: 95ch;
+  --pagewidth: 85ch;
   --shadow: oklch(0% 0 0 / 20%);
-  --accent: oklch(58.8% 0.099 245.74);
+  --accent: oklch(50% 0.1 250);
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 0.5rem;
   --bodytext: oklch(23.5% 0 0);
   --background-color: oklch(98.43% 0.004 106.47);
+  --background-color: #F3EEE4;
   --card-background-color: var(--background-color);
   --heading-font: "slab", serif;
   --body-font: "Roboto Serif", serif;
   --cta-font: "Roboto Condensed", sans-serif;
   --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    font-size: 19px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: oklch(58.8% 0.099 245.74);
+    --accent: oklch(50% 0.1 250);
     --accent-light: #dae6f0; /* Fallback*/
     --bodytext: rgb(204, 204, 204);
     --background-color:  rgb(44, 44, 44);
@@ -152,10 +154,14 @@ body {
 
   article,
   main,
-  aside,
-  global-nav {
+  aside {
     padding-left: 3.5rem;
     padding-right: 3.5rem;
+  }
+
+  global-nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 
   blockquote {
@@ -1351,7 +1357,7 @@ global-nav {
   font-family: var(--cta-font);
   box-shadow: 0 5px 5px -2px var(--card-background-color);
   border-bottom: solid 2px var(--accent-light);
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   position: sticky;
   top: 0;
   z-index: 1;
@@ -1382,7 +1388,7 @@ global-nav {
     border-bottom: 3px solid transparent;
       &:hover,
       &.nav-active {
-        border-bottom: 3px solid var(--accent-light);
+        border-bottom: 3px solid var(--accent);
         transition: border-color 1s ease;
     }
   }
