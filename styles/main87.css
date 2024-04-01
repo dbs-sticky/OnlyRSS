@@ -862,11 +862,12 @@ card-footer {
 /* apply general style to card tags */
 :where(dataviz-tag, misc-tag, webdev-tag, review-tag, productivity-tag, prodman-tag)::after {
   color: var(--bodytext);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 2px 5px;
   margin-left: 5px;
   font-size: 0.75rem;
-  border: 1px solid grey
+  border: 1.5px solid var(--accent);
+  background: white;
 
 }
 
