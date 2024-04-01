@@ -435,7 +435,7 @@ figcaption {
   margin-top: 5px;
   padding-top: 8px;
   font-style: italic;
-  border-top: 2px solid var(--accent);
+
 }
 
 figcaption::before {
@@ -448,7 +448,16 @@ img {
   margin: auto;
   max-width: 100%;
   height: auto;
+
 }
+
+figure  {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: white;
+  box-shadow: 0 0 1rem #00000014;
+}
+
 /* target figures that contain images with an onclick event (e.g. zoom and enhance article */
 /* I tried to add the overlay to the img, not the figure, but for some reason it did not appear. */
 figure:has(img[onclick])::before {
