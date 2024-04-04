@@ -451,11 +451,19 @@ img {
 
 }
 
-figure  {
+:where(article, main) :where(figure, img)  {
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   background: white;
   box-shadow: 0 0 1rem #00000014;
+  margin-bottom: 9rem;
+}
+
+dialog-image img, dialog img, .paper img {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
 }
 
 /* target figures that contain images with an onclick event (e.g. zoom and enhance article */
@@ -830,7 +838,7 @@ a.icons:active {
   font-family: var(--cta-font);
   text-transform: uppercase;
   font-size: 0.9rem;
-  background: lightgray;
+  background: white;
   padding: 5px 10px;
   border-style: none;
   width: 33ch;
@@ -1155,12 +1163,16 @@ dialog-image {
           opacity: 0.5;
          }
 
-        & p {
-          padding: 0rem 3rem;
-          color: white;
-          font-family: var(--body-font);
-          line-height: 1.6;
-        }
+         & footer {
+          background: black;
+         }
+
+          & p {
+            padding: 0rem 3rem;
+            color: white;
+            font-family: var(--body-font);
+            line-height: 1.6;
+          }
 
         @media  (width < 768px) {
           & p {
