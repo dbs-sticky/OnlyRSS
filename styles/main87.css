@@ -384,14 +384,13 @@ abbr:hover {
   cursor: help;
 }
 
-/* inline code only, prism.js handles code blocks */
-code {
-  font-family: var(--mono-font);
-  font-size: 0.85rem;
+/* target inline code only */
+p code {
   color: var(--bodytext);
   background-color: WhiteSmoke;
   border-radius: 4px;
-  padding: 0.3rem;
+  padding: 0.2rem;
+  border: 1px solid var(--bodytext);
 }
 
 
@@ -419,8 +418,7 @@ li::marker {
 
 /* Figures & images */
 figure {
-  margin: 0;
-  margin-bottom: 15px;
+  margin: 2rem 0;
 }
 
 /* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
@@ -451,6 +449,8 @@ img {
 
 }
 
+
+/* Define the image style for mainbody images that are NOT in gallaries, figures etc. */
 :where(article, main) :where(figure, img)  {
   padding: 1rem;
   border-radius: var(--radius);
@@ -459,7 +459,9 @@ img {
   margin-bottom: 9rem;
 }
 
-dialog-image img, dialog img, .paper img {
+
+/* Define the image style for mainbody images that are in gallaries, figures etc. i.e. remove the styles defined above */
+dialog-image img, dialog img, .paper img, figure img {
   padding: 0;
   border-radius: 0;
   background: none;
