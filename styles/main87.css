@@ -3,7 +3,7 @@
 :root {
   --pagewidth: 85ch;
   --shadow: oklch(0% 0 0 / 20%);
-  --accent: oklch(50% 0.1 250);
+  --accent: oklch(60% 0.15 250);
   --accent-light: #dae6f0; /* Fallback*/
   --radius: 0.5rem;
   --bodytext: oklch(23.5% 0 0);
@@ -19,7 +19,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: oklch(50% 0.1 250);
+    --accent: oklch(60% 0.15 250);
     --accent-light: #dae6f0; /* Fallback*/
     --bodytext: rgb(204, 204, 204);
     --background-color:  rgb(44, 44, 44);
