@@ -578,7 +578,7 @@ aside {
 
 
 /*  ======================
-    DETAILS & SUMMARY
+    MARK: DETAILS & SUMMARY
     ====================== */
 
 /* ====== Details and Summary - normal style====== */
@@ -1130,7 +1130,7 @@ practice-tag:before {
   }
 
 /*  ======================
-  Web Components - see web-components.js for innerHTML
+  MARK: Web Components - see web-components.js for innerHTML
   ====================== */
 
 /* —————image dialog modal popup Web Component————— */
