@@ -200,18 +200,38 @@ article details[open] summary::after {
     <!-- related articles -->
     <aside>
       <h1><span>related articles</span></h1>
-      <a href="/posts/drop-caps-and-indents.html">
-        <h2>Drop caps and indents</h2>
-        <p>
-          A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
-        </p>
+      <a href="/posts/drop-caps-and-indents.html" data-category="webdev">
+        <card-container style="view-transition-name: post10">
+
+          <card-body>
+            <h1>Drop Caps and Indents</h1>
+            <p>A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-01-17">17 Jan 2022</time>
+            <article-duration> • 2 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
 
-      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html">
-        <h2>Automatically numbering figures using CSS Counters</h2>
-        <p>
-          Automatically number figures with CSS counters and display inside the figure’s caption.
-        </p>
+      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev">
+        <card-container style="view-transition-name: post13">
+
+          <card-body>
+            <h1>Automatically numbering figures using CSS counters</h1>
+            <p>You can use CSS Counters and the <code>::before</code> pseudo selector to automatically label and number figures within a webpage.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-05-30">30 May 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
 

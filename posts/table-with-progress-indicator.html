@@ -448,11 +448,21 @@ book-tag:before {
     <!-- related articles -->
     <aside>
       <h1><span>related articles</span></h1>
-      <a href="../posts/learning-log-2022.html">
-        <h2>Learning Log 2022</h2>
-        <p>
-          My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.
-        </p>
+      <a href="/posts/learning-log-2022.html" data-category="misc" >
+        <card-container style="view-transition-name: post17">
+
+          <card-body>
+            <h1>Learning Log: 2022</h1>
+            <p>My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-10">10 Dec 2022</time>
+            <article-duration> • 1 min • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
 

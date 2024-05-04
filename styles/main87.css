@@ -639,6 +639,7 @@ aside {
   transition: background-color 200ms;
   cursor: pointer;
   padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+  background-color: white;
 
 }
 
@@ -978,6 +979,7 @@ prodman-tag::after {
   overflow: hidden;  /* border radius option above does not work without this  */
   font-family: var(--cta-font);
   color: var(--bodytext);
+  background-color: white;
 
 }
 
