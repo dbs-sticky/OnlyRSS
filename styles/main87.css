@@ -220,6 +220,17 @@ aside {
 article,
 main {
   padding-top: 2rem;
+  flex: 1 0 auto;
+
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 aside {
@@ -1193,6 +1204,7 @@ dialog-image {
 footer {
   background-color: var(--accent-light);
   margin: 0 -10px 0 -10px;
+  flex-shrink: 0;
 }
 
 footer div {
@@ -1379,11 +1391,11 @@ global-nav {
   padding-bottom: 0.5rem;
   background-color: var(--card-background-color);
   max-width: var(--pagewidth);
+  width: 100%;
   margin: auto;
   font-family: var(--cta-font);
   box-shadow: 0 5px 5px -2px var(--card-background-color);
   border-bottom: solid 2px var(--accent-light);
-  /* text-transform: uppercase; */
   position: sticky;
   top: 0;
   z-index: 1;
