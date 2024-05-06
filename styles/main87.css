@@ -402,6 +402,7 @@ p code {
   border-radius: 4px;
   padding: 0.2rem;
   border: 1px solid var(--bodytext);
+  white-space: nowrap;
 }
 
 
@@ -1308,7 +1309,8 @@ table-of-contents {
 
   width: 13rem;
   position: fixed;
-  margin-left: calc(47vw - 38rem);
+  margin-left: calc(47vw - 35rem);
+  margin-top: 3rem;
   font-family: var(--cta-font);
   color: var(--accent);
   padding-left: 1rem;
@@ -1319,7 +1321,7 @@ table-of-contents {
       animation: fade-in 0.5s ease-in;
     }
     
-    @media (width <= 88rem) {
+    @media (width <= 92rem) {
       display: none;
       animation: fade-out 0.5s ease-out;
     }
