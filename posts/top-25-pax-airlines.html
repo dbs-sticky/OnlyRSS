@@ -7,7 +7,7 @@
     <meta name="description" content="The result of my second attempt at creating data visualisations using HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -114,7 +114,17 @@
       }
     </script>
         
-
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
     <script>
       function drawAircraft(numAircraft) {

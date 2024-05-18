@@ -7,7 +7,7 @@
     <meta name="description" content="Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You’ll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I’m interested in and that I think at least one other person on the Internet might find useful.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
 
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="website">
@@ -35,6 +35,19 @@
         navigator.serviceWorker.register("service-worker.js");
       }
     </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
   </head>
 
   <body>

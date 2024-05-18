@@ -7,7 +7,7 @@
     <meta name="description" content="The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the dialog HTML element and construct my inaugural Web Component.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -65,6 +65,19 @@
     <!-- load scripts-->
     <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
     </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
   </head>
 
   <body>

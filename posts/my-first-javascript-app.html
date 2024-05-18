@@ -7,7 +7,7 @@
     <meta name="description" content="My first ever attempt at using JavaScript. Building a circuit training exercise routine randomiser using Javascript.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -68,7 +68,17 @@
       }
     </script>
         
-
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
     <script>
       // get the slider value

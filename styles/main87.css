@@ -28,6 +28,10 @@
   }
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 /* This CSS rule checks if the browser supports the '--accent-light' property with a specific value.
    The value is a color-mix function that mixes the '--accent' color with 80% transparency in the sRGB color space. */
 @supports (--accent-light: color-mix(in oklch, var(--accent), transparent 80%)) {

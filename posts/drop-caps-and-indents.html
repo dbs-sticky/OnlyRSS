@@ -8,7 +8,7 @@
   <meta name="description" content="A niche and nerdy look at how paragraphs can be distinguished using a little CSS.">
   <meta name="author" content="Mark Evans">
   <meta name="theme-color" content="#ffffff">
-  <meta name="view-transition" content="same-origin">
+  
 
   <!--Open Graph protocol meta tags-->
   <meta property="og:type" content="article">
@@ -75,6 +75,19 @@
       navigator.serviceWorker.register('/service-worker.js');
     }
   </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
 </head>
 
 <body>
