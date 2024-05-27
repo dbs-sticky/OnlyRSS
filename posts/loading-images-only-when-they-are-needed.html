@@ -7,7 +7,7 @@
     <meta name="description" content="Using the Details and Summary HTML elements combined with lazyloading to display and load images only when (or if) they are needed">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -62,45 +62,6 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
-
     <!-- Service worker for installable app-->
     <script>
       if ("serviceWorker" in navigator) {
@@ -108,6 +69,17 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
@@ -118,18 +90,19 @@
       <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post12">Loading images only when (or if) they are needed</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post12">
+        <h1>Loading images only when (or if) they are needed</h1>
           <p>
-            Images placed inside the <code>&lt;details&gt;</code> HTML element with the attribute 'loading="lazy"' won't be loaded by the browser until (or if) the user selects to expand the <code>&lt;summary&gt;</code> section. This can mean faster page loads and an improved user experience, especially if the page includes many “optional” images.
+            Using the Details & Summary elements with lazy loading to load and display images only when/if they’re requested.
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <webdev-tag></webdev-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -233,34 +206,50 @@ article details[open] summary::after {
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="/posts/drop-caps-and-indents.html">
-        <h2>Drop caps and indents</h2>
-        <p>
-          A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/drop-caps-and-indents.html" data-category="webdev">
+        <card-container style="view-transition-name: post10">
+
+          <card-body>
+            <h1>Drop Caps and Indents</h1>
+            <p>A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-01-17">17 Jan 2022</time>
+            <article-duration> • 2 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
 
-      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html">
-        <h2>Automatically numbering figures using CSS Counters</h2>
-        <p>
-          Automatically number figures with CSS counters and display inside the figure’s caption.
-        </p>
+      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev">
+        <card-container style="view-transition-name: post13">
+
+          <card-body>
+            <h1>Automatically numbering figures using CSS counters</h1>
+            <p>You can use CSS Counters and the <code>::before</code> pseudo selector to automatically label and number figures within a webpage.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-05-30">30 May 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
     <script src="../scripts/web-components.js"></script>
   </body>

@@ -7,7 +7,7 @@
     <meta name="description" content="An article describing my experience and tips after rowing 15 million meters over 8 years.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -61,45 +61,6 @@
     <link rel="stylesheet" type="text/css" href="/styles/main87.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
-
     <!-- Service worker for installable app-->
     <script>
       if ("serviceWorker" in navigator) {
@@ -107,6 +68,17 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
@@ -117,18 +89,19 @@
       <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post7">My indoor rowing tips after 15 million meters</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post7">
+        <h1>My indoor rowing tips after 15 million meters</h1>
           <p>
-            My 7&#8239;year rowing journey, including my garage setup, and some tips for anyone new to indoor rowing.
+            My 7&#8239;year rowing journey, including my Concept 2 setup, and some tips for anyone new to indoor rowing.
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <misc-tag></misc-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -249,16 +222,11 @@
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
-
-
-
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
     <script src="../scripts/web-components.js"></script>
   </body>

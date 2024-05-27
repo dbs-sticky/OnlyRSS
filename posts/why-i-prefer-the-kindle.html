@@ -7,7 +7,7 @@
     <meta name="description" content="Ten reasons why I prefer the Kindle eReader over physical books.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -119,6 +119,18 @@
       }
     </script>
 
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
     <!-- link to JS for Kindle navigation -->
     <script src="/scripts/why-i-prefer-the-kindle.js"></script>
   </head>
@@ -128,18 +140,19 @@
     <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post9">Why I prefer the Kindle over physical books</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post9">
+        <h1>Why I prefer the Kindle over physical books</h1>
           <p>
             Smaller, lighter, brighter—and with a built-in dictionary. In my opinion, a Kindle is better than a “real” book.
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <review-tag></review-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -322,11 +335,12 @@
         document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
       </script>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
     </article>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
     <script src="../scripts/web-components.js"></script>
   </body>

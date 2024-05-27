@@ -7,7 +7,7 @@
     <meta name="description" content="An article describing my work-from-home hardware setup, and why I believe you should invest in yours.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -61,45 +61,6 @@
     <link rel="stylesheet" type="text/css" href="/styles/main87.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
-
     <!-- Service worker for installable app-->
     <script>
       if ("serviceWorker" in navigator) {
@@ -107,6 +68,17 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
@@ -117,18 +89,19 @@
       <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post3">Working from home hardware</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post3">
+        <h1>Working from home hardware</h1>
           <p>
             If you work from home on a regular basis, invest in a good monitor—or better still, two! Wire up your home with Ethernet, and for the love of all that's holy, ditch your tiny Bluetooth earbuds and get a real wired headset!
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <productivity-tag></productivity-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -249,27 +222,33 @@
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-      
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="/posts/anatomy-of-a-lockdown-day.html">
-        <h2>Anatomy of a lockdown workday</h2>
-        <p>
-          A description of the routine I fell into while WFH during the COVID-19 pandemic.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/anatomy-of-a-lockdown-day.html" data-category="productivity">
+        <card-container style="view-transition-name: post2">
+
+          <card-body>
+            <h1>Anatomy of a lockdown weekday</h1>
+            <p>Working from home—and ditching the lengthy commute—can benefit both you and your employer. Here's how it changed my weekdays.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-02-07">07 Feb 2021</time>
+            <article-duration> • 4 mins • </article-duration>
+            <productivity-tag></productivity-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/web-components.js"></script>
   </body>
 </html>

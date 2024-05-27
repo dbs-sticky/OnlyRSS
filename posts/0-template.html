@@ -7,7 +7,7 @@
     <meta name="description" content=""> <!--TODO description-->
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
 
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -107,6 +107,19 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
   </head>
 
   <body>
@@ -118,15 +131,20 @@
 
       <header>
         <h1 style="view-transition-name: post"></h1> <!--TODO View transition number and title e.g. view-transition-name: post27-->
-        <div class="tldr">
+
           <p>
             <!--TODO TLDR text-->
           </p>
-        </div>
+
+
         <div class="byline">
-          <by-line></by-line>
+          <div>
+            <by-line></by-line>
+            <misc-tag></misc-tag> <!--TODO rename tag-->
+          </div>
           <social-icons></social-icons>
         </div>
+
       </header>
 
       <section>
@@ -134,14 +152,10 @@
         <p></p>
       </section>
 
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
     <aside>
-      <h1>related articles</h1> 
+      <h1><span>related articles</span></h1> 
       <a href=""> <!--TODO related relative path e.g. ../posts/learning-log-2022.html -->
         <h2></h2> <!--TODO related title -->
         <p>
@@ -149,6 +163,10 @@
         </p>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
     <script src="../scripts/web-components.js"></script>
   </body>

@@ -7,7 +7,7 @@
     <meta name="description" content="The result of my second attempt at creating data visualisations using HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -66,48 +66,6 @@
     
     <!--load self-hosted fonts-->
     <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
 
       @font-face {
         font-family: "RubikMonoOne";
@@ -156,7 +114,17 @@
       }
     </script>
         
-
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
     <script>
       function drawAircraft(numAircraft) {
@@ -187,18 +155,19 @@
     <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post19">Infographic: The 25 largest passenger airlines</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post19">
+        <h1>Infographic: The 25 largest passenger airlines</h1>
           <p>
-            This article includes a 'small-multiples isotype infographic' which displays the 25 largest passenger airlines (individual airline operators i.e. not airline groups). Ranked by fleet size and split by manufacturer. I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
+            This infographic depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <dataviz-tag></dataviz-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -801,35 +770,48 @@
           All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
         </p>
       </section>
-
-      
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/airbus-vs-boeing-charts.html">
-        <h2>Airbus vs Boeing: An experiment in charting</h2>
-        <p>
-          The results of my first attempts at creating data visualisations using just HTML & CSS.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post18">
+
+          <card-body>
+            <h1>Airbus vs Boeing: An experiment in charting</h1>
+            <p>The results of my first attempts at creating data visualisations using just HTML & CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-20">20 Dec 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
-      <a href="../posts/the-air-india-order.html">
-        <h2>Air India: Putting their recent order into context</h2>
-        <p>
-          A single isotype chart designed to put the recent Air India order into content.
-        </p>
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
+        <card-container style="view-transition-name: post20">
+
+          <card-body>
+            <h1>Air India: Putting their recent order into context</h1>
+            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-21">21 Feb 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
     <script>
       // find all SVG elements with class=aircraft, and remove (or add) class=grey-fill

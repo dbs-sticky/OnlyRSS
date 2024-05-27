@@ -7,7 +7,7 @@
     <meta name="description" content="Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You’ll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I’m interested in and that I think at least one other person on the Internet might find useful.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
 
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="website">
@@ -28,30 +28,6 @@
     <link rel="stylesheet" type="text/css" href="/styles/main87.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
-    <!--Roboto Condensed for nav bar, Open Sans regular and bold for cards-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 600;
-        src: url(/fonts/OpenSans-Bold.woff2) format("woff2");
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -59,12 +35,26 @@
         navigator.serviceWorker.register("service-worker.js");
       }
     </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
   </head>
 
   <body>
         
     <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
+    <main>
       <search>
         <div class="filter-button-row">
           <button class="filter-btn active" data-filter="all" title="All">All</button>
@@ -74,26 +64,20 @@
           <button class="filter-btn" data-filter="review" title="Reviews">review</button>
           <button class="filter-btn" data-filter="productivity" title="Productivity">productivity</button>
           <button class="filter-btn" data-filter="misc" title="Miscellaneous">misc</button>
-        </div>
       </search>
-
-    <main class="home-grid">
     <!-- List of articles -->
 
-      <a href="/posts/learning-log-2023.html" data-category="misc" style="view-transition-name: card26">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/learning-log-2022-thumb.webp" width="300" height="200" alt="An image of 4 books on a shelf, the books cover typography and data visualisation.">
-          </card-header>
-            
+      <a href="/posts/learning-log-2023.html" data-category="misc" >
+        <card-container style="view-transition-name: post26">
+
           <card-body>
-            <h2 style="view-transition-name: post26">Learning Log: 2023</h2>
+            <h1>Learning Log: 2023</h1>
             <p>My focus this year was meant to be SQL & Python, but it ended up being mostly JavaScript, and then I got a bit distracted by GenAI.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-12-29">29 Dec 2023</time> (1 min)</div>
+            <time datetime="2023-12-29">29 Dec 2023</time>
+            <article-duration> • 1 min • </article-duration>
             <misc-tag></misc-tag>
           </card-footer>
           
@@ -101,20 +85,17 @@
       </a>
 
 
-      <a href="/posts/the-canadian-rockies-holiday.html" data-category="misc" style="view-transition-name: card25">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/canada-gallery-thumb.webp" width="300" height="200" alt="A thumbnail size image that shows a small photo gallery and a Web Components logo.">
-          </card-header>
-            
+      <a href="/posts/the-canadian-rockies-holiday.html" data-category="misc">
+        <card-container style="view-transition-name: post25">
+
           <card-body>
-            <h2 style="view-transition-name: post25">Holiday: The Canadian Rockies</h2>
-            <p>A gallery of images from my recent trip to the Canadian Rockies. Built with a Web Component!</p>
+            <h1>Holiday: The Canadian Rockies</h1>
+            <p>A gallery of images from my recent trip to the Canadian Rockies—built using my inaugural Web Component.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-12-21">21 Dec 2023</time> (4 mins)</div>
+            <time datetime="2023-12-21">21 Dec 2023</time>
+            <article-duration> • 7 mins • </article-duration>
             <misc-tag></misc-tag>
           </card-footer>
           
@@ -122,20 +103,17 @@
       </a>
 
 
-      <a href="/posts/view-transitions.html" data-category="webdev" style="view-transition-name: card24">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/view-transitions-thumb.webp" width="300" height="200" alt="An image of the UK TV charcter, Morph.">
-          </card-header>
+      <a href="/posts/view-transitions.html" data-category="webdev">
+        <card-container style="view-transition-name: post24">
             
           <card-body>
-            <h2 style="view-transition-name: post24">View Transitions: A basic implementation</h2>
+            <h1>View Transitions: A basic implementation</h1>
             <p>Instructions on how to implement simple View Transitions, including a couple of animated GIFs to show the results.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-12-06">6 Dec 2023</time> (3 mins)</div>
+            <time datetime="2023-12-06">06 Dec 2023</time>
+            <article-duration> • 3 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
@@ -143,120 +121,102 @@
       </a>
 
 
-      <a href="/posts/css-balance.html" data-category="webdev" style="view-transition-name: card23">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/css-balance-thumb.png" width="300" height="200" alt="A screenshot from VSCode showing 6 lines of CSS, one of which is text-wrap: balance.">
-          </card-header>
-            
+      <a href="/posts/css-balance.html" data-category="webdev">
+        <card-container style="view-transition-name: post23">
+
           <card-body>
-            <h2 style="view-transition-name: post23">Using 'text-wrap: balance'</h2>
-            <p>I demonstrate the effect of enabling 'text-wrap: balance' for titles and headings across onlyrss.org.</p>
+            <h1>Using 'text-wrap: balance'</h1>
+            <p>I demonstrate the effect of enabling <code>text-wrap: balance</code> for titles and headings across onlyrss.org.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-04-11">11 Apr 2023</time> (4 mins)</div>
+            <time datetime="2023-04-11">11 Apr 2023</time>
+            <article-duration> • 3 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
         </card-container>
       </a>
 
-      <a href="/posts/10-benefits-of-rss-for-product-managers.html" data-category="product-management" style="view-transition-name: card22">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/10-benefits-of-rss-thumb.webp" width="300" height="200" alt="A photograph of an excited man sitting in front of a laptop in a street.">
-          </card-header>
-            
+      <a href="/posts/10-benefits-of-rss-for-product-managers.html" data-category="product-management">
+        <card-container style="view-transition-name: post22">
+
           <card-body>
-            <h2 style="view-transition-name: post22">10 benefits of RSS for Product Managers</h2>
-            <p>I list 10 benefits of using RSS aggregators specifically for Product Managers.</p>
+            <h1>10 benefits of RSS for Product Managers</h1>
+            <p>RSS is a great solution for anyone who needs to efficiently monitor the web for specific topics. Below I list 10 benefits of using RSS for Product Managers.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-04-02">2 Apr 2023</time> (3 mins)</div>
+            <time datetime="2023-04-02">02 Apr 2023</time>
+            <article-duration> • 4 mins • </article-duration>
             <prodman-tag></prodman-tag>
           </card-footer>
           
         </card-container>
       </a>
 
-      <a href="/posts/table-with-progress-indicator.html" data-category="webdev" style="view-transition-name: card21">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/tables-thumb.png" width="300" height="200" alt="A small screenshot showing some CSS in VSCode.">
-          </card-header>
-            
+      <a href="/posts/table-with-progress-indicator.html" data-category="webdev">
+        <card-container style="view-transition-name: post21">
+
           <card-body>
-            <h2 style="view-transition-name: post21">HTML & CSS table with progress bars</h2>
+            <h1>HTML & CSS table with progress bars</h1>
             <p>I share the code I used to create the tables from my recent 'Learning Log: 2022' article. </p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-03-05">5 Mar 2023</time> (1 min)</div>
+            <time datetime="2023-03-05">05 Mar 2023</time>
+            <article-duration> • 2 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
         </card-container>
       </a>
 
-      <a href="/posts/the-air-india-order.html" data-category="dataviz" style="view-transition-name: card20">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/air-india-thumb.png" width="300" height="200" alt="An image of Air India's company logo on a white background.">
-          </card-header>
-            
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
+        <card-container style="view-transition-name: post20">
+
           <card-body>
-            <h2 style="view-transition-name: post20">Air India: Putting their recent order into context</h2>
-            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context. </p>
+            <h1>Air India: Putting their recent order into context</h1>
+            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. </p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-02-21">21 Feb 2023</time> (2 mins)</div>
+            <time datetime="2023-02-21">21 Feb 2023</time>
+            <article-duration> • 2 mins • </article-duration>
             <dataviz-tag></dataviz-tag>
           </card-footer>
           
         </card-container>
       </a>
 
-      <a href="/posts/top-25-pax-airlines.html" data-category="dataviz" style="view-transition-name: card19">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/25-largest-airlines-thumb.png" width="300" height="200" alt="An image of an isotype chart showing the number of Boeing and Airbus aircraft in Alaska Airlines' fleet using 249 small aicraft gylphs arranged in a grid.">
-          </card-header>
-            
+      <a href="/posts/top-25-pax-airlines.html" data-category="dataviz">
+        <card-container style="view-transition-name: post19">
+
           <card-body>
-            <h2 style="view-transition-name: post19">Infographic: The 25 largest passenger airlines</h2>
-            <p>This infographic depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines. </p>
+            <h1>Infographic: The 25 largest passenger airlines</h1>
+            <p>This infographic depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2023-02-04">4 Feb 2023</time> (6 mins)</div>
+            <time datetime="2023-02-04">4 Feb 2023</time>
+            <article-duration> • 6 mins • </article-duration>
             <dataviz-tag></dataviz-tag>
           </card-footer>
           
         </card-container>
       </a>
 
-      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz" style="view-transition-name: card18">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/airbus-vs-boeing-thumb.webp" width="300" height="200" alt="An image of a stacked column chart showing the Boeing vs Airbus split for the world's top 10 airlines.">
-          </card-header>
-            
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post18">
+
           <card-body>
-            <h2 style="view-transition-name: post18">Airbus vs Boeing: An experiment in charting</h2>
-            <p>The results of my first attempts at creating data visualisations using just HTML & CSS. </p>
+            <h1>Airbus vs Boeing: An experiment in charting</h1>
+            <p>The results of my first attempts at creating data visualisations using just HTML & CSS.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-12-20">20 Dec 2022</time> (3 mins)</div>
+            <time datetime="2022-12-20">20 Dec 2022</time>
+            <article-duration> • 3 mins • </article-duration>
             <dataviz-tag></dataviz-tag>
           </card-footer>
           
@@ -264,40 +224,34 @@
       </a>
 
 
-      <a href="/posts/learning-log-2022.html" data-category="misc" style="view-transition-name: card17">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/learning-log-2022-thumb.webp" width="300" height="200" alt="An image of 4 books on a shelf, the books cover typography and data visualisation.">
-          </card-header>
-            
+      <a href="/posts/learning-log-2022.html" data-category="misc" >
+        <card-container style="view-transition-name: post17">
+
           <card-body>
-            <h2 style="view-transition-name: post17">Learning Log: 2022</h2>
-            <p>My focus this year was on the display of unstructured data i.e. articles. In this post you'll find links to all the resources I used.</p>
+            <h1>Learning Log: 2022</h1>
+            <p>My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-12-10">10 Dec 2022</time> (2 mins)</div>
+            <time datetime="2022-12-10">10 Dec 2022</time>
+            <article-duration> • 1 min • </article-duration>
             <misc-tag></misc-tag>
           </card-footer>
           
         </card-container>
       </a>
 
-      <a href="/posts/zoom-and-enhance.html" data-category="misc" style="view-transition-name: card16">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/zoom-and-enhance-thumb.webp" width="300" height="200" alt="Two images of the same face, one from an old faded colour photo, and then the restored version.">
-          </card-header>
-            
+      <a href="/posts/zoom-and-enhance.html" data-category="misc">
+        <card-container style="view-transition-name: post16">
+
           <card-body>
-            <h2 style="view-transition-name: post16">Zoom and enhance!</h2>
-            <p>My experiment with restoring old family photos using AI restoration tools: Palette, and GFP-GAN. </p>
+            <h1>Zoom and enhance!</h1>
+            <p>With modern off-the-shelf AI tools, it's now possible to bring old or degraded photos back to life by adding (or correcting) colour, and enhancing faces.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-10-02">2 Oct 2022</time> (4 mins)</div>
+            <time datetime="2022-10-02">02 Oct 2022</time>
+            <article-duration> • 4 mins • </article-duration>
             <misc-tag></misc-tag>
           </card-footer>
           
@@ -305,20 +259,17 @@
       </a>
 
 
-      <a href="/posts/my-first-javascript-app.html" data-category="webdev" style="view-transition-name: card15">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/exercise-routine-thumb.webp" width="300" height="200" alt="Thumbnail image showing a screenshot of some code on a computer in VSCode.">
-          </card-header>
-            
+      <a href="/posts/my-first-javascript-app.html" data-category="webdev">
+        <card-container style="view-transition-name: post15">
+
           <card-body>
-            <h2 style="view-transition-name: post15">My first JavaScript app</h2>
-            <p>My first attempt at creating something with JavaScript, an app that randomly selects exercises for my circuit training sessions.</p>
+            <h1>My first JavaScript “app”</h1>
+            <p>I created a simple app that selects <i>n</i> random exercises from an array. I've included a link to the app and the source code.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-06-11">11 Jun 2022</time> (4 mins)</div>
+            <time datetime="2022-06-11">11 Jun 2022</time>
+            <article-duration> • 3 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
@@ -326,20 +277,17 @@
       </a>
 
 
-      <a href="/posts/adding-screenshots-to-your-pwa-install.html" data-category="webdev" style="view-transition-name: card14">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/pwa-screenshots-thumb.webp" width="300" height="200" alt="Thumbnail image showing a PWA app install prompt on a mobile device.">
-          </card-header>
-            
+      <a href="/posts/adding-screenshots-to-your-pwa-install.html" data-category="webdev">
+        <card-container style="view-transition-name: post14">
+
           <card-body>
-            <h2 style="view-transition-name: post14">Adding screenshots to your PWA install experience</h2>
-            <p>Better inform your site visitors about your PWA, with app screenshots.</p>
+            <h1>Adding screenshots to your PWA install experience</h1>
+            <p>You can improve your visitors' PWA install experience on mobile by adding product screenshots to your manifest file.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-06-04">4 Jun 2022</time> (3 mins)</div>
+            <time datetime="2022-06-04">04 Jun 2022</time>
+            <article-duration> • 3 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
@@ -347,20 +295,17 @@
       </a>
 
 
-      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev" style="view-transition-name: card13">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/numbering-thumb.webp" width="300" height="200" alt="Thumbnail image showing a child counting with an abacus. Photo by luis arias on Unsplash.">
-          </card-header>
-            
+      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev">
+        <card-container style="view-transition-name: post13">
+
           <card-body>
-            <h2 style="view-transition-name: post13">Automatically numbering figures using CSS</h2>
-            <p>Automatically number figures with CSS counters and display inside the figure’s caption.</p>
+            <h1>Automatically numbering figures using CSS counters</h1>
+            <p>You can use CSS Counters and the <code>::before</code> pseudo selector to automatically label and number figures within a webpage.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-05-30">30 May 2022</time> (4 mins)</div>
+            <time datetime="2022-05-30">30 May 2022</time>
+            <article-duration> • 4 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
@@ -368,20 +313,17 @@
       </a>
 
 
-      <a href="/posts/loading-images-only-when-they-are-needed.html" data-category="webdev" style="view-transition-name: card12">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/loading-images-thumb.webp" width="300" height="200" alt="Thumbnail image showing 2 versions of the same page">
-          </card-header>
-            
+      <a href="/posts/loading-images-only-when-they-are-needed.html" data-category="webdev">
+        <card-container style="view-transition-name: post12">
+
           <card-body>
-            <h2 style="view-transition-name: post12">Hiding and delaying image load using HTML</h2>
+            <h1>Loading images only when (or if) they are needed</h1>
             <p>Using the Details & Summary elements with lazy loading to load and display images only when/if they’re requested.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-04-04">4 Apr 2022</time> (4 mins)</div>
+            <time datetime="2022-04-04">4 Apr 2022</time>
+            <article-duration> • 4 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
@@ -389,20 +331,17 @@
       </a>
 
 
-      <a href="/posts/linking-tables-to-bar-charts.html" data-category="dataviz" style="view-transition-name: card11">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/bar-chart-table-thumb.webp" width="300" height="200" alt="Thumbnail image showing a typical stacked bar chart">
-          </card-header>
-            
+      <a href="/posts/linking-tables-to-bar-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post11">
+
           <card-body>
-            <h2 style="view-transition-name: post11">Linking tables to stacked bar charts</h2>
-            <p>An example of interactive linking between a table and a stacked bar chart.</p>
+            <h1>Linking tables to their associated bar charts</h1>
+            <p>One of the shortcomings of stacked bar charts can be overcome by allowing users to choose which category is aligned to the chart's baseline. This article describes one possible implementation of that solution.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-03-06">6 Mar 2022</time> (5 mins)</div>
+            <time datetime="2022-03-06">06 Mar 2022</time>
+            <article-duration> • 4 mins • </article-duration>
             <dataviz-tag></dataviz-tag>
           </card-footer>
           
@@ -410,20 +349,17 @@
       </a>
 
 
-      <a href="/posts/drop-caps-and-indents.html" data-category="webdev" style="view-transition-name: card10">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/drop-caps-and-indents-thumb.webp" width="300" height="200" alt="Thumbnail image showing a screenshot of the article’s layout">
-          </card-header>
-            
+      <a href="/posts/drop-caps-and-indents.html" data-category="webdev">
+        <card-container style="view-transition-name: post10">
+
           <card-body>
-            <h2 style="view-transition-name: post10">Drop Caps and Indents</h2>
+            <h1>Drop Caps and Indents</h1>
             <p>A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-01-17">17 Jan 2022</time> (2 mins)</div>
+            <time datetime="2022-01-17">17 Jan 2022</time>
+            <article-duration> • 2 mins • </article-duration>
             <webdev-tag></webdev-tag>
           </card-footer>
           
@@ -431,20 +367,17 @@
       </a>
 
 
-      <a href="/posts/why-i-prefer-the-kindle.html" data-category="review" style="view-transition-name: card9">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/why-i-prefer-the-kindle-thumb.webp" width="300" height="200" alt="Thumbnail image showing a typical Kindle eInk screen">
-          </card-header>
-            
+      <a href="/posts/why-i-prefer-the-kindle.html" data-category="review">
+        <card-container style="view-transition-name: post9">
+
           <card-body>
-            <h2 style="view-transition-name: post9">Why I prefer the Kindle over physical books</h2>
-            <p>My first (and hopefully last) listicle! 10 reasons I prefer the Kindle over physical books.</p>
+            <h1>Why I prefer the Kindle over physical books</h1>
+            <p>Smaller, lighter, brighter—and with a built-in dictionary. In my opinion, a Kindle is better than a “real” book.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2022-01-12">12 Jan 2022</time> (5 mins)</div>
+            <time datetime="2022-01-12">12 Jan 2022</time>
+            <article-duration> • 9 mins • </article-duration>
             <review-tag></review-tag>
           </card-footer>
           
@@ -452,20 +385,17 @@
       </a>
 
 
-      <a href="/posts/why-every-product-manager-should-build-a-website.html" data-category="product-management" style="view-transition-name: card8">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/build-a-website-thumb.webp" width="300" height="200" alt="Thumbnail image showing a screenshot of code in VSCode">
-          </card-header>
-            
+      <a href="/posts/why-every-product-manager-should-build-a-website.html" data-category="product-management">
+        <card-container style="view-transition-name: post8">
+
           <card-body>
-            <h2 style="view-transition-name: post8">Why every Product Manager should build a website</h2>
-            <p>A short explanation of why I believe every product manager should build a website.</p>
+            <h1>Why every Product Manager should build a website</h1>
+            <p>Understanding all the (hidden) tasks that are required to create even a basic website has helped me to become a better Product Manager. So much so that I'd recommend that all Product Managers give it a go.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-04-18">18 Apr 2021</time> (3 mins)</div>
+            <time datetime="2021-04-18">18 Apr 2021</time>
+            <article-duration> • 3 mins • </article-duration>
             <prodman-tag></prodman-tag>
           </card-footer>
           
@@ -473,20 +403,17 @@
       </a>
 
 
-      <a href="/posts/my-rowing-tips-after-15-million-meters.html" data-category="misc" style="view-transition-name: card7">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/rowing-thumb.webp" width="300" height="200" alt="Thumbnail vector image showing a Concept2 rowing machine, a TV, and a bar chart pinned to a wall in the background.">
-          </card-header>
-            
+      <a href="/posts/my-rowing-tips-after-15-million-meters.html" data-category="misc">
+        <card-container style="view-transition-name: post7">
+
           <card-body>
-            <h2 style="view-transition-name: post7">My indoor rowing tips after 15 million meters</h2>
-            <p>My experience and tips for anyone new to indoor rowing.</p>
+            <h1>My indoor rowing tips after 15 million meters</h1>
+            <p>My 7&#8239;year rowing journey, including my Concept 2 setup, and some tips for anyone new to indoor rowing.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-04-09">9 Apr 2021</time> (9 mins)</div>
+            <time datetime="2021-04-09">09 Apr 2021</time>
+            <article-duration> • 6 mins • </article-duration>
             <misc-tag></misc-tag>
           </card-footer>
           
@@ -494,20 +421,17 @@
       </a>
 
 
-      <a href="/posts/chart-picker.html" data-category="dataviz" style="view-transition-name: card6">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/chart-picker-thumb.webp" width="300" height="200" alt="Thumbnail image showing four different chart types that can be used to show the distribution across groups.">
-          </card-header>
-            
+      <a href="/posts/chart-picker.html" data-category="dataviz">
+        <card-container style="view-transition-name: post6">
+
           <card-body>
-            <h2 style="view-transition-name: post6">Chart Picker</h2>
+            <h1>Chart Picker</h1>
             <p>My Excalidraw diagram designed to help you pick the correct chart type.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-03-28">28 Mar 2021</time> (2 mins)</div>
+            <time datetime="2021-03-28">28 Mar 2021</time>
+            <article-duration> • 2 mins • </article-duration>
             <dataviz-tag></dataviz-tag>
           </card-footer>
           
@@ -515,20 +439,17 @@
       </a>
 
 
-      <a href="/posts/rss-part-1.html" data-category="productivity" style="view-transition-name: card5">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/rss-thumb.webp" width="300" height="200" alt="Thumbnail image showing a screenshot of an RSS reader that contains a list of articles.">
-          </card-header>
-            
+      <a href="/posts/rss-part-1.html" data-category="productivity">
+        <card-container style="view-transition-name: post5">
+
           <card-body>
-            <h2 style="view-transition-name: post5">RSS part 1: what is RSS and what are aggregators?</h2>
-            <p>Part 1 in a series in which I hope to convey the benefits of RSS.</p>
+            <h1>RSS Part 1:<br>What is RSS and what are ‘aggregators’?</h1>
+            <p>An RSS aggregator can save you a huge amount of time by bringing new web content to you. This includes blog posts, news articles, and search engine results.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-03-07">7 Mar 2021</time> (3 mins)</div>
+            <time datetime="2021-03-07">07 Mar 2021</time>
+            <article-duration> • 3 mins • </article-duration>
             <productivity-tag></productivity-tag>
           </card-footer>
           
@@ -536,20 +457,17 @@
       </a>
 
 
-      <a href="/posts/drawing-with-excalidraw.html" data-category="review" style="view-transition-name: card4">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/excalidraw-thumb.webp" width="300" height="200" alt="Thumbnail image showing two trump stlye cards drawn using Excalidraw.">
-          </card-header>
-            
+      <a href="/posts/drawing-with-excalidraw.html" data-category="review">
+        <card-container style="view-transition-name: post4">
+
           <card-body>
-            <h2 style="view-transition-name: post4">Drawing with Excalidraw</h2>
-            <p>A short article describing how I use my new favourite sketching tool i.e. Excalidraw.</p>
+            <h1>Drawing with Excalidraw</h1>
+            <p>Excalidraw is a great tool for quickly creating UI mock-ups, it also includes access to user generated libraries, which means you're not creating everything from scratch.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-03-02">2 Mar 2021</time> (2 mins)</div>
+            <time datetime="2021-03-02">02 Mar 2021</time>
+            <article-duration> • 3 mins • </article-duration>
             <review-tag></review-tag>
           </card-footer>
           
@@ -557,20 +475,17 @@
       </a>
 
 
-      <a href="/posts/working-from-home-hardware.html" data-category="productivity" style="view-transition-name: card3">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/hardware-thumb.webp" width="300" height="200" alt="Thumbnail image showing a photograph of a PC, 2 monitors, a keyboard and mouse, all sitting on a large desk in a bay window.">
-          </card-header>
-            
+      <a href="/posts/working-from-home-hardware.html" data-category="productivity">
+        <card-container style="view-transition-name: post3">
+
           <card-body>
-            <h2 style="view-transition-name: post3">Working from home hardware</h2>
-            <p>A description of my WFH hardware setup, and why I believe you should invest in yours.</p>
+            <h1>Working from home hardware</h1>
+            <p>If you work from home on a regular basis, invest in a good monitor—or better still, two! Wire up your home with Ethernet, and for the love of all that's holy, ditch your tiny Bluetooth earbuds and get a real wired headset!</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-02-18">18 Feb 2021</time> (5 mins)</div>
+            <time datetime="2021-02-18">18 Feb 2021</time>
+            <article-duration> • 6 mins • </article-duration>
             <productivity-tag></productivity-tag>
           </card-footer>
           
@@ -578,20 +493,17 @@
       </a>
 
 
-      <a href="/posts/anatomy-of-a-lockdown-day.html" data-category="productivity" style="view-transition-name: card2">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/anatomy-thumb.webp" width="300" height="200" alt="Thumbnail image showing a graphic that resembles a horizontally stacked bar chart, where each section of the bar is an event e.g. reading, watching TV.">
-          </card-header>
-            
+      <a href="/posts/anatomy-of-a-lockdown-day.html" data-category="productivity">
+        <card-container style="view-transition-name: post2">
+
           <card-body>
-            <h2 style="view-transition-name: post2">Anatomy of a lockdown weekday</h2>
-            <p>A description of the routine I fell into while WFH during the COVID-19 pandemic.</p>
+            <h1>Anatomy of a lockdown weekday</h1>
+            <p>Working from home—and ditching the lengthy commute—can benefit both you and your employer. Here's how it changed my weekdays.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-02-07">7 Feb 2021</time> (4 mins)</div>
+            <time datetime="2021-02-07">07 Feb 2021</time>
+            <article-duration> • 4 mins • </article-duration>
             <productivity-tag></productivity-tag>
           </card-footer>
           
@@ -599,27 +511,31 @@
       </a>
 
 
-      <a href="/posts/using-virtual-desktops-in-windows-10.html" data-category="productivity" style="view-transition-name: card1">
-        <card-container>
-    
-          <card-header>
-            <img loading="lazy" src="/images/desktops-thumb.webp" width="300" height="200" alt="Thumbnail image showing a graphic of various apps running on two virtual desktops.">
-          </card-header>
-            
+      <a href="/posts/using-virtual-desktops-in-windows-10.html" data-category="productivity">
+        <card-container style="view-transition-name: post1">
+
           <card-body>
-            <h2 style="view-transition-name: post1">Using virtual desktops in Windows 10</h2>
-            <p>How to take advantage of virtual desktops when shifting between tasks.</p>
+            <h1>Using virtual desktops in Windows 10</h1>
+            <p>Group your app windows together based on the specific tasks you are trying to achieve e.g. create monthly report, write user stories etc. and then place each group in a Windows virtual desktop.</p>
           </card-body>
           
           <card-footer>
-            <div><time datetime="2021-02-06">6 Feb 2021</time> (6 mins)</div>
+            <time datetime="2021-02-06">06 Feb 2021</time>
+            <article-duration> • 6 mins • </article-duration>
             <productivity-tag></productivity-tag>
           </card-footer>
           
         </card-container>
       </a>
+
+
 
     </main>
+    
+      <footer>
+        <feedback-contact></feedback-contact>
+      </footer>
+
     <script src="./scripts/filters.js"></script>
     <script src="./scripts/web-components.js"></script>
   </body>

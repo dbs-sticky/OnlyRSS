@@ -7,7 +7,7 @@
     <meta name="description" content="The result of enabling View Transitions on my blog for article titles.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -62,49 +62,22 @@
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
     
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
-
     <!-- load scripts-->
     <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
 
   </head>
 
@@ -115,18 +88,19 @@
       <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post24">View Transitions: A basic implementation</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post24">
+        <h1>View Transitions: A basic implementation</h1>
           <p>
-            Some instructions on how to implement simple View Transitions, including a couple of animated GIFs to show the results.
+            Instructions on how to implement simple View Transitions, including a couple of animated GIFs to show the results.
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <webdev-tag></webdev-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -208,33 +182,50 @@
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/adding-screenshots-to-your-pwa-install.html">
-        <h2>Adding screenshots to your PWA install experience</h2>
-        <p>
-          Better inform your site visitors about your PWA before they commit to installation, with app screenshots.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/adding-screenshots-to-your-pwa-install.html" data-category="webdev">
+        <card-container style="view-transition-name: post14">
+
+          <card-body>
+            <h1>Adding screenshots to your PWA install experience</h1>
+            <p>You can improve your visitors' PWA install experience on mobile by adding product screenshots to your manifest file.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-06-04">04 Jun 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
-      <a href="../posts/css-balance.html">
-        <h2>Using 'text-wrap: balance'</h2>
-        <p>
-          I demonstrate the effect of enabling 'text-wrap: balance' for titles and headings across onlyrss.org.
-        </p>
+
+      <a href="/posts/css-balance.html" data-category="webdev">
+        <card-container style="view-transition-name: post23">
+
+          <card-body>
+            <h1>Using 'text-wrap: balance'</h1>
+            <p>I demonstrate the effect of enabling <code>text-wrap: balance</code> for titles and headings across onlyrss.org.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-04-11">11 Apr 2023</time>
+            <article-duration> • 3 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
     <script src="../scripts/web-components.js"></script>
   </body>

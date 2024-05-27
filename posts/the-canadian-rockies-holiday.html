@@ -7,7 +7,7 @@
     <meta name="description" content="The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the dialog HTML element and construct my inaugural Web Component.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -62,66 +62,41 @@
     <link rel="alternate" type="application/rss+xml"
     title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
-
     <!-- load scripts-->
     <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
     </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
   </head>
 
   <body>
     <global-nav role="navigation" aria-label="global navigation"></global-nav>
     <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
     <article>
-      <header>
-        <h1 style="view-transition-name: post25">Holiday: The Canadian Rockies</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post25">
+        <h1>Holiday: The Canadian Rockies</h1>
           <p>
-            The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the  <code>&lt;dialog&gt;</code> element and construct my inaugural Web Component.
+            A gallery of images from my recent trip to the Canadian Rockies—built using my inaugural Web Component.
           </p>
-        </div>
 
-        <div class="byline">
-          <by-line></by-line>
-          <social-icons></social-icons>
-        </div>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <misc-tag></misc-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
 
       </header>
 
@@ -139,7 +114,7 @@
         <h2>Gallery</h2>
         <div class="filter-button-row">
           <button class="filter-btn active" data-filter="all" title="All photos">All</button>
-          <button class="filter-btn" data-filter="bald hills" title="Bald Hills">bald hills</button>
+          <button class="filter-btn" data-filter="bald-hills" title="Bald Hills">bald hills</button>
           <button class="filter-btn" data-filter="peyto" title="Peyto Lake">peyto lake</button>
           <button class="filter-btn" data-filter="louise" title="Lake Louise">lake louise</button>
           <button class="filter-btn" data-filter="hallamore" title="Hallamore Lake">hallamore lake</button>
@@ -149,7 +124,7 @@
 
         <div class="image-gallery">
           
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-2">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-2">
             <a href="../images/rockies/bald-2-large.webp">
               <img
               src="../images/rockies/bald-2-small.webp"
@@ -159,7 +134,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-3">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-3">
             <a href="../images/rockies/bald-3-large.webp">
               <img
               src="../images/rockies/bald-3-small.webp"
@@ -169,7 +144,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-4">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-4">
             <a href="../images/rockies/bald-4-large.webp">
               <img
               src="../images/rockies/bald-4-small.webp"
@@ -179,7 +154,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-1">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-1">
             <a href="../images/rockies/bald-1-large.webp">
               <img
               src="../images/rockies/bald-1-small.webp"
@@ -189,7 +164,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-5">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-5">
             <a href="../images/rockies/bald-5-large.webp">
               <img
               src="../images/rockies/bald-5-small.webp"
@@ -199,7 +174,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-6">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-6">
             <a href="../images/rockies/bald-6-large.webp">
               <img
               src="../images/rockies/bald-6-small.webp"
@@ -209,7 +184,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-7">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-7">
             <a href="../images/rockies/bald-7-large.webp">
               <img
               src="../images/rockies/bald-7-small.webp"
@@ -219,7 +194,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-8">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-8">
             <a href="../images/rockies/bald-8-large.webp">
               <img
               src="../images/rockies/bald-8-small.webp"
@@ -229,7 +204,7 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-9">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-9">
             <a href="../images/rockies/bald-9-large.webp">
               <img
               src="../images/rockies/bald-9-small.webp"
@@ -501,12 +476,11 @@
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
     <script src="../scripts/web-components.js"></script>
     <script src="../scripts/filters.js"></script>
