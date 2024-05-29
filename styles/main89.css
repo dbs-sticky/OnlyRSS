@@ -233,8 +233,8 @@ html, body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 }
 
 aside {
@@ -869,8 +869,8 @@ a.icons:active {
 
 /* filter row on homepage */
 search {
-  margin: auto;
-  max-width: var(--pagewidth);
+  /* margin: auto; */
+  /* max-width: var(--pagewidth); */
   margin-bottom: 1rem;
 }
 
