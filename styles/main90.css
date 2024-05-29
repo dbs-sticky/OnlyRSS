@@ -17,16 +17,16 @@
     font-size: 19px;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --accent: oklch(60% 0.15 250);
-    --accent-light: #dae6f0; /* Fallback*/
+    --accent-light: #dae6f0;
     --bodytext: rgb(204, 204, 204);
     --background-color:  rgb(44, 44, 44);
     --card-background-color: rgb(44, 44, 44);
 
   }
-}
+} */
 
 @view-transition {
   navigation: auto;
