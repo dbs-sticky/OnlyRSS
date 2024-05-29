@@ -269,12 +269,21 @@ sup {
 }
 
 /* Headings - individual */
+
+
 h1 {
   font-size: 2.5rem;
   margin-top: 0;
   line-height: 2.8rem;
   text-wrap: balance;
   color: var(--accent);
+}
+
+@media  (width < 768px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 h2 {
