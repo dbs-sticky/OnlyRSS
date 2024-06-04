@@ -34,12 +34,11 @@
 
 /* This CSS rule checks if the browser supports the '--accent-light' property with a specific value.
    The value is a color-mix function that mixes the '--accent' color with 80% transparency in the sRGB color space. */
-@supports (--accent-light: color-mix(in oklch, var(--accent), transparent 80%)) {
+/* @supports (--accent-light: color-mix(in oklch, var(--accent), transparent 80%)) {
   :root {
-    /* If supported, the '--accent-light' property is set to the color-mix function result. */
     --accent-light: color-mix(in oklch, var(--accent), transparent 80%);
   }
-}
+} */
 
 @font-face {
   font-family: "Roboto Condensed";
