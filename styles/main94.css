@@ -247,7 +247,7 @@ aside {
 /* Paragraphs */
 
 p {
-  margin: 1.4em 0;
+  margin-bottom: 0.5rem;
   text-wrap: pretty;
 }
 
@@ -884,7 +884,7 @@ search {
 
 card-container {
   display: block;
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-bottom: 0.6rem;
   color: var(--bodytext);
 }
