@@ -1332,6 +1332,8 @@ table-of-contents {
       display: block;
       animation: fade-in 0.5s ease-in;
     }
+
+/* For some reason (that I don't understand), this was causing the Print media query NOT to remove the ToC when printing, until I added an !important to the Print query */
     
     @media (width <= 92rem) {
       display: none;
@@ -1458,7 +1460,7 @@ global-nav {
 
   /* Hide nav and outline */
   table-of-contents, global-nav, social-icons, aside, footer  {
-      display: none;
+      display: none !important; /* hide the ToC,important is required as this wasn't working due to the media query on small screens that fades out the ToC */
     }
 
  /* Hide article border */
