@@ -39,7 +39,6 @@
         font-weight: 400;
         src: url(../fonts/OpenSans-Regular.woff2) format("woff2");
       }
-
     </style>
 
     <!-- Service worker for installable app-->
@@ -65,27 +64,17 @@
 
         // define the array
         const all_exercises = [
-          ["walking lunge with overhead weight"],
-          ["kettle swings (15)"],
-          ["ring star fish (20)"],
-          ["mountain climbers (40)"],
-          ["kettle bell triceps"],
-          ["kettle bell pullovers (10)"],
-          ["chainsaw row"],
-          ["burpees (10)"],
-          ["rowing (500m)"],
-          ["squat and stretch jumps (20)", "jumping lunges", "step up (25)"],
-          ["one leg squat", "squats", "squat with kettle bell (15)"],
-          ["ankle raises", "squat ankle raises (25)"],
-          ["v sits","single leg v sits (15)","sit ups (15)","candle stick lifts","roll ups"],
-          ["wind wipers","floor leg lifts (15)","hanging leg lifts"],
-          ["dish rocks","dish hold","fish kicks in dish (30)"],
-          ["ring reverse crunch","crunches","weighted russian twists (30)"],
-          ["pike hold","ring pikes","hanging knee tuck hold (10s)","hanging tuck ups","hanging wind wipers","hanging straddle hold","star leg planks (30)"],
-          ["plank", "commandos","elbow - knee (15)","ring saws","shoulder taps"],
-          ["push ups (arms out)","push ups (arms in)","bench press 20","flyes (10)"],
-          ["pull ups","chin ups (2)"],
-          ["handstand hold (30s)","handstand taps","handstand shoulder taps (15)","dumbell shoulder press"],
+          ["Kettle bell rows (lats)"],
+          ["Tricep extentions"],
+          ["Shoulder press", "Shoulder dumbell lateral raises"],
+          ["Bench press", "Press-ups"],
+          ["Back squat", "Goblet squat (kettlebell)"],
+          ["Bicep curls (barbell)", "Bicep curls (dumbell)"],
+          ["Russian twists"],
+          ["Leg raises"],
+          ["Clamshells"],
+          ["Calf raises"],
+          ["Plank", "Side plank"]
         ];
 
         //   const all_exercises = [
@@ -231,13 +220,13 @@
       <div id="head">
         <p>
           № of exercises:
-          <output name="numberOutputName" id="numberOutputId">12</output>
+          <output name="numberOutputName" id="numberOutputId">11</output>
         </p>
         <input class="app-slider"
           id="userInput"
           type="range"
-          placeholder="12"
-          value="12"
+          placeholder="11"
+          value="11"
           step="1"
           min="1"
           max=""
