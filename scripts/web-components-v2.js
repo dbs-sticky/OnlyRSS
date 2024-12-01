@@ -171,11 +171,11 @@ class Social extends HTMLElement {
     let titleUri = encodeURIComponent(ogTitle);
     let urlUri = encodeURIComponent(ogUrl)
 
-    // Concatenate the titleURI and UrlUri together into links for each network. https://bsky.app/intent/compose?text=I%27m%20reading%20through%20the%20Bluesky%20API%20docs%21%20%F0%9F%A6%8B%0Ahttps%3A//docs.bsky.app
+    // Concatenate the titleURI and UrlUri together into links for each network.
     this.innerHTML = `
     <div>
       <a href='https://bsky.app/intent/compose?text=${titleUri}%20${urlUri}' target='_blank' title='Share this article on BlueSky'>
-        <reddit-icon></-icon>
+        <bluesky-icon></bluesky-icon>
       </a>
       <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
         <reddit-icon></reddit-icon>
