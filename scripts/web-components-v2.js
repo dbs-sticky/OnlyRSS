@@ -192,8 +192,19 @@ class Social extends HTMLElement {
       <a href='mailto:?subject=${titleUri}&body=${urlUri}' target='_blank' title='Share this article on Email'>
         <email-icon></email-icon>
       </a>
+      <a title='Open native sharing menu'><share-icon></share-icon></a>
     </div>
     `;
+
+    let shareButton = document.querySelector('share-icon');
+    shareButton.addEventListener("click", async () => {
+      try {
+        await navigator.share({ title: ogTitle, url: ogUrl });
+        console.log("Data was shared successfully");
+      } catch (err) {
+        console.error("Share failed:", err.message);
+      }
+    });
   }
 }
   
