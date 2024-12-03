@@ -172,30 +172,36 @@ class Social extends HTMLElement {
     let urlUri = encodeURIComponent(ogUrl)
 
     // Concatenate the titleURI and UrlUri together into links for each network.
-    this.innerHTML = `
-    <div>
-      <a href='https://bsky.app/intent/compose?text=${titleUri}%20${urlUri}' target='_blank' title='Share this article on BlueSky'>
-        <bluesky-icon></bluesky-icon>
-      </a>
-      <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
-        <reddit-icon></reddit-icon>
-      </a>
-      <a href='https://www.facebook.com/sharer/sharer.php?u=${urlUri}' target='_blank' title='Share this article on Facebook'>
-        <fb-icon></fb-icon>
-      </a>
-      <a href='https://x.com/intent/tweet?url=${urlUri}&text=${titleUri}' target='_blank' title='Share this article on X'>
-        <x-icon></x-icon>
-      </a>
-      <a href='http://www.linkedin.com/shareArticle?mini=true&url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on LinkedIn'>
-        <linkedin-icon></linkedin-icon>
-      </a>
-      <a href='mailto:?subject=${titleUri}&body=${urlUri}' target='_blank' title='Share this article on Email'>
-        <email-icon></email-icon>
-      </a>
-      <a title='Open native sharing menu'><share-icon></share-icon></a>
-    </div>
-    `;
+      this.innerHTML = `
+        <div>
+          <a href='https://bsky.app/intent/compose?text=${titleUri}%20${urlUri}' target='_blank' title='Share this article on BlueSky'>
+            <bluesky-icon></bluesky-icon>
+          </a>
+          <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
+            <reddit-icon></reddit-icon>
+          </a>
+          <a href='https://www.facebook.com/sharer/sharer.php?u=${urlUri}' target='_blank' title='Share this article on Facebook'>
+            <fb-icon></fb-icon>
+          </a>
+          <a href='https://x.com/intent/tweet?url=${urlUri}&text=${titleUri}' target='_blank' title='Share this article on X'>
+            <x-icon></x-icon>
+          </a>
+          <a href='http://www.linkedin.com/shareArticle?mini=true&url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on LinkedIn'>
+            <linkedin-icon></linkedin-icon>
+          </a>
+          <a href='mailto:?subject=${titleUri}&body=${urlUri}' target='_blank' title='Share this article on Email'>
+            <email-icon></email-icon>
+          </a>
+          <a title='Open native sharing menu'><share-icon></share-icon></a>
+        </div>
+      `;
 
+    // Native sharing menu is NOT supported on Firefox, hide share-icon if the browser is firefox
+    if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1) {
+      this.querySelector('share-icon').style.display = 'none';
+    }
+    
+    // Add event listener to share button to trigger native sharing
     let shareButton = document.querySelector('share-icon');
     shareButton.addEventListener("click", async () => {
       try {
