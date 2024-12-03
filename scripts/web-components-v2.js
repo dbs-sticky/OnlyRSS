@@ -196,12 +196,11 @@ class Social extends HTMLElement {
         </div>
       `;
 
-    // Native sharing menu is NOT supported on Firefox, hide share-icon if the browser is firefox
-    if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1) {
+    // Check if the browser supports the Web Share API, and hide the native sharing icon if not supported
+    if (!navigator.canShare) {
       this.querySelector('share-icon').style.display = 'none';
-    }
-    
-    // Add event listener to share button to trigger native sharing
+    } else {
+    // Add event listener to share icon to trigger native sharing
     let shareButton = document.querySelector('share-icon');
     shareButton.addEventListener("click", async () => {
       try {
@@ -211,6 +210,8 @@ class Social extends HTMLElement {
         console.error("Share failed:", err.message);
       }
     });
+    }
+
   }
 }
   
