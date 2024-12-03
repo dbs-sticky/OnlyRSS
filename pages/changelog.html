@@ -117,9 +117,19 @@
 
       </header>
 
-      <details class="changelog"  style="view-transition-name: changelog-80" data-category="housekeeping">
+      <details class="changelog"  style="view-transition-name: changelog-81" data-category="ux">
         <summary >
-          <span><time datetime="2024-12-01">01 Dec 2024</time>: Added BlueSky to About page and to article share Web Component</span><housekeeping-tag></housekeeping-tag>
+          <span><time datetime="2024-12-03">03 Dec 2024</time>: Implemented the WebShare API for article sharing</span><ux-tag></ux-tag>
+        </summary>
+        <p> 
+          I read a <a href="https://christianheilmann.com/2024/11/16/whats-your-excuse-for-not-using-the-web-share-api/" title="What’s your excuse for not using the web share API?"> blog post by Christian Heilmann</a> and decided to add an option in my article-share Web Component which (on supported browsers) would launch the native sharing menu. Seems to work well on mobile, desktop Chrome/Edge, but unfortunately, there's no Firefox support .
+        </p>
+        <img src="/images/native-share.webp" loading="lazy" alt="A screenshot of the native sharing menu on Windows, showing options to share to email, facebook etc." width="574" height="616">
+      </details>
+
+      <details class="changelog"  style="view-transition-name: changelog-80" data-category="ux">
+        <summary >
+          <span><time datetime="2024-12-01">01 Dec 2024</time>: Added BlueSky to About page and to article share Web Component</span><ux-tag></ux-tag>
         </summary>
         <p> 
           Due to Musk's “management” of <s> Twitter</s> X, BlueSky seems to be getting some serious traction at the moment, so I decided it was time to sign up (<a href="https://bsky.app/profile/onlyrss.org">using my own domain</a>), add an icon to my About Page,  and to add “Share to BlueSky” as a new option on article pages.
