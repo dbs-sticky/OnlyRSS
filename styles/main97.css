@@ -1,7 +1,7 @@
 /* define global site variables */
 
 :root {
-  --pagewidth: 85ch;
+  --pagewidth: 90ch;
   --shadow: oklch(0% 0 0 / 20%);
   --accent: oklch(60% 0.15 250);
   --accent-light: #dae6f0; /* Fallback*/
@@ -14,7 +14,7 @@
   --body-font: "Roboto Serif", serif;
   --cta-font: "Roboto Condensed", sans-serif;
   --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
-    font-size: 19px;
+    /* font-size: 19px; */
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -111,9 +111,9 @@ body {
 
 /* set size for 320px - 768px ≈16px/100% */
 @media  (width < 768px) {
-  html {
+  body {
     font-size: 95%;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   article,
@@ -151,8 +151,8 @@ body {
 /* set size for >768px 120% */
 @media (width >= 768px) {
   html {
-    /* font-size: 105%; */
-    line-height: 2;
+    font-size: 105%;
+    line-height: 1.7;
   }
 
   article,
@@ -247,7 +247,7 @@ aside {
 /* Paragraphs */
 
 p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-wrap: pretty;
 }
 
@@ -750,7 +750,7 @@ aside {
   background-color: var(--accent-light);
   border-radius: var(--radius);
   line-height: 1.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   margin-bottom: 1rem;
   padding: 0.35rem 0.7rem 0.35rem;
 
