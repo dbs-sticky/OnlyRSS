@@ -164,44 +164,94 @@ class Social extends HTMLElement {
   connectedCallback() {
 
     // Get the title and URL from the Open Graph tags.
-    let ogTitle = document.querySelector("meta[property=\"og:title\"]").content;
-    let ogUrl = document.querySelector("meta[property=\"og:url\"]").content;
+    let ogTitleTag = document.querySelector("meta[property=\"og:title\"]");
+    let ogUrlTag = document.querySelector("meta[property=\"og:url\"]");
+    
+    // If the Open Graph tags are present, use them. Otherwise, use the document title and URL.
+    let ogTitle = ogTitleTag ? ogTitleTag.content : document.title;
+    let ogUrl = ogUrlTag ? ogUrlTag.content : window.location.href;
 
     // Convert the title and URL to URIs.
     let titleUri = encodeURIComponent(ogTitle);
     let urlUri = encodeURIComponent(ogUrl)
 
-    // Concatenate the titleURI and UrlUri together into links for each network.
-      this.innerHTML = `
-        <div>
-          <a href='https://bsky.app/intent/compose?text=${titleUri}%20${urlUri}' target='_blank' title='Share this article on BlueSky'>
-            <bluesky-icon></bluesky-icon>
-          </a>
-          <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
-            <reddit-icon></reddit-icon>
-          </a>
-          <a href='https://www.facebook.com/sharer/sharer.php?u=${urlUri}' target='_blank' title='Share this article on Facebook'>
-            <fb-icon></fb-icon>
-          </a>
-          <a href='https://x.com/intent/tweet?url=${urlUri}&text=${titleUri}' target='_blank' title='Share this article on X'>
-            <x-icon></x-icon>
-          </a>
-          <a href='http://www.linkedin.com/shareArticle?mini=true&url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on LinkedIn'>
-            <linkedin-icon></linkedin-icon>
-          </a>
-          <a href='mailto:?subject=${titleUri}&body=${urlUri}' target='_blank' title='Share this article on Email'>
-            <email-icon></email-icon>
-          </a>
-          <a title='Open native sharing menu'><share-icon></share-icon></a>
-        </div>
-      `;
+    const style = `
+    <style>
+      social-icons {
+        & div {
+          height: 35px;
+            & svg {
+              cursor: pointer;
+              transition: all 0.4s ease-in-out;
+              width: 35px;
+              fill: var(--accent);
+                &:hover {
+                  transform: scale(1.3);
+                }
+            }        
+        }
+      }
+    </style>
+    `;
+
+    // Concatenate the titleURI and UrlUri together into the intent links for each network.
+    const template = `
+    <div>
+
+      <a href='https://bsky.app/intent/compose?text=${titleUri}%20${urlUri}' target='_blank' title='Share this article on BlueSky'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m7 9.12a16.6 16.6 0 0 0-3.83-5.04c-1.12-.89-2.94-1.57-2.94.61a45 45 0 0 0 .38 4.17c.48 1.81 2.24 2.28 3.81 2-2.73.49-3.43 2.11-1.93 3.73 2.85 3.08 4.1-.77 4.42-1.76.06-.18.09-.27.09-.2 0-.07.03.02.09.2.32.99 1.57 4.84 4.42 1.76 1.5-1.63.81-3.24-1.92-3.73 1.56.28 3.32-.19 3.8-2 .14-.52.38-3.74.38-4.18 0-2.17-1.82-1.48-2.94-.6A16.6 16.6 0 0 0 12 12.12" />
+        </svg>
+      </a>
+
+      <a href='http://reddit.com/submit?url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on Reddit'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.919 14.87a.184.184 0 0 1 0 .262c-.399.397-1.024.59-1.912.59L12 15.72l-.007.002c-.889 0-1.513-.193-1.912-.59a.184.184 0 0 1 0-.262.187.187 0 0 1 .264 0c.324.324.864.481 1.649.481l.007.001.007-.001c.784 0 1.323-.158 1.649-.48a.184.184 0 0 1 .261 0m-.095-2.86a.79.79 0 0 0-.79.787.79.79 0 0 0 1.581 0 .79.79 0 0 0-.791-.787m-2.854.787a.79.79 0 0 0-1.582 0 .79.79 0 0 0 .791.787c.436 0 .79-.352.79-.787M21 5v14c0 1-1 2-2 2H5c-1 0-2-1-2-2V5c0-1 1-2 2-2h14c1 0 2 1 2 2m-3 6.89a1.328 1.328 0 0 0-2.25-.95c-.905-.596-2.13-.975-3.485-1.024l.742-2.334 2.008.47-.003.03a1.086 1.086 0 0 0 2.173 0 1.085 1.085 0 0 0-2.096-.392l-2.165-.507a.184.184 0 0 0-.22.124l-.827 2.604c-1.419.017-2.705.399-3.65 1.012A1.322 1.322 0 0 0 6 11.89c0 .485.266.905.659 1.135a2.4 2.4 0 0 0-.043.43c0 1.954 2.404 3.545 5.36 3.545 2.955 0 5.359-1.59 5.359-3.546q-.002-.205-.038-.405a1.32 1.32 0 0 0 .703-1.16" />
+        </svg>
+      </a>
+
+      <a href='https://www.facebook.com/sharer/sharer.php?u=${urlUri}' target='_blank' title='Share this article on Facebook'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 3H5C4 3 3 4 3 5v14c0 1 1 2 2 2h7.615v-6.97h-2.346v-2.717h2.346V9.31c0-2.325 1.42-3.591 3.494-3.591.994 0 1.847.074 2.096.107v2.43h-1.438c-1.128 0-1.346.537-1.346 1.323v1.735h2.69l-.35 2.716h-2.34V21H19c1 0 2-1 2-2V5c0-1-1-2-2-2" />
+        </svg>
+      </a>
+
+      <a href='https://x.com/intent/tweet?url=${urlUri}&text=${titleUri}' target='_blank' title='Share this article on X'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.099 21h13.803A2.1 2.1 0 0 0 21 18.901V5.1c0-1.161-.94-2.1-2.099-2.1H5.1C3.939 3 3 3.94 3 5.099v13.803A2.1 2.1 0 0 0 5.099 21m5.504-8.395L5.765 6.136h3.729l3.172 4.24 3.925-4.24h1.096l-4.532 4.896 5.11 6.832h-3.728l-3.444-4.605-4.262 4.605H5.735zM9.09 6.943H7.377l7.564 10.114h1.713z" />
+        </svg>
+      </a>
+
+      <a href='http://www.linkedin.com/shareArticle?mini=true&url=${urlUri}&title=${titleUri}' target='_blank' title='Share this article on LinkedIn'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 3H5a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2M9 17H6.5v-7H9zM7.7 8.7c-.8 0-1.3-.5-1.3-1.2S7 6.3 7.8 6.3s1.3.5 1.3 1.2-.5 1.2-1.4 1.2M18 17h-2.4v-3.8c0-1-.7-1.3-1-1.3s-1 .1-1 1.3V17h-2.5v-7h2.5v1c.3-.6 1-1 2.2-1s2.2 1 2.2 3.2z" />
+        </svg>
+      </a>
+
+      <a href='mailto:?subject=${titleUri}&body=${urlUri}' target='_blank' title='Share this article on Email'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 7.488v11.49c0 1.135.921 2.056 2.057 2.056h13.92a2.057 2.057 0 0 0 2.057-2.057v-11.3l-8.892 6.73zm18.034-2.404L12 11.92 3 5.11v-.052C3 3.921 3.921 3 5.057 3h13.92c1.136 0 2.057.921 2.057 2.057z"/>
+        </svg>
+      </a>
+
+      <a id="share-icon" title='Open native sharing menu'>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm9.4 3.422c.272-.226.616-.373.98-.417.096-.01.367-.003.47.013.524.085.965.371 1.235.799a1.624 1.624 0 0 1-.196 1.977 1.85 1.85 0 0 1-.99.534 1.4 1.4 0 0 1-.33.021c-.188 0-.23-.002-.322-.021a1.85 1.85 0 0 1-.773-.34c-.082-.064-.098-.072-.115-.064-.053.028-4.863 2.676-4.871 2.682-.006.005-.002.044.009.1.025.134.03.392.01.518l-.012.074-.01.059-.005.032 2.404 1.324 2.45 1.348.044.023.06-.047c.222-.177.51-.307.806-.366.094-.02.138-.022.325-.022s.231.003.328.022c.559.107 1.014.439 1.257.915.226.443.239.94.036 1.396a1.74 1.74 0 0 1-1.176.965 1.84 1.84 0 0 1-1.614-.37 1.72 1.72 0 0 1-.56-.94 1.2 1.2 0 0 1-.022-.314c0-.179.004-.226.022-.31a.4.4 0 0 0 .014-.104c-.004-.004-1.09-.602-2.413-1.33l-1.232-.678c-.71-.39-1.194-.657-1.204-.664l-.03-.018-.069.057a1.82 1.82 0 0 1-1.151.398 1.4 1.4 0 0 1-.31-.022c-.566-.109-1.02-.438-1.265-.916a1.6 1.6 0 0 1 .121-1.675 1.8 1.8 0 0 1 1.144-.715c.096-.017.143-.021.315-.021.171 0 .218.004.315.021.309.06.59.187.82.371.06.047.082.06.094.053l.526-.29 1.916-1.054c1.923-1.059 2.426-1.34 2.425-1.353l-.02-.107a1.4 1.4 0 0 1-.019-.296c0-.18.003-.22.023-.308.082-.37.284-.71.56-.94"/>
+        </svg>
+      </a>
+
+    </div>
+    `;
+
+    // Set the innerHTML of the component to the style and template
+    this.innerHTML = style + template;
 
     // Check if the browser supports the Web Share API, and hide the native sharing icon if not supported
     if (!navigator.canShare) {
-      this.querySelector('share-icon').style.display = 'none';
+      this.querySelector('#share-icon').style.display = 'none';
     } else {
     // Add event listener to share icon to trigger native sharing
-    let shareButton = document.querySelector('share-icon');
+    let shareButton = this.querySelector('#share-icon');
     shareButton.addEventListener("click", async () => {
       try {
         await navigator.share({ title: ogTitle, url: ogUrl });
