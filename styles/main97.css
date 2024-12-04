@@ -1223,7 +1223,6 @@ dialog-image {
 
 footer {
   background-color: var(--accent-light);
-  margin: 0 -10px 0 -10px;
   flex-shrink: 0;
 }
 
