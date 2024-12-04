@@ -178,6 +178,7 @@ class Social extends HTMLElement {
     const style = `
     <style>
       social-icons {
+      a {all: unset;}
         & div {
           height: 35px;
             & svg {
