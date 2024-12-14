@@ -7,7 +7,7 @@
     <meta name="description" content="The results of my first attempts at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus passenger aircraft for the world's 10 largest airlines.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,54 +58,12 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="stylesheet" type="text/css" href="/styles/top-9-aircraft-families.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
     <!--load self-hosted fonts-->
     <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
 
       :root {
         --max-quant: 50;
@@ -162,23 +120,33 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
 
   </head>
 
   <body>
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
       <header>
         <h1>Airbus vs. Boeing: an experiment in charting</h1>
-        <div class="tldr">
           <p>
           Here are the results of my first attempts to create data visualisations using just HTML & CSS. These charts depict the respective shares of Boeing and Airbus passenger aircraft at the world's 10 largest airlines.
           </p>
-        </div>
 
         <!-- Flexrow -->
         <div class="byline">
@@ -295,18 +263,12 @@
         </div>
       </section>
 
-
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
-
-
-
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

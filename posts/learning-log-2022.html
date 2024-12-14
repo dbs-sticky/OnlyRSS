@@ -7,7 +7,7 @@
     <meta name="description" content="My 2022 learning goals and resources. In this post I outline my learning goals for 2022 (to gain a deeper understanding of the online presentation of unstructured content) and link to the resources I used.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,47 +58,8 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
-    
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -106,39 +67,41 @@
         navigator.serviceWorker.register("/service-worker.js");
       }
     </script>
-        
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
     
-    <global-nav></global-nav>
-
-    <table-of-contents></table-of-contents>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
+    <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post17">Learning log: 2022</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post17">
+        <h1>Learning log: 2022</h1>
           <p>
-            My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website. On this page you'll find links to all the resources I used.
+            My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2022-12-10">10 Dec 2022</time> · <span>2 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <misc-tag></misc-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <!--Goals-->
@@ -315,28 +278,49 @@
         </table>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/table-with-progress-indicator.html">
-        <h2>HTML & CSS table with progress bars</h2>
-        <p>
-          I share the code I used to create the tables from my recent 'Learning Log: 2022' article.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/learning-log-2023.html" data-category="misc" >
+        <card-container style="view-transition-name: post26">
+
+          <card-body>
+            <h1>Learning Log: 2023</h1>
+            <p>My focus this year was meant to be SQL & Python, but it ended up being mostly JavaScript, and then I got a bit distracted by GenAI.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-12-29">29 Dec 2023</time>
+            <article-duration> • 1 min • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+      <a href="/posts/table-with-progress-indicator.html" data-category="webdev">
+        <card-container style="view-transition-name: post21">
+
+          <card-body>
+            <h1>HTML & CSS table with progress bars</h1>
+            <p>I share the code I used to create the tables from my recent 'Learning Log: 2022' article.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-03-05">5 Mar 2023</time>
+            <article-duration> • 1 min • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
 
-    <script src="../scripts/web-components.js"></script>
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

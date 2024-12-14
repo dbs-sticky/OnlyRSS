@@ -7,7 +7,7 @@
     <meta name="description" content="A description of the routine I fell into while working from home during the COVID-19 pandemic.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,47 +58,8 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
-    
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -107,38 +68,41 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
 
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post2">Anatomy of a lockdown workday</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post2">
+        <h1>Anatomy of a lockdown workday</h1>
           <p>
             Working from home—and ditching the lengthy commute—can benefit both you and your employer. Here's how it changed my weekdays.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2021-02-07">7 Feb 2021</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <productivity-tag></productivity-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <!--introduction-->
@@ -206,20 +170,11 @@
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
+      <h1><span>related articles</span></h1>
       <a href="/posts/working-from-home-hardware.html">
         <h2>Working from home hardware</h2>
         <p>
@@ -227,6 +182,11 @@
         </p>
       </a>
     </aside>
-    <script src="../scripts/web-components.js"></script>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

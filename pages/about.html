@@ -7,7 +7,7 @@
     <meta name="description" content="Who’s Mark Evans and why does OnlyRSS.org exist?">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="profile">
@@ -30,7 +30,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
     <!--load self-hosted fonts-->
@@ -82,7 +82,7 @@
 
   <body>
 
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
     
     <main>
       <header>
@@ -92,13 +92,19 @@
         <div class="icon-row">
           <!--Social icons links-->
 
+          <!--bluesky icon-->
+          <a class="icons" href="https://bsky.app/profile/onlyrss.org" title="BlueSky">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <rect width="18" height="18" x="3" y="3" fill="#fff" rx="2"/>
+                <path fill="#1185FE" d="M8.17 7.08A16.55 16.55 0 0 1 12 12.12a16.55 16.55 0 0 1 3.83-5.04c1.12-.88 2.94-1.57 2.94.6 0 .44-.24 3.66-.38 4.18-.48 1.81-2.24 2.28-3.8 2 2.73.49 3.42 2.1 1.92 3.73-2.85 3.08-4.1-.77-4.42-1.76-.06-.18-.09-.27-.09-.2 0-.07-.03.02-.09.2-.32.99-1.57 4.84-4.42 1.76-1.5-1.62-.8-3.24 1.93-3.73-1.57.28-3.33-.19-3.81-2a44.8 44.8 0 0 1-.38-4.17c0-2.18 1.82-1.5 2.94-.61Z"/>
+            </svg>
+          </a>
           <!--threads icon-->
           <a class="icons" href="https://www.threads.net/@dbs_sticky" title="Threads">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000">
               <path d="M5 3a2 2 0 0 0-2 2v14c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm9.64 8.5.18.07a3.05 3.05 0 0 1 1.68 2.36 3.21 3.21 0 0 1-.95 2.76A4.5 4.5 0 0 1 12.09 18c-1.7 0-3.03-.62-3.88-1.75C7.42 15.25 7 13.81 7 12c0-1.8.42-3.24 1.21-4.24A4.64 4.64 0 0 1 12.1 6a4.72 4.72 0 0 1 3.94 1.75c.42.56.79 1.24.97 2.06l-.97.25a4.47 4.47 0 0 0-.79-1.63c-.66-.93-1.76-1.37-3.15-1.37-1.4 0-2.42.44-3.09 1.37-.67.81-.97 2-.97 3.56A5.94 5.94 0 0 0 9 15.56c.67.94 1.7 1.38 3.1 1.38 1.26 0 2.05-.31 2.78-1a2.4 2.4 0 0 0 .48-2.44 2.11 2.11 0 0 0-.78-.87 2.6 2.6 0 0 1-.61 1.62c-.36.56-.97.88-1.76.88a2.15 2.15 0 0 1-1.51-.38c-.55-.31-.8-.87-.85-1.5-.06-1.18.85-2.06 2.3-2.12a5.7 5.7 0 0 1 1.46.06 1.65 1.65 0 0 0-.37-.87c-.24-.32-.6-.44-1.15-.44a1.42 1.42 0 0 0-1.27.62l-.85-.56a2.4 2.4 0 0 1 2.12-1.12h.06c1.52 0 2.43 1 2.49 2.68Zm-3.76 1.69c0 .62.67.94 1.27.94.67-.07 1.33-.32 1.46-1.88-.46-.07-.93-.1-1.4-.06-1.03.06-1.4.56-1.33 1Z"/>
             </svg>
           </a>
-  
           <!--Facebook icon-->
           <a class="icons" href="https://www.facebook.com/dbssticky" title="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4267B2">
@@ -242,6 +248,11 @@
       </section>
 
     </main>
-    <script src="../scripts/web-components.js"></script>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

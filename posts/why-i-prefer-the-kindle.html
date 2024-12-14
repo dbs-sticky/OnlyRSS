@@ -7,7 +7,7 @@
     <meta name="description" content="Ten reasons why I prefer the Kindle eReader over physical books.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,7 +58,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
 
@@ -119,37 +119,41 @@
       }
     </script>
 
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
     <!-- link to JS for Kindle navigation -->
     <script src="/scripts/why-i-prefer-the-kindle.js"></script>
   </head>
 
   <body>
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post9">Why I prefer the Kindle over physical books</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post9">
+        <h1>Why I prefer the Kindle over physical books</h1>
           <p>
             Smaller, lighter, brighter—and with a built-in dictionary. In my opinion, a Kindle is better than a “real” book.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2022-01-12">12 Jan 2022</time> · <span>5 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <review-tag></review-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <!--intro section-->
@@ -331,12 +335,13 @@
         document.querySelector(".byline-svgs").innerHTML = getShareLink(ogTitle, ogUrl);
       </script>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
     </article>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

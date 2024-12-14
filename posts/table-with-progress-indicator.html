@@ -7,7 +7,7 @@
     <meta name="description" content="Sharing the HTML & CSS I used to create my 'learning log' tables.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,56 +58,10 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
     
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
-    </style>
-
     <style>
       table.mine {
           font-family: Sans-serif;
@@ -216,39 +170,40 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post21">HTML & CSS table with progress bars</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post21">
+        <h1>HTML & CSS table with progress bars</h1>
           <p>
-            I updated the tables I used in my recent 'Learning Log 2022' article with percentage indicators and have shared the HTML & CSS. 
-          </p>
-        </div>
+            I share the code I used to create the tables from my recent 'Learning Log: 2022' article.</p>
 
+            <div class="byline">
+              <div>
+                <by-line></by-line>
+                <webdev-tag></webdev-tag>
+              </div>
+              <social-icons></social-icons>
+            </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2023-03-05">5 Mar 2023</time> · <span>1 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
-          </div>
-
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
 
@@ -322,7 +277,7 @@
       <section>
         <h2>Notes and code</h2>
           <p>
-            The tags in the first column are added via ::before pseudo-elements.
+            The tags in the first column are added via <code>::before</code> pseudo-elements.
           </p>
           <p>
             The second column will use an ellipsis when the text is too long for the column (there's a special place in Hell for people who build tables with unequal row-heights).
@@ -331,7 +286,7 @@
             For the third column, the percentage progress for each row is declared in the HTML as a <a href="https://www.w3schools.com/css/css3_variables.asp" title="Read about CSS Variables at W3Schools.">CSS Variable</a>. This is then used to set the progress bar length, and also the percentage text. If the percentage is equal to 100%, then the text is swapped for a “✓” and the progress bar colour is changed to green. 
           </p>
           <p>
-            To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the ::before element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
+            To show the percentage value alongside the progress bar (without including it as separate text in the HTML or CSS) I define a CSS counter-reset and set it to the progress variable. I then use the <code>::before</code> element where the content is set to the CSS counter value (nothing has been “counted”, so this is equal to the counter-reset i.e. the progress variable). It's a bit of a hack that allows me to get a CSS Variable displayed as text on the page.
           </p>
           <p>The CSS used to style the table:</p>
 
@@ -499,28 +454,34 @@ book-tag:before {
 </pre>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/learning-log-2022.html">
-        <h2>Learning Log 2022</h2>
-        <p>
-          My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/learning-log-2022.html" data-category="misc" >
+        <card-container style="view-transition-name: post17">
+
+          <card-body>
+            <h1>Learning Log: 2022</h1>
+            <p>My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-10">10 Dec 2022</time>
+            <article-duration> • 1 min • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

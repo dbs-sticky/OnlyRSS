@@ -1,0 +1,1435 @@
+/* define global site variables */
+
+:root {
+  --pagewidth: 90ch;
+  --shadow: oklch(0% 0 0 / 20%);
+  --accent: oklch(60% 0.15 250);
+  --accent-light: #dae6f0; /* Fallback*/
+  --radius: 0.5rem;
+  --bodytext: oklch(23.5% 0 0);
+  --background-color: oklch(98.43% 0.004 106.47);
+  --background-color: #F3EEE4;
+  --card-background-color: var(--background-color);
+  --heading-font: "slab", serif;
+  --body-font: "Roboto Serif", serif;
+  --cta-font: "Roboto Condensed", sans-serif;
+  --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+    /* font-size: 19px; */
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --accent: oklch(60% 0.15 250);
+    --accent-light: #dae6f0;
+    --bodytext: rgb(204, 204, 204);
+    --background-color:  rgb(44, 44, 44);
+    --card-background-color: rgb(44, 44, 44);
+
+  }
+} */
+
+@view-transition {
+  navigation: auto;
+}
+
+/* This CSS rule checks if the browser supports the '--accent-light' property with a specific value.
+   The value is a color-mix function that mixes the '--accent' color with 80% transparency in the sRGB color space. */
+/* @supports (--accent-light: color-mix(in oklch, var(--accent), transparent 80%)) {
+  :root {
+    --accent-light: color-mix(in oklch, var(--accent), transparent 80%);
+  }
+} */
+
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "slab";
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(/fonts/slab.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: italic;
+  font-weight: 400;
+  src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Roboto Serif";
+  font-style: italic;
+  font-weight: 500;
+  src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
+}
+
+/* Switch to 'border box', and reset browser margin & padding to zero */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--body-font);
+  font-weight: 400;
+  color: var(--bodytext);
+  scrollbar-gutter: stable;
+  accent-color: var(--accent);
+  scroll-behavior: smooth;
+}
+
+body {
+  counter-reset: figures;
+  background-color: var(--background-color);
+}
+
+/*  ======================
+    SET MEDIA QUERIES
+    ====================== */
+
+/* set size for 320px - 768px ≈16px/100% */
+@media  (width < 768px) {
+  body {
+    font-size: 95%;
+    line-height: 1.5;
+  }
+
+  article,
+  main,
+  aside,
+  global-nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  blockquote {
+    margin-left: 0px !important;
+  }
+
+  abbr[title]::after{
+    content: " (" attr(title) ")";
+  }
+
+  ul,
+  ol {
+    margin-left: 1rem !important;
+  }
+  
+  /* full width learning log table on mobile */
+  .learning-log {
+    width: 100%;
+  }
+
+  .byline {
+    flex-direction: column;
+  } 
+
+}
+
+/* set size for >768px 120% */
+@media (width >= 768px) {
+  html {
+    font-size: 105%;
+    line-height: 1.7;
+  }
+
+  article,
+  main,
+  aside {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
+  }
+
+  global-nav {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  blockquote {
+    margin-left: 2rem !important;
+  }
+
+  abbr::after{
+    vertical-align: super;
+    content: "\2060?"!important;
+    font-size: 80%;
+    color: var(--accent);
+  }
+
+  ul,
+  ol {
+    margin-left: 3rem !important;
+  }
+
+  /* 60% width learning log table desktops/tablets */
+  .learning-log {
+    width: 100%;
+  }
+
+  .byline {
+    flex-direction: row;
+  } 
+
+}
+
+/*  ======================
+    PAGE DESIGN
+    ====================== */
+
+/* the article and aside containers are the same, with the exception of the top padding */
+
+article,
+main,
+aside {
+  background-color: var(--background-color);
+  max-width: var(--pagewidth);
+  margin: auto;
+  padding-top: 0;
+  margin-bottom: 5rem;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  article,
+  main,
+  aside {
+    border: none;
+    box-shadow: none
+  }
+} */
+
+
+article,
+main {
+  padding-top: 2rem;
+  flex: 1 0 auto;
+
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  /* display: flex;
+  flex-direction: column; */
+}
+
+aside {
+  padding-top: 1rem;
+}
+
+/*  ======================
+    TYPOGRAPHY IMAGES and TLDR
+    ====================== */
+
+/* Paragraphs */
+
+p {
+  margin-bottom: 1rem;
+  text-wrap: pretty;
+}
+
+header p {
+  margin: 1rem 0px;
+}
+
+/* Headings - shared */
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--heading-font);
+  color: var(--bodytext);
+  line-height: 1.8rem;
+  margin: 0.4em 0;
+}
+
+sup {
+  font-size:x-small;
+}
+
+/* Headings - individual */
+
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  line-height: 2.8rem;
+  text-wrap: balance;
+  color: var(--accent);
+}
+
+@media  (width < 768px) {
+  h1 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+/* keep the space between any heading and the fist paragraph tight */
+:where(h1, h2, h3, h4, h5, h6) + p {
+  margin-top: 0;
+}
+
+strong {
+  font-weight: 500;
+  font-style: italic;
+  color: black;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  strong {
+    color: white;
+  }
+} */
+
+/* define a highlighter pen style with a bit of overspill */
+mark {
+padding: 0.2rem 0.5rem;
+border-radius: 0.3rem;
+background-color: #ffdd33;
+}
+
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  a {
+    color: white;
+  }
+} */
+
+:where(p, li, figcaption, table) a:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+:where(p, li, figcaption, table) a[href^="http"]::after {
+  position: relative;
+  content: "\2009" url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0.7em' height='0.7em' viewBox='0 0 16 16'%3E%3Cpath fill='currentColor' d='M6.01 10.49a.47.47 0 0 1-.35-.15c-.2-.2-.2-.51 0-.71l8.49-8.48c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-8.5 8.48c-.1.1-.23.15-.35.15' /%3E%3Cpath fill='currentColor' d='M14.5 7c-.28 0-.5-.22-.5-.5V2H9.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h5c.28 0 .5.22.5.5v5c0 .28-.22.5-.5.5m-3 8H2.49C1.67 15 1 14.33 1 13.51V4.49C1 3.67 1.67 3 2.49 3H7.5c.28 0 .5.22.5.5s-.22.5-.5.5H2.49a.49.49 0 0 0-.49.49v9.02c0 .27.22.49.49.49h9.01c.27 0 .49-.22.49-.49V8.5c0-.28.22-.5.5-.5s.5.22.5.5v5.01c0 .82-.67 1.49-1.49 1.49' /%3E%3C/svg%3E");
+  padding-left: 0.2rem;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :where(p, li, figcaption, table) a[href^="http"]:after {
+    content: "\2009" url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0.7em' height='0.7em' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M6.01 10.49a.47.47 0 0 1-.35-.15c-.2-.2-.2-.51 0-.71l8.49-8.48c.2-.2.51-.2.71 0c.2.2.2.51 0 .71l-8.5 8.48c-.1.1-.23.15-.35.15' /%3E%3Cpath fill='white' d='M14.5 7c-.28 0-.5-.22-.5-.5V2H9.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5h5c.28 0 .5.22.5.5v5c0 .28-.22.5-.5.5m-3 8H2.49C1.67 15 1 14.33 1 13.51V4.49C1 3.67 1.67 3 2.49 3H7.5c.28 0 .5.22.5.5s-.22.5-.5-.5H2.49a.49.49 0 0 0-.49.49v9.02c0 .27.22.49.49.49h9.01c.27 0 .49-.22.49-.49V8.5c0-.28.22-.5.5-.5s.5.22.5.5v5.01c0 .82-.67 1.49-1.49 1.49' /%3E%3C/svg%3E");
+  }
+} */
+
+
+
+
+:where(p, li, figcaption, table) a[href^="http"] {
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 1s;
+}
+
+:where(p, li, figcaption, table) a[href^="http"]:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+/* blockquotes  */
+blockquote {
+  border-left: 0.5rem solid var(--accent);
+  margin: 2rem 0;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+
+blockquote::before {
+  content: open-quote;
+  display: block;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: -1.5rem;
+  color: var(--accent);
+}
+
+blockquote::after {
+  content: no-close-quote;
+}
+
+blockquote q {
+  font-size: 1.1rem;
+}
+
+/* Remove quote from the quote in a blockquote */
+blockquote q::before, blockquote q::after  {
+  content: "";
+}
+
+/* quotes - should also be used within blockquotes */
+q {
+  font-style: italic;
+}
+
+
+/* abbreviations */
+abbr {
+  text-decoration:none;
+}
+
+abbr:hover {
+  cursor: help;
+}
+
+/* target inline code only */
+p code {
+  color: var(--bodytext);
+  background-color: WhiteSmoke;
+  border-radius: 4px;
+  padding: 0.2rem;
+  border: 1px solid var(--bodytext);
+  white-space: nowrap;
+}
+
+
+/* keyboard buttons */
+kbd {
+  font-size: 0.8rem;
+  font-family: var(--mono-font);
+  color: var(--bodytext);
+  border: 1px solid var(--bodytext);
+  border-bottom: 2.5px solid var(--bodytext);
+  border-radius: 4px;
+  padding: 0 0.1rem;
+
+}
+
+ul,
+ol {
+  margin: 2rem 0;
+  line-height: 1.6rem;
+}
+
+li::marker {
+  color: var(--accent);
+}
+
+/* Figures & images */
+figure {
+  margin: 2rem 0;
+}
+
+/* for use when referencing a figure i.e. ...in image below [<span class="fig-ref">fig. 1</span>] */
+.fig-ref {
+  font-size: smaller;
+  font-style: italic;
+}
+
+figcaption {
+  counter-increment: figures; /* count the number of fig captions */
+  font-size: 80%;
+  margin-top: 5px;
+  padding-top: 8px;
+  font-style: italic;
+
+}
+
+figcaption::before {
+  content: "Figure " counter(figures) ". "; /* display the figure number in the caption */
+}
+
+/* images */
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+
+}
+
+
+/* Define the image style for mainbody images that are NOT in gallaries, figures etc. */
+:where(article, main) :where(figure, img)  {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: 0 0 1rem #00000014;
+  margin-bottom: 9rem;
+}
+
+
+/* Define the image style for mainbody images that are in gallaries, figures etc. i.e. remove the styles defined above */
+dialog-image img, dialog img, .paper img, figure img {
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* target figures that contain images with an onclick event (e.g. zoom and enhance article */
+/* I tried to add the overlay to the img, not the figure, but for some reason it did not appear. */
+figure:has(img[onclick])::before {
+  position: absolute;
+  content: "click/tap to toggle";
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  color: white;
+  background: rgb(0, 0, 0, 70%);
+  /* This lets users click through the overlay to the img below */
+  pointer-events: none;
+}
+
+/* target image with an onclick event (e.g.zoom and enhance article) */
+img[onclick] {
+cursor:pointer;
+/* remove the blue highlight on img tap on mobile */
+-webkit-tap-highlight-color: transparent; 
+}
+
+/* rule, only used on About & subscribe pages */
+hr {
+  margin-bottom: 25px;
+}
+
+
+/*  ======================
+    ARTICLE BYLINE (for inner styles see Web Components styles at the end of this file)
+    ====================== */
+
+
+.byline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--accent);
+  margin-bottom: 2rem;
+  gap: 0.5rem;
+  font-family: var(--cta-font);
+}
+
+
+button {
+  /* -webkit-border-radius: var(--radius);
+  -moz-border-radius: var(--radius) 5; */
+  border-radius: var(--radius);
+  font-family: var(--cta-font);
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.8rem;
+  background: var(--accent);
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+  border-style: none;
+  transition: background-color 200ms;
+  cursor: pointer;
+  touch-action: manipulation; /* The manipulation value disables gestures like ‘double-tap to zoom’. */
+  user-select: none; /* disables the ability for text in buttons to be selectable */
+}
+
+/* Tint the background when hovering */
+button:hover {
+  background-color: color-mix(in oklch, var(--accent) 100%, white 10%);
+}
+
+
+/* Shade the background when clicked */
+button:active {
+  background-color: color-mix(in oklch, var(--accent) 100%, black 20%);
+}
+
+
+  /* Hide the focus ring by default */
+  button:focus {
+    outline: none
+  }
+
+  /* Show the focus ring when using non-mouse input */
+  button:focus-visible {
+    outline: solid 2px var(--accent);
+    outline-offset: 1px;
+  }
+
+/*  ======================
+    RELATED ARTICLES
+    ====================== */
+
+aside {
+
+  >h1 {
+    color: black;
+    border-bottom: 1px solid black;
+    text-align: center; 
+    margin-bottom: -0.5rem; /* Offset the border-bottom upwards by 0.5rem */
+    line-height: 0.1em;
+    margin: 3rem 0;
+
+    span {
+      background: var(--background-color);
+      padding:0 1rem;
+    }
+
+  }
+
+}
+
+
+/*  ======================
+    MARK: DETAILS & SUMMARY
+    ====================== */
+
+/* ====== Details and Summary - normal style====== */
+.show-me summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--accent);
+  list-style: none;
+
+}
+
+.show-me {
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  padding: 5px 0;
+}
+
+
+/* append "open" to the end of summary text */
+.show-me summary::after {
+  content: " open";
+}
+/* append "close" to the end of summary text when details is open */
+ details.show-me[open] summary::after {
+  content: " close";
+}
+
+/* ====== Details and Summary for changelog page====== */
+
+/* This flexbox contains 2 children, the filters (left), and the expand/collapse (right) */
+.changelog-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+@media  (width < 500px) {
+  .changelog-actions {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+  }
+}
+
+.filter-button-row, .changelog-button-row {
+  display: flex;
+  height: 1.5rem;
+}
+
+.filter-btn, .compact-expand-btn {
+  border-radius: 0;
+  font-family: var(--cta-font);
+  text-transform: uppercase;
+  color: var(--accent);
+  font-size: 0.7rem;
+  background: var(--background-color);
+  border: var(--accent-light) 1px solid;
+  border-left: none;
+  transition: background-color 200ms;
+  cursor: pointer;
+  padding: 0.3rem 0.4rem 0.3rem 0.4rem;
+  background-color: white;
+
+}
+
+.filter-btn {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 40px;
+  max-width: max-content;
+}
+
+.compact-expand-btn {
+  width: 25px;
+  padding: 0.2rem;
+
+}
+
+/* hover state is the light accent colour */
+.filter-btn:hover, .compact-expand-btn:hover {
+  background-color: var(--accent-light);
+}
+
+
+/* Active filter is not clickable, selected state is full accent colour */
+.filter-btn.active, .compact-expand-btn.active {
+  pointer-events: none;
+  background-color: var(--accent);
+  color: white;
+}
+
+.compact-expand-btn svg path {
+  fill: var(--accent);
+}
+
+.compact-expand-btn.active svg path {
+  fill: white;
+}
+
+.compact-expand-btn:first-of-type, .filter-btn:first-of-type {
+  border-radius: calc(var(--radius)*0.5) 0 0 calc(var(--radius)*0.5);
+  border-left: var(--accent-light) 1px solid;
+}
+
+
+.compact-expand-btn:last-of-type, .filter-btn:last-of-type {
+  border-radius: 0 calc(var(--radius)*0.5) calc(var(--radius)*0.5) 0;
+}
+
+/* Hide the focus ring by default */
+.filter-btn:focus, .compact-expand-btn:focus {
+  outline: none
+}
+
+/* Show the focus ring when using non-mouse input */
+.filter-btn:focus-visible, .compact-expand-btn:focus-visible {
+  outline: solid 2px var(--accent);
+  outline-offset: 1px;
+}
+
+
+  /* set summary elements to flex to enable the tags to be right-aligned */
+.changelog summary {
+  font-weight: 400;
+  display: flex;
+  align-items: center; /* centre them vertically */
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* remove the highlight when tapped */
+}
+
+/* gap at top of the details */
+.changelog summary+p {
+  padding-top: 1rem;
+}
+
+
+
+/* remove the focus box, and make bold the focus state (for users who tab through the page */
+.changelog:focus summary {
+  outline: 0;
+  font-weight: 500;
+}
+
+ .changelog {
+  background-color: var(--accent-light);
+  border-radius: var(--radius);
+  line-height: 1.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.7rem 0.35rem;
+
+}
+
+/* append ">" to the start of summary text */
+.changelog summary::before {
+  content: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 10' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 1 1 L 5 5 l -4 4' stroke='black'/%3E%3C/svg%3E");
+  margin-right: 0.5rem;
+  font-size: 1.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  border-radius: 7px;
+  background-color: white;
+  display: inline-block;
+  margin-left: -5px;
+  transition: transform 0.3s ease-out;
+}
+
+/* rotate when opened/closed */
+.changelog[open] summary::before {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); /* added this line for Safari - yet it still doesn't work on Safari :-( */
+}
+
+/* remove the arrow on iOS */
+ .changelog summary::-webkit-details-marker {
+  display: none;
+}
+
+/* add a radius to all images on the Changelog page in the details elements */
+/* THIS WILL TARGET ALL IMAGES IN <DETAILS> ON ANY PAGES THAT USE <MAIN> */
+ .changelog img {
+  border-radius: var(--radius);
+}
+
+/*  ======================
+    changelog tags
+    ====================== */
+
+/* Add some margin to the last image in the details - otherwise it's too close to the bottom */
+.changelog img:last-of-type {
+  margin-bottom: 30px;
+}
+
+/* let the first span (i.e. the date and description) expand to take all the available width (forcing tags to be right-aligned */
+.changelog summary span:first-of-type {
+  flex: 1;
+  /* i.e. flex-grow = 1, the other spans (i.e. tags) will default to flex-grow = 0 */
+}
+
+/* define the common style for  tags) within summary elements and filter labels */
+:where(ux-tag, performance-tag, content-tag, seo-tag, housekeeping-tag)::after, .changelog-filters label {
+  font-family: var(--cta-font);
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  padding: 2px 5px;
+  margin-left: 5px;
+  font-size: 0.7rem;
+}
+
+/* set individual tag colours */
+performance-tag::after, .changelog-filters label[for="performance"] {
+  background-color: rgb(180, 163, 66);
+  content: "performance";
+}
+
+ux-tag::after, .changelog-filters label[for="ux"] {
+  background-color: rgb(71, 69, 187);
+  content: "UX";
+}
+
+content-tag::after, .changelog-filters label[for="content"] {
+  background-color: rgb(93, 170, 62);
+  content: "content";
+}
+
+housekeeping-tag::after, .changelog-filters label[for="housekeeping"] {
+  background-color: rgb(223, 139, 82);
+  content: "housekeeping";
+}
+
+/*  ======================
+    social icons
+    ====================== */
+
+.icon-row {
+  display: flex;
+}
+
+/* let icons grow to fit the row width */
+a.icons {
+  flex: 1;
+}
+
+/* the fill colour is set in the HTML SVG, and is unique to each icon */
+a.icons svg {
+  /* grow on hover for 0.7s  */
+  transition: all 0.7s ease-in-out;
+  stroke: #000000;
+  stroke-width: 0.3px;
+}
+
+/* grow on-hover */
+a.icons svg:hover {
+  transform: scale(1.3);
+}
+
+/* remove the square flash you get "on tap" on mobile */
+a.icons:active {
+  -webkit-tap-highlight-color: transparent;
+  /* This feature is non-standard and should not be used without careful consideration. */
+}
+
+/* non editable text field for "subscribe to RSS" field */
+.textfield {
+  border-radius: var(--radius);
+  font-family: var(--cta-font);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background: white;
+  padding: 5px 10px;
+  border-style: none;
+  width: 33ch;
+}
+
+/*  ======================
+    homepage
+    ====================== */
+
+/* filter row on homepage */
+search {
+  /* margin: auto; */
+  /* max-width: var(--pagewidth); */
+  margin-bottom: 1rem;
+}
+
+card-container {
+  display: block;
+  margin-top: 2rem;
+  padding-bottom: 0.6rem;
+  color: var(--bodytext);
+}
+
+
+card-footer {
+  font-family: var(--cta-font);
+}
+
+/* apply general style to card tags */
+:where(dataviz-tag, misc-tag, webdev-tag, review-tag, productivity-tag, prodman-tag)::after {
+  color: var(--bodytext);
+  border-radius: 4px;
+  padding: 2px 5px;
+  margin-left: 5px;
+  font-size: 0.75rem;
+  border: 1.5px solid var(--accent);
+  background: white;
+
+}
+
+/* apply individual content to card tags */
+dataviz-tag::after {
+  content: "DataViz";
+}
+
+productivity-tag::after {
+  content: "Productivity";
+}
+
+review-tag::after {
+  content: "Review";
+}
+
+webdev-tag::after {
+  content: "WebDev";
+}
+
+misc-tag::after {
+  content: "Misc";
+}
+
+prodman-tag::after {
+  content: "Product Management";
+}
+
+
+/*  ======================
+    exercise randomiser in JavaScript article
+    ====================== */
+
+#exercise_card {
+  border-radius: var(--radius);
+  border: 1px solid LightGrey;
+  max-width: 30rem;
+  margin: auto;
+  padding: 30px;
+  padding-left: 60px;
+  list-style-position: outside;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+#todays_exercises {
+  list-style-position: outside;
+  line-height: 2rem;
+  padding-bottom: 0px;
+}
+
+/*  ======================
+  exercise circuits randomiser in "app"
+  ====================== */
+
+
+#card {
+  max-width: 30rem;
+  margin: auto;
+  padding: 30px;
+  font-family: var(--cta-font);
+}
+
+#head {
+  text-align: center;
+  border-bottom: solid 2px var(--accent);
+}
+
+#exercises {
+  list-style-position: outside;
+  line-height: 1.3rem;
+  padding-left: 10%;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  background-color: white;
+}
+
+.app-btn-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/*  ======================
+  Learning table
+  ====================== */
+
+/* table formatting - width is set in media queries */
+.learning-log {
+  table-layout:fixed;
+  margin: auto;
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border-collapse: collapse; /* creates single border between cells */
+  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow: hidden;  /* border radius option above does not work without this  */
+  font-family: var(--cta-font);
+  color: var(--bodytext);
+  background-color: white;
+
+}
+
+/* define the header row font and background colour */
+.learning-log th {
+  font-weight: 400;
+  color: var(--bodytext);
+  background-color: var(--accent-light);
+}
+
+/* pad all header and cell elements */
+.learning-log th,
+.learning-log td {
+  padding: 7px 10px;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  .learning-log td {
+    background-color: var(--card-background-color);
+  }
+} */
+
+
+/* fix the width of the 1st column, i.e. the tag column */
+.learning-log th:nth-child(1) {
+  width: 70px;
+}
+
+/* set the last column, i.e the progress indicator to a fixed percentage */
+.learning-log th:nth-child(3) {
+  width: 30%;
+}
+
+/* set column 2 i.e. resource name and link to truncate and show ellipsis */
+.learning-log td:nth-child(2) {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* override the usual link colour of black */
+.learning-log a{
+  color: var(--bodytext);
+}
+
+/* define the style of the progress container */
+progress-meter {
+  display: block;
+  height: 10px;
+  box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  padding: 1px;
+}
+
+/* define the style of the inside of the progress container */
+progress-percent {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: LightCoral;
+  width: calc(var(--progress) * 1%);
+  font-family: var(--cta-font);
+}
+
+/* change the colour when the progress is 100% */
+progress-percent[style="--progress: 100"] {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: LightSeaGreen;
+  width: calc(var(--progress) * 1%);
+  font-family: var(--cta-font);
+}
+
+/* format the common tag elements */
+:where(course-tag, tutorial-tag, book-tag, video-tag, practice-tag):before {
+  font-size: 0.7rem;
+  font-family: var(--cta-font);
+  color: white;
+  border-radius: 3px;
+  padding: 1px 5px;
+  margin-left: 5px;
+}
+
+/* now format the specific tags, including the text */
+course-tag:before {
+  background-color: rgb(101, 168, 75);
+  content: "course";
+}
+
+tutorial-tag:before {
+  background-color: rgb(153, 75, 168);
+  content: "tutorial";
+}
+
+book-tag:before {
+  background-color: rgb(82, 143, 223);
+  content: "book";
+}
+
+video-tag:before {
+  background-color: rgb(226, 128, 99);
+  content: "video";
+}
+
+practice-tag:before {
+  background-color: rgb(241, 63, 93);
+  content: "practice";
+}
+
+
+/*  ======================
+  Image gallery (requires <dialog-image> Web Component)
+  ====================== */
+
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 2rem 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .image-gallery > dialog-image {
+    flex-grow: 1;
+    height: 150px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .image-gallery > dialog-image > a > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 5px;
+  }
+
+   .image-gallery::after {
+    content: "";
+    flex-grow: 999;
+  }
+
+  /* don't allow background content to scroll when the dialog is open */
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+/*  ======================
+  MARK: Web Components - see web-components-v2.js for innerHTML
+  ====================== */
+
+/* —————image dialog modal popup Web Component————— */
+
+dialog-image {
+
+  & dialog {
+      border: solid white 2px;
+      background: rgba(0, 0, 0, 0.9);
+      margin: auto;
+      border-radius: var(--radius);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+      padding-bottom: 1rem;
+      cursor:auto;
+    }
+
+    & ::backdrop {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: var(--cta-font);
+
+         & button:disabled {
+          background-color: grey;
+          color: white;
+          cursor: not-allowed;
+          opacity: 0.5;
+         }
+
+         & footer {
+          background: black;
+         }
+
+          & p {
+            padding: 0rem 3rem;
+            color: white;
+            font-family: var(--body-font);
+            line-height: 1.6;
+          }
+
+        @media  (width < 768px) {
+          & p {
+          padding: 0rem 1rem;
+          }
+        }
+  }
+
+}
+
+
+/* Feedback footer Web Component */
+
+footer {
+  background-color: var(--accent-light);
+  flex-shrink: 0;
+}
+
+footer div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer img {
+  height: 60px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: inline-block;
+  box-shadow: 0px 0px 7px 0px var(--accent);
+}
+
+feedback-contact {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  font-weight: 500;
+  font-family: var(--cta-font);
+  max-width: var(--pagewidth);
+  margin: auto;
+  padding: 1rem;
+
+    @media (width < 768px) {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    & svg {
+      width: 8rem;
+    }
+
+    & p {
+      margin: 1rem;
+
+      & a {
+        color: var(--accent); 
+          }
+
+    }
+
+}
+
+
+
+/* —————social icons Web Component, all styles are in component————— */
+
+
+/* —————Table of Contents Web Component————— */
+
+table-of-contents {
+
+  width: 13rem;
+  position: fixed;
+  margin-left: calc(47vw - 35rem);
+  margin-top: 3rem;
+  font-family: var(--cta-font);
+  color: var(--accent);
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-light);
+
+    @media (width > 88rem) {
+      display: block;
+      animation: fade-in 0.5s ease-in;
+    }
+
+/* For some reason (that I don't understand), this was causing the Print media query NOT to remove the ToC when printing, until I added an !important to the Print query */
+    
+    @media (width <= 92rem) {
+      display: none;
+      animation: fade-out 0.5s ease-out;
+    }
+
+    & ul {
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    & li {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      line-height: 1.7;
+      margin-left: -2.5rem;
+
+      & :last-of-type {
+          margin-bottom: 1rem;
+        }
+
+      & a { 
+        color: var(--bodytext);
+      }
+
+    }
+}
+
+    
+    /* Define the fade-in animation */
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        display: none;
+      }
+      to {
+        opacity: 1;
+        display: block;
+      }
+    }
+    
+    /* Define the fade-out animation */
+    @keyframes fade-out {
+      from {
+        display: block;
+        opacity: 1;
+      }
+      to {
+        display: none;
+        opacity: 0;
+      }
+    }
+
+
+
+/* —————global nav Web Component————— */
+
+/* add some scrollmargin so the heading or top of figure is visible below the fixed global navigation */
+h2, figure {
+  scroll-margin-top: 3rem;
+}
+
+/* make the nav stick to the top of the page when the gap benwteen the nav and the top of the page is zero i.e. always */
+
+
+global-nav {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: var(--card-background-color);
+  max-width: var(--pagewidth);
+  width: 100%;
+  margin: auto;
+  font-family: var(--cta-font);
+  box-shadow: 0 5px 5px -2px var(--card-background-color);
+  border-bottom: solid 2px var(--accent-light);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin-bottom: 1rem;
+
+  & ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0 !important;
+  }
+
+  & li {
+    & a {
+    padding: 0.6rem 0;
+    }
+
+    /* this forces all elements to the right of the Home button to move to the far-right */
+    &:first-child {
+      margin-right: auto;
+    }
+  }
+
+  & a {
+    color: var(--accent);
+    padding: 5px 10px;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+      &:hover,
+      &.nav-active {
+        border-bottom: 3px solid var(--accent);
+        transition: border-color 1s ease;
+    }
+  }
+
+}
+
+
+/* set Print styles */
+@media print {
+
+  /* reduce the root font size */
+  :root {
+    font-size:small;
+  }
+
+  /* Hide nav and outline */
+  table-of-contents, global-nav, social-icons, aside, footer  {
+      display: none !important; /* hide the ToC,important is required as this wasn't working due to the media query on small screens that fades out the ToC */
+    }
+
+ /* Hide article border */
+    article, main {
+      border: none;
+      box-shadow: none;
+    }
+
+  }
+
+

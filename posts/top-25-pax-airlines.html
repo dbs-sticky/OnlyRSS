@@ -7,7 +7,7 @@
     <meta name="description" content="The result of my second attempt at creating data visualisations using HTML & CSS (and a tiny bit of JavaScript). This chart depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -59,55 +59,13 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="stylesheet" type="text/css" href="/styles/top-25-pax-airlines-1.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
     
     <!--load self-hosted fonts-->
     <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
 
       @font-face {
         font-family: "RubikMonoOne";
@@ -156,7 +114,17 @@
       }
     </script>
         
-
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
     <script>
       function drawAircraft(numAircraft) {
@@ -182,33 +150,25 @@
 
   <body onload="setColor()">
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-    <table-of-contents></table-of-contents>
+    <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post19">Infographic: The 25 largest passenger airlines</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post19">
+        <h1>Infographic: The 25 largest passenger airlines</h1>
           <p>
-            This article includes a 'small-multiples isotype infographic' which displays the 25 largest passenger airlines (individual airline operators i.e. not airline groups). Ranked by fleet size and split by manufacturer. I've also included some details on how I built the infographic, and what I learnt along the way (spoiler: I learnt that I hate Safari).
+            This infographic depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2023-02-04">04 Feb 2023</time> · <span>6 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <dataviz-tag></dataviz-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
 
@@ -727,7 +687,7 @@
         <h2>How it's built</h2>
         <h3>The isotype charts</h3>
         <p>
-          There's nothing clever about the construction of the isotypes. Each chart is just a single &lt;div&gt; that contains between 1 and 3 &lt;span&gt; elements (one for each manufacturer). Each &lt;span&gt; then contains a series of aircraft glyphs e.g. <span class="ac-glyph">🛧🛧🛧🛧🛧</span>.
+          There's nothing clever about the construction of the isotypes. Each chart is just a single &lt;div&gt; that contains between 1 and 3 <code>&lt;span&gt;</code> elements (one for each manufacturer). Each <code>&lt;span&gt;</code> then contains a series of aircraft glyphs e.g. <span class="ac-glyph">🛧🛧🛧🛧🛧</span>.
         </p>
         <h3>The aircraft glyph</h3>
         <p>
@@ -740,7 +700,7 @@
           As mentioned above, 10,016 aircraft glyphs are used in the chart, and although I could have entered them into the HTML manually, I actually updated the dataset quite a few times while making the chart, and updating the number of aircraft for each airline (and manufacturer) would have been laborious. In order to make things easier, I decided to let JavaScript (and my friend, <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, help me out).
         </p>
         <p>
-          The JavaScript function is a simple loop that adds a string of aircraft glyphs into a &lt;span&gt; element based on a number I enter i.e. the number of aircraft from each manufacturer for each airline.
+          The JavaScript function is a simple loop that adds a string of aircraft glyphs into a <code>&lt;span&gt;</code> element based on a number I enter i.e. the number of aircraft from each manufacturer for each airline.
         </p>
         <p>
           The JavaScript function:
@@ -796,7 +756,7 @@
         </p>
         <h3>Line breaks in HTML do matter (but only sometimes)</h3>
         <p>
-          I was under the misguided assumption that line breaks in HTML had no effect on what was rendered in the browser. For the isotype charts where an airline had aircraft from more than a single manufacturer, this required multiple &lt;span&gt; elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the &lt;span&gt; elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the &lt;span&gt; elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/"> JSFiddle</a>.
+          I was under the misguided assumption that line breaks in HTML had no effect on what was rendered in the browser. For the isotype charts where an airline had aircraft from more than a single manufacturer, this required multiple <code>&lt;span&gt;</code> elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the <code>&lt;span&gt;</code> elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the <code>&lt;span&gt;</code> elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/"> JSFiddle</a>.
         </p>
         <h3>You can define your inline SVG's path in your CSS… but not in Safari!</h3>
         <p>
@@ -810,35 +770,48 @@
           All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
         </p>
       </section>
-
-      
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/airbus-vs-boeing-charts.html">
-        <h2>Airbus vs Boeing: An experiment in charting</h2>
-        <p>
-          The results of my first attempts at creating data visualisations using just HTML & CSS.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post18">
+
+          <card-body>
+            <h1>Airbus vs Boeing: An experiment in charting</h1>
+            <p>The results of my first attempts at creating data visualisations using just HTML & CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-20">20 Dec 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
-      <a href="../posts/the-air-india-order.html">
-        <h2>Air India: Putting their recent order into context</h2>
-        <p>
-          A single isotype chart designed to put the recent Air India order into content.
-        </p>
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
+        <card-container style="view-transition-name: post20">
+
+          <card-body>
+            <h1>Air India: Putting their recent order into context</h1>
+            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-21">21 Feb 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
     <script>
       // find all SVG elements with class=aircraft, and remove (or add) class=grey-fill
@@ -870,6 +843,6 @@
         });
     </script>
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

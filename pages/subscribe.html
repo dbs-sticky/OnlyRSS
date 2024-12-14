@@ -7,7 +7,7 @@
     <meta name="description" content="How to subscribe to OnlyRSS.org via RSS. Instructions provided for Feedly and Inoreader">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -29,7 +29,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
     <!--load self-hosted fonts-->
@@ -99,7 +99,7 @@
 
   <body>
 
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
     <main>
 
@@ -108,14 +108,14 @@
 
 
       <p>
-        If you are already familiar with RSS<a href="/posts/rss-part-1.html">—and you really should be</a>—then simply copy the feed URL below and add it to your RSS aggregator of choice.
+        If you are already familiar with RSS&hairsp;—&hairsp;<a href="/posts/rss-part-1.html">and you really should be</a>&hairsp;—&hairsp;then simply copy the feed URL below and add it to your RSS aggregator of choice.
       </p>
       <p>
         <input class="textfield" type="text" value="https://onlyrss.org/feed.xml" readonly id="myInput">
         <button onclick="myFunction()">Copy</button>
       </p>
       <p>
-        Below are instructins on how to subscribe using two popular RSS aggregators:
+        Below are instructions on how to subscribe using two popular RSS aggregators:
       </p>
       <hr>
       </header>
@@ -156,6 +156,6 @@
       </section>
       <hr>
     </main>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

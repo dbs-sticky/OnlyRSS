@@ -9,7 +9,7 @@
       content="A web app for generating a random selection of exercises for a circuit training session.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     <!--TODO add suitable OpenGraph data here-->
 
     <!--Favicons and Touch Icons and web manifest-->
@@ -21,7 +21,7 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
 
     <style>
@@ -47,6 +47,8 @@
         navigator.serviceWorker.register("../service-worker.js");
       }
     </script>
+
+    <script src="../scripts/html2canvas.min.js"></script>
 
     <script>
       // get the slider value
@@ -138,6 +140,7 @@
             exercises.innerHTML + "<li>" + "&nbsp;" + e[0] + "</li>"; // choose the first element using e[0]
         });
       }
+     
     </script>
   </head>
 
@@ -167,9 +170,21 @@
           oninput="numberOutputId.value = userInput.value">
         <p>
           <button class="app-workout" onclick="myFunction()">Create new workout</button>
+          <button id="download">Download</button>
         </p>
       </div>
       <ol id="exercises"></ol>
     </div>
   </body>
+
+  <script>
+      document.getElementById('download').addEventListener('click', function() {
+        html2canvas(document.getElementById('exercises')).then(function(canvas) {
+            var link = document.createElement('a');
+            link.download = 'exercises.png';
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        });
+    });
+</script>
 </html>

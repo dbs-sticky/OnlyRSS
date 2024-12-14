@@ -7,7 +7,7 @@
     <meta name="description" content="The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the dialog HTML element and construct my inaugural Web Component.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,80 +58,46 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml"
     title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
-
     <!-- load scripts-->
     <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
     </script>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
   </head>
 
   <body>
-    <global-nav></global-nav>
-    <table-of-contents></table-of-contents>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
+    <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
     <article>
-      <header>
-        <h1 style="view-transition-name: post25">Holiday: The Canadian Rockies</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post25">
+        <h1>Holiday: The Canadian Rockies</h1>
           <p>
-            The breathtaking scenery during my recent trip to Canada became the driving force behind my latest blog post i.e. an image gallery. Moreover, this also provided the perfect opportunity for me to utilise the  <code>&lt;dialog&gt;</code> element and construct my inaugural Web Component.
+            A gallery of images from my recent trip to the Canadian Rockies—built using my inaugural Web Component.
           </p>
-        </div>
 
-          <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2023-12-21">21 Dec 2023</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <misc-tag></misc-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <section>
@@ -148,7 +114,7 @@
         <h2>Gallery</h2>
         <div class="filter-button-row">
           <button class="filter-btn active" data-filter="all" title="All photos">All</button>
-          <button class="filter-btn" data-filter="bald hills" title="Bald Hills">bald hills</button>
+          <button class="filter-btn" data-filter="bald-hills" title="Bald Hills">bald hills</button>
           <button class="filter-btn" data-filter="peyto" title="Peyto Lake">peyto lake</button>
           <button class="filter-btn" data-filter="louise" title="Lake Louise">lake louise</button>
           <button class="filter-btn" data-filter="hallamore" title="Hallamore Lake">hallamore lake</button>
@@ -158,37 +124,37 @@
 
         <div class="image-gallery">
           
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-2">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-2">
             <a href="../images/rockies/bald-2-large.webp">
               <img
               src="../images/rockies/bald-2-small.webp"
-              title="Taken from the Bald Hills trail in Jasper National Park. Looking East towards Maligne Lake. The original image was a Photo Sphere."
+              title="Taken from the Bald Hills trail in Jasper National Park. Looking east towards Maligne Lake. The original image was a Photo Sphere."
               alt="A panoramic photograph taken from a hiking trail, with grass and pine trees in the foreground, and snow topped mountains in the background."
               loading="lazy">
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-3">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-3">
             <a href="../images/rockies/bald-3-large.webp">
               <img
               src="../images/rockies/bald-3-small.webp"
               alt="A photograph taken from a hiking trail, with grass and pine trees in the foreground, a distant lake can be seen, as well as snow-capped mountains in the background."
-              title="Taken from the Bald Hills trail in Jasper National Park. Looking Southeast towards Maligne Lake. Past the lake you can see Leah Peak and Samson Peak."
+              title="Taken from the Bald Hills trail in Jasper National Park. Looking southeast towards Maligne Lake. Past the lake you can see Leah Peak and Samson Peak."
               loading="lazy">
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-4">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-4">
             <a href="../images/rockies/bald-4-large.webp">
               <img
               src="../images/rockies/bald-4-small.webp"
               alt="A panoramic photograph taken from a hiking trail, with grass and pine trees in the foreground, a distant lake can be seen, as well as snow-capped mountains in the background."
-              title="Taken from the Bald Hills trail in Jasper National Park. Looking East towards Maligne Lake. The original image was a Photo Sphere."
+              title="Taken from the Bald Hills trail in Jasper National Park. Looking east towards Maligne Lake. The original image was a Photo Sphere."
               loading="lazy">
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-1">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-1">
             <a href="../images/rockies/bald-1-large.webp">
               <img
               src="../images/rockies/bald-1-small.webp"
@@ -198,37 +164,37 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-5">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-5">
             <a href="../images/rockies/bald-5-large.webp">
               <img
               src="../images/rockies/bald-5-small.webp"
               alt="A photograph of some distant snow-capped mountains, between two of the mountain peaks is a valley which carves out a circular shape."
-              title="Taken from the Bald Hills trailhead in Jasper National Park. Looking Southeast, you can see Maligne Lake in the foreground, and Leah Peak in the background (right), I believe the bowl-shaped formation is a glacial cirque."
+              title="Taken from the Bald Hills trailhead in Jasper National Park. Looking southeast, you can see Maligne Lake in the foreground, and Leah Peak in the background (right), I believe the bowl-shaped formation is a glacial cirque."
               loading="lazy">
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-6">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-6">
             <a href="../images/rockies/bald-6-large.webp">
               <img
               src="../images/rockies/bald-6-small.webp"
               alt="A panoramic photograph taken from a hiking trail, with grass and pine trees in the foreground, a distant lake can be seen, as well as snow-capped mountains in the background."
-              title="Taken from the top of the Bald Hills trail in Jasper National Park. Looking East towards Maligne Lake. The original image was a Photo Sphere."
+              title="Taken from the top of the Bald Hills trail in Jasper National Park. Looking east towards Maligne Lake. The original image was a Photo Sphere."
               loading="lazy">
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-7">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-7">
             <a href="../images/rockies/bald-7-large.webp">
               <img
               src="../images/rockies/bald-7-small.webp"
               alt="A photograph taken from a hiking trail, with grass and pine trees in the foreground, a distant lake can be seen, as well as snow-capped mountains in the background."
-              title="Taken from the top of the Bald Hills trail in Jasper National Park. Looking Southeast towards Maligne Lake."
+              title="Taken from the top of the Bald Hills trail in Jasper National Park. Looking southeast towards Maligne Lake."
               loading="lazy">
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-8">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-8">
             <a href="../images/rockies/bald-8-large.webp">
               <img
               src="../images/rockies/bald-8-small.webp"
@@ -238,12 +204,12 @@
             </a>
           </dialog-image>
 
-          <dialog-image data-category="bald hills" style="view-transition-name: bald-9">
+          <dialog-image data-category="bald-hills" style="view-transition-name: bald-9">
             <a href="../images/rockies/bald-9-large.webp">
               <img
               src="../images/rockies/bald-9-small.webp"
               alt="A panoramic photograph taken from a hiking trail, with grass and pine trees in the foreground, a distant lake can be seen, as well as snow-capped mountains in the background."
-              title="Taken from the top of the Bald Hills trail in Jasper National Park. Looking East towards Maligne Lake. The original image was a Photo Sphere."
+              title="Taken from the top of the Bald Hills trail in Jasper National Park. Looking east towards Maligne Lake. The original image was a Photo Sphere."
               loading="lazy">
             </a>
           </dialog-image>
@@ -273,7 +239,7 @@
               <img
               src="../images/rockies/louise-1-small.webp"
               alt="A photograph of a middle-aged male and female, with their arms linked, standing on the shore of a large deep-blue coloured lake. The couple are facing the camera, and the lake fills the background."
-              title="Image taken from the Northeast shore of Lake Louise (the spot with the most tourists). I should really use Google's Magic Eraser to get rid of that tourist's arm."
+              title="Image taken from the northeast shore of Lake Louise (the spot with the most tourists). I should really use Google's Magic Eraser to get rid of that tourist's arm."
               loading="lazy">
             </a>
           </dialog-image>
@@ -283,7 +249,7 @@
               <img
               src="../images/rockies/louise-2-small.webp"
               alt="A photograph taken from a hiking trail, the view is of the sun shining directly through a dense pine-tree woodland."
-              title="Another trail, another view of the sun coming through the trees. This time taken from the Fairview Lookout Trail on the Southeast bank of Lake Louise."
+              title="Another trail, another view of the sun coming through the trees. This time taken from the Fairview Lookout Trail on the southeast bank of Lake Louise."
               loading="lazy">
             </a>
           </dialog-image>
@@ -293,7 +259,7 @@
               <img
               src="../images/rockies/louise-3-small.webp"
               alt="A photograph taken from the bank of a large deep-blue coloured lake. There's a large grand-looking hotel on the far shore. The lake and hotel are surrounded by pine forest."
-              title="Image taken from the Fairview Lookout point on the Southeast bank of Lake Louise. In the background you can see the Fairmont Château. If you want you can pay a fortune and book a room there, although I have no idea why anyone would."
+              title="Image taken from the Fairview Lookout point on the southeast bank of Lake Louise. In the background you can see the Fairmont Château. If you want you can pay a fortune and book a room there, although I have no idea why anyone would."
               loading="lazy">
             </a>
           </dialog-image>
@@ -303,7 +269,7 @@
               <img
               src="../images/rockies/louise-4-small.webp"
               alt="A photograph taken from the bank of a large deep-blue coloured lake. There's a large grand-looking hotel on the far shore. The lake and hotel are surrounded by pine forest."
-              title="Image taken from the Fairview Lookout point on the Southeast bank of Lake Louise. In the background you can see the Fairmont Château. If you want you can pay a fortune and book a room there, although I have no idea why anyone would."
+              title="Image taken from the Fairview Lookout point on the southeast bank of Lake Louise. In the background you can see the Fairmont Château. If you want you can pay a fortune and book a room there, although I have no idea why anyone would."
               loading="lazy">
             </a>
           </dialog-image>
@@ -313,7 +279,7 @@
               <img
               src="../images/rockies/louise-5-small.webp"
               alt="A photograph taken from the bank of a large deep-blue coloured lake. The lake is surrounded by mountains."
-              title="Image taken from the North shore of Lake Louise. Don't be fooled, there were about 100 tourists standing right behind me when I took this photo. Most were taking selfies, which in my opinion was just ruining an otherwise great photo of a beautiful lake."
+              title="Image taken from the north shore of Lake Louise. Don't be fooled, there were about 100 tourists standing right behind me when I took this photo. Most were taking selfies, which in my opinion was just ruining an otherwise great photo of a beautiful lake."
               loading="lazy">
             </a>
           </dialog-image>
@@ -333,7 +299,7 @@
               <img
               src="../images/rockies/louise-8-small.webp"
               alt="A photograph taken from a high vantage point overlooking a lake far below. In the background is a large rocky mountain. "
-              title="Image taken from the top of the Beehive, looking South. In the foreground you can just about see Lake Louise, in the background you can see Fairview Mountain. This image is almost as good as those Unreal Engine 5 demos I keep watching on YouTube."
+              title="Image taken from the top of the Beehive, looking south. In the foreground you can just about see Lake Louise, in the background you can see Fairview Mountain. This image is almost as good as those Unreal Engine 5 demos I keep watching on YouTube."
               loading="lazy">
             </a>
           </dialog-image>
@@ -343,7 +309,7 @@
               <img
               src="../images/rockies/louise-9-small.webp"
               alt="A photograph taken from a high vantage point, looking down at the shore of a deep-blue coloured lake. The shore appears to be made of a very fine grey coloured silt, and the silt can be seen seeping into the lake."
-              title="Image taken from a trail heading down from the Beehive on the West bank of Lake Louise. You can see the rock flour seeping into the lake."
+              title="Image taken from a trail heading down from the Beehive on the west bank of Lake Louise. You can see the rock flour seeping into the lake."
               loading="lazy">
             </a>
           </dialog-image>
@@ -353,7 +319,7 @@
               <img
               src="../images/rockies/agnes-1-small.webp"
               alt="A wide-angle photograph taken from a low vantage point on the bank of a lake. The lake is surrounded by steep mountains on either side. The mountains are covered with pine trees."
-              title="Image of Lake Agnes taken on our way up the Beehive, via the Agnes Trail. This is from the Southwest end of the lake, looking Northeast."
+              title="Image of Lake Agnes taken on our way up the Beehive, via the Agnes Trail. This is from the southwest end of the lake, looking northeast."
               loading="lazy">
             </a>
           </dialog-image>
@@ -363,7 +329,7 @@
               <img
               src="../images/rockies/agnes-2-small.webp"
               alt="A wide-angle photograph taken from a low vantage point on the bank of a lake. The lake is surrounded by steep mountains on either side. The mountains are covered with pine trees."
-              title="Image of Lake Agnes taken on our way up the Beehive, via the Agnes Trail. This is from the Southwest end of the lake, looking Northeast"
+              title="Image of Lake Agnes taken on our way up the Beehive, via the Agnes Trail. This is from the southwest end of the lake, looking northeast."
               loading="lazy">
             </a>
           </dialog-image>
@@ -373,7 +339,7 @@
               <img
               src="../images/rockies/hallamore-1-small.webp"
               alt="A black-and-white photograph of a lake with a long narrow wooden jetty in the foreground. Either side of the jetty are tall reeds. The lake is covered with a bank of mist, either side of the lake are pine-tree covered mountains."
-              title="We spent a night at the Alpine Meadows Lakeside Resort (just South of Clearwater) which is on the bank of Hallamore Lake. We woke to find the lake covered in a blanket of mist, which made for a great photo opportunity."
+              title="We spent a night at the Alpine Meadows Lakeside Resort (just south of Clearwater) which is on the bank of Hallamore Lake. We woke to find the lake covered in a blanket of mist, which made for a great photo opportunity."
               loading="lazy">
             </a>
           </dialog-image>
@@ -383,7 +349,7 @@
               <img
               src="../images/rockies/hallamore-2-small.webp"
               alt="A photograph of a lake taken from a jetty. The corner of the jetty is visible in the foreground. A small rowboat is moored to the jetty. The lake is covered with a bank of light mist, either side of the lake are pine-tree covered mountains."
-              title="We spent a night at the Alpine Meadows Lakeside Resort (just South of Clearwater) which is on the bank of Hallamore Lake. We woke to find the lake covered in a blanket of mist, which made for a great photo opportunity."
+              title="We spent a night at the Alpine Meadows Lakeside Resort (just south of Clearwater) which is on the bank of Hallamore Lake. We woke to find the lake covered in a blanket of mist, which made for a great photo opportunity."
               loading="lazy">
             </a>
           </dialog-image>
@@ -455,7 +421,7 @@
       <section>
         <h2>Building the gallery</h2>
         <p>
-          I needed some help with this post. I'd already built filters for the Homepage and Changelog page, so I had that ready to go, but, I wasn't sure I had the CSS skills to get the gallery working the way I wanted, I managed to get close, but not close enough, so I followed an <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">online tutorial</a>.
+          I needed some help with this post. I'd already built filters for the Homepage and Changelog page, so I had that ready to go, but, I wasn't sure I had the CSS skills to get the gallery working the way I wanted. I managed to get close, but not close enough, so I followed an <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">online tutorial</a>.
         </p>
         <p>
           I wanted the image popups to be a Web Component, so I could easily reuse them in future by simply using a custom HTML tag e.g. <code>&lt;dialog-image&gt;</code>. I also wanted to use the <code>&lt;dialog&gt;</code> element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">now that it's supported across the main browsers</a>), which I'd never used before, to serve up the full-sized images. Luckily, a <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">tutorial appeared recently</a> which describes how to do exactly that.
@@ -503,21 +469,20 @@
       <section>
         <h2>Conclusions</h2>
          <p>
-          I am aware that this article is the modern-day equivalent of a slideshow of holiday snaps, but I don't care. I'm pleased with how gallery and popups look and am glad I went off on a Web Component creation tangent, as it's going to make my website much easy to maintain in future.
+          I am aware that this article is the modern-day equivalent of a slideshow of holiday snaps, but I don't care. I'm pleased with how the gallery and popups look and am glad I went off on a Web Component creation tangent, as it's going to make my website much easy to maintain in the future.
         </p>
         <p>
           The page requires just <mark>1.1MB</mark> of resources to load, although each thumbnail image selected will trigger the load of the full-sized image (<mark>≈150KB each</mark>). Even so, I'm pleased with the overall page performance.
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
-    <script src="../scripts/web-components.js"></script>
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script src="../scripts/web-components-v2.js"></script>
     <script src="../scripts/filters.js"></script>
   </body>
 </html>

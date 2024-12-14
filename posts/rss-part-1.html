@@ -7,7 +7,7 @@
     <meta name="description" content="Part 1 in a series of articles related to all things RSS. In this first article I describe the benefits of using RSS">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,48 +58,9 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
-
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: 'Roboto Condensed';
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Roboto Serif';
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Roboto Serif';
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Roboto Serif';
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format('woff2');
-      }
-
-      @font-face {
-        font-family: 'Roboto Serif';
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format('woff2');
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -108,38 +69,41 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post5">RSS Part 1:<br>What is RSS and what are ‘aggregators’?</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post5">
+        <h1>RSS Part 1:<br>What is RSS and what are ‘aggregators’?</h1>
           <p>
             An RSS aggregator can save you a huge amount of time by bringing new web content to you. This includes blog posts, news articles, and search engine results.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2021-03-07">7 Mar 2021</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <productivity-tag></productivity-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <!-- Intro - section -->
@@ -234,18 +198,13 @@
           Hopefully I’ve managed to explain what RSS is, and also to convey some of the benefits of using an RSS aggregator. My original plan for this article was to also describe in detail how I use an RSS aggregator (specifically Feedly) to keep on top of my various interests, but I didn’t want anyone reading this article to be overwhelmed and to lose sight of the one key takeaway i.e. <strong>RSS is a powerful tool for keeping on top of online content, and keeping your knowledge up to date</strong>.
         </p>
       </section>
-
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
-
-
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
 
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

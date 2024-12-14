@@ -34,10 +34,10 @@ function updateActiveButton(newButton) {                                     // 
 
 function filterContentByCategory(appliedFilter) {                           // Function to filter content by category
   content.forEach((contentItem) => {                                        // For each content item
-    const contentCategory = contentItem.dataset.category;                   // Get the category of the content item
-    if (appliedFilter === 'all' || appliedFilter === contentCategory) {     // If the applied filter is 'all' or matches the content category
+    const contentCategories = contentItem.dataset.category.split(' ');      // Get the categories of the content item and split them into an array
+    if (appliedFilter === 'all' || contentCategories.includes(appliedFilter)) { // If the applied filter is 'all' or is included in the content categories
       contentItem.hidden = false;                                           // Show the content item
-    } else {                                                                // If the applied filter doesn't match the content category
+    } else {                                                                // If the applied filter is not included in the content categories
       contentItem.hidden = true;                                            // Hide the content item
     }
   });

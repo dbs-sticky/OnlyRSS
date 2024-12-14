@@ -7,7 +7,7 @@
     <meta name="description" content="Automatically number figures with CSS counters. Use ::before and CSS counters to show the ‘figure #’ alongside all figures.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,48 +58,9 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
-
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -108,38 +69,41 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
 
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post13">Automatically numbering figures using CSS counters</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post13">
+        <h1>Automatically numbering figures using CSS counters</h1>
           <p>
             You can use CSS Counters and the ::before pseudo selector to automatically label and number figures within a webpage.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2022-05-30">30 May 2022</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <webdev-tag></webdev-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <!--introduction-->
@@ -262,11 +226,6 @@ figcaption::before {
         </p>
       </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
 
@@ -275,21 +234,46 @@ figcaption::before {
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="/posts/drop-caps-and-indents.html">
-        <h2>Drop caps and indents</h2>
-        <p>
-          A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/drop-caps-and-indents.html" data-category="webdev">
+        <card-container style="view-transition-name: post10">
+
+          <card-body>
+            <h1>Drop Caps and Indents</h1>
+            <p>A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-01-17">17 Jan 2022</time>
+            <article-duration> • 2 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
-      <a href="/posts/loading-images-only-when-they-are-needed.html">
-        <h2>Loading images only when (or if) they are needed</h2>
-        <p>
-          Using the Details & Summary elements with lazy loading to load and display images only when/if they’re requested.
-        </p>
+      <a href="/posts/loading-images-only-when-they-are-needed.html" data-category="webdev">
+        <card-container style="view-transition-name: post12">
+
+          <card-body>
+            <h1>Loading images only when (or if) they are needed</h1>
+            <p>Using the Details & Summary elements with lazy loading to load and display images only when/if they’re requested.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-04-04">4 Apr 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

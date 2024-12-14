@@ -7,7 +7,7 @@
     <meta name="description" content="Better inform your site visitors about your PWA before they commit to installation, with app screenshots.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,48 +58,9 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
-
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -108,39 +69,40 @@
       }
     </script>
         
-
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
 
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post14">Adding screenshots to your PWA install experience</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post14">
+        <h1>Adding screenshots to your PWA install experience</h1>
           <p>
             You can improve your visitors' PWA install experience on mobile by adding product screenshots to your manifest file.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" alt="The article author's avatar" height="50" width="50" loading="lazy">
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <webdev-tag></webdev-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
-          
-          <div class="byline-copy">
-            <time datetime="2022-06-04">04 Jun 2022</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
-          </div>
-
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
 
       <!--introduction-->
       <section>
@@ -205,9 +167,38 @@
           <li>Samsung Internet on mobile (≥15.0)</li>
         </ul>
         <p>
-          I've tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on Windows with Edge</strong>. I added additional screenshots to the manifest and set the <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">'platform' member</a> to both 'wide' and 'windows', and neither resulted in the screenshots (or description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will support them in the future); they can be seen under the <a href="/manifest.json">screenshots section of my manifest file</a>.
+          I've tested them on Android, where they work as advertised, <strong>but I had no luck getting them to work on Windows</strong>. I added additional screenshots to the manifest and set the <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/screenshots#browser_compatibility:~:text=The%20platform%20member%20can,specific%20application%20distribution%20platforms.">'platform' member</a> to both 'wide' and 'windows', and neither resulted in the screenshots (or description) being visible. I've left those entries in my manifest file (in the hope that Edge/Chrome will support them in the future); they can be seen under the <a href="/manifest.json">screenshots section of my manifest file</a>.
         </p>
       </section>
+
+            <!-- compatibility update- section -->
+            <section>
+              <h2 style="color: red">Compatibility Update - Dec 2023</h2>
+              <p>
+               I finally managed to fix the issue where the screenshots were not showing during the desktop install. I updated the Manifest file with the following:
+              </p>
+<pre>
+  <code class="language-json">"screenshots":[
+    {
+      "src": "pwaicons/screenshot2.webp",
+      "sizes": "485x1024",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "The About page shown on mobile."
+    },
+    {
+      "src": "pwaicons/screenshot3.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "The About page shown on desktop."
+    },
+  ],</code>
+  </pre>
+  <p>
+    The <code>"form_factor": "wide"</code> is required for so that the image thumbnails show during the desktop install.
+  </p>
+            </section>
 
       <!-- conclusions - section -->
       <section>
@@ -217,14 +208,13 @@
         </p>
       </section>
 
-     <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
      </article>
 
+     <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

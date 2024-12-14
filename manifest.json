@@ -15,7 +15,7 @@
       "icons": [
         {
           "src": "pwaicons/circuits_maskable_icon.png",
-          "sizes": "128x128"
+          "sizes": "96x96"
         }
       ]
     },
@@ -25,7 +25,7 @@
       "icons": [
         {
           "src": "pwaicons/circuits_maskable_icon.png",
-          "sizes": "128x128"
+          "sizes": "96x96"
         }
       ]
     },
@@ -65,53 +65,34 @@
       "src": "pwaicons/screenshot1.webp",
       "sizes": "485x1024",
       "type": "image/webp",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "label": "An article shown on mobile."
     },
     {
       "src": "pwaicons/screenshot2.webp",
       "sizes": "485x1024",
       "type": "image/webp",
-      "platform": "narrow",
+      "form_factor": "narrow",
       "label": "The About page shown on mobile."
     },
     {
       "src": "pwaicons/screenshot3.webp",
       "sizes": "1280x720",
       "type": "image/webp",
-      "platform": "wide",
+      "form_factor": "wide",
       "label": "The About page shown on desktop."
     },
     {
       "src": "pwaicons/screenshot4.webp",
       "sizes": "1280x720",
       "type": "image/webp",
-      "platform": "wide",
-      "label": "An article shown on desktop."
-    },
-    {
-      "src": "pwaicons/screenshot3.webp",
-      "sizes": "1280x720",
-      "type": "image/webp",
-      "platform": "windows",
-      "label": "The About page shown on desktop."
-    },
-    {
-      "src": "pwaicons/screenshot4.webp",
-      "sizes": "1280x720",
-      "type": "image/webp",
-      "platform": "windows",
+      "form_factor": "wide",
       "label": "An article shown on desktop."
     }
   ],
   "description": "Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You'll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.",
   "icons": [
-    {
-      "src": "pwaicons/icon-maskable.png",
-      "sizes": "1024x1024",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
+
 
     {
       "src": "pwaicons/windows11/SmallTile.scale-100.png",

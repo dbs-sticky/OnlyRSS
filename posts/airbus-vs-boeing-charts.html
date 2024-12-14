@@ -7,7 +7,7 @@
     <meta name="description" content="The results of my first attempts at creating data visualisations using just HTML & CSS. These charts depict the share of Boeing versus Airbus passenger aircraft for the world's 10 largest airlines.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,55 +58,12 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="stylesheet" type="text/css" href="/styles/airbus-vs-boeing-charts.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     
-    <!--load self-hosted fonts-->
+
     <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/OpenSans-Regular.woff2) format("woff2");
-      }
-
       :root {
         --american-a: 479;
         --american-b: 474;
@@ -148,38 +105,41 @@
       }
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-    <table-of-contents></table-of-contents>
+    <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post18">Airbus vs. Boeing: an experiment in charting</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post18">
+        <h1>Airbus vs. Boeing: an experiment in charting</h1>
           <p>
-          Here are the results of my first attempts to create data visualisations using just HTML & CSS. These charts depict the respective shares of Boeing and Airbus passenger aircraft at the world's 10 largest airlines.
+            The results of my first attempts at creating data visualisations using just HTML & CSS.
           </p>
-        </div>
 
-        <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2022-12-20">20 Dec 2022</time> · <span>3 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <dataviz-tag></dataviz-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
 
@@ -390,25 +350,33 @@
         </p>
       </section>
 
-      
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/top-25-pax-airlines.html">
-        <h2>Infographic: The world's largest 25 airlines</h2>
-        <p>
-          A 'small-multiples isotype infographic' that shows the world's top 25 passenger airlines, broken down by aircraft manufacturer.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/top-25-pax-airlines.html" data-category="dataviz">
+        <card-container style="view-transition-name: post19">
+
+          <card-body>
+            <h1>Infographic: The 25 largest passenger airlines</h1>
+            <p>This infographic depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-04">4 Feb 2023</time>
+            <article-duration> • 6 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
 
-    <script src="../scripts/web-components.js"></script>
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>

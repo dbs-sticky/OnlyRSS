@@ -7,7 +7,7 @@
     <meta name="description" content="In this article I demonstrate the effect of enabling 'text-wrap: balance' for titles and headings across onlyrss.org.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
-    <meta name="view-transition" content="same-origin">
+    
     
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
@@ -58,85 +58,49 @@
     <link rel="manifest" href="/manifest.json">
 
     <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main84.css">
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
     <link rel="stylesheet" type="text/css" href="/styles/prism.css">
-    
-    <!--load self-hosted fonts-->
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(/fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 400;
-        src: url(/fonts/RobotoSerif-Italic.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: normal;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-Medium.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "Roboto Serif";
-        font-style: italic;
-        font-weight: 500;
-        src: url(/fonts/RobotoSerif-MediumItalic.woff2) format("woff2");
-      }
-    </style>
 
     <!-- load scripts-->
     <script>if ("serviceWorker" in navigator) {navigator.serviceWorker.register("/service-worker.js");}
     </script>
         
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
 
   </head>
 
   <body>
     
-    <global-nav></global-nav>
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
 
-      <table-of-contents></table-of-contents>
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
 
     <article>
-      <header>
-        <h1 style="view-transition-name: post23">Using 'text-wrap: balance'</h1>
-        <div class="tldr">
+      <header style="view-transition-name: post23">
+        <h1>Using 'text-wrap: balance'</h1>
           <p>
-            In this article I demonstrate the effect of enabling 'text-wrap: balance' for titles and headings across onlyrss.org.
+            I demonstrate the effect of enabling <code>text-wrap: balance</code> for titles and headings across onlyrss.org.
           </p>
-        </div>
 
-          <!-- Flexrow -->
-        <div class="byline">
-
-          <div>
-            <img class="byline-avatar" src="/images/avatar.webp" Alt="The article author's avatar" height="50" width="50" loading="lazy">
-          </div>
-          
-          <div class="byline-copy">
-            <time datetime="2023-04-11">11 Apr 2023</time> · <span>4 min</span> · <a href="/pages/about.html" title="About me, and about this website">Mark Evans</a>
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <webdev-tag></webdev-tag>
+            </div>
+            <social-icons></social-icons>
           </div>
 
-          <social-icons></social-icons>
-
-        </div>  <!--class byline-->
       </header>
 
       <!--the problem-->
@@ -236,29 +200,34 @@
           So, should you enable CSS Balance on your website? Yeah, why not, it's literally 1 line of CSS. It's easy to enable it for your website (you'll need to try it in a canary build of Google Chrome) and then see if you like the effects. I'll be leaving it enabled on onlyrss.org, and will wait for browsers to add support.
         </p>
       </section>
-
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
-
     </article>
-
-
-
-
 
     <!-- related articles -->
     <aside>
-      <h1>related articles</h1>
-      <a href="../posts/auto-numbering-of-figures-with-CSS-counters.html">
-        <h2>Automatically numbering figures using CSS Counters</h2>
-        <p>
-          You can use CSS Counters and the ::before pseudo selector to automatically label and number figures within a webpage.
-        </p>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev">
+        <card-container style="view-transition-name: post13">
+
+          <card-body>
+            <h1>Automatically numbering figures using CSS counters</h1>
+            <p>You can use CSS Counters and the <code>::before</code> pseudo selector to automatically label and number figures within a webpage.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-05-30">30 May 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
       </a>
     </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
     <script src="../scripts/prism.js"></script>
-    <script src="../scripts/web-components.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
   </body>
 </html>
