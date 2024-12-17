@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Visualising my daily constitutionals</title>
+    <meta name="description" content="I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#ffffff">
+    
+    
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Visualising my daily constitutionals">
+    <meta property="og:url" content="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/top-25-pax-airlines-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.">
+    <meta property="article:published_time" content="2023-02-04">
+
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://onlyrss.org/posts/visualising-my-daily-constitutionals.html"
+        },
+        "headline": "Visualising my daily constitutionals",
+        "description": "I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.",
+        "image": "https://onlyrss.org/images/og/top-25-pax-airlines-og.png",  
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "2023-02-04"
+      }
+    </script>
+
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main97.css">
+    <link rel="stylesheet" type="text/css" href="/styles/visualising-my-daily-constitutionals.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+    
+    <!--load self-hosted fonts-->
+    <style>
+/* override page border style just for this article */
+      article, aside {
+        box-shadow: none !important;
+        border: 0 !important;
+      }
+
+      .grey-fill  {
+        color: darkslategray !important;
+        }
+
+        .footer-man-hide {
+          visibility: hidden;
+        }
+
+        @media (max-width: 500px) {
+          .fleet-header {
+            font-size: 1.7rem;
+          }
+
+          .footer-man-totals {
+            font-size: 1.3rem;
+            line-height: 1.5rem;
+          }
+        }
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+        
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
+    <script id="data-script" type="application/json">
+	
+      {
+          "3": "5.00",
+          "4": "3.99",
+          "5": "5.00",
+          "8": "5.00",
+          "10": "5.00",
+          "12": "5.36",
+          "15": "5.00",
+          "18": "4.11",
+          "19": "5.40",
+          "21": "4.37",
+          "22": "5.00",
+          "24": "5.00",
+          "26": "5.39",
+          "27": "5.00",
+          "28": "7.25",
+          "29": "5.07",
+          "30": "3.68",
+          "31": "2.77",
+          "33": "5.40",
+          "35": "5.00",
+          "36": "5.00",
+          "38": "5.00",
+          "43": "4.29",
+          "45": "4.59",
+          "51": "3.67",
+          "55": "5.01",
+          "57": "2.95",
+          "60": "5.42",
+          "61": "5.40",
+          "64": "5.00",
+          "66": "5.00",
+          "67": "4.99",
+          "78": "5.32",
+          "80": "5.42",
+          "81": "3.69",
+          "85": "5.01",
+          "91": "3.78",
+          "92": "2.72",
+          "93": "4.00",
+          "94": "4.99",
+          "95": "4.99",
+          "102": "5.00",
+          "104": "16.57",
+          "105": "5.43",
+          "110": "7.28",
+          "112": "5.99",
+          "113": "4.99",
+          "115": "2.65",
+          "119": "3.00",
+          "120": "5.00",
+          "123": "4.07",
+          "125": "21.09",
+          "126": "2.89",
+          "127": "4.38",
+          "128": "7.46",
+          "129": "2.91",
+          "131": "50.02",
+          "132": "5.01",
+          "135": "3.67",
+          "136": "5.44",
+          "138": "11.23",
+          "139": "3.54",
+          "140": "4.59",
+          "141": "6.10",
+          "144": "5.00",
+          "145": "5.00",
+          "148": "5.32",
+          "149": "4.99",
+          "150": "10.00",
+          "151": "5.01",
+          "152": "10.00",
+          "155": "4.99",
+          "156": "5.00",
+          "157": "5.01",
+          "158": "3.87",
+          "159": "10.00",
+          "161": "6.93",
+          "162": "5.06",
+          "164": "4.99",
+          "165": "4.00",
+          "166": "5.58",
+          "167": "9.34",
+          "168": "5.49",
+          "170": "4.97",
+          "171": "5.01",
+          "174": "7.20",
+          "176": "5.37",
+          "177": "5.08",
+          "178": "5.43",
+          "179": "5.07",
+          "183": "5.00",
+          "184": "2.41",
+          "186": "4.32",
+          "189": "5.04",
+          "191": "5.06",
+          "193": "3.77",
+          "195": "5.45",
+          "199": "5.43",
+          "200": "3.79",
+          "202": "8.82",
+          "205": "5.07",
+          "207": "4.16",
+          "208": "6.01",
+          "209": "3.67",
+          "211": "5.00",
+          "212": "3.40",
+          "213": "5.45",
+          "216": "10.11",
+          "217": "4.39",
+          "218": "5.77",
+          "219": "5.43",
+          "221": "2.74",
+          "225": "4.00",
+          "227": "8.00",
+          "228": "3.94",
+          "230": "12.67",
+          "232": "5.49",
+          "233": "3.00",
+          "234": "5.76",
+          "238": "10.99",
+          "240": "18.64",
+          "242": "13.59",
+          "243": "5.05",
+          "245": "5.46",
+          "246": "5.15",
+          "247": "5.42",
+          "248": "8.13",
+          "252": "5.05",
+          "253": "5.66",
+          "256": "3.96",
+          "257": "5.46",
+          "259": "5.00",
+          "260": "5.61",
+          "262": "25.61",
+          "267": "5.03",
+          "268": "5.52",
+          "274": "4.12",
+          "276": "5.07",
+          "277": "3.50",
+          "279": "4.20",
+          "281": "5.04",
+          "282": "3.12",
+          "283": "5.01",
+          "284": "3.74",
+          "285": "5.52",
+          "289": "4.99",
+          "290": "5.43",
+          "291": "5.01",
+          "292": "5.59",
+          "293": "5.61",
+          "295": "4.14",
+          "296": "4.46",
+          "297": "5.00",
+          "298": "3.86",
+          "299": "8.78",
+          "301": "5.14",
+          "302": "5.00",
+          "303": "2.31",
+          "304": "5.02",
+          "305": "4.00",
+          "306": "4.37",
+          "307": "5.02",
+          "309": "5.40",
+          "310": "3.35",
+          "311": "5.01",
+          "312": "4.17",
+          "313": "5.00",
+          "314": "5.80",
+          "316": "5.02",
+          "317": "5.42",
+          "318": "5.42",
+          "319": "4.09",
+          "322": "5.04",
+          "323": "5.00",
+          "325": "5.39",
+          "326": "3.92",
+          "327": "6.31",
+          "330": "5.02",
+          "331": "3.73",
+          "337": "5.47",
+          "338": "7.39",
+          "339": "4.15",
+          "340": "4.01",
+          "341": "5.48",
+          "343": "9.99",
+          "344": "5.00",
+          "345": "5.06",
+          "348": "4.35",
+          "349": "6.79"
+      }
+  
+    </script>
+
+  </head>
+
+  <body>
+    
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
+
+    <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
+
+    <article>
+      <header style="view-transition-name: post19">
+        <h1>Visualising my daily constitutionals</h1>
+          <p>
+            I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.
+          </p>
+
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <dataviz-tag></dataviz-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
+
+      </header>
+
+
+      <section>
+        <h2>Background</h2>
+          <p>
+          <p>
+      </section>
+
+      <section>
+        <h2>The result</h2>
+      </section>
+    </article>
+
+    <div class="paper">
+      <display-container>  
+        <summary-row>
+            <p id="total-distance"></p>
+            <p id="average-distance"></p>
+            <p id="average-week"></p>
+            <p id="longest"></p>
+        </summary-row>
+        <timeline-chart>
+            <date-row>
+                <chart-months>Jan</chart-months>
+                <chart-months>Feb</chart-months>
+                <chart-months>Mar</chart-months>
+                <chart-months>Apr</chart-months>
+                <chart-months>May</chart-months>
+                <chart-months>Jun</chart-months>
+                <chart-months>Jul</chart-months>
+                <chart-months>Aug</chart-months>
+                <chart-months>Sep</chart-months>
+                <chart-months>Oct</chart-months>
+                <chart-months>Nov</chart-months>
+                <chart-months>Dec</chart-months>
+            </date-row>
+            <other-rows>
+                <week-day-names>
+                    <day-name>Mon</day-name>
+                    <day-name>Tue</day-name>
+                    <day-name>Wed</day-name>
+                    <day-name>Thu</day-name>
+                    <day-name>Fri</day-name>
+                    <day-name>Sat</day-name>
+                    <day-name>Sun</day-name>
+                </week-day-names>
+                <grid-container>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                    <grid-cell></grid-cell>
+                </grid-container>
+            </other-rows>
+        </timeline-chart>
+      </display-container>
+    </div>
+
+    <article>
+
+      <section>
+        <h2>How it's built</h2>
+        <h3>The isotype charts</h3>
+        <p>
+          There's nothing clever about the construction of the isotypes. Each chart is just a single &lt;div&gt; that contains between 1 and 3 <code>&lt;span&gt;</code> elements (one for each manufacturer). Each <code>&lt;span&gt;</code> then contains a series of aircraft glyphs e.g. <span class="ac-glyph">🛧🛧🛧🛧🛧</span>.
+        </p>
+        <h3>The aircraft glyph</h3>
+        <p>
+          Each tiny aircraft image is the <a href="https://www.compart.com/en/unicode/U+1F6E7" title="view this glyph">Up-Pointing Airplane Unicode glyph (&amp;#x1F6E7;)</a>, and there are 10,016 tiny aircraft in the chart! My first attempt at this chart used inline SVGs for the aircraft, it worked, but it wasn't very performant. It then hit me that I could simply use an aircraft Unicode glyph i.e. a font, and this solution worked on my desktop, but not on Android, where the aircraft glyph was replaced with squares.
+          <p>
+          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" title="view this font on Google Fonts"> Noto Sans Symbols 2</a>. My only issue with this font was the size, i.e. it's >300&#8239;KB (it contained a lot of symbols). I then learnt about <a href="https://fontforge.org/en-US/" title="visit the Font Forge home page">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (3&#8239;KB, yeah!). 
+        </p>
+        <h3>Populating the isotypes</h3>
+        <p>
+          As mentioned above, 10,016 aircraft glyphs are used in the chart, and although I could have entered them into the HTML manually, I actually updated the dataset quite a few times while making the chart, and updating the number of aircraft for each airline (and manufacturer) would have been laborious. In order to make things easier, I decided to let JavaScript (and my friend, <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, help me out).
+        </p>
+        <p>
+          The JavaScript function is a simple loop that adds a string of aircraft glyphs into a <code>&lt;span&gt;</code> element based on a number I enter i.e. the number of aircraft from each manufacturer for each airline.
+        </p>
+        <p>
+          The JavaScript function:
+        </p>
+<pre>
+<code class="language-js">function <b>drawAircraft(numAircraft)</b> {
+  for (var i = 1; i <= numAircraft; i++) {     
+    document.write('<span class="ac-glyph">🛧</span>');
+  }
+}</code>
+</pre>
+
+        <p>
+          The HTML source:
+        </p>
+<pre>
+<code class="language-html">&lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;      
+  &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
+&lt;/span&gt;</code>
+</pre>
+
+        <p>
+          The HTML output (as viewed in the browser's Developer Console):
+        </p>
+<pre>
+<code class="language-html">&lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;
+  &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
+  <span class="ac-glyph">🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧</span>      
+&lt;/span&gt;</code>
+</pre>
+
+        <p>
+          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, again) to build the 'Split by manufacturer' option, so I decided to leave this JavaScript in place.
+        </p>
+        <h3>Enabling the “Split by manufacturer” option</h3>
+        <p>
+          I placed a "grey-fill" style in the HTML head (which sets the aircraft font colour to grey) and applied it to all the aircraft spans. When the 'Split by manufacturer' option is ticked, this style is removed, and the manufacturer colours (defined in the CSS) are then visible. 
+        </p>
+        <h3>The airline tailfins</h3>
+        <p>
+          Each airline tailfin is an SVG. Most were created from scratch in Figma (some were modified from existing SVGs kindly sent to me by another nerd friend i.e. <a href="https://github.com/pwrignall" title="view Paul's GitHub page">Paul</a>.</p>
+        <p>
+          There are no bitmap/raster images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet). A screenshot of the zoomed in isotype chart for Alaska Airlines is shown below.
+        </p>
+        <img src="../images/iostype-alaska-closeup.png" width="746" height="583" loading="lazy" alt="A closeup image of the isotype chart for Shenzhen Airlines. At the top-center of the image is the Shenzhen Airlines logo, followed by their name and position in the top-25 i.e. 24th. Below the airline name is a grid of 198 small aircraft glyphs. 116 of them are coloured for Airbus, and 82 are coloured for Boeing.">
+      </section>
+
+      <section>
+        <h2>What I learnt</h2>
+        <h3>How to remove unwanted glyphs from a font file</h3>
+        <p>
+          This is going to come in handy. The largest resources loaded for the majority of my pages are the font files, and I've always wanted to reduce the size of the files by removing glyphs I know I'm never going to use. I didn't know of an easy way to do this until I came across this <a href="https://www.grantojanen.com/videos/pg/optimize-fonts.html" title="view Grant Ojanen's tutorial">guide</a> (and then downloaded the free and open source software '<a href="https://fontforge.org/en-US/" title="view the Font Forge home page">Font Forge</a>'). 
+        </p>
+        <h3>Line breaks in HTML do matter (but only sometimes)</h3>
+        <p>
+          I was under the misguided assumption that line breaks in HTML had no effect on what was rendered in the browser. For the isotype charts where an airline had aircraft from more than a single manufacturer, this required multiple <code>&lt;span&gt;</code> elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the <code>&lt;span&gt;</code> elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the <code>&lt;span&gt;</code> elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/"> JSFiddle</a>.
+        </p>
+        <h3>You can define your inline SVG's path in your CSS… but not in Safari!</h3>
+        <p>
+          In the first version of this infographic, I used an inline SVG for the aircraft glyph, but that meant repeating the SVG 10,016 times in the HTML. I was therefore very pleased to discover that the SVG's path could be pulled out of the inline SVG and instead <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/path" title="view the 'path()' definition page at MDN docs"> defined in the CSS</a>. I was then very unpleased to discover that this was <a href="https://caniuse.com/mdn-svg_elements_path_d_path" title="view the browser support for 'SVG Element Path'"> not supported in Safari!</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>The data source</h2>
+        <p>
+          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
+        </p>
+      </section>
+    </article>
+
+    <!-- related articles -->
+    <aside>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post18">
+
+          <card-body>
+            <h1>Airbus vs Boeing: An experiment in charting</h1>
+            <p>The results of my first attempts at creating data visualisations using just HTML & CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-20">20 Dec 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
+        <card-container style="view-transition-name: post20">
+
+          <card-body>
+            <h1>Air India: Putting their recent order into context</h1>
+            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-21">21 Feb 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+    </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script>
+      // find all SVG elements with class=aircraft, and remove (or add) class=grey-fill
+        var checkbox = document.querySelector("#checkboxId");
+
+        checkbox.addEventListener('change', function() {
+          if (this.checked) {
+            document.querySelectorAll('.aircraft').forEach(e => {
+              e.classList.remove("grey-fill");
+            });
+          }
+          else {
+            document.querySelectorAll('.aircraft').forEach(e => {
+              e.classList.add("grey-fill");
+            });
+          }
+
+          if (this.checked) {
+            document.querySelectorAll('.footer-man-totals').forEach(e => {
+              e.classList.remove("footer-man-hide");
+            });
+          }
+          else {
+            document.querySelectorAll('.footer-man-totals').forEach(e => {
+              e.classList.add("footer-man-hide");
+            });
+          }
+
+        });
+    </script>
+    <script src="../scripts/visualising-my-daily-constitutionals.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
+  </body>
+</html>

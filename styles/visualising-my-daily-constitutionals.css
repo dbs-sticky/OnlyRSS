@@ -1,0 +1,79 @@
+html {
+  --cell-size: 17px; /* Cell size for the grid */
+}
+
+display-container {
+  display: block;
+  background-color: black; /* Optional: background for visibility */
+  border: 1px solid #3D444D; /* Optional: border for the grid container */
+  border-radius: 10px;
+  color: green;
+  margin: auto;
+  padding: 3rem;
+  inline-size: fit-content; /* Fit the width of grid items */
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+}
+
+summary-row {
+  display: block;
+  text-shadow: 0 0 10px green;
+  padding-bottom: 30px;
+}
+
+summary-row p {
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+}
+
+grid-container {
+  display: grid;
+  grid-template-columns: repeat(52, var(--cell-size)); /* 52 columns, each 10px wide */
+  grid-template-rows: repeat(7, var(--cell-size));    /* 7 rows, each 10px tall */
+  grid-auto-flow:column;
+  gap: calc(var(--cell-size)*0.4); /* No gap between grid items (optional, adjust as needed) */
+  background-color: black; /* Optional: background for visibility */
+  inline-size: max-content; /* Fit the width of grid items */
+  block-size: max-content;  /* Fit the height of grid items */
+}
+
+grid-cell {
+  width: var(--cell-size);
+  aspect-ratio: 1 / 1;
+  border-radius: 20%;
+  background-color: #1b1b1b;
+}
+
+day-name {
+  display: block;
+}
+
+other-rows {
+  display: flex;
+  gap: var(--cell-size);
+
+}
+
+timeline-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cell-size);
+}
+
+week-day-names {
+  display: flex;
+  flex-direction: column;
+  line-height: calc(var(--cell-size)*1.4);
+}
+
+date-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-self: flex-end;
+  width: calc(var(--cell-size)*52*1.42);
+}
+
+chart-months {
+  width: calc(var(--cell-size)*6);
+}
+
