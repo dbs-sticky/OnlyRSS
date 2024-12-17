@@ -28,6 +28,7 @@ tooltip.style.padding = '5px';
 tooltip.style.borderRadius = '5px';
 tooltip.style.pointerEvents = 'none';
 tooltip.style.display = 'none';
+tooltip.style.fontFamily = 'Arial';
 document.body.appendChild(tooltip);
 
 // Apply colors to grid cells and add hover event
