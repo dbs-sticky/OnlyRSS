@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Visualising my daily constitutionals</title>
-    <meta name="description" content="I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.">
+    <meta name="description" content="Building a calendar heatmap as a way to visualise my 2024 daily constitutionals i.e. walks.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#ffffff">
     
@@ -17,7 +17,7 @@
     <meta property="og:image" content="https://onlyrss.org/images/og/top-25-pax-airlines-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:description" content="I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.">
+    <meta property="og:description" content="Building a calendar heatmap as a way to visualise my 2024 daily constitutionals i.e. walks.">
     <meta property="article:published_time" content="2023-02-04">
 
     <!-- schema.org tags -->
@@ -30,7 +30,7 @@
           "@id": "https://onlyrss.org/posts/visualising-my-daily-constitutionals.html"
         },
         "headline": "Visualising my daily constitutionals",
-        "description": "I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.",
+        "description": "Building a calendar heatmap as a way to visualise my 2024 daily constitutionals i.e. walks.",
         "image": "https://onlyrss.org/images/og/top-25-pax-airlines-og.png",  
         "author": {
           "@type": "Person",
@@ -320,7 +320,7 @@
       <header style="view-transition-name: post19">
         <h1>Visualising my daily constitutionals</h1>
           <p>
-            I attempt to use different charts and tools to visualise my daily constitutionals (walks) from 2024.
+            Building a calendar heatmap as a way to visualise my 2024 daily constitutionals i.e. walks.
           </p>
 
           <div class="byline">
@@ -343,18 +343,18 @@
             Calendar heatmaps allow you to glean: relative values between individual days, busiest days e.g. Mondays, weekends etc. (by looking at the rows), busiest weeks (by looking at the columns), and any trends throughout the year.
           </p>
 
-          <h3>From scratch with HTML/CSS/JS</h3>
+          <h3>Using HTML/CSS/JS</h3>
             <p>
-              My version below is based on the <a href="https://github.com/dbs-sticky" title="View the commit graph on my GihHub profile">GitHub commit calendar heatmap</a>. And like the GitHub version, you can hover over each square to see the relevant data for that day, in my case, the distance walked.
+              My version below is based on the <a href="https://github.com/dbs-sticky" title="View the commit graph on my GihHub profile">GitHub commit calendar heatmap</a>. And like the GitHub version, you can hover over each square to see the relevant data for that day, in my case, the date and distance walked.
             </p>
             <p>
-              My initial version used a linear colour scale, the problem I found was that the majority of my walks were ~5&#8239;km, but I had a single walk that was 50&#8239;km. The result was one very bright cell, with the rest all looking the same shade of dull green.
+              My initial version used a linear colour scale (specifically the brightness, referred to as “lightness” in the <a href="https://en.wikipedia.org/wiki/Oklab_color_space" title="Read about oklch on wikipedia">oklch colour space</a>), the problem I found was that the majority of my walks were ~5&#8239;km, but I had a single walk that was 50&#8239;km. The result was one very bright cell, with the rest all looking the same shade of dull green.
             </p>
             <p>
-              I then decided to use a logarithmic scale for colour brightness, and this worked much better. The logarithmic scale allowed the short (5–10&#8239;km) walks to remain visible, and the differences between them to be discernible.
+              I then decided to use a logarithmic scale for brightness, and this worked much better. The logarithmic scale allowed the short (5–10&#8239;km) walks to remain visible, and the differences between them to be discernible.
             </p>
             <p>
-              The issue now was that the long walks were too similar to each other in brightness e.g. my 50&#8239;km walk looked almost the same brightness as my 20&#8239;km walk. So, I decided to bring in a second parameter i.e. a drop-shadow. The length of the drop-shadow  scales (linearly) with the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display.
+              The issue now was that the long walks were too similar to each other in brightness e.g. my 50&#8239;km walk looked almost the same brightness as my 20&#8239;km walk. So, I decided to bring in a second parameter i.e. a drop-shadow. The spread of the drop-shadow  increases (linearly) with the distance walked, specifically, each 10&#8239;km walked adds 1 pixel of shadow spread. The result is an “overspill” effect, reminiscent of an old CRT display.
             </p>
             <p>
               As an aside, I noticed that the overspill was appearing behind adjacent cells, so I set the z-index of each cell to be proportional to the distance walked.

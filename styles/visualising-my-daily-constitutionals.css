@@ -10,9 +10,10 @@ display-container {
   color: green;
   margin: auto;
   padding: 3rem;
-  inline-size: fit-content; /* Fit the width of grid items */
+  max-inline-size: fit-content; /* Fit the width of grid items */
   font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
+  overflow-x: auto;
 }
 
 grid-container {
