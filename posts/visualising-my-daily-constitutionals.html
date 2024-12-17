@@ -301,7 +301,9 @@
           "344": "5.00",
           "345": "5.06",
           "348": "4.35",
-          "349": "6.79"
+          "349": "5.76",
+          "351": "5.04",
+          "352": "5.06"
       }
   
     </script>
@@ -815,35 +817,7 @@
       <feedback-contact></feedback-contact>
     </footer>
 
-    <script>
-      // find all SVG elements with class=aircraft, and remove (or add) class=grey-fill
-        var checkbox = document.querySelector("#checkboxId");
 
-        checkbox.addEventListener('change', function() {
-          if (this.checked) {
-            document.querySelectorAll('.aircraft').forEach(e => {
-              e.classList.remove("grey-fill");
-            });
-          }
-          else {
-            document.querySelectorAll('.aircraft').forEach(e => {
-              e.classList.add("grey-fill");
-            });
-          }
-
-          if (this.checked) {
-            document.querySelectorAll('.footer-man-totals').forEach(e => {
-              e.classList.remove("footer-man-hide");
-            });
-          }
-          else {
-            document.querySelectorAll('.footer-man-totals').forEach(e => {
-              e.classList.add("footer-man-hide");
-            });
-          }
-
-        });
-    </script>
     <script src="../scripts/visualising-my-daily-constitutionals.js"></script>
     <script src="../scripts/web-components-v2.js"></script>
   </body>

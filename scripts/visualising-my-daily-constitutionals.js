@@ -33,31 +33,48 @@ document.body.appendChild(tooltip);
 
 // Apply colors to grid cells and add hover event
 gridCells.forEach((cell, index) => {
-    const day = index + 1;
-    if (data[day]) {
-        const distance = parseFloat(data[day]);
-        const cellColor = getLogColor(distance);
-        cell.style.backgroundColor = cellColor;
-        cell.style.boxShadow = `0px 0px 8px ${distance/10}px ${cellColor}`;
-        cell.style.zIndex = Math.round(distance);
+  const day = index + 1;
+  const date = new Date(2024, 0, day);
+  const options = { day: 'numeric', month: 'long' };
+  const formattedDate = date.toLocaleDateString('en-GB', options);
 
+  if (data[day]) {
+    const distance = parseFloat(data[day]);
+    const cellColor = getLogColor(distance);
+    cell.style.backgroundColor = cellColor;
+    cell.style.boxShadow = `0px 0px 8px ${distance/10}px ${cellColor}`;
+    cell.style.zIndex = Math.round(distance);
 
-        // Add hover event
-        cell.addEventListener('mouseenter', (e) => {
-            tooltip.textContent = `Distance: ${distance} km`;
-            tooltip.style.display = 'block';
-            tooltip.style.zIndex = 101;
-            // tooltip.style.left = `${e.pageX + 10}px`;
-            // tooltip.style.top = `${e.pageY + 10}px`;
-        });
+    // Add hover event
+    cell.addEventListener('mouseenter', (e) => {
+      tooltip.innerHTML = `Date: ${formattedDate}<br>Distance: ${distance} km`;
+      tooltip.style.display = 'block';
+      tooltip.style.zIndex = 101;
+    });
 
-        cell.addEventListener('mouseleave', () => {
-            tooltip.style.display = 'none';
-        });
+    cell.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
 
-        cell.addEventListener('mousemove', (e) => {
-            tooltip.style.left = `${e.pageX + 10}px`;
-            tooltip.style.top = `${e.pageY + 10}px`;
-        });
-    }
+    cell.addEventListener('mousemove', (e) => {
+      tooltip.style.left = `${e.pageX + 10}px`;
+      tooltip.style.top = `${e.pageY + 10}px`;
+    });
+  } else {
+    // Add hover event for no data
+    cell.addEventListener('mouseenter', (e) => {
+      tooltip.innerHTML = `Date: ${formattedDate}<br>No daily constitutional 😞`;
+      tooltip.style.display = 'block';
+      tooltip.style.zIndex = 101;
+    });
+
+    cell.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+
+    cell.addEventListener('mousemove', (e) => {
+      tooltip.style.left = `${e.pageX + 10}px`;
+      tooltip.style.top = `${e.pageY + 10}px`;
+    });
+  }
 });
