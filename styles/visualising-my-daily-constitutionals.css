@@ -1,5 +1,9 @@
 html {
-  --cell-size: 17px; /* Cell size for the grid */
+  --cell-size: 15px; /* Cell size for the grid */
+}
+
+table-of-contents {
+  display: none;
 }
 
 display-container {
@@ -9,7 +13,7 @@ display-container {
   border-radius: 10px;
   color: green;
   margin: auto;
-  padding: 3rem;
+  padding: 2rem;
   max-inline-size: fit-content; /* Fit the width of grid items */
   font-family: 'Courier New', Courier, monospace;
   font-weight: 900;
@@ -41,13 +45,11 @@ day-name {
 other-rows {
   display: flex;
   gap: var(--cell-size);
-
 }
 
 timeline-chart {
   display: flex;
   flex-direction: column;
-  gap: var(--cell-size);
 }
 
 week-day-names {
@@ -59,11 +61,13 @@ week-day-names {
 date-row {
   display: flex;
   justify-content: space-evenly;
-  align-self: flex-end;
   width: calc(var(--cell-size)*52*1.42);
+  margin-inline-start: 40px;
 }
 
 chart-months {
   width: calc(var(--cell-size)*6);
 }
+
+
 
