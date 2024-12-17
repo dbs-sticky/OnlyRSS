@@ -333,24 +333,36 @@
 
 
       <section>
-        <h2>Background</h2>
+        <h2>Calendar heatmaps</h2>
           <p>
+            It's hard to think of another chart type that can show daily data over a 12-month period in such a small space as well as a calendar heatmap.
+          </p>
           <p>
-      </section>
+            Calendar heatmaps allow you to glean; relative values between individual days, busiest days e.g. Mondays, weekends etc. (by looking at the rows), busiest weeks (by looking at the columns), and any trends throughout the year.
+          </p>
 
-      <section>
-        <h2>The result</h2>
+          <h3>From scratch with HTML/CSS/JS</h3>
+            <p>
+              My version below is based on the <a href="https://github.com/dbs-sticky" title="View the commit graph on my GihHub profile">GitHub commit calendar heatmap</a>. And like the GitHub version, you can hover over each square to see the relevant data for that day, in my case, the distance walked.
+            </p>
+            <p>
+              My initial version used a linear colour scale, the problem I found was that the majority of my walks were ~5&#8239;km, but I had a single walk that was 50&#8239;km. The result was one very bright cell, with the rest all looking the same shade of dull green.
+            </p>
+            <p>
+              I then decided to use a logarithmic scale for colour brightness, and this worked much better. The logarithmic scale allowed the short (5–10&#8239;km) walks to remain visible, and the differences between them to be discernible.
+            </p>
+            <p>
+              The issue now was that the long walks were too similar to each other in brightness e.g. my 50&#8239;km walk looked almost the same brightness as my 20&#8239;km walk. So, I decided to bring in a second parameter i.e. a drop-shadow. The length of the drop-shadow  scales (linearly) with the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display.
+            </p>
+            <p>
+              As an aside, I noticed that the overspill was appearing behind adjacent cells, so I set the z-index of each cell to be proportional to the distance walked.
+            </p>
+
       </section>
     </article>
 
     <div class="paper">
       <display-container>  
-        <summary-row>
-            <p id="total-distance"></p>
-            <p id="average-distance"></p>
-            <p id="average-week"></p>
-            <p id="longest"></p>
-        </summary-row>
         <timeline-chart>
             <date-row>
                 <chart-months>Jan</chart-months>
@@ -757,87 +769,9 @@
         <p>
           There's nothing clever about the construction of the isotypes. Each chart is just a single &lt;div&gt; that contains between 1 and 3 <code>&lt;span&gt;</code> elements (one for each manufacturer). Each <code>&lt;span&gt;</code> then contains a series of aircraft glyphs e.g. <span class="ac-glyph">🛧🛧🛧🛧🛧</span>.
         </p>
-        <h3>The aircraft glyph</h3>
-        <p>
-          Each tiny aircraft image is the <a href="https://www.compart.com/en/unicode/U+1F6E7" title="view this glyph">Up-Pointing Airplane Unicode glyph (&amp;#x1F6E7;)</a>, and there are 10,016 tiny aircraft in the chart! My first attempt at this chart used inline SVGs for the aircraft, it worked, but it wasn't very performant. It then hit me that I could simply use an aircraft Unicode glyph i.e. a font, and this solution worked on my desktop, but not on Android, where the aircraft glyph was replaced with squares.
-          <p>
-          It turned out my default font did not support the aircraft glyph, so I had to find one that did. I eventually settled on <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Symbols+2" title="view this font on Google Fonts"> Noto Sans Symbols 2</a>. My only issue with this font was the size, i.e. it's >300&#8239;KB (it contained a lot of symbols). I then learnt about <a href="https://fontforge.org/en-US/" title="visit the Font Forge home page">Font Forge</a>, and I used this to remove all glyphs except for the aircraft, essentially creating a new single-glyph font file (3&#8239;KB, yeah!). 
-        </p>
-        <h3>Populating the isotypes</h3>
-        <p>
-          As mentioned above, 10,016 aircraft glyphs are used in the chart, and although I could have entered them into the HTML manually, I actually updated the dataset quite a few times while making the chart, and updating the number of aircraft for each airline (and manufacturer) would have been laborious. In order to make things easier, I decided to let JavaScript (and my friend, <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, help me out).
-        </p>
-        <p>
-          The JavaScript function is a simple loop that adds a string of aircraft glyphs into a <code>&lt;span&gt;</code> element based on a number I enter i.e. the number of aircraft from each manufacturer for each airline.
-        </p>
-        <p>
-          The JavaScript function:
-        </p>
-<pre>
-<code class="language-js">function <b>drawAircraft(numAircraft)</b> {
-  for (var i = 1; i <= numAircraft; i++) {     
-    document.write('<span class="ac-glyph">🛧</span>');
-  }
-}</code>
-</pre>
 
-        <p>
-          The HTML source:
-        </p>
-<pre>
-<code class="language-html">&lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;      
-  &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
-&lt;/span&gt;</code>
-</pre>
-
-        <p>
-          The HTML output (as viewed in the browser's Developer Console):
-        </p>
-<pre>
-<code class="language-html">&lt;span class=&quot;airbus aircraft grey-fill&quot;&gt;
-  &lt;script&gt;<b>drawAircraft(40)</b>;&lt;/script&gt;
-  <span class="ac-glyph">🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧🛧</span>      
-&lt;/span&gt;</code>
-</pre>
-
-        <p>
-          I could have used the function above to create the isotype charts, then viewed the HTML output, copied the resulting aircraft spans from the HTML output and into the source, and then removed the JavaScript (essentially pre-computing them all). And if this was the only use of JavaScript in the page then that's what I would have done, but I had to resort JavaScript (and my friend <a href="https://github.com/mendhak" title="view Mendhak's GitHub page">Mendhak</a>, again) to build the 'Split by manufacturer' option, so I decided to leave this JavaScript in place.
-        </p>
-        <h3>Enabling the “Split by manufacturer” option</h3>
-        <p>
-          I placed a "grey-fill" style in the HTML head (which sets the aircraft font colour to grey) and applied it to all the aircraft spans. When the 'Split by manufacturer' option is ticked, this style is removed, and the manufacturer colours (defined in the CSS) are then visible. 
-        </p>
-        <h3>The airline tailfins</h3>
-        <p>
-          Each airline tailfin is an SVG. Most were created from scratch in Figma (some were modified from existing SVGs kindly sent to me by another nerd friend i.e. <a href="https://github.com/pwrignall" title="view Paul's GitHub page">Paul</a>.</p>
-        <p>
-          There are no bitmap/raster images used in the chart (even the aircraft font is a vector at its core). If you use your browser's zoom feature, you can zoom in on the chart and you'll notice no loss in image quality (you'll also notice that each little aircraft is a wide-body four-engine jet). A screenshot of the zoomed in isotype chart for Alaska Airlines is shown below.
-        </p>
-        <img src="../images/iostype-alaska-closeup.png" width="746" height="583" loading="lazy" alt="A closeup image of the isotype chart for Shenzhen Airlines. At the top-center of the image is the Shenzhen Airlines logo, followed by their name and position in the top-25 i.e. 24th. Below the airline name is a grid of 198 small aircraft glyphs. 116 of them are coloured for Airbus, and 82 are coloured for Boeing.">
       </section>
 
-      <section>
-        <h2>What I learnt</h2>
-        <h3>How to remove unwanted glyphs from a font file</h3>
-        <p>
-          This is going to come in handy. The largest resources loaded for the majority of my pages are the font files, and I've always wanted to reduce the size of the files by removing glyphs I know I'm never going to use. I didn't know of an easy way to do this until I came across this <a href="https://www.grantojanen.com/videos/pg/optimize-fonts.html" title="view Grant Ojanen's tutorial">guide</a> (and then downloaded the free and open source software '<a href="https://fontforge.org/en-US/" title="view the Font Forge home page">Font Forge</a>'). 
-        </p>
-        <h3>Line breaks in HTML do matter (but only sometimes)</h3>
-        <p>
-          I was under the misguided assumption that line breaks in HTML had no effect on what was rendered in the browser. For the isotype charts where an airline had aircraft from more than a single manufacturer, this required multiple <code>&lt;span&gt;</code> elements, one for each manufacturer. In my code these were each separated by a line break. Unknown to me this placed a small space between the <code>&lt;span&gt;</code> elements' rendered output, which meant that the aircraft glyphs in the isotype charts were not forming a regular grid. The solution was to simply place the <code>&lt;span&gt;</code> elements on a single line. You can see this on this <a href="http://jsfiddle.net/jgvLn0c8/"> JSFiddle</a>.
-        </p>
-        <h3>You can define your inline SVG's path in your CSS… but not in Safari!</h3>
-        <p>
-          In the first version of this infographic, I used an inline SVG for the aircraft glyph, but that meant repeating the SVG 10,016 times in the HTML. I was therefore very pleased to discover that the SVG's path could be pulled out of the inline SVG and instead <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/path" title="view the 'path()' definition page at MDN docs"> defined in the CSS</a>. I was then very unpleased to discover that this was <a href="https://caniuse.com/mdn-svg_elements_path_d_path" title="view the browser support for 'SVG Element Path'"> not supported in Safari!</a>
-        </p>
-      </section>
-
-      <section>
-        <h2>The data source</h2>
-        <p>
-          All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" title="view the marketing page for Fleets Analyzer">Ascend Fleets Analyzer</a>. Airline fleets include only stored (AKA parked) or in-service passenger aircraft. Data was captured on 26 January 2023.
-        </p>
-      </section>
     </article>
 
     <!-- related articles -->

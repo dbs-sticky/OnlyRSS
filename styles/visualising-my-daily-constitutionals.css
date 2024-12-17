@@ -15,17 +15,6 @@ display-container {
   font-weight: 900;
 }
 
-summary-row {
-  display: block;
-  text-shadow: 0 0 10px green;
-  padding-bottom: 30px;
-}
-
-summary-row p {
-  margin-block-start: 0.3em;
-  margin-block-end: 0.3em;
-}
-
 grid-container {
   display: grid;
   grid-template-columns: repeat(52, var(--cell-size)); /* 52 columns, each 10px wide */

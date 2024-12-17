@@ -9,19 +9,9 @@ const gridCells = document.querySelectorAll('grid-cell');
 const distances = Object.values(data).map(Number);
 const maxDistance = Math.max(...distances);
 
-// calculate statistics
-const totalDistance = Math.round(distances.reduce((a, b) => a + b, 0));
-const averageDistance = Math.round(totalDistance / distances.length);
-const longestWalk = Math.round(Math.max(...distances));
-const averageWeek = Math.round(totalDistance / 52);
-document.getElementById('total-distance').textContent = `Total distance: ${totalDistance} km`;
-document.getElementById('average-distance').textContent = `Average distance: ${averageDistance} km`;
-document.getElementById('longest').textContent = `Longest walk: ${longestWalk} km`;
-document.getElementById('average-week').textContent = `Average week: ${averageWeek} km`;
-
 
 // Function to get color based on distance walked using oklch color space
-function getColor(distance) {
+function getLogColor(distance) {
     const lightness = Math.round((100 * (Math.log(distance + 1) / Math.log(maxDistance + 1))));
     const chroma = 0.37;
     const hue = 142;
@@ -45,7 +35,7 @@ gridCells.forEach((cell, index) => {
     const day = index + 1;
     if (data[day]) {
         const distance = parseFloat(data[day]);
-        const cellColor = getColor(distance);
+        const cellColor = getLogColor(distance);
         cell.style.backgroundColor = cellColor;
         cell.style.boxShadow = `0px 0px 8px ${distance/10}px ${cellColor}`;
         cell.style.zIndex = Math.round(distance);
