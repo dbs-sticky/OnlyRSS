@@ -21,6 +21,70 @@
     <!-- Blog articles -->
 
 
+                            <!-- calendar heatmap -->
+    <item>
+      <guid isPermaLink="false">article30</guid>
+      <title>Visualising my daily constitutionals (walks)</title>
+      <link>https://onlyrss.org/posts/visualising-my-daily-constitutionals.html</link>
+      <pubDate>Tue, 17 Dec 2024 17:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+
+    <article>
+        <h1>Visualising my daily constitutionals (walks)</h1>
+          <p>
+            The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.
+          </p>
+      </header>
+
+      <section>
+        <h2>Calendar heatmaps</h2>
+          <p>
+            It's hard to think of another chart type that can show daily data over a 12-month period in such a small space as well as a calendar heatmap.
+          </p>
+          <p>
+            Calendar heatmaps allow you to glean: relative values between individual days, busiest days e.g. Mondays, weekends etc. (by looking at the rows), busiest weeks (by looking at the columns), and any trends throughout the year.
+          </p>
+
+        <h2>Building from scratch</h2>
+          <p>
+            My version below is based on the <a href="https://github.com/dbs-sticky" title="View the commit graph on my GitHub profile">GitHub commit calendar heatmap</a>. And like the GitHub version, you can hover over each cell to see the relevant data for that day, in my case, the date and distance walked.
+          </p>
+          <p>
+            My initial version used a linear colour scale (specifically the brightness, referred to as “lightness” in the <a href="https://en.wikipedia.org/wiki/Oklab_color_space" title="Read about oklch on wikipedia">oklch colour space</a>), the problem I found was that the majority of my walks were ~5&#8239;km, but I had a single walk that was 50&#8239;km. The result was one very bright cell, with the rest all pretty much the same dull shade of green.
+          </p>
+          <p>
+            I then decided to use a logarithmic scale for brightness, and this worked much better. The logarithmic scale allowed the short (5–10&#8239;km) walks to remain visible, and the differences between them to be discernible.
+          </p>
+          <p>
+            The issue now was that the long walks were too similar to each other in brightness e.g. my 50&#8239;km walk looked almost the same brightness as my 20&#8239;km walk. So, I decided to bring in a second parameter i.e. a drop-shadow. The spread of the drop-shadow  increases (linearly) with the distance walked, specifically, each 10&#8239;km walked adds 1 pixel of spread to the shadow. The result is an “overspill” effect, reminiscent of an old CRT display.
+          </p>
+          <p>
+            As an aside, I noticed that the overspill was appearing behind adjacent cells, so I set the z-index of each cell to be equal to the distance walked, so brighter cells are always on a layer above less bright cells.
+          </p>
+
+      </section>
+
+      <p>NOTE: As you're reading this in an RSS reader, you'll need to visit the <a href="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">source article</a> to view the heatmap as an interactive element, below it's included as a simple image.
+      </p>
+
+      <img source="https://onlyrss.org/images/calendar-heatmap-rss.webp" alt="A calendar heatmap showing the distance walked each day in 2024. The heatmap uses a logarithmic scale for brightness, and a drop-shadow effect to show the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display." width="1221" height="244" loading="lazy">
+
+      <section>
+        <h2>Conclusions</h2>
+          <p>
+            I really like the way this one has turned out—especially the overspill effect. But, I'm far less happy with the code itself. I was about 90% of the way through building it—struggling to align the day and month labels—when I realised that I should have simply used a HTML table, rather than CSS Grid & Flex.
+          </p>
+
+      </section>
+
+    </article>
+
+
+                ]]>
+      </description>
+    </item>
+
                         <!-- the daily constitutional -->
     <item>
       <guid isPermaLink="false">article29</guid>
