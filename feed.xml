@@ -68,7 +68,7 @@
       <p>NOTE: As you're reading this in an RSS reader, you'll need to visit the <a href="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">source article</a> to view the heatmap as an interactive element, below it's included as a simple image.
       </p>
 
-      <img source="https://onlyrss.org/images/calendar-heatmap-rss.webp" alt="A calendar heatmap showing the distance walked each day in 2024. The heatmap uses a logarithmic scale for brightness, and a drop-shadow effect to show the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display." width="1221" height="244" loading="lazy">
+      <img src="https://onlyrss.org/images/calendar-heatmap-rss.webp" alt="A calendar heatmap showing the distance walked each day in 2024. The heatmap uses a logarithmic scale for brightness, and a drop-shadow effect to show the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display." width="1221" height="244" loading="lazy">
 
       <section>
         <h2>Conclusions</h2>
