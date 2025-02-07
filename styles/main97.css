@@ -106,7 +106,7 @@ body {
 }
 
 /*  ======================
-    SET MEDIA QUERIES
+    MARK: SET MEDIA QUERIES
     ====================== */
 
 /* set size for 320px - 768px ≈16px/100% */
@@ -195,7 +195,7 @@ body {
 }
 
 /*  ======================
-    PAGE DESIGN
+    MARK: PAGE DESIGN
     ====================== */
 
 /* the article and aside containers are the same, with the exception of the top padding */
@@ -241,7 +241,7 @@ aside {
 }
 
 /*  ======================
-    TYPOGRAPHY IMAGES and TLDR
+    MARK: TYPOGRAPHY IMAGES and TLDR
     ====================== */
 
 /* Paragraphs */
@@ -582,7 +582,7 @@ button:active {
   }
 
 /*  ======================
-    RELATED ARTICLES
+    MARK: RELATED ARTICLES
     ====================== */
 
 aside {
@@ -882,6 +882,28 @@ a.icons:active {
   width: 33ch;
 }
 
+
+.two-col-readers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  > :nth-child(2n) {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+  }
+
+  @media (width < 700px) {
+    display: block;
+    > :nth-child(2n) {
+      display:none;
+    }
+  }
+}
+
+
+
 /*  ======================
     homepage
     ====================== */
@@ -966,7 +988,7 @@ prodman-tag::after {
 }
 
 /*  ======================
-  exercise circuits randomiser in "app"
+  MARK: exercise circuits randomiser in "app"
   ====================== */
 
 
@@ -1130,7 +1152,7 @@ practice-tag:before {
 
 
 /*  ======================
-  Image gallery (requires <dialog-image> Web Component)
+  MARK: Image gallery (requires <dialog-image> Web Component)
   ====================== */
 
   .image-gallery {
