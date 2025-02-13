@@ -19,9 +19,184 @@
     </image> 
 
     <!-- Blog articles -->
+    <!-- Learning Log 2024 -->
+    <item>
+      <guid isPermaLink="false">article31</guid>
+      <title>Learning Log: 2024</title>
+      <link>https://onlyrss.org/posts/learning-log-2024.html</link>
+      <pubDate>Tue, 24 Dec 2024 13:30:00 GMT</pubDate>
+      <description>
+  <![CDATA[
+          <article>
+            <header>
+              <h1>Learning log: 2024</h1>
+              <p>
+                My 2024 learning goals and resources. In this post I outline my learning goals for 2024 and list the resources I used.
+              </p>
+            </header>
 
+            <section>
+              <h2>2024 goals</h2>
+              <p>
+                During January 2024 I finally completed the Mimo JavaScript course. This course took many months, and was my primary source of training for JavaScript. It also represented the end of chapter 1 of my learning journey (i.e. HTML, CSS, and JavaScript ). I'll continue to use learning resources for these technologies, but it's now time to focus on chapter 2 i.e. SQL and Python. Again, I'll be using Mimo as the primary learning resource for these.
+              </p>
+            </section>
 
-                            <!-- calendar heatmap -->
+      <section>
+        <h2>Resources</h2>
+
+        <!--MARK: HTML, CSS and JS-->
+        <section>
+          <h3>HTML, CSS, and JavaScript</h3>
+          <table class="learning-log">
+            <thead>
+              <tr>
+                <th>Format</th><th>Resource</th><th>Progress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://mimo.org/web/197/section/0" target="_blank">Mimo: JavaScript</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://web.dev/learn/pwa" target="_blank">web.dev: Learn PWA</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://web.dev/learn/performance" target="_blank">web.dev: Learn Performance</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><video-tag></video-tag></td>
+                <td><a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcIDI0QtJvW6vKonTxn6azCsD" target="_blank">Google: Designing in the browser.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://www.theodinproject.com/" target="_blank">The Odin Project</a></td>
+                <td><progress-meter><progress-percent style="--progress: 75"></progress-percent></progress-meter></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!--MARK: SQL & Python-->
+        <section>
+          <h3>SQL and Python</h3>
+          <table class="learning-log">
+            <thead>
+              <tr>
+                <th>Format</th><th>Resource</th><th>Progress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://mimo.org/web/145/section/0" target="_blank">Mimo: SQL</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://mimo.org/web/125/section/0" target="_blank">Mimo: Python</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!--MARK: Typography-->
+        <section>
+          <h3>Typography</h3>
+          <table class="learning-log">
+            <thead>
+              <tr>
+                <th>Format</th><th>Resource</th><th>Progress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://legible-typography.com/en/" target="_blank">Legibility</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://www.goodreads.com/book/show/182761576-thinking-with-type" target="_blank">Thinking with Type: A Critical Guide for Designers, Writers, Editors, and Students.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://www.goodreads.com/book/show/182761416-universal-principles-of-typography" target="_blank">Universal Principles of Typography: 100 Key Concepts for Choosing and Using Type.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!--MARK: Misc-->
+        <section>
+          <h3>Miscellaneous</h3>
+          <table class="learning-log">
+            <thead>
+              <tr>
+                <th>Format</th><th>Resource</th><th>Progress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://www.cloudskillsboost.google/journeys/118" target="_blank">Google: Generative AI learning path</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://www.productledcertified.com/ai-for-product-management" target="_blank">Mind the Product: AI for Product Management</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://atomicdesign.bradfrost.com/table-of-contents/" target="_blank">Atomic Design.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://www.goodreads.com/book/show/26535513-storytelling-with-data" target="_blank">Storytelling with Data: A Data Visualization Guide for Business Professionals.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://www.goodreads.com/book/show/525862.The_Little_Know_It_All" target="_blank">The Little Know-It-All: Common Sense for Designers.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><course-tag></course-tag></td>
+                <td><a href="https://www.nan.fyi/svg-paths" target="_blank">Understanding SVG paths</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><video-tag></video-tag></td>
+                <td><a href="https://www.youtube.com/playlist?list=PL4-IK0AVhVjP0EeV513_b30lhGRTfMbYd" target="_blank">Kevin Powell's SVG beginners guide</a></td>
+                <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+              </tr>
+              <tr>
+                <td><book-tag></book-tag></td>
+                <td><a href="https://www.goodreads.com/book/show/199796760-visualize-this" target="_blank">Visualize This: The FlowingData Guide to Design, Visualization, and Statistics.</a></td>
+                <td><progress-meter><progress-percent style="--progress: 10"></progress-percent></progress-meter></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      </article>
+     ]]>
+      </description>
+    </item>
+
+    <!-- calendar heatmap -->
     <item>
       <guid isPermaLink="false">article30</guid>
       <title>Visualising my daily constitutionals (walks)</title>
@@ -30,62 +205,62 @@
       <description>
         <![CDATA[
 
-    <article>
-        <h1>Visualising my daily constitutionals (walks)</h1>
-          <p>
-            The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.
-          </p>
-      </header>
+        <article>
+            <h1>Visualising my daily constitutionals (walks)</h1>
+              <p>
+                The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.
+              </p>
+          </header>
 
-      <section>
-        <h2>Calendar heatmaps</h2>
-          <p>
-            It's hard to think of another chart type that can show daily data over a 12-month period in such a small space as well as a calendar heatmap.
-          </p>
-          <p>
-            Calendar heatmaps allow you to glean: relative values between individual days, busiest days e.g. Mondays, weekends etc. (by looking at the rows), busiest weeks (by looking at the columns), and any trends throughout the year.
-          </p>
+          <section>
+            <h2>Calendar heatmaps</h2>
+              <p>
+                It's hard to think of another chart type that can show daily data over a 12-month period in such a small space as well as a calendar heatmap.
+              </p>
+              <p>
+                Calendar heatmaps allow you to glean: relative values between individual days, busiest days e.g. Mondays, weekends etc. (by looking at the rows), busiest weeks (by looking at the columns), and any trends throughout the year.
+              </p>
 
-        <h2>Building from scratch</h2>
-          <p>
-            My version below is based on the <a href="https://github.com/dbs-sticky" title="View the commit graph on my GitHub profile">GitHub commit calendar heatmap</a>. And like the GitHub version, you can hover over each cell to see the relevant data for that day, in my case, the date and distance walked.
-          </p>
-          <p>
-            My initial version used a linear colour scale (specifically the brightness, referred to as “lightness” in the <a href="https://en.wikipedia.org/wiki/Oklab_color_space" title="Read about oklch on wikipedia">oklch colour space</a>), the problem I found was that the majority of my walks were ~5&#8239;km, but I had a single walk that was 50&#8239;km. The result was one very bright cell, with the rest all pretty much the same dull shade of green.
-          </p>
-          <p>
-            I then decided to use a logarithmic scale for brightness, and this worked much better. The logarithmic scale allowed the short (5–10&#8239;km) walks to remain visible, and the differences between them to be discernible.
-          </p>
-          <p>
-            The issue now was that the long walks were too similar to each other in brightness e.g. my 50&#8239;km walk looked almost the same brightness as my 20&#8239;km walk. So, I decided to bring in a second parameter i.e. a drop-shadow. The spread of the drop-shadow  increases (linearly) with the distance walked, specifically, each 10&#8239;km walked adds 1 pixel of spread to the shadow. The result is an “overspill” effect, reminiscent of an old CRT display.
-          </p>
-          <p>
-            As an aside, I noticed that the overspill was appearing behind adjacent cells, so I set the z-index of each cell to be equal to the distance walked, so brighter cells are always on a layer above less bright cells.
-          </p>
+            <h2>Building from scratch</h2>
+              <p>
+                My version below is based on the <a href="https://github.com/dbs-sticky" title="View the commit graph on my GitHub profile">GitHub commit calendar heatmap</a>. And like the GitHub version, you can hover over each cell to see the relevant data for that day, in my case, the date and distance walked.
+              </p>
+              <p>
+                My initial version used a linear colour scale (specifically the brightness, referred to as “lightness” in the <a href="https://en.wikipedia.org/wiki/Oklab_color_space" title="Read about oklch on wikipedia">oklch colour space</a>), the problem I found was that the majority of my walks were ~5&#8239;km, but I had a single walk that was 50&#8239;km. The result was one very bright cell, with the rest all pretty much the same dull shade of green.
+              </p>
+              <p>
+                I then decided to use a logarithmic scale for brightness, and this worked much better. The logarithmic scale allowed the short (5–10&#8239;km) walks to remain visible, and the differences between them to be discernible.
+              </p>
+              <p>
+                The issue now was that the long walks were too similar to each other in brightness e.g. my 50&#8239;km walk looked almost the same brightness as my 20&#8239;km walk. So, I decided to bring in a second parameter i.e. a drop-shadow. The spread of the drop-shadow  increases (linearly) with the distance walked, specifically, each 10&#8239;km walked adds 1 pixel of spread to the shadow. The result is an “overspill” effect, reminiscent of an old CRT display.
+              </p>
+              <p>
+                As an aside, I noticed that the overspill was appearing behind adjacent cells, so I set the z-index of each cell to be equal to the distance walked, so brighter cells are always on a layer above less bright cells.
+              </p>
 
-      </section>
+          </section>
 
-      <p>NOTE: As you're reading this in an RSS reader, you'll need to visit the <a href="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">source article</a> to view the heatmap as an interactive element, below it's included as a simple image.
-      </p>
-
-      <img src="https://onlyrss.org/images/calendar-heatmap-rss.webp" alt="A calendar heatmap showing the distance walked each day in 2024. The heatmap uses a logarithmic scale for brightness, and a drop-shadow effect to show the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display." width="1221" height="244" loading="lazy">
-
-      <section>
-        <h2>Conclusions</h2>
-          <p>
-            I really like the way this one has turned out—especially the overspill effect. But, I'm far less happy with the code itself. I was about 90% of the way through building it—struggling to align the day and month labels—when I realised that I should have simply used a HTML table, rather than CSS Grid & Flex.
+          <p>NOTE: As you're reading this in an RSS reader, you'll need to visit the <a href="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">source article</a> to view the heatmap as an interactive element, below it's included as a simple image.
           </p>
 
-      </section>
+          <img src="https://onlyrss.org/images/calendar-heatmap-rss.webp" alt="A calendar heatmap showing the distance walked each day in 2024. The heatmap uses a logarithmic scale for brightness, and a drop-shadow effect to show the distance walked. The result is an “overspill” effect, reminiscent of an old CRT display." width="1221" height="244" loading="lazy">
 
-    </article>
+          <section>
+            <h2>Conclusions</h2>
+              <p>
+                I really like the way this one has turned out—especially the overspill effect. But, I'm far less happy with the code itself. I was about 90% of the way through building it—struggling to align the day and month labels—when I realised that I should have simply used a HTML table, rather than CSS Grid & Flex.
+              </p>
+
+          </section>
+
+        </article>
 
 
                 ]]>
       </description>
     </item>
 
-                        <!-- the daily constitutional -->
+    <!-- the daily constitutional -->
     <item>
       <guid isPermaLink="false">article29</guid>
       <title>Bring back the daily constitutional</title>
@@ -94,67 +269,64 @@
       <description>
         <![CDATA[
 
-<article>
-      <header style="view-transition-name: post27">
-        <h1>Bring back the daily constitutional</h1>
-          <p>
-            After discovering the concept of the daily constitutional recently while reading Sherlock Holmes, I think it's a phrase (and practice) that deserves a comeback.
-          </p>
-      </header>
+        <article>
+              <header style="view-transition-name: post27">
+                <h1>Bring back the daily constitutional</h1>
+                  <p>
+                    After discovering the concept of the daily constitutional recently while reading Sherlock Holmes, I think it's a phrase (and practice) that deserves a comeback.
+                  </p>
+              </header>
 
-      <section>
-        <h2>Introduction</h2>
-        <p>I've been working my way through Arthur Conan Doyle's Sherlock Holmes short stories. It's a great way to boost my end-of-year Goodreads stats (I'm counting each short story as a “book”—this is <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart's Law</a> in action), and I've always enjoyed the TV adaptations. Recently, in addition to the books, I've been listening to the <a href="https://www.goalhangerpodcasts.com/sherlock">Sherlock & Co. podcast</a>, which I highly recommend.</p>
-        <p>The first Holmes story was published in 1887, and it turns out that language has evolved over the last 137 years (and maybe not always for the better). The standout example for me was the use of the word “ejaculate,” which is used 23 times throughout the books. Today it refers to a very specific type of “outburst,” but back then it referred to any form of outburst, and in Doyle's books, it specifically refers to verbal outbursts (which is a good thing, otherwise I'd expect the whole series of books to be banned in American schools). Honestly, I'd love to try and bring back this use of the word, maybe by using it in the office? (alas, I have a mortgage to pay, so I think I'll give this a miss).</p>
-        <p>Although I managed to determine the meaning of “ejaculate” from the context, the word “constitutional” (example below) was something I had to look up (one thing I love about eReaders is how easy they make it to look up the meaning and etymology of a word).</p>
-        <blockquote>
-            <q>It just happened, however, that this hour coincided with Blessington's constitutional, which seems to show that they were not very well acquainted with his daily routine.</q>
-            <br>
-            — Dr Watson in <i><a href="https://sherlock-holm.es/stories/plain-text/cano.txt#:~:text=It%20just%20happened, his%20daily%20routine" target="_blank" title="View this quote in context of the short story">The Resident Patient</a></i>
-        </blockquote>
-      </section>
+              <section>
+                <h2>Introduction</h2>
+                <p>I've been working my way through Arthur Conan Doyle's Sherlock Holmes short stories. It's a great way to boost my end-of-year Goodreads stats (I'm counting each short story as a “book”—this is <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart's Law</a> in action), and I've always enjoyed the TV adaptations. Recently, in addition to the books, I've been listening to the <a href="https://www.goalhangerpodcasts.com/sherlock">Sherlock & Co. podcast</a>, which I highly recommend.</p>
+                <p>The first Holmes story was published in 1887, and it turns out that language has evolved over the last 137 years (and maybe not always for the better). The standout example for me was the use of the word “ejaculate,” which is used 23 times throughout the books. Today it refers to a very specific type of “outburst,” but back then it referred to any form of outburst, and in Doyle's books, it specifically refers to verbal outbursts (which is a good thing, otherwise I'd expect the whole series of books to be banned in American schools). Honestly, I'd love to try and bring back this use of the word, maybe by using it in the office? (alas, I have a mortgage to pay, so I think I'll give this a miss).</p>
+                <p>Although I managed to determine the meaning of “ejaculate” from the context, the word “constitutional” (example below) was something I had to look up (one thing I love about eReaders is how easy they make it to look up the meaning and etymology of a word).</p>
+                <blockquote>
+                    <q>It just happened, however, that this hour coincided with Blessington's constitutional, which seems to show that they were not very well acquainted with his daily routine.</q>
+                    <br>
+                    — Dr Watson in <i><a href="https://sherlock-holm.es/stories/plain-text/cano.txt#:~:text=It%20just%20happened, his%20daily%20routine" target="_blank" title="View this quote in context of the short story">The Resident Patient</a></i>
+                </blockquote>
+              </section>
 
-      <section>
-        <h2>The daily constitutional</h2>
-        <p>Here's the definition of constitutional from the Oxford dictionary:</p>
-        <p><strong>noun:</strong> constitutional; a walk taken regularly to maintain or restore good health. e.g. “she went out for a constitutional.”</p>
-        <p>The dictionary describes the above usage as dated, which leaves the modern-day usage as the two adjectives below:</p>
-        <ol>
-            <li>relating to an established set of principles governing a state.</li>
-            <li>relating to someone's nature or physical condition.</li>
-        </ol>
-        <p>It's the second adjective above that relates to its use as a noun. i.e., taking a daily constitutional is good for one's constitution, aka health.</p>
-        <p>This is a phrase (and practice) that I think deserves to make a comeback.</p>
-      </section>
+              <section>
+                <h2>The daily constitutional</h2>
+                <p>Here's the definition of constitutional from the Oxford dictionary:</p>
+                <p><strong>noun:</strong> constitutional; a walk taken regularly to maintain or restore good health. e.g. “she went out for a constitutional.”</p>
+                <p>The dictionary describes the above usage as dated, which leaves the modern-day usage as the two adjectives below:</p>
+                <ol>
+                    <li>relating to an established set of principles governing a state.</li>
+                    <li>relating to someone's nature or physical condition.</li>
+                </ol>
+                <p>It's the second adjective above that relates to its use as a noun. i.e., taking a daily constitutional is good for one's constitution, aka health.</p>
+                <p>This is a phrase (and practice) that I think deserves to make a comeback.</p>
+              </section>
 
-      <section>
-        <h2>Wouldn't joining a gym be better?</h2>
-        <p>As I write this post it's December, typically a month of overindulgence (alcohol, mince pies, rom-coms, etc.). The good news is that in December we can all eat and drink as much as we like, because in January we're all going to “work it off” by going to the gym or taking up running. The problem with going to the gym or going for a run is that those things are really hard, and also (at least for beginners), they're not fun.
-        </p>
-        <p>I suspect that the vast majority of people who take up running or join a gym in January have quit before February kicks in. And then it's back to sitting at a desk all day, ready for the cycle to begin again the following December.</p>
-        <p> But there is another option, a boring but much easier, cheaper, and more enjoyable option, and that's to just go for a walk each day i.e., to take a “daily constitutional.”</p>
-        <p>You're not going to get a six-pack by taking a one-hour walk each day (you're not going to get one by <em>paying</em> a gym membership either), but you will get to take a break from work/sitting, get some fresh air, explore your local surroundings, burn some calories (~300kcal), and maybe learn something from listening to a podcast.</p>
-      </section>
+              <section>
+                <h2>Wouldn't joining a gym be better?</h2>
+                <p>As I write this post it's December, typically a month of overindulgence (alcohol, mince pies, rom-coms, etc.). The good news is that in December we can all eat and drink as much as we like, because in January we're all going to “work it off” by going to the gym or taking up running. The problem with going to the gym or going for a run is that those things are really hard, and also (at least for beginners), they're not fun.
+                </p>
+                <p>I suspect that the vast majority of people who take up running or join a gym in January have quit before February kicks in. And then it's back to sitting at a desk all day, ready for the cycle to begin again the following December.</p>
+                <p> But there is another option, a boring but much easier, cheaper, and more enjoyable option, and that's to just go for a walk each day i.e., to take a “daily constitutional.”</p>
+                <p>You're not going to get a six-pack by taking a one-hour walk each day (you're not going to get one by <em>paying</em> a gym membership either), but you will get to take a break from work/sitting, get some fresh air, explore your local surroundings, burn some calories (~300kcal), and maybe learn something from listening to a podcast.</p>
+              </section>
 
-      <section>
-        <h2>How's my campaign going?</h2>
-        <p>Not well to be honest.</p>
-        <figure>
-          <img src="https://onlyrss.org/images/whatsapp-constitutional.webp" alt="Screenshot of a WhatsApp message between my wife and me, where I state I'm about to go for my daily constitutional, and she asks if I mean a walk or something else" width="1080" height="652" loading="lazy">
-          <figcaption>A recent—and real—exchange with the wife.</figcaption>
-        </figure>
-      </section>
+              <section>
+                <h2>How's my campaign going?</h2>
+                <p>Not well to be honest.</p>
+                <figure>
+                  <img src="https://onlyrss.org/images/whatsapp-constitutional.webp" alt="Screenshot of a WhatsApp message between my wife and me, where I state I'm about to go for my daily constitutional, and she asks if I mean a walk or something else" width="1080" height="652" loading="lazy">
+                  <figcaption>A recent—and real—exchange with the wife.</figcaption>
+                </figure>
+              </section>
 
-    </article>
+            </article>
 
-                ]]>
+        ]]>
       </description>
     </item>
 
-
-
-
-                    <!-- Canada photos -->
+    <!-- Learning Log 2023 -->
     <item>
       <guid isPermaLink="false">article28</guid>
       <title>Learning Log: 2023</title>
@@ -162,153 +334,151 @@
       <pubDate>Fri, 29 Dec 2023 13:30:00 GMT</pubDate>
       <description>
         <![CDATA[
-    <article>
-    
-      <header>
-        <h1 style="view-transition-name: post26">Learning log: 2023</h1>
-        <div class="tldr">
-          <p>
-            My focus this year was meant to be SQL & Python, but it ended up being mostly JavaScript, and then of course, like everyone else, I got a bit distracted by Generative AI. On this page you'll find links to all the resources I used.
-          </p>
-        </div>
-      </header>
+          <article>
+          
+            <header>
+              <h1 style="view-transition-name: post26">Learning log: 2023</h1>
+              <div class="tldr">
+                <p>
+                  My focus this year was meant to be SQL & Python, but it ended up being mostly JavaScript, and then of course, like everyone else, I got a bit distracted by Generative AI. On this page you'll find links to all the resources I used.
+                </p>
+              </div>
+            </header>
 
-      <!--Goals-->
-      <section>
-        <h2>2023 goals</h2>
-        <p>
-          I'm disappointed with my progress this year. It was meant to be the year I finally learnt SQL, but about halfway through the year I changed my working hours (I now officially start at 7am), and the hour I used to spend each morning learning new skills was no longer available to me.
-        </p>
-        <p>
-          Generative AI also affected my learning this year, in two ways:
-        </p>
-          <ol>
-            <li>I needed to learn about how GenAI works, and had to brush-up on my "prompt-engineering", specifically for some work projects (I'm sure I'm not alone in this!).</li>
-            <li>My subscription to GitHub Copilot (in VSCode) changed the way I was learning to code. Essentially providing me with a "learning assistant".</li>
-          </ol>
-        <p>
-          I'm almost at the end of my JavaScript course (on Mimo), so once this is complete, I'll then switch to SQL and Python. My aim is to have a good understanding of HTML, CSS, JavaScript, SQL, and Python by the end of 2024.
-        </p>
-      </section>
+            <!--Goals-->
+            <section>
+              <h2>2023 goals</h2>
+              <p>
+                I'm disappointed with my progress this year. It was meant to be the year I finally learnt SQL, but about halfway through the year I changed my working hours (I now officially start at 7am), and the hour I used to spend each morning learning new skills was no longer available to me.
+              </p>
+              <p>
+                Generative AI also affected my learning this year, in two ways:
+              </p>
+                <ol>
+                  <li>I needed to learn about how GenAI works, and had to brush-up on my "prompt-engineering", specifically for some work projects (I'm sure I'm not alone in this!).</li>
+                  <li>My subscription to GitHub Copilot (in VSCode) changed the way I was learning to code. Essentially providing me with a "learning assistant".</li>
+                </ol>
+              <p>
+                I'm almost at the end of my JavaScript course (on Mimo), so once this is complete, I'll then switch to SQL and Python. My aim is to have a good understanding of HTML, CSS, JavaScript, SQL, and Python by the end of 2024.
+              </p>
+            </section>
 
-      <!--Typography-->
-      <section>
-        <h2>Resources</h2>
+            <!--Typography-->
+            <section>
+              <h2>Resources</h2>
 
-      <!--HTML and CSS-->
-      <section>
-        <h3>HTML / CSS / JavaScript</h3>
-        <table class="learning-log">
-          <thead>
-            <tr>
-              <th>Format</th><th>Resource</th><th>Progress</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><course-tag></course-tag></td>
-              <td><a href="https://web.dev/learn/images/" target="_blank">web.dev: Learn Images</a></td>
-              <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
-            </tr>
-            <tr>
-              <td><course-tag></course-tag></td>
-              <td><a href="https://web.dev/learn/html/" target="_blank">web.dev: Learn HTML</a></td>
-              <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
-            </tr>
-            <tr>
-              <td><course-tag></course-tag></td>
-              <td><a href="https://mimo.org/web/197/section/0" target="_blank">Mimo: JavaScript</a></td>
-              <td><progress-meter><progress-percent style="--progress: 87"></progress-percent></progress-meter></td>
-            </tr>
-            <tr>
-              <td><book-tag></book-tag></td>
-              <td><a href="https://javascript-for-web-designers.abookapart.com/" target="_blank">JavaScript for web designers</a></td>
-              <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+            <!--HTML and CSS-->
+            <section>
+              <h3>HTML / CSS / JavaScript</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th><th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><course-tag></course-tag></td>
+                    <td><a href="https://web.dev/learn/images/" target="_blank">web.dev: Learn Images</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+                  </tr>
+                  <tr>
+                    <td><course-tag></course-tag></td>
+                    <td><a href="https://web.dev/learn/html/" target="_blank">web.dev: Learn HTML</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+                  </tr>
+                  <tr>
+                    <td><course-tag></course-tag></td>
+                    <td><a href="https://mimo.org/web/197/section/0" target="_blank">Mimo: JavaScript</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 87"></progress-percent></progress-meter></td>
+                  </tr>
+                  <tr>
+                    <td><book-tag></book-tag></td>
+                    <td><a href="https://javascript-for-web-designers.abookapart.com/" target="_blank">JavaScript for web designers</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
 
-      <!--Data Viz-->
-      <section>
-        <h3>Data visualisation</h3>
-        <table class="learning-log">
-          <thead>
-            <tr>
-              <th>Format</th><th>Resource</th><th>Progress</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><course-tag></course-tag></td>
-              <td><a href="https://data.humdata.org/dataviz-guide/" target="_blank">HDX: Data Visualization Guidelines</a></td>
-              <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
-            </tr>
-            <tr>
-              <td><tutorial-tag></tutorial-tag></td>
-              <td><a href="https://pencilandpaper.io/articles/ux-pattern-analysis-enterprise-data-tables/" target="_blank">Pencil & Paper: Data Table Design UX Patterns</a></td>
-              <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
-            </tr>
-            <tr>
-              <td><tutorial-tag></tutorial-tag></td>
-              <td><a href="https://blog.datawrapper.de/category/datavis-dos-and-donts/" target="_blank">Datawrapper: Data Viz Do's and Don'ts </a></td>
-              <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+            <!--Data Viz-->
+            <section>
+              <h3>Data visualisation</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th><th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><course-tag></course-tag></td>
+                    <td><a href="https://data.humdata.org/dataviz-guide/" target="_blank">HDX: Data Visualization Guidelines</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+                  </tr>
+                  <tr>
+                    <td><tutorial-tag></tutorial-tag></td>
+                    <td><a href="https://pencilandpaper.io/articles/ux-pattern-analysis-enterprise-data-tables/" target="_blank">Pencil & Paper: Data Table Design UX Patterns</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+                  </tr>
+                  <tr>
+                    <td><tutorial-tag></tutorial-tag></td>
+                    <td><a href="https://blog.datawrapper.de/category/datavis-dos-and-donts/" target="_blank">Datawrapper: Data Viz Do's and Don'ts </a></td>
+                    <td><progress-meter><progress-percent style="--progress: 100"></progress-percent></progress-meter></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
 
-      <!--AI-->
-      <section>
-        <h3>AI</h3>
-        <table class="learning-log">
-          <thead>
-            <tr>
-              <th>Format</th><th>Resource</th><th>Progress</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><course-tag></course-tag></td>
-              <td><a href="https://www.cloudskillsboost.google/journeys/118" target="_blank">Google: Generative AI learning path</td>
-              <td><progress-meter><progress-percent style="--progress: 75"></progress-percent></progress-meter></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+            <!--AI-->
+            <section>
+              <h3>AI</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th><th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><course-tag></course-tag></td>
+                    <td><a href="https://www.cloudskillsboost.google/journeys/118" target="_blank">Google: Generative AI learning path</td>
+                    <td><progress-meter><progress-percent style="--progress: 75"></progress-percent></progress-meter></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
 
-      <!--Misc-->
-      <section>
-        <h3>Miscellaneous</h3>
-        <table class="learning-log">
-          <thead>
-            <tr>
-              <th>Format</th><th>Resource</th><th>Progress</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><course-tag></course-tag></td>
-              <td><a href="https://www.nan.fyi/svg-paths" target="_blank">Understanding SVG paths</a></td>
-              <td><progress-meter><progress-percent style="--progress: 28"></progress-percent></progress-meter></td>
-            </tr>
-            <tr>
-              <td><book-tag></book-tag></td>
-              <td><a href="https://legible-typography.com/en/" target="_blank">Legibility</a></td>
-              <td><progress-meter><progress-percent style="--progress: 60"></progress-percent></progress-meter></td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-    </article>
+            <!--Misc-->
+            <section>
+              <h3>Miscellaneous</h3>
+              <table class="learning-log">
+                <thead>
+                  <tr>
+                    <th>Format</th><th>Resource</th><th>Progress</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><course-tag></course-tag></td>
+                    <td><a href="https://www.nan.fyi/svg-paths" target="_blank">Understanding SVG paths</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 28"></progress-percent></progress-meter></td>
+                  </tr>
+                  <tr>
+                    <td><book-tag></book-tag></td>
+                    <td><a href="https://legible-typography.com/en/" target="_blank">Legibility</a></td>
+                    <td><progress-meter><progress-percent style="--progress: 60"></progress-percent></progress-meter></td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </article>
 
-                        ]]>
+      ]]>
       </description>
     </item>
 
-
-
-                <!-- Canada photos -->
+    <!-- Canada photos -->
     <item>
       <guid isPermaLink="false">article27</guid>
       <title>Holiday: The Canadian Rockies</title>
@@ -316,88 +486,87 @@
       <pubDate>Thur, 21 Dec 2023 13:00:00 GMT</pubDate>
       <description>
         <![CDATA[
-    <article>
-      <section>
-        <h2>Introduction</h2>
-        <p>
-          To celebrate our 20<sup>th</sup> wedding anniversary the wife and I spent two weeks in Canada during late September 2023. We flew into Vancouver and then drove to Whistler, Clearwater, Jasper, Banff, and finished in Calgary. The scenery was breathtaking, and the weather was perfect. The following image gallery is a selection of my favourite photographs from the trip.
-        </p>
-      </section>
+          <article>
+            <section>
+              <h2>Introduction</h2>
+              <p>
+                To celebrate our 20<sup>th</sup> wedding anniversary the wife and I spent two weeks in Canada during late September 2023. We flew into Vancouver and then drove to Whistler, Clearwater, Jasper, Banff, and finished in Calgary. The scenery was breathtaking, and the weather was perfect. The following image gallery is a selection of my favourite photographs from the trip.
+              </p>
+            </section>
 
-      <section>
-        <h2>Gallery</h2>
-        <br>
-        <p style="font-size: larger">
-        <strong>For anyone viewing this in an RSS reader, you'll need to visit the <a href="https://onlyrss.org/posts/the-canadian-rockies-holiday.html">source article</a> to view the gallery.</strong>
-        </p>
-        <br><br>
-      </section>
-      
-      <section>
-        <h2>Building the gallery</h2>
-        <p>
-          I needed some help with this post. I'd already built filters for the Homepage and Changelog page, so I had that ready to go, but, I wasn't sure I had the CSS skills to get the gallery working the way I wanted. I managed to get close, but not close enough, so I followed an <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">online tutorial</a>.
-        </p>
-        <p>
-          I wanted the image popups to be a Web Component, so I could easily reuse them in future by simply using a custom HTML tag e.g. <code>&lt;dialog-image&gt;</code>. I also wanted to use the <code>&lt;dialog&gt;</code> element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">now that it's supported across the main browsers</a>), which I'd never used before, to serve up the full-sized images. Luckily, a <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">tutorial appeared recently</a> which describes how to do exactly that.
-        </p>
-        <p>
-          Links to all the resources I used are listed below:
-        </p>
+            <section>
+              <h2>Gallery</h2>
+              <br>
+              <p style="font-size: larger">
+              <strong>For anyone viewing this in an RSS reader, you'll need to visit the <a href="https://onlyrss.org/posts/the-canadian-rockies-holiday.html">source article</a> to view the gallery.</strong>
+              </p>
+              <br><br>
+            </section>
+            
+            <section>
+              <h2>Building the gallery</h2>
+              <p>
+                I needed some help with this post. I'd already built filters for the Homepage and Changelog page, so I had that ready to go, but, I wasn't sure I had the CSS skills to get the gallery working the way I wanted. I managed to get close, but not close enough, so I followed an <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">online tutorial</a>.
+              </p>
+              <p>
+                I wanted the image popups to be a Web Component, so I could easily reuse them in future by simply using a custom HTML tag e.g. <code>&lt;dialog-image&gt;</code>. I also wanted to use the <code>&lt;dialog&gt;</code> element (<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">now that it's supported across the main browsers</a>), which I'd never used before, to serve up the full-sized images. Luckily, a <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">tutorial appeared recently</a> which describes how to do exactly that.
+              </p>
+              <p>
+                Links to all the resources I used are listed below:
+              </p>
 
-        <ul>
-          <li><strong>The gallery filters:</strong> <a href="https://www.youtube.com/watch?v=jZiZs8cZAKU" title="Watch Kevin Powell's video on YouTube">Kevin Powell's video on YouTube</a> </li>
-          <li><strong>The gallery design/CSS:</strong> <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">LogRocket's image gallery tutorial</a></li>
-          <li><strong>The popup Web Component:</strong> <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">Raymond Camden's dialog Web Component tutorial</a> </li>
-        </ul>
-      </section>
+              <ul>
+                <li><strong>The gallery filters:</strong> <a href="https://www.youtube.com/watch?v=jZiZs8cZAKU" title="Watch Kevin Powell's video on YouTube">Kevin Powell's video on YouTube</a> </li>
+                <li><strong>The gallery design/CSS:</strong> <a href="https://blog.logrocket.com/responsive-image-gallery-css-flexbox">LogRocket's image gallery tutorial</a></li>
+                <li><strong>The popup Web Component:</strong> <a href="https://www.raymondcamden.com/2023/12/13/an-image-dialog-web-component">Raymond Camden's dialog Web Component tutorial</a> </li>
+              </ul>
+            </section>
 
-      <section>
-        <h2>Web Components</h2>
-        <p>
-          Here's a definition of Web Components I just pulled off the web:
-        </p>
-        <blockquote>
-           <q>Web Components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps. Custom components and widgets build on the Web Component standards, will work across modern browsers, and can be used with any JavaScript library or framework that works with HTML.</q>
-           <br>
-            <cite><a href="https://www.webcomponents.org/introduction">— WebComponents.org</a></cite>
-        </blockquote>
-        <p>
-          So basically, developers now have the ability to create their own custom HTML tags, and via JavaScript and CSS, control how they work and look. This is a big deal, and I'm sure it will be a game changer for web development in the future. I'm not going to go into any more detail here, but if you want to learn more, I recommend you check out <a href="https://www.webcomponents.org/introduction">WebComponents.org</a>.
-        </p>
-        <p>
-          The image popup Web Component I created for this post was my first Web Component. I then went off on a bit of a "Web Component All The Things" binge, and created 4 more. I targeted article page elements that are common across all articles, and then created a Web Component for each. So far, I've converted the following page elements into reusable Web Components:
-        </p>
+            <section>
+              <h2>Web Components</h2>
+              <p>
+                Here's a definition of Web Components I just pulled off the web:
+              </p>
+              <blockquote>
+                <q>Web Components are a set of web platform APIs that allow you to create new custom, reusable, encapsulated HTML tags to use in web pages and web apps. Custom components and widgets build on the Web Component standards, will work across modern browsers, and can be used with any JavaScript library or framework that works with HTML.</q>
+                <br>
+                  <cite><a href="https://www.webcomponents.org/introduction">— WebComponents.org</a></cite>
+              </blockquote>
+              <p>
+                So basically, developers now have the ability to create their own custom HTML tags, and via JavaScript and CSS, control how they work and look. This is a big deal, and I'm sure it will be a game changer for web development in the future. I'm not going to go into any more detail here, but if you want to learn more, I recommend you check out <a href="https://www.webcomponents.org/introduction">WebComponents.org</a>.
+              </p>
+              <p>
+                The image popup Web Component I created for this post was my first Web Component. I then went off on a bit of a "Web Component All The Things" binge, and created 4 more. I targeted article page elements that are common across all articles, and then created a Web Component for each. So far, I've converted the following page elements into reusable Web Components:
+              </p>
 
-          <ul>
-            <li>Global navigation</li>
-            <li>Table of contents</li>
-            <li>Feedback footer</li>
-            <li>Share buttons</li>
-          </ul>
+                <ul>
+                  <li>Global navigation</li>
+                  <li>Table of contents</li>
+                  <li>Feedback footer</li>
+                  <li>Share buttons</li>
+                </ul>
 
-        <p>
-          I suspect I'll create a few more, and that the amount of copying & pasting I'll be doing in future will be greatly decreased!
-        </p>
-      </section>
+              <p>
+                I suspect I'll create a few more, and that the amount of copying & pasting I'll be doing in future will be greatly decreased!
+              </p>
+            </section>
 
-      <section>
-        <h2>Conclusions</h2>
-         <p>
-          I am aware that this article is the modern-day equivalent of a slideshow of holiday snaps, but I don't care. I'm pleased with how the gallery and popups look and am glad I went off on a Web Component creation tangent, as it's going to make my website much easy to maintain in the future.
-        </p>
-        <p>
-          The page requires just <mark>1.1MB</mark> of resources to load, although each thumbnail image selected will trigger the load of the full-sized image (<mark>≈150KB each</mark>). Even so, I'm pleased with the overall page performance.
-        </p>
-      </section>
-    </article>
+            <section>
+              <h2>Conclusions</h2>
+              <p>
+                I am aware that this article is the modern-day equivalent of a slideshow of holiday snaps, but I don't care. I'm pleased with how the gallery and popups look and am glad I went off on a Web Component creation tangent, as it's going to make my website much easy to maintain in the future.
+              </p>
+              <p>
+                The page requires just <mark>1.1MB</mark> of resources to load, although each thumbnail image selected will trigger the load of the full-sized image (<mark>≈150KB each</mark>). Even so, I'm pleased with the overall page performance.
+              </p>
+            </section>
+          </article>
 
-                        ]]>
+        ]]>
       </description>
     </item>
 
-
-            <!-- Using 'text-wrap: balance' -->
+    <!-- Using 'text-wrap: balance' -->
     <item>
       <guid isPermaLink="false">article26</guid>
       <title>View Transitions: A basic implementation</title>
@@ -406,94 +575,93 @@
       <description>
         <![CDATA[
 
-    <article>
-      <section>
-        <h2>Background</h2>
-        <p>
-          I hadn't written an article for quite some time, so decided to write about the View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
-        </p>
-        <p>
-          However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
-        </p>
-      </section>
+          <article>
+            <section>
+              <h2>Background</h2>
+              <p>
+                I hadn't written an article for quite some time, so decided to write about the View Transitions feature that has been added (behind a feature flag) to Google Chrome. I implemented View Transitions on this site about 6&nbsp;months ago, and I couldn't remember why I hadn't already written about it. Then, during my research, I remembered Dave Rupert's blog post "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>" and I realised it covered everything I wanted to say, and he'd done a much better job of explaining it than I could have.
+              </p>
+              <p>
+                However, it's such a cool little feature, and so easy to implement, that I decided to write about it anyway. And let's be honest, the web can't have too many cool animated GIFs, can it?
+              </p>
+            </section>
 
-      <section>
-        <h2>Browser support</h2>
-        <p>
-          Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So, if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
-        </p>
-        <p>
-          Now that you've enabled the feature in Chrome, you can test the feature by navigating between pages on this site, or better still, try the following blogs which have both implemented View Transitions:
-          <ul>
-            <li><a href="https://daverupert.com/" title="Dave Rupert's blog" target="_blank">Dave Rupert's blog</a></li>
-            <li><a href="https://chriscoyier.net/" title="Chris Coyier's blog" target="_blank">Chris Coyier's blog</a></li>
-          </ul>
-        </p>
-      </section>
+            <section>
+              <h2>Browser support</h2>
+              <p>
+                Currently only Google Chrome (v115+) supports multipage View Transitions, and even then it's behind a flag. So, if you want to test your implementation (or see how it looks on this blog), then copy <strong>chrome://flags/#view-transition-on-navigation</strong> to the clipboard, paste it into the URL bar, then select 'Enabled' alongside the 'viewTransition API for navigations' option.
+              </p>
+              <p>
+                Now that you've enabled the feature in Chrome, you can test the feature by navigating between pages on this site, or better still, try the following blogs which have both implemented View Transitions:
+                <ul>
+                  <li><a href="https://daverupert.com/" title="Dave Rupert's blog" target="_blank">Dave Rupert's blog</a></li>
+                  <li><a href="https://chriscoyier.net/" title="Chris Coyier's blog" target="_blank">Chris Coyier's blog</a></li>
+                </ul>
+              </p>
+            </section>
 
-      <section>
-        <h2>Transition between pages</h2>
-        <p>
-          With the Chrome feature flag enabled, to achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
-        </p>
-            <pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
-        <p>
-          The result is a subtle fade as you move between pages (the animation shown below has been slowed to 25% of normal speed). On mobile—especially when combined with a Progressive Web App (PWA)—the feeling you get is very “native-app” like.
-        </p>
-        <figure>
-          <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting various pages from a mobile blog's top navigation menu. When the new page loads, the previous page fades away, and the new page fades into view.">
-          <figcaption>Transitions between pages. This animation has been slowed to 25% of normal speed.</figcaption>
-        </figure>
-      </section>
+            <section>
+              <h2>Transition between pages</h2>
+              <p>
+                With the Chrome feature flag enabled, to achieve a fade as you move between pages (<span class="fig-ref">fig.&nbsp;1</span>), you need to add the following code to the &lt;head&gt; of each page:
+              </p>
+                  <pre><code class="language-html">&lt;meta name="view-transition" content="same-origin"&gt;</code></pre>
+              <p>
+                The result is a subtle fade as you move between pages (the animation shown below has been slowed to 25% of normal speed). On mobile—especially when combined with a Progressive Web App (PWA)—the feeling you get is very “native-app” like.
+              </p>
+              <figure>
+                <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting various pages from a mobile blog's top navigation menu. When the new page loads, the previous page fades away, and the new page fades into view.">
+                <figcaption>Transitions between pages. This animation has been slowed to 25% of normal speed.</figcaption>
+              </figure>
+            </section>
 
-      <section>
-          <h2>Transition between page elements</h2>
-          <p>
-            To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), we need to create a link between the two elements, to do this, we use the 'view-transition-name' style.
-          </p>
-          <p>
-            For example, on my   blog's homepage, for the most recent blog post i.e. post23, I have the following code:
-          </p>
-              <pre><code class="language-html">&lt;card-body&gt;
-  &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
-  …
-&lt;/card-body&gt;</code></pre>
-          <p>
-            Then, on the corresponding blog post page, I have the following:
-          </p>
-              <pre><code class="language-html">&lt;header&gt;
-  &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
-  …
-&lt;/header&gt;
-</code></pre>
+            <section>
+                <h2>Transition between page elements</h2>
+                <p>
+                  To achieve a transition between page elements, for example, a blog post title on your homepage, and the title on the blog post itself (<span class="fig-ref">fig.&nbsp;2</span>), we need to create a link between the two elements, to do this, we use the 'view-transition-name' style.
+                </p>
+                <p>
+                  For example, on my   blog's homepage, for the most recent blog post i.e. post23, I have the following code:
+                </p>
+                    <pre><code class="language-html">&lt;card-body&gt;
+        &lt;h2 style="view-transition-name: post23">Using 'text-wrap: balance'&lt;/h2&gt;
+        …
+      &lt;/card-body&gt;</code></pre>
+                <p>
+                  Then, on the corresponding blog post page, I have the following:
+                </p>
+                    <pre><code class="language-html">&lt;header&gt;
+        &lt;h1 style="view-transition-name: post23"&gt;Using 'text-wrap: balance'&lt;/h1&gt;
+        …
+      &lt;/header&gt;
+      </code></pre>
 
-          <p>
-            This is all the information the View Transitions API requires. The result is a smooth transition between the two elements (and locations), as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
+                <p>
+                  This is all the information the View Transitions API requires. The result is a smooth transition between the two elements (and locations), as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
 
-          <figure>
-            <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
-            <figcaption>Transition between page elements. This animation has been slowed to 25% of normal speed.</figcaption>
-          </figure>
-      </section>
+                <figure>
+                  <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
+                  <figcaption>Transition between page elements. This animation has been slowed to 25% of normal speed.</figcaption>
+                </figure>
+            </section>
 
-      <section>
-        <h2>Summary</h2>
-        <p>
-          There's a lot more to View Transitions than I've covered here, but I wanted to keep this article to just the basics. If you want to learn more, then I recommend you read Dave Rupert's article "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>".
-        </p>
-      </section>
+            <section>
+              <h2>Summary</h2>
+              <p>
+                There's a lot more to View Transitions than I've covered here, but I wanted to keep this article to just the basics. If you want to learn more, then I recommend you read Dave Rupert's article "<a href="https://daverupert.com/2023/05/getting-started-view-transitions/" title="Read 'Getting started with View Transitions' on Dave's blog" target="_blank">Getting started with View Transitions</a>".
+              </p>
+            </section>
 
-      <!-- feedback -->
-      <footer>
-        <feedback-contact></feedback-contact>
-      </footer>
+            <!-- feedback -->
+            <footer>
+              <feedback-contact></feedback-contact>
+            </footer>
 
-    </article>
+          </article>
 
-                ]]>
+        ]]>
       </description>
     </item>
-
 
             <!-- Using 'text-wrap: balance' -->
     <item>
@@ -503,106 +671,106 @@
       <pubDate>Tue, 11 Apr 2023 11:30:00 GMT</pubDate>
       <description>
         <![CDATA[
-    <article>
-      <section>
-        <h2>
-          Background
-        </h2>
-          <p>
-            If you're reading this then you are probably already aware of the upcoming new CSS feature:
-          </p>
-          <pre><code>text-wrap: balance;</code></pre>
-          <p>
-            If not, then please visit the <a href="https://developer.chrome.com/blog/css-text-wrap-balance/" title="view the full explanation at the Chrome dev blog">Chrome dev blog</a> for the full details.
-          </p>
-          <p>
-            Basically, it's a way to "balance" titles, headings, and short paragraphs such that there are a similar number of words per line (and hence avoid widowed words). For simplicity, I'm going to refer to it as <em>CSS Balance</em> from now on.
-          </p>
-          <p>
-            I'm not going to repeat the information that's available on the Chrome dev blog, the aim of this article is to demonstrate the effect of using CSS Balance on a typical blog, specifically this blog. Basically, I'm going to show some examples so you can decide if it's something you should implement on your website.
-          </p>
-      </section>
+          <article>
+            <section>
+              <h2>
+                Background
+              </h2>
+                <p>
+                  If you're reading this then you are probably already aware of the upcoming new CSS feature:
+                </p>
+                <pre><code>text-wrap: balance;</code></pre>
+                <p>
+                  If not, then please visit the <a href="https://developer.chrome.com/blog/css-text-wrap-balance/" title="view the full explanation at the Chrome dev blog">Chrome dev blog</a> for the full details.
+                </p>
+                <p>
+                  Basically, it's a way to "balance" titles, headings, and short paragraphs such that there are a similar number of words per line (and hence avoid widowed words). For simplicity, I'm going to refer to it as <em>CSS Balance</em> from now on.
+                </p>
+                <p>
+                  I'm not going to repeat the information that's available on the Chrome dev blog, the aim of this article is to demonstrate the effect of using CSS Balance on a typical blog, specifically this blog. Basically, I'm going to show some examples so you can decide if it's something you should implement on your website.
+                </p>
+            </section>
 
-      <section>
-          <h2>Examples</h2>
-          <p>
-            The following examples have not been configured specifically to demonstrate the effects of CSS Balance, they are simply the result of enabling CSS Balance on titles and headings on this website.
-          </p>
-          <h3>Homepage cards</h3>
-          <p>
-            Figure 1 below shows the first 3 cards from my homepage. Figure 2 shows the same 3 cards but with CSS Balance enabled.
-          </p>
+            <section>
+                <h2>Examples</h2>
+                <p>
+                  The following examples have not been configured specifically to demonstrate the effects of CSS Balance, they are simply the result of enabling CSS Balance on titles and headings on this website.
+                </p>
+                <h3>Homepage cards</h3>
+                <p>
+                  Figure 1 below shows the first 3 cards from my homepage. Figure 2 shows the same 3 cards but with CSS Balance enabled.
+                </p>
 
-         <figure>
-          <img src="https://onlyrss.org/images/balance-before.webp" width="995" height="437" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
-          <figcaption>Figure 1. Without CSS Balance enabled.</figcaption>
-        </figure>
+              <figure>
+                <img src="https://onlyrss.org/images/balance-before.webp" width="995" height="437" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+                <figcaption>Figure 1. Without CSS Balance enabled.</figcaption>
+              </figure>
 
-        <figure>
-          <img src="https://onlyrss.org/images/balance-after.webp" width="995" height="437" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
-          <figcaption>Figure 2.With CSS Balance enabled.</figcaption>
-        </figure>
+              <figure>
+                <img src="https://onlyrss.org/images/balance-after.webp" width="995" height="437" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+                <figcaption>Figure 2.With CSS Balance enabled.</figcaption>
+              </figure>
 
-        <p>
-          As you can see, CSS Balance has had an effect on the titles of all 3 cards. The effect is probably most beneficial on the first card, where the words "Product" and "Manager" belong together, and on the second card, where the words "progress" and "bars" benefit from being together.
-        </p>
-        <p>
-           In total, 13 out of the 22 homepage cards have multiline titles, and each one of those multiline titles was altered when CSS Balance was enabled. 
-        </p>
+              <p>
+                As you can see, CSS Balance has had an effect on the titles of all 3 cards. The effect is probably most beneficial on the first card, where the words "Product" and "Manager" belong together, and on the second card, where the words "progress" and "bars" benefit from being together.
+              </p>
+              <p>
+                In total, 13 out of the 22 homepage cards have multiline titles, and each one of those multiline titles was altered when CSS Balance was enabled. 
+              </p>
 
-        <p>
-          Where CSS Balance is probably most beneficial is in stopping scenarios like that shown below in Figure 3, i.e. where a single number has appeared on a line by itself. Although to be fair, a non-breaking space should probably have been used in this scenario to keep "Windows" and "10" together.
-        </p>
+              <p>
+                Where CSS Balance is probably most beneficial is in stopping scenarios like that shown below in Figure 3, i.e. where a single number has appeared on a line by itself. Although to be fair, a non-breaking space should probably have been used in this scenario to keep "Windows" and "10" together.
+              </p>
 
-        <figure>
-          <img src="https://onlyrss.org/images/balance.webp" width="698" height="430" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
-          <figcaption>Figure 3. Without CSS Balance (left), and with CSS Balance (right).</figcaption>
-        </figure>
-        <h3>
-          Article titles (Desktop)
-        </h3>
-        <p>
-          I use a wider article page layout compared to the majority of blogs i.e. 840px, and I don't tend to use very long article titles. Because of this, my article titles typically only span a single line, and therefore CSS Balance has no effect when viewing my articles on a typical desktop.
-        </p>
-
-
-        <h3>
-          Article titles (&lt;Desktop)
-        </h3>
-        <p>
-          Once you view articles on something narrower than a typical desktop display, the situation is very different.
-        </p>
-
-        <figure>
-          <img src="https://onlyrss.org/images/15-million-no-balance.gif" width="684" height="139" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
-          <figcaption>Figure 4. Without CSS Balance.</figcaption>
-        </figure>
-
-        <p>
-          In Figure 4 above, where CSS Balance is NOT enabled, we see that as the viewport width is reduced, the last word on the first line simply drops to a new line, as you would expect. This is a good example of why CSS Balance is useful, without it "meters" becomes disconnected from "million", which then becomes disconnected from "15".
-        </p>
-
-        <p>
-          With CSS Balance enabled (Figure 5 below), there is far less movement of the title as the viewport width is reduced, and the phrase "15 million meters" remains together.
-        </p>
+              <figure>
+                <img src="https://onlyrss.org/images/balance.webp" width="698" height="430" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+                <figcaption>Figure 3. Without CSS Balance (left), and with CSS Balance (right).</figcaption>
+              </figure>
+              <h3>
+                Article titles (Desktop)
+              </h3>
+              <p>
+                I use a wider article page layout compared to the majority of blogs i.e. 840px, and I don't tend to use very long article titles. Because of this, my article titles typically only span a single line, and therefore CSS Balance has no effect when viewing my articles on a typical desktop.
+              </p>
 
 
-        <figure>
-          <img src="https://onlyrss.org/images/15-million-balance.gif" width="684" height="139" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
-          <figcaption>Figure 5. With CSS Balance.</figcaption>
-        </figure>
+              <h3>
+                Article titles (&lt;Desktop)
+              </h3>
+              <p>
+                Once you view articles on something narrower than a typical desktop display, the situation is very different.
+              </p>
 
-      </section>
+              <figure>
+                <img src="https://onlyrss.org/images/15-million-no-balance.gif" width="684" height="139" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+                <figcaption>Figure 4. Without CSS Balance.</figcaption>
+              </figure>
 
-      <section>
-        <h2>Summary</h2>
-        <p>
-          So, should you enable CSS Balance on your website? Yeah, why not, it's literally 1 line of CSS. It's easy to enable it for your website (you'll need to try it in a canary build of Google Chrome) and then see if you like the effects. I'll be leaving it enabled on onlyrss.org, and will wait for browsers to add support.
-        </p>
-      </section>
+              <p>
+                In Figure 4 above, where CSS Balance is NOT enabled, we see that as the viewport width is reduced, the last word on the first line simply drops to a new line, as you would expect. This is a good example of why CSS Balance is useful, without it "meters" becomes disconnected from "million", which then becomes disconnected from "15".
+              </p>
 
-      <article>
-                ]]>
+              <p>
+                With CSS Balance enabled (Figure 5 below), there is far less movement of the title as the viewport width is reduced, and the phrase "15 million meters" remains together.
+              </p>
+
+
+              <figure>
+                <img src="https://onlyrss.org/images/15-million-balance.gif" width="684" height="139" alt="A screenshot of 2 identical html cards, both include an image, a title, and a short description. In the card on the left the title is on 2 lines, but the second line only includes the word '10', in the second card, the title is also on 2 lines, but the second line includes the words in 'Windows 10'.">
+                <figcaption>Figure 5. With CSS Balance.</figcaption>
+              </figure>
+
+            </section>
+
+            <section>
+              <h2>Summary</h2>
+              <p>
+                So, should you enable CSS Balance on your website? Yeah, why not, it's literally 1 line of CSS. It's easy to enable it for your website (you'll need to try it in a canary build of Google Chrome) and then see if you like the effects. I'll be leaving it enabled on onlyrss.org, and will wait for browsers to add support.
+              </p>
+            </section>
+
+            <article>
+          ]]>
       </description>
     </item>
 
