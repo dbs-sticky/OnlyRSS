@@ -58,7 +58,7 @@ All about Android
 
 ## Examples 
 
-Ok, so what has all this technology monitoring done for me as a Product Manager? Or better still, how has it benefited my users? Good question, and what better way to answer than with examples.
+Ok, so what has all this technology monitoring done for me as a Product Manager? Or better still, how has it benefited my users? Good question, and what better way to answer than with examples?
 
 ### The Web Share API
 
@@ -82,9 +82,9 @@ With very little development effort, you can allow your users to “install” y
 
 Once installed, as far as the user is concerned your app will look and behave like a native Windows, Mac, iOS, or Android application—PWAs even support offline capabilities and push notifications.
 
-The screenshot below is taken from one of my products ([Cirium Airline Profiles](https://www.cirium.com/solutions/cirium-profiles/)), this screenshot was taken from the desktop application, but PWAs are most useful on mobile, where the user can launch the app from their home screen, and the app makes full use of the limited screen real-estate.
+The screenshot below is of this blog, which has been implemented as a PWA.
 
-![image-20250216160322895](pwa.png)
+![image-20250216160322895](pwa.webp)
 
 There is one caveat however, Firefox dropped their support for PWAs in 2021. A decision that has angered and perplexed developers and users alike. The good news is that PWAs are a [progressive enhancement](https://developer.mozilla.org/en-US/docs/Glossary/Progressive_Enhancement). If the user's browser supports PWAs, then that's great, if it doesn't, then there's no downside. Your app will continue to run in the browser as usual.
 
@@ -94,7 +94,7 @@ I've been waiting for this update to Excel for months (I subscribe to the MS Off
 
 The combination of Python and M365 Copilot in Excel means that Excel users can now use natural language to analyse and visualise data in Excel with the full power of Python—no knowledge of coding in Python required.
 
-As an example, the jitter chart shown below (which is a replication of one available from within one of my products- see above) can be created with Python in Excel with just a few prompts.
+As an example, the jitter chart shown below (which is a replication of one available from within one of my products) can be created with Python in Excel with just a few prompts.
 
 I've mentioned this game-changing Excel update to a few colleagues, and none were aware of its existence.
 
@@ -106,13 +106,15 @@ Here's the description of the Chrome Dev Tools (other browsers have their own ve
 
 > Chrome DevTools is a set of web developer tools built directly into the Google Chrome browser. DevTools lets you <mark>edit pages on-the-fly</mark> and diagnose problems quickly, which helps you build better websites, faster.
 
-I've highlighted one specific section of the description, because for Product Managers I think it's really useful. It's really easy to use the Dev Tools to edit the text on a webpage, and if you know some HTML & CSS, you can even make more fundamental changes to the page. This can be useful if you want to add a ticket to your backlog asking for small changes. Rather than trying to describe what you want (which could be misinterpreted) simply make the change to the live page and capture a screenshot—there's even a screenshot tool build into Dev Tools (it even lets you capture a full page screenshot, including any of the page currently below the bottom of the viewport.)
+I've highlighted one specific section of the description, because for Product Managers I think it's really useful. It's really easy to use the Dev Tools to edit the text on a webpage, and if you know some HTML & CSS, you can even make more fundamental changes to the page. This can be useful if you want to add a ticket to your backlog asking for small changes. Rather than trying to describe what you want (which could be misinterpreted) simply make the change to the live page and capture a screenshot—there's even a screenshot tool built into Dev Tools (it even lets you capture a full page screenshot, including any of the page currently below the bottom of the viewport.)
+
+![](dev-tools-edit.gif)
 
 ### CSS one-liners
 
 * `scrollbar-gutter: stable` This will stop horizontal content shift when moving between pages that require/don't-require a vertical scrollbar. Or when you open a modal/popup. See this in action in this [YouTube Short](https://www.youtube.com/watch?v=ZFhPGfLfSa8) from [Kevin Powell](https://bsky.app/profile/kevinpowell.co).
 
-* `@view-transition {navigation: auto;}` This one line of CSS will add a subtle fade effect when your users navigate between pages. When combined with an app running as a PWA on mobile, this gives your application a much more native feel. I learnt about View Transitions from an [episode](https://shoptalkshow.com/566/#t=06:14) of the [Shop Talk Show podcast](https://shoptalkshow.com/). You can also visit my own [blog post](https://onlyrss.org/posts/view-transitions.html) that covers both versions of View Transitions i.e. same-document and cross-document
+* `@view-transition {navigation: auto;}` This one line of CSS will add a subtle fade effect when your users navigate between pages. When combined with an app running as a PWA on mobile, this gives your application a much more native feel. I learnt about View Transitions from an [episode](https://shoptalkshow.com/566/#t=06:14) of the [Shop Talk Show podcast](https://shoptalkshow.com/). You can also visit my own [blog post](https://onlyrss.org/posts/view-transitions.html) that covers both versions of View Transitions i.e. same-document and cross-document.
 
 * `p{text-wrap: pretty;}` This single line will improve your application's typography by removing widows & orphans. i.e. single words that stand alone at the end of a paragraph or text block. You can see this in action in this [Chrome for developer blog post](https://developer.chrome.com/blog/css-text-wrap-pretty) by [Adam Argyle](https://bsky.app/profile/nerdy.dev).
 * `font-variant-numeric: tabular-nums;` If you have tables with columns that contain only numeric data (that represent quantities or an order/position), then please use a font that supports tabular numbers, and ensure that font's `tabular-nums` feature is enabled (yes, fonts have features!). To understand why this is important, see this [blog post](https://sebastiandedeyne.com/tabular-numbers) from [Seb De Deyne](https://bsky.app/profile/sebdd.net).
