@@ -849,6 +849,7 @@ housekeeping-tag::after, .changelog-filters label[for="housekeeping"] {
 
 .icon-row {
   display: flex;
+  padding-top: 0.75rem;
 }
 
 /* let icons grow to fit the row width */
