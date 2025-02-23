@@ -3,13 +3,18 @@
 :root {
   --pagewidth: 90ch;
   --shadow: oklch(0% 0 0 / 20%);
-  --accent: oklch(60% 0.15 250);
-  --accent-light: #dae6f0; /* Fallback*/
-  --radius: 0.5rem;
+
+  --L: 60%;   /* 60% */
+  --C: 0.15;  /* 0.15 */
+  --H: 250;   /* 250 */
+  --accent: oklch(var(--L) var(--C) var(--H));
+  --accent-light: oklch(var(--L) var(--C) var(--H) / 20%);
+
   --bodytext: oklch(23.5% 0 0);
-  --background-color: oklch(98.43% 0.004 106.47);
+  --background-color: oklch(98% 0.01 105);
   --background-color: #F3EEE4;
   --card-background-color: var(--background-color);
+  --radius: 0.5rem;
   --heading-font: "slab", serif;
   --body-font: "Roboto Serif", serif;
   --cta-font: "Roboto Condensed", sans-serif;
