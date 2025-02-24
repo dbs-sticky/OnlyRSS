@@ -121,6 +121,10 @@ body {
     line-height: 1.5;
   }
 
+  search {
+    display:none;
+  }
+
   article,
   main,
   aside,
@@ -227,7 +231,6 @@ aside {
 
 article,
 main {
-  padding-top: 2rem;
   flex: 1 0 auto;
 
 }

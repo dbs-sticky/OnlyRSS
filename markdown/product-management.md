@@ -40,7 +40,17 @@ Each of these 3 technologies is being constantly developed and updated, but it's
 
 ### Browsers & Dev Tools
 
+Your product is going to be displayed to your users via a browser, and most likely one of the big 4 i.e. Chrome, Safari, Edge, and Firefox.
+
+You should keep up-to-date on the latest features of each, and also understand what they have in common, and what differentiates them. For example, across the 4 browsers mentioned, there's actually only 3 rendering engines used (the rendering engine interprets the HTML, CSS, and JavaScript to display web pages). Chrome and Edge are both based on [Chromium](https://www.chromium.org/Home/), which uses the [Blink](https://www.chromium.org/blink/) engine. Safari uses [WebKit](https://webkit.org/), and Firefox uses [Gecko](https://firefox-source-docs.mozilla.org/overview/gecko.html). But, on mobile Apple devices, whatever browser you install (Chrome, Firefox etc.) you're actually just installing Safari wrapped in some Chrome/Firefox UI. 
+
+The Dev Tools is a whole suite of developer focussed tools running in your browser that can be accessed via hitting the <kbd>F12</kbd> key. These are incredibly powerful, and not just for developers. You can use them when doing some QA, taking full-page screenshots, and even editing live web pages (useful when you want to test out some changes you want made to the content or UI).
+
+Much like the browsers themselves, the Dev Tools are also updated frequently with new features, and it's worthwhile knowing what new capabilities are available.  
+
 ### Windows, Mac, iOS, and Android
+
+So, all our apps are rendered via HTML, CSS, and JavaScript, and then displayed via Chrome, Safari, Edge, and Firefox. But, those browsers are most likely going to be running on Windows, Mac, iOS or Android. And the browsers are quite well integrated into the OS, so an app running in Chrome on Windows won't necessarily render your product the same as Chrome running on a Mac.
 
 ### Microsoft 365 (Office, Teams, and Copilot)
 
