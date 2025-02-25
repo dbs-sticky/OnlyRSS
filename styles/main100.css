@@ -10,9 +10,8 @@
   --accent: oklch(var(--L) var(--C) var(--H));
   --accent-light: oklch(var(--L) var(--C) var(--H) / 20%);
 
-  --bodytext: oklch(23.5% 0 0);
-  --background-color: oklch(98% 0.01 105);
-  --background-color: #F3EEE4;
+  --bodytext: oklch(20% 0 0);
+  --background-color: oklch(95% 0.01 85);
   --card-background-color: var(--background-color);
   --radius: 0.5rem;
   --heading-font: "slab", serif;
@@ -1019,7 +1018,7 @@ prodman-tag::after {
   padding-left: 10%;
   margin-top: 40px;
   font-size: 0.9rem;
-  background-color: white;
+  background-color: var(--background-color);
 }
 
 .app-btn-close {
