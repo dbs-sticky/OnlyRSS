@@ -2,7 +2,7 @@
 
 :root {
   --pagewidth: 90ch;
-  --shadow: oklch(0% 0 0 / 20%);
+  --shadow: oklch(0% 0 0 / 10%);
 
   --L: 60%;   /* 60% */
   --C: 0.15;  /* 0.15 */
@@ -11,7 +11,7 @@
   --accent-light: oklch(var(--L) var(--C) var(--H) / 20%);
 
   --bodytext: oklch(20% 0 0);
-  --background-color: oklch(95% 0.01 85);
+  --background-color: oklch(96% 0.015 85);
   --card-background-color: var(--background-color);
   --radius: 0.5rem;
   --heading-font: "slab", serif;
@@ -322,7 +322,7 @@ strong {
 mark {
 padding: 0.2rem 0.5rem;
 border-radius: 0.3rem;
-background-color: #ffdd33;
+background-color: oklch(90% 0.17 97);
 }
 
 
@@ -485,12 +485,12 @@ img {
 }
 
 
-/* Define the image style for mainbody images that are NOT in gallaries, figures etc. */
+/* Define the image style for mainbody images that are NOT in galleries, figures etc. */
 :where(article, main) :where(figure, img)  {
   padding: 1rem;
   border-radius: var(--radius);
   background: white;
-  box-shadow: 0 0 1rem #00000014;
+  box-shadow: 0 0 1rem var(--shadow);
   margin-bottom: 9rem;
 }
 
@@ -863,7 +863,7 @@ a.icons {
 a.icons svg {
   /* grow on hover for 0.7s  */
   transition: all 0.7s ease-in-out;
-  stroke: #000000;
+  stroke: black;
   stroke-width: 0.3px;
 }
 
@@ -1039,7 +1039,7 @@ prodman-tag::after {
   margin-top: 40px;
   margin-bottom: 40px;
   border-collapse: collapse; /* creates single border between cells */
-  box-shadow: 0px 0px 10px 1px rgb(0 0 0 / 15%);
+  box-shadow: 0px 0px 10px 1px var(--shadow);
   border-radius: var(--radius) var(--radius) 0 0;
   overflow: hidden;  /* border radius option above does not work without this  */
   font-family: var(--cta-font);
