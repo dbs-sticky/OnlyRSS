@@ -66,9 +66,15 @@ Office roadmap
 
 All about Android
 
-## Examples 
+## Examples
 
 Ok, so what has all this technology monitoring done for me as a Product Manager? Or better still, how has it benefited my users? Good question, and what better way to answer than with examples?
+
+### View Transitions
+
+Show at 25% normal animation speed.
+
+![view-transitions-compressed](view-transitions-compressed.gif)
 
 ### The Web Share API
 
@@ -127,13 +133,5 @@ I've highlighted one specific section of the description, because for Product Ma
 * `@view-transition {navigation: auto;}` This one line of CSS will add a subtle fade effect when your users navigate between pages. When combined with an app running as a PWA on mobile, this gives your application a much more native feel. I learnt about View Transitions from an [episode](https://shoptalkshow.com/566/#t=06:14) of the [Shop Talk Show podcast](https://shoptalkshow.com/). You can also visit my own [blog post](https://onlyrss.org/posts/view-transitions.html) that covers both versions of View Transitions i.e. same-document and cross-document.
 
 * `p{text-wrap: pretty;}` This single line will improve your application's typography by removing widows & orphans. i.e. single words that stand alone at the end of a paragraph or text block. You can see this in action in this [Chrome for developer blog post](https://developer.chrome.com/blog/css-text-wrap-pretty) by [Adam Argyle](https://bsky.app/profile/nerdy.dev).
+
 * `font-variant-numeric: tabular-nums;` If you have tables with columns that contain only numeric data (that represent quantities or an order/position), then please use a font that supports tabular numbers, and ensure that font's `tabular-nums` feature is enabled (yes, fonts have features!). To understand why this is important, see this [blog post](https://sebastiandedeyne.com/tabular-numbers) from [Seb De Deyne](https://bsky.app/profile/sebdd.net).
-
-
-
-
-
-
-
-
-
