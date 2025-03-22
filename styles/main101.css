@@ -1028,6 +1028,35 @@ prodman-tag::after {
 }
 
 /*  ======================
+  BBC non-uk layout post
+  ====================== */
+
+  .versus {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    max-width: 25rem;
+    gap: 1rem;
+    .left {
+      text-align: right;
+    }
+    .right {
+      text-align: left;
+    }
+    p {
+      line-height: 0.5;
+    }
+  }
+
+  .versus {
+    margin: auto;
+    margin-top: 4rem;
+  }
+
+
+/*  ======================
   Learning table
   ====================== */
 
