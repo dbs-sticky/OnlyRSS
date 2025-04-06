@@ -149,8 +149,8 @@ class Social extends HTMLElement {
     let ogTitle = ogTitleTag ? ogTitleTag.content : document.title;
     let ogUrl = ogUrlTag ? ogUrlTag.content : window.location.href;
 
-    // Convert the title and URL to URIs.
-    let titleUri = encodeURIComponent(ogTitle);
+    // Convert the title and URL to URIs, encoding single quotes as well.
+    let titleUri = encodeURIComponent(ogTitle).replace(/'/g, '%27');
     let urlUri = encodeURIComponent(ogUrl)
 
     const style = `
