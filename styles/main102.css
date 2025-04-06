@@ -1028,11 +1028,43 @@ prodman-tag::after {
 }
 
 /*  ======================
+  BBC non-uk layout post
+  ====================== */
+
+  .versus {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    max-width: 25rem;
+    gap: 2rem;
+    .left {
+
+    }
+    .center {
+      text-align: left;
+    }
+    .right {
+      text-align: left;
+    }
+    p {
+      line-height: 0.5;
+    }
+  }
+
+  .versus {
+    margin: auto;
+    margin-top: 4rem;
+  }
+
+
+/*  ======================
   Learning table
   ====================== */
 
 /* table formatting - width is set in media queries */
-.learning-log {
+.learning-log, .comparison-table {
   table-layout:fixed;
   margin: auto;
   text-align: left;
@@ -1049,7 +1081,7 @@ prodman-tag::after {
 }
 
 /* define the header row font and background colour */
-.learning-log th {
+.learning-log th, .comparison-table th {
   font-weight: 400;
   color: var(--bodytext);
   background-color: var(--accent-light);
@@ -1057,7 +1089,9 @@ prodman-tag::after {
 
 /* pad all header and cell elements */
 .learning-log th,
-.learning-log td {
+.learning-log td,
+.comparison-table th,
+.comparison-table td {
   padding: 7px 10px;
 }
 
