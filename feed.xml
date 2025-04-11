@@ -20,6 +20,247 @@
 
     <!-- Blog articles -->
 
+
+        <!-- vibe coding -->
+    <item>
+      <guid isPermaLink="false">article34</guid>
+      <title>AI-assisted coding is the electric-assisted cycling of software development</title>
+      <link>https://onlyrss.org/posts/vibe-coding.html</link>
+      <pubDate>Fri, 11 Apr 2025 09:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+          <header>
+            <h1>AI-assisted coding is the electric-assisted cycling of software development</h1>
+            <p>
+              My premise here is that electric bikes don't just make cycling easier for existing cyclists—for many people they make cycling possible. I see many parallels with AI-assisted software development i.e., for existing software developers AI-assisted coding makes their job easier, for people who can't code, it makes software development <em>possible</em>. And I see both (electric bikes and AI coding) as good things.
+            </p>
+          </header>
+
+          <article>
+
+            <section>
+              <h2>Why I'm defending vibe coding (and electric-assisted cycling)?</h2>
+              <p>Creating software using an AI-coding assistant, relying <em>fully</em> on the AI and without ever writing the code yourself is termed “<a href="https://en.wikipedia.org/wiki/Vibe_coding" target="_blank" title="Read about vibe coding on Wikipedia">vibe coding</a>”.</p>
+              <p>I see a lot of comments and memes online related to vibe coding, typically pointing out that vibe coding can only get you so far (before even the AI can't maintain/update what it's created), or it's simply “bad” as the developer does not understand the code that's been created. And these things are true, yet they are only relevant if you're a professional software developer.</p>
+              <p>If you're not a professional software developer, and you just want to create an app for yourself that accesses a weather API and determines the best period to go cycling during the day, or a circuit training app that selects 10 exercises at random for you to do each day based on the equipment you have access to, then the fact that you don't understand the code that has been created by the AI is utterly irrelevant.</p>
+              <p> Is the generated code well commented, efficient, scalable, and does it embrace best practice? The answer to all these is simple: it… does… not… f**king… matter. There's only one thing that matters—does it solve the problem?</p>
+          </section>
+
+          <section>
+              <h2>For many people, AI coding (like electric-assisted cycling) is the only option</h2>
+              <p>I see more people cycling now than I did even just a few years ago. That's not exactly true (or at least it's hard to prove, I've not actually been counting), I guess what I mean is that I see a much broader variety of people cycling now than I used to.</p>
+              <p>I live in the UK, where cycling typically means a middle-aged guy, with enough disposable income to drop £3-5k on a bike (or bikes! all purchased via the Cycle to Work scheme, that are never going to be used to cycle to work, and weighs less than the roast dinner he ate the previous day), dressed in Lycra, and looking like he's training for the Tour de France, or at least like he's in an urgent rush to get somewhere. We know these people as Middle-Aged Men In Lycra (<a href="https://en.wikipedia.org/wiki/Mamil" target="_blank" title="Read about MAMIL on Wikipedia">MAMILs</a>).</p>
+              <p>More recently, while out on my bike, I've seen older people (yes, people, not just men!) wearing normal clothes—as if they don't care about the loss of efficiency due to their baggy t-shirts and flappy shorts. Not only that, but they're also sitting up straight on their bikes, and looking around at their environment, some of these fools are even smiling and chatting to each other (wasting oxygen that could be better used to help propel them forward), it's madness I tell you, madness!</p>
+              <p>Anyway, my point is that these new cyclists are typically on electric bikes. And if it's the electric bike that has <s>encouraged</s> enabled them to get outside for a few hours to explore their environment on a sunny Sunday afternoon, as opposed to sitting in front of the telly watching Cash in the Attic (other old-people shows are available) then I'm all for it.</p>
+          </section>
+
+          <section>
+              <h2><q>Vibe coders should just learn to code</q></h2>
+              <p>Damn right! And you should sell your car and walk everywhere, and I should learn how to spell “<s>seperately</s>” “<s>sepratley</s>” “separately”, and addicts should just stop taking drugs, and Trump should stop lying like the sack of sh… I digress.</p>
+              <p>The simple fact is that many people can't code. It might be an issue with not having time to learn, or that the return-on-investment on learning is not worth it i.e., maybe they only wanted to create that one bike-ride weather app, or circuit training app. Is that worth a month-long Python course? (And anyway, shouldn't Python developers learn real languages like assembly and machine code?)</p>
+              <p>Accept it or not, but for many people, coding (like spelling for me) is just not something they will ever get, it doesn't matter how much they try and learn it.</p>
+              <p>And anyway, why should they learn to code? Coding is a means to an end isn't it? Isn't the aim to create working software?</p>
+              <p>I've heard similar comments about electric-assisted cycling e.g., “it's cheating, they should just use a real bike”. And it's true, if they were hoping to use their electric bike during the Tour de France, it would indeed be classed as cheating, but I suspect this is not the aim in most cases. And a “real” bike? What does that even mean, do real bikes have suspension and gears? Is using a bike computer like a Garmin or Wahoo cheating?</p>
+          </section>
+
+          <section>
+              <h2>Conclusion</h2>
+              <p>
+                In conclusion, if you have a problem, if no one else can help, <s>and if you can find them… maybe you can hire The A-Team</s> then give vibe coding a try. It's not bad, or wrong, or cheating, and there's no need to take a shower afterwards.
+              </p>
+              <p>
+                And if all goes well, you might create something that has never before existed, and I reckon that's probably a good thing… unless of course you created <a href="https://en.wikipedia.org/wiki/Truth_Social" target="_blank" title="Read about TruthSocial on Wikipedia">Truth Social</a>, in which case… you can just f**k off.
+              </p>
+
+              <figure>
+                <img src="https://onlyrss.org/images/vibe-coding.webp" alt="A sketch of an old-man cycling on an electric bike while also using a laptop" width="695" height="695" loading="lazy">
+                <figcaption>Warning: Vibe-coding and cycling are mutually exclusive activities.</figcaption>
+              </figure>
+              
+          </section>
+
+          </article>
+
+                ]]>
+      </description>
+    </item>
+
+        <!-- Same News, different views -->
+    <item>
+      <guid isPermaLink="false">article33</guid>
+      <title>Same news, different views: The BBC's design at home and abroad</title>
+      <link>https://onlyrss.org/posts/same-news-different-views.html</link>
+      <pubDate>Sun, 06 Apr 2025 17:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+          <header>
+            <h1>Same news, different views: The BBC's design at home and abroad</h1>
+            <p>
+              Around a year ago I noticed that the BBC news site had updated their article format—and I really liked the new look. But, I then realised that I had my VPN on and was actually seeing the site as viewed from the US! Have our American cousins evolved so much during our split 400 years ago that they now have a better appreciation of typography and design?
+            </p>
+          </header>
+
+          <article>
+
+              <section>
+              <h2>Introduction</h2>
+              <p>
+                It's perfectly normal for news websites to have different layouts and styles. Image and paragraph width, choice of typeface (Serif vs Sans-Serif), use of colours, horizontal page-alignment, position of the byline, location of the search field etc. All these features differ between news publishers, but, they are typically consistent <em>within</em> a single publisher.
+              </p>
+              <p>
+                Apart from consistency providing the reader with a more user-friendly experience, it also helps to build brand recognition, and, maybe even more importantly (at least from a cost point-of-view), it's simpler to design, build, and support one solution than it is two, especially when you consider that many of the choices are subjective. For example, does it really matter if the byline is above or below the header image?
+              </p>
+              <p>
+                This is why I'm confused as to why the BBC News site went to the trouble of creating a different design for its international audience. I understand that differences around content were required (due to rights issues etc.) and that some layout changes would be required (as the international version is ad-supported), but why change the typography, layout, colours etc.?
+              </p>
+            </section>
+
+            <section>
+            <h2>Page Layout</h2>
+            <p>
+              I guess we (in the UK) like colour, and the rest of the world…&nbsp;doesn't?
+            </p>
+
+            <figure>
+                <img src="https://onlyrss.org/images/bbc-inside-uk.webp" />
+              <figcaption>UK version (2-column, red header)</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://onlyrss.org/images/bbc-outside-uk.webp" />
+              <figcaption>International version</figcaption>
+            </figure>
+
+            <table class="comparison-table" style="width: 100%;">
+              <thead>
+              <tr>
+                <th>Page Element</th>
+                <th>UK</th>
+                <th>International</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Layout</td>
+                <td>Two column</td>
+                <td>One column</td>
+              </tr>
+              <tr>
+                <td>Background colour</td>
+                <td>Off white</td>
+                <td>Pure white</td>
+              </tr>
+              <tr>
+                <td>Header images</td>
+                <td>Image width > Copy width</td>
+                <td>Image width > Copy width</td>
+              </tr>
+              <tr>
+                <td>Body images</td>
+                <td>Image width > Copy width</td>
+                <td>Image width = Copy width</td>
+              </tr>
+              <tr>
+                <td>Byline</td>
+                <td>Below header image</td>
+                <td>Between title and header image</td>
+              </tr>
+              <tr>
+                <td>Original publish date</td>
+                <td>Yes</td>
+                <td>No</td>
+              </tr>
+              <tr>
+                <td>Updated date</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              </tbody>
+            </table>
+            </section>
+
+            <section>
+              <h2>Features</h2>
+              <p>
+                Even though the BBC is very insistent that UK users now register when using the website, the site lacks the ability to save articles. Yet this is a feature in the international version. Saving articles on a news site isn't the most common feature, and I tend to save useful articles to a <a href="https://docs.feedly.com/article/60-how-can-i-save-an-article-to-a-board" target="_blank">Feedly board</a> anyway, so this isn't an issue for me, but it's still a strange inconsistency.
+              </p>
+              <p>
+                The international version also has a share button (as do almost all news websites), which is missing from the UK version. I'm not sure why this is the case, but I suspect it's because the international version is ad-supported, and the BBC wants to encourage sharing to increase traffic to the site. But, it's such a useful feature (after all, sharing <em>is</em> caring), and it's such an <a href="https://christianheilmann.com/2024/11/16/whats-your-excuse-for-not-using-the-web-share-api/" target="_blank">easy feature to implement</a>, it seems like a very odd omission to me.
+              </p>
+              </section>
+
+            <section>
+            <h2>Typography</h2>
+            <p> In the UK we get a sans-serif font, narrow paragraph width, and for some reason, a grey background (ok, I know, I use an off-yellow background, so who am I to criticise). The international version gets a larger serif font, wider paragraph, and a white background. </p>
+            <p> There is some consistency—unfortunately. Across both versions the BBC still refuses to use real quotes (“ ”) and <a href="https://www.thepunctuationguide.com/em-dash.html" target="_blank" title="An em dash should be used when you want to create a strong break in the structure of a sentence—often to emphasize a point.">em dashes</a> (—), and instead uses typewriter style quotes (" ") 🤢 and <a href="https://www.thepunctuationguide.com/en-dash.html" target="_blank" title="The en dash is used to represent a span or range of numbers, dates, or time">en dashes</a> (–) 😱. </p>
+
+            <figure>
+                <img slot="first" src="https://onlyrss.org/images/bbc-type-inside-uk.webp" />
+              <figcaption>Comparison: UK version (sans-serif, grey background, narrow)</figcaption>
+            </figure>
+
+            <figure>
+                <img slot="second" src="https://onlyrss.org/images/bbc-type-outside-uk.webp" />
+              <figcaption>International version (serif, white background, wider)</figcaption>
+            </figure>
+
+            <table class="comparison-table" style="width: 100%;">
+              <thead>
+              <tr>
+                <th>Paragraph Element</th>
+                <th>UK</th>
+                <th>International</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Font size</td>
+                <td>16px</td>
+                <td>18px</td>
+              </tr>
+              <tr>
+                <td>Typeface</td>
+                <td>BBC Reith Sans</td>
+                <td>BBC Reith Serif</td>
+              </tr>
+              <tr>
+                <td>Width/Measure</td>
+                <td>580px (~73 characters)</td>
+                <td>722px (~86 characters)</td>
+              </tr>
+              <tr>
+                <td>Line height</td>
+                <td>22px</td>
+                <td>26px</td>
+              </tr>
+              </tbody>
+            </table>
+            </section>
+
+            <section>
+            <h2>Conclusions</h2>
+            <p>
+              The international version of the website is operated by BBC Global News Ltd., the for-profit BBC subsidiary, which also operates the BBC World News television channel.
+            </p>
+            <p>
+              This commercial distinction likely explains many of the differences. The international version, with its revenue-generating objectives, employs more reader-friendly typography (serif fonts are generally considered easier to read in longer articles), offers social sharing to increase traffic, and provides article-saving functionality to encourage return visits. Meanwhile, the UK version, funded by the license fee, doesn't have the same commercial pressures.
+            </p>
+            <p>
+              What remains puzzling is why the BBC maintains two entirely different design systems rather than a single flexible system that could accommodate both commercial and non-commercial needs. The development and maintenance costs for dual systems must be substantial, and the brand inconsistency seems counterproductive to the BBC's global identity.
+            </p>
+            <p>
+              Why does this bother me so much that I wrote a blog post about it? To be honest, I much prefer the international version, and I do pay a license fee to the BBC, so I guess I'm just a little jealous!
+            </p>
+            </section>
+
+          </article>
+
+                ]]>
+      </description>
+    </item>
+
+
+
     <!-- calendar heatmap -->
     <item>
       <guid isPermaLink="false">article32</guid>
