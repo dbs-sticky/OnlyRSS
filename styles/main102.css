@@ -266,7 +266,7 @@ header p {
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--heading-font);
   color: var(--bodytext);
-  line-height: 1.8rem;
+  line-height: 1.2;
   margin: 0.4em 0;
 }
 
@@ -280,8 +280,7 @@ sup {
 h1 {
   font-size: 2.5rem;
   margin-top: 0;
-  line-height: 2.8rem;
-  /* text-wrap: balance; */
+  text-wrap: pretty;
   color: var(--accent);
 }
 
@@ -294,6 +293,7 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
+
 }
 
 h3 {
