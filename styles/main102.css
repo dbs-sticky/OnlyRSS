@@ -281,7 +281,7 @@ h1 {
   font-size: 2.5rem;
   margin-top: 0;
   line-height: 2.8rem;
-  text-wrap: balance;
+  /* text-wrap: balance; */
   color: var(--accent);
 }
 
