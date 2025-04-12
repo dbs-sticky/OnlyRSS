@@ -231,16 +231,10 @@ aside {
 article,
 main {
   flex: 1 0 auto;
-
 }
 
 html, body {
   height: 100%;
-}
-
-body {
-  /* display: flex;
-  flex-direction: column; */
 }
 
 aside {
@@ -262,44 +256,45 @@ header p {
   margin: 1rem 0px;
 }
 
+sup {
+  font-size:x-small;
+}
+
 /* Headings - shared */
 h1,h2,h3,h4,h5,h6 {
   font-family: var(--heading-font);
   color: var(--bodytext);
   line-height: 1.2;
   margin: 0.4em 0;
-}
-
-sup {
-  font-size:x-small;
+  text-wrap: pretty;
 }
 
 /* Headings - individual */
 
-
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   margin-top: 0;
-  text-wrap: pretty;
   color: var(--accent);
+}
+h2 {
+  font-size: 1.8rem;
+}
+h3 {
+  font-size: 1.2rem;
 }
 
 @media  (width < 768px) {
   h1 {
-    font-size: 1.5rem;
-    line-height: 2rem;
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1.0rem;
   }
 }
 
-h2 {
-  font-size: 1.8rem;
-
-}
-
-h3 {
-  font-size: 1.4rem;
-  color: var(--accent);
-}
 
 /* keep the space between any heading and the fist paragraph tight */
 :where(h1, h2, h3, h4, h5, h6) + p {
