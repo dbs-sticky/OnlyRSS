@@ -154,24 +154,24 @@ class Social extends HTMLElement {
     let urlUri = encodeURIComponent(ogUrl)
 
     const style = `
-    <style>
-      social-icons {
-      a {all: unset;}
-        & div {
-          height: 35px;
-            & svg {
-              cursor: pointer;
-              transition: all 0.4s ease-in-out;
-              width: 35px;
-              fill: var(--accent);
-                &:hover {
-                  transform: scale(1.3);
-                }
-            }        
+      <style>
+        social-icons a {
+        all: unset;
         }
-      }
-    </style>
-    `;
+        social-icons div {
+        height: 35px;
+        }
+        social-icons div svg {
+        cursor: pointer;
+        transition: all 0.4s ease-in-out;
+        width: 35px;
+        fill: var(--accent);
+        }
+        social-icons div svg:hover {
+        transform: scale(1.3);
+        }
+      </style>
+      `;
 
     // Concatenate the titleURI and UrlUri together into the intent links for each network.
     const template = `
