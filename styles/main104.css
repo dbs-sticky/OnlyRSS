@@ -323,21 +323,15 @@ background-color: oklch(90% 0.17 97);
 
 /* Links */
 a {
-  color: black;
+  color: var(--bodytext);
   text-decoration-color: var(--accent);
   text-decoration-skip-ink: auto;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  a {
-    color: white;
-  }
-} */
-
 :where(p, li, figcaption, table) a:hover {
-  text-decoration: underline;
-
+  text-decoration-color: currentColor;
 }
 
 :where(p, li, figcaption, table) a[href^="http"]::after {
@@ -356,18 +350,6 @@ a {
   }
 } */
 
-
-
-
-:where(p, li, figcaption, table) a[href^="http"] {
-
-  transition: border-bottom 1s;
-}
-
-:where(p, li, figcaption, table) a[href^="http"]:hover {
-
-  
-}
 
 /* blockquotes  */
 blockquote {
@@ -590,7 +572,6 @@ button:active {
     ====================== */
 
 aside {
-
   >h1 {
     color: black;
     border-bottom: 1px solid black;
@@ -598,7 +579,6 @@ aside {
     margin-bottom: -0.5rem; /* Offset the border-bottom upwards by 0.5rem */
     line-height: 0.1em;
     margin: 3rem 0;
-
     span {
       background: var(--background-color);
       padding:0 1rem;
