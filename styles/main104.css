@@ -10,11 +10,11 @@
   --accent: oklch(var(--L) var(--C) var(--H));
   --accent-light: oklch(var(--L) var(--C) var(--H) / 20%);
 
-  --bodytext: oklch(20% 0 0);
-  --background-color: oklch(96% 0.015 85);
+  --bodytext: black;
+  --background-color: white;
   --card-background-color: var(--background-color);
   --radius: 0.5rem;
-  --heading-font: "slab", serif;
+  --heading-font: "Neuton", serif;
   --body-font: "Roboto Serif", serif;
   --cta-font: "Roboto Condensed", sans-serif;
   --mono-font: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
@@ -53,11 +53,11 @@
 }
 
 @font-face {
-  font-family: "slab";
+  font-family: "Neuton";
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-display: block;
-  src: url(/fonts/slab.woff2) format("woff2");
+  src: url(/fonts/Neuton-Regular.woff2) format("woff2");
 }
 
 @font-face {
@@ -267,14 +267,14 @@ h1,h2,h3,h4,h5,h6 {
   line-height: 1.2;
   margin: 0.4em 0;
   text-wrap: pretty;
+  font-weight: 500;
 }
 
 /* Headings - individual */
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-top: 0;
-  color: var(--accent);
 }
 h2 {
   font-size: 1.8rem;
@@ -323,9 +323,10 @@ background-color: oklch(90% 0.17 97);
 
 /* Links */
 a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 0.4s;
+  color: black;
+  text-decoration-color: var(--accent);
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: 3px;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -335,8 +336,8 @@ a {
 } */
 
 :where(p, li, figcaption, table) a:hover {
-  text-decoration: none;
-  color: var(--accent);
+  text-decoration: underline;
+
 }
 
 :where(p, li, figcaption, table) a[href^="http"]::after {
@@ -359,12 +360,13 @@ a {
 
 
 :where(p, li, figcaption, table) a[href^="http"] {
-  border-bottom: 1px solid transparent;
+
   transition: border-bottom 1s;
 }
 
 :where(p, li, figcaption, table) a[href^="http"]:hover {
-  border-bottom: 1px solid currentColor;
+
+  
 }
 
 /* blockquotes  */
