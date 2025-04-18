@@ -252,8 +252,9 @@ p {
   text-wrap: pretty;
 }
 
-header p {
-  margin: 1rem 0px;
+header + section  p:first-of-type:first-letter {
+  initial-letter: 2 2;
+  margin-right: 0.5rem;
 }
 
 sup {
@@ -322,16 +323,22 @@ background-color: oklch(90% 0.17 97);
 
 
 /* Links */
-a {
+
+article a, main a {
   color: var(--bodytext);
+  text-decoration: underline;
   text-decoration-color: var(--accent);
   text-decoration-skip-ink: auto;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
 
+a[data-category], table-of-contents a {
+  text-decoration: none;
+}
+
 :where(p, li, figcaption, table) a:hover {
-  text-decoration-color: currentColor;
+  color: var(--accent);
 }
 
 :where(p, li, figcaption, table) a[href^="http"]::after {
@@ -518,11 +525,21 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--accent);
   margin-bottom: 2rem;
   gap: 0.5rem;
   font-family: var(--cta-font);
+}
+
+header:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    border-bottom: 1px solid black; /* This creates the border. Replace black with whatever color you want. */
+}
+
+header {
+  margin-bottom: 2rem;;
 }
 
 

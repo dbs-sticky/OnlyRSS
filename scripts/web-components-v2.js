@@ -1,5 +1,7 @@
 
-// —————————————————————————image dialog modal Web Component—————————————————————————
+//  ======================
+//  MARK: img dialog
+//  ======================
 
 
 class DialogImage extends HTMLElement {
@@ -100,7 +102,9 @@ class DialogImage extends HTMLElement {
 if(!customElements.get('dialog-image')) customElements.define('dialog-image', DialogImage);
 
 
-// —————————————————————————feedback Web Component—————————————————————————
+//  ======================
+//  MARK: feedback footer
+//  ======================
 	
 
 class Feedback extends HTMLElement {
@@ -133,8 +137,10 @@ class Feedback extends HTMLElement {
 if(!customElements.get('feedback-contact')) customElements.define('feedback-contact', Feedback);
 
 
-// —————————————————————————social links Web Component—————————————————————————
-	
+
+//  ======================
+//  MARK: social links
+//  ======================
 
 class Social extends HTMLElement {
 
@@ -248,7 +254,9 @@ class Social extends HTMLElement {
 if(!customElements.get('social-icons')) customElements.define('social-icons', Social);
 
 
-// —————————————————————————byline Web Component—————————————————————————
+//  ======================
+//  MARK: byline
+//  ======================
 	
 
 class byline extends HTMLElement {
@@ -295,7 +303,9 @@ class byline extends HTMLElement {
 if(!customElements.get('by-line')) customElements.define('by-line', byline);
 
 
-// —————————————————————————Table of Contents Web Component—————————————————————————
+//  ======================
+//  MARK: ToC
+//  ======================
 
 
 class ToC extends HTMLElement {
@@ -395,7 +405,9 @@ class ToC extends HTMLElement {
 if(!customElements.get('table-of-contents')) customElements.define('table-of-contents', ToC);
 
 
-// —————————————————————————global nav Web Component—————————————————————————
+//  ======================
+//  MARK: Navigation
+//  ======================
 	
 
 class Nav extends HTMLElement {
