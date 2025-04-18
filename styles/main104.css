@@ -853,12 +853,13 @@ a.icons {
   flex: 1;
 }
 
-/* the fill colour is set in the HTML SVG, and is unique to each icon */
+/* the styles below do NOT effect the social icons, where the style is in the Web Component */
 a.icons svg {
   /* grow on hover for 0.7s  */
   transition: all 0.7s ease-in-out;
   stroke: black;
   stroke-width: 0.3px;
+
 }
 
 /* grow on-hover */

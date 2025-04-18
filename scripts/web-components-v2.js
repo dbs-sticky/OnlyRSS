@@ -171,7 +171,9 @@ class Social extends HTMLElement {
         cursor: pointer;
         transition: all 0.4s ease-in-out;
         width: 35px;
-        fill: var(--accent);
+        fill: none;
+        stroke: #000;
+        stroke-width: 0.5px;
         }
         social-icons div svg:hover {
         transform: scale(1.3);
