@@ -1,7 +1,7 @@
 /* define global site variables */
 
 :root {
-  --pagewidth: 90ch;
+  --pagewidth: 85ch;
   --shadow: oklch(0% 0 0 / 10%);
 
   --L: 60%;   /* 60% */
@@ -160,7 +160,7 @@ body {
 @media (width >= 768px) {
   html {
     font-size: 105%;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   article,
@@ -333,7 +333,7 @@ article a, main a {
   text-underline-offset: 3px;
 }
 
-a[data-category], table-of-contents a {
+a[data-category], table-of-contents a, table a {
   text-decoration: none;
 }
 
