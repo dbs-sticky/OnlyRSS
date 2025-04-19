@@ -1,35 +1,30 @@
-def application(environ, start_response):
-    # Generate HTML content
-    html = """<!DOCTYPE html>
+def generate_html():
+    html_content = """<!DOCTYPE html>
 <html>
 <head>
-    <title>My First Python Web App</title>
+    <title>When Bike</title>
 </head>
 <body>
-    <h1>Hello from onlyRSS.org!</h1>
-    <p>This is my first Python web application using pure WSGI, no framework.</p>
+    <h1>When Bike</h1>
+    <p>This is the static HTML content for my when-bike application.</p>
 </body>
 </html>"""
     
-    # Convert to bytes
-    data = html.encode('utf-8')
+    with open('index.html', 'w') as file:
+        file.write(html_content)
     
-    # HTTP response headers
-    status = '200 OK'
-    response_headers = [
-        ('Content-Type', 'text/html'),
-        ('Content-Length', str(len(data)))
-    ]
-    
-    # Send response
-    start_response(status, response_headers)
-    return [data]
+    print("HTML file generated successfully!")
 
-# For local testing
-if __name__ == '__main__':
-    from wsgiref.simple_server import make_server
+# For cPanel's entry point
+def application(environ, start_response):
+    # Generate the HTML file first
+    generate_html()
     
-    # Create a simple WSGI server
-    with make_server('', 8000, application) as httpd:
-        print("Serving on port 8000...")
-        httpd.serve_forever()
+    # Then redirect to the static file
+    status = '302 Found'
+    response_headers = [('Location', '/apps/when-bike/index.html')]
+    start_response(status, response_headers)
+    return [b'']
+
+if __name__ == "__main__":
+    generate_html()
