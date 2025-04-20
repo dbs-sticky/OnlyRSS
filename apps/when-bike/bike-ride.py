@@ -31,8 +31,14 @@ if not GEMINI_API_KEY:
 
 LOCATION = 'burghfield common' # Location for the weather report
 UNIT_GROUP = 'metric'
-OUTPUT_DIR = 'output' # Directory to save the output files
 
+# Get the absolute path of the directory containing this script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Define OUTPUT_DIR relative to the script's location
+OUTPUT_DIR = os.path.join(SCRIPT_DIR, 'output') # Directory to save the output files
+
+# --- Create output directory if it doesn't exist ---
 if not os.path.exists(OUTPUT_DIR):
     try:
         os.makedirs(OUTPUT_DIR)
