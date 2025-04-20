@@ -1,0 +1,11 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# .gitignore
+.env
+__pycache__/
+*.pyc
+*.pyo
+output/*.csv
+
+# Virtual environment folder
+venv/
+
