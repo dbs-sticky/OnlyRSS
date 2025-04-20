@@ -32,6 +32,15 @@ if not GEMINI_API_KEY:
 LOCATION = 'burghfield common' # Location for the weather report
 UNIT_GROUP = 'metric'
 OUTPUT_DIR = 'output' # Directory to save the output files
+
+if not os.path.exists(OUTPUT_DIR):
+    try:
+        os.makedirs(OUTPUT_DIR)
+        print(f"Created output directory: {OUTPUT_DIR}")
+    except OSError as e:
+        print(f"Error creating directory {OUTPUT_DIR}: {e}")
+        sys.exit(1) # Exit if directory creation fails
+
 CSV_FILENAME = os.path.join(OUTPUT_DIR, 'weather_data.csv')
 JSON_FILENAME = os.path.join(OUTPUT_DIR, 'weather_data_filtered.json') # Optional: Save filtered data
 # Ensure this points to the EXISTING HTML file you want to update

@@ -7,5 +7,5 @@ __pycache__/
 output/*.csv
 
 # Virtual environment folder
-venv/
+.venv/
 
