@@ -382,16 +382,18 @@ Your job is to assess the day's weather and determine the best 1, 2, 3, 4 and 5 
 The weather data is provided in JSON format. Here's the JSON data containing the hourly weather metrics: {json.dumps(all_hourly_data_for_gemini)}. The JSON contains hourly weather metrics for the day, including the datetime, temp, windchill (walk), windchill (bike), precipprob, windgust, windspeed, visibility, and uvindex for each hour of the day.
 The data is for {LOCATION}, England, United Kingdom.
 When you reference these weather metrics, you should describe temp as "temperature", windchill (walk) as "walk temperature", windchill (bike) as "bike temperature", precipprob as "rain probability", windgust as "wind gust", windspeed as "wind speed", visibility as "visibility", and uvindex as "UV index"
-In your output clearly state "Data updated:" in the format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
-In your output clearly state "Data valid for:" in the format like this "Thursday 22nd April 2025". The date today is {report_date_str}.
-In your output cleary state the Sunrise time in the format like this "Sunrise is at 6:05am".
-In your output cleary state the Sunset time in the format like this "Sunset is at 8:23pm".
+Wind speed and wind gusts are both in kph.
+In a bulleted list (2 list items) show the "Data updated:" as the first item and "Data valid for:" as the second list item.
+"Data updated:" in the format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
+"Data valid for:" in the format like this "Thursday 22nd April 2025". The date today is {report_date_str}.
 A high uvindex is the most important factor, followed by a high windchill (bike), but, ALL weather metrics should be taken into consideration.
 All the bike riding slots should start after Sunrise and be complete before Sunset.
 All riding slots i.e. 1hr, 2hr, 3hr, 4hr, and 5hr should be continuous hours that fall within sunrise ({sunrise_hour}) and sunset ({sunset_hour}).
-List the best time-slots in a bulleted list, 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line.
-Present the date, sunrise hour (as {sunrise_hour}:00), and sunset hour (as {sunset_hour}:00) as a bulleted list.
-Do not use paragraph tags within <ul> elements
+List the best time-slots as an unordered list with each time slot being an item in that list. 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line. This list should have the following heading "Best Bike Riding Time-slots:" as a 3rd level heading. Each item should start with the following format e.g. **1hr**: 3pm – 4pm. NOT 15:00 etc. And be followed with the explanation.
+Do not use paragraph tags within <li> elements
+Other than the two lists and the heading, do not include any other output in your response.
+Rather that state "degrees", state "°C" for temperatures.
+All output should be in Markdown.
 """
                 )
                 # Make the API call
