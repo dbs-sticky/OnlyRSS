@@ -379,17 +379,19 @@ if __name__ == "__main__":
                     model="gemini-2.0-flash", 
                     contents = f"""
 Your job is to assess the day's weather and determine the best 1, 2, 3, 4 and 5 hour slots for a bike ride.
-The weather data is provided in JSON format. The JSON contains hourly weather metrics for the day, including the datetime, temp, windchill (walk), windchill (bike), precipprob, windgust, windspeed, visibility, and uvindex for each hour of the day.
-The data is for {LOCATION}, England, United Kingdom. When you reference these weather metrics, you should describe temp as "temperature", windchill (walk) as "walk temperature", windchill (bike) as "bike temperature", precipprob as "rain probability", windgust as "wind gust", windspeed as "wind speed", visibility as "visibility", and uvindex as "UV index"
-In your output clearly state the time the data was updated in a format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
+The weather data is provided in JSON format. Here's the JSON data containing the hourly weather metrics: {json.dumps(all_hourly_data_for_gemini)}. The JSON contains hourly weather metrics for the day, including the datetime, temp, windchill (walk), windchill (bike), precipprob, windgust, windspeed, visibility, and uvindex for each hour of the day.
+The data is for {LOCATION}, England, United Kingdom.
+When you reference these weather metrics, you should describe temp as "temperature", windchill (walk) as "walk temperature", windchill (bike) as "bike temperature", precipprob as "rain probability", windgust as "wind gust", windspeed as "wind speed", visibility as "visibility", and uvindex as "UV index"
+In your output clearly state "Data updated:" in the format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
+In your output clearly state "Data valid for:" in the format like this "Thursday 22nd April 2025". The date today is {report_date_str}.
+In your output cleary state the Sunrise time in the format like this "Sunrise is at 6:05am".
+In your output cleary state the Sunset time in the format like this "Sunset is at 8:23pm".
 A high uvindex is the most important factor, followed by a high windchill (bike), but, ALL weather metrics should be taken into consideration.
-In your output, clearly state the current date and day e.g. Monday 3rd March. The date today is {report_date_str}.
 All the bike riding slots should start after Sunrise and be complete before Sunset.
 All riding slots i.e. 1hr, 2hr, 3hr, 4hr, and 5hr should be continuous hours that fall within sunrise ({sunrise_hour}) and sunset ({sunset_hour}).
-The sunrise hour is {sunrise_hour}, the sunset hour is {sunset_hour}.
-Here's the JSON data containing the hourly weather metrics: {json.dumps(all_hourly_data_for_gemini)}.
 List the best time-slots in a bulleted list, 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line.
 Present the date, sunrise hour (as {sunrise_hour}:00), and sunset hour (as {sunset_hour}:00) as a bulleted list.
+Do not use paragraph tags within <ul> elements
 """
                 )
                 # Make the API call
