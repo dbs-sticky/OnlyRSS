@@ -389,7 +389,7 @@ In a bulleted list (2 list items) show the "Data updated:" as the first item and
 A high uvindex is the most important factor, followed by a high windchill (bike), but, ALL weather metrics should be taken into consideration.
 All the bike riding slots should start after Sunrise and be complete before Sunset.
 All riding slots i.e. 1hr, 2hr, 3hr, 4hr, and 5hr should be continuous hours that fall within sunrise ({sunrise_hour}) and sunset ({sunset_hour}).
-List the best time-slots as an unordered list with each time slot being an item in that list. 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line. This list should have the following heading "Best Bike Riding Time-slots:" as a 3rd level heading. Each item should start with the following format e.g. **1hr**: 3pm – 4pm. NOT 15:00 - 16:00 etc. And be followed with the explanation.
+List the best time-slots as an unordered list with each time slot being an item in that list. 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line. This list should have the following heading "Best Bike Riding Time-slots:" as a 3rd level heading. Each item should start with the following format e.g. **1hr**: 3pm – 4pm. When referring to time ranges, please use the 12-hour clock format with 'am' and 'pm' indicators. For example, write '3pm - 4pm' rather than '15:00 - 16:00'. Always use lowercase for 'am' and 'pm' without periods, and include a space before and after the dash between times. And be followed with the explanation.
 Do not use paragraph tags within <li> elements
 Other than the two lists and the heading, do not include any other output in your response.
 Rather that state "degrees", state "°C" for temperatures.
