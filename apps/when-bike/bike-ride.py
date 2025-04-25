@@ -4,6 +4,7 @@
 import urllib.request
 import urllib.parse
 import urllib.error
+import requests
 import json
 import sys
 import csv
@@ -21,6 +22,7 @@ load_dotenv() # This reads the .env file and loads variables into the environmen
 # Now os.getenv will find the variables loaded from .env
 VISUAL_CROSSING_API_KEY = os.getenv('VISUAL_CROSSING_API_KEY')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+DATAWRAPPER_API_KEY = os.getenv('DATAWRAPPER_API_KEY')
 
 # Add checks to ensure keys were loaded
 if not VISUAL_CROSSING_API_KEY:
@@ -436,3 +438,46 @@ All output should be in Markdown.
         sys.exit(1) # Exit if fetching fails
 
     print(f"\n--- Weather Report Generation Finished ({datetime.now()}) ---")
+
+
+    # Now update the Datawrapper chart
+
+url = "https://api.datawrapper.de/v3/charts/aI2gc"
+
+# Create a dynamic chart title using the report_date_str
+if report_date_str:
+  # Convert the date string to a datetime object
+  try:
+    date_obj = datetime.strptime(report_date_str, "%Y-%m-%d")
+    # Get the day name from the date
+    day_name = date_obj.strftime("%A")
+    payload = {"title": f"Hourly metrics for {day_name}"}
+  except ValueError:
+    # Fallback if date parsing fails
+    print(f"Warning: Could not parse date string: {report_date_str}")
+    payload = {"title": "Hourly weather metrics"}
+else:
+  # Fallback if no date is available
+  payload = {"title": "Hourly weather metrics"}
+
+headers = {"accept": "*/*",
+           "Authorization": f"Bearer {DATAWRAPPER_API_KEY}",
+           "content-type": "application/json"
+           }
+
+response = requests.patch(url, json=payload, headers=headers)
+
+print(response.text)
+
+# Add code to publish the chart
+publish_url = "https://api.datawrapper.de/v3/charts/aI2gc/publish"
+
+headers = {"accept": "*/*",
+           "Authorization": f"Bearer {DATAWRAPPER_API_KEY}",
+           "content-type": "application/json"
+           }
+
+# Reuse the same headers for authorization
+publish_response = requests.post(publish_url, headers=headers)
+
+print(publish_response.text)
