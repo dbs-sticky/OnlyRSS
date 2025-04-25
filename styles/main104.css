@@ -248,13 +248,15 @@ aside {
 /* Paragraphs */
 
 p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5em; /* used if 'lh' below is not supported */
+  margin-bottom: 1lh; 
   text-wrap: pretty;
 }
 
 header + section  p:first-of-type:first-letter {
-  initial-letter: 2 2;
+  initial-letter: 3;
   margin-right: 0.5rem;
+  margin-top: 0.2em
 }
 
 sup {
