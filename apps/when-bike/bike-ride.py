@@ -474,7 +474,6 @@ publish_url = "https://api.datawrapper.de/v3/charts/aI2gc/publish"
 
 headers = {"accept": "*/*",
            "Authorization": f"Bearer {DATAWRAPPER_API_KEY}",
-           "content-type": "application/json"
            }
 
 # Reuse the same headers for authorization
