@@ -473,7 +473,7 @@ print(response.text)
 publish_url = "https://api.datawrapper.de/v3/charts/aI2gc/publish"
 
 headers = {"accept": "*/*",
-           "Authorization": f"Bearer {DATAWRAPPER_API_KEY}",
+           "Authorization": f"Bearer {DATAWRAPPER_API_KEY}"
            }
 
 # Reuse the same headers for authorization
