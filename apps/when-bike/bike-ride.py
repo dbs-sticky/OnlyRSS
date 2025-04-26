@@ -31,6 +31,9 @@ if not VISUAL_CROSSING_API_KEY:
 if not GEMINI_API_KEY:
     print("Error: GEMINI_API_KEY not found in environment or .env file.")
     sys.exit(1)
+if not DATAWRAPPER_API_KEY:
+    print("Error: DATAWRAPPER_API_KEY not found in environment or .env file.")
+    sys.exit(1)
 
 LOCATION = 'burghfield common' # Location for the weather report
 UNIT_GROUP = 'metric'
