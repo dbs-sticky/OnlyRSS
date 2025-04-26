@@ -60,8 +60,12 @@ HTML_REPORT_FILENAME = os.path.join(OUTPUT_DIR, 'burghfield.html')
 
 # Construct the API URL
 # URL encodes the location automatically if needed, but pre-encoding is safer
+# encoded_location = urllib.parse.quote(LOCATION)
+# API_URL = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{encoded_location}/today?unitGroup={UNIT_GROUP}&elements=datetime%2Ctemp%2Cfeelslike%2Cprecipprob%2Cwindgust%2Cwindspeed%2Cvisibility%2Cuvindex%2Csunrise%2Csunset&include=hours&key={VISUAL_CROSSING_API_KEY}&contentType=json"
+
+
 encoded_location = urllib.parse.quote(LOCATION)
-API_URL = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{encoded_location}/today?unitGroup={UNIT_GROUP}&elements=datetime%2Ctemp%2Cfeelslike%2Cprecipprob%2Cwindgust%2Cwindspeed%2Cvisibility%2Cuvindex%2Csunrise%2Csunset&include=hours&key={VISUAL_CROSSING_API_KEY}&contentType=json"
+API_URL = f"https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{encoded_location}/today?unitGroup={UNIT_GROUP}&elements=datetime%2Ctemp%2Cfeelslike%2Cprecip%2Cprecipprob%2Cwindspeed%2Ccloudcover%2Cvisibility%2Csolarradiation%2Csunrise%2Csunset&include=hours&key={VISUAL_CROSSING_API_KEY}&contentType=json"
 
 # --- Helper Functions ---
 
@@ -384,14 +388,14 @@ if __name__ == "__main__":
                     model="gemini-2.0-flash", 
                     contents = f"""
 Your job is to assess the day's weather and determine the best 1, 2, 3, 4 and 5 hour slots for a bike ride.
-The weather data is provided in JSON format. Here's the JSON data containing the hourly weather metrics: {json.dumps(all_hourly_data_for_gemini)}. The JSON contains hourly weather metrics for the day, including the datetime, temp, windchill (walk), windchill (bike), precipprob, windgust, windspeed, visibility, and uvindex for each hour of the day.
+The weather data is provided in JSON format. Here's the JSON data containing the hourly weather metrics: {json.dumps(all_hourly_data_for_gemini)}. The JSON contains hourly weather metrics for the day, including the datetime, temp, windchill (walk), windchill (bike), precipprob, windspeed, visibility, and solarradiation for each hour of the day.
 The data is for {LOCATION}, England, United Kingdom.
-When you reference these weather metrics, you should describe temp as "temperature", windchill (walk) as "walk temperature", windchill (bike) as "bike temperature", precipprob as "rain probability", windgust as "wind gust", windspeed as "wind speed", visibility as "visibility", and uvindex as "UV index"
-Wind speed and wind gusts are both in kph. precipprob is a percentage e.g. a value of 10 is just 10% chance of rain, which is a very low chance of rain. visibility is in km. UV index is a number.
+When you reference these weather metrics, you should describe temp as "temperature", windchill (walk) as "walk temperature", windchill (bike) as "bike temperature", precipprob as "rain probability", windspeed as "wind speed", visibility as "visibility", cloudcover as "cloud cover" and solarradiation as "solar radiation"
+Wind speed is in kph. precipprob is a percentage e.g. a value of 10 is just 10% chance of rain, which is a very low chance of rain. visibility is in km. solarradiation is in W/m2. cloudcover is in percentage e.g. a value of 10 is just 10% cloud cover, which is a very low cloud cover.
 In a bulleted list (2 list items) show the "Data updated:" as the first item and "Data valid for:" as the second list item.
 "Data updated:" in the format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
 "Data valid for:" in the format like this "Thursday 22nd April 2025". The date today is {report_date_str}.
-A high uvindex is the most important factor, followed by a high windchill (bike), but, ALL weather metrics should be taken into consideration. Light rain should not be a deterrent, but heavy rain should be avoided.
+A high sollarradiation is the most important factor, followed by a high windchill (bike), but, ALL weather metrics should be taken into consideration. Light rain should not be a deterrent, but heavy rain should be avoided.
 All the bike riding slots should start after Sunrise and be complete before Sunset.
 All riding slots i.e. 1hr, 2hr, 3hr, 4hr, and 5hr should be continuous hours that fall within sunrise ({sunrise_hour}) and sunset ({sunset_hour}).
 List the best time-slots as an unordered list with each time slot being an item in that list. 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line. This list should have the following heading "Best Bike Riding Time-slots:" as a 3rd level heading. Each item should start with the following format e.g. **1hr**: 3pm – 4pm. When referring to time ranges, please use the 12-hour clock format with 'am' and 'pm' indicators. For example, write '3pm - 4pm' rather than '15:00 - 16:00'. Always use lowercase for 'am' and 'pm' without periods, and include a space before and after the dash between times. And be followed with the explanation. Keep the explanation brief, there's no need to list out all the specific weather metrics, just the ones that are most important for bike riding. And even then there's no need to list out the metrics values exactly, but you can show the metrics if you believe they are pertenant.
