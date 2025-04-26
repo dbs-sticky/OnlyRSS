@@ -401,7 +401,7 @@ The metrics are:
 * visibility: This is the distance that can be seen in daylight. Which should be referred to as "visibility", and is in km.
 * cloudcover: Cloud cover is the amount of sky that is covered by cloud expressed as a percentage, and should be referred to as "cloud cover"
 * solarradiation: The solar radiation measures the power (in W/m2) at the instantaneous moment of the observation (or forecast prediction), this should be referred to as "solar radiation".
-High sollar radiation, low cloud cover, and high bike temperature are preferred, but ALL weather metrics should be taken into consideration. A low precipprob should not be a deterrent, but high precipprob should be avoided.
+High solar radiation, low cloud cover, and high bike temperature are preferred, but ALL weather metrics should be taken into consideration. A low precipprob should not be a deterrent, but high precipprob should be avoided.
 In a bulleted list (2 list items) show the "Data updated:" as the first item and "Data valid for:" as the second list item.
 "Data updated:" in the format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
 "Data valid for:" in the format like this "Thursday 22nd April 2025". The date today is {report_date_str}.
