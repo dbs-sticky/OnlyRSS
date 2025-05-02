@@ -348,6 +348,64 @@ def update_html_div(html_content_to_insert, filename, div_class="ai-output"):
     except Exception as e:
         print(f"An unexpected error occurred during HTML update: {e}")
 
+def create_simple_html_page(content, filename):
+    """
+    Creates a simple HTML page with just the provided content and the current date/time as a heading.
+    """
+    if not content:
+        print("Skipping simple HTML page creation due to empty content.")
+        return
+    
+    try:
+        # Convert Markdown to HTML if the content is in Markdown format
+        html_content = markdown.markdown(content, extensions=['tables'])
+        
+        # Get current date and time for the heading
+        current_datetime = datetime.now().strftime('%A, %d %B %Y at %I:%M%p')
+        
+        # Create a simple HTML document structure
+        simple_html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Ride Weather Report</title>
+    <style>
+        body {{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }}
+        h1 {{
+            color: #333;
+        }}
+        ul {{
+            padding-left: 20px;
+        }}
+        li {{
+            margin-bottom: 10px;
+        }}
+    </style>
+</head>
+<body>
+    <h1>Weather Report - {current_datetime}</h1>
+    {html_content}
+</body>
+</html>'''
+
+        # Ensure the directory exists
+        ensure_dir(os.path.dirname(filename))
+        
+        # Write to the file
+        with open(filename, 'w', encoding='utf-8') as file:
+            file.write(simple_html)
+        
+        print(f"Simple HTML page successfully created at {filename}")
+    
+    except IOError as e:
+        print(f"Error writing simple HTML file {filename}: {e}")
+    except Exception as e:
+        print(f"An unexpected error occurred during simple HTML creation: {e}")
 
 # --- Main Execution Block ---
 if __name__ == "__main__":
@@ -431,6 +489,10 @@ All output should be in Markdown.
 
                     # Update the existing HTML file within the specified div
                     update_html_div(html_output_fragment, HTML_REPORT_FILENAME, div_class="ai-output")
+                    
+                    # Create the simple HTML page with just the Gemini output
+                    simple_html_filename = os.path.join(OUTPUT_DIR, 'trmnl-bike.html')
+                    create_simple_html_page(gemini_output_markdown, simple_html_filename)
 
                 else:
                     print("\nError: Received no valid text response from Gemini.")
