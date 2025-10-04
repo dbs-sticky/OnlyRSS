@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Photo editing using Gemini</title>
+    <meta name="description" content="Examples of photo editing using the new Nana Banana model that's part of Google Gemini.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#F3EEE4">
+    
+    
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Photo editing using Gemini">
+    <meta property="og:url" content="https://onlyrss.org/posts/nano-banana-examples.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/nano-banana-examples-og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="Examples of photo editing using the new Nana Banana model that's part of Google Gemini.">
+    <meta property="article:published_time" content="2025-10-04">
+
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://onlyrss.org/posts/nano-banana-examples.html"
+        },
+        "headline": "Photo editing using Gemini",
+        "description": "Examples of photo editing using the new Nana Banana model that's part of Google Gemini.",
+        "image": "https://onlyrss.org/images/og/nano-banana-examples-og.jpg",  
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "2025-10-04"
+      }
+    </script>
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main104.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+ 
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+        
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
+    <!-- code to toggle images between original and restored-->
+    <script>
+      var image_tracker1 = "original1";
+      function change1() {
+        var image = document.getElementById("original_restored1");
+        if (image_tracker1 == "original1") {
+          image.src = "/images/nano-cwmbwrla-new.webp";
+          image_tracker1 = "restored1";
+        } else {
+          image.src = "/images/nano-cwmbwrla-old.webp";
+          image_tracker1 = "original1";
+        }
+      }
+
+      var image_tracker2 = "original2";
+      function change2() {
+        var image = document.getElementById("original_restored2");
+        if (image_tracker2 == "original2") {
+          image.src = "/images/nano-viper-new.webp";
+          image_tracker2 = "restored2";
+        } else {
+          image.src = "/images/nano-viper-old.webp";
+          image_tracker2 = "original2";
+        }
+      }
+
+      var image_tracker3 = "original3";
+      function change3() {
+        var image = document.getElementById("original_restored3");
+        if (image_tracker3 == "original3") {
+          image.src = "/images/nano-model-new.webp";
+          image_tracker3 = "restored3";
+        } else {
+          image.src = "/images/nano-model-old.webp";
+          image_tracker3 = "original3";
+        }
+      }
+
+      var image_tracker4 = "original4";
+      function change4() {
+        var image = document.getElementById("original_restored4");
+        if (image_tracker4 == "original4") {
+          image.src = "/images/nano-pete-new.webp";
+          image_tracker4 = "restored4";
+        } else {
+          image.src = "/images/nano-pete-old.webp";
+          image_tracker4 = "original4";
+        }
+      }
+
+      var image_tracker5 = "original5";
+      function change5() {
+        var image = document.getElementById("original_restored5");
+        if (image_tracker5 == "original5") {
+          image.src = "/images/nano-gogh-new.webp";
+          image_tracker5 = "restored5";
+        } else {
+          image.src = "/images/nano-gogh-old.webp";
+          image_tracker5 = "original5";
+        }
+      }
+
+      var image_tracker6 = "original6";
+      function change6() {
+        var image = document.getElementById("original_restored6");
+        if (image_tracker6 == "original6") {
+          image.src = "/images/nano-king-new.webp";
+          image_tracker6 = "restored6";
+        } else {
+          image.src = "/images/nano-king-old.webp";
+          image_tracker6 = "original6";
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
+    
+      <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
+
+    <article>
+      <header style="view-transition-name: post34">
+        <h1>Photo editing using Gemini</h1>
+          <p>
+            Examples of photo editing using the new Nana Banana model that's part of Google Gemini.
+          </p>
+
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <misc-tag></misc-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
+
+      </header>
+
+      <!--introduction-->
+      <section>
+        <h2>Background</h2>
+        <p>
+          "Zoom and enhance!" is a <a href="https://knowyourmeme.com/memes/zoom-and-enhance" target="_blank"> movie trope</a> that has long infuriated anyone who has even the most basic understanding of what is (and isn't) possible when manipulating images. In the past I often found myself shouting at the TV, “You can't recover information that was never there!”. It turns out that for movies and TV shows set before 2022 my outbursts were justified, but for those set during or after 2022, it's starting to look like I was very wrong.
+        </p>
+      </section>
+
+      <!-- Examples - section -->
+      <section>
+        <h2>Examples</h2>
+        <p>
+          Below are 5 examples using my own family photographs that date between 1920 and 1979. Figures 1, 3, and 5 were originally black & white. While Figure 2 was originally colour, but the colour has degraded considerably and now has a very strong red cast. Figure 4 is a duotone. Each photo was digitised by scanning the original print (not the negative).
+        </p>
+
+        <p>You can enhance and colourise old photos.</p>
+
+        <figure>
+          <img src="/images/nano-cwmbwrla-old.webp" id="original_restored1" width="800" height="1200" alt="Two young boys on a ladybird ride. Showing a blurry original version, and a restored full colour version." onclick="change1();">
+          <figcaption>
+            Prompt: "Enhance and colourise"
+          </figcaption>
+        </figure>
+
+        <p>You can take a photo of a model and place it in a new  scene.</p>
+
+        <figure>
+          <img src="/images/nano-viper-old.webp" id="original_restored2" width="800" height="600" alt="A red cast image of a young boy and his grandfather. Showing the original version, and a restored full colour version." onclick="change2();">
+          <figcaption>
+            Prompt: "Place this model in a real space scene, as if it's a real space fighter, make sure to show the engine thrust and a nebula in the background."
+          </figcaption>
+        </figure>
+
+        <p>You can take a photo of a real person and turn it into a model!</p>
+
+        <figure>
+          <img src="/images/nano-model-old.webp" id="original_restored3" width="800" height="1400" alt="A young girl and her monther in black and white. And a full colour restored version" onclick="change3();">
+          <figcaption>
+            Prompt: "Create a 1/7 scale commercialized figurine of the characters in the picture, in a realistic style, in a real environment. The figurine is placed on a computer desk. The figurine has a round transparent acrylic base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this figurine. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the figurine on the front of the box and no words or logos.""
+          </figcaption>
+        </figure>
+
+        <p>You can enhance and colourise photos of U.S. Army Air Forces personnel who came to South Wales during WW2 and stole our women! (It's ok great uncle Pete, I think she was happy to be stolen).</p>
+        
+        <figure>
+          <img src="/images/nano-pete-old.webp" id="original_restored4" width="1000" height="1000" alt="A portrait photograph of a girl in her early twenties. The image is a duotone photograph and is out of focus. It's shows with a sharp full colour restored version." onclick="change4();">
+          <figcaption>
+            Prompt: "Enhance and colourise"
+          </figcaption>
+        </figure>
+
+        <p>You can take a photo of a real scene and turn it into an oil painting in the style of Van Gogh (other styles are available).</p>
+        
+        <figure>
+          <img src="/images/nano-gogh-old.webp" id="original_restored5" width="800" height="584" alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version." onclick="change5();">
+          <figcaption>
+            Prompt: "Turn this into an oil painting in the style of Vincent van Gogh."
+          </figcaption>
+        </figure>
+
+        <p>You can have a drink with a friend… and a king!</p>
+
+        <figure>
+          <img src="/images/nano-king-old.webp" id="original_restored6" width="800" height="450" alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version." onclick="change6();">
+          <figcaption>
+            Prompt: "Add the King of England at out table having a drink."
+          </figcaption>
+        </figure>
+
+      </section>
+
+    </article>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+    <script src="../scripts/web-components-v2.js"></script>
+  </body>
+</html>
