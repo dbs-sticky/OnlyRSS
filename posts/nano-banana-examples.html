@@ -153,6 +153,20 @@
           image_tracker6 = "original6";
         }
       }
+
+      var image_tracker6 = "original7";
+      function change7() {
+        var image = document.getElementById("original_restored7");
+        if (image_tracker6 == "original7") {
+          image.src = "/images/nano-cross-new.webp";
+          image_tracker6 = "restored7";
+        } else {
+          image.src = "/images/nano-cross-old.webp";
+          image_tracker6 = "original7";
+        }
+      }
+
+
     </script>
   </head>
 
@@ -248,6 +262,14 @@
           </figcaption>
         </figure>
 
+        <p>You can remove elements of your past that you're embarrassed about.</p>
+
+        <figure>
+          <img src="/images/nano-cross-old.webp" id="original_restored7" width="800" height="533" alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version." onclick="change7();">
+          <figcaption>
+            Prompt: "Remove the crosses in the kids' hands and replace with ice creams."
+          </figcaption>
+        </figure>
       </section>
 
     </article>
