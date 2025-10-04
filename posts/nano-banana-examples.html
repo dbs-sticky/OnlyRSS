@@ -154,18 +154,29 @@
         }
       }
 
-      var image_tracker6 = "original7";
+      var image_tracker7 = "original7";
       function change7() {
         var image = document.getElementById("original_restored7");
-        if (image_tracker6 == "original7") {
+        if (image_tracker7 == "original7") {
           image.src = "/images/nano-cross-new.webp";
-          image_tracker6 = "restored7";
+          image_tracker7 = "restored7";
         } else {
           image.src = "/images/nano-cross-old.webp";
-          image_tracker6 = "original7";
+          image_tracker7 = "original7";
         }
       }
 
+      var image_tracker8 = "original8";
+      function change8() {
+        var image = document.getElementById("original_restored8");
+        if (image_tracker8 == "original8") {
+          image.src = "/images/nano-bike-new.webp";
+          image_tracker8 = "restored8";
+        } else {
+          image.src = "/images/nano-bike-old.webp";
+          image_tracker8 = "original8";
+        }
+      }
 
     </script>
   </head>
@@ -213,7 +224,8 @@
         <figure>
           <img src="/images/nano-cwmbwrla-old.webp" id="original_restored1" width="800" height="1200" alt="Two young boys on a ladybird ride. Showing a blurry original version, and a restored full colour version." onclick="change1();">
           <figcaption>
-            Prompt: "Enhance and colourise"
+            <p>Prompt: "Enhance and colourise"</p>
+            <p>The original photo was taken in 1949 in Cwmbwrla Park, Swansea, Wales. The large building seen in the back-left that looks like a prison, is in fact my old school (Manselton School). The exact spot this photos was taken is now the location of the new(ish) Burlais Primary School.
           </figcaption>
         </figure>
 
@@ -231,7 +243,7 @@
         <figure>
           <img src="/images/nano-model-old.webp" id="original_restored3" width="800" height="1400" alt="A young girl and her monther in black and white. And a full colour restored version" onclick="change3();">
           <figcaption>
-            Prompt: "Create a 1/7 scale commercialized figurine of the characters in the picture, in a realistic style, in a real environment. The figurine is placed on a computer desk. The figurine has a round transparent acrylic base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this figurine. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the figurine on the front of the box and no words or logos.""
+            Prompt: "Create a 1/7 scale commercialized figurine of the characters in the picture, in a realistic style, in a real environment. The figurine is placed on a computer desk. The figurine has a round transparent acrylic base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this figurine. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the figurine on the front of the box and no words or logos."
           </figcaption>
         </figure>
 
@@ -262,12 +274,22 @@
           </figcaption>
         </figure>
 
-        <p>You can remove elements of your past that you're embarrassed about.</p>
+        <p>You can remove elements of your past that you're not proud of.</p>
 
         <figure>
           <img src="/images/nano-cross-old.webp" id="original_restored7" width="800" height="533" alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version." onclick="change7();">
           <figcaption>
             Prompt: "Remove the crosses in the kids' hands and replace with ice creams."
+          </figcaption>
+        </figure>
+      </section>
+
+        <p>The prompt used to create the scale model shown in Figure 3 isn't limited to people.</p>
+
+        <figure>
+          <img src="/images/nano-bike-old.webp" id="original_restored8" width="800" height="600" alt="A black and white photograph of a baby in a bathtub located in a garden. Also shown is the full colour restored version." onclick="change8();">
+          <figcaption>
+            Prompt: "Create a 1/7 scale commercialized model of the motorbike in the picture, in a realistic style, in a real environment. The model is placed on a computer desk. The model has a rectangle wooden base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this model. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the motorbike on the front of the box and no words or logos"
           </figcaption>
         </figure>
       </section>
