@@ -189,6 +189,20 @@
           image_tracker9 = "original9";
         }
       }
+
+      var image_tracker10 = "original10";
+      function change10() {
+        var image = document.getElementById("original_restored10");
+        if (image_tracker10 == "original10") {
+          image.src = "/images/nano-mountain-new.webp";
+          image_tracker10 = "restored10";
+        } else {
+          image.src = "/images/nano-mountain-old.webp";
+          image_tracker10 = "original10";
+        }
+      }
+
+
     </script>
   </head>
 
@@ -202,7 +216,7 @@
       <header style="view-transition-name: post34">
         <h1>Photo editing using Gemini</h1>
           <p>
-            Ten examples of photo editing using the new Nana Banana model that's part of Google Gemini.
+            Ten examples of photo editing using the new Nano Banana model from Google Gemini. The key takeaway? Each example just required uploading an image to the Gemini app and typing a single prompt—no tech skills needed.
           </p>
 
           <div class="byline">
@@ -217,17 +231,31 @@
 
       <!--introduction-->
       <section>
+
         <h2>Nano Banana</h2>
         <p>
-          
+          Nano Banana (officially Gemini 2.5 Flash Image) is an AI image generating and editing tool created by Google. It's the first AI image tool I've used that actually edits your original image, rather than creating a brand new one where key elements—like people's faces—are distorted beyond recognition.
         </p>
+        <p>Android users can get Gemini from the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard&pcampaignid=web_share" target="_blank">Play Store</a>. Apple users can get it from the <a href="https://apps.apple.com/us/app/google-gemini/id6477489729" target="_blank">App Store</a>.</p>
+
+        <figure style="width: 400px; margin: auto;">
+          <img src="/images/nano-screenshot.webp" width="400" height="867" style="border-radius: 10px;" alt="A screenshot of the Gemini app on an Android device displays a dark interface with the greeting Hello Mark, and buttons for Create Image, Write, Build, and Deep Research. Near the bottom, a chat window shows a user prompt requesting to 'Add the King of England at our table having a drink'">
+          <figcaption>
+              Just add an image and a prompt, that's all you need to edit photos using the Nano Banana model in the Gemini app.
+          </figcaption>
+        </figure>
+        
+
       </section>
 
       <!-- Examples - section -->
       <section>
         <h2>Examples</h2>
         <p>
-
+          Below are 10 examples using my own photos. My favourite use-case is enhancing and colourising old family photos. I used to do this with Adobe Photoshop, but it was a long and tedious process. With Gemini, it's just a few clicks and a single prompt.
+        </p>
+        <p>
+          <strong>Tap/click on the images below to toggle between the original and the AI edited versions</strong>
         </p>
 
 
@@ -242,7 +270,7 @@
         <p>You can take a photo of a model and place it in a new  scene.</p>
 
         <figure>
-          <img src="/images/nano-viper-old.webp" id="original_restored2" width="800" height="600" alt="A detailed model of a white and red spaceship (colonial Viper Mark 2 from Battlestar Galactica), shown first on a stand indoors and then in an AI-generated version flying through outer space with a galaxy and stars in the background." onclick="change2();">
+          <img src="/images/nano-viper-old.webp" id="original_restored2" width="800" height="600" loading="lazy" alt="A detailed model of a white and red spaceship (colonial Viper Mark 2 from Battlestar Galactica), shown first on a stand indoors and then in an AI-generated version flying through outer space with a galaxy and stars in the background." onclick="change2();">
           <figcaption>
             Prompt: "Place this model in a real space scene, as if it's a real space fighter, make sure to show the engine thrust and a nebula in the background."
           </figcaption>
@@ -251,7 +279,7 @@
         <p>You can take a photo of a real person and turn it into a model!</p>
 
         <figure>
-          <img src="/images/nano-model-old.webp" id="original_restored3" width="800" height="1400" alt="A man wearing a blue t-shirt stands outdoors in front of a mountain landscape under a bright sky in the first image. In the second AI-generated image, the man is depicted as a realistic figurine next to a illustrated box, with a computer screen showing his model in the background." onclick="change3();">
+          <img src="/images/nano-model-old.webp" id="original_restored3" width="800" height="1400" loading="lazy" alt="A man wearing a blue t-shirt stands outdoors in front of a mountain landscape under a bright sky in the first image. In the second AI-generated image, the man is depicted as a realistic figurine next to a illustrated box, with a computer screen showing his model in the background." onclick="change3();">
           <figcaption>
             Prompt: "Create a 1/7 scale commercialized figurine of the characters in the picture, in a realistic style, in a real environment. The figurine is placed on a computer desk. The figurine has a round transparent acrylic base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this figurine. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the figurine on the front of the box and no words or logos."
           </figcaption>
@@ -260,7 +288,7 @@
         <p>You can enhance and colourise photos of U.S. Army Air Forces personnel who came to South Wales during WW2 and stole our women! (It's ok great uncle Pete, I think she was happy to be stolen).</p>
         
         <figure>
-          <img src="/images/nano-pete-old.webp" id="original_restored4" width="1000" height="1000" alt="A sepia-toned World War II-era photograph of a man in a military uniform with sergeant chevrons and ribbons, standing outdoors in front of a building. The second, AI-restored version enhances the image in color, making the uniform, insignia, and man's features clearer and more vivid." onclick="change4();">
+          <img src="/images/nano-pete-old.webp" id="original_restored4" width="1000" height="1000" loading="lazy" alt="A sepia-toned World War II-era photograph of a man in a military uniform with sergeant chevrons and ribbons, standing outdoors in front of a building. The second, AI-restored version enhances the image in color, making the uniform, insignia, and man's features clearer and more vivid." onclick="change4();">
           <figcaption>
             Prompt: "Enhance and colourise"
           </figcaption>
@@ -269,7 +297,7 @@
         <p>You can take a photo of a real scene and turn it into an oil painting in the style of Van Gogh (other styles are available).</p>
         
         <figure>
-          <img src="/images/nano-gogh-old.webp" id="original_restored5" width="800" height="584" alt="A realistic photograph of a countryside scene with grassy field, a dirt road curving to the right, and a sun shining through a partly cloudy sky. The second image is a vibrant impressionist painting of a rural landscape with a bright sun and dynamic swirling clouds in the sky, showing lush green fields and a dirt path on the right." onclick="change5();">
+          <img src="/images/nano-gogh-old.webp" id="original_restored5" width="800" height="584" loading="lazy" alt="A realistic photograph of a countryside scene with grassy field, a dirt road curving to the right, and a sun shining through a partly cloudy sky. The second image is a vibrant impressionist painting of a rural landscape with a bright sun and dynamic swirling clouds in the sky, showing lush green fields and a dirt path on the right." onclick="change5();">
           <figcaption>
             Prompt: "Turn this into an oil painting in the style of Vincent van Gogh."
           </figcaption>
@@ -278,7 +306,7 @@
         <p>You can have a drink with a friend… and a king!</p>
 
         <figure>
-          <img src="/images/nano-king-old.webp" id="original_restored6" width="800" height="450" alt="Two men smiling and sitting together at a table with glasses of beer in a relaxed indoor setting. In the next image, a third man, resembling the King of England, has joined them at the table, and all three are smiling for the photo." onclick="change6();">
+          <img src="/images/nano-king-old.webp" id="original_restored6" width="800" height="450" loading="lazy" alt="Two men smiling and sitting together at a table with glasses of beer in a relaxed indoor setting. In the next image, a third man, resembling the King of England, has joined them at the table, and all three are smiling for the photo." onclick="change6();">
           <figcaption>
             Prompt: "Add the King of England at our table having a drink."
           </figcaption>
@@ -287,16 +315,16 @@
         <p>You can remove elements of your past that you're not proud of.</p>
 
         <figure>
-          <img src="/images/nano-cross-old.webp" id="original_restored7" width="800" height="533" alt="Two young children sit on the bonnet of a car, both wearing blue jackets. In the first image, they are holding crosses, while in the second AI-generated version they are holding ice creams." onclick="change7();">
+          <img src="/images/nano-cross-old.webp" id="original_restored7" width="800" height="533" loading="lazy" alt="Two young children sit on the bonnet of a car, both wearing blue jackets. In the first image, they are holding crosses, while in the second AI-generated version they are holding ice creams." onclick="change7();">
           <figcaption>
             Prompt: "Remove the crosses in the kids' hands and replace with ice creams."
           </figcaption>
         </figure>
 
-        <p>The prompt used to create the scale model shown in Figure 3 isn't limited to people.</p>
+        <p>The prompt used to create the scale model shown in Figure 4 isn't limited to people.</p>
 
         <figure>
-          <img src="/images/nano-bike-old.webp" id="original_restored8" width="800" height="600" alt="A vintage green motorcycle parked outdoors in front of a tiered stone wall and garden. The second image shows a highly detailed model version of the same motorcycle on a desk, with a box and computer screen displaying its digital design in the background." onclick="change8();">
+          <img src="/images/nano-bike-old.webp" id="original_restored8" width="800" height="600" loading="lazy" alt="A vintage green motorcycle parked outdoors in front of a tiered stone wall and garden. The second image shows a highly detailed model version of the same motorcycle on a desk, with a box and computer screen displaying its digital design in the background." onclick="change8();">
           <figcaption>
             Prompt: "Create a 1/7 scale commercialized model of the motorbike in the picture, in a realistic style, in a real environment. The model is placed on a computer desk. The model has a rectangle wooden base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this model. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the motorbike on the front of the box and no words or logos"
           </figcaption>
@@ -305,11 +333,21 @@
         <p>You can imagine famous artworks as real people (who may or may not look like Kate Winslet).</p>
 
         <figure>
-          <img src="/images/nano-statue-old.webp" id="original_restored9" width="800" height="1082" alt="A marble bust of a figure wearing ornate armor and an elaborate winged helmet, displayed on a wooden pedestal in a museum setting. In the second, AI-generated image, the statue appears as a lifelike person with realistic coloring and texture, closely matching the pose and details of the original sculpture." onclick="change9();">
+          <img src="/images/nano-statue-old.webp" id="original_restored9" width="800" height="1082" loading="lazy" alt="A marble bust of a figure wearing ornate armor and an elaborate winged helmet, displayed on a wooden pedestal in a museum setting. In the second, AI-generated image, the statue appears as a lifelike person with realistic coloring and texture, closely matching the pose and details of the original sculpture." onclick="change9();">
           <figcaption>
             Prompt: "Imagine this statue as a real person"
           </figcaption>
         </figure>
+
+        <p>You can make yourself look far cooler (and more serious) than you actually are.</p>
+
+        <figure>
+          <img src="/images/nano-mountain-old.webp" id="original_restored10" width="800" height="548" loading="lazy" alt="Man with short gray hair and beard standing outdoors in a blue shirt, with a mountainous landscape in the background; default view is a clear, bright photograph and toggles to a dramatic, dark oil painting style of the same scene." onclick="change10();">
+          <figcaption>
+            Prompt: "Turn this image into a dark, moody, oil painting"
+          </figcaption>
+        </figure>
+
       </section>
     </article>
 
