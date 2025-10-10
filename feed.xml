@@ -20,6 +20,201 @@
 
     <!-- Blog articles -->
 
+        <!-- nano banana -->
+    <item>
+      <guid isPermaLink="false">article36</guid>
+      <title>Photo editing using Gemini</title>
+      <link>https://onlyrss.org/posts/nano-banana-examples.html</link>
+      <pubDate>Sun, 05 Oct 2025 14:30:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+
+          <header>
+            <h1>Photo editing using Gemini</h1>
+            <p>
+              Ten examples of photos edited using the new Nano Banana model from Google Gemini. The key takeaway? Each example just required uploading an image to the Gemini app and typing a single prompt—no tech skills needed.
+            </p>
+            <p>
+            You're reading this in your RSS reader, which is great! But, in the version on the source site the images are clickable, which toggles between original and AI edited. If you want to see that, then go <a href="https://onlyrss.org/posts/nano-banana-examples.html">here</a>. Otherwise, the content is identical between the RSS version and original</p>
+          </header>
+
+          <article>
+          <h2>Nano Banana</h2>
+          <p>
+            Nano Banana (officially Gemini 2.5 Flash Image) is an AI image generating and editing tool created by Google. It's the first AI image tool I've used that actually edits your original image, rather than creating a brand new one where key elements—like people's faces—are distorted beyond recognition.
+          </p>
+          <p>Android users can get Gemini from the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard&pcampaignid=web_share" target="_blank">Play Store</a>. Apple users can get it from the <a href="https://apps.apple.com/us/app/google-gemini/id6477489729" target="_blank">App Store</a>.</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-screenshot.webp" width="400" height="867" style="border-radius: 10px;" alt="A screenshot of the Gemini app on an Android device displays a dark interface with the greeting Hello Mark, and buttons for Create Image, Write, Build, and Deep Research. Near the bottom, a chat window shows a user prompt requesting to 'Add the King of England at our table having a drink'">
+            <figcaption>
+                Just add an image and a prompt, that's all you need to edit photos using the Nano Banana model in the Gemini app.
+            </figcaption>
+          </figure>
+          
+
+        <!-- Examples - section -->
+        <section>
+          <h2>Examples</h2>
+          <p>
+            Below are 10 examples using my own photos. My favourite use-case is enhancing and colourising old family photos. I used to do this with Adobe Photoshop, but it was a long and tedious process. With Gemini, it's just a few clicks and a single prompt.
+          </p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-cwmbwrla-old.webp" width="800" height="1200" alt="A man crouching on a grassy field holding a young girl standing in front of him, with a backdrop of houses and hills in the distance.">
+            <figcaption>Prompt: "Enhance and colourise."
+              <p>The original photo was taken in 1949 in Cwmbwrla Park, Swansea, Wales. The large building seen in the back-left that looks like a prison, is in fact my old school (Manselton School). The exact spot this photo was taken is now the location of the new(ish) Burlais Primary School.</p>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-cwmbwrla-new.webp"  width="800" height="1200" alt="In the AI version, the image is in colour and is much more detailed.">
+            <figcaption>The result
+            </figcaption>
+          </figure>
+
+          <p>You can take a photo of a model and place it in a new scene.</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-viper-old.webp" width="800" height="600" alt="A detailed model of a white and red spaceship (colonial Viper Mark 2 from Battlestar Galactica) shown  on a stand indoors">
+            <figcaption>
+              Prompt: "Place this model in a real space scene, as if it's a real space fighter, make sure to show the engine thrust and a nebula in the background."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-viper-new.webp" width="800" height="600" alt="In the AI version, the same ship appears in space with a nebula in the background.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can take a photo of a real person and turn it into a model!</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-model-old.webp" width="800" height="1400" alt="A man wearing a blue t-shirt stands outdoors in front of a mountain landscape under a bright sky in the first image.">
+            <figcaption>
+              Prompt: "Create a 1/7 scale commercialized figurine of the characters in the picture, in a realistic style, in a real environment. The figurine is placed on a computer desk. The figurine has a round transparent acrylic base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this figurine. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the figurine on the front of the box and no words or logos."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-model-new.webp" width="800" height="1400" alt="The man is depicted as a realistic figurine next to a illustrated box, with a computer screen showing his model in the background.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can enhance and colourise photos of U.S. Army Air Forces personnel who came to South Wales during WW2 and stole our women! (It's ok great uncle Pete, I think she was happy to be stolen).</p>
+          
+          <figure>
+            <img src="https://onlyrss.org/images/nano-pete-old.webp" width="1000" height="1000" alt="A sepia-toned World War II-era photograph of a man in a military uniform with sergeant chevrons and ribbons, standing outdoors in front of a building.">
+            <figcaption>
+              Prompt: "Enhance and colourise."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-pete-new.webp" width="1000" height="1000" alt=" The AI-restored version enhances the image in color, making the uniform, insignia, and man's features clearer and more vivid.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can take a photo of a real scene and turn it into an oil painting in the style of Van Gogh (other styles are available).</p>
+          
+          <figure>
+            <img src="https://onlyrss.org/images/nano-gogh-old.webp" width="800" height="584" alt="A realistic photograph of a countryside scene with grassy field, a dirt road curving to the right, and a sun shining through a partly cloudy sky." >
+            <figcaption>
+              Prompt: "Turn this into an oil painting in the style of Vincent van Gogh."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-gogh-new.webp" width="800" height="584" alt="The AI image is a vibrant impressionist painting of a rural landscape with a bright sun and dynamic swirling clouds in the sky, showing lush green fields and a dirt path on the right.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can have a drink with a friend… and a king!</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-king-old.webp" width="800" height="450" alt="Two men smiling and sitting together at a table with glasses of beer in a relaxed indoor setting." >
+            <figcaption>
+              Prompt: "Add the King of England at our table having a drink."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-king-new.webp" width="800" height="450" alt="In the AI image, a third man, resembling the King of England, has joined them at the table, and all three are smiling for the photo.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can remove elements of your past that you're not proud of.</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-cross-old.webp" width="800" height="533" alt="Two young children sit on the bonnet of a car, both wearing blue jackets, they are holding crosses.">
+            <figcaption>
+              Prompt: "Remove the crosses in the kids' hands and replace with ice creams."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-cross-new.webp" width="800" height="533" alt="In the AI image the crosses have been replaced with ice creams.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>The prompt used to create the scale model above isn't limited to people.</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-bike-old.webp" width="800" height="600" alt="A vintage green motorcycle parked outdoors in front of a tiered stone wall and garden.">
+            <figcaption>
+              Prompt: "Create a 1/7 scale commercialized model of the motorbike in the picture, in a realistic style, in a real environment. The model is placed on a computer desk. The model has a rectangle wooden base, with no text on the base. The content on a black computer monitor is a 3D modelling process of this model. Next to the computer monitor is a toy packaging box with a single two-dimensional flat illustration of the motorbike on the front of the box and no words or logos."
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-bike-new.webp" width="800" height="600" alt="The AI image shows a highly detailed model version of the same motorcycle on a desk, with a box and computer screen displaying its digital design in the background.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can imagine famous artworks as real people (who may or may not look like Kate Winslet).</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-statue-old.webp" width="800" height="1082" alt="A marble bust of a figure wearing ornate armor and an elaborate winged helmet, displayed on a wooden pedestal in a museum setting.">
+            <figcaption>
+              Prompt: "Imagine this statue as a real person"
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-statue-new.webp" width="800" height="1082" alt="In the AI-generated image, the statue appears as a lifelike person with realistic coloring and texture, closely matching the pose and details of the original sculpture.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+          <p>You can make yourself look far cooler (and more serious) than you actually are.</p>
+
+          <figure>
+            <img src="https://onlyrss.org/images/nano-mountain-old.webp" width="800" height="548" alt="Man with short gray hair and beard standing outdoors in a blue shirt, with a mountainous landscape in the background; default view is a clear, bright photograph.">
+            <figcaption>
+              Prompt: "Turn this image into a dark, moody, oil painting"
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="https://onlyrss.org/images/nano-mountain-new.webp" width="800" height="548" alt=" In the AI version, it's now a dramatic, dark oil painting style of the same scene.">
+            <figcaption>
+              The result
+            </figcaption>
+          </figure>
+
+        </section>
+
+        </article>
+
+        ]]>
+      </description>
+    </item>
+
 
     <!-- enshittification of UK supermarkets coding -->
     <item>
@@ -40,7 +235,7 @@
           <Article>
             <p>A rant about the <a href="https://www.merriam-webster.com/slang/enshittification" target="_blank" title="View the definition of enshittification">enshittification</a> of UK supermarkets. </p>
       
-            <p>I remember the first time I visited the US when I was around 10 years old. I was in a shop, had my chosen product in hand, and approached the counter with the exact change ready. But, of course, I didn't actually have the exact change ready, because the price shown wasn't the actual price as it didn't include sales tax, and I remember thinking that this made absolutely no sense—mostly because it <em>makes absolutely no sense!</em>.<p>
+            <p>I remember the first time I visited the US when I was around 10 years old. I was in a shop, had my chosen product in hand, and approached the counter with the exact change ready. But, of course, I didn't actually have the exact change ready, because the price shown wasn't the actual price as it didn't include sales tax, and I remember thinking that this made absolutely no sense—mostly because it <em>makes absolutely no sense!</em>.</p>
 
             <p>Skip forward 40 years, and now in the UK, across all major supermarkets we have the “standard” (or as I like to call it “artificially inflated” price), and the “member” price. i.e. what would more realistically be considered the “normal” price, but now you have to hand over your personal details and fuss about with a card/phone every time you want to buy something.</p>
 
@@ -651,7 +846,7 @@
           <p>View Transitions are a recent addition to CSS that allow a page element (title, paragraph, image etc.) to animate between an initial and final state. This can be within a single page or across pages. A typical example would be from a thumbnail of a video, which when clicked would transition/animate to the full size playback version of the video.</p>
           <p>I use View Transitions on this site to transition from the article titles on the homepage, to the article titles on the article pages, this is shown in the animation below (25% of normal speed).</p>
           <p>
-            <img  loading="lazy" src="https://onlyrss.org/images/view-transitions-compressed.gif" alt="Animated screenshot of a list of blog titles on a blog homepage. When a title is clicked, the title transitions (or fades) into the same title but on the top of the blog article page." />
+            <img  src="https://onlyrss.org/images/view-transitions-compressed.gif" alt="Animated screenshot of a list of blog titles on a blog homepage. When a title is clicked, the title transitions (or fades) into the same title but on the top of the blog article page." />
           </p>
 
           <h3>The Web Share API</h3>
@@ -681,7 +876,7 @@
             website, and it’s an example of what a Windows user (in this case, me)
             would see.
           </p>
-          <p><img loading="lazy" src="https://onlyrss.org/images/native-share-screenshot.webp" alt="A screenshot of a modal dialog showing icons for a variety of email clients and social networks" /></p>
+          <p><img src="https://onlyrss.org/images/native-share-screenshot.webp" alt="A screenshot of a modal dialog showing icons for a variety of email clients and social networks" /></p>
           <p>
             There is one caveat however, the Web Share API is not supported on
             Firefox (what’s even more unfortunate is that “it’s not supported on
@@ -712,7 +907,7 @@
             The screenshot below is of this blog, which has been implemented as a
             PWA.
           </p>
-          <p><img loading="lazy" src="https://onlyrss.org/images/pwa.webp" alt="A mockup of 2 mobile phones, each of which are showing a page from the onlyRSS blog. The blog page contents take up the whole screen of the phone." /></p>
+          <p><img src="https://onlyrss.org/images/pwa.webp" alt="A mockup of 2 mobile phones, each of which are showing a page from the onlyRSS blog. The blog page contents take up the whole screen of the phone." /></p>
           <p>
             There is one caveat however, Firefox dropped their support for PWAs in
             2021. A decision that has angered and perplexed developers and users
@@ -744,7 +939,7 @@
             I’ve mentioned this game-changing Excel update to a few colleagues (all
             of whom use Excel), and none were aware of its existence.
           </p>
-          <p><img loading="lazy" src="https://onlyrss.org/images/jitter-python.webp" alt="A screenshot of a data visualisation, specifically a jitter chart that shows the age distribution of aircraft grouped by aircraft type." /></p>
+          <p><img src="https://onlyrss.org/images/jitter-python.webp" alt="A screenshot of a data visualisation, specifically a jitter chart that shows the age distribution of aircraft grouped by aircraft type." /></p>
 
           <h3>Dev Tools</h3>
           <!--MARK: Dev Tools-->
@@ -771,7 +966,7 @@
             lets you capture a full page screenshot, including any of the page
             currently below the bottom of the viewport.)
           </p>
-          <p><img loading="lazy" src="https://onlyrss.org/images/dev-tools-edit.gif" alt="An animation showing the dev tools being used to manually change the text of a live BBC article title. The user is swapping the word “Trump” with the word “moron”. Clearly the author of this blog post believes (correctly so) that Trump is a moron." /></p>
+          <p><img src="https://onlyrss.org/images/dev-tools-edit.gif" alt="An animation showing the dev tools being used to manually change the text of a live BBC article title. The user is swapping the word “Trump” with the word “moron”. Clearly the author of this blog post believes (correctly so) that Trump is a moron." /></p>
 
           <h3>CSS one-liners</h3>
           <ul>
@@ -1443,7 +1638,7 @@
                 The result is a subtle fade as you move between pages (the animation shown below has been slowed to 25% of normal speed). On mobile—especially when combined with a Progressive Web App (PWA)—the feeling you get is very “native-app” like.
               </p>
               <figure>
-                <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting various pages from a mobile blog's top navigation menu. When the new page loads, the previous page fades away, and the new page fades into view.">
+                <img style="border: 1px solid lightgrey; border-radius: 5px;" src="https://onlyrss.org/images/transition-page.gif" width="371" height="821" alt="An animated GIF showing a user selecting various pages from a mobile blog's top navigation menu. When the new page loads, the previous page fades away, and the new page fades into view.">
                 <figcaption>Transitions between pages. This animation has been slowed to 25% of normal speed.</figcaption>
               </figure>
             </section>
@@ -1473,7 +1668,7 @@
                   This is all the information the View Transitions API requires. The result is a smooth transition between the two elements (and locations), as shown in the animation below (the animation shown below has been slowed to 25% of normal speed).
 
                 <figure>
-                  <img style="border: 1px solid lightgrey; border-radius: 5px;" loading="lazy" src="https://onlyrss.org/images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
+                  <img style="border: 1px solid lightgrey; border-radius: 5px;" src="https://onlyrss.org/images/transition-titles.gif" width="371" height="821" alt="An animated GIF showing a list of blog articles on a blog's homescreen. When one of the article titles from the list is clicked, the article title transitions upwards towards the top of the screen, at the same time, the page transitions to the blog article proper. The title finally settles at the top of the article and matches the location of the article title.">
                   <figcaption>Transition between page elements. This animation has been slowed to 25% of normal speed.</figcaption>
                 </figure>
             </section>
@@ -1997,7 +2192,7 @@
               <div class="chart">
 
               <!-- RSS REPLACEMENT FOR THE CSS VERSION OF THE CHART -->
-              <img src="/images/rss-chart-1.webp" alt="chart showing the percentage of airbus vs boeing aircraft for the top ten airlines" width="876" height="1128">
+              <img src="https://onlyrss.org/images/rss-chart-1.webp" alt="chart showing the percentage of airbus vs boeing aircraft for the top ten airlines" width="876" height="1128">
               <p>If you are reading this in an RSS client, then you'll need to visit the original article to see the original CSS version of the above chart</p>
 
               </div>
@@ -2026,7 +2221,7 @@
               <div class="bar-chart">
 
               <!-- RSS REPLACEMENT FOR THE CSS VERSION OF THE CHART -->
-              <img src="/images/rss-chart-2.webp" alt="chart showing the percentage of airbus vs boeing aircraft for the top ten airlines" width="866" height="641">
+              <img src="https://onlyrss.org/images/rss-chart-2.webp" alt="chart showing the percentage of airbus vs boeing aircraft for the top ten airlines" width="866" height="641">
               <p>If you are reading this in an RSS client, then you'll need to visit the original article to see the original CSS version of the above chart</p>
 
               </div>
@@ -2047,7 +2242,7 @@
               All data was sourced from Cirium's <a href="https://www.cirium.com/solutions/fleets-analyzer/" target="_blank">Ascend Fleets Analyzer</a> (one of the products for which I am responsible). Airline fleets include only stored (AKA parked) or in-service Boeing or Airbus passenger aircraft (freighters were not included). Data was captured on 19 December 2022 using the search criteria shown in the screenshot below.
             </p>
             <figure>
-              <img src="/images/top-ten.webp" width="840" height="529" loading="lazy" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
+              <img src="https://onlyrss.org/images/top-ten.webp" width="840" height="529" alt="A screenshot from Cirium's Ascend Fleets Analyzer showing search filters and a table of results.">
               <figcaption>
                 A screenshot from Cirium's Ascend Fleets Analyzer showing the search used to generate the data for the charts on this page
               </figcaption>
@@ -2672,7 +2867,7 @@
                 <details style="background-color:white; color:#3d74bd">
                 <summary><b>Click here to see Figure 1</b></summary>
                 <figure>
-                  <img src="https://onlyrss.org/images/subscribecompare.webp" width="800" height="1059" loading="lazy" alt=" ">
+                  <img src="https://onlyrss.org/images/subscribecompare.webp" width="800" height="1059" alt=" ">
                   <figcaption>Figure 1. The original Subscribe page (left) alongside the final Subscribe page (right).</figcaption>
                 </figure>
                 </details>
