@@ -20,6 +20,139 @@
 
     <!-- Blog articles -->
 
+   <item>
+      <guid isPermaLink="false">article37</guid>
+      <title>What can you do with an AI browser?</title>
+      <link>https://onlyrss.org/posts/ai-browser-examples.html</link>
+      <pubDate>Sat, 11 Oct 2025 19:15:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+
+    <article>
+      <header>
+        <h1>What can you do with an AI browser?</h1>
+          <p>
+            I've been using an AI browser for a few days, so thought I'd share some examples of what you can do with it. I've tried to think of tasks that I often find myself doing when online, that I find tedious.
+          </p>
+      </header>
+
+      <section>
+        <h2>Background</h2>
+        <p>
+          It's easy to suffer from AI fatigue at the moment. We're bombarded with new product launches, endless webinars and presentations (some of which I'm responsible for, sorry), marketing spam, and let's not forget the LinkedIn posts telling you that "you are prompting wrong".
+        </p>
+        <p>
+         Given the deluge of AI-related news, it's easy to miss some of the genuinely useful releases that have happened recently. I've already covered the <a href="nano-banana-examples.html">Nano Banana image editing model that's part of Google Gemini</a>—which is particularly useful for enhancing and colourising old photographs. But I've not yet covered an "AI browser". This is mostly because I had initially dismissed them as not being useful to me. Well, I recently installed the Comet browser, and I have to say, it's actually quite useful. 
+        </p>
+        <p>
+          The <a href="https://www.perplexity.ai/comet" target="_blank">Comet browser</a> is a free (currently) AI-native web browser developed by <a href="https://www.perplexity.ai/" target="_blank">Perplexity</a>. Its key differentiator is that it has a built-in AI assistant that can help you with a wide range of tasks, from the mundane to the complex.
+        </p>
+        <p>
+           Most importantly, <strong>it can perform actions on websites</strong> e.g. it can navigate UIs, fill in forms, wait for elements to load etc. If it fails or hits a dead end, it's "smart" enough to try again using a different approach.
+        </p>
+        <p>
+          Below are some examples that I've had some success with in my limited usage.
+        </p>
+      </section>
+
+      <section>
+        <h2>Examples</h2>
+        <h3>Look for alternative/competing products</h3>
+        <p>
+          While on a product page, ask the AI to find competing products.
+        </p>
+        <figure>
+          <img src="https://onlyrss.org/images/ai-browser-product-alternatives.webp" width="1024" height="890" style="border-radius: 5px;" alt="Screenshot of a Garmin Forerunner 255 product page on a website, showing a blurred person in a video banner at the top, several feature icons and descriptions below the heading 'Run At A Higher Level,' and three Garmin Forerunner watches displayed at the bottom. On the right side, there is an AI assistant panel listing alternative running watches to the Forerunner 255, including Coros Pace 3, Garmin Forerunner 265, Polar Pacer Pro, and Suunto Race S/9 Peak Pro.">
+          <figcaption>
+              On the product page for the Garmin Forerunner 255 I asked for product alternatives, and got back a good list that includes some options I've considered in the past.
+          </figcaption>
+        </figure>
+        
+        <h3>Get a broader view of the news</h3>
+        <p>
+          Get a different perspective on the news. While reading a news story, ask the AI to find other sources.
+        </p>
+        <p>
+          Of course, we should all be using <a href="https://ground.news/" target="_blank">Ground News</a> for this, but if you happen to be on a news site that's not Ground News, then this might be handy.
+        </p>
+        <figure>
+          <img src="https://onlyrss.org/images/ai-browser-more-sources.webp" width="1024" height="890" style="border-radius: 5px;" alt="Screenshot of a BBC News article titled 'It's going to be really bad: Fears over AI bubble bursting grow in Silicon Valley' with a large aerial image of Silicon Valley, including the circular Apple headquarters. The article is written by Lily Jamali and discusses concerns about an artificial intelligence bubble. On the right side, an AI assistant panel provides a list of finance and stock market-focused news sources related to AI bubble risks, including Yahoo, The Telegraph, CNN, RTÉ, SVB Financial, and Investopedia.">
+          <figcaption>
+            As impartial as the BBC is, it's always good to get a different perspective on the news. In this example I asked for similar sources, but asked it to focus on sources that specifically covered finance.
+          </figcaption>
+        </figure>
+
+        <h3>Easily extract data from websites</h3>
+        <p>
+          Extract data from a website that would otherwise be difficult or time consuming to get manually e.g. lists, links etc. and then output in your preferred format.
+        </p>
+        <figure>
+          <img src="https://onlyrss.org/images/ai-browser-get-links.webp" width="1024" height="890" style="border-radius: 5px;" alt="Screenshot of the OnlyRSS About page featuring a photo of the author. Below the photo is a row of colorful social media icons, representing various social platforms. On the right side, an AI assistant panel displays a Markdown list of the social links shown on the page, including CodePen, BlueSky, Threads, Facebook, Twitter (X), LinkedIn, Instagram, GitHub, Strava, Goodreads, Concept 2 Log, Komoot, Mastodon, YouTube, and Zwift.">
+          <figcaption>
+            The only place I actually list all my links to social networks is on my blog, but the list is all wrapped up in HTML. Comet did a good job of exporting the list to Markdown.
+          </figcaption>
+        </figure>
+
+        <h3>Help you get the best price</h3>
+        <p>
+          Get the AI to do the tedious stuff for you. For example, find the best price (per unit/weight/volume) while doing the weekly shop.
+        </p>
+        <p>
+          I actually did this manually before I got access to Comet. And I <em>thought</em> I'd found the cheapest price per unit weight for a bag of fruit & nuts, but when I then tried this search with Comet the following week, it found a cheaper option. Whereas I had searched for "fruit and nuts", Comet had tried that, but it then also tried "raisins and nuts", and that's where the cheaper option was. Note to the people at Ocado, you need to add semantic search!
+        </p>
+        <figure>
+          <img src="https://onlyrss.org/images/ai-browser-price-per-unit.webp" width="1024" height="890" style="border-radius: 5px;" alt="Screenshot of the Ocado website product page for 'Ocado Mixed Nuts & Raisins,' showing a 200g bag priced at £1.70 (£0.85 per 100g). The product details, price, and weight are clearly displayed, as well as additional information such as vegetarian and vegan attributes and user ratings. On the right, an AI assistant panel summarizes this item as the lowest cost per unit weight fruit and nut bag available on Ocado, with a detailed breakdown of composition and attributes">
+          <figcaption>
+            I thought I was good at finding the best deal, but it looks like AI is even better.
+          </figcaption>
+        </figure>
+
+        <h3>Manage Docker containers 🤓</h3>
+        <p>
+          Ok, this one is a little niche, but I wanted to give the AI a slightly more complex task, and updating a Docker container seemed like a good test. I use Portainer on my NAS to manage my Docker containers, so I asked the AI to upgrade one of the running containers (SpeedTest) to the latest version.
+        </p>
+        <p>
+          It performed the following steps:
+        </p>
+
+        <ol>
+          <li>Stopped the existing SpeedTest container</li>
+          <li>Pulled the latest SpeedTest image from the registry</li>
+          <li>Recreated and started the container with the same settings (including ports) and ensured the config was preserved</li>
+          <li>Verified the container was running and had upgraded to the latest version</li>
+        </ol>
+
+        <p>
+          This is particularly impressive because it required the AI to navigate a complex web interface, understand Docker concepts, and execute multiple sequential operations without any errors.
+        </p>
+
+        <figure>
+          <img src="https://onlyrss.org/images/ai-browser-manage-docker.webp" width="1024" height="849" style="border-radius: 5px;" alt="Screenshot of the Portainer.io dashboard showing details of the 'SpeedTest' Docker container. The interface lists container status information, including the container ID, name, internal IP address, and status as running. Administration options and actions like stopping, restarting, and removing the container are visible. On the right, an AI assistant panel summarizes the process for updating the SpeedTest container to the latest version, including steps for stopping, pulling the latest image, recreating with the same port mappings, and preserving volumes and settings. The update is confirmed as successful and fully operational">
+          <figcaption>
+            I wanted to give the AI a slightly more complex task, and updating a Docker container seemed like a good example.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Conclusion</h2>
+        <p>
+          I've only been using Comet for a few days, but I'm already finding it useful. It's not perfect, and it can be a little slow at times, but it's already saved me time and effort on a few occasions.
+        </p>
+        <p>
+           I'll be sticking with it over the next few weeks at least, and I'll be interested to see if I continue to use the AI features or end up using it like any other browser.
+        </p>
+
+      </section>
+
+    </article>
+
+        ]]>
+      </description>
+    </item>
+
+
+
         <!-- nano banana -->
     <item>
       <guid isPermaLink="false">article36</guid>
