@@ -1,0 +1,70 @@
+/* Dark Mode Additions */
+
+:root {
+  /* Light mode colors */
+  --bg-primary: #f0f2f5;
+  --bg-secondary: #fff;
+  --bg-tertiary: #f8f9fa;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-tertiary: #495057;
+  --border-color: #e0e0e0;
+  --border-color-light: #ddd;
+  --shadow: rgba(0,0,0,0.1);
+  --shadow-strong: rgba(0,0,0,0.2);
+  --header-bg: #000;
+  --header-text: #fff;
+  --input-bg: #fff;
+  --summary-hover: #e9ecef;
+}
+
+body.dark-mode {
+  /* Dark mode colors */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #252525;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #d0d0d0;
+  --border-color: #404040;
+  --border-color-light: #3a3a3a;
+  --shadow: rgba(0,0,0,0.3);
+  --shadow-strong: rgba(0,0,0,0.5);
+  --header-bg: #0a0a0a;
+  --header-text: #fff;
+  --input-bg: #3a3a3a;
+  --summary-hover: #3a3a3a;
+}
+
+.dark-mode-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  padding: 0;
+  min-width: unset;
+}
+
+.dark-mode-toggle:hover {
+  background: var(--bg-secondary);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+body.dark-mode .toggle-icon {
+  transform: rotate(180deg);
+}

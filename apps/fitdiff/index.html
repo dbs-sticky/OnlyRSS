@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>FIT File Comparator</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <h1>Compare FIT Files</h1>
+    <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+      <span class="toggle-icon">🌙</span>
+    </button>
+  </header><main>    <section class="inputs">      <div class="inputs-left">
+        <div class="file-input">
+          <label for="file1">FIT File 1:</label>
+          <input type="file" id="file1" accept=".fit" />
+        </div>
+        <div class="file-input">
+          <label for="file2">FIT File 2:</label>
+          <input type="file" id="file2" accept=".fit" />
+        </div>
+        <div class="file-input">
+          <label for="file3">FIT File 3:</label>
+          <input type="file" id="file3" accept=".fit" />
+        </div>
+      </div>
+
+      <div class="inputs-right">
+        <button id="compareBtn" disabled>Compare</button>
+        <button id="clearBtn" class="secondary-btn hidden">Clear Saved Data</button>
+      </div>
+    </section><section class="summary hidden" id="summarySection">
+      <details open>
+        <summary>
+          <h2>Session Summary</h2>
+          <div class="chart-legend"></div>
+        </summary>
+        <div class="table-wrapper">
+          <table id="summaryTable">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th id="device1Header">Device 1</th>
+                <th id="device2Header" class="file-column file2-column">Device 2</th>
+                <th id="device3Header" class="file-column file3-column">Device 3</th>
+              </tr>
+            </thead>
+            <tbody id="summaryBody">
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>    <section class="charts">
+      <details open>
+        <summary>
+          <h2>Heart Rate (bpm)</h2>
+          <div class="chart-legend" id="hrLegend"></div>
+        </summary>
+        <div class="chart-container"><canvas id="hrChart"></canvas></div>
+      </details>
+      
+      <details open>
+        <summary>
+          <h2>Pace (m/s)</h2>
+          <div class="chart-legend" id="paceLegend"></div>
+        </summary>
+        <div class="chart-container"><canvas id="paceChart"></canvas></div>
+      </details>
+      
+      <details open>
+        <summary>
+          <h2>Elevation (m)</h2>
+          <div class="chart-legend" id="elevationLegend"></div>
+        </summary>
+        <div class="chart-container"><canvas id="elevationChart"></canvas></div>
+      </details>
+    </section>
+
+    <section class="map-section">
+      <details open>
+        <summary>
+          <h2>GPS Track Map</h2>
+          <div class="chart-legend" id="mapLegend"></div>
+        </summary>
+        <div id="map"></div>
+      </details>
+    </section>
+  </main>
+
+  <footer>
+    <p>All processing is done locally in your browser. No data is uploaded.</p>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="backfit.js"></script>
+  
+  <!-- App Script -->
+  <script src="script.js"></script>
+</body>
+</html>
