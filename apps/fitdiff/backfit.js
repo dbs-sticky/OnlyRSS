@@ -636,8 +636,8 @@ const FIT = {
       },
     },
     temperatureUnits: {
-      // native temperature unit: degree Celsius [°C]
-      '°C': {
+      // native temperature unit: degree Celsius [Â°C]
+      'Â°C': {
         multiplier: 1,
         offset: 0,
       },
@@ -646,7 +646,7 @@ const FIT = {
         multiplier: 1,
         offset: -273.15,
       },
-      // degree fahrenheit [°F]
+      // degree fahrenheit [Â°F]
       fahrenheit: {
         multiplier: 9/5,
         offset: 32

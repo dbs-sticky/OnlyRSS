@@ -259,7 +259,7 @@ button:hover:not(:disabled) {
 .chart-container canvas {
   max-width: 100%;
   height: auto !important;
-  cursor: crosshair;
+  cursor: default;
 }
 
 .map-section {
@@ -418,6 +418,26 @@ details[open] .chart-legend {
   border-radius: 1px;
 }
 
+.legend-time {
+  font-weight: bold;
+  margin-right: 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  /* font-family: 'Courier New', monospace; */
+}
+
+.legend-label {
+  font-weight: 500;
+}
+
+.legend-value {
+  color: var(--text-secondary);
+  font-weight: bold;
+  margin-left: 5px;
+  /* font-family: 'Courier New', monospace; */
+  font-size: 0.9rem;
+}
+
 details > *:not(summary) {
   padding: 1.5rem;
 }
@@ -556,9 +576,20 @@ details table {
   #map {
     height: 300px;
   }
-
   footer {
     font-size: 0.8rem;
     padding: 0.75rem;
   }
+}
+
+/* Distance Marker Tooltips */
+.distance-marker-tooltip {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px var(--shadow);
 }

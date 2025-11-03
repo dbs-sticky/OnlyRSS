@@ -51,42 +51,133 @@ document.addEventListener('DOMContentLoaded', () => {
   const fileInput2 = document.getElementById('file2');
   const fileInput3 = document.getElementById('file3');
   const compareBtn = document.getElementById('compareBtn');
-
   let files = { file1: null, file2: null, file3: null };
   let charts = {};
   let map;
   let mapMarkers = { marker1: null, marker2: null, marker3: null };
   let cachedRecords = { records1: [], records2: [], records3: [] };
+  let smartLegendLabels = []; // Store smart labels for tooltip display
   
   // Color scheme for up to 3 files
   const colors = [
     { border: 'rgba(75, 192, 192, 1)', bg: 'rgba(75, 192, 192, 0.2)', fill: 'rgba(75, 192, 192, 0.8)' }, // Teal
     { border: 'rgba(255, 99, 132, 1)', bg: 'rgba(255, 99, 132, 0.2)', fill: 'rgba(255, 99, 132, 0.8)' }, // Red
     { border: 'rgba(153, 102, 255, 1)', bg: 'rgba(153, 102, 255, 0.2)', fill: 'rgba(153, 102, 255, 0.8)' }  // Purple
-  ];
-
-  // Chart.js crosshair plugin
-  const crosshairPlugin = {
-    id: 'crosshair',
-    afterDatasetsDraw(chart, args, options) {
-      if (chart.crosshair && chart.crosshair.x) {
-        const { ctx, chartArea: { top, bottom } } = chart;
-        ctx.save();
-        ctx.beginPath();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)';
-        ctx.setLineDash([5, 5]);
-        ctx.moveTo(chart.crosshair.x, top);
-        ctx.lineTo(chart.crosshair.x, bottom);
-        ctx.stroke();
-        ctx.restore();
-      }
-    }
+  ];  // Options for the interpolation indicators
+  const indicatorOptions = {
+    radius: 4,
+    borderWidth: 2,
+    backgroundColor: 'transparent'
   };
-
-  // Register the plugin
+  // Override getLabelAndValue to return the interpolated value
   if (typeof Chart !== 'undefined') {
-    Chart.register(crosshairPlugin);
+    const getLabelAndValue = Chart.controllers.line.prototype.getLabelAndValue;
+    Chart.controllers.line.prototype.getLabelAndValue = function(index) {
+      if (index === -1) {
+        const meta = this.getMeta();
+        const pt = meta._pt;
+        const vScale = meta.vScale;
+        if (pt && vScale) {
+          const value = vScale.getValueForPixel(pt.y);
+          return {
+            label: this._dataset.label || '',
+            value: value
+          };
+        }
+      }
+      return getLabelAndValue.call(this, index);
+    };
+    
+    // Override getParsed to handle interpolated points
+    const originalGetParsed = Chart.controllers.line.prototype.getParsed;
+    Chart.controllers.line.prototype.getParsed = function(index) {
+      if (index === -1) {
+        const meta = this.getMeta();
+        const pt = meta._pt;
+        if (pt && meta.vScale && meta.xScale) {
+          return {
+            x: meta.xScale.getValueForPixel(pt.x),
+            y: meta.vScale.getValueForPixel(pt.y)
+          };
+        }
+      }
+      return originalGetParsed ? originalGetParsed.call(this, index) : null;
+    };
+
+    // Custom interaction mode with interpolation
+    Chart.Interaction.modes.interpolate = function(chart, e, options) {
+      const x = e.x;
+      const items = [];
+      const metas = chart.getSortedVisibleDatasetMetas();
+      
+      for (let i = 0; i < metas.length; i++) {
+        const meta = metas[i];
+        const pt = meta.dataset.interpolate({ x }, "x");
+        
+        if (pt) {
+          // Use dataset color for the indicator border
+          const datasetColor = meta.dataset.options.borderColor || 'rgba(0, 0, 0, 0.5)';
+          const element = new Chart.elements.PointElement({
+            ...pt,
+            options: {
+              ...indicatorOptions,
+              borderColor: datasetColor
+            }
+          });
+          meta._pt = element;
+          items.push({ element, index: -1, datasetIndex: meta.index });
+        } else {
+          meta._pt = null;
+        }
+      }
+      return items;
+    };
+
+    // Plugin to draw the interpolation indicators and reference line
+    Chart.register({
+      id: 'interpolationIndicators',
+      afterDraw(chart) {
+        const metas = chart.getSortedVisibleDatasetMetas();
+        
+        // Draw reference line if we have interpolation points
+        let hasPoints = false;
+        let referenceX = null;
+        
+        for (let i = 0; i < metas.length; i++) {
+          const meta = metas[i];
+          if (meta._pt) {
+            hasPoints = true;
+            if (referenceX === null) {
+              referenceX = meta._pt.x;
+            }
+            meta._pt.draw(chart.ctx);
+          }
+        }
+        
+        // Draw vertical reference line
+        if (hasPoints && referenceX !== null) {
+          const { ctx, chartArea: { top, bottom } } = chart;
+          ctx.save();
+          ctx.beginPath();
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = 'rgba(128, 128, 128, 0.3)';
+          ctx.setLineDash([3, 3]);
+          ctx.moveTo(referenceX, top);
+          ctx.lineTo(referenceX, bottom);
+          ctx.stroke();
+          ctx.restore();
+        }
+      },
+      afterEvent(chart, args) {
+        if (args.event.type === 'mouseout') {
+          const metas = chart.getSortedVisibleDatasetMetas();
+          for (let i = 0; i < metas.length; i++) {
+            metas[i]._pt = null;
+          }
+          args.changed = true;
+        }
+      }
+    });
   }
 
   // Storage keys
@@ -350,10 +441,12 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Extract dates for legend display
     const activityDates = dataArray.map(data => getActivityDate(data));
-    
-    // Check if all device names are the same
+      // Check if all device names are the same
     const allSameDevice = deviceNames.every(name => name === deviceNames[0]);
     const legendLabels = allSameDevice ? activityDates : deviceNames;
+    
+    // Store legend labels globally for tooltip use
+    smartLegendLabels = legendLabels;
     
     // Debug: Check what fields are available
     recordsArray.forEach((records, i) => {
@@ -402,9 +495,14 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       file3Cols.forEach(col => col.classList.add('hidden'));
     }
-  }
-
-  function setupChartSync() {
+  }  function setupChartSync() {
+    // Map chart objects to their legend IDs
+    const chartLegendMap = {
+      hrChart: 'hrLegend',
+      paceChart: 'paceLegend',
+      elevationChart: 'elevationLegend'
+    };
+    
     Object.values(charts).forEach(chart => {
       const canvas = chart.canvas;
       
@@ -413,32 +511,97 @@ document.addEventListener('DOMContentLoaded', () => {
         const x = e.clientX - rect.left;
         
         // Get the time value at this x position
-        const canvasX = chart.scales.x.getValueForPixel(x);
+        const timeValue = chart.scales.x.getValueForPixel(x);
         
-        if (canvasX !== undefined && canvasX !== null) {
-          // Update crosshair on all charts
-          Object.values(charts).forEach(c => {
-            const pixelX = c.scales.x.getPixelForValue(canvasX);
-            c.crosshair = { x: pixelX };
-            c.update('none'); // Update without animation
+        if (timeValue !== undefined && timeValue !== null) {
+          // Synchronize ALL charts (including the current one) to show the same time value
+          Object.entries(charts).forEach(([chartKey, c]) => {
+            // Trigger the interpolation by simulating mouse position
+            const targetX = c.scales.x.getPixelForValue(timeValue);
+            const cRect = c.canvas.getBoundingClientRect();
+            
+            // Create a synthetic event at the same time position
+            const syntheticEvent = {
+              x: targetX,
+              y: cRect.height / 2,
+              native: e,
+              type: 'mousemove'
+            };
+            
+            // Trigger Chart.js interaction at this position
+            c.updateHoverStyle(syntheticEvent, 'interpolate', false);
+            c.tooltip.setActiveElements(
+              Chart.Interaction.modes.interpolate(c, syntheticEvent, { axis: 'x' }),
+              syntheticEvent
+            );
+            c.update('none');
+            
+            // Extract interpolated values and update legend
+            const legendId = chartLegendMap[chartKey];
+            if (legendId) {
+              const values = [];
+              const metas = c.getSortedVisibleDatasetMetas();
+              
+              for (let i = 0; i < metas.length; i++) {
+                const meta = metas[i];
+                if (meta._pt && meta.vScale) {
+                  const interpolatedValue = meta.vScale.getValueForPixel(meta._pt.y);
+                  values.push(interpolatedValue);
+                } else {
+                  values.push(null);
+                }
+              }
+              
+              updateLegendValues(legendId, timeValue, values);
+            }
           });
           
-          // Update map markers
-          updateMapMarkers(canvasX);
+          // Update map markers using the time value
+          updateMapMarkers(timeValue);
+          
+          // Update map legend with position info
+          updateMapLegendValues(timeValue);
         }
       });
       
       canvas.addEventListener('mouseleave', () => {
-        // Clear crosshairs
-        Object.values(charts).forEach(c => {
-          c.crosshair = null;
+        // Clear tooltips and indicators on all charts
+        Object.entries(charts).forEach(([chartKey, c]) => {
+          c.tooltip.setActiveElements([]);
+          const metas = c.getSortedVisibleDatasetMetas();
+          for (let i = 0; i < metas.length; i++) {
+            metas[i]._pt = null;
+          }
           c.update('none');
+          
+          // Clear legend values
+          const legendId = chartLegendMap[chartKey];
+          if (legendId) {
+            clearLegendValues(legendId);
+          }
         });
+        
+        // Clear map legend
+        clearLegendValues('mapLegend');
         
         // Remove map markers
         clearMapMarkers();
       });
     });
+  }
+    // Helper function to update map legend with position info
+  function updateMapLegendValues(timeValue) {
+    const legendDiv = document.getElementById('mapLegend');
+    if (!legendDiv) return;
+    
+    // Update only the time display, no lat/long values
+    const timeDisplay = legendDiv.querySelector('.legend-time');
+    if (timeDisplay && timeValue !== null && timeValue !== undefined) {
+      const hours = Math.floor(timeValue / 3600000);
+      const minutes = Math.floor((timeValue % 3600000) / 60000);
+      const seconds = Math.floor(((timeValue % 3600000) % 60000) / 1000);
+      timeDisplay.textContent = `Time: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
   }
   function updateMapMarkers(timeValue) {
     if (!map || !cachedRecords.records1.length) return;
@@ -646,29 +809,86 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     return '';
   }
-
-  // Helper function to populate custom chart legends
+  // Helper function to populate custom chart legends with live values
   function populateChartLegend(legendId, deviceNames) {
     const legendDiv = document.getElementById(legendId);
     if (!legendDiv) return;
 
     legendDiv.innerHTML = '';
+    
+    // Add time display container (will be updated on hover)
+    const timeDisplay = document.createElement('div');
+    timeDisplay.className = 'legend-time';
+    timeDisplay.textContent = 'Time: --:--:--';
+    legendDiv.appendChild(timeDisplay);
 
+    // Add legend items with value placeholders
     deviceNames.forEach((name, index) => {
       const legendItem = document.createElement('div');
       legendItem.className = 'legend-item';
+      legendItem.setAttribute('data-index', index);
 
       const colorBox = document.createElement('span');
       colorBox.className = 'legend-color';
       colorBox.style.backgroundColor = colors[index].border;
 
       const labelSpan = document.createElement('span');
+      labelSpan.className = 'legend-label';
       labelSpan.textContent = name;
+      
+      const valueSpan = document.createElement('span');
+      valueSpan.className = 'legend-value';
+      valueSpan.textContent = '';
 
       legendItem.appendChild(colorBox);
       legendItem.appendChild(labelSpan);
+      legendItem.appendChild(valueSpan);
       legendDiv.appendChild(legendItem);
     });
+  }
+  
+  // Helper function to update legend values on hover
+  function updateLegendValues(legendId, timeValue, values) {
+    const legendDiv = document.getElementById(legendId);
+    if (!legendDiv) return;
+    
+    // Update time display
+    const timeDisplay = legendDiv.querySelector('.legend-time');
+    if (timeDisplay && timeValue !== null && timeValue !== undefined) {
+      const hours = Math.floor(timeValue / 3600000);
+      const minutes = Math.floor((timeValue % 3600000) / 60000);
+      const seconds = Math.floor(((timeValue % 3600000) % 60000) / 1000);
+      timeDisplay.textContent = `Time: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+    
+    // Update values for each dataset
+    values.forEach((value, index) => {
+      const legendItem = legendDiv.querySelector(`.legend-item[data-index="${index}"]`);
+      if (legendItem) {
+        const valueSpan = legendItem.querySelector('.legend-value');
+        if (valueSpan) {
+          if (value !== null && value !== undefined) {
+            valueSpan.textContent = ` (${value.toFixed(2)})`;
+          } else {
+            valueSpan.textContent = '';
+          }
+        }
+      }
+    });
+  }
+  
+  // Helper function to clear legend values
+  function clearLegendValues(legendId) {
+    const legendDiv = document.getElementById(legendId);
+    if (!legendDiv) return;
+    
+    const timeDisplay = legendDiv.querySelector('.legend-time');
+    if (timeDisplay) {
+      timeDisplay.textContent = 'Time: --:--:--';
+    }
+    
+    const valueSpans = legendDiv.querySelectorAll('.legend-value');
+    valueSpans.forEach(span => span.textContent = '');
   }
 
   function createChart(canvasId, label, recordsArray, field, deviceNames) {
@@ -715,32 +935,29 @@ document.addEventListener('DOMContentLoaded', () => {
     return new Chart(ctx, {
       type: 'line',
       data: { datasets },
-      options: {
-        responsive: true,
+      options: {        responsive: true,
         maintainAspectRatio: true,
         aspectRatio: 4,
         borderWidth: 1,
         interaction: {
-          mode: 'index',
+          mode: 'interpolate',
           intersect: false,
+          axis: 'x'
         },
         onHover: (event, activeElements, chart) => {
-          // This helps trigger canvas mousemove events
-          chart.canvas.style.cursor = activeElements.length > 0 ? 'crosshair' : 'default';
-        },        plugins: {
+          // Change cursor when hovering over data points
+          chart.canvas.style.cursor = activeElements.length > 0 ? 'pointer' : 'default';
+        },
+        plugins: {
           title: {
             display: false
-          },
-          legend: {
+          },          legend: {
             display: false // Disabled - using custom legend in summary
           },
           tooltip: {
-            enabled: false
-          },
-          crosshair: {
-            enabled: true
+            enabled: false // Disabled - using legend values instead
           }
-        },        scales: {
+        },scales: {
           x: {
             type: 'linear',
             title: {
@@ -809,8 +1026,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });    // Fit bounds to include all tracks
     if (allTrackPoints.length > 0) {
       map.fitBounds(L.latLngBounds(allTrackPoints));
-    }
-
-    // Legend is now in the summary header (mapLegend div)
+    }    // Legend is now in the summary header (mapLegend div)
   }
 });
