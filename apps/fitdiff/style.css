@@ -393,7 +393,7 @@ details summary h2 {
 
 /* Chart legend in summary */
 .chart-legend {
-  display: none;
+  display: flex;
   align-items: center;
   gap: 1rem;
   flex: 1;
@@ -401,20 +401,28 @@ details summary h2 {
   font-size: 0.85rem;
 }
 
-details[open] .chart-legend {
-  display: flex;
-}
-
 .legend-item {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 0.25rem;
   white-space: nowrap;
 }
 
+.legend-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.legend-item-top {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
 .legend-color {
-  width: 20px;
-  height: 3px;
+  width: 3px;
+  height: 20px;
   border-radius: 1px;
 }
 
@@ -428,15 +436,26 @@ details[open] .chart-legend {
 
 .legend-label {
   font-weight: 500;
+  max-width: 18ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.8rem;
 }
 
 .legend-value {
   color: var(--text-secondary);
   font-weight: bold;
-  margin-left: 5px;
+  margin-left: 0;
+  padding-left: 0;
   /* font-family: 'Courier New', monospace; */
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  text-align: left;
+  min-height: 1em; /* Reserve space even when empty */
+  line-height: 1em;
 }
+
+
 
 details > *:not(summary) {
   padding: 1.5rem;

@@ -820,9 +820,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timeDisplay = document.createElement('div');
     timeDisplay.className = 'legend-time';
     timeDisplay.textContent = 'Time: --:--:--';
-    legendDiv.appendChild(timeDisplay);
-
-    // Add legend items with value placeholders
+    legendDiv.appendChild(timeDisplay);    // Add legend items with value placeholders
     deviceNames.forEach((name, index) => {
       const legendItem = document.createElement('div');
       legendItem.className = 'legend-item';
@@ -832,6 +830,10 @@ document.addEventListener('DOMContentLoaded', () => {
       colorBox.className = 'legend-color';
       colorBox.style.backgroundColor = colors[index].border;
 
+      // Create content wrapper for label and value
+      const legendItemContent = document.createElement('div');
+      legendItemContent.className = 'legend-item-content';
+
       const labelSpan = document.createElement('span');
       labelSpan.className = 'legend-label';
       labelSpan.textContent = name;
@@ -840,9 +842,11 @@ document.addEventListener('DOMContentLoaded', () => {
       valueSpan.className = 'legend-value';
       valueSpan.textContent = '';
 
+      legendItemContent.appendChild(labelSpan);
+      legendItemContent.appendChild(valueSpan);
+      
       legendItem.appendChild(colorBox);
-      legendItem.appendChild(labelSpan);
-      legendItem.appendChild(valueSpan);
+      legendItem.appendChild(legendItemContent);
       legendDiv.appendChild(legendItem);
     });
   }
@@ -860,15 +864,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = Math.floor(((timeValue % 3600000) % 60000) / 1000);
       timeDisplay.textContent = `Time: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
-    
-    // Update values for each dataset
+      // Update values for each dataset
     values.forEach((value, index) => {
       const legendItem = legendDiv.querySelector(`.legend-item[data-index="${index}"]`);
       if (legendItem) {
         const valueSpan = legendItem.querySelector('.legend-value');
         if (valueSpan) {
           if (value !== null && value !== undefined) {
-            valueSpan.textContent = ` (${value.toFixed(2)})`;
+            valueSpan.textContent = value.toFixed(2);
           } else {
             valueSpan.textContent = '';
           }
