@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Dark mode functionality
+document.addEventListener('DOMContentLoaded', () => {  // Dark mode functionality
   const darkModeToggle = document.getElementById('darkModeToggle');
   const DARK_MODE_KEY = 'fitCompare_darkMode';
   
-  // Check for saved dark mode preference or default to light mode
-  const isDarkMode = localStorage.getItem(DARK_MODE_KEY) === 'true';
+  // Check for saved dark mode preference or default to dark mode
+  const savedPreference = localStorage.getItem(DARK_MODE_KEY);
+  const isDarkMode = savedPreference === null ? true : savedPreference === 'true';
   if (isDarkMode) {
     document.body.classList.add('dark-mode');
     updateToggleIcon(true);
@@ -207,22 +207,51 @@ document.addEventListener('DOMContentLoaded', () => {
   fileInput1.addEventListener('change', checkFiles);
   fileInput2.addEventListener('change', checkFiles);
   fileInput3.addEventListener('change', checkFiles);
-  compareBtn.addEventListener('click', handleCompare);
-
+  compareBtn.addEventListener('click', handleCompare);  // Load demo files button
+  const loadDemoBtn = document.getElementById('loadDemoBtn');
+  if (loadDemoBtn) {
+    loadDemoBtn.addEventListener('click', () => {
+      // Clear any user-selected files
+      fileInput1.value = '';
+      fileInput2.value = '';
+      fileInput3.value = '';
+      files.file1 = null;
+      files.file2 = null;
+      files.file3 = null;
+      compareBtn.disabled = true;
+      compareBtn.textContent = 'Compare';
+      
+      // Load demo files
+      loadDemoFiles();
+    });
+  }
   // Clear saved data button
   const clearBtn = document.getElementById('clearBtn');
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {      if (confirm('Are you sure you want to clear the saved comparison? This will require you to reload files on next visit.')) {
         clearLocalStorage();
+        // Set a flag to prevent demo files from auto-loading after page reload
+        sessionStorage.setItem('skipDemoLoad', 'true');
         showNotification('Saved data cleared', 'success');
         clearBtn.classList.add('hidden');
         // Optionally reload the page
         setTimeout(() => window.location.reload(), 1500);
       }
-    });
+    });  }  // Try to restore previous comparison on load, or load demo files for first-time users
+  const hasStoredData = localStorage.getItem(STORAGE_KEY_FILE1) !== null;
+  const skipDemoLoad = sessionStorage.getItem('skipDemoLoad') === 'true';
+  
+  // Clear the skip flag after checking it
+  if (skipDemoLoad) {
+    sessionStorage.removeItem('skipDemoLoad');
   }
-  // Try to restore previous comparison on load
-  restoreFromLocalStorage();
+  
+  if (hasStoredData) {
+    restoreFromLocalStorage();
+  } else if (!skipDemoLoad) {
+    // Auto-load demo files on first visit (only if not manually cleared)
+    loadDemoFiles();
+  }
   
   function handleCompare() {
     const loadedFiles = [];
@@ -341,7 +370,6 @@ document.addEventListener('DOMContentLoaded', () => {
       clearLocalStorage();
     }
   }
-
   function clearLocalStorage() {
     localStorage.removeItem(STORAGE_KEY_FILE1);
     localStorage.removeItem(STORAGE_KEY_FILE2);
@@ -349,6 +377,39 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem(STORAGE_KEY_FILE1_NAME);
     localStorage.removeItem(STORAGE_KEY_FILE2_NAME);
     localStorage.removeItem(STORAGE_KEY_FILE3_NAME);
+  }
+
+  // Load demo files for first-time users
+  async function loadDemoFiles() {
+    try {
+      showNotification('Loading demo files...', 'info');
+      
+      const demoFiles = ['garmin.fit', 'amazfit.fit'];
+      const buffers = [];
+      const names = [];
+      
+      for (const fileName of demoFiles) {
+        const response = await fetch(fileName);
+        if (!response.ok) {
+          throw new Error(`Failed to load ${fileName}`);
+        }
+        const buffer = await response.arrayBuffer();
+        buffers.push(buffer);
+        names.push(fileName);
+      }
+        // Remove info notification
+      document.querySelectorAll('.notification-info').forEach(n => n.remove());
+      
+      // Parse and visualize demo files
+      parseAndVisualize(buffers, names, () => {
+        showNotification('Demo files loaded! Try your own files or explore the comparison.', 'success', true);
+      });
+      
+    } catch (error) {
+      console.error('Failed to load demo files:', error);
+      document.querySelectorAll('.notification-info').forEach(n => n.remove());
+      showNotification('Could not load demo files. Please upload your own FIT files.', 'error');
+    }
   }
 
   function arrayBufferToBase64(buffer) {
@@ -369,12 +430,28 @@ document.addEventListener('DOMContentLoaded', () => {
       bytes[i] = binaryString.charCodeAt(i);
     }
     return bytes.buffer;
-  }
-  function showNotification(message, type = 'info') {
+  }  function showNotification(message, type = 'info', persistent = false) {
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
-    notification.textContent = message;
+    
+    // Create message span
+    const messageSpan = document.createElement('span');
+    messageSpan.textContent = message;
+    notification.appendChild(messageSpan);
+    
+    // Add close button for persistent notifications
+    if (persistent) {
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'notification-close';
+      closeBtn.innerHTML = '&times;';
+      closeBtn.setAttribute('aria-label', 'Close notification');
+      closeBtn.onclick = () => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      };
+      notification.appendChild(closeBtn);
+    }
     
     // Check if there are existing notifications and adjust position
     const existingNotifications = document.querySelectorAll('.notification');
@@ -393,11 +470,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show notification
     setTimeout(() => notification.classList.add('show'), 10);
 
-    // Remove after 3 seconds
-    setTimeout(() => {
-      notification.classList.remove('show');
-      setTimeout(() => notification.remove(), 300);
-    }, 3000);
+    // Remove after 3 seconds only if not persistent
+    if (!persistent) {
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
   }function parseAndVisualize(buffers, fileNames, onComplete = null) {
     const parsers = buffers.map(() => new FitParser({ force: true }));
     const parsedData = [];

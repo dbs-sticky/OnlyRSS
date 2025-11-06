@@ -302,7 +302,7 @@ footer {
   position: fixed;
   top: 20px;
   right: 20px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2.5rem 1rem 1.5rem; /* Extra padding on right for close button */
   border-radius: 8px;
   box-shadow: 0 4px 12px var(--shadow-strong);
   font-size: 0.95rem;
@@ -332,6 +332,33 @@ footer {
 .notification-info {
   background-color: #2196f3;
   color: white;
+}
+
+.notification-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  min-width: unset;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-close:hover {
+  opacity: 1;
+  background: transparent;
 }
 
 /* Collapsible Details/Summary Styling */
