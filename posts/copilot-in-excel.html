@@ -74,12 +74,10 @@
         }
 
         .table-container {
-            max-width: 2000px;
             overflow-x: auto;
             position: relative;
         }        
-        
-        table {
+          table {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
             font-size: 0.9rem;
             font-weight: 400;
@@ -87,15 +85,22 @@
             border-collapse: separate;
             border-spacing: 0;
             background: white;
-
+            table-layout: fixed;
         }
 
         th, td {
+            width: 300px;
             min-width: 150px;
-            padding: 12px;
+            padding: 0.5em;
             text-align: left;
             border: 1px solid #ddd;
-                        font-weight: 400;
+            font-weight: 400;
+        }
+
+        /* First column has auto width based on content */
+        th:first-child,
+        td:first-child {
+            width: auto;
         }
 
         th {
@@ -199,21 +204,12 @@
                     <th>App Skills in Excel</th>
                     <th>App Skills in Excel (Advanced Analysis)</th>
                     <th>Chat in Excel</th>
-                    <th>Chat (Analyst Agent) in Excel</th>
-                    <th>Analyst Agent in Copilot App</th>
-                    <th>Agent Mode in Excel</th>
+                    <th>Chat (Analyst) in Excel</th>
+                    <th>Analyst in M365 App</th>
+                    <th>Chat (Agent mode) in Excel</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Location</td>
-                    <td>Excel</td>
-                    <td>Excel</td>
-                    <td>Excel</td>
-                    <td>Excel (with Analyst Agent)</td>
-                    <td>Copilot app / Analyst Agent</td>
-                    <td>Excel (<strong>Web</strong>, <span style="color: #ff0066;">via Excel Labs</span>)</td>
-                </tr>
                 <tr>
                     <td>Scope</td>
                     <td>Single workbook</td>
@@ -244,19 +240,19 @@
                 <tr>
                     <td>Best For</td>
                     <td>Quick help with formulas, charts, summaries</td>
-                    <td>People who want to edit the generated Python</td>
+                    <td>If you want to edit the generated Python</td>
                     <td>Summary analysis of a single workbook</td>
                     <td>In-depth analysis of a single workbook</td>
-                    <td>Cross-source insights and data storytelling</td>
+                    <td>In-depth analysis across multiple documents</td>
                     <td>Complex workbook tasks (dashboards, cleaning, etc.)</td>
                 </tr>
                 <tr>
                     <td>Output</td>
-                    <td>Edits workbook directly (will sometimes fallback to Python – in side-panel)</td>
-                    <td>Adds Python dedicated Worksheet within the Workbook</td>
-                    <td>Text/charts insights in side-panel (uses Python)</td>
-                    <td>Text/charts insights in side-panel (uses Python)</td>
-                    <td>Text/charts insights (uses Python)</td>
+                    <td>Edits workbook directly (will sometimes fallback to Python in side-panel)</td>
+                    <td>Python Worksheet within the Workbook</td>
+                    <td>Insights in side-panel (Python)</td>
+                    <td>Insights in side-panel (Python)</td>
+                    <td>Insights in side-panel (Python)</td>
                     <td>Edits workbook directly</td>
                 </tr>
             </tbody>
