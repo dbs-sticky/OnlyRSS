@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Copilot in Excel</title>
+    <meta name="description" content="The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#F3EEE4">
+    
+    
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="Mark Evans">
+    <meta property="og:title" content="Visualising my daily constitutionals (walks)">
+    <meta property="og:url" content="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/calendar-heatmap-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:description" content="The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.">
+    <meta property="article:published_time" content="2024-12-17">
+
+    <!-- schema.org tags -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://onlyrss.org/posts/visualising-my-daily-constitutionals.html"
+        },
+        "headline": "Visualising my daily constitutionals (walks)",
+        "description": "The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.",
+        "image": "https://onlyrss.org/images/og/calendar-heatmap-og.png",  
+        "author": {
+          "@type": "Person",
+          "name": "Mark Evans",
+          "url": "https://onlyrss.org/pages/about.html"
+        },  
+        "publisher": {
+          "@type": "Organization",
+          "name": "OnlyRSS",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
+          }
+        },
+        "datePublished": "2024-12-17"
+      }
+    </script>
+
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main104.css">
+    <link rel="stylesheet" type="text/css" href="/styles/visualising-my-daily-constitutionals.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">    <!--
+    Source - https://stackoverflow.com/a
+    Posted by Eamon Nerbonne, modified by community. See post 'Timeline' for change history
+    Retrieved 2025-11-14, License - CC BY-SA 4.0
+    -->
+    <style>
+       .paper {
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .table-container {
+            max-width: 1400px;
+            width: 100%;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            min-width: 150px;
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        /* Fixed first column */
+        th:first-child,
+        td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 10;
+            background-color: #45a049;
+        }
+
+        td:first-child {
+            background-color: #e8f5e9;
+            font-weight: bold;
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover td:first-child {
+            background-color: #c8e6c9;
+        }
+    </style>
+
+    <!-- Service worker for installable app-->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/service-worker.js");
+      }
+    </script>
+        
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
+  </head>
+
+  <body>
+    
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
+
+    <table-of-contents role="navigation" aria-label="table of contents"></table-of-contents>
+
+    <article>
+      <header style="view-transition-name: post28">
+        <h1>Copilot in Excel</h1>
+          <p>
+            The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.
+          </p>
+
+          <div class="byline">
+            <div>
+              <by-line></by-line>
+              <dataviz-tag></dataviz-tag>
+            </div>
+            <social-icons></social-icons>
+          </div>
+
+      </header>
+
+
+      <section>
+        <h2>??</h2>
+          <p>
+            ??
+          </p>      </section>
+    </article>      
+    <div class="paper">
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fixed Column</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                    <th>Column 4</th>
+                    <th>Column 5</th>
+                    <th>Column 6</th>
+                    <th>Column 7</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Row 1</td>
+                    <td>Data 1-2</td>
+                    <td>Data 1-3</td>
+                    <td>Data 1-4</td>
+                    <td>Data 1-5</td>
+                    <td>Data 1-6</td>
+                    <td>Data 1-7</td>
+                </tr>
+                <tr>
+                    <td>Row 2</td>
+                    <td>Data 2-2</td>
+                    <td>Data 2-3</td>
+                    <td>Data 2-4</td>
+                    <td>Data 2-5</td>
+                    <td>Data 2-6</td>
+                    <td>Data 2-7</td>
+                </tr>
+                <tr>
+                    <td>Row 3</td>
+                    <td>Data 3-2</td>
+                    <td>Data 3-3</td>
+                    <td>Data 3-4</td>
+                    <td>Data 3-5</td>
+                    <td>Data 3-6</td>
+                    <td>Data 3-7</td>
+                </tr>
+                <tr>
+                    <td>Row 4</td>
+                    <td>Data 4-2</td>
+                    <td>Data 4-3</td>
+                    <td>Data 4-4</td>
+                    <td>Data 4-5</td>
+                    <td>Data 4-6</td>
+                    <td>Data 4-7</td>
+                </tr>
+                <tr>
+                    <td>Row 5</td>
+                    <td>Data 5-2</td>
+                    <td>Data 5-3</td>
+                    <td>Data 5-4</td>
+                    <td>Data 5-5</td>
+                    <td>Data 5-6</td>
+                    <td>Data 5-7</td>
+                </tr>
+                <tr>
+                    <td>Row 6</td>
+                    <td>Data 6-2</td>
+                    <td>Data 6-3</td>
+                    <td>Data 6-4</td>
+                    <td>Data 6-5</td>
+                    <td>Data 6-6</td>
+                    <td>Data 6-7</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <article>
+
+      <section>
+        <h2>Conclusions</h2>
+          <p>
+??
+          </p>
+      </section>
+
+    </article>
+
+    <!-- related articles -->
+    <aside>
+      <h1><span>related articles</span></h1>
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post18">
+
+          <card-body>
+            <h1>Airbus vs Boeing: An experiment in charting</h1>
+            <p>The results of my first attempts at creating data visualisations using just HTML & CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-20">20 Dec 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
+        <card-container style="view-transition-name: post20">
+
+          <card-body>
+            <h1>Air India: Putting their recent order into context</h1>
+            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-21">21 Feb 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+      <a href="/posts/the-daily-constitutional.html" data-category="misc">
+        <card-container style="view-transition-name: post27">
+
+          <card-body>
+            <h1>Bring back the daily constitutional</h1>
+            <p>After discovering the concept of the daily constitutional recently while reading Sherlock Holmes, I think it's a phrase (and practice) that deserves a comeback. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2024-12-11">11 Dec 2024</time>
+            <article-duration> • 3 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+    </aside>
+
+    <footer>
+      <feedback-contact></feedback-contact>
+    </footer>
+
+
+    <script src="../scripts/visualising-my-daily-constitutionals.js"></script>
+    <script src="../scripts/web-components-v2.js"></script>
+  </body>
+</html>
