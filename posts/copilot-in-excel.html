@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Copilot in Excel</title>
-    <meta name="description" content="The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.">
+    <meta name="description" content="My attempt at understanding and documenting the various ways that M365 Copilot works with Excel.">
     <meta name="author" content="Mark Evans">
     <meta name="theme-color" content="#F3EEE4">
     
@@ -12,13 +12,13 @@
     <!--Open Graph protocol meta tags-->
     <meta property="og:type" content="article">
     <meta property="article:author" content="Mark Evans">
-    <meta property="og:title" content="Visualising my daily constitutionals (walks)">
-    <meta property="og:url" content="https://onlyrss.org/posts/visualising-my-daily-constitutionals.html">
-    <meta property="og:image" content="https://onlyrss.org/images/og/calendar-heatmap-og.png">
+    <meta property="og:title" content="My attempt at understanding and documenting the various ways that M365 Copilot works with Excel.">
+    <meta property="og:url" content="https://onlyrss.org/posts/copilot-in-excel.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/copilot-in-excel-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:description" content="The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.">
-    <meta property="article:published_time" content="2024-12-17">
+    <meta property="og:description" content="My attempt at understanding and documenting the various ways that M365 Copilot works with Excel.">
+    <meta property="article:published_time" content="2025-11-15">
 
     <!-- schema.org tags -->
     <script type="application/ld+json">
@@ -27,11 +27,11 @@
         "@type": "BlogPosting",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://onlyrss.org/posts/visualising-my-daily-constitutionals.html"
+          "@id": "https://onlyrss.org/posts/copilot-in-excel.html"
         },
-        "headline": "Visualising my daily constitutionals (walks)",
-        "description": "The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.",
-        "image": "https://onlyrss.org/images/og/calendar-heatmap-og.png",  
+        "headline": "Copilot in Excel",
+        "description": "My attempt at understanding and documenting the various ways that M365 Copilot works with Excel.",
+        "image": "https://onlyrss.org/images/og/copilot-in-excel-og.png",  
         "author": {
           "@type": "Person",
           "name": "Mark Evans",
@@ -45,7 +45,7 @@
             "url": "https://onlyrss.org/pwaicons/windows11/SmallTile.scale-400.png"
           }
         },
-        "datePublished": "2024-12-17"
+        "datePublished": "2025-11-15"
       }
     </script>
 
@@ -59,15 +59,12 @@
     <link rel="manifest" href="/manifest.json">    <!--stylesheet and RSS-->
     <link rel="stylesheet" type="text/css" href="/styles/main104.css">
     <link rel="stylesheet" type="text/css" href="/styles/visualising-my-daily-constitutionals.css">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">    <!--
-    Source - https://stackoverflow.com/a
-    Posted by Eamon Nerbonne, modified by community. See post 'Timeline' for change history
-    Retrieved 2025-11-14, License - CC BY-SA 4.0
-    -->
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">    
+    
     <style>
        .paper {
             margin: 0;
-            padding: 20px;
+            padding: 0 20px;
             font-family: sans-serif;
             display: flex;
             justify-content: center;
@@ -84,16 +81,16 @@
             line-height: 1.2;
             border-collapse: separate;
             border-spacing: 0;
-            background: white;
+            background: transparent;
             table-layout: fixed;
         }
 
         th, td {
-            width: 300px;
+            width: 200px;
             min-width: 150px;
             padding: 0.5em;
             text-align: left;
-            border: 1px solid #ddd;
+            border: 1px solid var(--background-color);
             font-weight: 400;
         }
 
@@ -176,26 +173,31 @@
       <header style="view-transition-name: post28">
         <h1>Copilot in Excel</h1>
           <p>
-            The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.
+            The current integration of M365 Copilot into MS Excel is… messy. There are multiple ways to interact with Copilot, and it’s not always clear which one you should be using. This post is my attempt at understanding and documenting the various ways that M365 Copilot works with Excel.
+          </p>
+          <p>
+            Note: This information is likely to be out of date soon after it's published, so be aware that the situation described below might no longer be current.
           </p>
 
           <div class="byline">
             <div>
               <by-line></by-line>
-              <dataviz-tag></dataviz-tag>
+              <misc-tag></misc-tag>
             </div>
             <social-icons></social-icons>
           </div>
 
       </header>
 
-
       <section>
-        <h2>??</h2>
+        <h2>Introduction</h2>
           <p>
-            ??
-          </p>      </section>
-    </article>        <div class="paper">
+            I recently gave a presentation on how M365 Copilot integrates with Excel, and I thought it might be useful to share some of what I learnt as a blog post, not only because “sharing is caring”, but also because the situation was far more complicated than I had initially assumed.
+          </p>
+        </section>
+    </article>
+    
+    <div class="paper">
     <div class="table-container">
         <table>            <thead>
                 <tr>
