@@ -203,10 +203,11 @@
                 <tr>
                     <th>Feature / Mode</th>
                     <th>App Skills in Excel</th>
-                    <th>App Skills in Excel (Advanced Analysis)</th>
-                    <th>Chat in Excel (default)</th>
-                    <th>Chat (Agent mode) in Excel</th>
-                    <th>Chat (Analyst) in Excel</th>
+                    <th>App Skills in Excel<br> (Give a unique insight using Python)</th>
+                    <th>App Skills in Excel<br>(Advanced Analysis)</th>
+                    <th>Chat in Excel<br>(default)</th>
+                    <th>Chat in Excel<br>(Agent mode)</th>
+                    <th>Chat in Excel<br>(Analyst)</th>
                     <th>Analyst in M365 App</th>
                 </tr>
             </thead>
@@ -217,11 +218,13 @@
                     <td>Single workbook</td>
                     <td>Single workbook</td>
                     <td>Single workbook</td>
+                    <td>Single workbook</td>
                     <td>Multiple files (Excel, CSV, etc.)</td>
                 </tr>
                 <tr>
                     <td>Editing Capabilities</td>
                     <td>✅ Yes</td>
+                    <td>❌ No (read-only analysis)</td>
                     <td>⚠️ Yes. Python worksheet</td>
                     <td>❌ No (read-only analysis)</td>
                     <td>✅ Yes</td>
@@ -233,6 +236,7 @@
                     <td>⚠️ Limited</td>
                     <td>⚠️ Limited</td>
                     <td>⚠️ Limited</td>
+                    <td>⚠️ Limited</td>
                     <td>✅ Yes (plans and executes)</td>
                     <td>✅ Yes</td>
                     <td>✅ Yes (cross-file reasoning)</td>
@@ -240,6 +244,7 @@
                 <tr>
                     <td>Best For</td>
                     <td>Help with implementing formulas, charts, etc.</td>
+                    <td>Summary analysis of a single workbook</td>
                     <td>If you want to edit the generated Python</td>
                     <td>Summary analysis of a single workbook</td>
                     <td>Complex workbook tasks (dashboards, cleaning, etc.)</td>
@@ -249,6 +254,7 @@
                 <tr>
                     <td>Output</td>
                     <td>Edits workbook directly (will sometimes fallback to Python in side-panel)</td>
+                    <td>Insights in side-panel (Python)</td>
                     <td>Python Worksheet within the Workbook</td>
                     <td>Insights in side-panel (Python)</td>
                     <td>Edits workbook directly</td>
@@ -263,9 +269,51 @@
     <article>
 
       <section>
-        <h2>Conclusions</h2>
+        <h2>How to access the options listed above</h2>
+        <h3>App Skills in Excel</h3>
           <p>
-??
+            This is available by selecting the drop-down arrow on the Copilot button (which is located on the far right of the Home ribbon) and then selecting App skills.
+          </p>
+          <figure>
+            <img src="/images/copilot-app-skills.webp" width="835" height="683" loading="lazy" alt="A screenshot Microsoft Excel, showing a dropdown menu under the 'Copilot' icon, with the option 'App Skills' selected.">
+              <figcaption>
+                The App Skills menu used to be the default action for the Copilot button. But since the M365 chat app has been brought into Excel, it's the chat app that's now the default. App Skills is now available via the dropdown menu.
+              </figcaption>
+          </figure>
+          <p>
+            Once you've selected App Skills, you'll be presented with a side-panel on the right-hand side of the screen. This side-panel will contain a list of available App Skills, and you can select the one you want to use by clicking on it.
+          </p>
+          <figure>
+              <img src="/images/copilot-app-skills-suggest-formula.webp" width="800" height="414" loading="lazy" alt="A screenshot Microsoft Excel, The Copilot App Skills side-panel. The user has selected the option to suggest a formula, and Copilot has suggested a formula and asked the user if they wish to add the formula to the worksheet.">
+                <figcaption>
+                  In this example I've selected the first app skill from the list i.e. suggest a formula column. Copilot then proposes a formula, explains the formula to me, and then asks for permission to go ahead and implement the formula in the worksheet.
+                </figcaption>
+          </figure>
+          <p>
+            The App Skills in Excel option is the <strong>only one (currently) that will edit the workbook directly using Excel's built in formulas and functions</strong>. But, be aware one of these things is NOT like the others!</>
+          </p>
+        <h3>App Skills in Excel (Give a unique insight using Python)</h3>
+          <p>
+            The option to "Give a unique insight using Python" will NOT edit your workbook using Excel's built in functions and formulas, instead it will use Python to analyse your workbook and then present the results in a side-panel.
+          </p>
+          <p>
+            Why this option is in this list, and not a separate item in the Copilot dropdown list is beyond me. But it is what it but, and I suspect this will change in the future.
+          </p>
+          <figure>
+              <img src="/images/copilot-app-skills-python.webp" width="791" height="737" loading="lazy" alt="A screenshot Microsoft Excel, The Copilot App Skills side-panel. The user has selected the option to suggest a formula, and Copilot has suggested a formula and asked the user if they wish to add the formula to the worksheet.">
+                <figcaption>
+                  The result of the Python analysis, if you are "Python curious", you can expand the "Show analysis" option and expose the underlying Python code.
+                </figcaption>
+          </figure>
+          <p>
+            The Python code that is generated is not editable, and you can't use it to edit your workbook. The only thing you can do with this code is copy it to the clipboard, and then paste it into a Python environment (such as Visual Studio Code) to run it.
+          </p>
+          <p>
+            Even though the code can't be edited, and even though it's not using Excel's functions and formulas, it can still be quite useful. For example, the chart generated above was based on a worksheet that contained a years worth of commercial aircraft C-Checks and Heavy Check ground durations. The Python analysis decided that plotting the ground duration against aircraft age would be useful (which it is). It even added trendlines so that I can easily see the relationship between ground duration and aircraft age.
+          </p>
+        <h3>App Skills in Excel (Advanced Analysis)</h3>
+          <p>
+            
           </p>
       </section>
 
