@@ -193,9 +193,12 @@
       <section>
         <h2>Introduction</h2>
           <p>
-            I recently gave a presentation on how M365 Copilot integrates with Excel, and I thought it might be useful to share some of what I learnt as a blog post, not only because “sharing is caring”, but also because the situation was far more complicated than I had initially assumed.
+            I recently gave a presentation on how M365 Copilot integrates with Excel, and I thought it might be useful to share some of what I've learnt, not only because “sharing is caring”, but also because the situation was far more complicated than I had initially assumed.
           </p>
         </section>
+        <p>
+          The table below is essentially the TLDR for this article, if you get what you need from the table, that's great, if not, there's a lot of text and images after the table that give a lot more detail on each of the options which are summarised in the table.
+        </p>
     </article>
     
     <div class="paper">
@@ -270,8 +273,7 @@
     <article>
 
       <section>
-        <h2>How to access the options listed above</h2>
-        <h3>App Skills in Excel</h3>
+        <h2>App Skills in Excel</h2>
           <p>
             This is available by selecting the drop-down arrow on the Copilot button (which is located on the far right of the Home ribbon) and then selecting App skills.
           </p>
@@ -287,18 +289,18 @@
           <figure>
               <img src="/images/copilot-app-skills-suggest-formula.webp" width="800" height="414" loading="lazy" alt="A screenshot Microsoft Excel, The Copilot App Skills side-panel. The user has selected the option to suggest a formula, and Copilot has suggested a formula and asked the user if they wish to add the formula to the worksheet.">
                 <figcaption>
-                  In this example I've selected the first app skill from the list i.e. suggest a formula column. Copilot then proposes a formula, explains the formula to me, and then asks for permission to go ahead and implement the formula in the worksheet.
+                  In this example I've selected the first app skill from the list i.e. suggest a formula column. Copilot then proposes a formula, explains the formula, and then asks for permission to go ahead and implement the formula in the worksheet.
                 </figcaption>
           </figure>
           <p>
-            The App Skills in Excel option is the <strong>only one (currently) that will edit the workbook directly using Excel's built in formulas and functions</strong>. But, be aware, one of the listed app skills is NOT like the others!
+            The App Skills in Excel option is the <strong>only one (currently) that will edit the workbook directly using Excel's built in formulas and functions</strong>. But, be aware, one of the listed app skills is NOT like the others.
           </p>
-        <h3>App Skills in Excel (Give a unique insight using Python)</h3>
+        <h2>App Skills in Excel (Give a unique insight using Python)</h2>
           <p>
             The option to "Give a unique insight using Python" will NOT edit your workbook using Excel's built in functions and formulas, instead it will use Python to analyse your workbook and then present the results in a side-panel.
           </p>
           <p>
-            Why this option is in this list, and not a separate item in the Copilot dropdown list is beyond me. But it is what it but, and I suspect this will change in the future.
+            Why this option is in this list, and not a separate item in the Copilot dropdown list is beyond me.
           </p>
           <figure>
               <img src="/images/copilot-app-skills-python.webp" width="791" height="737" loading="lazy" alt="A screenshot Microsoft Excel, The Copilot App Skills side-panel. The user has selected the option to suggest a formula, and Copilot has suggested a formula and asked the user if they wish to add the formula to the worksheet.">
@@ -307,14 +309,15 @@
                 </figcaption>
           </figure>
           <p>
-            The Python code that is generated is not editable, and you can't use it to edit your workbook. The only thing you can do with this code is copy it to the clipboard, and then paste it into a Python environment (such as Visual Studio Code) to run it.
+            The Python code that's generated is not editable, and you can't use it to edit your workbook. The only thing you can do with this code is copy it to the clipboard, and then paste it into a Python environment (such as Visual Studio Code) to run it.
           </p>
           <p>
-            Even though the code can't be edited, and even though it's not using Excel's functions and formulas, it can still be quite useful. For example, the chart generated above was based on a worksheet that contained a years worth of commercial aircraft C-Checks and Heavy Check ground durations. The Python analysis decided that plotting the ground duration against aircraft age would be useful (which it is). It even added trendlines so that I can easily see the relationship between ground duration and aircraft age.
+            Even though the code can't be edited, and even though it's not using Excel's functions and formulas, it can still be quite useful. For example, the Python chart generated above was based on a worksheet that contained a year’s worth of commercial aircraft C- and Heavy-check maintenance events. The AI "reasoned" that plotting the maintenance event duration against aircraft age would be useful (which it was). It even added trendlines so that I could easily see the relationship between maintenance event duration and aircraft age.
           </p>
-        <h3>App Skills in Excel (Advanced Analysis)</h3>
+
+        <h2>App Skills in Excel (Advanced Analysis)</h2>
           <p>
-            By simply entering the following prompt: "Advanced analysis" you can trigger the Advanced Analysis mode of Copilot. This mode is similar to the "Give a unique insight using Python" mode, in that it will analyse your workbook using Python. The difference is that the results are presented in a new Python enabled Worksheet. And you have the option to edit the Python code that is generated.
+            By simply entering the following prompt: "Advanced analysis" you can trigger the Advanced Analysis mode of Copilot. This mode is similar to the "Give a unique insight using Python" mode, in that it will analyse your workbook using Python. <strong>The difference is that the results are presented in a new Python enabled Worksheet. And you have the option to edit the Python code that is generated</strong>.
           </p>
           <figure>
               <img src="/images/copilot-app-skills-advanced.webp" width="779" height="261" loading="lazy" alt="A screenshot Microsoft Excel, The Copilot App Skills side-panel. The user has selected the option to suggest a formula, and Copilot has suggested a formula and asked the user if they wish to add the formula to the worksheet.">
@@ -323,8 +326,27 @@
                 </figcaption>
           </figure>
           <p>
+            After enabling Advanced Analysis mode, I then asked Copilot to plot the maintenance event duration distributions for C-checks only, for the A320 and 737 families of aircraft, using Violin plots. I picked Violin plots specifically as they are not a standard chart type in Excel, also, they look like Manta rays, which is kinda cool.
           </p>
+          <figure>
+            <a href="/images/copilot-app-skills-advanced-result.webp" target="_blank">
+            <img src="/images/copilot-app-skills-advanced-result.webp" width="1351" height="1103" loading="lazy" alt="This screenshot shows an Excel worksheet with an embedded Python code cell, a violin plot chart, and a Copilot side panel.">
+            </a>
+            <figcaption>
+              As in the previous example, you can see the generated result in the side-panel, but unlike the previous example, the results are also visible in their own dedicated Worksheet.
+            </figcaption>
+          </figure>
 
+        <h2>Chat in Excel (default)</h2>
+          <p>
+            As Chat is now the default, all you need to do is to click the Copilot icon, but it is also shown as an option in the dropdown.
+          </p>
+          <figure>
+              <img src="/images/copilot-chat-default.webp" width="580" height="711" loading="lazy" alt="This screenshot shows the interface of a Microsoft Office Excel web app, with the Copilot dropdown menu expanded near the top center of the screen. In the dropdown, “Chat” is listed as an option beneath “Copilot” button, and above “App Skills”.">
+                <figcaption>
+                  The is no different to what you would see if you opend the M365 dedicated app.
+                </figcaption>
+          </figure>
       </section>
 
     </article>
