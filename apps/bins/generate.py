@@ -205,17 +205,31 @@ def main():
 
     print(f"Found {len(parsed_collections)} collections.")
 
+    # Determine the directory where the script is located
+    import os
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
     # Generate HTML
-    print("Generating index.html...")
-    html = generate_html(parsed_collections)
-    with open("index.html", "w", encoding="utf-8") as f:
-        f.write(html)
+    html_path = os.path.join(script_dir, "index.html")
+    print(f"Generating index.html at {html_path}...")
+    try:
+        html = generate_html(parsed_collections)
+        with open(html_path, "w", encoding="utf-8") as f:
+            f.write(html)
+        print("Successfully wrote index.html")
+    except Exception as e:
+        print(f"ERROR writing index.html: {e}")
 
     # Generate ICS
-    print("Generating bins.ics...")
-    ics = generate_ics(parsed_collections)
-    with open("bins.ics", "w", encoding="utf-8") as f:
-        f.write(ics)
+    ics_path = os.path.join(script_dir, "bins.ics")
+    print(f"Generating bins.ics at {ics_path}...")
+    try:
+        ics = generate_ics(parsed_collections)
+        with open(ics_path, "w", encoding="utf-8") as f:
+            f.write(ics)
+        print("Successfully wrote bins.ics")
+    except Exception as e:
+        print(f"ERROR writing bins.ics: {e}")
         
     print("Done.")
 
