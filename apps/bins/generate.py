@@ -1,7 +1,7 @@
-import requests
+import urllib.request
 import json
 import datetime
-import uuid
+import os
 
 # Configuration
 UPRN = "100080241051"
@@ -16,14 +16,20 @@ def fetch_data():
         "params": {"uprn": UPRN}
     }
     
-    headers = {
-        "Content-Type": "application/json"
-    }
-    
     try:
-        response = requests.post(API_URL, json=payload, headers=headers)
-        response.raise_for_status()
-        return response.json()
+        data = json.dumps(payload).encode('utf-8')
+        req = urllib.request.Request(
+            API_URL, 
+            data=data, 
+            headers={'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0'}
+        )
+        
+        with urllib.request.urlopen(req) as response:
+            if response.status != 200:
+                print(f"Error: HTTP {response.status}")
+                return None
+            return json.loads(response.read().decode('utf-8'))
+            
     except Exception as e:
         print(f"Error fetching data: {e}")
         return None
@@ -160,12 +166,6 @@ def main():
 
     result = data['result']
     
-    # Map API keys to our structure
-    # Note: The API keys might vary slightly, relying on what we saw in westberks.py
-    # rubbish: nextRubbishDateText / nextRubbishDateSubText
-    # recycling: nextRecyclingDateText / nextRecyclingDateSubText
-    # food: nextFoodWasteDateText / nextFoodWasteDateSubText
-    
     collection_types = [
         {
             'type': 'Rubbish',
@@ -206,7 +206,6 @@ def main():
     print(f"Found {len(parsed_collections)} collections.")
 
     # Determine the directory where the script is located
-    import os
     script_dir = os.path.dirname(os.path.abspath(__file__))
     
     # Generate HTML
