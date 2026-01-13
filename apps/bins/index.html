@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Berkshire Bin Collections</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bin Collection Dates</h1>
+            <p>Enter your UPRN to find your next collection day.</p>
+        </header>
+
+        <main>
+            <div class="search-box">
+                <label for="uprn">UPRN</label>
+                <div class="input-group">
+                    <input type="text" id="uprn" value="100080241051" placeholder="Enter UPRN">
+                    <button id="check-btn">Check Dates</button>
+                </div>
+            </div>
+
+            <div id="results" class="results-grid hidden">
+                <!-- Results will be injected here -->
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Fetching dates...</p>
+            </div>
+
+            <div id="error" class="error hidden">
+                <p id="error-message"></p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const API_URL = 'https://www.westberks.gov.uk/apiserver/ajaxlibrary';
+        const METHOD = 'goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wkly';
+
+        const uprnInput = document.getElementById('uprn');
+        const checkBtn = document.getElementById('check-btn');
+        const resultsDiv = document.getElementById('results');
+        const loadingDiv = document.getElementById('loading');
+        const errorDiv = document.getElementById('error');
+        const errorMessage = document.getElementById('error-message');
+
+        checkBtn.addEventListener('click', fetchDates);
+        uprnInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') fetchDates();
+        });
+
+        async function fetchDates() {
+            const uprn = uprnInput.value.trim();
+            if (!uprn) {
+                showError('Please enter a valid UPRN.');
+                return;
+            }
+
+            showLoading();
+
+            const payload = {
+                jsonrpc: "2.0",
+                id: Date.now().toString(),
+                method: METHOD,
+                params: { uprn: uprn }
+            };
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.error.message || 'API Error');
+                }
+
+                if (data.result) {
+                    displayResults(data.result);
+                } else {
+                    showError('No results found for this UPRN.');
+                }
+
+            } catch (error) {
+                console.error('Fetch error:', error);
+                showError(`Failed to fetch data: ${error.message}. Note: This might be a CORS issue if running locally.`);
+            }
+        }
+
+        function displayResults(result) {
+            resultsDiv.innerHTML = '';
+            
+            const collections = [
+                { type: 'Rubbish', textKey: 'nextRubbishDateText', subTextKey: 'nextRubbishDateSubText', class: 'rubbish' },
+                { type: 'Recycling', textKey: 'nextRecyclingDateText', subTextKey: 'nextRecyclingDateSubText', class: 'recycling' },
+                { type: 'Food Waste', textKey: 'nextFoodWasteDateText', subTextKey: 'nextFoodWasteDateSubText', class: 'food' }
+            ];
+
+            collections.forEach(item => {
+                const dateText = result[item.textKey];
+                const subText = result[item.subTextKey];
+                
+                // Logic from the python script: if subtext is present, use it (unless it's empty), otherwise use dateText
+                let displayDate = subText || dateText;
+                
+                // Basic cleanup if needed, though the API seems to return formatted strings
+                
+                const card = document.createElement('div');
+                card.className = `card ${item.class}`;
+                card.innerHTML = `
+                    <div class="card-icon"></div>
+                    <div class="card-content">
+                        <h2>${item.type}</h2>
+                        <p class="date">${displayDate}</p>
+                    </div>
+                `;
+                resultsDiv.appendChild(card);
+            });
+
+            hideLoading();
+            resultsDiv.classList.remove('hidden');
+        }
+
+        function showLoading() {
+            loadingDiv.classList.remove('hidden');
+            resultsDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+        }
+
+        function hideLoading() {
+            loadingDiv.classList.add('hidden');
+        }
+
+        function showError(msg) {
+            hideLoading();
+            resultsDiv.classList.add('hidden');
+            errorDiv.classList.remove('hidden');
+            errorMessage.textContent = msg;
+        }
+    </script>
+</body>
+</html>
