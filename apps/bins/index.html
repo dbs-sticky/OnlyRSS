@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -41,7 +43,7 @@
     </div>
 
     <script>
-        const API_URL = 'https://www.westberks.gov.uk/apiserver/ajaxlibrary';
+        const API_URL = 'proxy.php';
         const METHOD = 'goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wkly';
 
         const uprnInput = document.getElementById('uprn');
@@ -105,7 +107,7 @@
 
         function displayResults(result) {
             resultsDiv.innerHTML = '';
-            
+
             const collections = [
                 { type: 'Rubbish', textKey: 'nextRubbishDateText', subTextKey: 'nextRubbishDateSubText', class: 'rubbish' },
                 { type: 'Recycling', textKey: 'nextRecyclingDateText', subTextKey: 'nextRecyclingDateSubText', class: 'recycling' },
@@ -115,12 +117,12 @@
             collections.forEach(item => {
                 const dateText = result[item.textKey];
                 const subText = result[item.subTextKey];
-                
+
                 // Logic from the python script: if subtext is present, use it (unless it's empty), otherwise use dateText
                 let displayDate = subText || dateText;
-                
+
                 // Basic cleanup if needed, though the API seems to return formatted strings
-                
+
                 const card = document.createElement('div');
                 card.className = `card ${item.class}`;
                 card.innerHTML = `
@@ -155,4 +157,5 @@
         }
     </script>
 </body>
+
 </html>
