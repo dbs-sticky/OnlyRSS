@@ -81,7 +81,7 @@ def generate_html(collections):
     <div class="container">
         <header>
             <h1>Bin Collection Dates</h1>
-            <p>Next collection dates for UPRN: {uprn}</p>
+            <p>Next collection dates for UPRN: Hanningtons Way</p>
             <p style="margin-top: 0.5rem; font-size: 0.875rem;"><a href="bins.ics" style="color: var(--primary-color); text-decoration: none;">📅 Add to Calendar (ICS)</a></p>
         </header>
 
