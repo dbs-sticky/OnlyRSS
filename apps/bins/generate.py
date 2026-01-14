@@ -7,6 +7,7 @@ import os
 UPRN = "100080241051"
 API_URL = "https://www.westberks.gov.uk/apiserver/ajaxlibrary"
 METHOD = "goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wkly"
+SITE_URL = "onlyrss.com/apps/bins/" # UPDATE THIS with your actual domain
 
 def fetch_data():
     payload = {
@@ -81,8 +82,12 @@ def generate_html(collections):
     <div class="container">
         <header>
             <h1>Bin Collection Dates</h1>
-            <p>Next collection dates for UPRN: Hanningtons Way</p>
-            <p style="margin-top: 0.5rem; font-size: 0.875rem;"><a href="bins.ics" style="color: var(--primary-color); text-decoration: none;">📅 Add to Calendar (ICS)</a></p>
+            <p>Next collection dates for UPRN: {uprn}</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://www.google.com/calendar/render?cid=webcal://{site_url}/bins.ics" class="btn" target="_blank">
+                    Subscribe to Google Calendar
+                </a>
+            </p>
         </header>
 
         <main>
@@ -117,6 +122,7 @@ def generate_html(collections):
 
     return html_template.format(
         uprn=UPRN,
+        site_url=SITE_URL,
         cards=cards_html,
         last_updated=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     )

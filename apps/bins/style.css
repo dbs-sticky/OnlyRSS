@@ -6,9 +6,12 @@
     --text-main: #1e293b;
     --text-muted: #64748b;
     --border-color: #e2e8f0;
-    --rubbish-color: #1e293b; /* Black bin */
-    --recycling-color: #16a34a; /* Green bin */
-    --food-color: #ea580c; /* Orange bin */
+    --rubbish-color: #1e293b;
+    /* Black bin */
+    --recycling-color: #16a34a;
+    /* Green bin */
+    --food-color: #ea580c;
+    /* Orange bin */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
@@ -88,7 +91,8 @@ input[type="text"]:focus {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-button {
+button,
+.btn {
     background-color: var(--primary-color);
     color: white;
     border: none;
@@ -97,9 +101,12 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
+    display: inline-block;
+    text-decoration: none;
 }
 
-button:hover {
+button:hover,
+.btn:hover {
     background-color: var(--primary-hover);
 }
 
@@ -132,9 +139,17 @@ button:hover {
     flex-shrink: 0;
 }
 
-.card.rubbish .card-icon { background-color: var(--rubbish-color); }
-.card.recycling .card-icon { background-color: var(--recycling-color); }
-.card.food .card-icon { background-color: var(--food-color); }
+.card.rubbish .card-icon {
+    background-color: var(--rubbish-color);
+}
+
+.card.recycling .card-icon {
+    background-color: var(--recycling-color);
+}
+
+.card.food .card-icon {
+    background-color: var(--food-color);
+}
 
 .card-content h2 {
     font-size: 1rem;
@@ -172,8 +187,13 @@ button:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .error {
