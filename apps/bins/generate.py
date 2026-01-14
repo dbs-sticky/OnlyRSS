@@ -68,6 +68,17 @@ def parse_date(date_text, sub_text):
         return None, date_str
 
 def generate_html(collections):
+    # Sort collections by date
+    collections.sort(key=lambda x: x['datetime'])
+
+    # Group by date
+    grouped_collections = {}
+    for item in collections:
+        date_key = item['display_str']
+        if date_key not in grouped_collections:
+            grouped_collections[date_key] = []
+        grouped_collections[date_key].append(item)
+
     html_template = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,20 +116,31 @@ def generate_html(collections):
 </html>"""
 
     card_template = """
-                <div class="card {class_name}">
-                    <div class="card-icon"></div>
-                    <div class="card-content">
-                        <h2>{type_name}</h2>
-                        <p class="date">{date_display}</p>
+                <div class="card">
+                    <div class="card-date">{date_display}</div>
+                    <div class="card-collections">
+                        {collection_items}
                     </div>
                 </div>"""
+    
+    item_template = """
+                        <div class="collection-item">
+                            <div class="card-icon {class_name}"></div>
+                            <span class="collection-name">{type_name}</span>
+                        </div>"""
 
     cards_html = ""
-    for item in collections:
+    for date_display, items in grouped_collections.items():
+        items_html = ""
+        for item in items:
+            items_html += item_template.format(
+                class_name=item['class'],
+                type_name=item['type']
+            )
+        
         cards_html += card_template.format(
-            class_name=item['class'],
-            type_name=item['type'],
-            date_display=item['display_str']
+            date_display=date_display,
+            collection_items=items_html
         )
 
     return html_template.format(
