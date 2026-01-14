@@ -6,11 +6,11 @@
     --text-main: #1e293b;
     --text-muted: #64748b;
     --border-color: #e2e8f0;
-    --rubbish-color: #1e293b;
+    --rubbish-color: #000000;
     /* Black bin */
-    --recycling-color: #16a34a;
+    --recycling-color: #008000;
     /* Green bin */
-    --food-color: #ea580c;
+    --food-color: #800080;
     /* Orange bin */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
