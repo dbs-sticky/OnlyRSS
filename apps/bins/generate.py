@@ -86,7 +86,7 @@ def generate_html(collections):
             <p>Next collection dates for {location_name}</p>
             <p style="margin-top: 1rem;">
                 <a href="https://www.google.com/calendar/render?cid=webcal://{site_url}/bins.ics" class="btn" target="_blank">
-                    Subscribe to Google Calendar
+                    Subscribe via Google Calendar
                 </a>
             </p>
         </header>
@@ -228,14 +228,36 @@ def main():
 
     # Generate ICS
     ics_path = os.path.join(script_dir, "bins.ics")
-    print(f"Generating bins.ics at {ics_path}...")
-    try:
-        ics = generate_ics(parsed_collections)
-        with open(ics_path, "w", encoding="utf-8") as f:
-            f.write(ics)
-        print("Successfully wrote bins.ics")
-    except Exception as e:
-        print(f"ERROR writing bins.ics: {e}")
+    
+    # Check if we need to update the ICS file
+    new_uids = set()
+    for item in parsed_collections:
+         dt = item['datetime']
+         if dt:
+             dt_start = dt.strftime("%Y%m%d")
+             new_uids.add(f"{dt_start}-{item['type']}@westberksbins")
+    
+    existing_uids = set()
+    if os.path.exists(ics_path):
+        try:
+            with open(ics_path, 'r', encoding='utf-8') as f:
+                for line in f:
+                    if line.startswith('UID:'):
+                        existing_uids.add(line.strip().split(':', 1)[1])
+        except Exception as e:
+            print(f"Warning: Could not read existing ICS file: {e}")
+
+    if new_uids != existing_uids:
+        print(f"Dates changed. Generating bins.ics at {ics_path}...")
+        try:
+            ics = generate_ics(parsed_collections)
+            with open(ics_path, "w", encoding="utf-8") as f:
+                f.write(ics)
+            print("Successfully wrote bins.ics")
+        except Exception as e:
+            print(f"ERROR writing bins.ics: {e}")
+    else:
+        print("No changes to bin dates. Skipping ICS update.")
         
     print("Done.")
 
