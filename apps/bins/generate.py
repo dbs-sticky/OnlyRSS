@@ -8,7 +8,7 @@ UPRN = "100080241051"
 LOCATION_NAME = "Hanningtons Way"
 API_URL = "https://www.westberks.gov.uk/apiserver/ajaxlibrary"
 METHOD = "goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wkly"
-SITE_URL = "onlyrss.com/apps/bins/" # UPDATE THIS with your actual domain
+SITE_URL = "onlyrss.org/apps/bins/" # UPDATE THIS with your actual domain
 
 def fetch_data():
     payload = {
