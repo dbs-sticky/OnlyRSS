@@ -110,6 +110,76 @@ button:hover,
     background-color: var(--primary-hover);
 }
 
+.results-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.card-date {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.card-collections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.collection-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.card-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.375rem;
+    flex-shrink: 0;
+}
+
+.card-icon.rubbish {
+    background-color: var(--rubbish-color);
+}
+
+.card-icon.recycling {
+    background-color: var(--recycling-color);
+}
+
+.card-icon.food {
+    background-color: var(--food-color);
+}
+
+.collection-name {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 0.875rem;
+}
+
 .loading {
     text-align: center;
     padding: 2rem;
