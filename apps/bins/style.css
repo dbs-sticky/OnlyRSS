@@ -214,3 +214,14 @@ button:hover,
     border: 1px solid #fecaca;
     text-align: center;
 }
+.stale-warning {
+    display: none;
+    background-color: #fff7ed;
+    color: #c2410c;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #fed7aa;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 500;
+}

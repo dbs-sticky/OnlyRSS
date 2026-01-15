@@ -95,6 +95,13 @@ def generate_html(collections):
         <header>
             <h1>Bin Collection Dates</h1>
             <p>Next collection dates for {location_name}</p>
+            
+            <div id="stale-warning" class="stale-warning">
+                ⚠️ <strong>Warning:</strong> This data may be out of date. 
+                <br>
+                Last update was more than a week ago. Please check the council website directly.
+            </div>
+
             <p style="margin-top: 1rem;">
                 <a href="https://www.google.com/calendar/render?cid=webcal://{site_url}/bins.ics" class="btn" target="_blank">
                     Subscribe via Google Calendar
@@ -107,11 +114,32 @@ def generate_html(collections):
                 {cards}
             </div>
             
-            <div style="margin-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.75rem;">
+            <div id="last-updated" data-timestamp="{timestamp_iso}" style="margin-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.75rem;">
                 Last updated: {last_updated}
             </div>
         </main>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {{
+            const lastUpdatedEl = document.getElementById('last-updated');
+            const warningEl = document.getElementById('stale-warning');
+            
+            if (lastUpdatedEl && warningEl) {{
+                const timestamp = lastUpdatedEl.getAttribute('data-timestamp');
+                if (timestamp) {{
+                    const lastUpdateDate = new Date(timestamp);
+                    const now = new Date();
+                    const diffTime = Math.abs(now - lastUpdateDate);
+                    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+                    
+                    // Show warning if data is older than 7 days
+                    if (diffDays > 7) {{
+                        warningEl.style.display = 'block';
+                    }}
+                }}
+            }}
+        }});
+    </script>
 </body>
 </html>"""
 
@@ -143,11 +171,13 @@ def generate_html(collections):
             collection_items=items_html
         )
 
+    now = datetime.datetime.now()
     return html_template.format(
         location_name=LOCATION_NAME,
         site_url=SITE_URL.rstrip('/'),
         cards=cards_html,
-        last_updated=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        last_updated=now.strftime("%Y-%m-%d %H:%M:%S"),
+        timestamp_iso=now.isoformat()
     )
 
 def generate_ics(collections):
