@@ -109,11 +109,7 @@ def generate_html(collections):
                 Last update was more than a week ago. Please check the council website directly.
             </div>
 
-            <p style="margin-top: 1rem;">
-                <a href="https://www.google.com/calendar/render?cid=webcal://{site_url}/bins.ics" class="btn" target="_blank">
-                    Subscribe via Google Calendar
-                </a>
-            </p>
+            <img src="bins.jpg" alt="Bin collection" class="header-image">
         </header>
 
         <main>
@@ -121,6 +117,12 @@ def generate_html(collections):
                 {cards}
             </div>
             
+            <p style="margin-top: 1rem; text-align: center;">
+                <a href="https://www.google.com/calendar/render?cid=webcal://{site_url}/bins.ics" class="btn" target="_blank">
+                    Subscribe via Google Calendar
+                </a>
+            </p>
+
             <div id="last-updated" data-timestamp="{timestamp_iso}" style="margin-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.75rem;">
                 Last updated: {last_updated}
             </div>
