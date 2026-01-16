@@ -4,7 +4,21 @@ import datetime
 import os
 
 # Configuration
-UPRN = "100080241051"
+import random
+
+# Configuration
+UPRNS = [
+    "100080241045",
+    "100080241046",
+    "100080241047",
+    "100080241048",
+    "100080241049",
+    "100080241050",
+    "100080241051",
+    "100080241052",
+    "100080241053",
+    "100080241054"
+]
 LOCATION_NAME = "Hanningtons Way"
 API_URL = "https://www.westberks.gov.uk/apiserver/ajaxlibrary"
 METHOD = "goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wkly"
@@ -15,7 +29,7 @@ def fetch_data():
         "jsonrpc": "2.0",
         "id": str(int(datetime.datetime.now().timestamp())),
         "method": METHOD,
-        "params": {"uprn": UPRN}
+        "params": {"uprn": random.choice(UPRNS)}
     }
     
     try:
