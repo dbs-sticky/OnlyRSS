@@ -25,11 +25,14 @@ METHOD = "goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wk
 SITE_URL = "onlyrss.org/apps/bins/" # UPDATE THIS with your actual domain
 
 def fetch_data():
+    selected_uprn = random.choice(UPRNS)
+    print(f"Using UPRN: {selected_uprn}")
+    
     payload = {
         "jsonrpc": "2.0",
         "id": str(int(datetime.datetime.now().timestamp())),
         "method": METHOD,
-        "params": {"uprn": random.choice(UPRNS)}
+        "params": {"uprn": selected_uprn}
     }
     
     try:
