@@ -113,8 +113,11 @@ def generate_html(collections):
     for item in collections:
         date_key = item['display_str']
         if date_key not in grouped_collections:
-            grouped_collections[date_key] = []
-        grouped_collections[date_key].append(item)
+            grouped_collections[date_key] = {
+                'datetime': item['datetime'],
+                'items': []
+            }
+        grouped_collections[date_key]['items'].append(item)
 
     html_template = """<!DOCTYPE html>
 <html lang="en">
@@ -214,7 +217,7 @@ def generate_html(collections):
 
     card_template = """
                 <div class="card">
-                    <div class="card-date">{date_display}</div>
+                    <div class="card-date {date_class}">{date_display}{tomorrow_text}</div>
                     <div class="card-collections">
                         {collection_items}
                     </div>
@@ -227,16 +230,24 @@ def generate_html(collections):
                         </div>"""
 
     cards_html = ""
-    for date_display, items in grouped_collections.items():
+    tomorrow = (datetime.date.today() + datetime.timedelta(days=1))
+    
+    for date_display, group in grouped_collections.items():
         items_html = ""
-        for item in items:
+        for item in group['items']:
             items_html += item_template.format(
                 class_name=item['class'],
                 type_name=item['type']
             )
         
+        is_tomorrow = group['datetime'].date() == tomorrow
+        date_class = "tomorrow" if is_tomorrow else ""
+        tomorrow_text = " - tomorrow!" if is_tomorrow else ""
+        
         cards_html += card_template.format(
             date_display=date_display,
+            date_class=date_class,
+            tomorrow_text=tomorrow_text,
             collection_items=items_html
         )
 
