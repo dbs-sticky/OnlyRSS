@@ -84,6 +84,26 @@ def parse_date(date_text, sub_text):
         print(f"Could not parse date: {full_date_str}")
         return None, date_str
 
+def format_friendly_datetime(dt):
+    """Format datetime in a user-friendly way: Saturday 16th January (2026) at 12:08pm"""
+    # Get day with ordinal suffix (1st, 2nd, 3rd, 4th, etc.)
+    day = dt.day
+    if 10 <= day % 100 <= 20:
+        suffix = 'th'
+    else:
+        suffix = {1: 'st', 2: 'nd', 3: 'rd'}.get(day % 10, 'th')
+    
+    # Format time in 12-hour format
+    hour = dt.hour
+    minute = dt.minute
+    am_pm = 'am' if hour < 12 else 'pm'
+    hour_12 = hour % 12
+    if hour_12 == 0:
+        hour_12 = 12
+    
+    # Build the formatted string
+    return f"{dt.strftime('%A')} {day}{suffix} {dt.strftime('%B')} ({dt.year}) at {hour_12}:{minute:02d}{am_pm}"
+
 def generate_html(collections):
     # Sort collections by date
     collections.sort(key=lambda x: x['datetime'])
@@ -134,11 +154,20 @@ def generate_html(collections):
                 {cards}
             </div>
             
-            <p style="margin-top: 1rem; text-align: center;">
+            <div style="margin-top: 1rem; text-align: center; display: flex; flex-direction: column; gap: 0.75rem; align-items: center;">
                 <a href="https://www.google.com/calendar/render?cid=webcal://{site_url}/bins.ics" class="btn" target="_blank">
-                    Subscribe via Google Calendar
+                    📅 Subscribe via Google Calendar
                 </a>
-            </p>
+                <a href="webcal://{site_url}/bins.ics" class="btn" target="_blank">
+                    🍎 Subscribe via Apple Calendar
+                </a>
+                <a href="https://{site_url}/bins.ics" class="btn" target="_blank">
+                    📧 Subscribe via Outlook
+                </a>
+                <button class="btn" onclick="copyCalendarUrl()" id="copy-btn">
+                    📋 Copy Calendar URL
+                </button>
+            </div>
 
             <div id="last-updated" data-timestamp="{timestamp_iso}" style="margin-top: 2rem; text-align: center; color: var(--text-muted); font-size: 0.75rem;">
                 Last updated: {last_updated}
@@ -146,6 +175,20 @@ def generate_html(collections):
         </main>
     </div>
     <script>
+        function copyCalendarUrl() {{
+            const url = 'https://{site_url}/bins.ics';
+            navigator.clipboard.writeText(url).then(function() {{
+                const btn = document.getElementById('copy-btn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Copied!';
+                setTimeout(function() {{
+                    btn.innerHTML = originalText;
+                }}, 2000);
+            }}).catch(function(err) {{
+                alert('Failed to copy URL: ' + err);
+            }});
+        }}
+
         document.addEventListener('DOMContentLoaded', function() {{
             const lastUpdatedEl = document.getElementById('last-updated');
             const warningEl = document.getElementById('stale-warning');
@@ -202,7 +245,7 @@ def generate_html(collections):
         location_name=LOCATION_NAME,
         site_url=SITE_URL.rstrip('/'),
         cards=cards_html,
-        last_updated=now.strftime("%Y-%m-%d %H:%M:%S"),
+        last_updated=format_friendly_datetime(now),
         timestamp_iso=now.isoformat()
     )
 
