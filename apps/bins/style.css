@@ -12,7 +12,8 @@
     /* Green bin */
     --food-color: #800080;
     /* Orange bin */
-    --tomorrow-color: #ef4444;
+    --today-color: #ef4444;
+    --tomorrow-color: #f97316;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
@@ -148,6 +149,10 @@ button:hover,
 
 .card-date.tomorrow {
     color: var(--tomorrow-color);
+}
+
+.card-date.today {
+    color: var(--today-color);
 }
 
 .card-collections {

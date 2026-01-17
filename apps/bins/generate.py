@@ -230,7 +230,8 @@ def generate_html(collections):
                         </div>"""
 
     cards_html = ""
-    tomorrow = (datetime.date.today() + datetime.timedelta(days=1))
+    today = datetime.date.today()
+    tomorrow = today + datetime.timedelta(days=1)
     
     for date_display, group in grouped_collections.items():
         items_html = ""
@@ -240,14 +241,24 @@ def generate_html(collections):
                 type_name=item['type']
             )
         
-        is_tomorrow = group['datetime'].date() == tomorrow
-        date_class = "tomorrow" if is_tomorrow else ""
-        tomorrow_text = " - tomorrow!" if is_tomorrow else ""
+        collection_date = group['datetime'].date()
+        is_today = collection_date == today
+        is_tomorrow = collection_date == tomorrow
+        
+        date_class = ""
+        status_text = ""
+        
+        if is_today:
+            date_class = "today"
+            status_text = " - Today!"
+        elif is_tomorrow:
+            date_class = "tomorrow"
+            status_text = " - Tomorrow!"
         
         cards_html += card_template.format(
             date_display=date_display,
             date_class=date_class,
-            tomorrow_text=tomorrow_text,
+            tomorrow_text=status_text,
             collection_items=items_html
         )
 
