@@ -149,7 +149,7 @@ def generate_html(collections):
                 Last update was more than a week ago. Please check the council website directly.
             </div>
 
-            <img src="bins.jpg" alt="Bin collection" class="header-image">
+            <img src="bins.webp" alt="Bin collection" class="header-image">
         </header>
 
         <main>
