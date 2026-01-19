@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 139 317">
+  <path fill="#005918" stroke="#000" stroke-width="6" d="M35.3 197.6h67.3a12 12 0 0 1 12 12.4l-3.6 92.5A12 12 0 0 1 99 314H40a12 12 0 0 1-12-11.4l-4.7-92.4a12 12 0 0 1 12-12.6Z"/>
+  <rect width="125" height="20" x="6" y="189" fill="#005918" stroke="#000" stroke-width="8" rx="4"/>
+  <circle cx="68.5" cy="186.5" r="9.5" fill="#465679" stroke="#000" stroke-width="6"/>
+  <path fill="#ffce56" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m76.6 272.2-11.3-7-17 21.1 25.1 5.4z"/>
+  <path fill="#4c241d" stroke="#000" stroke-width="3" d="M65.9 273.5a.6.6 0 1 1 0 1.3.6.6 0 0 1 0-1.3Zm.1 7.9a.6.6 0 0 1-1.2.2v-.2q0-.5.6-.6h.2q.5 0 .5.6Zm-4.2-2.5a.6.6 0 0 1-1.3 0q0-.6.6-.7h.2q.5 0 .5.7Z"/>
+  <path fill="#d9be6f" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M100.6 276.3h-30v15.4h30z"/>
+  <path fill="#ffce56" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="m79.1 267.7-8.5 8.7h12.8v8q0 .9.7 1.5a2 2 0 0 0 3 0q.6-.7.6-1.5V280q0 1 .6 1.6a2 2 0 0 0 3 0q.7-.6.7-1.6v-3.6h8.6z"/>
+  <path fill="#d9be6f" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M38 287.5c-.4 3.1 4.5 6.5 11 7.4s12-.9 12.4-4l.6-4.4-23.4-3.4z"/>
+  <path fill="#edebdc" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M50 290.6c-6.5-1-11.5-4.3-11.1-7.4s6.1-5 12.7-4c6.7.8 11.7 4.2 11.2 7.4-.4 3.1-6.1 5-12.7 4"/>
+  <path fill="#ffec95" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M73.6 286.6h-12a4 4 0 0 0-3.9 3.7v2c0 2 1.7 3.7 3.9 3.7h12c2 0 3.8-1.7 3.8-3.7v-2c0-2-1.7-3.7-3.8-3.7"/>
+  <path stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M77.4 248s-2.7 2.9-1.3 5.7a7 7 0 0 1 0 7.2M59.4 248s-2.6 2.9-1.3 5.7a7 7 0 0 1 0 7.2M68 242s-2.7 2.9-1.3 5.7a7 7 0 0 1 0 7.2"/>
+  <rect width="8.5" height="90.7" x="66.9" y="182" fill="#000" rx="4.3" transform="rotate(41 67 182)"/>
+</svg>

@@ -157,42 +157,45 @@ button:hover,
 
 .card-collections {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 1rem;
 }
 
-.collection-item {
+.collection-group {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1.5rem;
     background-color: var(--bg-color);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    padding: 1rem 0;
+    border-radius: 0.75rem;
+    min-height: 100px;
+}
+
+.collection-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .card-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 0.375rem;
+    width: auto;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 
-.card-icon.rubbish {
-    background-color: var(--rubbish-color);
+.card-icon img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
 }
 
-.card-icon.recycling {
-    background-color: var(--recycling-color);
-}
-
-.card-icon.food {
-    background-color: var(--food-color);
-}
-
-.collection-name {
+.collection-names {
     font-weight: 600;
     color: var(--text-main);
-    font-size: 0.875rem;
+    font-size: 1.25rem;
 }
 
 .loading {

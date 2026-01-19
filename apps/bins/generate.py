@@ -224,10 +224,17 @@ def generate_html(collections):
                 </div>"""
     
     item_template = """
-                        <div class="collection-item">
-                            <div class="card-icon {class_name}"></div>
-                            <span class="collection-name">{type_name}</span>
+                        <div class="collection-group">
+                            <div class="collection-icons">
+                                {icons_html}
+                            </div>
+                            <span class="collection-names">{names_text}</span>
                         </div>"""
+    
+    icon_template = """
+                                <div class="card-icon {class_name}">
+                                    <img src="{icon_url}" alt="{type_name} icon">
+                                </div>"""
 
     cards_html = ""
     today = datetime.date.today()
@@ -235,11 +242,21 @@ def generate_html(collections):
     
     for date_display, group in grouped_collections.items():
         items_html = ""
+        icons_html = ""
+        names_list = []
         for item in group['items']:
-            items_html += item_template.format(
+            icons_html += icon_template.format(
                 class_name=item['class'],
+                icon_url=item['icon'],
                 type_name=item['type']
             )
+            names_list.append(item['type'])
+        
+        names_text = " & ".join(names_list)
+        items_html += item_template.format(
+            icons_html=icons_html,
+            names_text=names_text
+        )
         
         collection_date = group['datetime'].date()
         is_today = collection_date == today
@@ -320,18 +337,21 @@ def main():
         {
             'type': 'Rubbish',
             'class': 'rubbish',
+            'icon': 'rubbish.svg',
             'text_key': 'nextRubbishDateText',
             'sub_key': 'nextRubbishDateSubText'
         },
         {
             'type': 'Recycling',
             'class': 'recycling',
+            'icon': 'recycling.svg',
             'text_key': 'nextRecyclingDateText',
             'sub_key': 'nextRecyclingDateSubText'
         },
         {
             'type': 'Food Waste',
             'class': 'food',
+            'icon': 'food-waste.svg',
             'text_key': 'nextFoodWasteDateText',
             'sub_key': 'nextFoodWasteDateSubText'
         }
@@ -349,6 +369,7 @@ def main():
             parsed_collections.append({
                 'type': c_type['type'],
                 'class': c_type['class'],
+                'icon': c_type['icon'],
                 'datetime': dt,
                 'display_str': display_str
             })
