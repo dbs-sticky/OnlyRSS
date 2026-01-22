@@ -443,7 +443,7 @@ if __name__ == "__main__":
                 # Prepare the prompt content carefully
                 # Use all_hourly_data_for_gemini which includes renamed keys
                 response = client.models.generate_content(
-                    model="gemini-2.0-flash", 
+                    model="gemini-2.5-flash", 
                     contents = f"""
 Your job is to assess the day's weather and determine the best 1, 2, 3, 4 and 5 hour slots for a bike ride.
 The weather data is provided in JSON format. Here's the JSON data containing the hourly weather metrics: {json.dumps(all_hourly_data_for_gemini)}. 
