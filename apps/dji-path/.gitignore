@@ -1,0 +1,9 @@
+# Generated files - may contain GPS/location data
+*.srt
+*.SRT
+*.kml
+*.KML
+*.kmz
+*.KMZ
+flight.kml
+index.html

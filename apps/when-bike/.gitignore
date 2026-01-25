@@ -4,7 +4,7 @@
 __pycache__/
 *.pyc
 *.pyo
-# output/*.csv
+output/
 
 # Virtual environment folder
 .venv/
