@@ -88,7 +88,7 @@ def create_web_interface(output_html='index.html'):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJI Flight Path 3D Visualizer</title>
+    <title>DJI Flight Path (.SRT) to Google Earth (.KML)</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <style>
@@ -200,8 +200,8 @@ def create_web_interface(output_html='index.html'):
 <body>
     <header>
         <img src="flightpath.webp" alt="DJI Flight Path Visualization" class="hero-image">
-        <h1>🚁 DJI Flight Path 3D Visualizer</h1>
-        <p>Upload your DJI drone SRT file to visualize the flight path in interactive 3D</p>
+        <h1>DJI Flight Path (.SRT) to Google Earth (.KML)</h1>
+        <p>Upload your DJI drone SRT file and then download a Google Earth KML file that shows flight path (with flight path curtains)</p>
     </header>
     
     <main>
