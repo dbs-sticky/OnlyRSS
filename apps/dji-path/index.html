@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJI Flight Path 3D Visualizer</title>
+    <title>DJI Flight Path (.SRT) to Google Earth (.KML)</title>
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
     <style>
@@ -106,7 +106,7 @@
             width: 100%;
             max-width: 800px;
             height: auto;
-            border-radius: 1rem;
+            border-radius: var(--standard-border-radius);
             margin: 1rem auto;
             display: block;
         }
@@ -119,7 +119,6 @@
         <p>Upload your DJI drone SRT file and then download a Google Earth KML file that shows flight path (with flight path curtains)</p>
     </header>
     
-    <main>
     <main>
         <section>
             <h2>Upload Flight Data</h2>
@@ -331,106 +330,30 @@
 
             Plotly.newPlot('plot3d', [trace3d, start3d, end3d], layout3d, {responsive: true});
 
-            // Calculate center coordinates for map and Google Earth
+            // Calculate center coordinates for Google Earth Web link
             const centerLat = data.reduce((sum, d) => sum + d.latitude, 0) / data.length;
             const centerLon = data.reduce((sum, d) => sum + d.longitude, 0) / data.length;
 
             // --- Google Earth View ---
-            // Generate KML for embedding
-            const generateKMLForEmbed = () => {
-                let kmlCoords = '';
-                data.forEach(point => {
-                    kmlCoords += `${point.longitude},${point.latitude},${point.abs_altitude} `;
-                });
-
-                return `<?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2">
-  <Document>
-    <name>Flight Path</name>
-    <Style id="flightPath">
-      <LineStyle>
-        <color>ff00ffff</color>
-        <width>2</width>
-      </LineStyle>
-    </Style>
-    <Style id="startPoint">
-      <IconStyle>
-        <color>ff00ff00</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
-        </Icon>
-      </IconStyle>
-    </Style>
-    <Style id="endPoint">
-      <IconStyle>
-        <color>ff0000ff</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-        </Icon>
-      </IconStyle>
-    </Style>
-    <Placemark>
-      <name>DJI Flight Path</name>
-      <styleUrl>#flightPath</styleUrl>
-      <LineString>
-        <tessellate>1</tessellate>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${kmlCoords}</coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <name>Start</name>
-      <styleUrl>#startPoint</styleUrl>
-      <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[0].longitude},${data[0].latitude},${data[0].abs_altitude}</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>End</name>
-      <styleUrl>#endPoint</styleUrl>
-      <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[data.length-1].longitude},${data[data.length-1].latitude},${data[data.length-1].abs_altitude}</coordinates>
-      </Point>
-    </Placemark>
-  </Document>
-</kml>`;
-            };
-
-            // Create Google Earth embed
-            try {
-                const kmlData = generateKMLForEmbed();
-                const kmlBlob = new Blob([kmlData], { type: 'application/vnd.google-earth.kml+xml' });
-                const kmlUrl = URL.createObjectURL(kmlBlob);
-                
-                // Try to use Google Earth Web
-                const earthUrl = `https://earth.google.com/web/@${centerLat},${centerLon},1000a,1000d,35y,0h,45t,0r`;
-                
-                document.getElementById('cesiumContainer').innerHTML = `
-                    <div class="earth-instructions">
-                        <p>To view the flight path in 3D with terrain:</p>
-                        <button onclick="downloadFlightKML()" class="button">
-                            Download KML for Google Earth
-                        </button>
-                        <a href="${earthUrl}" target="_blank" class="button">
-                            Open Google Earth Web
-                        </a>
-                        <ol class="earth-instructions">
-                            <li>Click "Download KML for Google Earth" above</li>
-                            <li>Click "Open Google Earth Web" above</li>
-                            <li>In Google Earth Web, click "File", then "Open local KML file".</li>
-                            <li>Select the downloaded KML file</li>
-                        </ol>
-                    </div>
-                `;
-                
-                URL.revokeObjectURL(kmlUrl);
-            } catch (error) {
-                console.error('Error creating Google Earth view:', error);
-            }
+            const earthUrl = `https://earth.google.com/web/@${centerLat},${centerLon},1000a,1000d,35y,0h,45t,0r`;
+            
+            document.getElementById('cesiumContainer').innerHTML = `
+                <div class="earth-instructions">
+                    <p>To view the flight path in 3D with terrain:</p>
+                    <button onclick="downloadFlightKML()" class="button">
+                        Download KML for Google Earth
+                    </button>
+                    <a href="${earthUrl}" target="_blank" class="button">
+                        Open Google Earth Web
+                    </a>
+                    <ol class="earth-instructions">
+                        <li>Click "Download KML for Google Earth" above</li>
+                        <li>Click "Open Google Earth Web" above</li>
+                        <li>In Google Earth Web, click "File", then "Open local KML file".</li>
+                        <li>Select the downloaded KML file</li>
+                    </ol>
+                </div>
+            `;
 
             loading.style.display = 'none';
             visualization.style.display = 'block';
@@ -502,7 +425,7 @@
       </LineString>
     </Placemark>
     <Placemark>
-      <name>Start</name>
+      <name>Start - ${data[0].rel_altitude.toFixed(1)}m - ${data[0].timestamp.toISOString().slice(0, 19).replace('T', ' ')}</name>
       <styleUrl>#startPoint</styleUrl>
       <Point>
         <altitudeMode>absolute</altitudeMode>
@@ -510,7 +433,7 @@
       </Point>
     </Placemark>
     <Placemark>
-      <name>End</name>
+      <name>End - ${data[data.length-1].rel_altitude.toFixed(1)}m - ${data[data.length-1].timestamp.toISOString().slice(0, 19).replace('T', ' ')}</name>
       <styleUrl>#endPoint</styleUrl>
       <Point>
         <altitudeMode>absolute</altitudeMode>

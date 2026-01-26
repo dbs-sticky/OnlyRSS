@@ -1,4 +1,4 @@
-# Generated files - may contain GPS/location data
+# DJI flight data files (contain GPS/location data)
 *.srt
 *.SRT
 *.kml
@@ -6,4 +6,3 @@
 *.kmz
 *.KMZ
 flight.kml
-index.html
