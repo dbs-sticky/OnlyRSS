@@ -1,536 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJI Flight Path (.SRT) to Google Earth (.KML)</title>
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
-    <style>
-        .file-input-wrapper {
-            position: relative;
-            display: inline-block;
-        }
-        .file-input-wrapper input[type=file] {
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .file-input-wrapper .button {
-            pointer-events: none;
-            margin: 0;
-        }
-        button:hover, .button:hover {
-            cursor: pointer;
-        }
-        .spinner {
-            border: 3px solid var(--accent-bg);
-            border-top: 3px solid var(--accent);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        #loading {
-            display: none;
-            margin-top: 1rem;
-        }
-        #stats {
-            display: none;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .stat-item {
-            text-align: center;
-            padding: 1rem;
-            background: var(--accent-bg);
-            border: var(--border-width) solid var(--border);
-            border-radius: var(--standard-border-radius);
-        }
-        .stat-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-        }
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            margin-top: 0.25rem;
-        }
-        #visualization {
-            display: none;
-        }
-        .chart-container {
-            margin-bottom: 2rem;
-        }
-        #plot3d, #cesiumContainer {
-            width: 100%;
-            border: var(--border-width) solid var(--border);
-            border-radius: var(--standard-border-radius);
-            background: var(--bg);
-        }
-        #plot3d {
-            height: 600px;
-        }
-        #cesiumContainer {
-            height: auto;
-            padding: 2rem;
-            text-align: center;
-        }
-        .earth-instructions {
-            line-height: 1.8;
-            margin-top: 1rem;
-        }
-        .earth-instructions ol {
-            text-align: left;
-            display: inline-block;
-        }
-        .hero-image {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            border-radius: var(--standard-border-radius);
-            margin: 1rem auto;
-            display: block;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <img src="flightpath.webp" alt="DJI Flight Path Visualization" class="hero-image">
-        <h1>DJI Flight Path (.SRT) to Google Earth (.KML)</h1>
-        <p>Upload your DJI drone SRT file and then download a Google Earth KML file that shows flight path (with flight path curtains)</p>
-    </header>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>onlyRSS</title>
+    <meta name="description" content="Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You’ll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I’m interested in and that I think at least one other person on the Internet might find useful.">
+    <meta name="author" content="Mark Evans">
+    <meta name="theme-color" content="#F3EEE4">
     
-    <main>
-    <main>
-        <section>
-            <h2>Upload Flight Data</h2>
-            <div class="file-input-wrapper">
-                <input type="file" id="fileInput" accept=".srt,.SRT">
-                <button class="button">Choose SRT File</button>
-            </div>
-            <p id="fileName"></p>
-            <div id="loading">
-                <div class="spinner"></div>
-                Processing flight data...
-            </div>
-        </section>
-        
-        <section id="stats">
-            <h2>Flight Statistics</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value" id="duration">--</div>
-                    <div class="stat-label">Duration (seconds)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="maxAlt">--</div>
-                    <div class="stat-label">Max Altitude (m)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="avgAlt">--</div>
-                    <div class="stat-label">Avg Altitude (m)</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="points">--</div>
-                    <div class="stat-label">Data Points</div>
-                </div>
-            </div>
-        </section>
-        
-        <div id="visualization">
-            <section class="chart-container">
-                <h2>Google Earth View</h2>
-                <div id="cesiumContainer"></div>
-            </section>
-            
-            <section class="chart-container">
-                <h2>Flight Path Preview</h2>
-                <div id="plot3d"></div>
-            </section>
-        </div>
-    </main>
 
+    <!--Open Graph protocol meta tags-->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="onlyRSS">
+    <meta property="og:url" content="https://onlyrss.org/index.html">
+    <meta property="og:image" content="https://onlyrss.org/images/og/chart-picker-og.png">
+    <meta property="og:description" content="Welcome to OnlyRSS.org, a blog I created so I had an excuse to learn CSS & HTML. You’ll find articles on CSS, Data Viz, Product Management, typography, gadgets, and whatever else I'm interested in and that I think at least one other person on the Internet might also find useful.">
+
+    <!--Favicons and Touch Icons and web manifest-->
+    <link rel="icon" href="/pwaicons/favicon.svg">
+    <link rel="apple-touch-icon" href="/pwaicons/apple-touch/apple-touch-icon-iphone-60x60.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/pwaicons/apple-touch/apple-touch-icon-ipad-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/pwaicons/apple-touch/apple-touch-icon-iphone-retina-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
+    <link rel="manifest" href="/manifest.json">
+
+    <!--stylesheet and RSS-->
+    <link rel="stylesheet" type="text/css" href="/styles/main104.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
+
+
+    <!-- Service worker for installable app-->
     <script>
-        const fileInput = document.getElementById('fileInput');
-        const fileName = document.getElementById('fileName');
-        const loading = document.getElementById('loading');
-        const stats = document.getElementById('stats');
-        const visualization = document.getElementById('visualization');
-
-        fileInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                fileName.textContent = `Selected: ${file.name}`;
-                loading.style.display = 'block';
-                processFile(file);
-            }
-        });
-
-        function processFile(file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const content = e.target.result;
-                const flightData = parseSRT(content);
-                displayVisualization(flightData);
-            };
-            reader.readAsText(file);
-        }
-
-        function parseSRT(content) {
-            const entries = content.trim().split('\n\n');
-            const data = [];
-
-            for (const entry of entries) {
-                const lines = entry.split('\n');
-                if (lines.length >= 4) {
-                    let timestamp = null;
-                    let dataLine = null;
-
-                    for (let i = 0; i < lines.length; i++) {
-                        if (/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}/.test(lines[i])) {
-                            timestamp = lines[i].trim();
-                            if (i + 1 < lines.length) {
-                                dataLine = lines[i + 1];
-                            }
-                            break;
-                        }
-                    }
-
-                    if (timestamp && dataLine) {
-                        const latMatch = dataLine.match(/latitude: ([\-\d.]+)/);
-                        const lonMatch = dataLine.match(/longitude: ([\-\d.]+)/);
-                        const relAltMatch = dataLine.match(/rel_alt: ([\-\d.]+)/);
-                        const absAltMatch = dataLine.match(/abs_alt: ([\-\d.]+)/);
-
-                        if (latMatch && lonMatch && relAltMatch && absAltMatch) {
-                            data.push({
-                                timestamp: new Date(timestamp),
-                                latitude: parseFloat(latMatch[1]),
-                                longitude: parseFloat(lonMatch[1]),
-                                rel_altitude: parseFloat(relAltMatch[1]),
-                                abs_altitude: parseFloat(absAltMatch[1])
-                            });
-                        }
-                    }
-                }
-            }
-
-            return data;
-        }
-
-        function displayVisualization(data) {
-            if (data.length === 0) {
-                alert('No valid data found in the file!');
-                loading.style.display = 'none';
-                return;
-            }
-
-            // Store data globally for KML export
-            window.flightData = data;
-
-            // Calculate statistics
-            const duration = (data[data.length - 1].timestamp - data[0].timestamp) / 1000;
-            const altitudes = data.map(d => d.rel_altitude);
-            const maxAlt = Math.max(...altitudes);
-            const avgAlt = altitudes.reduce((a, b) => a + b, 0) / altitudes.length;
-
-            // Update stats
-            document.getElementById('duration').textContent = duration.toFixed(1);
-            document.getElementById('maxAlt').textContent = maxAlt.toFixed(1);
-            document.getElementById('avgAlt').textContent = avgAlt.toFixed(1);
-            document.getElementById('points').textContent = data.length;
-            stats.style.display = 'block';
-
-            // Calculate elapsed time
-            const startTime = data[0].timestamp;
-            const elapsedSeconds = data.map(d => (d.timestamp - startTime) / 1000);
-
-            // --- 3D Plot ---
-            const trace3d = {
-                type: 'scatter3d',
-                mode: 'lines+markers',
-                x: data.map(d => d.longitude),
-                y: data.map(d => d.latitude),
-                z: data.map(d => d.rel_altitude),
-                marker: {
-                    size: 2,
-                    color: data.map(d => d.rel_altitude),
-                    colorscale: 'Viridis',
-                    reversescale: true,
-                    showscale: true,
-                    colorbar: {
-                        title: 'Altitude (m)',
-                        x: 1.02,
-                        y: 0.5,
-                        len: 0.45
-                    }
-                },
-                line: {
-                    color: data.map(d => d.rel_altitude),
-                    colorscale: 'Viridis',
-                    reversescale: true,
-                    width: 3
-                },
-                text: data.map(d => `Time: ${d.timestamp.toLocaleTimeString()}<br>Alt: ${d.rel_altitude.toFixed(1)}m<br>Lat: ${d.latitude.toFixed(6)}<br>Lon: ${d.longitude.toFixed(6)}`),
-                hoverinfo: 'text',
-                name: 'Flight Path'
-            };
-
-            const start3d = {
-                type: 'scatter3d',
-                mode: 'markers',
-                x: [data[0].longitude],
-                y: [data[0].latitude],
-                z: [data[0].rel_altitude],
-                marker: { size: 8, color: 'green', symbol: 'diamond' },
-                name: 'Start'
-            };
-
-            const end3d = {
-                type: 'scatter3d',
-                mode: 'markers',
-                x: [data[data.length - 1].longitude],
-                y: [data[data.length - 1].latitude],
-                z: [data[data.length - 1].rel_altitude],
-                marker: { size: 8, color: 'red', symbol: 'diamond' },
-                name: 'End'
-            };
-
-            const layout3d = {
-                scene: {
-                    xaxis: { title: 'Longitude' },
-                    yaxis: { title: 'Latitude' },
-                    zaxis: { title: 'Altitude (m)' },
-                    camera: { eye: { x: 1.5, y: 1.5, z: 1.3 } },
-                    aspectmode: 'manual',
-                    aspectratio: { x: 1, y: 1, z: 0.5 }
-                },
-                showlegend: true,
-                hovermode: 'closest',
-                margin: { l: 0, r: 0, t: 0, b: 0 }
-            };
-
-            Plotly.newPlot('plot3d', [trace3d, start3d, end3d], layout3d, {responsive: true});
-
-            // Calculate center coordinates for map and Google Earth
-            const centerLat = data.reduce((sum, d) => sum + d.latitude, 0) / data.length;
-            const centerLon = data.reduce((sum, d) => sum + d.longitude, 0) / data.length;
-
-            // --- Google Earth View ---
-            // Generate KML for embedding
-            const generateKMLForEmbed = () => {
-                let kmlCoords = '';
-                data.forEach(point => {
-                    kmlCoords += `${point.longitude},${point.latitude},${point.abs_altitude} `;
-                });
-
-                return `<?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2">
-  <Document>
-    <name>Flight Path</name>
-    <Style id="flightPath">
-      <LineStyle>
-        <color>ff00ffff</color>
-        <width>2</width>
-      </LineStyle>
-    </Style>
-    <Style id="startPoint">
-      <IconStyle>
-        <color>ff00ff00</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
-        </Icon>
-      </IconStyle>
-    </Style>
-    <Style id="endPoint">
-      <IconStyle>
-        <color>ff0000ff</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-        </Icon>
-      </IconStyle>
-    </Style>
-    <Placemark>
-      <name>DJI Flight Path</name>
-      <styleUrl>#flightPath</styleUrl>
-      <LineString>
-        <tessellate>1</tessellate>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${kmlCoords}</coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <name>Start</name>
-      <styleUrl>#startPoint</styleUrl>
-      <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[0].longitude},${data[0].latitude},${data[0].abs_altitude}</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>End</name>
-      <styleUrl>#endPoint</styleUrl>
-      <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[data.length-1].longitude},${data[data.length-1].latitude},${data[data.length-1].abs_altitude}</coordinates>
-      </Point>
-    </Placemark>
-  </Document>
-</kml>`;
-            };
-
-            // Create Google Earth embed
-            try {
-                const kmlData = generateKMLForEmbed();
-                const kmlBlob = new Blob([kmlData], { type: 'application/vnd.google-earth.kml+xml' });
-                const kmlUrl = URL.createObjectURL(kmlBlob);
-                
-                // Try to use Google Earth Web
-                const earthUrl = `https://earth.google.com/web/@${centerLat},${centerLon},1000a,1000d,35y,0h,45t,0r`;
-                
-                document.getElementById('cesiumContainer').innerHTML = `
-                    <div class="earth-instructions">
-                        <p>To view the flight path in 3D with terrain:</p>
-                        <button onclick="downloadFlightKML()" class="button">
-                            Download KML for Google Earth
-                        </button>
-                        <a href="${earthUrl}" target="_blank" class="button">
-                            Open Google Earth Web
-                        </a>
-                        <ol class="earth-instructions">
-                            <li>Click "Download KML for Google Earth" above</li>
-                            <li>Click "Open Google Earth Web" above</li>
-                            <li>In Google Earth Web, click "File", then "Open local KML file".</li>
-                            <li>Select the downloaded KML file</li>
-                        </ol>
-                    </div>
-                `;
-                
-                URL.revokeObjectURL(kmlUrl);
-            } catch (error) {
-                console.error('Error creating Google Earth view:', error);
-            }
-
-            loading.style.display = 'none';
-            visualization.style.display = 'block';
-        }
-
-        // Download KML for Google Earth (separate from export button)
-        function downloadFlightKML() {
-            if (!window.flightData) {
-                alert('No flight data available.');
-                return;
-            }
-
-            const data = window.flightData;
-            const fileName = fileInput.files[0].name.replace('.SRT', '').replace('.srt', '');
-            
-            // Generate KML content
-            let kml = `<?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2">
-  <Document>
-    <name>${fileName} Flight Path</name>
-    <description>DJI Drone Flight Path</description>
-    <Style id="flightPath">
-      <LineStyle>
-        <color>ff00ffff</color>
-        <width>2</width>
-      </LineStyle>
-      <PolyStyle>
-        <color>3300ffff</color>
-        <fill>1</fill>
-        <outline>1</outline>
-      </PolyStyle>
-    </Style>
-    <Style id="startPoint">
-      <IconStyle>
-        <color>ff00ff00</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
-        </Icon>
-      </IconStyle>
-    </Style>
-    <Style id="endPoint">
-      <IconStyle>
-        <color>ff0000ff</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-        </Icon>
-      </IconStyle>
-    </Style>
-    <Placemark>
-      <name>Flight Path</name>
-      <styleUrl>#flightPath</styleUrl>
-      <LineString>
-        <extrude>1</extrude>
-        <tessellate>1</tessellate>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>
-`;
-
-            // Add coordinates with reduced density (every 50th point)
-            data.forEach((point, index) => {
-                if (index % 50 === 0 || index === data.length - 1) {
-                    kml += `          ${point.longitude},${point.latitude},${point.abs_altitude}\n`;
-                }
-            });
-
-            kml += `        </coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <name>Start</name>
-      <styleUrl>#startPoint</styleUrl>
-      <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[0].longitude},${data[0].latitude},${data[0].abs_altitude}</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>End</name>
-      <styleUrl>#endPoint</styleUrl>
-      <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[data.length-1].longitude},${data[data.length-1].latitude},${data[data.length-1].abs_altitude}</coordinates>
-      </Point>
-    </Placemark>
-  </Document>
-</kml>`;
-
-            // Create blob and download
-            const blob = new Blob([kml], { type: 'application/vnd.google-earth.kml+xml' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `${fileName}_GoogleEarth.kml`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js");
+      }
     </script>
-</body>
+
+    <!-- Speculation rules for pre-rendering, will pre-render a page when user hovers on link for >200ms -->
+    <script type="speculationrules">
+      {
+        "prerender": [{
+          "where": {
+            "href_matches": "/*"
+          },
+          "eagerness": "moderate"
+        }]
+      }
+    </script>
+
+  </head>
+
+  <body>
+        
+    <global-nav role="navigation" aria-label="global navigation"></global-nav>
+
+    <main>
+      <search>
+        <div class="filter-button-row">
+          <button class="filter-btn active" data-filter="all" title="All">All</button>
+          <button class="filter-btn" data-filter="webdev" title="Web Development">webdev</button>
+          <button class="filter-btn" data-filter="product-management" title="Product Management">prod' management</button>
+          <button class="filter-btn" data-filter="dataviz" title="Data visualisations">dataviz</button>
+          <button class="filter-btn" data-filter="review" title="Reviews">review</button>
+          <button class="filter-btn" data-filter="productivity" title="Productivity">productivity</button>
+          <button class="filter-btn" data-filter="misc" title="Miscellaneous">misc</button>
+        </div>
+      </search>
+
+    <!-- List of articles -->
+
+      <a href="/posts/ai-browser-examples.html" data-category="misc" >
+        <card-container style="view-transition-name: post35">
+
+          <card-body>
+            <h1>What can you do with an AI browser?</h1>
+            <p>I've been using an AI browser for a few days, so thought I'd share some examples of what you can do with it. I've tried to think of tasks that I often find myself doing when online, that I find tedious.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2025-10-11">11 Oct 2025</time>
+            <article-duration> • 4 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/nano-banana-examples.html" data-category="misc" >
+        <card-container style="view-transition-name: post34">
+
+          <card-body>
+            <h1>Photo editing using Gemini</h1>
+            <p>Ten examples of photos edited using the new Nano Banana model from Google Gemini. The key takeaway? Each example just required uploading an image to the Gemini app and typing a single prompt—no tech skills needed.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2025-10-05">05 Oct 2025</time>
+            <article-duration> • 2 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/the-enshittification-of-UK-supermarkets.html" data-category="misc" >
+        <card-container style="view-transition-name: post33">
+
+          <card-body>
+            <h1>The enshittification of UK supermarkets</h1>
+            <p>UK supermarkets have transformed simple shopping into a data-harvesting nightmare. What was once as easy as picking up an item and paying has become a multi-tiered pricing system requiring apps, weekly unlocks, and surrendering personal data just to access “normal” prices.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2025-07-27">27 Jul 2025</time>
+            <article-duration> • 4 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/vibe-coding.html" data-category="webdev" >
+        <card-container style="view-transition-name: post32">
+
+          <card-body>
+            <h1>AI-assisted coding is the electric-assisted cycling of software development</h1>
+            <p>My premise here is that electric bikes don't just make cycling easier for existing cyclists—for many people they make cycling possible. I see many parallels with AI-assisted software development i.e., for existing software developers AI-assisted coding makes their job easier, for people who can't code, it makes software development possible. And I see both (electric bikes and AI coding) as good things.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2025-04-11">11 Apr 2025</time>
+            <article-duration> • 5 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/same-news-different-views.html" data-category="misc" >
+        <card-container style="view-transition-name: post31">
+
+          <card-body>
+            <h1>Same news, different views: The BBC's design at home and abroad</h1>
+            <p>Around a year ago I noticed that the BBC news site had updated their article format—and I really liked the new look. But, I then realised that I had my VPN on and was actually seeing the site as viewed from the US! Have our American cousins evolved so much during our split 400 years ago that they now have a better appreciation of typography and design?</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2025-04-06">06 Apr 2025</time>
+            <article-duration> • 4 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/why-product-managers-need-to-embrace-the-tech.html" data-category="product-management" >
+        <card-container style="view-transition-name: post30">
+
+          <card-body>
+            <h1>Why Product Managers need to embrace the tech</h1>
+            <p>After 16 years as a Product Manager, I share my thoughts on why technical knowledge is highly beneficial for product managers.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2025-03-16">16 Mar 2025</time>
+            <article-duration> • 13 mins • </article-duration>
+            <prodman-tag></prodman-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/learning-log-2024.html" data-category="misc" >
+        <card-container style="view-transition-name: post29">
+
+          <card-body>
+            <h1>Learning Log: 2024</h1>
+            <p>My 2024 learning goals and resources. In this post I outline my learning goals for 2024 and list the resources I used.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2024-12-24">24 Dec 2024</time>
+            <article-duration> • 1 min • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/visualising-my-daily-constitutionals.html" data-category="dataviz" >
+        <card-container style="view-transition-name: post28">
+
+          <card-body>
+            <h1>Visualising my daily constitutionals (walks)</h1>
+            <p>The result of my attempt to build a calendar heatmap from scratch with HTML, CSS, and JS. The heatmap visualises my daily walks in 2024.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2024-12-17">17 Dec 2024</time>
+            <article-duration> • 3 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/the-daily-constitutional.html" data-category="misc" >
+        <card-container style="view-transition-name: post27">
+
+          <card-body>
+            <h1>Bring back the daily constitutional</h1>
+            <p>After discovering the concept of the daily constitutional recently while reading Sherlock Holmes, I think it's a phrase (and practice) that deserves a comeback.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2024-12-11">11 Dec 2024</time>
+            <article-duration> • 3 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/learning-log-2023.html" data-category="misc" >
+        <card-container style="view-transition-name: post26">
+
+          <card-body>
+            <h1>Learning Log: 2023</h1>
+            <p>My focus this year was meant to be SQL & Python, but it ended up being mostly JavaScript, and then I got a bit distracted by GenAI.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-12-29">29 Dec 2023</time>
+            <article-duration> • 1 min • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/the-canadian-rockies-holiday.html" data-category="misc">
+        <card-container style="view-transition-name: post25">
+
+          <card-body>
+            <h1>Holiday: The Canadian Rockies</h1>
+            <p>A gallery of images from my recent trip to the Canadian Rockies—built using my inaugural Web Component.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-12-21">21 Dec 2023</time>
+            <article-duration> • 7 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/view-transitions.html" data-category="webdev">
+        <card-container style="view-transition-name: post24">
+            
+          <card-body>
+            <h1>View Transitions: A basic implementation</h1>
+            <p>Instructions on how to implement simple View Transitions, including a couple of animated GIFs to show the results.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-12-06">06 Dec 2023</time>
+            <article-duration> • 3 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/css-balance.html" data-category="webdev">
+        <card-container style="view-transition-name: post23">
+
+          <card-body>
+            <h1>Using ‘text-wrap: balance’</h1>
+            <p>I demonstrate the effect of enabling <code>text-wrap: balance</code> for titles and headings across onlyrss.org.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-04-11">11 Apr 2023</time>
+            <article-duration> • 3 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/10-benefits-of-rss-for-product-managers.html" data-category="product-management">
+        <card-container style="view-transition-name: post22">
+
+          <card-body>
+            <h1>10 benefits of RSS for Product Managers</h1>
+            <p>RSS is a great solution for anyone who needs to efficiently monitor the web for specific topics. Below I list 10 benefits of using RSS for Product Managers.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-04-02">02 Apr 2023</time>
+            <article-duration> • 4 mins • </article-duration>
+            <prodman-tag></prodman-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/table-with-progress-indicator.html" data-category="webdev">
+        <card-container style="view-transition-name: post21">
+
+          <card-body>
+            <h1>HTML & CSS table with progress bars</h1>
+            <p>I share the code I used to create the tables from my recent 'Learning Log: 2022' article. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-03-05">05 Mar 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/the-air-india-order.html" data-category="dataviz">
+        <card-container style="view-transition-name: post20">
+
+          <card-body>
+            <h1>Air India: Putting their recent order into context</h1>
+            <p>I put Air India's recent record-breaking order of Airbus and Boeing aircraft into context by comparing the quantity of aircraft ordered alongside their current fleet via a simple isotype chart. </p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-21">21 Feb 2023</time>
+            <article-duration> • 2 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/top-25-pax-airlines.html" data-category="dataviz">
+        <card-container style="view-transition-name: post19">
+
+          <card-body>
+            <h1>Infographic: The 25 largest passenger airlines</h1>
+            <p>This infographic depicts the fleet size (and split by manufacturer) of the 25 largest passenger airlines.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2023-02-04">4 Feb 2023</time>
+            <article-duration> • 6 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/airbus-vs-boeing-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post18">
+
+          <card-body>
+            <h1>Airbus vs Boeing: An experiment in charting</h1>
+            <p>The results of my first attempts at creating data visualisations using just HTML & CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-20">20 Dec 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/learning-log-2022.html" data-category="misc" >
+        <card-container style="view-transition-name: post17">
+
+          <card-body>
+            <h1>Learning Log: 2022</h1>
+            <p>My focus this year was on the display of unstructured data i.e. articles. So that meant a deep dive into typography, and the redesign and rebuild of this website.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-12-10">10 Dec 2022</time>
+            <article-duration> • 1 min • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+      <a href="/posts/zoom-and-enhance.html" data-category="misc">
+        <card-container style="view-transition-name: post16">
+
+          <card-body>
+            <h1>Zoom and enhance!</h1>
+            <p>With modern off-the-shelf AI tools, it's now possible to bring old or degraded photos back to life by adding (or correcting) colour, and enhancing faces.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-10-02">02 Oct 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/my-first-javascript-app.html" data-category="webdev">
+        <card-container style="view-transition-name: post15">
+
+          <card-body>
+            <h1>My first JavaScript “app”</h1>
+            <p>I created a simple app that selects <i>n</i> random exercises from an array. I've included a link to the app and the source code.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-06-11">11 Jun 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/adding-screenshots-to-your-pwa-install.html" data-category="webdev">
+        <card-container style="view-transition-name: post14">
+
+          <card-body>
+            <h1>Adding screenshots to your PWA install experience</h1>
+            <p>You can improve your visitors' PWA install experience on mobile by adding product screenshots to your manifest file.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-06-04">04 Jun 2022</time>
+            <article-duration> • 3 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/auto-numbering-of-figures-with-CSS-counters.html" data-category="webdev">
+        <card-container style="view-transition-name: post13">
+
+          <card-body>
+            <h1>Automatically numbering figures using CSS counters</h1>
+            <p>You can use CSS Counters and the <code>::before</code> pseudo selector to automatically label and number figures within a webpage.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-05-30">30 May 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/loading-images-only-when-they-are-needed.html" data-category="webdev">
+        <card-container style="view-transition-name: post12">
+
+          <card-body>
+            <h1>Loading images only when (or if) they are needed</h1>
+            <p>Using the Details & Summary elements with lazy loading to load and display images only when/if they’re requested.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-04-04">04 Apr 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/linking-tables-to-bar-charts.html" data-category="dataviz">
+        <card-container style="view-transition-name: post11">
+
+          <card-body>
+            <h1>Linking tables to their associated bar charts</h1>
+            <p>One of the shortcomings of stacked bar charts can be overcome by allowing users to choose which category is aligned to the chart's baseline. This article describes one possible implementation of that solution.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-03-06">06 Mar 2022</time>
+            <article-duration> • 4 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/drop-caps-and-indents.html" data-category="webdev">
+        <card-container style="view-transition-name: post10">
+
+          <card-body>
+            <h1>Drop Caps and Indents</h1>
+            <p>A niche & nerdy look at how paragraphs can be visually distinguished using a little CSS.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-01-17">17 Jan 2022</time>
+            <article-duration> • 2 mins • </article-duration>
+            <webdev-tag></webdev-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/why-i-prefer-the-kindle.html" data-category="review">
+        <card-container style="view-transition-name: post9">
+
+          <card-body>
+            <h1>Why I prefer the Kindle over physical books</h1>
+            <p>Smaller, lighter, brighter—and with a built-in dictionary. In my opinion, a Kindle is better than a “real” book.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2022-01-12">12 Jan 2022</time>
+            <article-duration> • 9 mins • </article-duration>
+            <review-tag></review-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/why-every-product-manager-should-build-a-website.html" data-category="product-management">
+        <card-container style="view-transition-name: post8">
+
+          <card-body>
+            <h1>Why every Product Manager should build a website</h1>
+            <p>Understanding all the (hidden) tasks that are required to create even a basic website has helped me to become a better Product Manager. So much so that I'd recommend that all Product Managers give it a go.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-04-18">18 Apr 2021</time>
+            <article-duration> • 3 mins • </article-duration>
+            <prodman-tag></prodman-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/my-rowing-tips-after-15-million-meters.html" data-category="misc">
+        <card-container style="view-transition-name: post7">
+
+          <card-body>
+            <h1>My indoor rowing tips after 15 million meters</h1>
+            <p>My 7&#8239;year rowing journey, including my Concept 2 setup, and some tips for anyone new to indoor rowing.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-04-09">09 Apr 2021</time>
+            <article-duration> • 6 mins • </article-duration>
+            <misc-tag></misc-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/chart-picker.html" data-category="dataviz">
+        <card-container style="view-transition-name: post6">
+
+          <card-body>
+            <h1>Chart Picker</h1>
+            <p>My Excalidraw diagram designed to help you pick the correct chart type.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-03-28">28 Mar 2021</time>
+            <article-duration> • 2 mins • </article-duration>
+            <dataviz-tag></dataviz-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/rss-part-1.html" data-category="productivity">
+        <card-container style="view-transition-name: post5">
+
+          <card-body>
+            <h1>RSS Part 1:<br>What is RSS and what are ‘aggregators’?</h1>
+            <p>An RSS aggregator can save you a huge amount of time by bringing new web content to you. This includes blog posts, news articles, and search engine results.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-03-07">07 Mar 2021</time>
+            <article-duration> • 3 mins • </article-duration>
+            <productivity-tag></productivity-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/drawing-with-excalidraw.html" data-category="review">
+        <card-container style="view-transition-name: post4">
+
+          <card-body>
+            <h1>Drawing with Excalidraw</h1>
+            <p>Excalidraw is a great tool for quickly creating UI mock-ups, it also includes access to user generated libraries, which means you're not creating everything from scratch.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-03-02">02 Mar 2021</time>
+            <article-duration> • 3 mins • </article-duration>
+            <review-tag></review-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/working-from-home-hardware.html" data-category="productivity">
+        <card-container style="view-transition-name: post3">
+
+          <card-body>
+            <h1>Working from home hardware</h1>
+            <p>If you work from home on a regular basis, invest in a good monitor—or better still, two! Wire up your home with Ethernet, and for the love of all that's holy, ditch your tiny Bluetooth earbuds and get a real wired headset!</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-02-18">18 Feb 2021</time>
+            <article-duration> • 6 mins • </article-duration>
+            <productivity-tag></productivity-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/anatomy-of-a-lockdown-day.html" data-category="productivity">
+        <card-container style="view-transition-name: post2">
+
+          <card-body>
+            <h1>Anatomy of a lockdown weekday</h1>
+            <p>Working from home—and ditching the lengthy commute—can benefit both you and your employer. Here's how it changed my weekdays.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-02-07">07 Feb 2021</time>
+            <article-duration> • 4 mins • </article-duration>
+            <productivity-tag></productivity-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+      <a href="/posts/using-virtual-desktops-in-windows-10.html" data-category="productivity">
+        <card-container style="view-transition-name: post1">
+
+          <card-body>
+            <h1>Using virtual desktops in Windows 10</h1>
+            <p>Group your app windows together based on the specific tasks you are trying to achieve e.g. create monthly report, write user stories etc. and then place each group in a Windows virtual desktop.</p>
+          </card-body>
+          
+          <card-footer>
+            <time datetime="2021-02-06">06 Feb 2021</time>
+            <article-duration> • 6 mins • </article-duration>
+            <productivity-tag></productivity-tag>
+          </card-footer>
+          
+        </card-container>
+      </a>
+
+
+
+    </main>
+    
+    <script src="./scripts/filters.js"></script>
+    <script src="./scripts/web-components-v2.js"></script>
+  </body>
 </html>
