@@ -20,11 +20,13 @@ A clean, modern web application to visualize DJI drone flight paths in interacti
 3. View the interactive 3D flight path and statistics
 4. Export to Google Earth if desired
 
-### Option 2: Generate Web Interface
+### Option 2: Regenerate Web Interface
 
-1. **Install dependencies:**
+If you need to regenerate `index.html`:
+
+1. **Activate the virtual environment:**
    ```powershell
-   pip install -r requirements.txt
+   .venv\Scripts\Activate.ps1
    ```
 
 2. **Regenerate the web interface:**
@@ -34,17 +36,7 @@ A clean, modern web application to visualize DJI drone flight paths in interacti
 
 3. **Open `index.html`** in your browser
 
-### Option 3: CLI Mode with KML Export
-
-Process an SRT file directly and export to KML:
-
-```powershell
-python visualize_flight.py path/to/your/flight.SRT
-```
-
-This will generate:
-- Flight statistics in the console
-- `flight.kml` for Google Earth viewing
+Note: Dependencies (plotly, pandas) are already installed in the `.venv` virtual environment.
 
 ## How to Use
 
@@ -71,25 +63,34 @@ This will generate:
 
 ```
 dji-path/
-├── index.html              # Main web application (all you need for hosting)
+├── .venv/                  # Virtual environment with dependencies (gitignored)
+├── .gitignore              # Excludes SRT files, KML exports, and generated HTML
+├── index.html              # Main web application (generated, gitignored)
 ├── visualize_flight.py     # Python script to regenerate index.html
-├── requirements.txt        # Python dependencies
+├── requirements.txt        # Python dependencies (plotly, pandas)
 └── README.md              # This file
 ```
+
+Note: SRT and KML files are excluded from Git to protect GPS/location data.
 
 ## Hosting
 
 To host this app on a static hosting service (GitHub Pages, Netlify, Vercel, etc.):
 
-1. Upload `index.html` to your hosting provider
-2. That's it! The app runs entirely in the browser
+1. Regenerate `index.html` using `python visualize_flight.py` (if needed)
+2. Upload `index.html` to your hosting provider
+3. That's it! The app runs entirely in the browser
+
+Note: `index.html` is gitignored by default. Commit it separately if deploying to GitHub Pages.
 
 ## KML Export Features
 
 - Semi-transparent flight path curtains (20% opacity)
-- Optimized point density (every 50th point to reduce file size)
+- Optimized point density to reduce file size
 - Green start marker and red end marker
 - Absolute altitude mode for accurate 3D terrain visualization
+
+Note: Exported KML files are gitignored to protect GPS/location data.
 
 ## Technology Stack
 

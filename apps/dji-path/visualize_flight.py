@@ -4,6 +4,7 @@ Parses DJI SRT files and creates interactive 3D visualizations with web interfac
 """
 
 import re
+import os
 from datetime import datetime
 import plotly.graph_objects as go
 import pandas as pd
@@ -765,9 +766,11 @@ if __name__ == "__main__":
         print("\n✅ Flight data processed successfully!")
         print("\nOpen flight.kml in Google Earth to view the 3D flight path")
     else:
-        # Create web interface
+        # Create web interface in the same directory as the script
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        output_path = os.path.join(script_dir, 'index.html')
         print("Creating web interface...")
-        create_web_interface('index.html')
+        create_web_interface(output_path)
         
         print("\n✅ Web interface created!")
         print("\n🌐 Open index.html in your browser to:")
