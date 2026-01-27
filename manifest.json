@@ -11,17 +11,7 @@
   "shortcuts": [
     {
       "name": "Circuits app",
-      "url": "apps/circuits.html",
-      "icons": [
-        {
-          "src": "pwaicons/circuits_maskable_icon.png",
-          "sizes": "96x96"
-        }
-      ]
-    },
-    {
-      "name": "Sophie's app",
-      "url": "apps/circuits-sophie.html",
+      "url": "apps/circuits/index.html",
       "icons": [
         {
           "src": "pwaicons/circuits_maskable_icon.png",

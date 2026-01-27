@@ -20,26 +20,11 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/pwaicons/apple-touch/apple-touch-icon-ipad-retina-152x152.png">
     <link rel="manifest" href="/manifest.json">
 
-    <!--stylesheet and RSS-->
-    <link rel="stylesheet" type="text/css" href="/styles/main104.css">
+    <!--Simple.css-->
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    
+    <!--RSS-->
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml">
-
-    <style>
-      @font-face {
-        font-family: "Roboto Condensed";
-        font-style: normal;
-        font-weight: 400;
-        font-display: block;
-        src: url(../fonts/RobotoCondensed-Regular.woff2) format("woff2");
-      }
-
-      @font-face {
-        font-family: "OpenSans";
-        font-style: normal;
-        font-weight: 400;
-        src: url(../fonts/OpenSans-Regular.woff2) format("woff2");
-      }
-    </style>
 
     <!-- Service worker for installable app-->
     <script>
@@ -145,36 +130,35 @@
   </head>
 
   <body onload="myFunction()">
-    <button
-      class="app-btn-close"
-      onclick="location.href='../index.html'"
-      type="button"
-      title="close app and return to homepage"
-    >
-      &#x2715;
-    </button>
-    <div id="card">
-      <div id="head">
-        <p>
-          № of exercises:
+    <header>
+      <h1>Circuit Training</h1>
+    </header>
+    
+    <main>
+      <section>
+        <label for="userInput">
+          Number of exercises:
           <output name="numberOutputName" id="numberOutputId">12</output>
-        </p>
-        <input class="app-slider"
+        </label>
+        <input
           id="userInput"
           type="range"
-          placeholder="12"
           value="12"
           step="1"
           min="1"
           max=""
           oninput="numberOutputId.value = userInput.value">
+        
         <p>
-          <button class="app-workout" onclick="myFunction()">Create new workout</button>
+          <button onclick="myFunction()">Create New Workout</button>
           <button id="download">Download</button>
         </p>
-      </div>
-      <ol id="exercises"></ol>
-    </div>
+      </section>
+      
+      <section>
+        <ol id="exercises"></ol>
+      </section>
+    </main>
   </body>
 
   <script>
