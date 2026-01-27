@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apps</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+        .app-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: var(--accent-bg);
+            border: var(--border-width) solid var(--border);
+            border-radius: var(--standard-border-radius);
+            align-items: center;
+        }
+        
+        .app-card img {
+            width: 200px;
+            height: auto;
+            border-radius: var(--standard-border-radius);
+            border: var(--border-width) solid var(--border);
+        }
+        
+        .app-card-content h3 {
+            margin-top: 0;
+        }
+        
+        .app-card-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .app-card-content a {
+            display: inline-block;
+            margin-top: 0.5rem;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .app-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-card img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Apps</h1>
+        <p>A collection of Vibe Coded niche web-apps</p>
+    </header>
+    
+    <main>
+        <article class="app-card">
+            <img src="bins/bins.webp" alt="Bins Collection Calendar">
+            <div class="app-card-content">
+                <h3><a href="bins/">When bins?</a></h3>
+                <p>Bin-collection-day app that's specific to the street where I live. Allows neighbours to know when bin day is, and includes a calendar subscription URL.</p>
+                <a href="bins/" class="button">Open App →</a>
+            </div>
+        </article>
+
+        <article class="app-card">
+            <img src="when-bike/when-bike-header.webp" alt="When Bike">
+            <div class="app-card-content">
+                <h3><a href="when-bike/output/burghfield.html">When Bike?</a></h3>
+                <p>AI-powered weather analysis used to recommend optimal bike riding windows. Only valid if you live in Burghfield.</p>
+                <a href="when-bike/output/burghfield.html" class="button">Open App →</a>
+            </div>
+        </article>
+
+        <article class="app-card">
+            <img src="dji-path/flightpath.webp" alt="DJI Flight Path Visualiser">
+            <div class="app-card-content">
+                <h3><a href="dji-path/">DJI Flight Path Visualiser</a></h3>
+                <p>Use a DJI drone SRT telemetry file to create a .kml file for easy upload to Google Earth. Uses a flight path curtain/roller-coaster style visualisation.</p>
+                <a href="dji-path/" class="button">Open App →</a>
+            </div>
+        </article>
+
+        <article class="app-card">
+            <img src="fitdiff/fitdiff-thumb.webp" alt="FitDiff">
+            <div class="app-card-content">
+                <h3><a href="fitdiff/">FitDiff</a></h3>
+                <p>Compare the metrics from multiple fitness tracking devices via their exported .fit files.</p>
+                <a href="fitdiff/" class="button">Open App →</a>
+            </div>
+        </article>
+
+        <article class="app-card">
+            <img src="circuits/circuits-thumb.webp" alt="Circuit Training">
+            <div class="app-card-content">
+                <h3><a href="circuits/">Circuit Training</a></h3>
+                <p>Generates a random selection of exercises for a circuit training workout, restricted to those possible with my gym equipment.</p>
+                <a href="circuits/" class="button">Open App →</a>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
