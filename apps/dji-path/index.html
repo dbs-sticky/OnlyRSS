@@ -117,6 +117,11 @@
             text-align: left;
             display: inline-block;
         }
+        header ol {
+            display: inline-block;
+            text-align: left;
+            list-style-position: outside;
+        }
         .hero-image {
             width: 100%;
             max-width: 800px;
@@ -131,13 +136,16 @@
     <header>
         <img src="flightpath.webp" alt="DJI Flight Path Visualization" class="hero-image">
         <h1>DJI Flight Path (<code>.SRT</code>) to Google Earth (<code>.KML</code>)</h1>
-        <p>Select up to 10 DJI drone .SRT files and then download a single Google Earth .KML file. Upload this to Google Earth web to view your flight paths in a roller-coaster style.</p>
+        <ol>
+          <li>Select up to 10 DJI drone .SRT files and then download a single Google Earth .KML file. </li>
+          <li>Upload the generated .KML file to Google Earth web to view your flight paths in a roller-coaster style.</li>
+        </ol>
     </header>
     
     <main>
         <section>
             <h2>Select Flight Data (.SRT files)</h2>
-            <p>Note: Nothing is uploaded to a server, all file processing is performed in the browser.</p>
+            <p>Note: Nothing is uploaded to a server, all file processing is performed in your browser.</p>
             <div class="file-input-wrapper">
                 <input type="file" id="fileInput" accept=".srt,.SRT" multiple>
                 <button class="button">Choose .SRT Files (max 10)</button>
