@@ -33,17 +33,29 @@
             margin-top: 1rem;
         }
         .file-item {
-            display: flex;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1rem;
             align-items: center;
-            justify-content: space-between;
             padding: 1rem;
             margin: 0.5rem 0;
             background: var(--accent-bg);
             border-radius: var(--standard-border-radius);
         }
+        @media (max-width: 768px) {
+            .file-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
         .file-item button {
             margin: 0;
             padding: 0.25rem 0.75rem;
+        }
+        .file-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
         button:hover, .button:hover {
             cursor: pointer;
@@ -100,15 +112,6 @@
         .chart-container {
             margin-bottom: 2rem;
         }
-        #cesiumContainer {
-            width: 100%;
-            border: var(--border-width) solid var(--border);
-            border-radius: var(--standard-border-radius);
-            background: var(--bg);
-            height: auto;
-            padding: 2rem;
-            text-align: center;
-        }
         .earth-instructions {
             line-height: 1.8;
             margin-top: 1rem;
@@ -127,30 +130,31 @@
             max-width: 800px;
             height: auto;
             border-radius: var(--standard-border-radius);
-            margin: 1rem auto;
+            margin: 2rem auto;
             display: block;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="flightpath.webp" alt="DJI Flight Path Visualization" class="hero-image">
         <h1>DJI Flight Path (<code>.SRT</code>) to Google Earth (<code>.KML</code>)</h1>
+        <img src="flightpath.webp" alt="DJI Flight Path Visualization" class="hero-image">
         <ol>
-          <li>Select up to 10 DJI drone .SRT files and then download a single Google Earth .KML file. </li>
-          <li>Upload the generated .KML file to Google Earth web to view your flight paths in a roller-coaster style.</li>
+          <li>Select up to 10 DJI drone .SRT files. </li>
+          <li>Generate and download a single Google Earth .KML file.</li>
+          <li>Upload the .KML file to Google Earth web to view your flight paths in a roller-coaster style.</li>
         </ol>
     </header>
     
     <main>
         <section>
-            <h2>Select Flight Data (.SRT files)</h2>
-            <p>Note: Nothing is uploaded to a server, all file processing is performed in your browser.</p>
+            <h2>Select .SRT files</h2>
+            <p>Note: All file processing is performed in your browser. No files (or data of any type) are uploaded/recorded.</p>
             <div class="file-input-wrapper">
                 <input type="file" id="fileInput" accept=".srt,.SRT" multiple>
                 <button class="button">Choose .SRT Files (max 10)</button>
             </div>
-            <a href="#google-earth-section" id="scrollToDownload" style="display: none; margin-left: 1rem; text-decoration: none;">↓ Jump to download</a>
+            <a href="#google-earth-section" id="scrollToDownload" style="display: none; margin-left: 1rem; text-decoration: none;">↓ Jump to .KML generation</a>
             <div id="fileList"></div>
             <div id="loading">
                 <div class="spinner"></div>
@@ -160,7 +164,7 @@
         
         <div id="visualization">
             <section class="chart-container" id="google-earth-section">
-                <h2>Google Earth View</h2>
+                <h2>Generate .KML file</h2>
                 <div id="cesiumContainer"></div>
             </section>
         </div>
@@ -210,9 +214,7 @@
                 const stats = fileStatsData[file.name] || null;
                 let statsHtml = '';
                 if (stats) {
-                    statsHtml = `<div class="file-stats">
-                        <div class="flight-thumbnail" id="plot-${index}"></div>
-                        <table class="file-stats-table">
+                    statsHtml = `<table class="file-stats-table">
                             <tr>
                                 <td>Duration:</td>
                                 <td>${stats.duration.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}s</td>
@@ -229,13 +231,13 @@
                                 <td>Data points:</td>
                                 <td>${stats.points.toLocaleString('en-US')}</td>
                             </tr>
-                        </table>
-                    </div>`;
+                        </table>`;
                 }
                 return `
                 <div class="file-item">
-                    <div style="flex: 1;">
-                        <div>${file.name}</div>
+                    <div class="flight-thumbnail" id="thumbnail-${index}"></div>
+                    <div class="file-info">
+                        <div><strong>${file.name}</strong></div>
                         ${statsHtml}
                     </div>
                     <button onclick="removeFile(${index})">Remove</button>
@@ -386,7 +388,6 @@
             
             document.getElementById('cesiumContainer').innerHTML = `
                 <div class="earth-instructions">
-                    <p>To view the flight path in 3D with terrain:</p>
                     <button onclick="downloadFlightKML()" class="button">
                         Download KML for Google Earth
                     </button>
@@ -408,7 +409,7 @@
         }
 
         function drawFlightThumbnail(index) {
-            const container = document.getElementById(`plot-${index}`);
+            const container = document.getElementById(`thumbnail-${index}`);
             if (!container) return;
             
             const data = flightDataByIndex[index];
