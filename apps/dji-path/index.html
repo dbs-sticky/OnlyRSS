@@ -410,14 +410,14 @@
       <LineString>
         <extrude>1</extrude>
         <tessellate>1</tessellate>
-        <altitudeMode>absolute</altitudeMode>
+        <altitudeMode>relativeToGround</altitudeMode>
         <coordinates>
 `;
 
             // Add coordinates with reduced density (every 50th point)
             data.forEach((point, index) => {
                 if (index % 50 === 0 || index === data.length - 1) {
-                    kml += `          ${point.longitude},${point.latitude},${point.abs_altitude}\n`;
+                    kml += `          ${point.longitude},${point.latitude},${point.rel_altitude}\n`;
                 }
             });
 
@@ -428,16 +428,16 @@
       <name>Start - ${data[0].rel_altitude.toFixed(1)}m - ${data[0].timestamp.toISOString().slice(0, 19).replace('T', ' ')}</name>
       <styleUrl>#startPoint</styleUrl>
       <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[0].longitude},${data[0].latitude},${data[0].abs_altitude}</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>${data[0].longitude},${data[0].latitude},${data[0].rel_altitude}</coordinates>
       </Point>
     </Placemark>
     <Placemark>
       <name>End - ${data[data.length-1].rel_altitude.toFixed(1)}m - ${data[data.length-1].timestamp.toISOString().slice(0, 19).replace('T', ' ')}</name>
       <styleUrl>#endPoint</styleUrl>
       <Point>
-        <altitudeMode>absolute</altitudeMode>
-        <coordinates>${data[data.length-1].longitude},${data[data.length-1].latitude},${data[data.length-1].abs_altitude}</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>${data[data.length-1].longitude},${data[data.length-1].latitude},${data[data.length-1].rel_altitude}</coordinates>
       </Point>
     </Placemark>
   </Document>
