@@ -51,7 +51,6 @@
             .file-grid {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
-
             }
             .file-item {
                 max-width:400px;
@@ -67,6 +66,7 @@
             .editable-filename {
                 width: 100%;
                 min-width: unset;
+                text-align: left;
             }
             .file-grid {
                 width: 100%;
@@ -107,14 +107,6 @@
             display: none;
             margin-top: 1rem;
         }
-        .file-stats {
-            display: flex;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            align-items: center;
-        }
         .file-stats-table {
             border-collapse: collapse;
             font-variant-numeric: tabular-nums;
@@ -150,7 +142,7 @@
             overflow: hidden;
             text-overflow: ellipsis;
             max-width: 100%;
-            min-width: 200px;
+            min-width: 300px;
         }
         .editable-filename:hover {
             border-color: var(--accent);
@@ -544,10 +536,10 @@
                         Open Google Earth Web
                     </a>
                     <ol class="earth-instructions">
-                        <li>Click "Download KML for Google Earth" above</li>
-                        <li>Click "Open Google Earth Web" above</li>
+                        <li>Click "Download KML for Google Earth" above.</li>
+                        <li>Click "Open Google Earth Web" above.</li>
                         <li>In Google Earth Web, click "File", then "Open local KML file".</li>
-                        <li>Select the downloaded KML file</li>
+                        <li>Select the downloaded KML file.</li>
                     </ol>
                 </div>
             `;
@@ -695,7 +687,7 @@
 `;
 
             // Add each flight as a separate path
-            flightResults.forEach((flight, flightIndex) => {
+            flightResults.forEach((flight) => {
                 const data = flight.data;
                 const originalFileName = flight.fileName;
                 const displayName = fileCustomNames[originalFileName] || originalFileName.replace('.SRT', '').replace('.srt', '');
