@@ -317,7 +317,16 @@
                 return;
             }
             
-            fileList.innerHTML = uploadedFiles.map((file, index) => {
+            // Create array of files with indices and sort by start date
+            const sortedFiles = uploadedFiles.map((file, index) => ({ file, index }))
+                .sort((a, b) => {
+                    const statsA = fileStatsData[a.file.name];
+                    const statsB = fileStatsData[b.file.name];
+                    if (!statsA || !statsB) return 0;
+                    return statsA.startDateTime - statsB.startDateTime; // oldest first
+                });
+            
+            fileList.innerHTML = sortedFiles.map(({ file, index }) => {
                 const stats = fileStatsData[file.name] || null;
                 let statsHtml = '';
                 if (stats) {
