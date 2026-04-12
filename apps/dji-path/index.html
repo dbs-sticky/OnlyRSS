@@ -493,13 +493,13 @@
                         const relAltMatch = dataLine.match(/rel_alt: ([\-\d.]+)/);
                         const absAltMatch = dataLine.match(/abs_alt: ([\-\d.]+)/);
 
-                        if (latMatch && lonMatch && relAltMatch && absAltMatch) {
+                        if (latMatch && lonMatch && relAltMatch) {
                             data.push({
                                 timestamp: new Date(timestamp),
                                 latitude: parseFloat(latMatch[1]),
                                 longitude: parseFloat(lonMatch[1]),
                                 rel_altitude: parseFloat(relAltMatch[1]),
-                                abs_altitude: parseFloat(absAltMatch[1])
+                                abs_altitude: absAltMatch ? parseFloat(absAltMatch[1]) : null
                             });
                         }
                     }
@@ -731,6 +731,25 @@
       </Point>
     </Placemark>
 `;
+
+                // Add explicit vertical indicator lines at each sampled point.
+                // GE Web does not render the extrude property, so these are
+                // individual 2-point LineStrings from ground (alt=0) to drone altitude.
+                data.forEach((point, index) => {
+                    if ((index % 50 === 0 || index === data.length - 1) && point.rel_altitude > 0) {
+                        kml += `    <Placemark>
+      <styleUrl>#flightPath</styleUrl>
+      <LineString>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>
+          ${point.longitude},${point.latitude},0
+          ${point.longitude},${point.latitude},${point.rel_altitude}
+        </coordinates>
+      </LineString>
+    </Placemark>
+`;
+                    }
+                });
             });
 
             kml += `  </Document>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Scout — UN Member State Identification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header id="header">
+  <div class="header-brand">
+    <span class="brand-title">Global Scout</span>
+    <span class="brand-sub">UN Member States</span>
+  </div>
+  <div class="header-scores">
+    <div class="score-block">
+      <span class="score-label">Score</span>
+      <span class="score-value" id="score-value">0</span>
+    </div>
+    <div class="header-divider"></div>
+    <div class="score-block">
+      <span class="score-label">Best</span>
+      <span class="score-value high" id="high-score-value">0</span>
+    </div>
+  </div>
+</header>
+
+<!-- ── PROGRESS BAR ── -->
+<div id="status-bar"><div id="status-progress" style="width:0%"></div></div>
+
+<!-- ── MAP ── -->
+<div id="map-container">
+
+  <!-- Zoom controls -->
+  <div id="zoom-controls">
+    <div class="zoom-btn" id="zoom-in" title="Zoom in">+</div>
+    <div class="zoom-btn" id="zoom-reset" title="Reset view">⊙</div>
+    <div class="zoom-btn" id="zoom-out" title="Zoom out">−</div>
+  </div>
+
+  <!-- Compass Rose SVG -->
+  <svg id="compass" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(50,50)" fill="none" stroke="#e8d5b7" stroke-width="1">
+      <circle r="45" stroke-width="0.5" opacity="0.3"/>
+      <circle r="30" stroke-width="0.5" opacity="0.2"/>
+      <line x1="0" y1="-45" x2="0" y2="45" opacity="0.3"/>
+      <line x1="-45" y1="0" x2="45" y2="0" opacity="0.3"/>
+      <!-- N arrow -->
+      <polygon points="0,-42 4,-28 0,-34 -4,-28" fill="#e8a820" stroke="none"/>
+      <!-- S arrow -->
+      <polygon points="0,42 4,28 0,34 -4,28" fill="#e8d5b7" stroke="none" opacity="0.6"/>
+      <!-- E/W ticks -->
+      <line x1="40" y1="0" x2="45" y2="0"/>
+      <line x1="-40" y1="0" x2="-45" y2="0"/>
+      <text x="0" y="-47" text-anchor="middle" font-size="10" fill="#e8a820" font-family="serif" dy="0">N</text>
+    </g>
+  </svg>
+
+  <!-- ── WORLD MAP SVG ── -->
+<canvas id="globe-canvas"></canvas>
+
+  <!-- end world-map -->
+
+</div>
+<!-- end map-container -->
+
+<!-- ── INPUT AREA ── -->
+<div id="input-area">
+  <div id="continent-filter">
+    <span class="filter-label">Filter:</span>
+    <button type="button" class="continent-btn active" data-continent="Africa">Africa</button>
+    <button type="button" class="continent-btn active" data-continent="Asia">Asia</button>
+    <button type="button" class="continent-btn active" data-continent="Europe">Europe</button>
+    <button type="button" class="continent-btn active" data-continent="N. America">N. America</button>
+    <button type="button" class="continent-btn active" data-continent="S. America">S. America</button>
+    <button type="button" class="continent-btn active" data-continent="Oceania">Oceania</button>
+  </div>
+  <div id="input-row">
+    <span id="skip-count"></span>
+    <div class="input-wrapper">
+      <span class="input-label">Name the highlighted country</span>
+      <input type="text" id="country-input" placeholder="Identify this country… · Enter to skip" autocomplete="off" spellcheck="false"/>
+      <div id="autocomplete-list"></div>
+    </div>
+    <button class="btn btn-secondary" id="pass-btn" title="Skip to next country">Skip</button>
+    <span id="hint-text">↑↓ navigate &nbsp;·&nbsp; Enter select &nbsp;·&nbsp; scroll/pinch to zoom</span>
+    <button class="btn btn-danger" id="end-game-btn">End Game</button>
+  </div>
+</div>
+
+<!-- ── INFORMATION MODAL ── -->
+<div id="modal-overlay">
+  <div id="modal">
+    <div class="modal-correct-label" id="modal-correct-label">✓ Correct!</div>
+    <div class="modal-country-name" id="modal-country-name"></div>
+    <div class="modal-facts">
+      <div class="fact-block">
+        <div class="fact-label">Capital</div>
+        <div class="fact-value" id="modal-capital"></div>
+      </div>
+      <div class="fact-block">
+        <div class="fact-label">Population</div>
+        <div class="fact-value" id="modal-population"></div>
+      </div>
+      <div class="fact-block">
+        <div class="fact-label">Land Area</div>
+        <div class="fact-value" id="modal-area"></div>
+      </div>
+      <div class="fact-block">
+        <div class="fact-label">Largest Export</div>
+        <div class="fact-value" id="modal-export"></div>
+      </div>
+    </div>
+    <div class="modal-neighbors">
+      <div class="fact-label">Borders</div>
+      <div class="fact-value" id="modal-neighbors-value"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="next-btn">Next Country →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── END GAME OVERLAY ── -->
+<div id="endgame-overlay">
+  <div id="endgame-box">
+    <div class="endgame-eyebrow">Session Complete</div>
+    <div class="endgame-title">Final Score</div>
+    <div class="endgame-score" id="endgame-final-score">0</div>
+    <div class="endgame-denominator">out of <span id="endgame-total">193</span> countries</div>
+    <div class="endgame-actions">
+      <button class="btn btn-primary" id="restart-btn">Play Again</button>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
