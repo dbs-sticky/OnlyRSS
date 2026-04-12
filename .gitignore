@@ -18,3 +18,6 @@ dist/
 # Markdown drafts
 markdown/
 
+# AI instructions
+Claude.md
+

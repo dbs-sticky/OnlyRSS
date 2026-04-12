@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XTEINK X4 Mini — Badge Creator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/mebinac" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0b0b0b;
+  --s1:       #111111;
+  --s2:       #181818;
+  --s3:       #1e1e1e;
+  --b1:       #222222;
+  --b2:       #2d2d2d;
+  --b3:       #3a3a3a;
+  --t1:       #d8d8d0;
+  --t2:       #858580;
+  --t3:       #8a8a84;
+  --acc:      #c8ff00;
+  --acc-a:    rgba(200,255,0,0.10);
+  --acc-b:    rgba(200,255,0,0.18);
+  --danger:   #ff3b30;
+  --fd: 'Bebas Neue', sans-serif;
+  --fm: 'JetBrains Mono', monospace;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--t1);
+  font-family: var(--fm);
+  font-size: 12px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.hdr {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 14px;
+  background: var(--s1);
+  border-bottom: 1px solid var(--b1);
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.hdr-l { display: flex; align-items: center; gap: 12px; }
+
+.logo-mark {
+  width: 32px; height: 32px;
+  border: 1.5px solid var(--acc);
+  display: grid; place-items: center;
+  font-size: 10px; font-weight: 700;
+  color: var(--acc); letter-spacing: 0.02em;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(200,255,0,0.2);
+}
+
+.hdr-title {
+  font-family: var(--fd);
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: #f2f2ea;
+}
+
+.hdr-sub {
+  font-size: 10px;
+  color: var(--t3);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ── LAYOUT ─────────────────────────────────────────── */
+.app {
+  display: grid;
+  grid-template-columns: 344px 1fr;
+  height: calc(100vh - 50px);
+  overflow: hidden;
+}
+
+/* ── CONTROLS ────────────────────────────────────────── */
+.ctrl {
+  background: var(--s1);
+  border-right: 1px solid var(--b1);
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ctrl::-webkit-scrollbar { width: 3px; }
+.ctrl::-webkit-scrollbar-track { background: transparent; }
+.ctrl::-webkit-scrollbar-thumb { background: var(--b2); border-radius: 2px; }
+
+/* ── SECTION ─────────────────────────────────────────── */
+.sec { border-bottom: 1px solid var(--b1); }
+
+.sec-hd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+}
+
+.sec-n {
+  font-size: 9px;
+  color: var(--acc);
+  letter-spacing: 0.14em;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.sec-t {
+  font-family: var(--fd);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: #f2f2ea;
+}
+
+.sec-bd { padding: 2px 18px 16px; }
+
+/* ── FIELDS ──────────────────────────────────────────── */
+.fld { margin-bottom: 11px; }
+.fld:last-child { margin-bottom: 0; }
+
+.lbl {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--t3);
+  margin-bottom: 5px;
+}
+
+.inp {
+  width: 100%;
+  background: var(--s2);
+  border: 1px solid var(--b2);
+  color: var(--t1);
+  font-family: var(--fm);
+  font-size: 12px;
+  padding: 7px 10px;
+  outline: none;
+  transition: border-color 0.12s, background 0.12s;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.inp:focus {
+  border-color: var(--acc);
+  background: rgba(200,255,0,0.03);
+}
+
+.inp::placeholder { color: var(--t3); }
+
+/* ── FONT SELECTOR ───────────────────────────────────── */
+.font-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+
+.font-opt { position: relative; }
+.font-opt input[type=radio] { position: absolute; opacity: 0; pointer-events: none; }
+
+.font-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 11px 8px;
+  border: 1px solid var(--b2);
+  background: var(--s2);
+  cursor: pointer;
+  transition: border-color 0.12s, background 0.12s;
+  user-select: none;
+  height: 68px;
+}
+
+.font-card-n { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--t3); }
+.font-card-p { font-size: 22px; color: var(--t1); line-height: 1; }
+
+.font-opt input:checked ~ .font-card { border-color: var(--acc); background: var(--acc-a); }
+.font-opt input:checked ~ .font-card .font-card-n { color: var(--acc); }
+.font-opt input:checked ~ .font-card .font-card-p { color: #f2f2ea; }
+
+/* ── TOGGLE ──────────────────────────────────────────── */
+.tog-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--b1);
+}
+.tog-row:last-child { border-bottom: none; }
+.tog-sub { padding-left: 16px; background: rgba(200,255,0,0.03); border-left: 2px solid var(--b2); }
+
+.tog-info { flex: 1; }
+.tog-name { font-size: 11px; color: var(--t1); letter-spacing: 0.04em; }
+.tog-desc { font-size: 10px; color: var(--t3); margin-top: 1px; }
+
+.sw { position: relative; width: 34px; height: 18px; flex-shrink: 0; }
+.sw input { opacity: 0; width: 0; height: 0; position: absolute; }
+
+.sw-tr {
+  position: absolute; inset: 0;
+  background: var(--b3);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.18s, border-color 0.18s;
+}
+
+.sw-tr::after {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  background: var(--t3);
+  top: 2px; left: 2px;
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), background 0.18s;
+}
+
+.sw input:checked + .sw-tr { background: var(--acc-a); border-color: var(--acc); }
+.sw input:checked + .sw-tr::after { transform: translateX(16px); background: var(--acc); }
+
+/* ── QR ──────────────────────────────────────────────── */
+.vc-hint {
+  margin-bottom: 6px;
+  padding: 6px 8px 7px;
+  background: var(--s1);
+  border: 1px solid var(--b1);
+}
+.vc-hint-lbl {
+  font-size: 8px;
+  color: var(--t3);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.vc-hint-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.vc-pill {
+  display: flex; align-items: center; gap: 4px;
+  padding: 3px 7px;
+  background: transparent;
+  border: 1px solid var(--b2);
+  color: var(--t2);
+  font-family: var(--fm); font-size: 9px; letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: border-color 0.1s, color 0.1s, background 0.1s;
+  max-width: 100%;
+}
+.vc-pill:hover { border-color: var(--acc); color: var(--acc); background: var(--acc-a); }
+.vc-pill-src  { color: var(--acc); font-size: 8px; letter-spacing: 0.12em; flex-shrink: 0; }
+.vc-pill-val  { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 120px; }
+.vc-pill-arr  { color: var(--t3); flex-shrink: 0; }
+.vc-pill-dest { color: var(--t3); font-size: 8px; flex-shrink: 0; }
+
+.qr-row {
+  margin-bottom: 8px;
+  border: 1px solid var(--b2);
+  background: var(--s2);
+  padding: 8px;
+}
+
+.qr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
+.qr-type-toggle { display: flex; gap: 2px; }
+
+.qr-type-btn {
+  padding: 3px 10px;
+  font-family: var(--fm); font-size: 9px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--b2);
+  color: var(--t3);
+  cursor: pointer;
+  transition: border-color 0.1s, color 0.1s, background 0.1s;
+}
+
+.qr-type-btn.active { border-color: var(--acc); color: var(--acc); background: var(--acc-a); }
+
+.qr-vcard-panel { display: flex; flex-direction: column; gap: 4px; }
+
+.qr-vcard-inp { font-size: 11px; padding: 5px 8px; }
+
+.btn-rm {
+  width: 28px; height: 28px;
+  background: transparent;
+  border: 1px solid var(--b2);
+  color: var(--t3);
+  cursor: pointer;
+  font-size: 17px; line-height: 1;
+  font-family: var(--fm);
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  transition: border-color 0.1s, color 0.1s;
+  padding: 0;
+}
+.btn-rm:hover { border-color: var(--danger); color: var(--danger); }
+
+.btn-addqr {
+  display: flex; align-items: center; gap: 6px;
+  width: 100%; padding: 7px 10px;
+  background: transparent;
+  border: 1px dashed var(--b2);
+  color: var(--t3);
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: border-color 0.1s, color 0.1s;
+}
+.btn-addqr:hover { border-color: var(--acc); color: var(--acc); }
+
+/* ── LOGO UPLOAD ─────────────────────────────────────── */
+.upzone {
+  position: relative;
+  border: 1px dashed var(--b2);
+  background: var(--s2);
+  padding: 20px 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.12s;
+}
+.upzone:hover { border-color: var(--acc); }
+.upzone input {
+  position: absolute; inset: 0;
+  opacity: 0; width: 100%; height: 100%;
+  cursor: pointer;
+}
+.upzone-icon { font-size: 20px; color: var(--t3); margin-bottom: 6px; }
+.upzone-txt { font-size: 10px; color: var(--t3); letter-spacing: 0.05em; }
+.upzone-txt small { display: block; margin-top: 3px; font-size: 9px; color: var(--t3); }
+
+.logo-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-top: 8px; padding: 8px;
+  border: 1px solid var(--b2); background: var(--s2);
+}
+.logo-thumb {
+  width: 44px; height: 44px;
+  object-fit: contain;
+  filter: grayscale(1);
+  border: 1px solid var(--b1);
+  flex-shrink: 0;
+}
+.logo-info { flex: 1; overflow: hidden; }
+.logo-fname { font-size: 10px; color: var(--t1); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.logo-dims  { font-size: 9px; color: var(--t3); margin-top: 2px; }
+.btn-clr {
+  background: transparent; border: none; color: var(--t3);
+  cursor: pointer; font-size: 16px; padding: 4px;
+  transition: color 0.1s; flex-shrink: 0;
+}
+.btn-clr:hover { color: var(--danger); }
+
+/* ── EXPORT ──────────────────────────────────────────── */
+.export-wrap { padding: 16px 18px 22px; }
+
+.fname-row { display: flex; margin-bottom: 10px; }
+.fname-row .inp { flex: 1; border-right: none; }
+.fname-ext {
+  padding: 7px 10px;
+  background: var(--b1);
+  border: 1px solid var(--b2);
+  color: var(--t3);
+  font-family: var(--fm); font-size: 12px;
+  flex-shrink: 0; display: flex; align-items: center;
+}
+
+.btn-dl {
+  width: 100%; padding: 13px;
+  background: var(--acc);
+  border: none;
+  color: #060606;
+  font-family: var(--fd);
+  font-size: 18px; letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: background 0.12s, transform 0.07s;
+  position: relative; overflow: hidden;
+}
+.btn-dl:hover  { background: #d6ff22; }
+.btn-dl:active { transform: scale(0.985); background: #b8ee00; }
+
+.btn-dl::after {
+  content: '';
+  position: absolute; left: -100%; top: 0;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-18deg);
+  transition: none;
+}
+.btn-dl:hover::after {
+  animation: shimmer 0.55s ease-out;
+}
+@keyframes shimmer { 0% { left: -100%; } 100% { left: 160%; } }
+
+/* ── PREVIEW PANEL ───────────────────────────────────── */
+.preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.preview::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+/* ── DEVICE MOCKUP ───────────────────────────────────── */
+.dvc-wrap {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.dvc {
+  position: relative;
+  z-index: 0;
+  background: linear-gradient(150deg, #1c1c1c 0%, #121212 100%);
+  border-radius: 18px;
+  padding: 27px 21px 66px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    inset 0 -1px 0 rgba(0,0,0,0.3),
+    0 0 0 1px #282828,
+    0 0 0 2px #0d0d0d,
+    0 28px 70px rgba(0,0,0,0.9),
+    0 6px 20px rgba(0,0,0,0.5);
+}
+
+/* Volume button (single combined) */
+.dvc::before {
+  content: '';
+  position: absolute; right: -10px; top: 32%;
+  width: 10px; height: 62px;
+  background: linear-gradient(90deg, #1c1c1c, #2e2e2e);
+  border-radius: 0 3px 3px 0;
+}
+
+.dvc-power-btn {
+  position: absolute; right: -10px; top: 8%;
+  width: 10px; height: 28px;
+  background: linear-gradient(90deg, #1c1c1c, #2e2e2e);
+  border-radius: 0 3px 3px 0;
+  z-index: -1;
+}
+
+.screen-wrap {
+  border-radius: 3px;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(0,0,0,0.5),
+    inset 0 2px 4px rgba(0,0,0,0.3);
+  background: #f0ede6;
+  transition: background 0.2s;
+}
+.screen-wrap.inv { background: #111; }
+.screen-wrap canvas { display: block; }
+
+.dvc-lanyard-svg {
+  position: absolute; bottom: -70px; left: -5px;
+  width: 36px; height: 90px;
+  pointer-events: none;
+}
+
+.dvc-chin-btns {
+  position: absolute; bottom: 10px; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; display: flex; gap: 5px;
+}
+.dvc-chin-btn {
+  flex: 1; height: 10px;
+  background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 1px 2px rgba(0,0,0,0.6);
+}
+
+
+/* ── INFO TAGS ───────────────────────────────────────── */
+.dvc-info {
+  display: flex; gap: 5px;
+  margin-top: 20px;
+}
+
+.itag {
+  font-size: 9px;
+  color: var(--t3); letter-spacing: 0.13em; text-transform: uppercase;
+  padding: 3px 7px;
+  border: 1px solid var(--b1);
+  background: var(--s1);
+}
+.itag.on { color: var(--acc); border-color: rgba(200,255,0,0.28); background: var(--acc-a); }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 820px) {
+  html, body { overflow: auto; }
+  .app { grid-template-columns: 1fr; grid-template-rows: auto auto; height: auto; overflow: visible; }
+  .ctrl { height: auto; overflow: visible; border-right: none; border-bottom: 1px solid var(--b1); }
+  .preview { height: 85vw; min-height: 420px; }
+  .hdr-sub { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-l">
+    <div class="logo-mark">X4</div>
+    <div>
+      <div class="hdr-title">XTEINK BADGE CREATOR</div>
+    </div>
+  </div>
+  <div class="hdr-sub">480 × 800 · E-INK · BMP OUTPUT</div>
+</header>
+
+<div class="app">
+
+  <!-- ── CONTROLS ── -->
+  <div class="ctrl">
+
+    <!-- 01 TEXT FIELDS -->
+    <div class="sec">
+      <div class="sec-hd"><span class="sec-n">01</span><span class="sec-t">TEXT FIELDS</span></div>
+      <div class="sec-bd">
+        <div class="fld">
+          <label class="lbl" for="h1">H1 — Primary Name</label>
+          <input class="inp" type="text" id="h1" placeholder="Your Name" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="fld">
+          <label class="lbl" for="h2">H2 — Job Title</label>
+          <input class="inp" type="text" id="h2" placeholder="Job Title" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="fld">
+          <label class="lbl" for="h3">H3 — Company</label>
+          <input class="inp" type="text" id="h3" placeholder="Company // Role" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 TYPOGRAPHY -->
+    <div class="sec">
+      <div class="sec-hd"><span class="sec-n">02</span><span class="sec-t">TYPOGRAPHY</span></div>
+      <div class="sec-bd">
+        <div class="font-grid">
+          <div class="font-opt">
+            <input type="radio" name="font" id="font-sans" value="sans" checked>
+            <label class="font-card" for="font-sans">
+              <span class="font-card-n">Sans-Serif</span>
+              <span class="font-card-p" style="font-family:'Inter',sans-serif">Ag</span>
+            </label>
+          </div>
+          <div class="font-opt">
+            <input type="radio" name="font" id="font-serif" value="serif">
+            <label class="font-card" for="font-serif">
+              <span class="font-card-n">Serif</span>
+              <span class="font-card-p" style="font-family:'Mebinac',serif">Ag</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 QR CODES -->
+    <div class="sec">
+      <div class="sec-hd"><span class="sec-n">03</span><span class="sec-t">QR CODES</span></div>
+      <div class="sec-bd">
+        <div id="qr-list"></div>
+        <button class="btn-addqr" id="btn-addqr">
+          <span>＋</span><span>Add QR Code</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 04 LOGO -->
+    <div class="sec">
+      <div class="sec-hd"><span class="sec-n">04</span><span class="sec-t">LOGO</span></div>
+      <div class="sec-bd">
+        <div class="upzone" id="upzone">
+          <input type="file" id="logo-file" accept="image/*">
+          <div class="upzone-icon">⊕</div>
+          <div class="upzone-txt">
+            Click to upload logo
+            <small>PNG · JPG · SVG · WebP &nbsp;—&nbsp; square recommended</small>
+          </div>
+        </div>
+        <div id="logo-meta-wrap" style="display:none">
+          <div class="logo-meta">
+            <img id="logo-thumb" class="logo-thumb" alt="">
+            <div class="logo-info">
+              <div class="logo-fname" id="logo-fname"></div>
+              <div class="logo-dims" id="logo-dims"></div>
+            </div>
+            <button class="btn-clr" id="btn-clr-logo" title="Remove">×</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 OPTIONS -->
+    <div class="sec">
+      <div class="sec-hd"><span class="sec-n">05</span><span class="sec-t">OPTIONS</span></div>
+      <div class="sec-bd">
+        <div class="tog-row">
+          <div class="tog-info">
+            <div class="tog-name">Invert (Dark Mode)</div>
+            <div class="tog-desc">Light text on black background</div>
+          </div>
+          <label class="sw">
+            <input type="checkbox" id="opt-inv">
+            <span class="sw-tr"></span>
+          </label>
+        </div>
+        <div class="tog-row tog-sub" id="row-logo-no-inv" style="display:none">
+          <div class="tog-info">
+            <div class="tog-name">Keep logo original</div>
+            <div class="tog-desc">Don't invert the uploaded logo</div>
+          </div>
+          <label class="sw">
+            <input type="checkbox" id="opt-logo-no-inv">
+            <span class="sw-tr"></span>
+          </label>
+        </div>
+        <div class="tog-row">
+          <div class="tog-info">
+            <div class="tog-name">Flip 180°</div>
+            <div class="tog-desc">Rotate for lanyard orientation</div>
+          </div>
+          <label class="sw">
+            <input type="checkbox" id="opt-flip">
+            <span class="sw-tr"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 EXPORT -->
+    <div class="export-wrap">
+      <div class="fld" style="margin-bottom:10px">
+        <label class="lbl" for="fname">Output Filename</label>
+        <div class="fname-row">
+          <input class="inp" type="text" id="fname" value="badge" placeholder="badge" spellcheck="false">
+          <span class="fname-ext">.bmp</span>
+        </div>
+      </div>
+      <button class="btn-dl" id="btn-dl">DOWNLOAD .BMP</button>
+    </div>
+
+  </div><!-- /ctrl -->
+
+  <!-- ── PREVIEW ── -->
+  <div class="preview" id="preview-panel">
+    <div class="dvc-wrap" id="dvc-wrap">
+      <div class="dvc">
+        <div class="dvc-power-btn"></div>
+        <div class="screen-wrap" id="screen-wrap">
+          <canvas id="preview-canvas"></canvas>
+        </div>
+        <div class="dvc-chin-btns">
+          <div class="dvc-chin-btn"></div>
+          <div class="dvc-chin-btn"></div>
+        </div>
+
+        <svg class="dvc-lanyard-svg" viewBox="0 0 36 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="5" r="3.5" stroke="#3a3a3a" stroke-width="1.5"/>
+          <path d="M 18 8.5 C 18 28, 6 42, 10 80" stroke="#3a3a3a" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="dvc-info">
+        <div class="itag">XTEINK X4 MINI</div>
+        <div class="itag">480 × 800</div>
+        <div class="itag" id="tag-mode">LIGHT</div>
+        <div class="itag" id="tag-font">SANS</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /app -->
+
+<!-- Off-screen full-res canvas for export -->
+<canvas id="export-canvas" width="480" height="800" style="display:none"></canvas>
+
+<script>
+'use strict';
+
+// ════════════════════════════════════════════
+// CONSTANTS
+// ════════════════════════════════════════════
+const BW = 480, BH = 800, PAD = 32;
+
+const FSPECS = {
+  sans: {
+    h1: { face: 'Inter',            w: 700, maxPx: 72, minPx: 18 },
+    h2: { face: 'Inter',            w: 500, maxPx: 46, minPx: 14 },
+    h3: { face: 'Inter',            w: 700, maxPx: 32, minPx: 12 },
+  },
+  serif: {
+    h1: { face: 'Mebinac', w: 700, maxPx: 70, minPx: 18 },
+    h2: { face: 'Mebinac', w: 400, maxPx: 44, minPx: 14 },
+    h3: { face: 'Mebinac', w: 700, maxPx: 30, minPx: 12 },
+  },
+};
+
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+const S = {
+  h1: '', h2: '', h3: '',
+  font: 'sans',
+  qrs: [],      // [{ type:'url'|'vcard', url:string, vcard:{name,org,title,phone,email,website} }]
+  logo: null,         // HTMLImageElement | null
+  invert: false,
+  logoNoInvert: false, // when true, skip logo inversion even in dark mode
+  flip:   false,
+};
+
+let SCALE = 0.42;
+let renderQueued = false;
+
+// ════════════════════════════════════════════
+// DOM REFS
+// ════════════════════════════════════════════
+const $ = id => document.getElementById(id);
+
+const exportCanvas  = $('export-canvas');
+const previewCanvas = $('preview-canvas');
+const ectx = exportCanvas.getContext('2d', { willReadFrequently: true });
+const pctx = previewCanvas.getContext('2d');
+
+// ════════════════════════════════════════════
+// SCALE
+// ════════════════════════════════════════════
+function calcScale() {
+  const panel = $('preview-panel');
+  if (!panel || !panel.clientWidth) return;
+  const pw = panel.clientWidth, ph = panel.clientHeight;
+  const s = Math.min((pw - 90) / BW, (ph - 120) / BH);
+  SCALE = Math.max(0.22, Math.min(s, 0.72));
+}
+
+// ════════════════════════════════════════════
+// WIRE
+// ════════════════════════════════════════════
+function wire() {
+  ['h1','h2','h3'].forEach(id => $(id).addEventListener('input', e => { S[id] = e.target.value; q(); }));
+
+  document.querySelectorAll('input[name=font]').forEach(r => r.addEventListener('change', () => {
+    S.font = r.value;
+    $('tag-font').textContent = r.value.toUpperCase();
+    q();
+  }));
+
+  $('opt-inv').addEventListener('change', e => {
+    S.invert = e.target.checked;
+    const mode = S.invert ? 'DARK' : 'LIGHT';
+    $('tag-mode').textContent = mode;
+    $('tag-mode').classList.toggle('on', S.invert);
+    $('screen-wrap').classList.toggle('inv', S.invert);
+    // Show/hide "keep logo original" sub-option only when a logo is loaded and invert is on
+    $('row-logo-no-inv').style.display = (S.invert && S.logo) ? '' : 'none';
+    q();
+  });
+
+  $('opt-logo-no-inv').addEventListener('change', e => {
+    S.logoNoInvert = e.target.checked;
+    q();
+  });
+
+  $('opt-flip').addEventListener('change', e => { S.flip = e.target.checked; q(); });
+
+  $('logo-file').addEventListener('change', onLogoUpload);
+  $('btn-clr-logo').addEventListener('click', clearLogo);
+  $('btn-addqr').addEventListener('click', addQR);
+  $('btn-dl').addEventListener('click', exportBMP);
+
+  window.addEventListener('resize', () => { calcScale(); q(); });
+
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); exportBMP(); }
+  });
+}
+
+// ════════════════════════════════════════════
+// QR MANAGEMENT
+// ════════════════════════════════════════════
+function addQR() {
+  if (S.qrs.length >= 2) return;
+  S.qrs.push({ type: 'url', url: '', vcard: { name: '', org: '', title: '', phone: '', email: '', website: '' } });
+  rebuildQRList();
+  q();
+}
+
+function removeQR(idx) {
+  S.qrs.splice(idx, 1);
+  rebuildQRList();
+  q();
+}
+
+function rebuildQRList() {
+  const list = $('qr-list');
+  list.innerHTML = '';
+  S.qrs.forEach((qr, i) => {
+    const isVC = qr.type === 'vcard';
+    const row = document.createElement('div');
+    row.className = 'qr-row';
+    row.innerHTML = `
+      <div class="qr-header">
+        <div class="qr-type-toggle">
+          <button class="qr-type-btn${!isVC ? ' active' : ''}" data-t="url">URL</button>
+          <button class="qr-type-btn${isVC ? ' active' : ''}" data-t="vcard">VCARD</button>
+        </div>
+        <button class="btn-rm" title="Remove">×</button>
+      </div>
+      <div class="qr-url-panel"${isVC ? ' style="display:none"' : ''}>
+        <input class="inp" type="url" placeholder="https://..." value="${eh(qr.url)}">
+      </div>
+      <div class="qr-vcard-panel"${!isVC ? ' style="display:none"' : ''}>
+        ${isVC ? buildVcHint() : ''}
+        <input class="inp qr-vcard-inp" type="text" placeholder="Full name *" value="${eh(qr.vcard.name)}">
+        <input class="inp qr-vcard-inp" type="text" placeholder="Job title" value="${eh(qr.vcard.title)}">
+        <input class="inp qr-vcard-inp" type="text" placeholder="Company" value="${eh(qr.vcard.org)}">
+        <input class="inp qr-vcard-inp" type="tel"  placeholder="+44 7700 900000" value="${eh(qr.vcard.phone)}">
+        <input class="inp qr-vcard-inp" type="email" placeholder="email@example.com" value="${eh(qr.vcard.email)}">
+        <input class="inp qr-vcard-inp" type="url"  placeholder="https://…" value="${eh(qr.vcard.website)}">
+      </div>`;
+
+    row.querySelectorAll('.qr-type-btn').forEach(btn => {
+      btn.addEventListener('click', () => { S.qrs[i].type = btn.dataset.t; rebuildQRList(); q(); });
+    });
+
+    row.querySelector('.qr-url-panel input').addEventListener('input', e => { S.qrs[i].url = e.target.value; q(); });
+
+    const vcFields = ['name', 'title', 'org', 'phone', 'email', 'website'];
+    row.querySelectorAll('.qr-vcard-inp').forEach((inp, fi) => {
+      inp.addEventListener('input', e => { S.qrs[i].vcard[vcFields[fi]] = e.target.value; q(); });
+    });
+
+    row.querySelectorAll('.vc-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const field = pill.dataset.field;
+        S.qrs[i].vcard[field] = pill.dataset.val;
+        rebuildQRList();
+        q();
+      });
+    });
+
+    row.querySelector('.btn-rm').addEventListener('click', () => removeQR(i));
+    list.appendChild(row);
+  });
+  $('btn-addqr').style.display = S.qrs.length >= 2 ? 'none' : '';
+}
+
+function eh(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function buildVcHint() {
+  const candidates = [
+    { src: 'H1', val: S.h1, field: 'name',  dest: 'Full name' },
+    { src: 'H2', val: S.h2, field: 'title', dest: 'Job title' },
+    { src: 'H3', val: S.h3, field: 'org',   dest: 'Company'   },
+  ].filter(h => h.val.trim());
+  if (!candidates.length) return '';
+  const pills = candidates.map(h =>
+    `<button class="vc-pill" data-field="${h.field}" data-val="${eh(h.val)}" title="Copy ${h.src} into ${h.dest}">` +
+    `<span class="vc-pill-src">${h.src}</span>` +
+    `<span class="vc-pill-val">${eh(h.val)}</span>` +
+    `<span class="vc-pill-arr">→</span>` +
+    `<span class="vc-pill-dest">${h.dest}</span>` +
+    `</button>`
+  ).join('');
+  return `<div class="vc-hint"><div class="vc-hint-lbl">Copy from badge text</div><div class="vc-hint-pills">${pills}</div></div>`;
+}
+
+// ════════════════════════════════════════════
+// LOGO
+// ════════════════════════════════════════════
+function onLogoUpload(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const img = new Image();
+    img.onload = () => {
+      S.logo = img;
+      $('logo-thumb').src = ev.target.result;
+      $('logo-fname').textContent = file.name;
+      $('logo-dims').textContent = `${img.naturalWidth} × ${img.naturalHeight} px`;
+      $('logo-meta-wrap').style.display = 'block';
+      $('upzone').style.display = 'none';
+      $('row-logo-no-inv').style.display = S.invert ? '' : 'none';
+      q();
+    };
+    img.src = ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearLogo() {
+  S.logo = null;
+  S.logoNoInvert = false;
+  $('logo-file').value = '';
+  $('logo-thumb').src = '';
+  $('logo-meta-wrap').style.display = 'none';
+  $('upzone').style.display = '';
+  $('opt-logo-no-inv').checked = false;
+  $('row-logo-no-inv').style.display = 'none';
+  q();
+}
+
+// ════════════════════════════════════════════
+// SCHEDULE RENDER
+// ════════════════════════════════════════════
+function q() {
+  if (!renderQueued) {
+    renderQueued = true;
+    requestAnimationFrame(() => { renderQueued = false; render(); });
+  }
+}
+
+// ════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════
+function fitFont(ctx, text, maxW, spec) {
+  for (let sz = spec.maxPx; sz >= spec.minPx; sz--) {
+    ctx.font = `${spec.w} ${sz}px '${spec.face}'`;
+    if (ctx.measureText(text).width <= maxW) return sz;
+  }
+  return spec.minPx;
+}
+
+function greyCanvas(img, size) {
+  const c = document.createElement('canvas');
+  c.width = c.height = size;
+  const cx = c.getContext('2d');
+  const nw = img.naturalWidth, nh = img.naturalHeight;
+  const crop = Math.min(nw, nh);
+  cx.drawImage(img, (nw - crop) / 2, (nh - crop) / 2, crop, crop, 0, 0, size, size);
+  const id = cx.getImageData(0, 0, size, size);
+  const d = id.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const g = d[i] * 0.299 + d[i+1] * 0.587 + d[i+2] * 0.114;
+    d[i] = d[i+1] = d[i+2] = g;
+  }
+  cx.putImageData(id, 0, 0);
+  return c;
+}
+
+function invertCanvas(srcCanvas) {
+  const c = document.createElement('canvas');
+  c.width = srcCanvas.width; c.height = srcCanvas.height;
+  const cx = c.getContext('2d');
+  cx.drawImage(srcCanvas, 0, 0);
+  const id = cx.getImageData(0, 0, c.width, c.height);
+  const d = id.data;
+  for (let i = 0; i < d.length; i += 4) { d[i] = 255-d[i]; d[i+1] = 255-d[i+1]; d[i+2] = 255-d[i+2]; }
+  cx.putImageData(id, 0, 0);
+  return c;
+}
+
+function makeQR(url, size) {
+  try {
+    const q = qrcode(0, 'M');
+    q.addData(url); q.make();
+    const mc = q.getModuleCount();
+    const ms = Math.floor(size / mc);
+    const sz = ms * mc;
+    const c = document.createElement('canvas');
+    c.width = c.height = sz;
+    const cx = c.getContext('2d');
+    cx.fillStyle = '#fff'; cx.fillRect(0, 0, sz, sz);
+    cx.fillStyle = '#000';
+    for (let r = 0; r < mc; r++)
+      for (let col = 0; col < mc; col++)
+        if (q.isDark(r, col)) cx.fillRect(col * ms, r * ms, ms, ms);
+    return { c, sz };
+  } catch { return null; }
+}
+
+function makeVCardString(vc) {
+  const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
+  const name = vc.name.trim();
+  if (name) {
+    lines.push('FN:' + name);
+    const parts = name.split(/\s+/);
+    const last = parts.length > 1 ? parts.pop() : '';
+    lines.push('N:' + last + ';' + parts.join(' ') + ';;;');
+  }
+  if (vc.org.trim())     lines.push('ORG:' + vc.org.trim());
+  if (vc.title.trim())   lines.push('TITLE:' + vc.title.trim());
+  if (vc.phone.trim())   lines.push('TEL;TYPE=CELL:' + vc.phone.trim());
+  if (vc.email.trim())   lines.push('EMAIL:' + vc.email.trim());
+  if (vc.website.trim()) lines.push('URL:' + vc.website.trim());
+  lines.push('END:VCARD');
+  return lines.join('\r\n');
+}
+
+// ════════════════════════════════════════════
+// QR ICON (globe = URL, card = vCard)
+// ════════════════════════════════════════════
+function drawQRIcon(ctx, type, cx, ty, size, color) {
+  // Designed on a 24×24 grid; scale to requested size
+  const s = size / 24;
+  ctx.save();
+  ctx.translate(cx - size / 2, ty);
+  ctx.scale(s, s);
+  ctx.strokeStyle = color;
+  ctx.fillStyle   = 'transparent';
+  ctx.lineWidth   = 1.8;
+  ctx.lineCap     = 'round';
+  ctx.lineJoin    = 'round';
+
+  if (type === 'linkedin') {
+    // Rounded square border
+    const r = 3;
+    ctx.beginPath();
+    ctx.moveTo(2 + r, 2); ctx.lineTo(22 - r, 2);
+    ctx.arcTo(22, 2, 22, 2 + r, r);
+    ctx.lineTo(22, 22 - r);
+    ctx.arcTo(22, 22, 22 - r, 22, r);
+    ctx.lineTo(2 + r, 22);
+    ctx.arcTo(2, 22, 2, 22 - r, r);
+    ctx.lineTo(2, 2 + r);
+    ctx.arcTo(2, 2, 2 + r, 2, r);
+    ctx.closePath(); ctx.stroke();
+    // "i" dot
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(7, 7.5, 1.3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'transparent';
+    // "i" stem
+    ctx.beginPath(); ctx.moveTo(7, 10.5); ctx.lineTo(7, 19.5); ctx.stroke();
+    // "n" left post
+    ctx.beginPath(); ctx.moveTo(11.5, 10.5); ctx.lineTo(11.5, 19.5); ctx.stroke();
+    // "n" arch
+    ctx.beginPath(); ctx.moveTo(11.5, 13.5); ctx.bezierCurveTo(11.5, 10, 19, 10, 19, 13.5); ctx.lineTo(19, 19.5); ctx.stroke();
+  } else if (type === 'url') {
+    // Globe: outer circle
+    ctx.beginPath(); ctx.arc(12, 12, 9.5, 0, Math.PI * 2); ctx.stroke();
+    // Equator
+    ctx.beginPath(); ctx.moveTo(2.5, 12); ctx.lineTo(21.5, 12); ctx.stroke();
+    // Left meridian
+    ctx.beginPath(); ctx.moveTo(12, 2.5); ctx.bezierCurveTo(7, 5.5, 7, 18.5, 12, 21.5); ctx.stroke();
+    // Right meridian
+    ctx.beginPath(); ctx.moveTo(12, 2.5); ctx.bezierCurveTo(17, 5.5, 17, 18.5, 12, 21.5); ctx.stroke();
+    // Top latitude arc
+    ctx.beginPath(); ctx.moveTo(5, 7.5); ctx.bezierCurveTo(8, 6, 16, 6, 19, 7.5); ctx.stroke();
+    // Bottom latitude arc
+    ctx.beginPath(); ctx.moveTo(5, 16.5); ctx.bezierCurveTo(8, 18, 16, 18, 19, 16.5); ctx.stroke();
+  } else {
+    // Business card: rounded rectangle
+    const r = 2;
+    ctx.beginPath();
+    ctx.moveTo(2 + r, 4); ctx.lineTo(22 - r, 4);
+    ctx.arcTo(22, 4, 22, 4 + r, r);
+    ctx.lineTo(22, 20 - r);
+    ctx.arcTo(22, 20, 22 - r, 20, r);
+    ctx.lineTo(2 + r, 20);
+    ctx.arcTo(2, 20, 2, 20 - r, r);
+    ctx.lineTo(2, 4 + r);
+    ctx.arcTo(2, 4, 2 + r, 4, r);
+    ctx.closePath(); ctx.stroke();
+    // Three text lines
+    ctx.beginPath(); ctx.moveTo(5, 9);  ctx.lineTo(19, 9);  ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(5, 13); ctx.lineTo(16, 13); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(5, 17); ctx.lineTo(13, 17); ctx.stroke();
+  }
+
+  ctx.restore();
+}
+
+// ════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════
+function render() {
+  const ctx = ectx;
+  ctx.clearRect(0, 0, BW, BH);
+
+  const bg  = S.invert ? '#000' : '#fff';
+  const fg  = S.invert ? '#fff' : '#000';
+  const fgD = S.invert ? 'rgba(255,255,255,0.6)' : 'rgba(0,0,0,0.52)';
+
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, BW, BH);
+
+  if (S.flip) { ctx.save(); ctx.translate(BW, BH); ctx.rotate(Math.PI); }
+
+  const sp     = FSPECS[S.font];
+  const maxTW  = BW - PAD * 2;
+  const LOGO_S = 100, QR_S = 195, GAP = 18;
+  const ICON_S = 52, ICON_GAP = 10;
+
+  const hv1 = S.h1.trim(), hv2 = S.h2.trim(), hv3 = S.h3.trim();
+  const s1 = hv1 ? fitFont(ctx, hv1, maxTW, sp.h1) : 0;
+  const s2 = hv2 ? fitFont(ctx, hv2, maxTW, sp.h2) : 0;
+  const s3 = hv3 ? fitFont(ctx, hv3, maxTW, sp.h3) : 0;
+
+  const activeQRs = S.qrs.filter(r => r.type === 'vcard' ? r.vcard.name.trim() : r.url.trim());
+  const hasLogo   = !!S.logo;
+  const hasQR     = activeQRs.length > 0;
+
+  // Content block height
+  let cH = 0;
+  if (hasLogo) cH += LOGO_S + GAP;
+  if (hv1) cH += s1 * 1.18;
+  if (hv2) cH += (hv1 ? GAP : 0) + s2 * 1.18;
+  if (hv3) cH += (hv1 || hv2 ? GAP : 0) + s3 * 1.18;
+
+  const qrAreaH = hasQR ? QR_S + ICON_S + ICON_GAP + 50 : 0;
+  const availH  = BH - PAD * 2 - qrAreaH;
+  let y = PAD + Math.max(0, (availH - cH) / 2);
+
+  // Logo
+  if (hasLogo) {
+    let logoC = greyCanvas(S.logo, LOGO_S);
+    if (S.invert && !S.logoNoInvert) logoC = invertCanvas(logoC);
+    ctx.drawImage(logoC, (BW - LOGO_S) / 2, y);
+    y += LOGO_S + GAP;
+  }
+
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
+
+  if (hv1) {
+    ctx.font = `${sp.h1.w} ${s1}px '${sp.h1.face}'`;
+    ctx.fillStyle = fg;
+    ctx.fillText(hv1, BW / 2, y);
+    y += s1 * 1.18;
+  }
+
+  if (hv2) {
+    if (hv1) y += GAP;
+    ctx.font = `${sp.h2.w} ${s2}px '${sp.h2.face}'`;
+    ctx.fillStyle = fg;
+    ctx.fillText(hv2, BW / 2, y);
+    y += s2 * 1.18;
+  }
+
+  if (hv3) {
+    if (hv1 || hv2) y += GAP;
+    ctx.font = `${sp.h3.w} ${s3}px '${sp.h3.face}'`;
+    ctx.fillStyle = fgD;
+    ctx.fillText(hv3, BW / 2, y);
+  }
+
+  // QR codes
+  if (hasQR) {
+    const qrY   = BH - 50 - QR_S;
+    const iconY = qrY - ICON_GAP - ICON_S;
+    if (activeQRs.length === 1) {
+      const data0 = activeQRs[0].type === 'vcard' ? makeVCardString(activeQRs[0].vcard) : activeQRs[0].url;
+      const res = makeQR(data0, QR_S);
+      if (res) {
+        const qc = S.invert ? invertCanvas(res.c) : res.c;
+        drawQRIcon(ctx, activeQRs[0].type === 'url' && activeQRs[0].url.toLowerCase().includes('linkedin') ? 'linkedin' : activeQRs[0].type, BW / 2, iconY, ICON_S, fg);
+        ctx.drawImage(qc, (BW - QR_S) / 2, qrY, QR_S, QR_S);
+      }
+    } else {
+      const spacing = 30, totalW = QR_S * 2 + spacing;
+      const x0 = (BW - totalW) / 2;
+      activeQRs.forEach((qr, i) => {
+        const data = qr.type === 'vcard' ? makeVCardString(qr.vcard) : qr.url;
+        const res = makeQR(data, QR_S);
+        if (res) {
+          const qc = S.invert ? invertCanvas(res.c) : res.c;
+          const qrX = x0 + i * (QR_S + spacing);
+          drawQRIcon(ctx, qr.type === 'url' && qr.url.toLowerCase().includes('linkedin') ? 'linkedin' : qr.type, qrX + QR_S / 2, iconY, ICON_S, fg);
+          ctx.drawImage(qc, qrX, qrY, QR_S, QR_S);
+        }
+      });
+    }
+  }
+
+  if (S.flip) ctx.restore();
+
+  // Preview
+  const pw = Math.round(BW * SCALE), ph = Math.round(BH * SCALE);
+  previewCanvas.width  = pw; previewCanvas.height  = ph;
+  previewCanvas.style.width  = pw + 'px';
+  previewCanvas.style.height = ph + 'px';
+  pctx.imageSmoothingEnabled = true;
+  pctx.imageSmoothingQuality = 'high';
+  pctx.filter = 'grayscale(1) contrast(1.08)';
+  pctx.drawImage(exportCanvas, 0, 0, pw, ph);
+  pctx.filter = 'none';
+}
+
+// ════════════════════════════════════════════
+// BMP EXPORT
+// ════════════════════════════════════════════
+function exportBMP() {
+  const id = ectx.getImageData(0, 0, BW, BH);
+  const p  = id.data;
+
+  // Greyscale
+  for (let i = 0; i < p.length; i += 4) {
+    const g = Math.round(p[i] * 0.299 + p[i+1] * 0.587 + p[i+2] * 0.114);
+    p[i] = p[i+1] = p[i+2] = g;
+  }
+
+  // 24-bit uncompressed BMP
+  const rowPad  = (4 - (BW * 3) % 4) % 4;
+  const rowBytes = BW * 3 + rowPad;
+  const pixBytes = rowBytes * BH;
+  const fileSize = 54 + pixBytes;
+  const buf = new ArrayBuffer(fileSize);
+  const dv  = new DataView(buf);
+
+  // File header
+  dv.setUint8(0, 0x42); dv.setUint8(1, 0x4D);
+  dv.setUint32(2, fileSize, true);
+  dv.setUint32(6, 0, true);
+  dv.setUint32(10, 54, true);
+
+  // BITMAPINFOHEADER
+  dv.setUint32(14, 40, true);
+  dv.setInt32 (18, BW, true);
+  dv.setInt32 (22, BH, true);
+  dv.setUint16(26, 1, true);
+  dv.setUint16(28, 24, true);
+  dv.setUint32(30, 0, true);
+  dv.setUint32(34, pixBytes, true);
+  dv.setInt32 (38, 2835, true);
+  dv.setInt32 (42, 2835, true);
+  dv.setUint32(46, 0, true);
+  dv.setUint32(50, 0, true);
+
+  // Pixel data: bottom-to-top, BGR
+  let off = 54;
+  for (let row = BH - 1; row >= 0; row--) {
+    for (let col = 0; col < BW; col++) {
+      const pi = (row * BW + col) * 4;
+      dv.setUint8(off++, p[pi + 2]); // B
+      dv.setUint8(off++, p[pi + 1]); // G
+      dv.setUint8(off++, p[pi    ]); // R
+    }
+    for (let pad = 0; pad < rowPad; pad++) dv.setUint8(off++, 0);
+  }
+
+  const name = ($('fname').value.trim() || 'badge') + '.bmp';
+  const blob = new Blob([buf], { type: 'image/bmp' });
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement('a'), { href: url, download: name });
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ════════════════════════════════════════════
+// BOOT
+// ════════════════════════════════════════════
+function boot() {
+  calcScale();
+  wire();
+  render();
+}
+
+(document.fonts?.ready ?? Promise.resolve()).then(boot).catch(boot);
+</script>
+
+</body>
+</html>
