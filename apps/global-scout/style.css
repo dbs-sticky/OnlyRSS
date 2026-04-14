@@ -136,7 +136,7 @@ html, body {
 /* ── MAP CONTAINER ── */
 #map-container {
   position: fixed;
-  inset: 58px 0 132px 0;
+  inset: 58px 0 168px 0;
   overflow: hidden;
   cursor: grab;
   background: #EEF4FB;
@@ -180,7 +180,7 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 132px;
+  height: 168px;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -192,6 +192,44 @@ html, body {
   border-top: 1px solid var(--border);
 }
 
+/* ── MODE SELECTOR ── */
+#mode-selector {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 860px;
+  margin-bottom: 6px;
+}
+
+.mode-btn {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 3px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.12s;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.mode-btn.active {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--surface);
+}
+
+.mode-btn:hover:not(.active) {
+  border-color: var(--border-mid);
+  color: var(--text);
+  background: var(--surface-2);
+}
+
 /* ── CONTINENT FILTER ── */
 #continent-filter {
   display: flex;
@@ -199,7 +237,7 @@ html, body {
   gap: 4px;
   width: 100%;
   max-width: 860px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .filter-label {
@@ -644,6 +682,31 @@ html, body {
   display: flex;
   gap: 10px;
   justify-content: center;
+}
+
+/* ── CHAIN ENDGAME ── */
+.endgame-chain-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
+
+.endgame-chain-list {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+  max-height: 100px;
+  overflow-y: auto;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  text-align: left;
+  margin-bottom: 28px;
+  word-break: break-word;
 }
 
 /* ── RESPONSIVE ── */

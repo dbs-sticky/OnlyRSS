@@ -297,7 +297,7 @@ const ISO2_TO_NUMERIC = {
 // ═══════════════════════════════════════════════════════
 //  STATE
 // ═══════════════════════════════════════════════════════
-let pool = [];           // countries still to be guessed
+let pool = [];           // countries still to be guessed (classic mode)
 let currentCountry = null;
 let score = 0;
 let highScore = parseInt(localStorage.getItem('globalScoutHigh') || '0');
@@ -307,6 +307,15 @@ let selectedContinents = new Set(['Africa','Asia','Europe','N. America','S. Amer
 let wrongAttempts = 0;  // consecutive wrong guesses for current country
 let neighborIndices = []; // topojson neighbor sets per feature index
 let numericToCountry = {}; // numeric id string → COUNTRIES entry
+
+// Chain mode state
+let gameMode = 'classic';        // 'classic' | 'chain'
+let chain = [];                  // ordered array of country objects in chain
+let chainSet = new Set();        // ISO2 ids already in chain (fast lookup)
+let chainNumericSet = new Set(); // numeric string IDs of chain countries (for rendering)
+let chainHighScore = parseInt(localStorage.getItem('globalScoutChainHigh') || '0');
+let chainNoMovesLeft = false;    // flag: no valid border guesses remain
+let candidateNumericSet = new Set(); // numeric IDs of valid next-move countries (highlighted)
 
 // ═══════════════════════════════════════════════════════
 //  DOM REFS
@@ -341,19 +350,122 @@ function filteredCountries() {
   return COUNTRIES.filter(c => selectedContinents.has(CONTINENT_BY_ID[c.id]));
 }
 
+function setMode(m) {
+  gameMode = m;
+  document.querySelectorAll('.mode-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.mode === m));
+  document.getElementById('score-label-main').textContent = m === 'chain' ? 'Chain' : 'Score';
+  passBtn.style.display = m === 'chain' ? 'none' : '';
+  restart();
+}
+
 function init() {
-  pool = filteredCountries();
+  if (gameMode === 'chain') {
+    initChain();
+  } else {
+    pool = filteredCountries();
+    score = 0;
+    updateScoreDisplay();
+    pickNext();
+  }
+}
+
+function addToChain(country) {
+  chain.push(country);
+  chainSet.add(country.id);
+  const numId = ISO2_TO_NUMERIC[country.id];
+  if (numId) chainNumericSet.add(numId);
+}
+
+function updateCandidates() {
+  candidateNumericSet.clear();
+  if (!currentCountry) return;
+  const filtered = filteredCountries();
+  getNeighborNames(currentCountry).forEach(name => {
+    const nc = filtered.find(c => c.name === name);
+    if (nc && !chainSet.has(nc.id)) {
+      const numId = ISO2_TO_NUMERIC[nc.id];
+      if (numId) candidateNumericSet.add(numId);
+    }
+  });
+  if (candidateNumericSet.size === 0) chainNoMovesLeft = true;
+}
+
+function animateToCurrentCountry() {
+  const numId = ISO2_TO_NUMERIC[currentCountry.id];
+  activeFeature = numId ? (countriesGeo.find(f => String(f.id) === numId) || null) : null;
+
+  const W = globeCanvas.clientWidth;
+  const H = globeCanvas.clientHeight;
+  const baseScale = Math.min(W, H) * 0.46;
+  if (!globeScale) {
+    globeScale = baseScale;
+    projection.scale(globeScale).translate([W / 2, H / 2]);
+  }
+
+  const area = currentCountry.area;
+  const zoomMultiplier = area <      200 ? 12
+                       : area <      700 ? 8
+                       : area <    2000  ? 6
+                       : area <    5000  ? 4.5
+                       : area <   15000  ? 3.5
+                       : area <   50000  ? 2.5
+                       : area <  200000  ? 2
+                       : area <  600000  ? 1.5
+                       : area < 2500000  ? 1.2
+                       :                  1;
+  const targetScale = baseScale * zoomMultiplier;
+
+  animateZoom(baseScale, 350, () => {
+    if (activeFeature) {
+      rotateTo(activeFeature, () => animateZoom(targetScale, 500, startPulse));
+    } else {
+      animateZoom(targetScale, 500, () => renderGlobe());
+    }
+  });
+}
+
+function initChain() {
+  chain = [];
+  chainSet.clear();
+  chainNumericSet.clear();
+  chainNoMovesLeft = false;
   score = 0;
+
+  const filtered = filteredCountries();
+  // Pick a starting country that has at least one neighbour within the filtered set
+  const candidates = filtered.filter(c =>
+    getNeighborNames(c).some(name => filtered.find(fc => fc.name === name))
+  );
+  const pool = candidates.length > 0 ? candidates : filtered;
+  const startCountry = pool[Math.floor(Math.random() * pool.length)];
+
+  addToChain(startCountry);
+  currentCountry = startCountry;
+  updateCandidates();
+
+  animateToCurrentCountry();
+
+  wrongAttempts = 0;
+  updateHintText();
+  inputEl.value = '';
+  inputEl.placeholder = `Border of ${currentCountry.name}…`;
+  closeAC();
+  inputEl.focus();
   updateScoreDisplay();
-  pickNext();
 }
 
 function updateScoreDisplay() {
   scoreEl.textContent = score;
-  highScoreEl.textContent = highScore;
-  const total = filteredCountries().length;
-  const pct = total > 0 ? ((total - pool.length) / total) * 100 : 0;
-  progressBar.style.width = pct + '%';
+  if (gameMode === 'chain') {
+    highScoreEl.textContent = chainHighScore;
+    progressBar.style.width = Math.min(score / 20 * 100, 100) + '%';
+  } else {
+    highScoreEl.textContent = highScore;
+    const total = filteredCountries().length;
+    const pct = total > 0 ? ((total - pool.length) / total) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
 }
 
 function pickNext() {
@@ -367,41 +479,7 @@ function pickNext() {
   const idx = Math.floor(Math.random() * pool.length);
   currentCountry = pool[idx];
 
-  // Find GeoJSON feature and rotate globe to it
-  const numId = ISO2_TO_NUMERIC[currentCountry.id];
-  activeFeature = numId ? (countriesGeo.find(f => String(f.id) === numId) || null) : null;
-
-  // Compute base (tier 10) scale from current canvas size
-  const W = globeCanvas.clientWidth;
-  const H = globeCanvas.clientHeight;
-  const baseScale = Math.min(W, H) * 0.46;
-  if (!globeScale) {
-    globeScale = baseScale;
-    projection.scale(globeScale).translate([W / 2, H / 2]);
-  }
-
-  // Auto-zoom: 10 logarithmic tiers from micro-states to continental giants
-  const area = currentCountry.area;
-  const zoomMultiplier = area <      200 ? 12    // Monaco, Nauru, San Marino, Liechtenstein
-                       : area <      700 ? 8     // Maldives, Malta, Grenada, Barbados
-                       : area <    2000  ? 6     // Bahrain, Tonga, Comoros, São Tomé
-                       : area <    5000  ? 4.5   // Luxembourg, Samoa, Cabo Verde
-                       : area <   15000  ? 3.5   // Brunei, Cyprus, Qatar, Jamaica
-                       : area <   50000  ? 2.5   // Kuwait, Belize, Belgium, Armenia
-                       : area <  200000  ? 2     // Ireland, Austria, UAE, Czech Republic
-                       : area <  600000  ? 1.5   // UK, Germany, Japan, Sweden
-                       : area < 2500000  ? 1.2   // Turkey, Pakistan, Mexico, Saudi Arabia
-                       :                  1;     // India, Brazil, Russia, Canada, USA
-  const targetScale = baseScale * zoomMultiplier;
-
-  // Sequence: zoom out to world view → rotate to country → zoom in to target tier
-  animateZoom(baseScale, 350, () => {
-    if (activeFeature) {
-      rotateTo(activeFeature, () => animateZoom(targetScale, 500, startPulse));
-    } else {
-      animateZoom(targetScale, 500, () => renderGlobe());
-    }
-  });
+  animateToCurrentCountry();
 
   wrongAttempts = 0;
   updateHintText();
@@ -428,6 +506,16 @@ function flagEmoji(iso2) {
 }
 
 function updateHintText() {
+  if (gameMode === 'chain') {
+    if (currentCountry) {
+      hintEl.textContent = `Guess a country that borders ${currentCountry.name}`;
+      hintEl.classList.add('hint-active');
+    } else {
+      hintEl.textContent = '↑↓ navigate · Enter select · scroll/pinch to zoom';
+      hintEl.classList.remove('hint-active');
+    }
+    return;
+  }
   if (!currentCountry || wrongAttempts === 0) {
     hintEl.textContent = '↑↓ navigate · Enter select · scroll/pinch to zoom';
     hintEl.classList.remove('hint-active');
@@ -486,19 +574,64 @@ function getNeighborNames(country) {
 function checkGuess(guess) {
   if (!currentCountry) return;
   const norm = s => s.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  if (gameMode === 'chain') {
+    const matched = filteredCountries().find(c => norm(c.name) === norm(guess));
+    if (!matched) {
+      shakeInput();
+      return;
+    }
+    if (chainSet.has(matched.id)) {
+      shakeInput(`${matched.name} is already in your chain!`);
+      return;
+    }
+    const neighborNorms = getNeighborNames(currentCountry).map(n => norm(n));
+    if (!neighborNorms.includes(norm(matched.name))) {
+      shakeInput(`${matched.name} doesn't border ${currentCountry.name}`);
+      return;
+    }
+    handleChainCorrect(matched);
+    return;
+  }
+
   if (norm(guess) === norm(currentCountry.name)) {
     handleCorrect();
   } else {
     wrongAttempts++;
     updateHintText();
-    inputEl.classList.add('incorrect-shake');
-    setTimeout(() => {
-      inputEl.classList.remove('incorrect-shake');
-      inputEl.value = '';
-      closeAC();
-      inputEl.focus();
-    }, 400);
+    shakeInput();
   }
+}
+
+function shakeInput(chainMessage) {
+  if (chainMessage) {
+    hintEl.textContent = chainMessage;
+    hintEl.classList.add('hint-active');
+  }
+  inputEl.classList.add('incorrect-shake');
+  setTimeout(() => {
+    inputEl.classList.remove('incorrect-shake');
+    inputEl.value = '';
+    closeAC();
+    inputEl.focus();
+    if (chainMessage) updateHintText();
+  }, 400);
+}
+
+function handleChainCorrect(country) {
+  addToChain(country);
+  currentCountry = country;
+  score = chain.length - 1;
+
+  if (score > chainHighScore) {
+    chainHighScore = score;
+    localStorage.setItem('globalScoutChainHigh', chainHighScore);
+  }
+  updateScoreDisplay();
+  updateCandidates();
+
+  showModal(country, '✓ Chain +1!');
+  closeAC();
 }
 
 function handleCorrect() {
@@ -536,8 +669,15 @@ function showModal(country, label = '✓ Correct!') {
   modalExport.textContent = country.export;
   modalCapital.textContent = country.capital;
   modalArea.textContent = country.area.toLocaleString() + ' km²';
-  const neighbors = getNeighborNames(country);
-  modalNeighbors.textContent = neighbors.length > 0 ? neighbors.join(', ') : 'No land borders';
+  const neighborsEl = document.querySelector('.modal-neighbors');
+  if (gameMode === 'chain') {
+    neighborsEl.style.display = 'none';
+  } else {
+    neighborsEl.style.display = '';
+    const neighbors = getNeighborNames(country);
+    modalNeighbors.textContent = neighbors.length > 0 ? neighbors.join(', ') : 'No land borders';
+  }
+  nextBtn.textContent = gameMode === 'chain' ? 'Continue →' : 'Next Country →';
   modalOverlay.classList.add('open');
   nextBtn.focus();
 }
@@ -545,8 +685,24 @@ function showModal(country, label = '✓ Correct!') {
 function closeModal() {
   modalOverlay.classList.remove('open');
   clearActive();
-  pickNext();
-  inputEl.focus();
+
+  if (gameMode === 'chain') {
+    if (chainNoMovesLeft) {
+      chainNoMovesLeft = false;
+      showEndgame();
+      return;
+    }
+    animateToCurrentCountry();
+    wrongAttempts = 0;
+    updateHintText();
+    inputEl.value = '';
+    inputEl.placeholder = `Border of ${currentCountry.name}…`;
+    closeAC();
+    inputEl.focus();
+  } else {
+    pickNext();
+    inputEl.focus();
+  }
 }
 
 function formatPop(n) {
@@ -561,14 +717,33 @@ function formatPop(n) {
 // ═══════════════════════════════════════════════════════
 function showEndgame() {
   clearActive();
-  endgameFinal.textContent = score;
-  endgameTotal.textContent = filteredCountries().length;
+  if (gameMode === 'chain') {
+    document.querySelector('.endgame-eyebrow').textContent = 'Chain Complete';
+    document.querySelector('.endgame-title').textContent = 'Chain Length';
+    endgameFinal.textContent = score;
+    document.getElementById('endgame-classic-denom').style.display = 'none';
+    const chainSection = document.getElementById('endgame-chain-section');
+    chainSection.style.display = '';
+    document.getElementById('endgame-chain-list').textContent = chain.map(c => c.name).join(' → ');
+  } else {
+    document.querySelector('.endgame-eyebrow').textContent = 'Session Complete';
+    document.querySelector('.endgame-title').textContent = 'Final Score';
+    endgameFinal.textContent = score;
+    document.getElementById('endgame-classic-denom').style.display = '';
+    document.getElementById('endgame-chain-section').style.display = 'none';
+    endgameTotal.textContent = filteredCountries().length;
+  }
   endgameOverlay.classList.add('open');
 }
 
 function restart() {
   endgameOverlay.classList.remove('open');
   modalOverlay.classList.remove('open');
+  chain = [];
+  chainSet.clear();
+  chainNumericSet.clear();
+  candidateNumericSet.clear();
+  chainNoMovesLeft = false;
   init();
 }
 
@@ -580,7 +755,8 @@ function buildAC(query) {
   if (!q) { closeAC(); return; }
 
   const wordStartRe = new RegExp('(?:^|\\s)' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
-  acItems = pool.filter(c => wordStartRe.test(c.name));
+  const acPool = gameMode === 'chain' ? filteredCountries() : pool;
+  acItems = acPool.filter(c => wordStartRe.test(c.name));
   acSelected = 0;
 
   if (acItems.length === 0) { closeAC(); return; }
@@ -643,9 +819,9 @@ inputEl.addEventListener('keydown', e => {
     e.preventDefault();
     if (acSelected >= 0 && acList.classList.contains('open')) {
       selectAC(acSelected);
-    } else if (inputEl.value.trim() === '') {
+    } else if (inputEl.value.trim() === '' && gameMode === 'classic') {
       passCountry();
-    } else {
+    } else if (inputEl.value.trim() !== '') {
       checkGuess(inputEl.value);
     }
   }
@@ -658,6 +834,11 @@ nextBtn.addEventListener('click', closeModal);
 endGameBtn.addEventListener('click', showEndgame);
 restartBtn.addEventListener('click', restart);
 passBtn.addEventListener('click', passCountry);
+
+// Mode selector
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => setMode(btn.dataset.mode));
+});
 
 // Continent filter toggle
 document.querySelectorAll('.continent-btn').forEach(btn => {
@@ -740,6 +921,14 @@ function renderGlobe() {
       ctx.fillStyle = `rgb(${r},${g},${b})`;
       ctx.shadowColor = `rgba(217,119,86,${0.3 + t * 0.35})`;
       ctx.shadowBlur = 10 + t * 8;
+    } else if (chainNumericSet.has(String(feature.id))) {
+      ctx.fillStyle = '#7DB87D';
+      ctx.shadowBlur = 0;
+    } else if (candidateNumericSet.has(String(feature.id))) {
+      // Valid next-move countries: amber pulse synced with main pulse
+      const t = (Math.sin(pulsePhase) + 1) / 2;
+      ctx.fillStyle = `rgb(${Math.round(220 + t * 15)},${Math.round(165 - t * 15)},${Math.round(40)})`;
+      ctx.shadowBlur = 0;
     } else {
       ctx.fillStyle = '#C8D8C0';
       ctx.shadowBlur = 0;

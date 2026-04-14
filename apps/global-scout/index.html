@@ -16,7 +16,7 @@
   </div>
   <div class="header-scores">
     <div class="score-block">
-      <span class="score-label">Score</span>
+      <span class="score-label" id="score-label-main">Score</span>
       <span class="score-value" id="score-value">0</span>
     </div>
     <div class="header-divider"></div>
@@ -68,6 +68,11 @@
 
 <!-- ── INPUT AREA ── -->
 <div id="input-area">
+  <div id="mode-selector">
+    <span class="filter-label">Mode:</span>
+    <button type="button" class="mode-btn active" data-mode="classic">Classic</button>
+    <button type="button" class="mode-btn" data-mode="chain">Border Chain</button>
+  </div>
   <div id="continent-filter">
     <span class="filter-label">Filter:</span>
     <button type="button" class="continent-btn active" data-continent="Africa">Africa</button>
@@ -129,7 +134,11 @@
     <div class="endgame-eyebrow">Session Complete</div>
     <div class="endgame-title">Final Score</div>
     <div class="endgame-score" id="endgame-final-score">0</div>
-    <div class="endgame-denominator">out of <span id="endgame-total">193</span> countries</div>
+    <div class="endgame-denominator" id="endgame-classic-denom">out of <span id="endgame-total">193</span> countries</div>
+    <div id="endgame-chain-section" style="display:none">
+      <div class="endgame-chain-label">Your chain</div>
+      <div class="endgame-chain-list" id="endgame-chain-list"></div>
+    </div>
     <div class="endgame-actions">
       <button class="btn btn-primary" id="restart-btn">Play Again</button>
     </div>
