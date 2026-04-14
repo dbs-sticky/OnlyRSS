@@ -860,8 +860,9 @@ document.querySelectorAll('.continent-btn').forEach(btn => {
 // ═══════════════════════════════════════════════════════
 //  GLOBE  (D3 orthographic — canvas-based)
 // ═══════════════════════════════════════════════════════
-let countriesGeo   = [];
-let activeFeature  = null;
+let countriesGeo        = [];
+let centroidByNumericId = new Map();
+let activeFeature       = null;
 let pulsePhase     = 0;
 let pulseFrameId   = null;
 let rotateFrameId  = null;
@@ -889,6 +890,52 @@ function resizeGlobe() {
   projection.scale(globeScale).translate([W / 2, H / 2]).rotate(globeRotate);
 }
 
+function getCentroidForCountry(country) {
+  const numId = ISO2_TO_NUMERIC[country.id];
+  return centroidByNumericId.get(numId) ?? null;
+}
+
+function drawGreatCircleLines() {
+  if (gameMode !== 'chain') return;
+
+  // Chain arcs — solid white line connecting each consecutive pair in the chain
+  if (chain.length >= 2) {
+    ctx.beginPath();
+    ctx.strokeStyle = 'rgba(255,255,255,0.95)';
+    ctx.lineWidth = 4 / (projection.scale() / 240);
+    ctx.setLineDash([]);
+
+    for (let i = 0; i < chain.length - 1; i++) {
+      const from = getCentroidForCountry(chain[i]);
+      const to   = getCentroidForCountry(chain[i + 1]);
+      if (!from || !to) continue;
+      geoPath({ type: 'Feature', geometry: { type: 'LineString', coordinates: [from, to] } });
+    }
+    ctx.stroke();
+  }
+
+  // Candidate arcs — dashed white lines from current country to each valid next move
+  if (currentCountry && candidateNumericSet.size > 0) {
+    const fromCentroid = getCentroidForCountry(currentCountry);
+    if (fromCentroid) {
+      const pulse = (Math.sin(pulsePhase) + 1) / 2;
+      ctx.strokeStyle = `rgba(255,255,255,${0.5 + pulse * 0.45})`;
+      ctx.lineWidth = 3 / (projection.scale() / 240);
+      ctx.setLineDash([5, 5]);
+
+      candidateNumericSet.forEach(numId => {
+        const toCentroid = centroidByNumericId.get(String(numId));
+        if (!toCentroid) return;
+        ctx.beginPath();
+        geoPath({ type: 'Feature', geometry: { type: 'LineString', coordinates: [fromCentroid, toCentroid] } });
+        ctx.stroke();
+      });
+
+      ctx.setLineDash([]);
+    }
+  }
+}
+
 function renderGlobe() {
   const W = globeCanvas.clientWidth;
   const H = globeCanvas.clientHeight;
@@ -912,8 +959,18 @@ function renderGlobe() {
     const isActive = activeFeature && feature.id === activeFeature.id;
     ctx.beginPath();
     geoPath(feature);
-    if (isActive) {
-      // Animated terracotta pulse
+    if (isActive && gameMode === 'chain') {
+      // Chain mode: show current country with green fill + thick pulsing stroke
+      const t = (Math.sin(pulsePhase) + 1) / 2;
+      ctx.fillStyle = '#7DB87D';
+      ctx.shadowBlur = 0;
+      ctx.fill();
+      ctx.strokeStyle = `rgba(${Math.round(217 + t * 20)},${Math.round(119 - t * 20)},${Math.round(86 - t * 20)},${0.85 + t * 0.15})`;
+      ctx.lineWidth = (3 + t * 2) / (projection.scale() / 240);
+      ctx.stroke();
+      continue;
+    } else if (isActive) {
+      // Classic mode: animated terracotta fill pulse
       const t = (Math.sin(pulsePhase) + 1) / 2;
       const r = Math.round(217 + t * 20);
       const g = Math.round(119 - t * 20);
@@ -939,6 +996,9 @@ function renderGlobe() {
     ctx.lineWidth = 0.5;
     ctx.stroke();
   }
+
+  // Great circle connection lines (chain mode only)
+  drawGreatCircleLines();
 
   // Globe rim
   ctx.beginPath();
@@ -1132,6 +1192,21 @@ async function loadWorld() {
     'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json'
   );
   countriesGeo = topojson.feature(topo, topo.objects.countries).features;
+  centroidByNumericId = new Map();
+  countriesGeo.forEach(f => centroidByNumericId.set(String(f.id), largestPolygonCentroid(f)));
+
+function largestPolygonCentroid(feature) {
+  if (feature.geometry.type === 'Polygon') return d3.geoCentroid(feature);
+  // MultiPolygon — use centroid of the largest polygon by area to avoid
+  // overseas territories pulling the centroid away from the mainland
+  let maxArea = -Infinity, largest = null;
+  for (const coords of feature.geometry.coordinates) {
+    const poly = { type: 'Feature', geometry: { type: 'Polygon', coordinates: coords } };
+    const area = d3.geoArea(poly);
+    if (area > maxArea) { maxArea = area; largest = poly; }
+  }
+  return largest ? d3.geoCentroid(largest) : d3.geoCentroid(feature);
+}
   neighborIndices = computeNeighbors(topo.objects.countries.geometries);
   for (const c of COUNTRIES) {
     const num = ISO2_TO_NUMERIC[c.id];
