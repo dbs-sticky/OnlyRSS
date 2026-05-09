@@ -440,6 +440,23 @@ if __name__ == "__main__":
                 # client = genai.GenerativeModel(model_name="gemini-1.5-flash")
                 client = genai.Client(api_key=GEMINI_API_KEY)
 
+                # Pre-format date strings so the LLM never has to infer the day name
+                def _ordinal(n):
+                    if 11 <= n <= 13:
+                        return "th"
+                    return {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+
+                now = datetime.now()
+                formatted_updated_str = (
+                    f"{now.strftime('%A')} {now.day}{_ordinal(now.day)} "
+                    f"{now.strftime('%B %Y')} at {now.strftime('%I:%M%p').lstrip('0').lower()}"
+                )
+                report_date_obj = datetime.strptime(report_date_str, '%Y-%m-%d')
+                formatted_valid_for_str = (
+                    f"{report_date_obj.strftime('%A')} {report_date_obj.day}{_ordinal(report_date_obj.day)} "
+                    f"{report_date_obj.strftime('%B %Y')}"
+                )
+
                 # Prepare the prompt content carefully
                 # Use all_hourly_data_for_gemini which includes renamed keys
                 response = client.models.generate_content(
@@ -461,8 +478,8 @@ The metrics are:
 * solarradiation: The solar radiation measures the power (in W/m2) at the instantaneous moment of the observation (or forecast prediction), this should be referred to as "solar radiation".
 High solar radiation, low cloud cover, and high bike temperature are preferred, but ALL weather metrics should be taken into consideration. A low precipprob should not be a deterrent, but high precipprob should be avoided.
 In a bulleted list (2 list items) show the "Data updated:" as the first item and "Data valid for:" as the second list item.
-"Data updated:" in the format like this "Thursday 22nd April 2025 at 5:30pm". The data was last updated at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.
-"Data valid for:" in the format like this "Thursday 22nd April 2025". The date today is {report_date_str}.
+"Data updated:" must be output exactly as: "{formatted_updated_str}". Do not alter this text in any way.
+"Data valid for:" must be output exactly as: "{formatted_valid_for_str}". Do not alter this text in any way.
 All the bike riding slots should start after Sunrise and be complete before Sunset.
 All riding slots i.e. 1hr, 2hr, 3hr, 4hr, and 5hr should be continuous hours that fall within sunrise ({sunrise_hour}) and sunset ({sunset_hour}).
 List the best time-slots as an unordered list with each time slot being an item in that list. 1 through 5, starting with 1hr:, 2hr: etc. and always explain your reasoning for each on the same line. This list should have the following heading "Best Bike Riding Time-slots:" as a 3rd level heading. Each item should start with the following format e.g. **1hr**: 3pm – 4pm. When referring to time ranges, please use the 12-hour clock format with 'am' and 'pm' indicators. For example, write '3pm - 4pm' rather than '15:00 - 16:00'. Always use lowercase for 'am' and 'pm' without periods, and include a space before and after the dash between times. And be followed with the explanation. Keep the explanation brief, there's no need to list out all the specific weather metrics, just the ones that are most important for bike riding. And even then there's no need to list out the metrics values exactly, but you can show the metrics if you believe they are pertenant.
