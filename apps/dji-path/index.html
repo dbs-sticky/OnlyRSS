@@ -186,6 +186,27 @@
         .chart-container {
             margin-bottom: 2rem;
         }
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.88rem;
+            margin-top: 0.5rem;
+        }
+        .metrics-table th, .metrics-table td {
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid var(--border);
+            text-align: right;
+            white-space: nowrap;
+        }
+        .metrics-table th:first-child, .metrics-table td:first-child {
+            text-align: left;
+        }
+        .metrics-table tr.total-row td {
+            font-weight: bold;
+            border-top: 2px solid var(--border);
+        }
+        .table-scroll { overflow-x: auto; }
         .earth-instructions {
             line-height: 1.8;
             margin-top: 1rem;
@@ -215,14 +236,14 @@
         <img src="flightpath.webp" alt="DJI Flight Path Visualization" class="hero-image">
         <ol>
           <li>Select up to 10 DJI drone .SRT files. </li>
-          <li>Preview individual flight path statistics and 3D flight path thumbnails.</li>
+          <li>Preview each flight's 3D thumbnail and review the flight metrics table.</li>
           <li>Customize flight path names by clicking on the file name.</li>
           <li>Generate and download a single Google Earth .KML file.</li>
           <li>Upload the .KML file to Google Earth web to view your flight paths in a roller-coaster style.</li>
         </ol>
         <p>Note: All file processing is performed in your browser. No files (or data of any type) are uploaded/recorded.</p>
     </header>
-    
+
     <main>
         <section>
             <h2>Select .SRT files</h2>
@@ -237,11 +258,18 @@
                 Processing flight data...
             </div>
         </section>
-        
+
         <div id="visualization">
+            <section class="chart-container">
+                <h2>Flight metrics</h2>
+                <div class="table-scroll">
+                    <div id="metricsSummary"></div>
+                </div>
+            </section>
+
             <section class="chart-container" id="google-earth-section">
                 <h2>Generate .KML file</h2>
-                <div id="cesiumContainer"></div>
+                <div id="kmlExport"></div>
             </section>
         </div>
     </main>
@@ -253,509 +281,565 @@
         const visualization = document.getElementById('visualization');
         const scrollToDownload = document.getElementById('scrollToDownload');
 
+        // --- State -----------------------------------------------------------
+        // Each upload is keyed by a stable unique id (not the filename, which
+        // can repeat across DJI files). data/stats are cached after parsing.
+        let uploads = [];          // {id, file, name, customName, data, stats}
+        let nextId = 1;
+        const rotationIntervals = {}; // id -> setInterval handle (for teardown)
+
+        const R_EARTH = 6371000;
+
+        // --- Formatting helpers ---------------------------------------------
         function formatDateTime(date) {
             const pad = (n) => n.toString().padStart(2, '0');
-            const hh = pad(date.getHours());
-            const mm = pad(date.getMinutes());
-            const ss = pad(date.getSeconds());
-            const dd = pad(date.getDate());
-            const m = date.getMonth() + 1;
-            const yyyy = date.getFullYear();
-            return `${hh}:${mm}:${ss} ${dd}-${m}-${yyyy}`;
+            return `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())} `
+                 + `${pad(date.getDate())}-${date.getMonth() + 1}-${date.getFullYear()}`;
         }
 
         function formatDateTimeForCard(date) {
             const pad = (n) => n.toString().padStart(2, '0');
-            const hh = pad(date.getHours());
-            const mm = pad(date.getMinutes());
-            const ss = pad(date.getSeconds());
-            const dd = pad(date.getDate());
-            const m = date.getMonth() + 1;
-            const yyyy = date.getFullYear();
-            return `${hh}:${mm}:${ss} <span style="opacity: 0.6;">(${dd}-${m}-${yyyy})</span>`;
+            return `${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())} `
+                 + `<span style="opacity: 0.6;">(${pad(date.getDate())}-${date.getMonth() + 1}-${date.getFullYear()})</span>`;
         }
 
-        let uploadedFiles = [];
-        let fileStatsData = {};
-        let flightDataByIndex = {};
-        let fileCustomNames = {}; // Store custom names for files
+        function escapeXml(value) {
+            return String(value).replace(/[&<>"']/g, (c) => (
+                { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]
+            ));
+        }
 
+        function stripSrtExt(name) {
+            return name.replace(/\.srt$/i, '');
+        }
+
+        function num(value, dp = 1) {
+            return value.toLocaleString('en-US', { minimumFractionDigits: dp, maximumFractionDigits: dp });
+        }
+
+        // --- Geometry helpers -----------------------------------------------
+        // Horizontal distance (m) between two points using an equirectangular
+        // approximation — accurate at the scale of a single drone flight.
+        function metersBetween(a, b) {
+            const lat0 = (a.latitude + b.latitude) / 2 * Math.PI / 180;
+            const dx = (b.longitude - a.longitude) * Math.PI / 180 * R_EARTH * Math.cos(lat0);
+            const dy = (b.latitude - a.latitude) * Math.PI / 180 * R_EARTH;
+            return Math.hypot(dx, dy);
+        }
+
+        // Project all points to a shared local ENU frame (metres) so 3D/2D
+        // plots are true-to-scale. Origin = centroid of all loaded points.
+        function projectAll(withData) {
+            let sLat = 0, sLon = 0, n = 0;
+            withData.forEach(u => u.data.forEach(d => { sLat += d.latitude; sLon += d.longitude; n++; }));
+            if (n === 0) return;
+            const lat0 = sLat / n, lon0 = sLon / n;
+            const cosLat = Math.cos(lat0 * Math.PI / 180);
+            withData.forEach(u => u.data.forEach(d => {
+                d.x = (d.longitude - lon0) * Math.PI / 180 * R_EARTH * cosLat; // east (m)
+                d.y = (d.latitude - lat0) * Math.PI / 180 * R_EARTH;           // north (m)
+            }));
+        }
+
+        function computeStats(data) {
+            const n = data.length;
+            const alts = data.map(d => d.rel_altitude);
+            const duration = (data[n - 1].timestamp - data[0].timestamp) / 1000;
+            let horiz = 0, dist3d = 0, maxSpeed = 0, maxClimb = 0, maxFromHome = 0;
+            const home = data[0];
+            for (let i = 1; i < n; i++) {
+                const dh = metersBetween(data[i - 1], data[i]);
+                const dz = data[i].rel_altitude - data[i - 1].rel_altitude;
+                const dt = (data[i].timestamp - data[i - 1].timestamp) / 1000;
+                horiz += dh;
+                dist3d += Math.hypot(dh, dz);
+                if (dt > 0) {
+                    maxSpeed = Math.max(maxSpeed, Math.hypot(dh, dz) / dt);
+                    maxClimb = Math.max(maxClimb, Math.abs(dz) / dt);
+                }
+            }
+            for (let i = 0; i < n; i++) maxFromHome = Math.max(maxFromHome, metersBetween(home, data[i]));
+            return {
+                startDateTime: data[0].timestamp,
+                startAlt: data[0].rel_altitude,
+                duration,
+                minAlt: Math.min(...alts),
+                maxAlt: Math.max(...alts),
+                avgAlt: alts.reduce((a, b) => a + b, 0) / n,
+                horiz, dist3d,
+                avgSpeed: duration > 0 ? horiz / duration : 0,
+                maxSpeed, maxClimb, maxFromHome,
+                points: n
+            };
+        }
+
+        // Index of the point with the highest relative altitude.
+        function maxAltIndex(data) {
+            let mi = 0;
+            for (let i = 1; i < data.length; i++) if (data[i].rel_altitude > data[mi].rel_altitude) mi = i;
+            return mi;
+        }
+
+        // Evenly sample down to ~target points while always keeping the first,
+        // last and max-altitude vertices so the export never loses the peak.
+        function sampleIndices(data, target) {
+            const n = data.length;
+            if (n <= target) return data.map((_, i) => i);
+            const step = Math.ceil(n / target);
+            const idx = new Set();
+            for (let i = 0; i < n; i += step) idx.add(i);
+            idx.add(n - 1);
+            idx.add(maxAltIndex(data));
+            return [...idx].sort((a, b) => a - b);
+        }
+
+        // Level-of-detail subsample (keeps endpoints) for snappy plotting.
+        function lod(data, cap) {
+            const n = data.length;
+            if (n <= cap) return data;
+            const step = Math.ceil(n / cap);
+            const out = [];
+            for (let i = 0; i < n; i += step) out.push(data[i]);
+            if (out[out.length - 1] !== data[n - 1]) out.push(data[n - 1]);
+            return out;
+        }
+
+        // --- File handling ---------------------------------------------------
         fileInput.addEventListener('change', function(e) {
             const newFiles = Array.from(e.target.files);
-            
-            // Limit to 10 files
-            const remainingSlots = 10 - uploadedFiles.length;
-            const filesToAdd = newFiles.slice(0, remainingSlots);
-            
-            if (newFiles.length > remainingSlots) {
-                alert(`You can only upload ${remainingSlots} more file(s). Maximum 10 files total.`);
+            const remaining = 10 - uploads.length;
+            const toAdd = newFiles.slice(0, remaining);
+
+            if (newFiles.length > remaining) {
+                alert(`You can only upload ${remaining} more file(s). Maximum 10 files total.`);
             }
-            
-            uploadedFiles = uploadedFiles.concat(filesToAdd);
-            updateFileList();
-            
-            if (uploadedFiles.length > 0) {
-                loading.style.display = 'block';
-                processAllFiles();
-            }
-            
-            // Reset input to allow re-selecting the same file
-            fileInput.value = '';
+
+            toAdd.forEach(file => {
+                uploads.push({ id: nextId++, file, name: file.name, customName: '', data: null, stats: null });
+            });
+
+            fileInput.value = ''; // allow re-selecting the same file
+            processUploads();
         });
 
-        function updateFileList() {
-            if (uploadedFiles.length === 0) {
-                fileList.innerHTML = '';
-                return;
-            }
-            
-            // Create array of files with indices and sort by start date
-            const sortedFiles = uploadedFiles.map((file, index) => ({ file, index }))
-                .sort((a, b) => {
-                    const statsA = fileStatsData[a.file.name];
-                    const statsB = fileStatsData[b.file.name];
-                    if (!statsA || !statsB) return 0;
-                    return statsA.startDateTime - statsB.startDateTime; // oldest first
+        function processUploads() {
+            const pending = uploads.filter(u => u.data === null);
+            if (!pending.length) { refreshAll(); return; }
+
+            loading.style.display = 'block';
+            Promise.all(pending.map(u => new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (ev) => { u.data = parseSRT(ev.target.result); resolve(); };
+                reader.onerror = reject;
+                reader.readAsText(u.file);
+            }))).then(() => {
+                const withData = uploads.filter(u => u.data && u.data.length);
+                projectAll(withData); // shared origin across all flights (thumbnails)
+                withData.forEach(u => {
+                    if (!u.stats) u.stats = computeStats(u.data);
                 });
-            
-            fileList.innerHTML = sortedFiles.map(({ file, index }) => {
-                const stats = fileStatsData[file.name] || null;
-                let statsHtml = '';
-                if (stats) {
-                    statsHtml = `<table class="file-stats-table">
-                            <tr>
-                                <td>Start:</td>
-                                <td>${formatDateTimeForCard(stats.startDateTime)}</td>
-                            </tr>
-                            <tr>
-                                <td>Duration:</td>
-                                <td>${stats.duration.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}s</td>
-                            </tr>
-                            <tr>
-                                <td>Start alt:</td>
-                                <td>${stats.startAlt.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}m</td>
-                            </tr>
-                            <tr>
-                                <td>Avg alt:</td>
-                                <td>${stats.avgAlt.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}m</td>
-                            </tr>
-                            <tr>
-                                <td>Max alt:</td>
-                                <td>${stats.maxAlt.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1})}m</td>
-                            </tr>
-                            <tr>
-                                <td>Data points:</td>
-                                <td>${stats.points.toLocaleString('en-US')}</td>
-                            </tr>
-                        </table>`;
-                }
-                return `
-                <div class="file-item">
-                    <div class="file-title-block">
-                        <div class="filename-wrapper">
-                            <strong contenteditable="true" id="filename-${index}" class="editable-filename" onblur="updateFileName(${index}, this.textContent)">${fileCustomNames[file.name] || file.name}</strong>
-                            <button class="clear-filename" onclick="clearFileName(${index})" title="Clear name">×</button>
-                        </div>
-                    </div>
-                    <div class="file-grid">
-                        <div class="flight-thumbnail" id="thumbnail-${index}"></div>
-                        <div class="file-info">
-                            ${statsHtml}
-                        </div>
-                        <button onclick="removeFile(${index})">Remove</button>
-                    </div>
-                </div>
-            `}).join('');
-            
-            // Draw thumbnails for each flight after DOM updates
-            setTimeout(() => {
-                uploadedFiles.forEach((file, index) => {
-                    if (fileStatsData[file.name]) {
-                        drawFlightThumbnail(index);
-                    }
-                });
-            }, 150);
-        }
-
-        function updateFileName(index, newName) {
-            const file = uploadedFiles[index];
-            if (file) {
-                fileCustomNames[file.name] = newName.trim();
-            }
-        }
-
-        function clearFileName(index) {
-            const element = document.getElementById(`filename-${index}`);
-            if (element) {
-                element.textContent = '';
-                element.focus();
-            }
-        }
-
-        function removeFile(index) {
-            const fileName = uploadedFiles[index].name;
-            delete fileStatsData[fileName];
-            delete fileCustomNames[fileName];
-            delete flightDataByIndex[index];
-            uploadedFiles.splice(index, 1);
-            
-            // Rebuild flightDataByIndex with new indices
-            const tempData = {};
-            Object.keys(flightDataByIndex).forEach(key => {
-                const oldIndex = parseInt(key);
-                if (oldIndex > index) {
-                    tempData[oldIndex - 1] = flightDataByIndex[key];
-                } else if (oldIndex < index) {
-                    tempData[oldIndex] = flightDataByIndex[key];
-                }
-            });
-            flightDataByIndex = tempData;
-            
-            updateFileList();
-            
-            if (uploadedFiles.length > 0) {
-                loading.style.display = 'block';
-                processAllFiles();
-            } else {
-                visualization.style.display = 'none';
-            }
-        }
-
-        function processAllFiles() {
-            const promises = uploadedFiles.map(file => {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const content = e.target.result;
-                        const flightData = parseSRT(content);
-                        resolve({ fileName: file.name, data: flightData });
-                    };
-                    reader.onerror = reject;
-                    reader.readAsText(file);
-                });
-            });
-
-            Promise.all(promises).then(results => {
-                // Calculate and store stats for each file
-                results.forEach((result, index) => {
-                    const data = result.data;
-                    if (data.length > 0) {
-                        const duration = (data[data.length - 1].timestamp - data[0].timestamp) / 1000;
-                        const altitudes = data.map(d => d.rel_altitude);
-                        const maxAlt = Math.max(...altitudes);
-                        const avgAlt = altitudes.reduce((a, b) => a + b, 0) / altitudes.length;
-                        
-                        fileStatsData[result.fileName] = {
-                            startDateTime: data[0].timestamp,
-                            startAlt: data[0].rel_altitude,
-                            duration: duration,
-                            maxAlt: maxAlt,
-                            avgAlt: avgAlt,
-                            points: data.length
-                        };
-                        
-                        flightDataByIndex[index] = data;
-                    }
-                });
-                
-                updateFileList();
-                const allFlightData = results.map(r => r.data).flat();
-                displayVisualization(allFlightData, results);
+                refreshAll();
             }).catch(error => {
-                alert('Error processing files: ' + error.message);
+                alert('Error processing files: ' + (error && error.message ? error.message : error));
                 loading.style.display = 'none';
             });
         }
 
         function parseSRT(content) {
-            const entries = content.trim().split('\n\n');
+            // Normalise CRLF/CR so entry splitting on a blank line works
+            // regardless of how the .SRT file was saved.
+            const entries = content.replace(/\r\n?/g, '\n').trim().split('\n\n');
             const data = [];
 
             for (const entry of entries) {
                 const lines = entry.split('\n');
-                if (lines.length >= 4) {
-                    let timestamp = null;
-                    let dataLine = null;
+                if (lines.length < 4) continue;
 
-                    for (let i = 0; i < lines.length; i++) {
-                        if (/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}/.test(lines[i])) {
-                            timestamp = lines[i].trim();
-                            if (i + 1 < lines.length) {
-                                dataLine = lines[i + 1];
-                            }
-                            break;
-                        }
-                    }
-
-                    if (timestamp && dataLine) {
-                        const latMatch = dataLine.match(/latitude: ([\-\d.]+)/);
-                        const lonMatch = dataLine.match(/longitude: ([\-\d.]+)/);
-                        const relAltMatch = dataLine.match(/rel_alt: ([\-\d.]+)/);
-                        const absAltMatch = dataLine.match(/abs_alt: ([\-\d.]+)/);
-
-                        if (latMatch && lonMatch && relAltMatch) {
-                            data.push({
-                                timestamp: new Date(timestamp),
-                                latitude: parseFloat(latMatch[1]),
-                                longitude: parseFloat(lonMatch[1]),
-                                rel_altitude: parseFloat(relAltMatch[1]),
-                                abs_altitude: absAltMatch ? parseFloat(absAltMatch[1]) : null
-                            });
-                        }
+                let timestamp = null;
+                let dataLine = null;
+                for (let i = 0; i < lines.length; i++) {
+                    if (/\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{3}/.test(lines[i])) {
+                        timestamp = lines[i].trim();
+                        if (i + 1 < lines.length) dataLine = lines[i + 1];
+                        break;
                     }
                 }
-            }
+                if (!timestamp || !dataLine) continue;
 
+                const latMatch = dataLine.match(/latitude: ([\-\d.]+)/);
+                const lonMatch = dataLine.match(/longitude: ([\-\d.]+)/);
+                const relAltMatch = dataLine.match(/rel_alt: ([\-\d.]+)/);
+                const absAltMatch = dataLine.match(/abs_alt: ([\-\d.]+)/);
+
+                if (latMatch && lonMatch && relAltMatch) {
+                    data.push({
+                        timestamp: new Date(timestamp),
+                        latitude: parseFloat(latMatch[1]),
+                        longitude: parseFloat(lonMatch[1]),
+                        rel_altitude: parseFloat(relAltMatch[1]),
+                        abs_altitude: absAltMatch ? parseFloat(absAltMatch[1]) : null
+                    });
+                }
+            }
             return data;
         }
 
-        function displayVisualization(data, flightResults) {
-            if (data.length === 0) {
-                alert('No valid data found in the files!');
-                loading.style.display = 'none';
+        function displayName(u) {
+            return u.customName ? u.customName : stripSrtExt(u.name);
+        }
+
+        function refreshAll() {
+            loading.style.display = 'none';
+            updateFileList();
+
+            const withData = uploads.filter(u => u.data && u.data.length);
+            if (withData.length === 0) {
+                visualization.style.display = 'none';
+                scrollToDownload.style.display = 'none';
+                return;
+            }
+            visualization.style.display = 'block';
+            scrollToDownload.style.display = 'inline';
+            buildMetricsTable(withData);
+            buildKmlExport(withData);
+        }
+
+        // --- File list / per-flight cards -----------------------------------
+        function updateFileList() {
+            // Tear down any running thumbnail rotations before we replace the DOM.
+            Object.keys(rotationIntervals).forEach(id => {
+                clearInterval(rotationIntervals[id]);
+                const node = document.getElementById(`thumbnail-${id}`);
+                if (node) Plotly.purge(node);
+                delete rotationIntervals[id];
+            });
+
+            if (uploads.length === 0) {
+                fileList.innerHTML = '';
                 return;
             }
 
-            // Store data globally for KML export
-            window.flightData = data;
-            window.flightResults = flightResults;
+            const sorted = [...uploads].sort((a, b) => {
+                if (!a.stats || !b.stats) return 0;
+                return a.stats.startDateTime - b.stats.startDateTime; // oldest first
+            });
 
-            // Calculate center coordinates for Google Earth Web link
-            const centerLat = data.reduce((sum, d) => sum + d.latitude, 0) / data.length;
-            const centerLon = data.reduce((sum, d) => sum + d.longitude, 0) / data.length;
+            fileList.innerHTML = sorted.map(u => {
+                const s = u.stats;
+                let statsHtml = '';
+                if (s) {
+                    statsHtml = `<table class="file-stats-table">
+                            <tr><td>Start:</td><td>${formatDateTimeForCard(s.startDateTime)}</td></tr>
+                            <tr><td>Duration:</td><td>${num(s.duration)}s</td></tr>
+                            <tr><td>Start alt:</td><td>${num(s.startAlt)}m</td></tr>
+                            <tr><td>Avg alt:</td><td>${num(s.avgAlt)}m</td></tr>
+                            <tr><td>Max alt:</td><td>${num(s.maxAlt)}m</td></tr>
+                            <tr><td>Distance:</td><td>${num(s.horiz, 0)}m</td></tr>
+                            <tr><td>Data points:</td><td>${s.points.toLocaleString('en-US')}</td></tr>
+                        </table>`;
+                } else {
+                    statsHtml = `<em>No valid GPS data found in this file.</em>`;
+                }
+                return `
+                <div class="file-item">
+                    <div class="file-title-block">
+                        <div class="filename-wrapper">
+                            <strong contenteditable="true" id="filename-${u.id}" class="editable-filename" onblur="updateFileName(${u.id}, this.textContent)"></strong>
+                            <button class="clear-filename" onclick="clearFileName(${u.id})" title="Clear name">×</button>
+                        </div>
+                    </div>
+                    <div class="file-grid">
+                        <div class="flight-thumbnail" id="thumbnail-${u.id}"></div>
+                        <div class="file-info">${statsHtml}</div>
+                        <button onclick="removeFile(${u.id})">Remove</button>
+                    </div>
+                </div>`;
+            }).join('');
 
-            // --- Google Earth View ---
+            // Set names via textContent (no HTML injection) and draw thumbnails.
+            sorted.forEach(u => {
+                const el = document.getElementById(`filename-${u.id}`);
+                if (el) el.textContent = displayName(u);
+            });
+            setTimeout(() => {
+                sorted.forEach(u => { if (u.data && u.data.length) drawFlightThumbnail(u.id); });
+            }, 100);
+        }
+
+        function findUpload(id) { return uploads.find(u => u.id === id); }
+
+        function updateFileName(id, newName) {
+            const u = findUpload(id);
+            if (u) u.customName = newName.trim();
+            buildKmlExportIfReady();
+        }
+
+        function clearFileName(id) {
+            const el = document.getElementById(`filename-${id}`);
+            const u = findUpload(id);
+            if (u) u.customName = '';
+            if (el) { el.textContent = ''; el.focus(); }
+            buildKmlExportIfReady();
+        }
+
+        function removeFile(id) {
+            if (rotationIntervals[id]) {
+                clearInterval(rotationIntervals[id]);
+                delete rotationIntervals[id];
+            }
+            uploads = uploads.filter(u => u.id !== id);
+
+            const withData = uploads.filter(u => u.data && u.data.length);
+            projectAll(withData);
+            refreshAll();
+        }
+
+        function buildKmlExportIfReady() {
+            const withData = uploads.filter(u => u.data && u.data.length);
+            if (withData.length) buildKmlExport(withData);
+        }
+
+        // --- Thumbnails (rotating mini 3D preview) --------------------------
+        function drawFlightThumbnail(id) {
+            const container = document.getElementById(`thumbnail-${id}`);
+            const u = findUpload(id);
+            if (!container || !u || !u.data || !u.data.length) return;
+
+            const data = lod(u.data, 600);
+            container.offsetHeight; // force reflow for accurate bg colour
+            const fileItem = container.closest('.file-item');
+            const bgColor = getComputedStyle(fileItem).backgroundColor;
+
+            const trace = {
+                type: 'scatter3d',
+                mode: 'lines',
+                x: data.map(d => d.x),
+                y: data.map(d => d.y),
+                z: data.map(d => d.rel_altitude),
+                line: { color: data.map(d => d.rel_altitude), colorscale: 'Viridis', reversescale: true, width: 3 },
+                hoverinfo: 'skip',
+                showlegend: false
+            };
+            const marker = (pt, color) => ({
+                type: 'scatter3d', mode: 'markers',
+                x: [pt.x], y: [pt.y], z: [pt.rel_altitude],
+                marker: { size: 6, color }, hoverinfo: 'skip', showlegend: false
+            });
+
+            const layout = {
+                scene: {
+                    xaxis: { visible: false }, yaxis: { visible: false }, zaxis: { visible: false },
+                    camera: { eye: { x: 1.5, y: 1.5, z: 1.3 } },
+                    aspectmode: 'data'
+                },
+                showlegend: false,
+                margin: { l: 0, r: 0, t: 0, b: 0 },
+                paper_bgcolor: bgColor, plot_bgcolor: bgColor
+            };
+            const config = { displayModeBar: false, responsive: true };
+
+            Plotly.newPlot(container, [trace, marker(u.data[0], 'lime'), marker(u.data[u.data.length - 1], 'red')], layout, config).then(() => {
+                let angle = 0;
+                rotationIntervals[id] = setInterval(() => {
+                    if (!document.body.contains(container)) {
+                        clearInterval(rotationIntervals[id]);
+                        delete rotationIntervals[id];
+                        return;
+                    }
+                    angle += 1;
+                    const rad = angle * Math.PI / 180;
+                    Plotly.relayout(container, { 'scene.camera.eye': { x: 1.5 * Math.cos(rad), y: 1.5 * Math.sin(rad), z: 1.3 } });
+                }, 50);
+            });
+        }
+
+        // --- Flight metrics table -------------------------------------------
+        function buildMetricsTable(withData) {
+            const rows = withData.map(u => {
+                const s = u.stats;
+                return `<tr>
+                    <td>${escapeXml(displayName(u))}</td>
+                    <td>${num(s.duration, 0)}</td>
+                    <td>${s.points.toLocaleString('en-US')}</td>
+                    <td>${num(s.horiz, 0)}</td>
+                    <td>${num(s.dist3d, 0)}</td>
+                    <td>${num(s.maxAlt)}</td>
+                    <td>${num(s.maxAlt - s.minAlt)}</td>
+                    <td>${num(s.avgSpeed * 3.6)}</td>
+                    <td>${num(s.maxSpeed * 3.6)}</td>
+                    <td>${num(s.maxClimb)}</td>
+                    <td>${num(s.maxFromHome, 0)}</td>
+                </tr>`;
+            }).join('');
+
+            let totalRow = '';
+            if (withData.length > 1) {
+                const t = withData.reduce((acc, u) => {
+                    const s = u.stats;
+                    acc.duration += s.duration; acc.points += s.points;
+                    acc.horiz += s.horiz; acc.dist3d += s.dist3d;
+                    acc.maxAlt = Math.max(acc.maxAlt, s.maxAlt);
+                    acc.range = Math.max(acc.range, s.maxAlt - s.minAlt);
+                    acc.maxSpeed = Math.max(acc.maxSpeed, s.maxSpeed);
+                    acc.maxClimb = Math.max(acc.maxClimb, s.maxClimb);
+                    acc.maxFromHome = Math.max(acc.maxFromHome, s.maxFromHome);
+                    return acc;
+                }, { duration: 0, points: 0, horiz: 0, dist3d: 0, maxAlt: 0, range: 0, maxSpeed: 0, maxClimb: 0, maxFromHome: 0 });
+                totalRow = `<tr class="total-row">
+                    <td>All flights (${withData.length})</td>
+                    <td>${num(t.duration, 0)}</td>
+                    <td>${t.points.toLocaleString('en-US')}</td>
+                    <td>${num(t.horiz, 0)}</td>
+                    <td>${num(t.dist3d, 0)}</td>
+                    <td>${num(t.maxAlt)}</td>
+                    <td>${num(t.range)}</td>
+                    <td>—</td>
+                    <td>${num(t.maxSpeed * 3.6)}</td>
+                    <td>${num(t.maxClimb)}</td>
+                    <td>${num(t.maxFromHome, 0)}</td>
+                </tr>`;
+            }
+
+            document.getElementById('metricsSummary').innerHTML = `
+                <table class="metrics-table">
+                    <thead><tr>
+                        <th>Flight</th><th>Duration (s)</th><th>Points</th>
+                        <th>Horiz dist (m)</th><th>3D dist (m)</th>
+                        <th>Max alt (m)</th><th>Alt range (m)</th>
+                        <th>Avg spd (km/h)</th><th>Max spd (km/h)</th>
+                        <th>Max climb (m/s)</th><th>Max from home (m)</th>
+                    </tr></thead>
+                    <tbody>${rows}${totalRow}</tbody>
+                </table>`;
+        }
+
+        // --- KML export -----------------------------------------------------
+        function buildKmlExport(withData) {
+            let sLat = 0, sLon = 0, n = 0;
+            withData.forEach(u => u.data.forEach(d => { sLat += d.latitude; sLon += d.longitude; n++; }));
+            const centerLat = sLat / n, centerLon = sLon / n;
             const earthUrl = `https://earth.google.com/web/@${centerLat},${centerLon},1000a,1000d,35y,0h,45t,0r`;
-            
-            document.getElementById('cesiumContainer').innerHTML = `
+
+            document.getElementById('kmlExport').innerHTML = `
                 <div class="earth-instructions">
-                    <button onclick="downloadFlightKML()" class="button">
-                        Download KML for Google Earth
-                    </button>
-                    <a href="${earthUrl}" target="_blank" class="button">
-                        Open Google Earth Web
-                    </a>
+                    <button onclick="downloadFlightKML()" class="button">Download KML for Google Earth</button>
+                    <a href="${earthUrl}" target="_blank" class="button">Open Google Earth Web</a>
                     <ol class="earth-instructions">
                         <li>Click "Download KML for Google Earth" above.</li>
                         <li>Click "Open Google Earth Web" above.</li>
                         <li>In Google Earth Web, click "File", then "Open local KML file".</li>
                         <li>Select the downloaded KML file.</li>
                     </ol>
-                </div>
-            `;
-
-            loading.style.display = 'none';
-            visualization.style.display = 'block';
-            scrollToDownload.style.display = 'inline';
+                </div>`;
         }
 
-        function drawFlightThumbnail(index) {
-            const container = document.getElementById(`thumbnail-${index}`);
-            if (!container) return;
-            
-            const data = flightDataByIndex[index];
-            if (!data || data.length === 0) return;
-            
-            // Force reflow and get the actual background color from the parent element
-            container.offsetHeight;
-            const fileItem = container.closest('.file-item');
-            const bgColor = getComputedStyle(fileItem).backgroundColor;
-            
-            const trace = {
-                type: 'scatter3d',
-                mode: 'lines',
-                x: data.map(d => d.longitude),
-                y: data.map(d => d.latitude),
-                z: data.map(d => d.rel_altitude),
-                line: {
-                    color: data.map(d => d.rel_altitude),
-                    colorscale: 'Viridis',
-                    reversescale: true,
-                    width: 3
-                },
-                hoverinfo: 'skip',
-                showlegend: false
-            };
-            
-            const startMarker = {
-                type: 'scatter3d',
-                mode: 'markers',
-                x: [data[0].longitude],
-                y: [data[0].latitude],
-                z: [data[0].rel_altitude],
-                marker: { size: 6, color: 'green' },
-                hoverinfo: 'skip',
-                showlegend: false
-            };
-            
-            const endMarker = {
-                type: 'scatter3d',
-                mode: 'markers',
-                x: [data[data.length - 1].longitude],
-                y: [data[data.length - 1].latitude],
-                z: [data[data.length - 1].rel_altitude],
-                marker: { size: 6, color: 'red' },
-                hoverinfo: 'skip',
-                showlegend: false
-            };
-            
-            const layout = {
-                scene: {
-                    xaxis: { visible: false },
-                    yaxis: { visible: false },
-                    zaxis: { visible: false },
-                    camera: { eye: { x: 1.5, y: 1.5, z: 1.3 } },
-                    aspectmode: 'cube'
-                },
-                showlegend: false,
-                margin: { l: 0, r: 0, t: 0, b: 0 },
-                paper_bgcolor: bgColor,
-                plot_bgcolor: bgColor
-            };
-            
-            const config = {
-                displayModeBar: false,
-                staticPlot: false,
-                responsive: true
-            };
-            
-            Plotly.newPlot(container, [trace, startMarker, endMarker], layout, config).then(() => {
-                // Animate rotation around vertical axis
-                let angle = 0;
-                setInterval(() => {
-                    angle += 1;
-                    const radians = angle * Math.PI / 180;
-                    const eye = {
-                        x: 1.5 * Math.cos(radians),
-                        y: 1.5 * Math.sin(radians),
-                        z: 1.3
-                    };
-                    Plotly.relayout(container, {
-                        'scene.camera.eye': eye
-                    });
-                }, 50);
-            });
-        }
-
-        // Download KML for Google Earth (separate from export button)
         function downloadFlightKML() {
-            if (!window.flightData || !window.flightResults) {
-                alert('No flight data available.');
-                return;
-            }
+            const withData = uploads.filter(u => u.data && u.data.length);
+            if (!withData.length) { alert('No flight data available.'); return; }
 
-            const flightResults = window.flightResults;
-            const baseName = flightResults.length === 1 
-                ? flightResults[0].fileName.replace('.SRT', '').replace('.srt', '')
-                : 'Combined_Flights';
-            
-            // Generate KML content
+            const baseName = withData.length === 1 ? stripSrtExt(withData[0].name) : 'Combined_Flights';
+
             let kml = `<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>${baseName} Flight Path</name>
-    <description>DJI Drone Flight Path${flightResults.length > 1 ? ' (Combined ' + flightResults.length + ' flights)' : ''}</description>
+    <name>${escapeXml(baseName)} Flight Path</name>
+    <description>DJI Drone Flight Path${withData.length > 1 ? ' (Combined ' + withData.length + ' flights)' : ''}</description>
     <Style id="flightPath">
-      <LineStyle>
-        <color>ff00ffff</color>
-        <width>2</width>
-      </LineStyle>
-      <PolyStyle>
-        <color>3300ffff</color>
-        <fill>1</fill>
-        <outline>1</outline>
-      </PolyStyle>
+      <LineStyle><color>ff00ffff</color><width>2</width></LineStyle>
+      <PolyStyle><color>3300ffff</color><fill>1</fill><outline>1</outline></PolyStyle>
+    </Style>
+    <Style id="altLines">
+      <LineStyle><color>9900ffff</color><width>1</width></LineStyle>
     </Style>
     <Style id="startPoint">
-      <IconStyle>
-        <color>ff00ff00</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href>
-        </Icon>
+      <IconStyle><color>ff00ff00</color><scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon>
       </IconStyle>
     </Style>
     <Style id="endPoint">
-      <IconStyle>
-        <color>ff0000ff</color>
-        <scale>1.2</scale>
-        <Icon>
-          <href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href>
-        </Icon>
+      <IconStyle><color>ff0000ff</color><scale>1.2</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon>
+      </IconStyle>
+    </Style>
+    <Style id="maxPoint">
+      <IconStyle><color>ff00ffff</color><scale>1.1</scale>
+        <Icon><href>http://maps.google.com/mapfiles/kml/paddle/ylw-circle.png</href></Icon>
       </IconStyle>
     </Style>
 `;
 
-            // Add each flight as a separate path
-            flightResults.forEach((flight) => {
-                const data = flight.data;
-                const originalFileName = flight.fileName;
-                const displayName = fileCustomNames[originalFileName] || originalFileName.replace('.SRT', '').replace('.srt', '');
-                
-                if (data.length === 0) return;
+            withData.forEach((u) => {
+                const data = u.data;
+                const name = escapeXml(displayName(u));
+                const idx = sampleIndices(data, 150);
+                const mi = maxAltIndex(data);
+                const last = data.length - 1;
 
-                kml += `    <Placemark>
-      <name>${displayName}</name>
-      <styleUrl>#flightPath</styleUrl>
-      <LineString>
-        <extrude>1</extrude>
-        <tessellate>1</tessellate>
-        <altitudeMode>relativeToGround</altitudeMode>
-        <coordinates>
+                // One folder per flight keeps Google Earth's sidebar tidy.
+                kml += `    <Folder>
+      <name>${name}</name>
+      <Placemark>
+        <name>Flight path</name>
+        <styleUrl>#flightPath</styleUrl>
+        <LineString>
+          <extrude>1</extrude>
+          <tessellate>1</tessellate>
+          <altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>
 `;
-
-                // Add coordinates with reduced density (every 50th point)
-                data.forEach((point, index) => {
-                    if (index % 50 === 0 || index === data.length - 1) {
-                        kml += `          ${point.longitude},${point.latitude},${point.rel_altitude}\n`;
-                    }
+                idx.forEach(i => {
+                    const p = data[i];
+                    kml += `            ${p.longitude},${p.latitude},${p.rel_altitude}\n`;
                 });
-
-                kml += `        </coordinates>
-      </LineString>
-    </Placemark>
-    <Placemark>
-      <name>Start - ${data[0].rel_altitude.toFixed(1)}m - ${formatDateTime(data[0].timestamp)}</name>
-      <styleUrl>#startPoint</styleUrl>
-      <Point>
-        <altitudeMode>relativeToGround</altitudeMode>
-        <coordinates>${data[0].longitude},${data[0].latitude},${data[0].rel_altitude}</coordinates>
-      </Point>
-    </Placemark>
-    <Placemark>
-      <name>End - ${data[data.length-1].rel_altitude.toFixed(1)}m - ${formatDateTime(data[data.length-1].timestamp)}</name>
-      <styleUrl>#endPoint</styleUrl>
-      <Point>
-        <altitudeMode>relativeToGround</altitudeMode>
-        <coordinates>${data[data.length-1].longitude},${data[data.length-1].latitude},${data[data.length-1].rel_altitude}</coordinates>
-      </Point>
-    </Placemark>
+                kml += `          </coordinates>
+        </LineString>
+      </Placemark>
+      <Placemark>
+        <name>Start - ${num(data[0].rel_altitude)}m - ${formatDateTime(data[0].timestamp)}</name>
+        <styleUrl>#startPoint</styleUrl>
+        <Point><altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>${data[0].longitude},${data[0].latitude},${data[0].rel_altitude}</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Max alt - ${num(data[mi].rel_altitude)}m</name>
+        <styleUrl>#maxPoint</styleUrl>
+        <Point><altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>${data[mi].longitude},${data[mi].latitude},${data[mi].rel_altitude}</coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>End - ${num(data[last].rel_altitude)}m - ${formatDateTime(data[last].timestamp)}</name>
+        <styleUrl>#endPoint</styleUrl>
+        <Point><altitudeMode>relativeToGround</altitudeMode>
+          <coordinates>${data[last].longitude},${data[last].latitude},${data[last].rel_altitude}</coordinates>
+        </Point>
+      </Placemark>
 `;
-
-                // Add explicit vertical indicator lines at each sampled point.
-                // GE Web does not render the extrude property, so these are
-                // individual 2-point LineStrings from ground (alt=0) to drone altitude.
-                data.forEach((point, index) => {
-                    if ((index % 50 === 0 || index === data.length - 1) && point.rel_altitude > 0) {
-                        kml += `    <Placemark>
-      <styleUrl>#flightPath</styleUrl>
-      <LineString>
-        <altitudeMode>relativeToGround</altitudeMode>
-        <coordinates>
-          ${point.longitude},${point.latitude},0
-          ${point.longitude},${point.latitude},${point.rel_altitude}
-        </coordinates>
-      </LineString>
-    </Placemark>
+                // All vertical "altitude" lines as ONE MultiGeometry placemark.
+                // (Google Earth Web ignores <extrude> on relativeToGround, so we
+                // draw them explicitly — but collapse them into a single layer.)
+                const verticals = idx.filter(i => data[i].rel_altitude > 0);
+                if (verticals.length) {
+                    kml += `      <Placemark>
+        <name>Altitude lines</name>
+        <styleUrl>#altLines</styleUrl>
+        <MultiGeometry>
 `;
-                    }
-                });
+                    verticals.forEach(i => {
+                        const p = data[i];
+                        kml += `          <LineString><altitudeMode>relativeToGround</altitudeMode><coordinates>${p.longitude},${p.latitude},0 ${p.longitude},${p.latitude},${p.rel_altitude}</coordinates></LineString>\n`;
+                    });
+                    kml += `        </MultiGeometry>
+      </Placemark>
+`;
+                }
+                kml += `    </Folder>\n`;
             });
 
             kml += `  </Document>
 </kml>`;
 
-            // Create blob and download
             const blob = new Blob([kml], { type: 'application/vnd.google-earth.kml+xml' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
