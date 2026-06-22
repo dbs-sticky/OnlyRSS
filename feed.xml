@@ -10,6 +10,7 @@
       OnlyRSS started out as an RSS feed—with no associated website (hence the domain name.) The articles only existed in the feed, and they could only be accessed via RSS readers such as Feedly and Inoreader.
       As I became increasingly interested in typography, I decided to be a little more traditional and actually make my articles visible on a website. At that point, OnlyRSS.org became my “learning tool” i.e. it was my reason to learn the fundamentals of HTML, CSS, and JavaScript.
     </description>
+    <lastBuildDate>Sat, 11 Oct 2025 19:15:00 GMT</lastBuildDate>
 
     <!-- Channel image for RSS aggregators -->
     <image>
@@ -1644,7 +1645,7 @@
       <guid isPermaLink="false">article27</guid>
       <title>Holiday: The Canadian Rockies</title>
       <link>https://onlyrss.org/posts/the-canadian-rockies-holiday.html</link>
-      <pubDate>Thur, 21 Dec 2023 13:00:00 GMT</pubDate>
+      <pubDate>Thu, 21 Dec 2023 13:00:00 GMT</pubDate>
       <description>
         <![CDATA[
           <article>
@@ -2156,7 +2157,7 @@
       <guid isPermaLink="false">article21</guid>
       <title>Infographic: 25 largest passenger airlines</title>
       <link>https://onlyrss.org/posts/top-25-pax-airlines.html</link>
-      <pubDate>Sat, 4 Feb 2023 11:30:00 GMT</pubDate>
+      <pubDate>Sat, 04 Feb 2023 11:30:00 GMT</pubDate>
       <description>
         <![CDATA[
 
@@ -2974,7 +2975,7 @@
       <guid isPermaLink="false">article14</guid>
       <title>Loading images only when (or if) they are needed</title>
       <link>https://onlyrss.org/posts/loading-images-only-when-they-are-needed.html</link>
-      <pubDate>Mon, 4 Apr 2022 12:15:00 GMT</pubDate>
+      <pubDate>Mon, 04 Apr 2022 12:15:00 GMT</pubDate>
       <description>
         <![CDATA[
           <body>
@@ -3033,7 +3034,7 @@
       <guid isPermaLink="false">article13</guid>
       <title>Linking tables to their associated bar charts</title>
       <link>https://onlyrss.org/posts/linking-tables-to-bar-charts.html</link>
-      <pubDate>Sun, 6 Mar 2022 12:15:00 GMT</pubDate>
+      <pubDate>Sun, 06 Mar 2022 12:15:00 GMT</pubDate>
       <description>
         <![CDATA[
         <body>
@@ -3692,7 +3693,7 @@
       <guid isPermaLink="false">article8</guid>
       <title>My indoor rowing tips after 15 million meters</title>
       <link>https://onlyrss.org/posts/my-rowing-tips-after-15-million-meters.html</link>
-      <pubDate>Fri, 9 Apr 2021 16:00:00 GMT</pubDate>
+      <pubDate>Fri, 09 Apr 2021 16:00:00 GMT</pubDate>
       <description>
         <![CDATA[
         <body>
@@ -3892,7 +3893,7 @@
       <guid isPermaLink="false">article6</guid>
       <title>What is RSS and what are 'aggregators'?</title>
       <link>https://onlyrss.org/posts/rss-part-1.html</link>
-      <pubDate>Sun, 7 Mar 2021 16:00:00 GMT</pubDate>
+      <pubDate>Sun, 07 Mar 2021 16:00:00 GMT</pubDate>
       <description>
         <![CDATA[
         <body>
@@ -4011,7 +4012,7 @@
       <guid isPermaLink="false">article5</guid>
       <title>Drawing with Excalidraw</title>
       <link>https://onlyrss.org/posts/drawing-with-excalidraw.html</link>
-      <pubDate>Wed, 3 Mar 2021 20:00:00 GMT</pubDate>
+      <pubDate>Wed, 03 Mar 2021 20:00:00 GMT</pubDate>
       <description>
         <![CDATA[
  
