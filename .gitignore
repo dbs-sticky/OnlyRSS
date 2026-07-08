@@ -21,3 +21,7 @@ markdown/
 # AI instructions
 Claude.md
 
+# Claude Code worktrees (per-session, not meant for the main repo)
+.claude/worktrees/
+**/.claude/worktrees/
+
