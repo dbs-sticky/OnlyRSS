@@ -126,11 +126,82 @@ class Feedback extends HTMLElement {
 
     </a>
   `;
+
+    // add a thumbs-up strip above the contact info, on article pages only
+    if (location.pathname.includes('/posts/') && !document.querySelector('thumbs-up')) {
+      this.before(document.createElement('thumbs-up'));
+    }
   }
 }
 
 // register component
 if(!customElements.get('feedback-contact')) customElements.define('feedback-contact', Feedback);
+
+
+// —————————————————————————thumbs-up Web Component—————————————————————————
+
+
+class ThumbsUp extends HTMLElement {
+
+  connectedCallback() {
+    this.innerHTML = `
+    <style>
+      thumbs-up {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+        max-width: var(--pagewidth);
+        margin: auto;
+        padding: 1rem 1rem 0 1rem;
+        font-weight: 500;
+        font-family: var(--cta-font);
+      }
+      thumbs-up p {
+        margin: 0;
+      }
+      thumbs-up button:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+    </style>
+    <p>Enjoyed this article?</p>
+    <button type="button">👍 thumbs up</button>
+    `;
+
+    const button = this.querySelector('button');
+    const storageKey = 'thumbed:' + location.pathname;
+
+    // already thumbed on this device — show the thanked state straight away
+    if (localStorage.getItem(storageKey)) {
+      this.thank(button);
+      return;
+    }
+
+    button.addEventListener('click', async () => {
+      button.disabled = true; // disable immediately so double-clicks can't send twice
+      try {
+        const response = await fetch('https://ntfy.sh/mBHLVUIUkCBRYP1X', {
+          method: 'POST',
+          body: `👍 ${document.title}`
+        });
+        if (!response.ok) throw new Error(response.status);
+        localStorage.setItem(storageKey, new Date().toISOString());
+        this.thank(button);
+      } catch {
+        button.disabled = false; // send failed — allow a retry
+      }
+    });
+  }
+
+  thank(button) {
+    button.disabled = true;
+    button.textContent = '👍 thanks!';
+  }
+}
+
+// register component
+if(!customElements.get('thumbs-up')) customElements.define('thumbs-up', ThumbsUp);
 
 
 // —————————————————————————social links Web Component—————————————————————————
