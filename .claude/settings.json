@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__chrome-devtools__evaluate_script",
-      "mcp__chrome-devtools__press_key"
+      "mcp__chrome-devtools__press_key",
+      "Bash(git checkout *)"
     ]
   }
 }

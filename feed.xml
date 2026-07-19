@@ -10,7 +10,7 @@
       OnlyRSS started out as an RSS feed—with no associated website (hence the domain name.) The articles only existed in the feed, and they could only be accessed via RSS readers such as Feedly and Inoreader.
       As I became increasingly interested in typography, I decided to be a little more traditional and actually make my articles visible on a website. At that point, OnlyRSS.org became my “learning tool” i.e. it was my reason to learn the fundamentals of HTML, CSS, and JavaScript.
     </description>
-    <lastBuildDate>Sat, 11 Oct 2025 19:15:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 09:00:00 GMT</lastBuildDate>
 
     <!-- Channel image for RSS aggregators -->
     <image>
@@ -20,6 +20,33 @@
     </image> 
 
     <!-- Blog articles -->
+
+   <item>
+      <guid isPermaLink="false">article38</guid>
+      <title>Vibe-coding a weight-loss coach</title>
+      <link>https://onlyrss.org/posts/vibe-coding-a-weight-loss-coach.html</link>
+      <pubDate>Fri, 31 Jul 2026 09:00:00 GMT</pubDate>
+      <description>
+        <![CDATA[
+
+    <article>
+      <header>
+        <h1>Vibe-coding a weight-loss coach</h1>
+          <p>
+            <!--TODO TLDR text-->
+          </p>
+      </header>
+
+      <section>
+        <h2><!--TODO heading--></h2>
+        <p><!--TODO intro paragraph--></p>
+      </section>
+
+    </article>
+
+        ]]>
+      </description>
+    </item>
 
    <item>
       <guid isPermaLink="false">article37</guid>
