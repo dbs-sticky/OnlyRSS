@@ -95,7 +95,7 @@
     <header style="view-transition-name: post36">
       <h1>Vibe-coding a weight-loss coach</h1>
       <p>
-        What started as a spreadsheet replacement for tracking my weight loss, became a health coach who would advise me on nutrition, exercise, and lifestyle changes. In this article I'll explain what AI and I built, and what the results were.
+        What started as a spreadsheet replacement for tracking my weight loss, became a health coach who would advise me on nutrition, exercise, and lifestyle changes. In this article I’ll explain what AI and I built, and what the results were.
       </p>
 
       <div class="byline">
@@ -109,15 +109,70 @@
 
     <section>
       <h2>Background</h2>
-        <p>“I'm an expert at quitting smoking, I've quit loads of times”. Ok, maybe not smoking (I've never smoked), but over the last 30 years (since my early 20s) I've become quite adept at losing 7–14&#8239;kg over a period of 7–20 weeks—unfortunatly I'm even more adept at putting it back on, typically over December (I do have a plan to NOT put it back on this year, but that's not what this article is about).</p>
-        <p> The result of this annual cycle is that I now—in my 50s—have a pretty good idea how to effectively lose weight. And after 30 years of “practice” this year (with the help of AI) I decided to perfect the process by going all in on the tracking and analytics side of things.</p>
-        <p> Typically I'd create a tracking spreadsheet that I'd use to record my calories consumed (via a food tracking app like My Fitness Pal or Nutracheck) and measured body weight. This year, I decided to take it a step further and build a more sophisticated solution.</p>
-        <p> I had a Claude Pro subscription at my disposal, so decided to see if AI could help me create something better. I've already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful Claude could be when it came to helping me with the weight lose diet.</p>
+
+        <p>What Mark Twain once said about quitting smoking, I can say about dieting. I’ve become quite adept at losing 7–14&#8239;kg over a period of 7–20 weeks—unfortunately I’m even more adept at putting it back on, typically over December (I do have a plan to NOT put it back on this year, but that’s not what this article is about).</p>
+
+        <blockquote>
+          <q>Giving up smoking is the easiest thing in the world. I know because I’ve done it thousands of times</q>
+          <br>
+          — Mark Twain
+        </blockquote>
+
+        <p>The result of this annual cycle is that I now—in my 50s—have a pretty good idea how to effectively lose weight. And after 30 years of “practice” this year (with the help of AI) I decided to perfect the process by going all in on the tracking and analytics side of things.</p>
+        <p>Typically I’d create a tracking spreadsheet that I’d use to record my calories consumed (via a food tracking app like MyFitnessPal or Nutracheck) and measured body weight. This year, I decided to take it a step further and build a more sophisticated solution.</p>
+        <p>I had a Claude Pro subscription at my disposal, so I decided to see if AI could help me create something better. I’ve already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful Claude could be when it came to helping me with the weight loss diet.</p>
     </section>
 
     <section>
       <h2>What AI & I built</h2>
-      <p>I'm not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I'm going to simply summarise the final solution.</p>
+      <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply summarise the final solution.</p>
+    </section>
+
+    <section>
+      <h2>Ask the coach</h2>
+      <p>A few sample exchanges from the running conversation I’ve had with the coach over the past few months.</p>
+      <div class="coach-chat">
+
+        <details name="coach-faq" open>
+          <summary>
+            <span class="question-text">I’ve hit a plateau for the last two weeks even though I’m still in a deficit — what’s going on?</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Two weeks of flat weight despite a logged deficit is usually water retention masking fat loss, not a stalled deficit. Common culprits: higher sodium or carb intake the last few days, extra training volume causing muscle inflammation/glycogen-bound water, or being close to your period if that applies to you.</p>
+              <p>Look at your weekly average trend rather than day-to-day numbers, and give it another 7–10 days before changing anything. If the average is still flat after that, we can look at tightening the deficit slightly.</p>
+            </div>
+          </div>
+        </details>
+
+        <details name="coach-faq">
+          <summary>
+            <span class="question-text">Is walking really as effective as running for fat loss, or should I be pushing harder?</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>For fat loss specifically, walking is very effective because a calorie deficit is a calorie deficit — your body doesn’t care much whether the calories were burned briskly or gently. The real advantage of walking is that it’s low-impact and low-fatigue, so you can do a lot of it consistently without it eating into recovery or your appetite control.</p>
+              <p>Running burns more calories per minute, but it also increases hunger and injury risk more, which can undermine adherence over months. Given your numbers, I’d keep walking as the backbone and treat runs as a bonus rather than the main driver.</p>
+            </div>
+          </div>
+        </details>
+
+        <details name="coach-faq">
+          <summary>
+            <span class="question-text">What should I actually do differently in December this year to stop the usual rebound?</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Historically your rebounds have come from stopping tracking entirely over the holidays, not from the food itself. So the plan isn’t to diet through December — it’s to keep logging (even loosely) and keep one non-negotiable movement habit going, like the daily walk, so you never fully drop out of the routine.</p>
+              <p>I’d also set a maintenance calorie range rather than a deficit target for the month, so “success” is staying within a band instead of losing weight — that takes the pressure off and makes it much easier to pick straight back up in January.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
     </section>
 
     <section>

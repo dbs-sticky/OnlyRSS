@@ -102,6 +102,7 @@ html {
   scrollbar-gutter: stable;
   accent-color: var(--accent);
   scroll-behavior: smooth;
+  interpolate-size: allow-keywords; /* lets ::details-content transition to/from 'auto' height */
 }
 
 body {
@@ -1471,6 +1472,181 @@ global-nav {
     }
   }
 
+}
+
+
+/*  ======================
+    MARK: AI HEALTH COACH Q&A ACCORDION
+    ====================== */
+
+.coach-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 2rem 0;
+}
+
+.coach-chat details {
+  border: none;
+  background: none;
+  margin: 0;
+}
+
+/* summary = the question the user asked the coach */
+.coach-chat summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  list-style: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.coach-chat summary::-webkit-details-marker {
+  display: none;
+}
+
+/* the "human" avatar shown next to each question */
+.coach-chat summary::before {
+  content: "";
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-image: url("data:image/webp;base64,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");
+  background-size: cover;
+}
+
+.coach-chat .question-text {
+  flex: 1;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #2d2926;
+  padding-top: 3px;
+  transition: color 0.2s;
+}
+
+.coach-chat summary:hover .question-text {
+  color: #c96442;
+}
+
+/* chevron indicator */
+.coach-chat .chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+  fill: none;
+  stroke: #9b918a;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.2s;
+}
+
+.coach-chat details[open] .chevron {
+  transform: rotate(180deg);
+  stroke: #c96442;
+}
+
+/* the answer panel, animated open/closed via ::details-content */
+.coach-chat details::details-content {
+  transition:
+    content-visibility 0.4s allow-discrete,
+    block-size 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.35s ease;
+  block-size: 0;
+  opacity: 0;
+  overflow: clip;
+}
+
+.coach-chat details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
+}
+
+@starting-style {
+  .coach-chat details[open]::details-content {
+    block-size: 0;
+    opacity: 0;
+  }
+}
+
+.coach-chat .answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.25rem 0 1.25rem;
+}
+
+/* the "Claude" avatar shown next to each answer */
+.coach-chat .answer::before {
+  content: "";
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23D97757' fill-rule='evenodd' clip-rule='evenodd' d='M20.998 10.949H24v3.102h-3v3.028h-1.487V20H18v-2.921h-1.487V20H15v-2.921H9V20H7.488v-2.921H6V20H4.487v-2.921H3V14.05H0V10.95h3V5h17.998v5.949zM6 10.949h1.488V8.102H6v2.847zm10.51 0H18V8.102h-1.49v2.847z'/%3E%3C/svg%3E");
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.coach-chat .answer-text {
+  flex: 1;
+  font-size: 0.9375rem;
+  color: #3d3833;
+  line-height: 1.7;
+}
+
+.coach-chat .answer-text p + p {
+  margin-top: 0.75em;
+}
+
+.coach-chat .answer-text code {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.85em;
+  background: #e8e2d9;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+
+/* divider between exchanges */
+.coach-chat details + details {
+  border-top: 1px solid #ddd7cf;
+}
+
+.coach-chat summary:focus-visible {
+  outline: 2px solid #c96442;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-chat details::details-content {
+    transition-duration: 0.01s;
+  }
+  .coach-chat .chevron {
+    transition-duration: 0.01s;
+  }
+}
+
+@media (width < 480px) {
+  .coach-chat summary::before,
+  .coach-chat .answer::before {
+    width: 24px;
+    height: 24px;
+  }
+  .coach-chat .question-text,
+  .coach-chat .answer-text {
+    font-size: 0.875rem;
+  }
 }
 
 
