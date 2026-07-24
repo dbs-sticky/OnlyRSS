@@ -1497,7 +1497,7 @@ global-nav {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   cursor: pointer;
   list-style: none;
   -webkit-user-select: none;
