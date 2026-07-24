@@ -1622,6 +1622,19 @@ global-nav {
   border-top: 1px solid #ddd7cf;
 }
 
+/* modifier: same layout/animation as .coach-chat, without the human/Claude avatar circles */
+.coach-chat.no-avatar summary::before,
+.coach-chat.no-avatar .answer::before {
+  display: none;
+}
+
+.coach-chat.no-avatar .question-text h4 {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  display: inline;
+}
+
 .coach-chat summary:focus-visible {
   outline: 2px solid #c96442;
   outline-offset: 4px;
@@ -1648,6 +1661,12 @@ global-nav {
     font-size: 0.875rem;
   }
 }
+
+
+  /* used in the Claude diet coah article */
+.how { display: inline-block; font-family: var(--cta-font); font-size: 0.7rem; color: #fff; background-color: #0D9488; border-radius: 3px; padding: 1px 5px; margin-left: 5px; vertical-align: middle; }
+.num { background-color: #1D4ED8; }
+.callout { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 3px solid #2563EB; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14.5px; color: #334155; }
 
 
 /* set Print styles */

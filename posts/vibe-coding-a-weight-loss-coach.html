@@ -64,6 +64,22 @@
   <link rel="stylesheet" type="text/css" href="/styles/main104.css" />
   <link rel="alternate" type="application/rss+xml" title="RSS Feed for OnlyRSS.org" href="/feed.xml" />
 
+  <style>
+    .full-size-tall {
+      display: none;
+    }
+
+    @media (width <=768px) {
+      .full-size-wide {
+        display: none;
+      }
+
+      .full-size-tall {
+        display: inline;
+      }
+    }
+  </style>
+
   <!-- load scripts-->
   <script>
     if ("serviceWorker" in navigator) {
@@ -118,22 +134,196 @@
           — Mark Twain
         </blockquote>
 
-        <p>The result of this annual cycle is that I now—in my 50s—have a pretty good idea how to effectively lose weight. And after 30 years of “practice” this year (with the help of AI) I decided to perfect the process by going all in on the tracking and analytics side of things.</p>
+        <p>The result of this annual cycle is that I now—in my 50s—have a pretty good idea how to effectively lose weight. And after 30 years of “practice”, this year (with the help of AI) I decided to perfect the process by going all in on the tracking and analytics side of things.</p>
         <p>Typically I’d create a tracking spreadsheet that I’d use to record my calories consumed (via a food tracking app like MyFitnessPal or Nutracheck) and measured body weight. This year, I decided to take it a step further and build a more sophisticated solution.</p>
         <p>I had a Claude Pro subscription at my disposal, so I decided to see if AI could help me create something better. I’ve already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful Claude could be when it came to helping me with the weight loss diet.</p>
     </section>
 
     <section>
       <h2>What AI & I built</h2>
-      <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply summarise the final solution.</p>
+      <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply describe the final solution.</p>
     </section>
 
+    <figure>
+      <picture>
+        <source media="(width <= 768px)" srcset="../images/coach-diagram-tall.svg">
+        <img src="../images/coach-diagram-wide.svg"
+            alt="How my AI health coach connects: context sources and numbers feeding into Claude, which returns health and diet advice."
+            style="width:100%; height:auto;">
+      </picture>
+      <figcaption>How my AI health coach connects: context sources and numbers feeding into Claude, which returns health and diet advice. <a class="full-size-wide" href="../images/coach-diagram-wide.svg" target="_blank" rel="noopener">View full size</a><a class="full-size-tall" href="../images/coach-diagram-tall.svg" target="_blank" rel="noopener">View full size</a></figcaption>
+    </figure>
+
+      <h3>The Context</h3>
+      <p>The qualitative layer—the sources that explain <em>why</em> the numbers moved. Most are read-only; three (marked ↔) are ones the coach also writes back to.</p>
+
+      <div class="coach-chat no-avatar">
+        <details>
+          <summary>
+            <span class="question-text"><h4>Claude's files <span class="how">File access ↔</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>A small set of Markdown and PDF files that give the coach its standing brief: <code>Instructions.md</code> (how to behave and format things), <code>Context.md</code> (who I am, my routine, office locations, equipment), <code>weight-training-plan.md</code> and <code>Endurance-events.md</code> (current training), and <code>Health-assessment.pdf</code> (baseline health). They're read straight off disk every session. It's a two-way link—the coach can edit these too—so the system quietly refines its own instructions over time.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Tasks — Remember the Milk <span class="how">MCP ↔</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>My existing task manager, connected through its MCP. The coach reads what's on my plate for context, and creates tasks back into it. Typically, after discussing a topic with the coach, I'd then ask it to add a related task to the app. e.g. order oats on Friday, research creatine supplements, order HR chest strap etc.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Logseq journal <span class="how">File access ↔</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>My daily journal, one Markdown file per day, read directly from the folder. This is the single richest source of context: travel, weather, illness, social events, who I was with, what I was building — all the real-world detail that explains a surplus Saturday or a missed weigh-in. The coach writes back here too, maintaining a dedicated <code>Diet-2026</code> page and logging entries, so the journal is both an input it reads and an output it keeps up to date.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Strava (detailed) <span class="how">MCP</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Separate from the calorie figure on the Numbers side, the Strava MCP lets the coach open up an individual activity — pace, heart-rate streams, distance, elevation, segments, effort. Note: it's read-only, and requires a paid subscription to access.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Gmail <span class="how">MCP</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Connected via the Gmail MCP, scoped narrowly to my weekly Ocado shop confirmation—so the coach can see what food is actually coming into the house that week when it suggests meals. Read-only.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Google Calendar <span class="how">MCP</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Read through the Calendar MCP for events, office days, and holidays. Knowing I'm in the London office on Thursday, or away for a weekend, lets the coach plan around the days where eating is harder to control. Deliberately read-only—it reads my schedule, it never books anything.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <h3>The Numbers</h3>
+      <p>The quantitative core—calories in, calories out, and body weight—all funnelled into one custom app that does the physics, then exposed to the coach through a single connection.</p>
+
+      <div class="coach-chat no-avatar">
+        <details>
+          <summary>
+            <span class="question-text"><h4>Nutracheck — food <span class="how num">Custom scraper</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>My food diary lives in Nutracheck, which has no public API, so a custom scraper logs in and pulls each day's calories, macros (protein, carbs, fat, fibre) and the full meal-by-meal breakdown. This is the “calories in” half of the equation.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Strava—net exercise calories <span class="how num">API</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Strava's official API feeds the calorie cost of every logged activity into the tracker—the “calories out” that turns a day's intake into an actual deficit or surplus. (The same service is used twice by design: here as a single calorie number, and on the Context side for the detailed session data.)</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Body weight—Bluetooth scales <span class="how num">Custom Android app</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>A custom Android app (MiScaleReceiver) I built catches the reading from my Bluetooth scales and posts it straight to the tracker each morning, so the daily weigh-in is captured with no manual entry. This is the third input: the actual bodyweight the model checks its predictions against.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <span class="question-text"><h4>Weight Tracker App <span class="how num">the hub → MCP</span></h4></span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>A custom, vibe-coded web app running on my NAS that pulls those three feeds together and does the real work: daily and cumulative deficit, estimated TDEE and BMR, and an exponentially-smoothed trend weight that sees through daily water-weight noise. It's the single source of quantitative truth—and it's exposed to the coach through its own MCP, so Claude can ask for a day's log, an overview, or a weekly summary and reason over clean, computed numbers rather than raw scrapes.</p>
+              <p>This is covered in more detail in the next section.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <h3>The Weight Tracker app</h3>
+      <p class="lede">The quantitative heart of the whole setup: a custom web app that unifies three data feeds, does the calorie physics, and hands clean numbers to the coach. Everything else is context around this.</p>
+
+      <h4>How it was built</h4>
+      <p>It's a vibe-coded web app — built conversationally with AI rather than hand-written line by line — running as a Docker container on my home NAS, managed through Portainer. It started life as a way to stop screenshotting the Nutracheck table into chat, and grew into the single source of truth for the diet. Because it's mine, I can bend it to exactly how I think about the problem rather than living inside someone else's app's assumptions.</p>
+
+      <h4>The three feeds it unifies</h4>
+      <p>Its core job is to pull three otherwise-disconnected data sources into one daily row:</p>
+      <ul>
+        <li><strong>Calories in</strong> — scraped from my Nutracheck food diary, including full macro and meal-level detail.</li>
+        <li><strong>Calories out</strong> — the energy cost of every activity, straight from the Strava API.</li>
+        <li><strong>Body weight</strong> — my morning weigh-in, posted automatically from the Bluetooth scales by a small Android app I built.</li>
+      </ul>
+
+      <h4>The physics it computes</h4>
+      <p>From those inputs it derives the numbers that matter, per day and cumulatively:</p>
+      <ul>
+        <li><strong>BMR and TDEE</strong> — my resting burn, scaled by a sedentary multiplier (×1.38) and topped up with the day's actual exercise, to estimate total energy expenditure.</li>
+        <li><strong>Daily and cumulative deficit</strong> — intake versus expenditure, and the running total (which reached ~57,000 kcal by target).</li>
+        <li><strong>Trend weight</strong> — an exponentially-weighted moving average (α = 0.15) that smooths out daily water-weight noise, so a single heavy meal or a skipped weigh-in doesn't spook the line. This, not the raw scale, is what progress is judged against.</li>
+        <li><strong>Projection</strong> — a running estimate of when the target weight would be reached, based on the recent pace.</li>
+      </ul>
+      <div class="callout">The payoff of doing the physics honestly: across the whole diet, the deficit the app logged predicted 7.42&nbsp;kg of fat loss, and the trend weight actually fell 7.84&nbsp;kg — a 95% match between what the model said should happen and what the scales showed.</div>
+
+      <h4>Seeing the data</h4>
+      <p>The front end is built around the things I actually care about: a weight time-series with the trend line drawn through it, a calorie-deficit heatmap, weekly deficit bars, and macro breakdowns — all the design-and-dataviz side I enjoy. It also exposes weekly summaries (each Monday-to-Sunday block, matching the heatmap) and an at-a-glance overview: latest weigh-in, current trend, cumulative and average daily deficit, and progress to target.</p>
+
+      <h4>How I reach it — and how the coach does</h4>
+      <p>The app is published to the open web through a Cloudflare Tunnel, gated by Cloudflare Access so only I get in (Google sign-in, with a one-time passcode as a fallback). That means I can log or check it from anywhere, including a work laptop, without opening my home network. The coach reaches the same data through the app's own MCP, calling for a day's log, a weekly summary, or the overview — so it reasons over clean, computed figures rather than raw scrapes.</p>
+
+      <h4>The maintenance twin</h4>
+      <p>As I crossed from losing to holding, I forked a maintenance version onto its own branch and deployed it alongside the original as a parallel stack, so both run side by side. It's reframed around a different goal: instead of driving down to a target and projecting a finish date, it shows a band gauge (holding 63&nbsp;kg ± 1&nbsp;kg) and a weekly rate-of-change, with the calorie goal auto-derived from recent TDEE as "maintenance calories". Same underlying physiology model, different question — <em>am I holding station?</em> rather than <em>how fast am I losing?</em></p>
+
     <section>
-      <h2>Ask the coach</h2>
+      <h2>Some example exchanges with my AI coach</h2>
       <p>A few sample exchanges from the running conversation I’ve had with the coach over the past few months.</p>
       <div class="coach-chat">
 
-        <details name="coach-faq" open>
+        <details name="coach-faq">
           <summary>
             <span class="question-text">How was my total calorie deficit structured?</span>
             <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
@@ -200,11 +390,36 @@
           </div>
         </details>
 
+        <details name="coach-faq">
+          <summary>
+            <span class="question-text">Give me an assessment of last Tuesday</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+<p><strong>Tuesday 16 June — London Wall office day</strong></p>
+              <p><strong>Nutrition:</strong> 1,524 kcal | 128.4g protein | 656 kcal deficit</p>
+              <p>A well-managed day given the constraints. Three things to note:</p>
+              <ul>
+                <li><strong>Breakfast</strong> — you used the M&S pre-made Apple Crumble Overnight Oats (312 kcal, 19g protein) rather than your homemade version (328 kcal, 26g protein). Convenient for an early office start (Jake dropped you at Theale at 6:15am), but it cost you ~7g protein at the most important meal of the day. Worth batch-prepping your own the night before on office days if possible — the difference compounds across the week.</li>
+                <li><strong>Lunch (restaurant - new starter)</strong> — Salmon + mash + wakame seaweed + olive oil, ~601 kcal. Decent restaurant choice: salmon is an excellent protein source, seaweed is a strong gut health and micronutrient pick, and the portion looks reasonable for a restaurant. The mash with olive oil is the main calorie contributor but not unreasonable. Controlled eating out.</li>
+                <li><strong>Snack</strong> — 25g beef biltong on the train: 60 kcal, 13g protein. Perfect office/travel snack. High protein, portable, no refrigeration needed.</li>
+                <li><strong>Dinner</strong> — Chilli ⅙ + kidney beans + broccoli + basmati rice: 371 kcal, 26.8g protein. The batch cook from Monday paying dividends — minimal effort, solid macros.</li>
+                <li><strong>Supper</strong> — Biotiful Kefir Protein Cherry 250g: 180 kcal, 26.5g protein. Smart call here. This single item dragged total protein from ~102g to 128g and added live cultures. That supper habit is doing real work on days when lunch is restaurant-unpredictable.</li>
+              </ul>
+              <p>Fibre at 26g was the only real shortfall — office days will always struggle here.</p>
+              <p><strong>Exercise:</strong> 3.5km run, 18 mins, 189 kcal</p>
+              <p>The dominant story of the day. Meant to be a 5km effort run, cut short at 3.5km when the calf went tender. Your journal noted it "wasn't quite the soleus strain I had before" — different site or character — which is marginally reassuring, but you were right to stop immediately rather than push through. Given the JPMorgan race was 15 days away at that point, preserving the calf mattered more than the session.</p>
+              <p><strong>Overall:</strong> A disciplined office day with good damage limitation on the food side. The calf is the only real black mark, and that's not a nutrition or discipline failure — just bad timing. Deficit of 656 kcal on a day with minimal exercise is a good outcome.</p>
+            </div>
+          </div>
+        </details>
+
       </div>
     </section>
 
     <section>
-      <h2>Result</h2>
+      <h2>Diet result</h2>
       <p><!--TODO results / reflections--></p>
         <figure>
           <svg xmlns="http://www.w3.org/2000/svg" aria-label="Treemap of the 57,141&#8239;kcal diet deficit: walking 22,592, eating below sedentary burn 17,841, rides 5,890, runs 4,480, strength 3,281, rowing 3,057" viewBox="0 0 680 470">
