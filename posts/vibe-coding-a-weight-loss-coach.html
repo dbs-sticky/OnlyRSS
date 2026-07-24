@@ -144,6 +144,10 @@
     <section>
       <h2>What AI & I built</h2>
       <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply describe the final solution.</p>
+
+      <p>The solution is a two-part system: a quantitative core (The Numbers) that tracks calories in, calories out, and body weight (this is the web app I mentioned above, and it’s shown <span class="full-size-wide">on the right</span><span class="full-size-tall">at the top</span> in the diagram below), and a qualitative layer (The Context) that provides context for those numbers. The quantitative core is a custom web app that unifies three data feeds (Nutracheck, Strava, and Bluetooth scales) and computes the physics of weight loss. The qualitative layer is an AI health coach that connects to the quantitative core and other context sources (Logseq journal, Gmail, Google Calendar) to provide personalised advice.</p>
+
+
     </section>
 
     <figure>
@@ -244,7 +248,7 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>My food diary lives in Nutracheck, which has no public API, so a custom scraper logs in and pulls each day’s calories, macros (protein, carbs, fat, fibre) and the full meal-by-meal breakdown. This is the “calories in” half of the equation.</p>
+              <p>My food diary lives in Nutracheck, which has no public API (as best I can tell there are no user-friendly food tracking apps that offer API/MCP access to the data, I have “views” on this), so a custom scraper logs in and pulls each day’s calories, macros (protein, carbs, fat, fibre) and the full meal-by-meal breakdown. This is the “calories in” half of the equation.</p>
             </div>
           </div>
         </details>
