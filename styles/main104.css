@@ -1663,8 +1663,14 @@ global-nav {
 }
 
 
-  /* used in the Claude diet coah article */
-.how { display: inline-block; font-family: var(--cta-font); font-size: 0.7rem; color: #fff; background-color: #0D9488; border-radius: 3px; padding: 1px 5px; margin-left: 5px; vertical-align: middle; }
+  /* used in the Claude diet coach article */
+.how { display: inline-flex; align-items: center; gap: 4px; font-family: var(--cta-font); font-size: 0.7rem; color: #fff; background-color: #0D9488; border-radius: 3px; padding: 1px 6px; margin-left: 5px; vertical-align: middle; }
+.how svg { width: 0.85em; height: 0.85em; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.how.mcp { background-color: #6366F1; }
+.how.file { background-color: #059669; }
+.how.scraper { background-color: #B45309; }
+.how.api { background-color: #2563EB; }
+.how.app { background-color: #0D9488; }
 .num { background-color: #1D4ED8; }
 .callout { background: #F8FAFC; border: 1px solid #E2E8F0; border-left: 3px solid #2563EB; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; font-size: 14.5px; color: #334155; }
 
