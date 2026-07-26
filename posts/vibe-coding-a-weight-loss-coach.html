@@ -142,7 +142,7 @@
 
         <p>The result of this annual cycle is that I now—in my 50s—have a pretty good idea how to effectively lose weight. And after 30 years of “practice”, this year (with the help of AI) I decided to perfect the process by going all in on the tracking and analytics side of things.</p>
         <p>Typically I’d create a tracking spreadsheet that I’d use to record my calories consumed (via a food tracking app like MyFitnessPal or Nutracheck) and measured body weight. This year, I decided to take it a step further and build a more sophisticated solution.</p>
-        <p>I had a Claude Pro (£18pm) subscription at my disposal, so I decided to see if AI could help me create something better. I’d already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful it could be when helping with a project, I was keeping it too restrained.</p>
+        <p>I had a Claude Pro (£18pm) subscription at my disposal, so I decided to see if AI could help me create something better. I’d already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful it could be with a project—I was keeping it too restrained.</p>
         
         <p>What started as a simple dashboard requiring manual inputs (not unlike the previous spreadsheets) grew into a data-viz-heavy web app with fully automated inputs and a direct connection to Claude Cowork via an MCP server. AI wasn’t just helping me build the app anymore—it was answering my health- and diet-related queries directly, using the app’s data as its primary source.</p>
     </section>
@@ -152,9 +152,6 @@
       <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply describe the final solution.</p>
 
       <p>The solution is a two-part system: a quantitative core (The Numbers) that tracks calories in, calories out, and body weight (this is the web app I mentioned above, and it’s shown <span class="full-size-wide">on the right</span><span class="full-size-tall">at the top</span> in the diagram below), and a qualitative layer (The Context) that provides context for those numbers. The quantitative core is a custom web app that unifies three data feeds (Nutracheck, Strava, and Bluetooth scales) and computes the physics of weight loss. The qualitative layer is an AI health coach that connects to the quantitative core and other context sources (Logseq journal, Gmail, Google Calendar) to provide personalised advice.</p>
-
-
-    </section>
 
     <figure>
       <picture>
@@ -237,7 +234,7 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>Read through the Calendar MCP for events, office days, and holidays. Knowing I’m in the London office on Thursday, or away for a weekend, lets the coach plan around the days where eating is harder to control. Deliberately read-only—it reads my schedule, it never books anything.</p>
+              <p>Read through the Calendar MCP for events, office days, and holidays. Knowing I’m in the London office on Thursday, or away for a weekend, lets the coach plan around the days where eating is harder to control. Deliberately read-only—it reads my schedule; it never books anything.</p>
             </div>
           </div>
         </details>
@@ -254,7 +251,7 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>My food diary lives in Nutracheck, which has no public API (as best I can tell there are no user-friendly food tracking apps that offer API/MCP access to the data, I have “views” on this), so a custom scraper logs in and pulls each day’s calories, macros (protein, carbs, fat, fibre) and the full meal-by-meal breakdown. This is the “calories in” half of the equation.</p>
+              <p>My food diary lives in Nutracheck, which has no public API (as best I can tell there are no user-friendly food tracking apps that offer API/MCP access to the data—I have “views” on this), so a custom scraper logs in and pulls each day’s calories, macros (protein, carbs, fat, fibre) and the full meal-by-meal breakdown. This is the “calories in” half of the equation.</p>
             </div>
           </div>
         </details>
@@ -298,7 +295,7 @@
       </div>
 
       <h3>The Weight Tracker app</h3>
-      <p class="lede">The quantitative heart of the whole setup: a custom web app that unifies three data feeds, does the calorie physics, and hands clean numbers to the coach. Everything else is context around this.</p>
+      <p>The quantitative heart of the whole setup: a custom web app that unifies three data feeds, models the diet progress, and makes the output available to me via a UI dashboard and to the AI via an MCP server.</p>
 
       <h4>How it was built</h4>
       <p>It’s a vibe-coded web app—built conversationally with AI rather than hand-written line by line—running as a Docker container on my home NAS, managed through Portainer. It started life as a way to stop screenshotting the Nutracheck table into chat, and grew into the single source of truth for the diet. Because it’s mine, I can bend it to exactly how I think about the problem rather than living inside someone else’s app’s assumptions.</p>
@@ -311,27 +308,124 @@
         <li><strong>Body weight</strong>—my morning weigh-in, posted automatically from the Bluetooth scales by a small Android app I built.</li>
       </ul>
 
-      <h4>The physics it computes</h4>
-      <p>From those inputs it derives the numbers that matter, per day and cumulatively:</p>
+      <h4>The model</h4>
+      <p>From those inputs it derives the following quantities:</p>
       <ul>
         <li><strong>BMR and TDEE</strong>—my resting burn, scaled by a sedentary multiplier (×1.38) and topped up with the day’s actual exercise, to estimate total energy expenditure.</li>
-        <li><strong>Daily and cumulative deficit</strong>—intake versus expenditure, and the running total (which reached ~57,000 kcal by target).</li>
-        <li><strong>Trend weight</strong>—an exponentially-weighted moving average (α = 0.15) that smooths out daily water-weight noise, so a single heavy meal or a skipped weigh-in doesn’t spook the line. This, not the raw scale, is what progress is judged against.</li>
+        <li><strong>Daily and cumulative deficit</strong>—intake versus expenditure, and the running total.</li>
+        <li><strong>Trend weight</strong>—an exponentially-weighted moving average (α = 0.15) that smooths out daily water-weight noise, so a single heavy meal or a skipped weigh-in doesn’t spook the line. This, not the raw scale measurements, is what progress is judged against.</li>
         <li><strong>Projection</strong>—a running estimate of when the target weight would be reached, based on the recent pace.</li>
       </ul>
       <div class="callout">The payoff of doing the physics honestly: across the whole diet, the deficit the app logged predicted 7.42&nbsp;kg of fat loss, and the trend weight actually fell 7.84&nbsp;kg—a 95% match between what the model said should happen and what the scales showed.</div>
 
-      <h4>Seeing the data</h4>
+      <h4>Visualising the data</h4>
       <p>The front end is built around the things I actually care about: a weight time-series with the trend line drawn through it, a calorie-deficit heatmap, weekly deficit bars, and macro breakdowns—all the design-and-dataviz side I enjoy. It also exposes weekly summaries (each Monday-to-Sunday block, matching the heatmap) and an at-a-glance overview: latest weigh-in, current trend, cumulative and average daily deficit, and progress to target.</p>
 
-      <h4>How I reach it—and how the coach does</h4>
-      <p>The app is published to the open web through a Cloudflare Tunnel, gated by Cloudflare Access so only I get in (Google sign-in, with a one-time passcode as a fallback). That means I can log or check it from anywhere, including a work laptop, without opening my home network. The coach reaches the same data through the app’s own MCP, calling for a day’s log, a weekly summary, or the overview—so it reasons over clean, computed figures rather than raw scrapes.</p>
+      <figure>
+        <img src="/images/diet-daily-heatmap.webp" width="460" height="507" loading="lazy" alt="A daily heatmap chart showing daily calorie deficit per day using colour coding.">
+        <figcaption>
+          Useful for revealing daily patterns, e.g. Saturdays had a mean calorie deficit of 370&nbsp;kcal—just half of the mean for most other days.
+        </figcaption>
+      </figure>
 
-      <h4>The maintenance twin</h4>
-      <p>As I crossed from losing to holding, I forked a maintenance version onto its own branch and deployed it alongside the original as a parallel stack, so both run side by side. It’s reframed around a different goal: instead of driving down to a target and projecting a finish date, it shows a band gauge (holding 63&nbsp;kg ± 1&nbsp;kg) and a weekly rate-of-change, with the calorie goal auto-derived from recent TDEE as “maintenance calories.” Same underlying physiology model, different question—<em>am I holding station?</em> rather than <em>how fast am I losing?</em></p>
+      <figure>
+        <img src="/images/diet-daily-progress.webp" width="460" height="397" loading="lazy" alt="A series of line charts, each chart represents the calorie deficit progress for specific weeks">
+        <figcaption>
+          Tracks cumulative daily calorie deficit week by week (with the right y-axis actually showing the modelled weight loss for that week). This is the chart that probably kept me on track the most.
+        </figcaption>
+      </figure>
 
-      <h3>Determining your Sedentary Activity Multiplier</h3>
-      <p>My app assumed a sedentary activity multiplier of 1.38—the standard textbook TDEE figure. Over the 20 April–19 July 2026 window (90 tracked days), I can solve for the real value instead of assuming it: both sides of the energy equation—what I burned and what I supplied—must total the same figure, which pins down the one number I never measured directly, non-exercise daily-living activity.</p>
+      <figure>
+        <img src="/images/diet-macro-tracking.webp" width="460" height="397" loading="lazy" alt="Weekly macro progression, week 9: protein 130g of 132g target (on track), carbs 147g of 156g (slightly under), fat 61g of 50g (over target), fibre 28g of 30g minimum (under minimum).">
+        <figcaption>
+          Weekly macro progression for week 9 of the diet. Each row compares the average daily amount eaten against its guide value: protein landed almost exactly on target (130g vs a 132g guide), carbs came in slightly under (147g vs 156g), and fat ran over (61g vs a 50g guide). Fibre fell short of its 30g daily minimum at 28g. The dumbbell layout marks each guide with an open ring and the actual amount with a filled dot, so it’s easy to see at a glance which macros are under, on, or over target for the week. 
+        </figcaption>
+      </figure>
+
+    </section>
+
+    <section>
+      <h2>Ok, so what does all this stuff enable me to do?</h2>
+      <p>Honestly, quite a lot. Once the AI has access to The Numbers and The Context, it can provide highly personalised insights.</p>
+
+      <p>Everything that follows was a result of me simply asking the AI coach questions, and it reasoning over the data to provide answers (and generating any useful data visualisations along the way).</p>
+
+      <h3>I can ask my health coach for advice</h3>
+      <div class="coach-chat">
+
+        <details name="coach-faq">
+          <summary>
+            <span class="question-text">Are there any diet days that stand out as being “problematic”?</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Across the full 93-day diet, only two kinds of days really stand out as problematic—and only one of them is actually worth worrying about.</p>
+              <p><strong>The genuine flag: two “surplus + high-fat” restaurant days</strong></p>
+              <ul>
+                <li>6 Jun (Sat)—pub walks and dinner with neighbours: 2,725 kcal, 92.8g fat, +284 kcal surplus</li>
+                <li>20 Jun (Sat)—Penny’s birthday play in London: 2,561 kcal, 88.2g fat, +453 kcal surplus</li>
+                <li>11 Jul (Sat)—in-laws in Evesham: 2,546 kcal, 94.7g fat, +559 kcal surplus, your single worst day of the whole diet</li>
+              </ul>
+              <p>These three share a pattern: all Saturdays, all social/restaurant occasions, all fat-driven rather than just “too much food.” None of them derailed anything—each was followed by a normal deficit day and the trend kept falling regardless. If there’s a real lesson here it’s that Saturday-away-from-home is your one recurring risk day, not that anything went wrong.</p>
+              <p><strong>Not actually problems, despite looking alarming at first glance:</strong></p>
+              <ul>
+                <li>The Kirkby Lonsdale holiday days (25–29 May) show up repeatedly in the “low protein” and “low fibre” flags—but that’s a 5-day hiking holiday with 14–16km hill hikes and 3,235 kcal on the biggest day. That’s context, not carelessness; you were fuelling serious effort in a place without your usual meal planning.</li>
+                <li>Several “huge deficit &gt;1,000 kcal” days (20 Apr, 13 Jun, 3 May) look like under-eating red flags on paper, but every one of them pairs with 600–1,060 kcal of logged exercise on the same day—they’re big activity days, not starvation days. That’s exactly the kind of pattern the maintenance plan already tells you to watch for going forward (unplanned deficit from a heavy training day, not a diet mistake).</li>
+                <li>The low-fibre days cluster almost entirely around restaurant/pub meals and hiking days—again, circumstance rather than a habit to fix.</li>
+              </ul>
+              <p>Bottom line: across 93 days, there isn’t a stretch of consecutive bad days or a slow drift into bad habits—just three isolated, explainable Saturday blowouts, all absorbed without consequence. If I had to give you one thing to watch for next time, it’d be: pre-plan Saturday-away meals a little, since that’s the one day-type that repeatedly produced your only three surplus days of substance.</p>
+            </div>
+          </div>
+        </details>
+
+        <details name="coach-faq">
+          <summary>
+            <span class="question-text">Look at my food choices while on the diet, anything I should change once I move towards maintenance?</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+              <p>Looking back at the pattern across all 93 days, the eating system itself was genuinely well-designed—repeatable, protein-forward, and it clearly worked. But a few things were shaped specifically by being in a deficit, and now that you’ve got ~400 extra calories to work with, they’re worth revisiting rather than just carrying forward unchanged.</p>
+              <p><strong>Fibre was consistently under target</strong>, and it’s an easy fix now. Average across the diet was 26.7g against your own 30g target, and it dipped below 20g on 13 separate days—nearly always driven by restaurant meals, pub lunches, or hiking days rather than home cooking. With 400 more calories to spend, this is the cheapest win available: an extra piece of fruit, a bigger veg portion, or swapping white basmati for brown on a home dinner closes the gap without any real sacrifice.</p>
+              <p><strong>The protein-bar reliance was a deficit-era crutch</strong> worth trimming. You cycled through five different bars (Grenade, Fulfil, Nick’s ×2 flavours, plus Graham’s protein pot)—sensible when you needed dense protein at low calories, but now that you have calorie headroom, whole-food protein (eggs, fish, dairy, chicken—all things you already eat well at lunch) delivers the same protein with better satiety and more micronutrients. I wouldn’t cut the bars entirely—they’re genuinely useful for hitting 140g on a busy day—but if 2–3 a week became 1, that’s a reasonable maintenance shift.</p>
+              <p><strong>Vegetable variety was narrow.</strong> The dinner side was almost always broccoli, Chantenay carrots, or the salad trio (cherry tomatoes, rocket, cucumber). Nutritionally fine, but a diet you’re going to run for years benefits from more rotation—different colours, different micronutrients. Easy to fold into the same chilli/balti/burger dinner rotation without changing the system, just varying what sits alongside it.</p>
+              <p><strong>Alcohol and treats were already well-calibrated</strong>—don’t change this. Wine on 21 evenings (usually 125–250ml), low-cal beers, the occasional brownie or Biscoff—all logged, all portioned, never derailing anything. This is exactly the kind of sustainable moderation a maintenance phase should keep, not tighten or loosen.</p>
+              <p><strong>Breakfast doesn’t need to change at all.</strong> The overnight oats on 63 of 93 days was your best-performing habit—no decision fatigue, consistent macros, good fibre contribution (9.2g on its own). Keep it exactly as is.</p>
+              <p>If I had to rank these: fix the fibre gap first (it’s free calories doing useful work), then gradually lean the snack slot toward whole food rather than bars, and use the extra maintenance calories to add vegetable variety rather than just more of the same foods in bigger portions.</p>
+            </div>
+          </div>
+        </details>
+
+        <details name="coach-faq">
+          <summary>
+            <span class="question-text">Give me an assessment of last Tuesday</span>
+            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
+          </summary>
+          <div class="answer">
+            <div class="answer-text">
+<p><strong>Tuesday 16 June—London Wall office day</strong></p>
+              <p><strong>Nutrition:</strong> 1,524 kcal | 128.4g protein | 656 kcal deficit</p>
+              <p>A well-managed day given the constraints. Three things to note:</p>
+              <ul>
+                <li><strong>Breakfast</strong>—you used the M&S pre-made Apple Crumble Overnight Oats (312 kcal, 19g protein) rather than your homemade version (328 kcal, 26g protein). Convenient for an early office start (Jake dropped you at Theale at 6:15am), but it cost you ~7g protein at the most important meal of the day. Worth batch-prepping your own the night before on office days if possible—the difference compounds across the week.</li>
+                <li><strong>Lunch (restaurant—new starter)</strong>—Salmon + mash + wakame seaweed + olive oil, ~601 kcal. Decent restaurant choice: salmon is an excellent protein source, seaweed is a strong gut health and micronutrient pick, and the portion looks reasonable for a restaurant. The mash with olive oil is the main calorie contributor but not unreasonable. Controlled eating out.</li>
+                <li><strong>Snack</strong>—25g beef biltong on the train: 60 kcal, 13g protein. Perfect office/travel snack. High protein, portable, no refrigeration needed.</li>
+                <li><strong>Dinner</strong>—Chilli ⅙ + kidney beans + broccoli + basmati rice: 371 kcal, 26.8g protein. The batch cook from Monday paying dividends—minimal effort, solid macros.</li>
+                <li><strong>Supper</strong>—Biotiful Kefir Protein Cherry 250g: 180 kcal, 26.5g protein. Smart call here. This single item dragged total protein from ~102g to 128g and added live cultures. That supper habit is doing real work on days when lunch is restaurant-unpredictable.</li>
+              </ul>
+              <p>Fibre at 26g was the only real shortfall—office days will always struggle here.</p>
+              <p><strong>Exercise:</strong> 3.5km run, 18 mins, 189 kcal</p>
+              <p>The dominant story of the day. Meant to be a 5km effort run, cut short at 3.5km when the calf went tender. Your journal noted it “wasn’t quite the soleus strain I had before”—different site or character—which is marginally reassuring, but you were right to stop immediately rather than push through. Given the JPMorgan race was 15 days away at that point, preserving the calf mattered more than the session.</p>
+              <p><strong>Overall:</strong> A disciplined office day with good damage limitation on the food side. The calf is the only real black mark, and that’s not a nutrition or discipline failure—just bad timing. Deficit of 656 kcal on a day with minimal exercise is a good outcome.</p>
+            </div>
+          </div>
+        </details>
+
+      </div>
+
+      <h3>I can determine my Sedentary Activity Multiplier</h3>
+      <p>The model in the weight tracker app initially assumed a sedentary activity multiplier of 1.4—a standard textbook figure. Over the 20 April–19 July 2026 window (90 tracked days), I can solve for the real value instead of assuming it: both sides of the energy equation—what I burned and what I supplied—must total the same figure, which pins down the one number I never measured directly, non-exercise daily-living activity.</p>
 
       <figure>
         <svg xmlns="http://www.w3.org/2000/svg" aria-label="Stacked bar chart deriving the activity multiplier: energy burned as BMR 132,401 kcal, daily living 52,089 kcal (derived), and exercise 39,300 kcal; energy supplied as food eaten 163,448 kcal and body fat burned 60,342 kcal; both bars total 223,790 kcal" viewBox="0 0 680 210">
@@ -442,109 +536,13 @@
 
       <p>Body fat burned is calculated from the drop in trend weight (70.80–62.96&nbsp;kg, a 7.84&nbsp;kg fall) at 7,700&nbsp;kcal per kg. Using the raw first and last weigh-ins instead (an 8.6&nbsp;kg fall) gives a multiplier of 1.438; the smoothed trend is the more reliable basis, since single measurements at either end carry daily water-weight noise. Because exercise is counted separately from Strava, this multiplier covers <em>non-exercise</em> activity only—standing, cooking, walking about the house—so it shouldn’t be compared directly with the “moderately active” figures in standard TDEE calculators, which bundle workouts in.</p>
 
-    <section>
-      <h2>Some example exchanges with my AI coach</h2>
-      <p>A few sample exchanges from the running conversation I’ve had with the coach over the past few months.</p>
-      <div class="coach-chat">
+      <h3>I can understand exactly what it was I did that resulted in weight loss</h3>
+      <p>I was recently made aware of <a href="https://en.wikipedia.org/wiki/Thought-terminating_clich%C3%A9" target="_blank">thought-terminating clichés</a> and straight away recognised they’re something I’m very guilty of. One of those is the following: <q>exercise is a terrible way to lose weight.</q> For the majority of people who want to lose weight, it’s probably correct—the argument being that it’s much easier to <em>not eat</em> a slice of bread than it is to actually run a mile (you burn a slice of bread’s worth of calories when you run a mile).</p>
 
-        <details name="coach-faq">
-          <summary>
-            <span class="question-text">How was my total calorie deficit structured?</span>
-            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
-          </summary>
-          <div class="answer">
-            <div class="answer-text">
-              <p>Your total logged deficit was 57,141 kcal (equivalent to 7.42 kg of fat), split between movement and diet:</p>
-              <p><strong>Movement—39,300 kcal (68.8%)</strong></p>
-              <ul>
-                <li>Walking: 22,592 kcal (39.5%)—75 walks, 434 km</li>
-                <li>Rides: 5,890 kcal (10.3%)—8 rides, 300 km</li>
-                <li>Runs: 4,480 kcal (7.8%)—16 runs, 72.5 km</li>
-                <li>Strength: 3,281 kcal (5.7%)—19 sessions</li>
-                <li>Rowing: 3,057 kcal (5.3%)—9 sessions, 55 km</li>
-              </ul>
-              <p><strong>Diet—17,841 kcal (31.2%)</strong><br>
-              Eating below your sedentary burn (avg intake 1,816 kcal vs ~2,015 kcal sedentary TDEE).</p>
-              <p>The standout: walking alone (22,592 kcal) outweighs the entire dietary contribution (17,841 kcal)—one habit, done almost every day, did more work than every calorie you ever skipped at the table combined.</p>
-            </div>
-          </div>
-        </details>
+      <p>But for me, the data shows that exercise was a very significant contributor to the deficit that drove the weight loss. The treemap below splits the total 57,141&nbsp;kcal deficit into movement (68.8%) and diet (31.2%), with movement broken into walks, rides, runs, strength and rowing. <strong>Walking alone contributed 39.5% of the total deficit.</strong> A fact I should probably add to my <a href="/posts/the-daily-constitutional.html">blog post about walking</a>!</p>
 
-        <details name="coach-faq">
-          <summary>
-            <span class="question-text">Are there any diet days that stand out as being “problematic”?</span>
-            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
-          </summary>
-          <div class="answer">
-            <div class="answer-text">
-              <p>Across the full 93-day diet, only two kinds of days really stand out as problematic—and only one of them is actually worth worrying about.</p>
-              <p><strong>The genuine flag: two “surplus + high-fat” restaurant days</strong></p>
-              <ul>
-                <li>6 Jun (Sat)—pub walks and dinner with neighbours: 2,725 kcal, 92.8g fat, +284 kcal surplus</li>
-                <li>20 Jun (Sat)—Penny’s birthday play in London: 2,561 kcal, 88.2g fat, +453 kcal surplus</li>
-                <li>11 Jul (Sat)—in-laws in Evesham: 2,546 kcal, 94.7g fat, +559 kcal surplus, your single worst day of the whole diet</li>
-              </ul>
-              <p>These three share a pattern: all Saturdays, all social/restaurant occasions, all fat-driven rather than just “too much food.” None of them derailed anything—each was followed by a normal deficit day and the trend kept falling regardless. If there’s a real lesson here it’s that Saturday-away-from-home is your one recurring risk day, not that anything went wrong.</p>
-              <p><strong>Not actually problems, despite looking alarming at first glance:</strong></p>
-              <ul>
-                <li>The Kirkby Lonsdale holiday days (25–29 May) show up repeatedly in the “low protein” and “low fibre” flags—but that’s a 5-day hiking holiday with 14–16km hill hikes and 3,235 kcal on the biggest day. That’s context, not carelessness; you were fuelling serious effort in a place without your usual meal planning.</li>
-                <li>Several “huge deficit &gt;1,000 kcal” days (20 Apr, 13 Jun, 3 May) look like under-eating red flags on paper, but every one of them pairs with 600–1,060 kcal of logged exercise on the same day—they’re big activity days, not starvation days. That’s exactly the kind of pattern the maintenance plan already tells you to watch for going forward (unplanned deficit from a heavy training day, not a diet mistake).</li>
-                <li>The low-fibre days cluster almost entirely around restaurant/pub meals and hiking days—again, circumstance rather than a habit to fix.</li>
-              </ul>
-              <p>Bottom line: across 93 days, there isn’t a stretch of consecutive bad days or a slow drift into bad habits—just three isolated, explainable Saturday blowouts, all absorbed without consequence. If I had to give you one thing to watch for next time, it’d be: pre-plan Saturday-away meals a little, since that’s the one day-type that repeatedly produced your only three surplus days of substance.</p>
-            </div>
-          </div>
-        </details>
+      <p>Let me reiterate this point again.</p>
 
-        <details name="coach-faq">
-          <summary>
-            <span class="question-text">Look at my food choices while on the diet, anything I should change once I move towards maintenance?</span>
-            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
-          </summary>
-          <div class="answer">
-            <div class="answer-text">
-              <p>Looking back at the pattern across all 93 days, the eating system itself was genuinely well-designed—repeatable, protein-forward, and it clearly worked. But a few things were shaped specifically by being in a deficit, and now that you’ve got ~400 extra calories to work with, they’re worth revisiting rather than just carrying forward unchanged.</p>
-              <p><strong>Fibre was consistently under target</strong>, and it’s an easy fix now. Average across the diet was 26.7g against your own 30g target, and it dipped below 20g on 13 separate days—nearly always driven by restaurant meals, pub lunches, or hiking days rather than home cooking. With 400 more calories to spend, this is the cheapest win available: an extra piece of fruit, a bigger veg portion, or swapping white basmati for brown on a home dinner closes the gap without any real sacrifice.</p>
-              <p><strong>The protein-bar reliance was a deficit-era crutch</strong> worth trimming. You cycled through five different bars (Grenade, Fulfil, Nick’s ×2 flavours, plus Graham’s protein pot)—sensible when you needed dense protein at low calories, but now that you have calorie headroom, whole-food protein (eggs, fish, dairy, chicken—all things you already eat well at lunch) delivers the same protein with better satiety and more micronutrients. I wouldn’t cut the bars entirely—they’re genuinely useful for hitting 140g on a busy day—but if 2–3 a week became 1, that’s a reasonable maintenance shift.</p>
-              <p><strong>Vegetable variety was narrow.</strong> The dinner side was almost always broccoli, Chantenay carrots, or the salad trio (cherry tomatoes, rocket, cucumber). Nutritionally fine, but a diet you’re going to run for years benefits from more rotation—different colours, different micronutrients. Easy to fold into the same chilli/balti/burger dinner rotation without changing the system, just varying what sits alongside it.</p>
-              <p><strong>Alcohol and treats were already well-calibrated</strong>—don’t change this. Wine on 21 evenings (usually 125–250ml), low-cal beers, the occasional brownie or Biscoff—all logged, all portioned, never derailing anything. This is exactly the kind of sustainable moderation a maintenance phase should keep, not tighten or loosen.</p>
-              <p><strong>Breakfast doesn’t need to change at all.</strong> The overnight oats on 63 of 93 days was your best-performing habit—no decision fatigue, consistent macros, good fibre contribution (9.2g on its own). Keep it exactly as is.</p>
-              <p>If I had to rank these: fix the fibre gap first (it’s free calories doing useful work), then gradually lean the snack slot toward whole food rather than bars, and use the extra maintenance calories to add vegetable variety rather than just more of the same foods in bigger portions.</p>
-            </div>
-          </div>
-        </details>
-
-        <details name="coach-faq">
-          <summary>
-            <span class="question-text">Give me an assessment of last Tuesday</span>
-            <svg class="chevron" viewBox="0 0 20 20"><polyline points="5 8 10 13 15 8"/></svg>
-          </summary>
-          <div class="answer">
-            <div class="answer-text">
-<p><strong>Tuesday 16 June—London Wall office day</strong></p>
-              <p><strong>Nutrition:</strong> 1,524 kcal | 128.4g protein | 656 kcal deficit</p>
-              <p>A well-managed day given the constraints. Three things to note:</p>
-              <ul>
-                <li><strong>Breakfast</strong>—you used the M&S pre-made Apple Crumble Overnight Oats (312 kcal, 19g protein) rather than your homemade version (328 kcal, 26g protein). Convenient for an early office start (Jake dropped you at Theale at 6:15am), but it cost you ~7g protein at the most important meal of the day. Worth batch-prepping your own the night before on office days if possible—the difference compounds across the week.</li>
-                <li><strong>Lunch (restaurant—new starter)</strong>—Salmon + mash + wakame seaweed + olive oil, ~601 kcal. Decent restaurant choice: salmon is an excellent protein source, seaweed is a strong gut health and micronutrient pick, and the portion looks reasonable for a restaurant. The mash with olive oil is the main calorie contributor but not unreasonable. Controlled eating out.</li>
-                <li><strong>Snack</strong>—25g beef biltong on the train: 60 kcal, 13g protein. Perfect office/travel snack. High protein, portable, no refrigeration needed.</li>
-                <li><strong>Dinner</strong>—Chilli ⅙ + kidney beans + broccoli + basmati rice: 371 kcal, 26.8g protein. The batch cook from Monday paying dividends—minimal effort, solid macros.</li>
-                <li><strong>Supper</strong>—Biotiful Kefir Protein Cherry 250g: 180 kcal, 26.5g protein. Smart call here. This single item dragged total protein from ~102g to 128g and added live cultures. That supper habit is doing real work on days when lunch is restaurant-unpredictable.</li>
-              </ul>
-              <p>Fibre at 26g was the only real shortfall—office days will always struggle here.</p>
-              <p><strong>Exercise:</strong> 3.5km run, 18 mins, 189 kcal</p>
-              <p>The dominant story of the day. Meant to be a 5km effort run, cut short at 3.5km when the calf went tender. Your journal noted it “wasn’t quite the soleus strain I had before”—different site or character—which is marginally reassuring, but you were right to stop immediately rather than push through. Given the JPMorgan race was 15 days away at that point, preserving the calf mattered more than the session.</p>
-              <p><strong>Overall:</strong> A disciplined office day with good damage limitation on the food side. The calf is the only real black mark, and that’s not a nutrition or discipline failure—just bad timing. Deficit of 656 kcal on a day with minimal exercise is a good outcome.</p>
-            </div>
-          </div>
-        </details>
-
-      </div>
-    </section>
-
-    <section>
-      <h2>Diet result</h2>
-      <p><!--TODO results / reflections--></p>
         <figure>
           <svg xmlns="http://www.w3.org/2000/svg" aria-label="Treemap of the 57,141&#8239;kcal diet deficit: walking 22,592, eating below sedentary burn 17,841, rides 5,890, runs 4,480, strength 3,281, rowing 3,057" viewBox="0 0 680 470">
             <title style="fill:#000;stroke:none;color:#0b0b0b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Where the deficit came from</title>
