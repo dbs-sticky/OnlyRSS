@@ -78,6 +78,12 @@
         display: inline;
       }
     }
+
+    .callout math {
+      display: block;
+      margin: 16px 0;
+      font-size: 1.05em;
+    }
   </style>
 
   <!-- load scripts-->
@@ -323,6 +329,118 @@
 
       <h4>The maintenance twin</h4>
       <p>As I crossed from losing to holding, I forked a maintenance version onto its own branch and deployed it alongside the original as a parallel stack, so both run side by side. It’s reframed around a different goal: instead of driving down to a target and projecting a finish date, it shows a band gauge (holding 63&nbsp;kg ± 1&nbsp;kg) and a weekly rate-of-change, with the calorie goal auto-derived from recent TDEE as “maintenance calories.” Same underlying physiology model, different question—<em>am I holding station?</em> rather than <em>how fast am I losing?</em></p>
+
+      <h3>Determining your Sedentary Activity Multiplier</h3>
+      <p>My app assumed a sedentary activity multiplier of 1.38—the standard textbook TDEE figure. Over the 20 April–19 July 2026 window (90 tracked days), I can solve for the real value instead of assuming it: both sides of the energy equation—what I burned and what I supplied—must total the same figure, which pins down the one number I never measured directly, non-exercise daily-living activity.</p>
+
+      <figure>
+        <svg xmlns="http://www.w3.org/2000/svg" aria-label="Stacked bar chart deriving the activity multiplier: energy burned as BMR 132,401 kcal, daily living 52,089 kcal (derived), and exercise 39,300 kcal; energy supplied as food eaten 163,448 kcal and body fat burned 60,342 kcal; both bars total 223,790 kcal" viewBox="0 0 680 210">
+          <title>Deriving the sedentary activity multiplier from 90 days of tracked data</title>
+          <desc>Two horizontal stacked bars, both totalling 223,790&#8239;kcal. Energy burned splits into BMR 132,401, daily living 52,089 (derived), and exercise 39,300. Energy supplied splits into food eaten 163,448 and body fat burned 60,342.</desc>
+          <style>text { font-family: "Anthropic Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }</style>
+          <defs>
+            <pattern id="amHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="8" height="8" fill="#fff3d6"/>
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#e0a300" stroke-width="3"/>
+            </pattern>
+          </defs>
+
+          <text x="10" y="14"><tspan font-size="13" font-weight="600" fill="#1e293b">Energy burned</tspan><tspan font-size="11" fill="#64748b"> (what my body used)</tspan></text>
+          <rect x="10" y="34" width="349.4" height="56" fill="#2f6fb0" stroke="#fff" stroke-width="1.5"/>
+          <text x="184.7" y="54" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">BMR</text>
+          <text x="184.7" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">132,401</text>
+
+          <rect x="359.4" y="34" width="137.4" height="56" fill="url(#amHatch)" stroke="#c98a00" stroke-width="1.5"/>
+          <text x="428.1" y="50" text-anchor="middle" font-size="11" font-weight="600" fill="#6b4a06">Daily living</text>
+          <text x="428.1" y="61" text-anchor="middle" font-size="9" fill="#8a6300">(derived)</text>
+          <text x="428.1" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#4a3300">52,089</text>
+
+          <rect x="496.8" y="34" width="103.7" height="56" fill="#12805a" stroke="#fff" stroke-width="1.5"/>
+          <text x="548.65" y="54" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Exercise</text>
+          <text x="548.65" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">39,300</text>
+
+          <text x="608" y="66" font-size="11" fill="#64748b">= 223,790</text>
+
+          <text x="10" y="114"><tspan font-size="13" font-weight="600" fill="#1e293b">Energy supplied</tspan><tspan font-size="11" fill="#64748b"> (where it came from)</tspan></text>
+          <rect x="10" y="134" width="431.3" height="56" fill="#c1502e" stroke="#fff" stroke-width="1.5"/>
+          <text x="225.65" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Food eaten</text>
+          <text x="225.65" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">163,448</text>
+
+          <rect x="441.3" y="134" width="159.2" height="56" fill="#4b3a9c" stroke="#fff" stroke-width="1.5"/>
+          <text x="520.9" y="154" text-anchor="middle" font-size="11" font-weight="600" fill="#fff">Body fat burned</text>
+          <text x="520.9" y="172" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">60,342</text>
+
+          <text x="608" y="166" font-size="11" fill="#64748b">= 223,790</text>
+        </svg>
+        <figcaption>Deriving the sedentary activity multiplier: both sides of the 90-day energy equation total 223,790&#8239;kcal, which pins daily-living activity at 52,089&#8239;kcal and the multiplier at 1.393.</figcaption>
+      </figure>
+
+      <div class="callout">
+        <p style="margin:0 0 8px;">Solving for the one unknown, then the multiplier it implies:</p>
+        <math display="block">
+          <mrow>
+            <mi>Daily living</mi>
+            <mo>=</mo>
+            <mi>Total energy</mi>
+            <mo>&#8722;</mo>
+            <mi>BMR</mi>
+            <mo>&#8722;</mo>
+            <mi>Exercise</mi>
+          </mrow>
+        </math>
+        <math display="block">
+          <mrow>
+            <mi>Daily living</mi>
+            <mo>=</mo>
+            <mn>223,790</mn>
+            <mo>&#8722;</mo>
+            <mn>132,401</mn>
+            <mo>&#8722;</mo>
+            <mn>39,300</mn>
+            <mo>=</mo>
+            <mn>52,089</mn>
+            <mtext>&#8239;kcal</mtext>
+          </mrow>
+        </math>
+        <math display="block">
+          <mrow>
+            <mi>Activity multiplier</mi>
+            <mo>=</mo>
+            <mfrac>
+              <mrow>
+                <mi>BMR</mi>
+                <mo>+</mo>
+                <mi>Daily living</mi>
+              </mrow>
+              <mi>BMR</mi>
+            </mfrac>
+          </mrow>
+        </math>
+        <math display="block">
+          <mrow>
+            <mi>Activity multiplier</mi>
+            <mo>=</mo>
+            <mfrac>
+              <mrow>
+                <mn>132,401</mn>
+                <mo>+</mo>
+                <mn>52,089</mn>
+              </mrow>
+              <mn>132,401</mn>
+            </mfrac>
+            <mo>=</mo>
+            <mfrac>
+              <mn>184,490</mn>
+              <mn>132,401</mn>
+            </mfrac>
+            <mo>=</mo>
+            <mn>1.393</mn>
+          </mrow>
+        </math>
+        <p style="margin:8px 0 0;">Measured sedentary activity multiplier: <strong>1.393</strong></p>
+      </div>
+
+      <p>Body fat burned is calculated from the drop in trend weight (70.80–62.96&nbsp;kg, a 7.84&nbsp;kg fall) at 7,700&nbsp;kcal per kg. Using the raw first and last weigh-ins instead (an 8.6&nbsp;kg fall) gives a multiplier of 1.438; the smoothed trend is the more reliable basis, since single measurements at either end carry daily water-weight noise. Because exercise is counted separately from Strava, this multiplier covers <em>non-exercise</em> activity only—standing, cooking, walking about the house—so it shouldn’t be compared directly with the “moderately active” figures in standard TDEE calculators, which bundle workouts in.</p>
 
     <section>
       <h2>Some example exchanges with my AI coach</h2>
