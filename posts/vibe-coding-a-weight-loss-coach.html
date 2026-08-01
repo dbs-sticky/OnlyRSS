@@ -141,17 +141,23 @@
         <p>What Mark Twain once said about quitting smoking, I can say about dieting. I’ve become quite adept at losing 7–14&#8239;kg over a period of 7–20 weeks—unfortunately I’m also quite adept at putting it back on, typically over December (I do have a plan to NOT put it back on this year, but that’s not what this article is about).</p>
 
         <p>The result of this annual cycle is that I now—in my 50s—have a pretty good idea how to effectively lose weight. And after 30 years of “practice”, this year (with the help of AI) I decided to perfect the process by going all in on the tracking and analytics side of things.</p>
+
         <p>Typically I’d create a tracking spreadsheet that I’d use to record my calories consumed (via a food tracking app like MyFitnessPal or Nutracheck) and measured body weight. This year, I decided to take it a step further and build a more sophisticated solution.</p>
-        <p>I had a Claude Pro (£18pm) subscription at my disposal, so I decided to see if AI could help me create something better. I’d already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful it could be with a project—I was keeping it too restrained.</p>
+
+        <p>I had a Claude Pro (£18pm) subscription at my disposal, so I decided to see if AI could help me create something better. I’d already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful it could be with a project—I was not thinking big enough.</p>
         
         <p>What started as a simple dashboard requiring manual inputs (not unlike the previous spreadsheets) grew into a data-viz-heavy web app with fully automated inputs and a direct connection to Claude Cowork via an MCP server. AI wasn’t just helping me build the app anymore—it was answering my health- and diet-related queries directly, using the app’s data as its primary source.</p>
     </section>
 
     <section>
       <h2>What AI & I built</h2>
-      <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply describe the final solution.</p>
+      <p>I’m not going to go through the whole build journey, as I suspect this article is going to be on the long side anyway, so I’m going to simply describe the final output.</p>
 
-      <p>The solution is a two-part system: a quantitative core (The Numbers) that tracks calories in, calories out, and body weight (this is the web app I mentioned above, and it’s shown <span class="full-size-wide">on the right</span><span class="full-size-tall">at the top</span> in the diagram below), and a qualitative layer (The Context) that provides context for those numbers. The quantitative core is a custom web app that unifies three data feeds (Nutracheck, Strava, and Bluetooth scales) and computes the physics of weight loss. The qualitative layer is an AI health coach that connects to the quantitative core and other context sources (Logseq journal, Gmail, Google Calendar) to provide personalised advice.</p>
+      <p>The solution is a two-part system: a quantitative core (The Numbers) that tracks calories in, calories out, and body weight (this is the web app I mentioned above, and it’s shown <span class="full-size-wide">on the right</span><span class="full-size-tall">at the top</span> in the diagram below), and a qualitative layer (The Context) that provides behavioural insight for those numbers. </p>
+      
+      <p>The <strong>quantitative core</strong> is a custom web app that unifies three data feeds (Nutracheck, Strava, and Bluetooth scales) and computes the physics of weight loss.</p>
+      
+      <p>The <strong>qualitative layer</strong> is an AI health coach that connects to the quantitative core and other context sources (Logseq journal, Gmail, Google Calendar) to provide personalised advice.</p>
 
     <figure>
       <picture>
@@ -252,6 +258,11 @@
           <div class="answer">
             <div class="answer-text">
               <p>My food diary lives in Nutracheck, which has no public API (as best I can tell there are no user-friendly food tracking apps that offer API/MCP access to the data—I have “views” on this), so a custom scraper logs in and pulls each day’s calories, macros (protein, carbs, fat, fibre) and the full meal-by-meal breakdown. This is the “calories in” half of the equation.</p>
+              <figure>
+                <img src="/images/diet-nutracheck.webp" width="464" height="591" loading="lazy" alt="A table showing a daily log of food eaten, with calories each meal.">
+                <figcaption>
+                  The Nutracheck scraper pulls the full daily log, including calories and macros for each meal, into the tracker.
+                </figcaption>
             </div>
           </div>
         </details>
@@ -264,6 +275,11 @@
           <div class="answer">
             <div class="answer-text">
               <p>Strava’s official API feeds the calorie cost of every logged activity into the tracker—the “calories out” that turns a day’s intake into an actual deficit or surplus. (The same service is used twice by design: here as a single calorie number, and on the Context side for the detailed session data.)</p>
+              <figure>
+                <img src="/images/diet-strava.webp" width="502" height="180" loading="lazy" alt="A table showing a daily log of exercise, with calories burned each session.">
+                <figcaption>
+                  The Strava API feeds the tracker with the calories burned for each logged activity.
+                </figcaption>
             </div>
           </div>
         </details>
@@ -276,6 +292,11 @@
           <div class="answer">
             <div class="answer-text">
               <p>A custom Android app (MiScaleReceiver) I built catches the reading from my Bluetooth scales and posts it straight to the tracker each morning, so the daily weigh-in is captured with no manual entry. This is the third input: the actual bodyweight the model checks its predictions against.</p>
+              <figure>
+                <img src="/images/diet-scales.webp" width="345" height="146" loading="lazy" alt="A tooltip showing a log of body weight for a specific day.">
+                <figcaption>
+                  The Bluetooth scales feed the tracker with the actual bodyweight each morning.
+                </figcaption>
             </div>
           </div>
         </details>
@@ -287,7 +308,7 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>A custom, vibe-coded web app running on my NAS that pulls those three feeds together and does the real work: daily and cumulative deficit, estimated TDEE and BMR, and an exponentially-smoothed trend weight that sees through daily water-weight noise. It’s the single source of quantitative truth—and it’s exposed to the coach through its own MCP, so Claude can ask for a day’s log, an overview, or a weekly summary and reason over clean, computed numbers rather than raw scrapes.</p>
+              <p>A custom, vibe-coded web app running on my Network Attached Storage (NAS) that pulls those three feeds together do the real work: daily and cumulative deficit, estimated total daily energy expenditure (TDEE) and basal metabolic rate (BMR), and an exponentially-smoothed trend based on an exponential moving average (EMA) that sees through daily water-weight noise. It’s the single source of quantitative truth—and it’s exposed to the coach through its own MCP, so Claude can ask for a day’s log, an overview, or a weekly summary and reason over clean, computed numbers rather than raw scrapes.</p>
               <p>This is covered in more detail in the next section.</p>
             </div>
           </div>
