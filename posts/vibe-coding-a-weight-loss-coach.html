@@ -117,7 +117,7 @@
     <header style="view-transition-name: post36">
       <h1>Vibe-coding a weight-loss coach</h1>
       <p>
-        What started as a spreadsheet replacement for tracking my weight loss, became a health coach who would advise me on nutrition, exercise, and lifestyle changes. In this article I’ll explain what AI and I built, and what the results were.
+        What started as a spreadsheet replacement for tracking my weight loss became a health coach who would advise me on nutrition, exercise, and lifestyle changes. In this article I’ll explain what AI and I built, and what the results were.
       </p>
 
       <div class="byline">
@@ -146,7 +146,7 @@
 
         <p>I had a Claude Pro (£18pm) subscription at my disposal, so I decided to see if AI could help me create something better. I’d already used AI to create quite a few web dashboards, and my first thought was to simply create a direct replacement for the usual tracking spreadsheet, but as is often the case with AI, I had underestimated just how helpful it could be with a project—I was not thinking big enough.</p>
         
-        <p>What started as a simple dashboard requiring manual inputs (not unlike the previous spreadsheets) grew into a data-viz-heavy web app with fully automated inputs and a direct connection to Claude Cowork via an MCP server. AI wasn’t just helping me build the app anymore—it was answering my health- and diet-related queries directly, using the app’s data as its primary source.</p>
+        <p>What started as a simple dashboard requiring manual inputs (not unlike the previous spreadsheets) grew into a data-viz-heavy web app with fully automated inputs and a direct connection to Claude Cowork via an MCP server. <!--TODO confirm product name "Claude Cowork"—not referenced anywhere else in the post--> AI wasn’t just helping me build the app anymore—it was answering my health- and diet-related queries directly, using the app’s data as its primary source.</p>
     </section>
 
     <section>
@@ -192,7 +192,7 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>My existing task manager, connected through its MCP. The coach reads what’s on my plate for context, and creates tasks back into it. Typically, after discussing a topic with the coach, I’d then ask it to add a related task to the app. e.g. order oats on Friday, research creatine supplements, order HR chest strap etc.</p>
+              <p>My existing task manager, connected through its MCP. The coach reads what’s on my plate for context, and creates tasks back into it. Typically, after discussing a topic with the coach, I’d then ask it to add a related task to the app—order oats on Friday, research creatine supplements, order HR chest strap, etc.</p>
             </div>
           </div>
         </details>
@@ -263,6 +263,7 @@
                 <figcaption>
                   The Nutracheck scraper pulls the full daily log, including calories and macros for each meal, into the tracker.
                 </figcaption>
+              </figure>
             </div>
           </div>
         </details>
@@ -280,6 +281,7 @@
                 <figcaption>
                   The Strava API feeds the tracker with the calories burned for each logged activity.
                 </figcaption>
+              </figure>
             </div>
           </div>
         </details>
@@ -291,12 +293,13 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>A custom Android app (MiScaleReceiver) I built catches the reading from my Bluetooth scales and posts it straight to the tracker each morning, so the daily weigh-in is captured with no manual entry. This is the third input: the actual bodyweight the model checks its predictions against.</p>
+              <p>A custom Android app (MiScaleReceiver) I built catches the reading from my Bluetooth scales and posts it straight to the tracker each morning, so the daily weigh-in is captured with no manual entry. This is the third input: the actual body weight the model checks its predictions against.</p>
               <figure>
                 <img src="/images/diet-scales.webp" width="345" height="146" loading="lazy" alt="A tooltip showing a log of body weight for a specific day.">
                 <figcaption>
                   The Bluetooth scales feed the tracker with the actual bodyweight each morning.
                 </figcaption>
+              </figure>
             </div>
           </div>
         </details>
@@ -308,7 +311,7 @@
           </summary>
           <div class="answer">
             <div class="answer-text">
-              <p>A custom, vibe-coded web app running on my Network Attached Storage (NAS) that pulls those three feeds together do the real work: daily and cumulative deficit, estimated total daily energy expenditure (TDEE) and basal metabolic rate (BMR), and an exponentially-smoothed trend based on an exponential moving average (EMA) that sees through daily water-weight noise. It’s the single source of quantitative truth—and it’s exposed to the coach through its own MCP, so Claude can ask for a day’s log, an overview, or a weekly summary and reason over clean, computed numbers rather than raw scrapes.</p>
+              <p>A custom, vibe-coded web app running on my Network Attached Storage (NAS) that pulls those three feeds together to do the real work: daily and cumulative deficit, estimated total daily energy expenditure (TDEE) and basal metabolic rate (BMR), and an exponentially-smoothed trend based on an exponential moving average (EMA) that sees through daily water-weight noise. It’s the single source of quantitative truth—and it’s exposed to the coach through its own MCP, so Claude can ask for a day’s log, an overview, or a weekly summary and reason over clean, computed numbers rather than raw scrapes.</p>
               <p>This is covered in more detail in the next section.</p>
             </div>
           </div>
@@ -333,11 +336,12 @@
       <p>From those inputs it derives the following quantities:</p>
       <ul>
         <li><strong>BMR and TDEE</strong>—my resting burn, scaled by a sedentary multiplier (×1.38) and topped up with the day’s actual exercise, to estimate total energy expenditure.</li>
+        <!--TODO reconcile multiplier values: this list says ×1.38, "Sedentary Activity Multiplier" section says initial assumption was 1.4 and measured value is 1.393-->
         <li><strong>Daily and cumulative deficit</strong>—intake versus expenditure, and the running total.</li>
         <li><strong>Trend weight</strong>—an exponentially-weighted moving average (α = 0.15) that smooths out daily water-weight noise, so a single heavy meal or a skipped weigh-in doesn’t spook the line. This, not the raw scale measurements, is what progress is judged against.</li>
         <li><strong>Projection</strong>—a running estimate of when the target weight would be reached, based on the recent pace.</li>
       </ul>
-      <div class="callout">The payoff of doing the physics honestly: across the whole diet, the deficit the app logged predicted 7.42&nbsp;kg of fat loss, and the trend weight actually fell 7.84&nbsp;kg—a 95% match between what the model said should happen and what the scales showed.</div>
+      <div class="callout">The payoff of doing the physics honestly: across the whole diet, the deficit the app logged predicted 7.42&#8239;kg of fat loss, and the trend weight actually fell 7.84&#8239;kg—a 95% match between what the model said should happen and what the scales showed.</div>
 
       <h4>Visualising the data</h4>
       <p>The front end is built around the things I actually care about: a weight time-series with the trend line drawn through it, a calorie-deficit heatmap, weekly deficit bars, and macro breakdowns—all the design-and-dataviz side I enjoy. It also exposes weekly summaries (each Monday-to-Sunday block, matching the heatmap) and an at-a-glance overview: latest weigh-in, current trend, cumulative and average daily deficit, and progress to target.</p>
@@ -345,7 +349,7 @@
       <figure>
         <img src="/images/diet-daily-heatmap.webp" width="460" height="507" loading="lazy" alt="A daily heatmap chart showing daily calorie deficit per day using colour coding.">
         <figcaption>
-          Useful for revealing daily patterns, e.g. Saturdays had a mean calorie deficit of 370&nbsp;kcal—just half of the mean for most other days.
+          Useful for revealing daily patterns, e.g. Saturdays had a mean calorie deficit of 370&#8239;kcal—just half of the mean for most other days.
         </figcaption>
       </figure>
 
@@ -555,14 +559,14 @@
         <p style="margin:8px 0 0;">Measured sedentary activity multiplier: <strong>1.393</strong></p>
       </div>
 
-      <p>Body fat burned is calculated from the drop in trend weight (70.80–62.96&nbsp;kg, a 7.84&nbsp;kg fall) at 7,700&nbsp;kcal per kg. Using the raw first and last weigh-ins instead (an 8.6&nbsp;kg fall) gives a multiplier of 1.438; the smoothed trend is the more reliable basis, since single measurements at either end carry daily water-weight noise. Because exercise is counted separately from Strava, this multiplier covers <em>non-exercise</em> activity only—standing, cooking, walking about the house—so it shouldn’t be compared directly with the “moderately active” figures in standard TDEE calculators, which bundle workouts in.</p>
+      <p>Body fat burned is calculated from the drop in trend weight (70.80–62.96&#8239;kg, a 7.84&#8239;kg fall) at 7,700&#8239;kcal per kg. Using the raw first and last weigh-ins instead (an 8.6&#8239;kg fall) gives a multiplier of 1.438; the smoothed trend is the more reliable basis, since single measurements at either end carry daily water-weight noise. Because exercise is counted separately from Strava, this multiplier covers <em>non-exercise</em> activity only—standing, cooking, walking about the house—so it shouldn’t be compared directly with the “moderately active” figures in standard TDEE calculators, which bundle workouts in.</p>
 
       <h3>I can understand exactly what it was I did that resulted in weight loss</h3>
       <p>I was recently made aware of <a href="https://en.wikipedia.org/wiki/Thought-terminating_clich%C3%A9" target="_blank">thought-terminating clichés</a> and straight away recognised they’re something I’m very guilty of. One of those is the following: <q>exercise is a terrible way to lose weight.</q> For the majority of people who want to lose weight, it’s probably correct—the argument being that it’s much easier to <em>not eat</em> a slice of bread than it is to actually run a mile (you burn a slice of bread’s worth of calories when you run a mile).</p>
 
-      <p>But for me, the data shows that exercise was a very significant contributor to the deficit that drove the weight loss. The treemap below splits the total 57,141&nbsp;kcal deficit into movement (68.8%) and diet (31.2%), with movement broken into walks, rides, runs, strength and rowing. <strong>Walking alone contributed 39.5% of the total deficit.</strong> A fact I should probably add to my <a href="/posts/the-daily-constitutional.html">blog post about walking</a>!</p>
+      <p>But for me, the data shows that exercise was a very significant contributor to the deficit that drove the weight loss. The treemap below splits the total 57,141&#8239;kcal deficit into movement (68.8%) and diet (31.2%), with movement broken into walks, rides, runs, strength and rowing. <strong>Walking alone contributed 39.5% of the total deficit.</strong> A fact I should probably add to my <a href="/posts/the-daily-constitutional.html">blog post about walking</a>!</p>
 
-      <p>Let me reiterate this point because I think it’s important. The major contributor to my weight loss was not eating less and feeling hungry, or joining a gym (or a cult — aka Hyrox/Crossfit, etc.). It was a free activity that takes about 50 minutes a day, and I could do it while listening to podcasts and learning from them.</p>
+      <p>Let me reiterate this point because I think it’s important. The major contributor to my weight loss was not eating less and feeling hungry, or joining a gym (or a cult — aka Hyrox/Crossfit, etc.). It was a free activity that takes about 50 minutes a day, and I could do it while listening to podcasts.</p>
 
         <figure>
           <svg xmlns="http://www.w3.org/2000/svg" aria-label="Treemap of the 57,141&#8239;kcal diet deficit: walking 22,592, eating below sedentary burn 17,841, rides 5,890, runs 4,480, strength 3,281, rowing 3,057" viewBox="0 0 680 470">
@@ -625,7 +629,8 @@
 
     <section>
       <h2>Conclusion</h2>
-      <p><!--TODO closing thoughts--></p>
+      <p>So that’s what came out of trying to replace a spreadsheet: a two-part system where the Numbers app does the physics and the coach explains why the physics did what it did, and the two together turned out to be far more useful than either on its own. The bit I didn’t expect going in was the answer to <em>why</em> it worked—not less food and more willpower, but 434&#8239;km of walking, done almost by accident, alongside podcasts. If I’d had to guess beforehand, I’d have put diet first every time.</p>
+      <p>Twain’s line about quitting smoking a thousand times is really a line about quitting diets a thousand times, and I’ve done that plenty. What’s different this year is that the tracking doesn’t stop when the willpower does—the app keeps logging, the coach keeps reading the journal, and neither of them cares whether December has arrived. Whether that’s actually enough to break the cycle, I’ll only know by next December.</p>
     </section>
 
   </article>

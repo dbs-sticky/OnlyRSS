@@ -12,13 +12,10 @@
   ],
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
-  }
+  },
 
   "files.autoSave": "afterDelay",
   "liveServer.settings.donotShowInfoMsg": true,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
   // "editor.fontFamily": "CommitMono",
