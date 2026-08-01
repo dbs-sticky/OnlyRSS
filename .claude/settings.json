@@ -3,7 +3,10 @@
     "allow": [
       "mcp__chrome-devtools__evaluate_script",
       "mcp__chrome-devtools__press_key",
-      "Bash(git checkout *)"
+      "Bash(git checkout *)",
+      "PowerShell(Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\Microsoft VS Code\\\\1b50d58d73\\\\resources\\\\app\\\\node_modules\\\\@vscode\\\\ripgrep-universal\" -Recurse -Filter \"rg.exe\" | Select-Object -ExpandProperty FullName)",
+      "Read(//c/Users/dbsst/AppData/Roaming/Code/User/**)",
+      "PowerShell(winget install BurntSushi.Ripgrep.MSVC --accept-package-agreements --accept-source-agreements)"
     ]
   }
 }
