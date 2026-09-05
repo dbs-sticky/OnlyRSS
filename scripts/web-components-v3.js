@@ -366,6 +366,29 @@ class byline extends HTMLElement {
 if(!customElements.get('by-line')) customElements.define('by-line', byline);
 
 
+// —————————————————————————article byline Web Component—————————————————————————
+// Composes by-line, the category tag, and social-icons — pass the category via the "tag" attribute
+// e.g. <article-byline tag="webdev"></article-byline> renders a <webdev-tag> alongside the date/duration and share icons.
+
+
+class ArticleByline extends HTMLElement {
+
+  connectedCallback() {
+    const tag = this.getAttribute('tag') || 'misc';
+    this.innerHTML = `
+      <div>
+        <by-line></by-line>
+        <${tag}-tag></${tag}-tag>
+      </div>
+      <social-icons></social-icons>
+    `;
+  }
+}
+
+// register component
+if(!customElements.get('article-byline')) customElements.define('article-byline', ArticleByline);
+
+
 // —————————————————————————Table of Contents Web Component—————————————————————————
 
 

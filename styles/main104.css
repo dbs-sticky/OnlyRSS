@@ -151,9 +151,10 @@ body {
     width: 100%;
   }
 
-  .byline {
+  .byline,
+  article-byline {
     flex-direction: column;
-  } 
+  }
 
 }
 
@@ -197,9 +198,10 @@ body {
     width: 100%;
   }
 
-  .byline {
+  .byline,
+  article-byline {
     flex-direction: row;
-  } 
+  }
 
 }
 
@@ -531,7 +533,10 @@ hr {
     ====================== */
 
 
-.byline {
+/* .byline kept for older hand-coded pages (e.g. top-9-aircraft-families.html, demo/bar-charts.html)
+   that pre-date the <article-byline> component */
+.byline,
+article-byline {
   display: flex;
   justify-content: space-between;
   align-items: center;
