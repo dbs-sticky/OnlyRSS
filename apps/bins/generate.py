@@ -2,8 +2,7 @@ import urllib.request
 import json
 import datetime
 import os
-
-# Configuration
+import sys
 import random
 
 # Configuration
@@ -23,11 +22,35 @@ LOCATION_NAME = "Hanningtons Way"
 API_URL = "https://www.westberks.gov.uk/apiserver/ajaxlibrary"
 METHOD = "goss.echo.westberks.forms.getNextRubbishRecyclingFoodCollectionDate3wkly"
 SITE_URL = "onlyrss.org/apps/bins/" # UPDATE THIS with your actual domain
+MAX_ATTEMPTS = 3 # How many different UPRNs to try before giving up
 
-def fetch_data():
-    selected_uprn = random.choice(UPRNS)
+COLLECTION_TYPES = [
+    {
+        'type': 'Rubbish',
+        'class': 'rubbish',
+        'icon': 'rubbish.svg',
+        'text_key': 'nextRubbishDateText',
+        'sub_key': 'nextRubbishDateSubText'
+    },
+    {
+        'type': 'Recycling',
+        'class': 'recycling',
+        'icon': 'recycling.svg',
+        'text_key': 'nextRecyclingDateText',
+        'sub_key': 'nextRecyclingDateSubText'
+    },
+    {
+        'type': 'Food Waste',
+        'class': 'food',
+        'icon': 'food-waste.svg',
+        'text_key': 'nextFoodWasteDateText',
+        'sub_key': 'nextFoodWasteDateSubText'
+    }
+]
+
+def fetch_data(selected_uprn):
     print(f"Using UPRN: {selected_uprn}")
-    
+
     payload = {
         "jsonrpc": "2.0",
         "id": str(int(datetime.datetime.now().timestamp())),
@@ -323,49 +346,17 @@ def generate_ics(collections):
     ics_content.append("END:VCALENDAR")
     return "\r\n".join(ics_content)
 
-def main():
-    print("Fetching data...")
-    data = fetch_data()
-    
-    if not data or 'result' not in data:
-        print("Failed to get valid data.")
-        return
-
-    result = data['result']
-    
-    collection_types = [
-        {
-            'type': 'Rubbish',
-            'class': 'rubbish',
-            'icon': 'rubbish.svg',
-            'text_key': 'nextRubbishDateText',
-            'sub_key': 'nextRubbishDateSubText'
-        },
-        {
-            'type': 'Recycling',
-            'class': 'recycling',
-            'icon': 'recycling.svg',
-            'text_key': 'nextRecyclingDateText',
-            'sub_key': 'nextRecyclingDateSubText'
-        },
-        {
-            'type': 'Food Waste',
-            'class': 'food',
-            'icon': 'food-waste.svg',
-            'text_key': 'nextFoodWasteDateText',
-            'sub_key': 'nextFoodWasteDateSubText'
-        }
-    ]
-    
+def parse_collections(result):
     parsed_collections = []
-    
-    for c_type in collection_types:
+
+    for c_type in COLLECTION_TYPES:
         text = result.get(c_type['text_key'], '')
         sub = result.get(c_type['sub_key'], '')
-        
+
         dt, display_str = parse_date(text, sub)
-        
-        if display_str:
+
+        # Only keep dates we could actually read, so a junk reply can't make an empty card
+        if dt and display_str:
             parsed_collections.append({
                 'type': c_type['type'],
                 'class': c_type['class'],
@@ -374,7 +365,39 @@ def main():
                 'display_str': display_str
             })
 
-    print(f"Found {len(parsed_collections)} collections.")
+    return parsed_collections
+
+def main():
+    print("Fetching data...")
+
+    # Try a few different UPRNs. The council's API sometimes replies with blank
+    # dates (e.g. early in the morning), so one bad reply shouldn't wipe the page.
+    best_collections = []
+    for selected_uprn in random.sample(UPRNS, min(MAX_ATTEMPTS, len(UPRNS))):
+        data = fetch_data(selected_uprn)
+
+        if not data or 'result' not in data:
+            print("Failed to get valid data.")
+            continue
+
+        parsed_collections = parse_collections(data['result'])
+        print(f"Found {len(parsed_collections)} collections.")
+
+        if len(parsed_collections) > len(best_collections):
+            best_collections = parsed_collections
+
+        if len(best_collections) == len(COLLECTION_TYPES):
+            break
+
+        print(f"Raw reply: {json.dumps(data)}")
+
+    parsed_collections = best_collections
+
+    # Never overwrite the last good page and calendar with nothing.
+    # The page's 7-day stale warning will cover a longer council outage.
+    if not parsed_collections:
+        print("ERROR: No collection dates from any UPRN. Keeping the existing index.html and bins.ics.")
+        sys.exit(1)
 
     # Determine the directory where the script is located
     script_dir = os.path.dirname(os.path.abspath(__file__))
